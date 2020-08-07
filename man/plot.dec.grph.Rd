@@ -9,7 +9,9 @@
 \usage{
 plot.dec.grph <- function(nds.df,
                           eds.df,
-                          doss,site,decor,
+                          doss,
+                          site,
+                          decor,
                           shw=c("nodes"),
                           nd.color='orange',
                           nd.size=1.7,
@@ -31,7 +33,23 @@ plot.dec.grph <- function(nds.df,
 }
       \item{doss}{
 %%     ~~Describe \code{x} here~~
-    the path of the working folder
+    path of the working folder
+}
+        \item{site}{
+%%     ~~Describe \code{x} here~~
+    name of the site
+}
+          \item{decor}{
+%%     ~~Describe \code{x} here~~
+    name of the decoration
+}
+            \item{shw}{
+%%     ~~Describe \code{x} here~~
+    show only 'nodes', only 'edges', or both c('nodes','edges')
+}
+              \item{nd.color, nd.size,...}{
+%%     ~~Describe \code{x} here~~
+    parameters for node/edges colors, size, taxt size, etc.
 }
 }
 \details{
