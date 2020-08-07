@@ -21,10 +21,12 @@
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{nds.df}{
-    a dataframe for the nodes
+%%     ~~Describe \code{x} here~~
+    a dataframe with a column period wich will be ordered (ex: 1,2,3,...), three columns for taxons 'BOTA', 'SUDO', 'OC' with numeric values percents
 }
-  \item{eds.df}{
-    a dataframe for the edges
+    \item{eds.df}{
+%%     ~~Describe \code{x} here~~
+    a vector with colors of 'BOTA', 'SUDO', 'OC' taxons, by default: c('blue','red','green')
 }
 }
 \details{
