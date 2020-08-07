@@ -1,0 +1,18 @@
+Package: iconr
+Title: Graph and Spatial Analysis of Iconography for Archaeology
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Thomas",
+           family = "Huet",
+           role = c("aut", "cre"),
+           email = "thomashuet7@gmail.com",
+           comment = c(ORCID = " 0000-0002-1112-6122 "))
+Description: Set of formal methods to study large archaeological iconographic datasets.
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+Imports:
+    magick,
+    sp,
+	raster
+
