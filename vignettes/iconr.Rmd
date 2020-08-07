@@ -3,7 +3,7 @@ title: "{decorr} Graph and Spatial Analysis of Iconography for Archaeology "
 author: "Thomas Huet"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Quantitative solutions for Main Domestic NISP analyses}
+  %\VignetteIndexEntry{Graph and Spatial Analysis of Iconography for Archaeology}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
