@@ -23,7 +23,7 @@
   \item{nds.df}{
     a dataframe for the nodes
 }
-    \item{eds.df}{
+  \item{eds.df}{
     a dataframe for the edges
 }
 }
