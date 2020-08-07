@@ -13,11 +13,11 @@ read.eds <- function(doss,site,decor,edges,nodes="nodes",dev=".tsv"){
     # read nodes to get coordinates
     flag.coords <- F
     if(file.exists(paste0(doss,'/',nodes,".tsv"))){
-      nds.df <- read.nds(doss,nodes,".tsv")
+      nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".tsv")
       flag.coords <- T
     }
     if(file.exists(paste0(doss,'/',nodes,".shp"))){
-      nds.df <- read.nds(doss,"nodes",".shp")
+      nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".shp")
       flag.coords <- T
     }
     if(!flag.coords){
