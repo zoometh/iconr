@@ -7,7 +7,11 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".tsv")
+nds.df <- read.nds(doss = doss,
+                   site = site,
+                   decor = decor,
+                   nodes = "nodes",
+                   dev = ".tsv")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -23,6 +27,14 @@ nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = "
 %%     ~~Describe \code{x} here~~
     name of the decoration
 }
+            \item{nodes}{
+%%     ~~Describe \code{x} here~~
+    nodes
+}
+              \item{dev}{
+%%     ~~Describe \code{x} here~~
+    a device '.tsv' or '.shp'
+}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
@@ -33,7 +45,7 @@ nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = "
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-  create o ggplot and cowplot set of plots
+  create a 'data.frame' with "site"  "decor" "id"    "type"  "x"     "y"  values for each node
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -47,10 +59,7 @@ nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = "
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[stats]{chisq.test}}
-}
+
 \examples{
 # read dataframe of nodes
 nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".tsv")
