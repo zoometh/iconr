@@ -1,9 +1,9 @@
 \name{plot.dec.grph.Rd}
 \alias{plot.dec.grph.Rd}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Geometric Graph on a Decoration Image}
+\title{Plot Geometric Graph on a Decoration Image}
 \description{
-  Plot a geometric graph over a decoration image 
+  Plot a geometric graph over a decoration image, for nodes only, for edges only, or for both
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
