@@ -1,9 +1,11 @@
 ---
 title: "{decorr} Graph and Spatial Analysis of Iconography for Archaeology "
 author: "Thomas Huet"
-output: 
-  html_document: default
-fig_width: 15
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Quantitative solutions for Main Domestic NISP analyses}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}
