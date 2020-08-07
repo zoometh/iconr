@@ -15,3 +15,7 @@ Imports:
     magick,
     sp,
     raster
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
