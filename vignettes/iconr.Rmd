@@ -87,7 +87,7 @@ kable(eds.df)
     - `xa,ya`: coordinates of the first node  
     - `xb,yb`: coordinates of the second node 
 
-## Tutorial
+## Example
 
 load nodes, edges and create graph for "type" field
 
