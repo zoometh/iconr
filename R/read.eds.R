@@ -9,21 +9,13 @@ read.eds <- function(doss,site,decor,edges,nodes="nodes",dev=".tsv"){
                                ya=numeric(0),
                                xb=numeric(0),
                                yb=numeric(0))
+  # choice: tsv
   if(dev==".tsv"){
     # read nodes to get coordinates
     flag.coords <- F
     if(file.exists(paste0(doss,'/',nodes,".tsv"))){
       nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".tsv")
       flag.coords <- T
-    }
-    if(file.exists(paste0(doss,'/',nodes,".shp"))){
-      nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".shp")
-      flag.coords <- T
-    }
-    if(!flag.coords){
-      return(paste0("Error: coordinates of the edges cannot be calculated",
-                    "\ncreate first a nodes dataframe or a nodes shapefile",
-                    "\nor create a shapefile for the edges"))
     }
     eds.df <- read.table(file = paste0(doss,"/",edges,dev), sep = '\t', header = TRUE)
     eds.df <- eds.df[eds.df[,"site"]==site & eds.df[,"decor"]==decor,]
@@ -40,8 +32,18 @@ read.eds <- function(doss,site,decor,edges,nodes="nodes",dev=".tsv"){
     }
     eds.df <- cbind(eds.df,eds.shp.coords)
   }
+  # choice: shapefile
   if(dev==".shp"){
-    eds.shp <- rgdal::readOGR(dsn = doss, layer = edges)
+    if(file.exists(paste0(doss,'/',nodes,".shp"))){
+      nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".shp")
+      flag.coords <- T
+    }
+    if(!flag.coords){
+      return(paste0("Error: coordinates of the edges cannot be calculated",
+                    "\ncreate first a nodes dataframe or a nodes shapefile",
+                    "\nor create a shapefile for the edges"))
+    }
+    eds.shp <- rgdal::readOGR(dsn = doss, layer = edges,verbose = F)
     # extract edges coordinates
     coords.eds <- lapply(slot(eds.shp, "lines"), function(x) lapply(slot(x, "Lines"),
                                                                     function(y) slot(y, "coords")))
