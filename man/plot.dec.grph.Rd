@@ -1,9 +1,9 @@
-\name{lot.dec.grph.Rd}
-\alias{lot.dec.grph.Rd}
+\name{plot.dec.grph.Rd}
+\alias{plot.dec.grph.Rd}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{(Un)significative Changes in Main Dosmestic NISP between periods}
+\title{Geometric Graph on a Decoration Image}
 \description{
-  Plot graph over a decoration image 
+  Plot a geometric graph over a decoration image 
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -23,11 +23,11 @@ plot.dec.grph <- function(nds.df,
 \arguments{
   \item{nds.df}{
 %%     ~~Describe \code{x} here~~
-    a dataframe with a column period wich will be ordered (ex: 1,2,3,...), three columns for taxons 'BOTA', 'SUDO', 'OC' with numeric values percents
+    a dataframe of nodes
 }
     \item{eds.df}{
 %%     ~~Describe \code{x} here~~
-    a vector with colors of 'BOTA', 'SUDO', 'OC' taxons, by default: c('blue','red','green')
+    a dataframe of edges
 }
 }
 \details{
