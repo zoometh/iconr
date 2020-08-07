@@ -17,7 +17,7 @@ read.eds <- function(doss,site,decor,edges,nodes="nodes",dev=".tsv"){
       flag.coords <- T
     }
     if(file.exists(paste0(doss,'/',nodes,".shp"))){
-      nds.df <- read.nds(doss.extdata,"nodes",".shp")
+      nds.df <- read.nds(doss,"nodes",".shp")
       flag.coords <- T
     }
     if(!flag.coords){
