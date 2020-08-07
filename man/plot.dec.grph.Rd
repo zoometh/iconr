@@ -1,7 +1,7 @@
 \name{plot.dec.grph.Rd}
 \alias{plot.dec.grph.Rd}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Plot Geometric Graph on a Decoration Image}
+\title{Plot Geometric Graph on a Image of the Decoration}
 \description{
   Plot a geometric graph over a decoration image, for nodes only, for edges only, or for both
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
@@ -49,7 +49,7 @@ plot.dec.grph <- function(nds.df,
 }
               \item{nd.color, nd.size,...}{
 %%     ~~Describe \code{x} here~~
-    parameters for node/edges colors, size, taxt size, etc.
+    parameters for node/edges colors, size, text size, etc.
 }
 }
 \details{
@@ -61,7 +61,7 @@ plot.dec.grph <- function(nds.df,
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-  create o ggplot and cowplot set of plots
+  create a 'magick-image'
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -75,29 +75,21 @@ plot.dec.grph <- function(nds.df,
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[stats]{chisq.test}}
-}
 \examples{
-# load sample and plot histograms with Chi-square values showing (un)significant evolution 
-nisp.df <- read.table(system.file("extdata", "nispdf.tsv", package = "aritmek4"))
-g <- NispDiachr2(nisp.df)
-## [1] "compare period: 1--2"
-## [1] "0.06"
-## [1] "compare period: 2--3"
-## [1] "0"
-## Warning message:
-## In rbind(lhisto, lchi) :
-##   number of columns of result is not a multiple of vector length (arg 2)
-g
-
-# append row to the dataset and replot
-library(tidyverse)
-nisp.df2 <- nisp.df %>% add_row(period = 4, BOTA = 50, SUDO = 75, OC = 10)
-g2 <- NispDiachr2(nisp.df2)
-g2
-
+doss <- system.file("extdata", package = "decorr")
+site <- "Cerro Muriano"
+decor <- "Cerro Muriano 1"
+nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".tsv")
+eds.df <- read.eds(doss = doss,site = site,decor = decor,edges = "edges",dev = ".shp")
+img.graph <- plot.dec.grph(nds.df = nds.df,
+                           eds.df = eds.df,
+                           doss = doss,
+                           site = "Cerro Muriano",
+                           decor = "Cerro Muriano 1",
+                           lbl.txt = "id",
+                           shw = c("nodes","edges"))
+img.graph
+## plot the graph of 'Cerro Muriano 1'
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
