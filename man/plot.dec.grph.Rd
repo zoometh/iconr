@@ -1,5 +1,5 @@
-\name{plot.dec.grph.Rd}
-\alias{plot.dec.grph.Rd}
+\name{plot.dec.grph}
+\alias{plot.dec.grph}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Plot Geometric Graph on a Image of the Decoration}
 \description{
