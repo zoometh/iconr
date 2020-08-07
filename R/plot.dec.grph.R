@@ -76,7 +76,7 @@ plot.dec.grph <- function(nds.df,
   }
   ## annotate
   # studied variable up
-  img.out <- image_annotate(img.out, lbl.txt, size = 30,
+  img.out <- magick::image_annotate(img.out, lbl.txt, size = 30,
                             gravity = "northwest", color = "black")
   # decor title down
   tit.img <- paste0(site,"\n",decor)
