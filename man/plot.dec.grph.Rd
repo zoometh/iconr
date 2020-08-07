@@ -29,6 +29,10 @@ plot.dec.grph <- function(nds.df,
 %%     ~~Describe \code{x} here~~
     a dataframe of edges
 }
+      \item{doss}{
+%%     ~~Describe \code{x} here~~
+    the path of the working folder
+}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
