@@ -1,30 +1,22 @@
-\name{plot.dec.grph}
-\alias{plot.dec.grph}
+\name{lot.dec.grph.Rd}
+\alias{lot.dec.grph.Rd}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Plot a decoration with its graph}
+\title{(Un)significative Changes in Main Dosmestic NISP between periods}
 \description{
+  Plot histograms on Main Dosmestic NISP percent and Chi-square values between two consecutive periods 
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
- plot.dec.grph <- function(nds.df,
-                       eds.df,
-                       doss,site,decor,
-                       shw=c("nodes"),
-                       nd.color='orange',
-                       nd.size=1.7,
-                       lbl.txt='id',
-                       lbl.color='orange',
-                       lbl.size=1.2,
-                       ed.color='orange',
-                       ed.lwd=4){
+NispDiachr2(df,
+           tax.color)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{nds.df}{
+  \item{df}{
 %%     ~~Describe \code{x} here~~
     a dataframe with a column period wich will be ordered (ex: 1,2,3,...), three columns for taxons 'BOTA', 'SUDO', 'OC' with numeric values percents
 }
-    \item{eds.df}{
+    \item{tax.color}{
 %%     ~~Describe \code{x} here~~
     a vector with colors of 'BOTA', 'SUDO', 'OC' taxons, by default: c('blue','red','green')
 }
@@ -38,7 +30,7 @@
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-  overlaps the graph on a decoration image
+  create o ggplot and cowplot set of plots
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -57,7 +49,7 @@
   \code{\link[stats]{chisq.test}}
 }
 \examples{
-# load sample and plot histograms with Chi-square values showing (un)significant evolution
+# load sample and plot histograms with Chi-square values showing (un)significant evolution 
 nisp.df <- read.table(system.file("extdata", "nispdf.tsv", package = "aritmek4"))
 g <- NispDiachr2(nisp.df)
 ## [1] "compare period: 1--2"
