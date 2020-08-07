@@ -80,7 +80,7 @@ plot.dec.grph <- function(nds.df,
                             gravity = "northwest", color = "black")
   # decor title down
   tit.img <- paste0(site,"\n",decor)
-  img.out <- image_annotate(img.out, tit.img, size = 30,
+  img.out <- magick::image_annotate(img.out, tit.img, size = 30,
                             gravity = "southwest", color = "black")
   # img.out <- f.annotate(img.out,site,decor)
   return(img.out)
