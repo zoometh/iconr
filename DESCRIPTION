@@ -14,5 +14,5 @@ LazyData: true
 Imports:
     magick,
     sp,
-	raster
+    raster
 
