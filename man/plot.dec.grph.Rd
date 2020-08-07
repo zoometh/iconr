@@ -3,20 +3,29 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{(Un)significative Changes in Main Dosmestic NISP between periods}
 \description{
-  Plot histograms on Main Dosmestic NISP percent and Chi-square values between two consecutive periods 
+  Plot graph over a decoration image 
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-NispDiachr2(df,
-           tax.color)
+plot.dec.grph <- function(nds.df,
+                          eds.df,
+                          doss,site,decor,
+                          shw=c("nodes"),
+                          nd.color='orange',
+                          nd.size=1.7,
+                          lbl.txt='id',
+                          lbl.color='orange',
+                          lbl.size=1.2,
+                          ed.color='orange',
+                          ed.lwd=4)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{df}{
+  \item{nds.df}{
 %%     ~~Describe \code{x} here~~
     a dataframe with a column period wich will be ordered (ex: 1,2,3,...), three columns for taxons 'BOTA', 'SUDO', 'OC' with numeric values percents
 }
-    \item{tax.color}{
+    \item{eds.df}{
 %%     ~~Describe \code{x} here~~
     a vector with colors of 'BOTA', 'SUDO', 'OC' taxons, by default: c('blue','red','green')
 }
