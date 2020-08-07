@@ -8,7 +8,7 @@ read.nds <- function(doss,site,decor,nodes,dev=".tsv"){
     nds.df <- nds.df[nds.df[,"site"]==site & nds.df[,"decor"]==decor,]
   }
   if(dev==".shp"){
-    nds.shp <- rgdal::readOGR(dsn = doss, layer = nodes)
+    nds.shp <- rgdal::readOGR(dsn = doss, layer = nodes, verbose=F)
     nds.shp.coords <- nds.shp@coords
     colnames(nds.shp.coords) <- c("x","y")
     nds.df <- nds.shp@data
