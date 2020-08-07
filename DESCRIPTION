@@ -1,4 +1,4 @@
-Package: iconr
+Package: decorr
 Title: Graph and Spatial Analysis of Iconography for Archaeology
 Version: 0.0.0.9000
 Authors@R: 
@@ -15,4 +15,3 @@ Imports:
     magick,
     sp,
     raster
-
