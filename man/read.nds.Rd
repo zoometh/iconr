@@ -1,7 +1,7 @@
 \name{read.nds}
 \alias{read.nds}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Read Nodes  of a Decoration}
+\title{Read Nodes of a Decoration}
 \description{
   Read a '.tsv' or a '.shp' file of nodes
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
