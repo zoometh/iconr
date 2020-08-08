@@ -1,7 +1,7 @@
 \name{read.eds}
 \alias{read.eds}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Read Edges}
+\title{Read Edges of a Decoration}
 \description{
   Read a '.tsv' or a '.shp' file of edges
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
