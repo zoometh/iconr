@@ -68,6 +68,26 @@ df.same_edges <- same.eds(imgs,nodes,edges,var="type")
 # 2 0 0 3 5
 # 3 1 3 0 1
 # 4 2 5 1 0
+
+# heatmap
+library(ggplot2)
+library(reshape2)
+
+df.same_edges[lower.tri(df.same_edges,diag=T)] <- NA
+melt.df.same_edges <- melt(as.matrix(df.same_edges))
+heat.mat <- ggplot(data = melt.df.same_edges, aes(x=Var1, y=Var2, fill=value)) + 
+  ggtitle(paste0("counts of edges with the same 'type'",
+                 "\nbetween ",nrow(df.same_edges)," decorations"))+
+  geom_tile(na.rm = T) +
+  scale_fill_gradient2(na.value = 'white',
+                       breaks=c(1,3,8,12,18))+
+  geom_text(aes(Var1, Var2, label = value),
+            color = "black", size = 4)+
+  theme_minimal() +
+  theme(axis.title = element_blank()) +
+  theme(legend.position = "none")
+heat.mat
+## output a ggplot heatmap
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
