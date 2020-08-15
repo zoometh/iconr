@@ -84,12 +84,12 @@ eds.df <- read.eds(doss = doss,site = site,decor = decor,edges = "edges",dev = "
 img.graph <- plot.dec.grph(nds.df = nds.df,
                            eds.df = eds.df,
                            doss = doss,
-                           site = "Cerro Muriano",
-                           decor = "Cerro Muriano 1",
-                           lbl.txt = "id",
+                           site = site,
+                           decor = decor,
+                           lbl.txt = "type",
                            shw = c("nodes","edges"))
 img.graph
-## plot the graph of 'Cerro Muriano 1'
+## plot the graph of 'Cerro Muriano 1' with nodes' "type" as labels
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
