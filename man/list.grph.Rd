@@ -3,7 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Store Graphs in a List}
 \description{
-  Store graphs in a list. Names of graphs nodes depends on 'var' value
+  Store graphs in a list. Names of graphs refers to 'idf' field in the 'imgs' dataframe. Names of nodes depends on 'var' value.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
