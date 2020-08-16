@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-eds.df <- read.eds(doss = doss,
+read.eds(doss = doss,
                    site = site,
                    decor = decor,
                    edges = "edges",
@@ -18,7 +18,7 @@ eds.df <- read.eds(doss = doss,
 \arguments{
       \item{doss}{
 %%     ~~Describe \code{x} here~~
-    path of the working folder
+    path of the working folder, by default working directory
 }
         \item{site}{
 %%     ~~Describe \code{x} here~~
