@@ -1,4 +1,4 @@
-read.eds <- function(doss,site,decor,edges,nodes="nodes",dev=".tsv"){
+read.eds <- function(doss=getwd(),site,decor,edges,nodes="nodes",dev=".tsv"){
   # doss <- doss.extdata ; edges <- "edges" ; dev <- ".shp"
   # doss <- doss.extdata ; edges <- "edges" ; dev <- ".tsv"
   # nodes <- "nodes"
