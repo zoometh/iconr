@@ -7,10 +7,10 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-  same.eds <- function(imgs,
-                       nodes,
-                       edges,
-                       var="type")
+  same.eds(imgs,
+           nodes,
+           edges,
+           var="type")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
