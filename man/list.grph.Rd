@@ -1,7 +1,7 @@
 \name{list.grph}
 \alias{list.grph}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Matching Edges in a Pairwise Comparison}
+\title{Store Graphs in a List}
 \description{
   Store graphs in a list. Names of graphs nodes depends on 'var' value
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
@@ -40,7 +40,7 @@
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-  create a symetric matrix of coincidences
+  Return a list of graphs
 }
 \references{
 %% ~put references to the literature/web site here ~
