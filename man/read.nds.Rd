@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-nds.df <- read.nds(doss = doss,
+read.nds(doss = doss,
                    site = site,
                    decor = decor,
                    nodes = "nodes",
@@ -17,7 +17,7 @@ nds.df <- read.nds(doss = doss,
 \arguments{
       \item{doss}{
 %%     ~~Describe \code{x} here~~
-    path of the working folder
+    path of the working folder, by default working directory
 }
         \item{site}{
 %%     ~~Describe \code{x} here~~
