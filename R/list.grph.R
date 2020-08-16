@@ -23,8 +23,8 @@ list.grph <- function(imgs,
     g$name <- a.idf # graph name
     g$site <- a.site
     g$decor <- a.decor
-    g$label <- paste0(as.character(g$name),'-',imgs[gA$name,"site"],'.',imgs[gA$name,"decor"])
-    g$img <- imgs[gA$name,"img"]
+    g$label <- paste0(as.character(g$name),'-',imgs[g$name,"site"],'.',imgs[g$name,"decor"])
+    g$img <- imgs[g$name,"img"]
     # g$name <- paste0(as.character(r),"-",a.site,'.',a.decor) # name
     lgrph[[length(lgrph)+1]] <- g
   }
