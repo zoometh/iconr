@@ -19,7 +19,10 @@ list.grph <- function(imgs,
       igraph::V(g)$name <- igraph::as_data_frame(g, what="vertices")[,var]
       # V(g)$name <- V(g)$type # remplace les numeros par leur types # TODO: permit change
       igraph::V(g)$idf <- g.nodes.idf
+      # attributes
       g$name <- a.idf # graph name
+      g$label <- paste0(as.character(g$name),'-',imgs[gA$name,"site"],'.',imgs[gA$name,"decor"])
+      g$img <- imgs[gA$name,"img"]
       # g$name <- paste0(as.character(r),"-",a.site,'.',a.decor) # name
       lgrph[[length(lgrph)+1]] <- g
     }
