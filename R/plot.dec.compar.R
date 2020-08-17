@@ -7,7 +7,8 @@ plot.dec.compar <- function(listg,graph2){
   A <- graph2[1] ; B <- graph2[2] # ; nb.comm.eds <-
   ridx <- which(ldec.comp[,1] == A & ldec.comp[,2] == B, arr.ind = T)
   g <- listg[[ridx]]
-  out.compar <- paste0("compar_",as.character(graph2[1]),"_",as.character(B),".png")
+  out.compar <- paste0("compar_",as.character(A),"_",as.character(B),".png")
+  tit <- paste0("compare decorations '",A,"' and '",B,"'")
   png(out.compar,width = 14,height=7, units = "cm", res=300)
   par(mfrow=c(1,2),
       mar=c(0,0,0,0))    # set the plotting area into a 1*2 array
