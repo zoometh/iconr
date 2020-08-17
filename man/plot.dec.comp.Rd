@@ -1,4 +1,4 @@
-\name{plot.dec.comp
+\name{plot.dec.comp}
 \alias{plot.dec.comp}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Plot and Save Drawings of a Comparison Between Two Graphs}
@@ -29,7 +29,7 @@ plot.dec.comp <- function(listg,graph2)
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-  return a list of pairwise graphs
+  create a 'data.frame' with "site"  "decor" "typ"   "a"     "b"     "xa"    "ya"    "xb"    "yb"   values for each edge
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -43,6 +43,7 @@ plot.dec.comp <- function(listg,graph2)
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
+
 \examples{
 imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),sep="\t",stringsAsFactors = F)
 nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),sep="\t",stringsAsFactors = F)
@@ -50,9 +51,9 @@ edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),sep=
 lgrph <- list.grph(imgs,nodes,edges,var="type")
 g.compar <- list.grph.compar(lgrph)
 plot.dec.comp(g.compar,c(1,4))
-## plot and save the comparison between graph 1 and graph 4
+# plot graph 1 and graph 4 sid-by-sid with common edges identified
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line\name{list.grph.compar}
+\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
