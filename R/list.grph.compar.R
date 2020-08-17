@@ -23,11 +23,13 @@ list.grph.compar <- function(lgrph,
     }
     # lgcomp <- list(lgrph[[to.compare[1]]],lgrph[[to.compare[2]]])
     # esss <- igraph::intersection(lgcomp)
-    common.edges <- gA %s% gB
+    common.edges <- igraph::intersection(gA,gB)
     # check on type of edge
-    same.type <- E(common.edges)$type_1 == E(common.edges)$type_2
-    common.edges.same.type <- E(common.edges)[same.type]
-    common.edges <- igraph::set_edge_attr(common.edges, "same", index = E(common.edges), common.edges.same.type)
+    same.type <- igraph::E(common.edges)$type_1 == igraph::E(common.edges)$type_2
+    common.edges.same.type <- igraph::E(common.edges)[same.type]
+    common.edges <- igraph::set_edge_attr(common.edges, "same",
+                                          index = igraph::E(common.edges),
+                                          common.edges.same.type)
     # common.edges <- delete.edges(common.edges,E(common.edges))
     # common.edges <- add.edges(common.edges,common.edges.same.type)
     ab <- igraph::as_data_frame(common.edges)
@@ -43,7 +45,8 @@ list.grph.compar <- function(lgrph,
     for(g in 1:length(grph.comp)){
       # g <- 1
       grp <- grph.comp[[g]]
-      for (e in 1:gsize(grp)){
+      g.sz <- igraph::gsize(grp)
+      for (e in 1:g.sz){
         # e <- 1
         grp.ed.from <- igraph::as_data_frame(grp)[e,]$from
         grp.ed.to <- igraph::as_data_frame(grp)[e,]$to
