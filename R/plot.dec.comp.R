@@ -5,7 +5,7 @@ plot.dec.comp <- function(listg,graph2){
   lidf <- unlist(lapply(lgrph, function(x) x$name))
   ldec.comp <- t(combn(lidf, 2)) # all pairwise comparisons
   A <- graph2[1] ; B <- graph2[2] # ; nb.comm.eds <-
-  ridx <- which(df.compar[,1] == A & df.compar[,2] == B, arr.ind = T)
+  ridx <- which(ldec.comp[,1] == A & ldec.comp[,2] == B, arr.ind = T)
   g <- listg[[ridx]]
   out.compar <- paste0("compar_",as.character(graph2[1]),"_",as.character(B),".png")
   png(out.compar,width = 14,height=7, units = "cm", res=300)
