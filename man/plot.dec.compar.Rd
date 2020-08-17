@@ -1,5 +1,5 @@
-\name{plot.dec.comp}
-\alias{plot.dec.comp}
+\name{plot.dec.compar}
+\alias{plot.dec.compar}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Plot and Save Drawings of a Comparison Between Two Graphs}
 \description{
