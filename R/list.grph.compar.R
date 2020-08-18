@@ -5,7 +5,7 @@ list.grph.compar <- function(lgrph,
                              different.eds.width=1,
                              verbose=F){
   lidf <- unlist(lapply(lgrph, function(x) x$name))
-  ldec.comp <- t(combn(lidf, 2)) # all pairwise comparisons
+  ldec.comp <- t(utils::combn(lidf, 2)) # all pairwise comparisons
   if(verbose){
     print(paste0("there is ",nrow(ldec.comp)," pairwise comparisons to compute"))
   }
