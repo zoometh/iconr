@@ -57,9 +57,12 @@
 
 \examples{
 # read imgs, nodes and edges dataframes
-imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),sep="\t",stringsAsFactors = F)
-nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),sep="\t",stringsAsFactors = F)
-edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),sep="\t",stringsAsFactors = F)
+imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
+                   sep="\t",stringsAsFactors = FALSE)
+nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
+                    sep="\t",stringsAsFactors = FALSE)
+edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
+                    sep="\t",stringsAsFactors = FALSE)
 # create the list of graphs
 lgrph <- list.grph(imgs,nodes,edges,var="type")
 # get the first graph
