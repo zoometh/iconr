@@ -45,9 +45,12 @@ plot.dec.compar <- function(listg,graph2)
 
 
 \examples{
-imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),sep="\t",stringsAsFactors = F)
-nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),sep="\t",stringsAsFactors = F)
-edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),sep="\t",stringsAsFactors = F)
+imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
+                   sep="\t",stringsAsFactors = F)
+nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
+                    sep="\t",stringsAsFactors = F)
+edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
+                    sep="\t",stringsAsFactors = F)
 lgrph <- list.grph(imgs,nodes,edges,var="type")
 g.compar <- list.grph.compar(lgrph)
 plot.dec.compar(g.compar,c(1,4))
