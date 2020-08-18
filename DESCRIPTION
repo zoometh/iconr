@@ -14,7 +14,8 @@ LazyData: true
 Imports:
     magick,
     sp,
-    raster
+    raster,
+    igraph
 Suggests: 
     knitr,
     rmarkdown
