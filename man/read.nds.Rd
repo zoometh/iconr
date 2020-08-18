@@ -7,18 +7,11 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-read.nds(doss = doss,
-                   site = site,
-                   decor = decor,
-                   nodes = "nodes",
-                   dev = ".tsv")
+function(site, decor, doss = getwd(), nodes = "nodes", dev =
+                    ".tsv")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-      \item{doss}{
-%%     ~~Describe \code{x} here~~
-    path of the working folder, by default working directory
-}
         \item{site}{
 %%     ~~Describe \code{x} here~~
     name of the site
@@ -26,6 +19,10 @@ read.nds(doss = doss,
           \item{decor}{
 %%     ~~Describe \code{x} here~~
     name of the decoration
+}
+        \item{doss}{
+%%     ~~Describe \code{x} here~~
+    path of the working folder, by default working directory
 }
             \item{nodes}{
 %%     ~~Describe \code{x} here~~
