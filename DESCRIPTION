@@ -15,7 +15,11 @@ Imports:
     magick,
     sp,
     raster,
-    igraph
+    igraph,
+    grDevices,
+    graphics,
+    methods,
+    utils
 Suggests: 
     knitr,
     rmarkdown,
