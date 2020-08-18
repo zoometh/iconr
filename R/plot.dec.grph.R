@@ -18,7 +18,7 @@ plot.dec.grph <- function(nds.df,
   # select
   nds.df.select <- nds.df[nds.df[,"site"]==site & nds.df[,"decor"]==decor,]
   ## image
-  imgs <- read.table(file = paste0(doss,"/imgs.tsv"), sep = '\t', header = TRUE)
+  imgs <- utils::read.table(file = paste0(doss,"/imgs.tsv"), sep = '\t', header = TRUE)
   # select
   img.select <- imgs[imgs[,"site"]==site & imgs[,"decor"]==decor,]
   img.select <- img.select$img
@@ -33,7 +33,7 @@ plot.dec.grph <- function(nds.df,
       ed.type <- ifelse(is.na(eds.df[edg,"type"]),1,
                         ifelse(eds.df[edg,"type"]=='+',2,1)
       )
-      lines(c(eds.df[edg,"xa"],eds.df[edg,"xb"]),
+      graphics::lines(c(eds.df[edg,"xa"],eds.df[edg,"xb"]),
             c(abs(eds.df[edg,"ya"]),abs(eds.df[edg,"yb"])),
             lty=ed.type,
             lwd=ed.lwd,col=ed.color)
@@ -45,7 +45,7 @@ plot.dec.grph <- function(nds.df,
       # n <- 1
       ax <- nds.df.select[n,"x"] ; ay <- abs(nds.df.select[n,"y"]) # coordinates
       lbl <- nds.df.select[n,lbl.txt] # labels
-      points(ax,ay,
+      graphics::points(ax,ay,
              pch=21,
              col=nd.color,
              bg=nd.color,
