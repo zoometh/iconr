@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-list.grph.compar <- function(lgrph,
+list.grph.compar(lgrph,
                              common.eds.color="red",
                              different.eds.color="orange",
                              common.eds.width=2,
