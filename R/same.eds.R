@@ -1,28 +1,5 @@
 same.eds <- function(imgs,nodes,edges,var="type"){
-  # 'var': field on which the comparison will be done
-  # create list of graphs
-  # lgrph <- list()
-  # for (r in 1:nrow(imgs)){
-  #   # r <- 1
-  #   a.enr <- imgs[r,]
-  #   a.site <- a.enr$site ; a.decor <- a.enr$decor ; a.idf <- a.enr$idf
-  #   g.nodes <- subset(nodes, site == a.site & decor == a.decor) # nodes
-  #   g.nodes <- subset(g.nodes, select=-c(site,decor))
-  #   g.edges <- subset(edges, site == a.site & decor == a.decor) # edges
-  #   g.edges <- subset(g.edges, select=-c(site,decor))
-  #   # create graph
-  #   g <- igraph::graph_from_data_frame(g.edges, directed = FALSE, vertices= g.nodes)
-  #   g.nodes.idf <- igraph::V(g)$name # get name of vertices
-  #   igraph::V(g)$name <- igraph::as_data_frame(g, what="vertices")[,var]
-  #   # V(g)$name <- V(g)$type # remplace les numeros par leur types # TODO: permit change
-  #   igraph::V(g)$idf <- g.nodes.idf
-  #   g$name <- a.idf # graph name
-  #   # g$name <- paste0(as.character(r),"-",a.site,'.',a.decor) # name
-  #   lgrph[[length(lgrph)+1]] <- g
-  # }
   lgrph <- list.grph(imgs,nodes,edges,var) # call function
-  # df.same_edges <- f.same.edges(lgraphs,c("")) # TODO: grab this function
-  # df.same_edges <- same.eds(lgraphs)
   lgrph_nmes <- unlist(lapply(lgrph, function(x) x$name)) # get names
   mat.same_edges <- matrix(nrow = length(lgrph),
                            ncol = length(lgrph))
@@ -47,8 +24,8 @@ same.eds <- function(imgs,nodes,edges,var="type"){
     # i <- 1
     a.g <- lgrph[[i]]
     #print(paste0(i,".",a.g$name))
-    g.edg <- as.data.frame(as_edgelist(a.g)) # edges
-    g.edg$type <- edge.attributes(a.g)$type # 
+    g.edg <- as.data.frame(igraph::as_edgelist(a.g)) # edges
+    g.edg$type <- igraph::edge.attributes(a.g)$type # 
     # if (rm.attributes){
     #   g.edg <- g.edg[g.edg$typ != "+",]
     # }
