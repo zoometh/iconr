@@ -13,7 +13,7 @@ plot.dec.compar <- function(listg,graph2){
   graphics::par(mfrow=c(1,2),
       mar=c(0,0,0,0))    # set the plotting area into a 1*2 array
   side.plot(g,1); side.plot(g,2) # call to plot
-  mtext(tit, side = 1, line = -1, outer = TRUE)
-  dev.off()
+  graphics::mtext(tit, side = 1, line = -1, outer = TRUE)
+  grDevices::dev.off()
   shell.exec(out.compar)
 }
