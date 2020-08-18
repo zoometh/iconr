@@ -65,5 +65,4 @@ nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = "
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ ~kwd1 graphs}% use one of  RShowDoc("KEYWORDS")
