@@ -17,7 +17,7 @@ read.eds <- function(site,decor,doss=getwd(),edges="edges",nodes="nodes",dev=".t
       nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".tsv")
       flag.coords <- T
     }
-    eds.df <- read.table(file = paste0(doss,"/",edges,dev), sep = '\t', header = TRUE)
+    eds.df <- utils::read.table(file = paste0(doss,"/",edges,dev), sep = '\t', header = TRUE)
     eds.df <- eds.df[eds.df[,"site"]==site & eds.df[,"decor"]==decor,]
     # get coordinates from nodes
     for (a.edge in 1:nrow(eds.df)){
@@ -45,7 +45,7 @@ read.eds <- function(site,decor,doss=getwd(),edges="edges",nodes="nodes",dev=".t
     }
     eds.shp <- rgdal::readOGR(dsn = doss, layer = edges,verbose = F)
     # extract edges coordinates
-    coords.eds <- lapply(slot(eds.shp, "lines"), function(x) lapply(slot(x, "Lines"),
+    coords.eds <- lapply(methods::slot(eds.shp, "lines"), function(x) lapply(slot(x, "Lines"),
                                                                     function(y) slot(y, "coords")))
     # loop to get coordinates and fill df
     for (a.edge in 1:length(coords.eds)){
