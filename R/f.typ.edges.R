@@ -10,8 +10,8 @@ f.typ.edges <- function(sel.edges,lgrph){
     # graph have same idf in the list and in dataframes
     #print(i)
     #mat <- as_edgelist(lgrph[[i]])
-    mat <- as.data.frame(as_edgelist(lgrph[[i]])) # edges
-    mat$typ <- edge.attributes(lgrph[[i]])$typ # typ of edges
+    mat <- as.data.frame(igraph::as_edgelist(lgrph[[i]])) # edges
+    mat$typ <- igraph::edge.attributes(lgrph[[i]])$typ # typ of edges
     mat$typ[is.na(mat$typ)] <- "=" # change NA to =
     for (j in 1:nrow(mat)){
       #j <- 1
