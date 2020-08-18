@@ -2,8 +2,8 @@ side.plot <- function(g,idf){
   # a manner to use only plot()
   # idf <- 1 ; g <- g
   grp <- g[[idf]]
-  drawing.decor <- as.raster(image_read(grp$img))
-  plot(drawing.decor)
+  drawing.decor <- magick::as.raster(magick::image_read(grp$img))
+  graphics::plot(drawing.decor)
   offset.img <- dim(drawing.decor)[1] # offset depend on raster size
   # points(100,300)
   # add all edges
@@ -18,12 +18,12 @@ side.plot <- function(g,idf){
   g.edges <- cbind(igraph::as_data_frame(grp),eds.xy) # bind to get coordinates & colors
   # graph.j <- edges[edges$site==gA$site & edges$decor==gA$decor,]
   for (nd in 1:nrow(nds.xy)){
-    points(c(nds.xy[nd,]$x), c(nds.xy[nd,]$y),
+    graphics::points(c(nds.xy[nd,]$x), c(nds.xy[nd,]$y),
            pch=16,cex=0.5,col="orange")
   }
   for (edg in 1:nrow(g.edges)){
     # edg <- 1
-    lines(c(g.edges[edg,"xa"],g.edges[edg,"xb"]),
+    graphics::lines(c(g.edges[edg,"xa"],g.edges[edg,"xb"]),
           c(g.edges[edg,"ya"],g.edges[edg,"yb"]),
           lwd=g.edges[edg,"width"],col=g.edges[edg,"color"])
   }
