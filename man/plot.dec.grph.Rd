@@ -47,9 +47,9 @@ plot.dec.grph <- function(nds.df,
 %%     ~~Describe \code{x} here~~
     show only 'nodes', only 'edges', or both c('nodes','edges')
 }
-              \item{nd.color, nd.size,...}{
+              \item{nd.color, nd.size,lbl.txt,lbl.color,lbl.size,ed.color,ed.lwd}{
 %%     ~~Describe \code{x} here~~
-    parameters for node/edges colors, size, text size, etc.
+    parameters for node/edges colors, node/edges size, text size, etc.
 }
 }
 \details{
