@@ -45,13 +45,13 @@ read.eds <- function(site,decor,doss=getwd(),edges="edges",nodes="nodes",dev=".t
     }
     eds.shp <- rgdal::readOGR(dsn = doss, layer = edges,verbose = F)
     # extract edges coordinates
-    coords.eds <- lapply(methods::slot(eds.shp, "lines"), function(x) lapply(slot(x, "Lines"),
-                                                                    function(y) slot(y, "coords")))
+    coords.eds <- lapply(methods::slot(eds.shp, "lines"), function(x) lapply(methods::slot(x, "Lines"),
+                                                                    function(y) methods::slot(y, "coords")))
     # loop to get coordinates and fill df
     for (a.edge in 1:length(coords.eds)){
       # a.edge <- 1
       a.df <- coords.eds[[a.edge]][[1]]
-      xa <- a.df[1,1];ya <- a.df[1,2];xb <- a.df[2,1];yb <- a.df[2,2];
+      xa <- a.df[1,1]; ya <- a.df[1,2]; xb <- a.df[2,1]; yb <- a.df[2,2];
       eds.shp.coords[nrow(eds.shp.coords)+1,] <- c(xa,ya,xb,yb)
       # coords.df <- as.data.frame(rbind(coords.df,c(xa,ya,xb,yb)))
     }
