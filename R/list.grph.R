@@ -8,7 +8,7 @@ list.grph <- function(imgs,
   for (r in 1:nrow(imgs)){
     # r <- 1
     a.enr <- imgs[r,]
-    utils::globalVariables(names(a.enr))
+    # utils::globalVariables(names(a.enr))
     a.site <- a.enr$site ; a.decor <- a.enr$decor ; a.idf <- a.enr$idf
     g.nodes <- subset(nodes, site == a.site & decor == a.decor) # nodes
     g.nodes <- subset(g.nodes, select=-c(site,decor))
