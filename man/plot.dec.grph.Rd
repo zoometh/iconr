@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-plot.dec.grph <- function(nds.df,
+plot.dec.grph(nds.df,
                           eds.df,
                           doss,
                           site,
