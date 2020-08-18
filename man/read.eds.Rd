@@ -7,19 +7,11 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-read.eds(doss = doss,
-                   site = site,
-                   decor = decor,
-                   edges = "edges",
-                   nodes = "nodes",
-                   dev = ".tsv")
+function(site, decor, doss = getwd(), edges = "edges", nodes =
+                    "nodes", dev = ".tsv")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-      \item{doss}{
-%%     ~~Describe \code{x} here~~
-    path of the working folder, by default working directory
-}
         \item{site}{
 %%     ~~Describe \code{x} here~~
     name of the site
@@ -27,6 +19,10 @@ read.eds(doss = doss,
           \item{decor}{
 %%     ~~Describe \code{x} here~~
     name of the decoration
+}
+        \item{doss}{
+%%     ~~Describe \code{x} here~~
+    path of the working folder, by default working directory
 }
             \item{edges}{
 %%     ~~Describe \code{x} here~~
