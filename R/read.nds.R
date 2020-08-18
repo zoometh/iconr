@@ -4,7 +4,7 @@ read.nds <- function(site,decor,doss=getwd(),nodes="nodes",dev=".tsv"){
   # read nodes from .tsv or shapefile
   # TODO: read .csv
   if(dev==".tsv"){
-    nds.df <- read.table(file = paste0(doss,"/",nodes,dev), sep = '\t', header = TRUE)
+    nds.df <- utils::read.table(file = paste0(doss,"/",nodes,dev), sep = '\t', header = TRUE)
     nds.df <- nds.df[nds.df[,"site"]==site & nds.df[,"decor"]==decor,]
   }
   if(dev==".shp"){
