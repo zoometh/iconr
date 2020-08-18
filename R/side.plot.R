@@ -2,7 +2,7 @@ side.plot <- function(g,idf){
   # a manner to use only plot()
   # idf <- 1 ; g <- g
   grp <- g[[idf]]
-  drawing.decor <- magick::as.raster(magick::image_read(grp$img))
+  drawing.decor <- grDevices::as.raster(magick::image_read(grp$img))
   graphics::plot(drawing.decor)
   offset.img <- dim(drawing.decor)[1] # offset depend on raster size
   # points(100,300)
