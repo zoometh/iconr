@@ -65,18 +65,16 @@ lgrph <- list.grph(imgs,nodes,edges,var="type")
 # get the first graph
 g <- lgrph[[1]]
 
-library(igraph)
-
 # graph name
 g$name
 # [1] 1
 
 # nb of nodes
-gorder(g)
+igraph::gorder(g)
 # [1] 7
 
 # nb of edges
-gsize(g)
+igraph::gsize(g)
 # [1] 8
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
