@@ -57,12 +57,15 @@
 
 \examples{
 # read imgs, nodes and edges dataframes
-imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),sep="\t",stringsAsFactors = F)
-nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),sep="\t",stringsAsFactors = F)
-edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),sep="\t",stringsAsFactors = F)
+imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
+                   sep="\t",stringsAsFactors = FALSE)
+nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
+                    sep="\t",stringsAsFactors = FALSE)
+edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
+                    sep="\t",stringsAsFactors = FALSE)
 # create the symetric matix
 df.same_edges <- same.eds(imgs,nodes,edges,var="type")
-# > df.same_edges
+df.same_edges
 # 1 2 3 4
 # 1 0 0 1 2
 # 2 0 0 3 5
@@ -71,10 +74,9 @@ df.same_edges <- same.eds(imgs,nodes,edges,var="type")
 
 # heatmap
 library(ggplot2)
-library(reshape2)
 
 df.same_edges[lower.tri(df.same_edges,diag=T)] <- NA
-melt.df.same_edges <- melt(as.matrix(df.same_edges))
+melt.df.same_edges <- reshape2::melt(as.matrix(df.same_edges))
 heat.mat <- ggplot(data = melt.df.same_edges, aes(x=Var1, y=Var2, fill=value)) + 
   ggtitle(paste0("counts of edges with the same 'type'",
                  "\nbetween ",nrow(df.same_edges)," decorations"))+
