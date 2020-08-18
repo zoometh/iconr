@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-plot.dec.comp <- function(listg,graph2)
+plot.dec.compar <- function(listg,graph2)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -50,7 +50,7 @@ nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),sep=
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),sep="\t",stringsAsFactors = F)
 lgrph <- list.grph(imgs,nodes,edges,var="type")
 g.compar <- list.grph.compar(lgrph)
-plot.dec.comp(g.compar,c(1,4))
+plot.dec.compar(g.compar,c(1,4))
 # plot graph 1 and graph 4 sid-by-sid with common edges identified
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
