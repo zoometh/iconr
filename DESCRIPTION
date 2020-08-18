@@ -15,7 +15,7 @@ Imports:
     magick,
     sp,
     raster,
-    igraph,
+    igraph (>= 1.2.4),
     grDevices,
     graphics,
     methods,
