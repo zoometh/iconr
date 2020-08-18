@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-function(site, decor, doss = getwd(), nodes = "nodes", dev =
+read.nds(site, decor, doss = getwd(), nodes = "nodes", dev =
                     ".tsv")
 }
 %- maybe also 'usage' for other objects documented here.
