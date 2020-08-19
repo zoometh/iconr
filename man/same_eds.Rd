@@ -63,16 +63,19 @@ nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
+# imgs <- subset(imgs,site %in% c("Torrejon Rubio","Zarza de Montanchez"))
+# nodes <- subset(nodes,site %in% c("Torrejon Rubio","Zarza de Montanchez"))
+# edges <- subset(edges,site %in% c("Torrejon Rubio","Zarza de Montanchez"))
 # create the symetric matix
 df.same_edges <- same_eds(imgs,nodes,edges,var="type")
 df.same_edges
 #   1 2 3 4
 # 1 0 0 1 2
-# 2 0 0 3 5
+# 2 0 0 3 7
 # 3 1 3 0 1
-# 4 2 5 1 0
-
-# heatmap
+# 4 2 7 1 0
+  
+# compute heatmap
 require(ggplot2)
 require(reshape2)
 
@@ -90,7 +93,7 @@ heat.mat <- ggplot(data = melt.df.same_edges, aes(x=Var1, y=Var2, fill=value)) +
   theme(axis.title = element_blank()) +
   theme(legend.position = "none")
 heat.mat
-## output a ggplot heatmap
+## output a the ggplot heatmap
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
