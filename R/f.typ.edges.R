@@ -1,5 +1,5 @@
 #' @keywords internal
-f.typ.edges <- function(sel.edges,lgrph){
+f_typ_edges <- function(sel.edges,lgrph){
   # presence/absence type of edge, to dataframe
   df.typ_edges <- as.data.frame(matrix(nrow = length(lgrph),
                                        ncol = length(sel.edges)))
