@@ -1,4 +1,4 @@
-read.nds <- function(site,decor,doss=getwd(),nodes="nodes",dev=".tsv"){
+read_nds <- function(site,decor,doss=getwd(),nodes="nodes",dev=".tsv"){
   # doss <- doss.extdata ; nodes <- "nodes" ; dev <- ".shp"
   # doss <- doss.extdata ; nodes <- "nodes" ; dev <- ".tsv"
   # read nodes from .tsv or shapefile
