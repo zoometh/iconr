@@ -1,4 +1,5 @@
 same.eds <- function(imgs,nodes,edges,var="type"){
+  # TODO: change "type" to 'var'
   lgrph <- list.grph(imgs,nodes,edges,var) # call function
   lgrph_nmes <- unlist(lapply(lgrph, function(x) x$name)) # get names
   mat.same_edges <- matrix(nrow = length(lgrph),
