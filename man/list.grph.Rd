@@ -1,5 +1,5 @@
-\name{list.grph}
-\alias{list.grph}
+\name{list_grph}
+\alias{list_grph}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Store Graphs in a List}
 \description{
@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-  list.grph(imgs,
+  list_grph(imgs,
            nodes,
            edges,
            var="type")
@@ -64,7 +64,7 @@ nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 # create the list of graphs
-lgrph <- list.grph(imgs,nodes,edges,var="type")
+lgrph <- list_grph(imgs,nodes,edges,var="type")
 # get the first graph
 g <- lgrph[[1]]
 
