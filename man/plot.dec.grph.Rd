@@ -1,5 +1,5 @@
-\name{plot.dec.grph}
-\alias{plot.dec.grph}
+\name{plot_dec_grph}
+\alias{plot_dec_grph}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Plot Geometric Graph on a Image of the Decoration}
 \description{
@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-plot.dec.grph(nds.df,
+plot_dec_grph(nds.df,
                           eds.df,
                           doss,
                           site,
@@ -85,9 +85,9 @@ plot.dec.grph(nds.df,
 doss <- system.file("extdata", package = "decorr")
 site <- "Cerro Muriano"
 decor <- "Cerro Muriano 1"
-nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".tsv")
-eds.df <- read.eds(doss = doss,site = site,decor = decor,edges = "edges",dev = ".shp")
-img.graph <- plot.dec.grph(nds.df = nds.df,
+nds.df <- read_nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".tsv")
+eds.df <- read_eds(doss = doss,site = site,decor = decor,edges = "edges",dev = ".shp")
+img.graph <- plot_dec_grph(nds.df = nds.df,
                            eds.df = eds.df,
                            doss = doss,
                            site = site,
