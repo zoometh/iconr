@@ -1,5 +1,5 @@
-\name{same.nds}
-\alias{same.nds}
+\name{same_nds}
+\alias{same_nds}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Matching Nodes in a Pairwise Comparison}
 \description{
@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-  same.nds(imgs,
+  same_nds(imgs,
            nodes,
            edges,
            var="type")
@@ -64,7 +64,7 @@ nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 # create the symetric matix
-df.same_nodes <- same.nds(imgs,nodes,edges,var="type")
+df.same_nodes <- same_nds(imgs,nodes,edges,var="type")
 df.same_nodes
 #   1 2 3 4
 # 1 0 2 3 4
@@ -94,5 +94,4 @@ heat.mat
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ ~kwd1 graph}% use one of  RShowDoc("KEYWORDS")
