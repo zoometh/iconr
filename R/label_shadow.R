@@ -1,4 +1,4 @@
-labels.shadow <- function(x, y=NULL, labels, col='white', bg='black',
+labels_shadow <- function(x, y=NULL, labels, col='white', bg='black',
                           theta= seq(0, 2*pi, length.out=50), r=0.1, ... ) {
   # TODO: credits
   # drop shadow
