@@ -1,4 +1,4 @@
-read.eds <- function(site,decor,doss=getwd(),edges="edges",nodes="nodes",dev=".tsv"){
+read_eds <- function(site,decor,doss=getwd(),edges="edges",nodes="nodes",dev=".tsv"){
   # doss <- doss.extdata ; edges <- "edges" ; dev <- ".shp"
   # doss <- doss.extdata ; edges <- "edges" ; dev <- ".tsv"
   # nodes <- "nodes"
@@ -35,7 +35,7 @@ read.eds <- function(site,decor,doss=getwd(),edges="edges",nodes="nodes",dev=".t
   # choice: shapefile
   if(dev==".shp"){
     if(file.exists(paste0(doss,'/',nodes,".shp"))){
-      nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".shp")
+      nds.df <- read_nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".shp")
       flag.coords <- T
     }
     if(!flag.coords){
