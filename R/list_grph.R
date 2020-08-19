@@ -1,4 +1,4 @@
-list.grph <- function(imgs,
+list_grph <- function(imgs,
                       nodes,
                       edges,
                       var="type"){
