@@ -1,5 +1,5 @@
-\name{plot_dec_compar}
-\alias{plot_dec_compar}
+\name{plot_eds_compar}
+\alias{plot_eds_compar}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Plot and Save Drawings of a Comparison Between Two Graphs}
 \description{
@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-plot_dec_compar(listg,graph2)
+plot_eds_compar(listg,graph2)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -53,7 +53,7 @@ edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 lgrph <- list_grph(imgs,nodes,edges,var="type")
 g.compar <- list_grph_compar(lgrph)
-plot_dec_compar(g.compar,c(1,4))
+plot_eds_compar(g.compar,c(1,4))
 # plot graph 1 and graph 4 sid-by-sid with common edges identified
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
