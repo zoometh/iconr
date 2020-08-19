@@ -1,5 +1,5 @@
-\name{read.eds}
-\alias{read.eds}
+\name{read_eds}
+\alias{read_eds}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Read Edges of a Decoration}
 \description{
@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-read.eds(site, decor, doss = getwd(), edges = "edges", nodes =
+read_eds(site, decor, doss = getwd(), edges = "edges", nodes =
                     "nodes", dev = ".tsv")
 }
 %- maybe also 'usage' for other objects documented here.
@@ -62,12 +62,35 @@ read.eds(site, decor, doss = getwd(), edges = "edges", nodes =
 
 
 \examples{
-# read dataframe of edges
-eds.df <- read.eds(doss = doss,site = site,decor = decor,edges = "edges",dev = ".tsv")
-# read shapefile of edges
-eds.df <- read.eds(doss = doss,site = site,decor = decor,edges = "edges",dev = ".shp")
+
+# read .tsv file  
+eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1", 
+                   edges = "edges",dev = ".tsv")
+eds.df
+# site           decor a b type       xa        ya       xb        yb
+# 1 Cerro Muriano Cerro Muriano 1 1 8    = 349.8148 -298.3244 451.1489 -237.4782
+# 2 Cerro Muriano Cerro Muriano 1 4 8    = 446.0222 -381.1697 451.1489 -237.4782
+# 3 Cerro Muriano Cerro Muriano 1 1 4    = 349.8148 -298.3244 446.0222 -381.1697
+# 4 Cerro Muriano Cerro Muriano 1 1 5    = 349.8148 -298.3244 283.0041 -358.0086
+# 5 Cerro Muriano Cerro Muriano 1 3 5    = 238.4637 -298.3244 283.0041 -358.0086
+# 6 Cerro Muriano Cerro Muriano 1 1 2    + 349.8148 -298.3244 349.8148 -243.9851
+# 7 Cerro Muriano Cerro Muriano 1 1 7    + 349.8148 -298.3244 342.6884 -427.4917
+# 8 Cerro Muriano Cerro Muriano 1 3 1    = 238.4637 -298.3244 349.8148 -298.3244
+
+# read shapefile 
+eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1",
+                   edges = "edges",dev = ".shp")
+eds.df
+# site           decor  typ a b       xa        ya       xb        yb
+# 0 Cerro Muriano Cerro Muriano 1 <NA> 1 8 349.8148 -298.3244 451.1489 -237.4782
+# 1 Cerro Muriano Cerro Muriano 1 <NA> 4 8 451.1489 -237.4782 446.0222 -381.1697
+# 2 Cerro Muriano Cerro Muriano 1 <NA> 1 4 349.8148 -298.3244 446.0222 -381.1697
+# 3 Cerro Muriano Cerro Muriano 1 <NA> 1 5 283.0041 -358.0086 349.8148 -298.3244
+# 4 Cerro Muriano Cerro Muriano 1 <NA> 3 5 283.0041 -358.0086 238.4637 -298.3244
+# 5 Cerro Muriano Cerro Muriano 1    + 1 2 349.8148 -298.3244 349.8148 -243.9851
+# 6 Cerro Muriano Cerro Muriano 1    + 1 7 349.8148 -298.3244 342.6884 -427.4917
+# 7 Cerro Muriano Cerro Muriano 1 <NA> 3 1 238.4637 -298.3244 349.8148 -298.3244
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ ~kwd1 graph}% use one of  RShowDoc("KEYWORDS")
