@@ -1,5 +1,5 @@
-\name{list.grph.compar}
-\alias{list.grph.compar}
+\name{list_grph_.compar}
+\alias{list_grph_compar}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{List Graph with Common Edges}
 \description{
@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-list.grph.compar(lgrph,
+list_grph_compar(lgrph,
                              common.eds.color="red",
                              different.eds.color="orange",
                              common.eds.width=2,
@@ -71,8 +71,8 @@ nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
-lgrph <- list.grph(imgs,nodes,edges,var="type")
-g.compar <- list.grph.compar(lgrph)
+lgrph <- list_grph(imgs,nodes,edges,var="type")
+g.compar <- list_grph_compar(lgrph)
 length(g.compar)
 ## 6 different pairwise comparisons
 g.compar[[1]]
@@ -97,5 +97,4 @@ g.compar[[1]]
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ ~kwd1 graph}% use one of  RShowDoc("KEYWORDS")
