@@ -1,4 +1,4 @@
-plot_dec_compar <- function(listg,graph2){
+plot_eds_compar <- function(listg,graph2){
   # a manner to use only plot()
   # listg <- g.compar ; graph2 <- c(1,3)
   # get row index in tcompar
