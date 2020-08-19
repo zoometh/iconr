@@ -9,9 +9,9 @@
 \usage{
 plot_dec_grph(nds.df,
                           eds.df,
-                          doss,
                           site,
                           decor,
+                          doss=getwd(),
                           shw=c("nodes"),
                           nd.color='orange',
                           nd.size=1.7,
@@ -31,10 +31,6 @@ plot_dec_grph(nds.df,
 %%     ~~Describe \code{x} here~~
     a dataframe of edges
 }
-      \item{doss}{
-%%     ~~Describe \code{x} here~~
-    path of the working folder
-}
         \item{site}{
 %%     ~~Describe \code{x} here~~
     name of the site
@@ -42,6 +38,10 @@ plot_dec_grph(nds.df,
           \item{decor}{
 %%     ~~Describe \code{x} here~~
     name of the decoration
+}
+        \item{doss}{
+%%     ~~Describe \code{x} here~~
+    path of the working folder, by default the working directory
 }
             \item{shw}{
 %%     ~~Describe \code{x} here~~
@@ -82,16 +82,13 @@ plot_dec_grph(nds.df,
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \examples{
-doss <- system.file("extdata", package = "decorr")
-site <- "Cerro Muriano"
-decor <- "Cerro Muriano 1"
-nds.df <- read_nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".tsv")
-eds.df <- read_eds(doss = doss,site = site,decor = decor,edges = "edges",dev = ".shp")
+# read nodes and edges
+nds.df <- read_nds(site = "Cerro Muriano",decor = "Cerro Muriano 1",dev = ".tsv")
+eds.df <- read_eds(site = "Cerro Muriano",decor = "Cerro Muriano 1",dev = ".tsv")
 img.graph <- plot_dec_grph(nds.df = nds.df,
                            eds.df = eds.df,
-                           doss = doss,
-                           site = site,
-                           decor = decor,
+                           site = "Cerro Muriano",
+                           decor = "Cerro Muriano 1",
                            lbl.txt = "type",
                            shw = c("nodes","edges"))
 img.graph
@@ -99,5 +96,4 @@ img.graph
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ ~kwd1 graph}% use one of  RShowDoc("KEYWORDS")
