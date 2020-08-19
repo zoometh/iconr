@@ -67,7 +67,7 @@ plot_dec_grph <- function(nds.df,
       #   text(xy$x+cos(i)*xo, xy$y+sin(i)*yo,
       #        lbl, col=lbl.color, bg="white", cex=lbl.size, pos=3)
       # }
-      labels.shadow(ax,ay,
+      labels_shadow(ax,ay,
                     label=lbl,
                     col=lbl.color,
                     bg="white",
