@@ -8,7 +8,7 @@ same_nds <- function(imgs,nodes,edges,var="type"){
   mat.same_nodes <- as.data.frame(mat.same_nodes)
   rownames(mat.same_nodes) <- colnames(mat.same_nodes)<- lgrph_nmes
   mat.same_nodes[is.na(mat.same_nodes)] <- 0 # replace NA with 0
-  for(g in 1:nrow(lcompa)){
+  for(g in 1:nrow(lcomp)){
     # g <- 1
     comp.a <- lcomp[g,1]
     comp.b <- lcomp[g,2]
@@ -22,11 +22,6 @@ same_nds <- function(imgs,nodes,edges,var="type"){
     comm.nds <- intersect(nds.a,nds.b)
     # write the value in the matrix
     mat.same_nodes[comp.a,comp.b] <- mat.same_nodes[comp.b,comp.a] <- length(comm.nds)
-    # # delete edges
-    # g.a <- igraph::delete_edges(lgrph[[comp.a]],igraph::E(lgrph[[comp.a]]))
-    # g.b <- igraph::delete_edges(lgrph[[comp.b]],igraph::E(lgrph[[comp.b]]))
-    # # 
-    # g.ab <- igraph::intersection(g.a,g.b)
   }
   return(mat.same_nodes)
 }
