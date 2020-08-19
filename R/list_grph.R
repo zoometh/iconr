@@ -6,7 +6,7 @@ list_grph <- function(imgs,
   # create list of graphs
   lgrph <- list()
   for (r in 1:nrow(imgs)){
-    # r <- 1
+    # r <- 2
     a.enr <- imgs[r,]
     # utils::globalVariables(names(a.enr))
     a.site <- a.enr$site ; a.decor <- a.enr$decor ; a.idf <- a.enr$idf
@@ -24,8 +24,8 @@ list_grph <- function(imgs,
     g$name <- a.idf # graph name
     g$site <- a.site
     g$decor <- a.decor
-    g$label <- paste0(as.character(g$name),'-',imgs[g$name,"site"],'.',imgs[g$name,"decor"])
-    g$img <- imgs[g$name,"img"]
+    g$label <- paste0(as.character(a.idf),'-',a.site,'.',a.decor)
+    g$img <- a.enr[,"img"]
     # g$name <- paste0(as.character(r),"-",a.site,'.',a.decor) # name
     lgrph[[length(lgrph)+1]] <- g
   }
