@@ -1,5 +1,5 @@
-\name{read.nds}
-\alias{read.nds}
+\name{read_nds}
+\alias{read_nds}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Read Nodes of a Decoration}
 \description{
@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-read.nds(site, decor, doss = getwd(), nodes = "nodes", dev =
+read_nds(site, decor, doss = getwd(), nodes = "nodes", dev =
                     ".tsv")
 }
 %- maybe also 'usage' for other objects documented here.
@@ -59,9 +59,22 @@ read.nds(site, decor, doss = getwd(), nodes = "nodes", dev =
 
 \examples{
 # read dataframe of nodes
-nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".tsv")
+nds.df <- read_nds(site = "Cerro Muriano",decor = "Cerro Muriano 1",dev = ".tsv")
+nds.df
+
+# site           decor id          type        x         y
+# 1 Cerro Muriano Cerro Muriano 1  1    personnage 349.8148 -298.3244
+# 2 Cerro Muriano Cerro Muriano 1  2        casque 349.8148 -243.9851
+# 3 Cerro Muriano Cerro Muriano 1  3         lance 238.4637 -298.3244
+# 4 Cerro Muriano Cerro Muriano 1  4      bouclier 446.0222 -381.1697
+# 5 Cerro Muriano Cerro Muriano 1  5        peigne 283.0041 -358.0086
+# 6 Cerro Muriano Cerro Muriano 1  7 sexe_masculin 342.6884 -427.4917
+# 7 Cerro Muriano Cerro Muriano 1  8    lingot_pdb 451.1489 -237.4782
+  
 # read shapefile of nodes
-nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".shp")
+nds.df <- read_nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".shp")
+  
+  
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
