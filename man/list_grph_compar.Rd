@@ -1,5 +1,5 @@
-\name{list_grph_.compar}
-\alias{list_grph_compar}
+\name{list_eds_compar}
+\alias{list_eds_compar}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{List Graph with Common Edges}
 \description{
@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-list_grph_compar(lgrph,
+list_eds_compar(lgrph,
                              common.eds.color="red",
                              different.eds.color="orange",
                              common.eds.width=2,
@@ -72,7 +72,7 @@ nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 lgrph <- list_grph(imgs,nodes,edges,var="type")
-g.compar <- list_grph_compar(lgrph)
+g.compar <- list_eds_compar(lgrph)
 length(g.compar)
 ## 6 different pairwise comparisons
 g.compar[[1]]
