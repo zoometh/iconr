@@ -4,6 +4,7 @@ list_grph_compar <- function(lgrph,
                              common.eds.width=2,
                              different.eds.width=1,
                              verbose=F){
+  # verbose <- T
   lidf <- unlist(lapply(lgrph, function(x) x$name))
   ldec.comp <- t(utils::combn(lidf, 2)) # all pairwise comparisons
   if(verbose){
@@ -29,39 +30,53 @@ list_grph_compar <- function(lgrph,
     common.edges.same.type <- igraph::E(common.edges)[same.type]
     common.edges <- igraph::set_edge_attr(common.edges, "same",
                                           index = igraph::E(common.edges),
-                                          common.edges.same.type)
-    # common.edges <- delete.edges(common.edges,E(common.edges))
-    # common.edges <- add.edges(common.edges,common.edges.same.type)
+                                          1)
     ab <- igraph::as_data_frame(common.edges)
     if(nrow(ab)>0){
       ab.same <- subset(ab, same == 1)
-      ab.same <- c(ab.same$from,ab.same$to,ab.same$type_1)
+      ab.same <- subset.data.frame(ab.same,select=c("from","to","type_1"))
+      colnames(ab.same)[which(names(ab.same) == "type_1")] <- "type"
+      # ab.same <- c(ab.same$from,ab.same$to,ab.same$type_1)
     }
     if(nrow(ab)==0){
-      ab.same <- NA
+      ab.same <- ab
+      # next
     }
     grph.comp <- list(gA,gB)
     grph2compar <- list() # out list
     for(g in 1:length(grph.comp)){
       # g <- 1
       grp <- grph.comp[[g]]
-      g.sz <- igraph::gsize(grp)
+      g.sz <- igraph::gsize(grp) # by edges
       for (e in 1:g.sz){
+        # loop through edges
         # e <- 1
         grp.ed.from <- igraph::as_data_frame(grp)[e,]$from
         grp.ed.to <- igraph::as_data_frame(grp)[e,]$to
         grp.ed.type <- igraph::as_data_frame(grp)[e,]$type
         grp.ed.is <- c(grp.ed.from,grp.ed.to,grp.ed.type)
-        if(all(grp.ed.is %in% ab.same)){
+        flag.same <- FALSE
+        for(c.e in 1:nrow(ab.same)){
+          # loop through same edges
+          # c.e <- 1
+          same.ed.from <- ab.same[c.e,]$from
+          same.ed.to <- ab.same[c.e,]$to
+          same.ed.type <- ab.same[c.e,]$type
+          same.ed.is <- c(same.ed.from,same.ed.to,same.ed.type)
+          # undirected, so %in% works
+          if(all(grp.ed.is %in% same.ed.is)){
+            flag.same <- TRUE
+          }
+        }
+        if(flag.same){
           grp <- igraph::set_edge_attr(grp, "color", index = e, common.eds.color)
           grp <- igraph::set_edge_attr(grp, "width", index = e, common.eds.width)
-        }
-        if(!all(grp.ed.is %in% ab.same)){
+        } else {
           grp <- igraph::set_edge_attr(grp, "color", index = e, different.eds.color)
           grp <- igraph::set_edge_attr(grp, "width", index = e, different.eds.width)
         }
       }
-      grph2compar[[length(grph2compar)+1]] <- grp
+      grph2compar[[length(grph2compar)+1]] <- grp # recompose list
     }
     grphAllcompar[[length(grphAllcompar)+1]] <- grph2compar
   }
