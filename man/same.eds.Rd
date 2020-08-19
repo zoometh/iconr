@@ -1,5 +1,5 @@
-\name{same.eds}
-\alias{same.eds}
+\name{same_eds}
+\alias{same_eds}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Matching Edges in a Pairwise Comparison}
 \description{
@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-  same.eds(imgs,
+  same_eds(imgs,
            nodes,
            edges,
            var="type")
@@ -64,7 +64,7 @@ nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 # create the symetric matix
-df.same_edges <- same.eds(imgs,nodes,edges,var="type")
+df.same_edges <- same_eds(imgs,nodes,edges,var="type")
 df.same_edges
 #   1 2 3 4
 # 1 0 0 1 2
@@ -94,5 +94,4 @@ heat.mat
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{ ~kwd1 graph}% use one of  RShowDoc("KEYWORDS")
