@@ -1,13 +1,13 @@
-\name{same.eds}
-\alias{same.eds}
+\name{same.nds}
+\alias{same.nds}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Matching Edges in a Pairwise Comparison}
+\title{Matching Nodes in a Pairwise Comparison}
 \description{
-  Count matching edges of each decoration will be comparated to edges from the other decorations. For example "epee--casque" from decoration A match with "epee--casque" from decoration B
+  Depending on the field 'var', count matching nodes between each decoration pairwise. For example "casque" value in "type" field, from decoration A, matches with "casque" from decoration B
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-  same.eds(imgs,
+  same.nds(imgs,
            nodes,
            edges,
            var="type")
@@ -64,13 +64,13 @@ nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 # create the symetric matix
-df.same_edges <- same.eds(imgs,nodes,edges,var="type")
-df.same_edges
+df.same_nodes <- same.nds(imgs,nodes,edges,var="type")
+df.same_nodes
 #   1 2 3 4
-# 1 0 0 1 2
-# 2 0 0 3 5
-# 3 1 3 0 1
-# 4 2 5 1 0
+# 1 0 2 3 4
+# 2 2 0 5 7
+# 3 3 5 0 4
+# 4 4 7 4 0
 
 # heatmap
 require(ggplot2)
