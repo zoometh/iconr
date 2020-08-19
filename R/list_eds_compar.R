@@ -1,4 +1,4 @@
-list_grph_compar <- function(lgrph,
+list_eds_compar <- function(lgrph,
                              common.eds.color="red",
                              different.eds.color="orange",
                              common.eds.width=2,
