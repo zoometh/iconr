@@ -1,8 +1,8 @@
-plot.dec.compar <- function(listg,graph2){
+plot_dec_compar <- function(listg,graph2){
   # a manner to use only plot()
   # listg <- g.compar ; graph2 <- c(1,3)
   # get row index in tcompar
-  lidf <- unlist(lapply(lgrph, function(x) x$name))
+  lidf <- unlist(lapply(listg, function(x) x$name))
   ldec.comp <- t(utils::combn(lidf, 2)) # all pairwise comparisons
   A <- graph2[1] ; B <- graph2[2] # ; nb.comm.eds <-
   ridx <- which(ldec.comp[,1] == A & ldec.comp[,2] == B, arr.ind = T)
