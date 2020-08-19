@@ -9,19 +9,19 @@ same_nds <- function(imgs,nodes,edges,var="type"){
   rownames(mat.same_nodes) <- colnames(mat.same_nodes)<- lgrph_nmes
   mat.same_nodes[is.na(mat.same_nodes)] <- 0 # replace NA with 0
   for(g in 1:nrow(lcomp)){
+    # pairwise comparisons
     # g <- 1
-    comp.a <- lcomp[g,1]
-    comp.b <- lcomp[g,2]
     # grphs
-    g.a <- lgrph[[comp.a]]
-    g.b <- lgrph[[comp.b]]
+    g.a <- lgrph[[1]]
+    g.b <- lgrph[[2]]
     # nodes
     nds.a <- igraph::get.vertex.attribute(g.a, var, index=igraph::V(g.a))
     nds.b <- igraph::get.vertex.attribute(g.b, var, index=igraph::V(g.b))
     # intersect
     comm.nds <- intersect(nds.a,nds.b)
-    # write the value in the matrix
-    mat.same_nodes[comp.a,comp.b] <- mat.same_nodes[comp.b,comp.a] <- length(comm.nds)
+    # write the value in the symetric matrix
+    mat.same_nodes[lcomp[g,1],lcomp[g,2]] <- length(comm.nds)
+    mat.same_nodes[lcomp[g,2],lcomp[g,1]] <- length(comm.nds)
   }
   return(mat.same_nodes)
 }
