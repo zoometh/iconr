@@ -15,8 +15,12 @@ list_eds_compar <- function(lgrph,
     # dec <- 1
     A <- ldec.comp[dec,][1]
     B <- ldec.comp[dec,][2]
-    gA <- lgrph[[A]]
-    gB <- lgrph[[B]]
+    # get index in the list
+    idxA <- which(unlist(lapply(lgrph, function(x) x$name==A)))
+    idxB <- which(unlist(lapply(lgrph, function(x) x$name==B)))
+    # get graph
+    gA <- lgrph[[idxA]]
+    gB <- lgrph[[idxB]]
     # default colors
     tit <- paste0("compare decorations '",A,"' and '",B,"'")
     if (verbose){
