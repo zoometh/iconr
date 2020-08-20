@@ -1,9 +1,9 @@
 \name{plot_eds_compar}
 \alias{plot_eds_compar}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Plot and Save Drawings of a Comparison Between Two Graphs}
+\title{Plot and Save a Figure of Edges Comparison Between Two Graphs}
 \description{
-  Plot and save two drawings side-by-side for a graph pairwise with common edges identified
+  Plot and save two figures side-by-side for a graph pairwise with common edges identified
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
