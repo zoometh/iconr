@@ -52,9 +52,10 @@ nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs,nodes,edges,var="type")
-g.compar <- list_eds_compar(lgrph)
+g.compar <- list_eds_compar(lgrph,var="type")
 plot_eds_compar(g.compar,c(1,4))
-# plot graph 1 and graph 4 sid-by-sid with common edges identified
+# plot two graphs side-by-side, graph 1 and graph 4, with common edges identified on field 'type' 
+# by different colors and widths
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
