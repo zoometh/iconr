@@ -26,4 +26,4 @@ Suggests:
     knitr,
     rmarkdown,
     rgdal
-VignetteBuilder: knitr
+VignetteBuilder: rmarkdown
