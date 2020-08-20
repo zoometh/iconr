@@ -1,13 +1,14 @@
 \name{plot_nds_compar}
 \alias{plot_nds_compar}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Plot and Save Drawings of a Comparison Between Two Graphs}
+\title{Plot and Save a Figure of Nodes Comparison Between Two Graphs}
 \description{
-  Plot and save two drawings side-by-side for a graph pairwise with common nodes identified
+  Plot and save two figures side-by-side for a graph pairwise with common nodes identified
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-plot_nds_compar(listg,graph2)
+plot_nds_compar(listg,
+                graph2)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -52,7 +53,7 @@ nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs,nodes,edges,var="type")
-g.compar <- list_nds_compar(lgrph)
+g.compar <- list_nds_compar(lgrph,"type")
 plot_nds_compar(g.compar,c(1,4))
 # plot graph 1 and graph 4 sid-by-side with common nodes identified
 }
