@@ -7,24 +7,13 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-  same_eds(imgs,
-           nodes,
-           edges,
-           var="type")
+ same_eds(lgrph,var="type")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-      \item{imgs}{
+      \item{lgrph}{
 %%     ~~Describe \code{x} here~~
-    list of decorations
-}
-        \item{nodes}{
-%%     ~~Describe \code{x} here~~
-    nodes
-}
-          \item{edges}{
-%%     ~~Describe \code{x} here~~
-    edges
+    list of decorations coming from the 'list_dec' function
 }
             \item{var}{
 %%     ~~Describe \code{x} here~~
@@ -63,11 +52,8 @@ nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
-# imgs <- subset(imgs,site %in% c("Torrejon Rubio","Zarza de Montanchez"))
-# nodes <- subset(nodes,site %in% c("Torrejon Rubio","Zarza de Montanchez"))
-# edges <- subset(edges,site %in% c("Torrejon Rubio","Zarza de Montanchez"))
-# create the symetric matix
-df.same_edges <- same_eds(imgs,nodes,edges,var="type")
+lgrph <- list_dec(imgs,nodes,edges,"type") # call function
+df.same_edges <- same_eds(lgrph,"type")
 df.same_edges
 #   1 2 3 4
 # 1 0 0 1 2
