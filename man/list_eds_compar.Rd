@@ -69,7 +69,7 @@ list_eds_compar(lgrph,
 
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{list_nds_compar}}
+  \code{\link[decorr]{list_dec}},\code{\link[decorr]{list_nds_compar}}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
