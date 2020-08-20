@@ -1,5 +1,5 @@
 labels_shadow <- function(x, y=NULL, labels, col='white', bg='black',
-                          theta= seq(0, 2*pi, length.out=50), r=0.1) {
+                          theta= seq(0, 2*pi, length.out=50), r=0.1, pos=3) {
   # TODO: credits
   # drop shadow
   xy <- grDevices::xy.coords(x,y)
