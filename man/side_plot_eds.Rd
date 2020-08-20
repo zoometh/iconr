@@ -1,7 +1,7 @@
 \name{side_plot_eds}
 \alias{side_plot_eds}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Plot Two Figures Side-by-Side}
+\title{Plot Two Figures Side-by-Side for Edges}
 \description{
   Plot figures side-by-side
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
