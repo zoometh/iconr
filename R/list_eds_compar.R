@@ -29,7 +29,7 @@ list_eds_compar <- function(lgrph,
     }
     # lgcomp <- list(lgrph[[to.compare[1]]],lgrph[[to.compare[2]]])
     # esss <- igraph::intersection(lgcomp)
-    common.edges <- igraph::intersection(gA,gB)
+    common.edges <- suppressWarnings(igraph::intersection(gA, gB))
     # check on the 'var' of edge
     var.A <- paste0(var,"_1") #igraph add this suffix after 'intersection'
     var.B <- paste0(var,"_2") #igraph add this suffix after 'intersection'
