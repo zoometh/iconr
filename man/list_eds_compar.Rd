@@ -3,7 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{List Graph with Common Edges}
 \description{
-  Return a list of graph pairwise with common edges identified
+  List of graph pairwise comparisons on common edges with common edges identified by different colors and/or widths
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
