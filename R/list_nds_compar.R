@@ -1,5 +1,5 @@
 list_nds_compar <- function(lgrph,
-                            var,
+                            var="type",
                             common.nds.color="red",
                             different.nds.color="orange",
                             common.nds.size=1,
