@@ -19,7 +19,7 @@ list_eds_compar(lgrph,
 \arguments{
   \item{lgrph}{
 %%     ~~Describe \code{x} here~~
-    a list of graph obtained with the function 'list.grph'
+    a list of graph obtained with the function 'list.dec'
 }
     \item{var}{
 %%     ~~Describe \code{x} here~~
@@ -76,7 +76,7 @@ nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
-lgrph <- list_grph(imgs,nodes,edges,var="type")
+lgrph <- list_dec(imgs,nodes,edges,var="type")
 g.compar <- list_eds_compar(lgrph,"type")
 length(g.compar)
 ## 6 different pairwise comparisons
