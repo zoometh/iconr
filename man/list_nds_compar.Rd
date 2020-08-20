@@ -77,15 +77,27 @@ nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
-# use a sample
-imgs <- subset(imgs,site %in% c("Cerro Muriano","Zarza de Montanchez"))
-nodes <- subset(nodes,site %in% c("Cerro Muriano","Zarza de Montanchez"))
-edges <- subset(edges,site %in% c("Cerro Muriano","Zarza de Montanchez"))
 # list graphs
 lgrph <- list_dec(imgs,nodes,edges,var="type")
 g.compar <- list_nds_compar(lgrph,"type")
-g.compar
-
+g.compar[[1]]
+# [[1]]
+# IGRAPH 5414981 UN-B 7 8 -- 1
+# + attr: name (g/n), site (g/c), decor (g/c), label (g/c), img (g/c), name (v/c), type (v/c), x
+# | (v/n), y (v/n), idf (v/c), color (v/c), cex (v/n), type (e/c)
+# + edges from 5414981 (vertex names):
+#   [1] personnage--lingot_pdb    bouclier  --lingot_pdb    personnage--bouclier      personnage--peigne       
+# [5] lance     --peigne        personnage--casque        personnage--sexe_masculin personnage--lance        
+# 
+# [[2]]
+# IGRAPH 5415a9a UN-B 12 15 -- 2
+# + attr: name (g/n), site (g/c), decor (g/c), label (g/c), img (g/c), name (v/c), type (v/c), x
+# | (v/n), y (v/n), idf (v/c), color (v/c), cex (v/n), type (e/c)
+# + edges from 5415a9a (vertex names):
+#   [1] fibule      --epee     bouclier    --miroir   epee        --lance    chariot_char--bouclier
+# [5] chariot_char--cheval   chariot_char--cheval   bouclier    --arc      chariot_char--arc     
+# [9] arc         --miroir   bouclier    --fibule   bouclier    --epee     miroir      --epee    
+# [13] arc         --fleche   chariot_char--roue     chariot_char--roue    
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
