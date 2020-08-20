@@ -1,10 +1,11 @@
 list_eds_compar <- function(lgrph,
-                             common.eds.color="red",
-                             different.eds.color="orange",
-                             common.eds.width=2,
-                             different.eds.width=1,
-                             verbose=F){
-  # verbose <- T
+                            var,
+                            common.eds.color="red",
+                            different.eds.color="orange",
+                            common.eds.width=2,
+                            different.eds.width=1,
+                            verbose=F){
+  # verbose <- T ; var <- "type"
   lidf <- unlist(lapply(lgrph, function(x) x$name))
   ldec.comp <- t(utils::combn(lidf, 2)) # all pairwise comparisons
   if(verbose){
@@ -29,17 +30,23 @@ list_eds_compar <- function(lgrph,
     # lgcomp <- list(lgrph[[to.compare[1]]],lgrph[[to.compare[2]]])
     # esss <- igraph::intersection(lgcomp)
     common.edges <- igraph::intersection(gA,gB)
-    # check on type of edge
-    same.type <- igraph::E(common.edges)$type_1 == igraph::E(common.edges)$type_2
+    # check on the 'var' of edge
+    var.A <- paste0(var,"_1") #igraph add this suffix after 'intersection'
+    var.B <- paste0(var,"_2") #igraph add this suffix after 'intersection'
+    var.gA <- igraph::get.edge.attribute(common.edges, var.A, index=igraph::E(common.edges))
+    var.gB <- igraph::get.edge.attribute(common.edges, var.B, index=igraph::E(common.edges))
+    same.type <- var.gA == var.gB # list of boolean
+    # same.type <- igraph::E(common.edges)$type_1 == igraph::E(common.edges)$type_2
     common.edges.same.type <- igraph::E(common.edges)[same.type]
+    # add attribute
     common.edges <- igraph::set_edge_attr(common.edges, "same",
                                           index = igraph::E(common.edges),
                                           1)
     ab <- igraph::as_data_frame(common.edges)
     if(nrow(ab)>0){
       ab.same <- subset(ab, same == 1)
-      ab.same <- subset.data.frame(ab.same,select=c("from","to","type_1"))
-      colnames(ab.same)[which(names(ab.same) == "type_1")] <- "type"
+      ab.same <- subset.data.frame(ab.same,select=c("from","to",var.A))
+      colnames(ab.same)[which(names(ab.same) == var.A)] <- var
       # ab.same <- c(ab.same$from,ab.same$to,ab.same$type_1)
     }
     if(nrow(ab)==0){
@@ -57,16 +64,20 @@ list_eds_compar <- function(lgrph,
         # e <- 1
         grp.ed.from <- igraph::as_data_frame(grp)[e,]$from
         grp.ed.to <- igraph::as_data_frame(grp)[e,]$to
-        grp.ed.type <- igraph::as_data_frame(grp)[e,]$type
-        grp.ed.is <- c(grp.ed.from,grp.ed.to,grp.ed.type)
+        grp.ed.var <- igraph::get.edge.attribute(grp, var, index=e)
+        # grp.ed.type <- igraph::as_data_frame(grp)[e,]$type
+        grp.ed.is <- c(grp.ed.from,grp.ed.to,grp.ed.var)
         flag.same <- FALSE
         for(c.e in 1:nrow(ab.same)){
           # loop through same edges
           # c.e <- 1
-          same.ed.from <- ab.same[c.e,]$from
-          same.ed.to <- ab.same[c.e,]$to
-          same.ed.type <- ab.same[c.e,]$type
-          same.ed.is <- c(same.ed.from,same.ed.to,same.ed.type)
+          same.ed.from <- ab.same[c.e,"from"]
+          same.ed.to <- ab.same[c.e,"to"]
+          same.ed.var <- ab.same[c.e,var]
+          # same.ed.from <- ab.same[c.e,]$from
+          # same.ed.to <- ab.same[c.e,]$to
+          # same.ed.type <- ab.same[c.e,]$type
+          same.ed.is <- c(same.ed.from,same.ed.to,same.ed.var)
           # undirected, so %in% works
           if(all(grp.ed.is %in% same.ed.is)){
             flag.same <- TRUE
