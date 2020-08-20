@@ -8,12 +8,12 @@
 }
 \usage{
 list_eds_compar(lgrph,
-                            var,
-                            common.eds.color="red",
-                            different.eds.color="orange",
-                            common.eds.width=2,
-                            different.eds.width=1,
-                            verbose=F)
+                var,
+                common.eds.color="red",
+                different.eds.color="orange",
+                common.eds.width=2,
+                different.eds.width=1,
+                verbose=F)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
