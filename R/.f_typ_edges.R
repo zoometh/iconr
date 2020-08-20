@@ -1,5 +1,5 @@
 #' @keywords internal
-f_typ_edges <- function(tot.edges,lgrph,verbose=TRUE){
+.f_typ_edges <- function(tot.edges,lgrph,verbose=TRUE){
   # presence/absence type of edge, to dataframe
   # verbose <- T
   sel.edges <- paste0(tot.edges[,1],tot.edges[,2])
