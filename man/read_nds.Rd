@@ -58,6 +58,8 @@ read_nds(site, decor, doss = getwd(), nodes = "nodes", dev =
 
 
 \examples{
+# set wd to data folder
+setwd(system.file("extdata", package = "decorr"))
 # read dataframe of nodes
 nds.df <- read_nds(site = "Cerro Muriano",decor = "Cerro Muriano 1",dev = ".tsv")
 nds.df
