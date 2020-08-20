@@ -1,4 +1,4 @@
-side_plot <- function(g,idf){
+side_plot_eds <- function(g,idf){
   # a manner to use only plot()
   # idf <- 1 ; g <- g
   grp <- g[[idf]]
