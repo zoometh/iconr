@@ -82,7 +82,7 @@ imgs <- subset(imgs,site %in% c("Cerro Muriano","Zarza de Montanchez"))
 nodes <- subset(nodes,site %in% c("Cerro Muriano","Zarza de Montanchez"))
 edges <- subset(edges,site %in% c("Cerro Muriano","Zarza de Montanchez"))
 # list graphs
-lgrph <- list_grph(imgs,nodes,edges,var="type")
+lgrph <- list_dec(imgs,nodes,edges,var="type")
 g.compar <- list_nds_compar(lgrph,"type")
 g.compar
 
