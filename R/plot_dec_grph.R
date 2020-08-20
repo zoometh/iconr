@@ -52,7 +52,7 @@ plot_dec_grph <- function(nds.df,
              col=nd.color,
              bg=nd.color,
              cex=nd.size)
-      .labels_shadow(ax,ay,
+      labels_shadow(ax,ay,
                     label=lbl,
                     col=lbl.color,
                     bg="white",
