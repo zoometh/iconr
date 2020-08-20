@@ -1,7 +1,7 @@
 \name{list_eds_compar}
 \alias{list_eds_compar}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{List Graph with Common Edges}
+\title{Graph Pairwise Comparison with Common Edges}
 \description{
   List of graph pairwise comparisons on common edges with common edges identified by different colors and/or widths
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
