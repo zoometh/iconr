@@ -51,8 +51,8 @@ nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
-lgrph <- list_grph(imgs,nodes,edges,var="type")
-g.compar <- list_grph_compar(lgrph)
+lgrph <- list_dec(imgs,nodes,edges,var="type")
+g.compar <- list_nds_compar(lgrph)
 plot_nds_compar(g.compar,c(1,4))
 # plot graph 1 and graph 4 sid-by-side with common nodes identified
 }
