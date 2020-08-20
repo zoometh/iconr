@@ -8,17 +8,22 @@
 }
 \usage{
 list_eds_compar(lgrph,
-                             common.eds.color="red",
-                             different.eds.color="orange",
-                             common.eds.width=2,
-                             different.eds.width=1,
-                             verbose=F)
+                            var,
+                            common.eds.color="red",
+                            different.eds.color="orange",
+                            common.eds.width=2,
+                            different.eds.width=1,
+                            verbose=F)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{lgrph}{
 %%     ~~Describe \code{x} here~~
     a list of graph obtained with the function 'list.grph'
+}
+    \item{var}{
+%%     ~~Describe \code{x} here~~
+    a field on which the comparison will be done, by default "type" ('=','+',...)
 }
     \item{common.eds.color}{
 %%     ~~Describe \code{x} here~~
@@ -72,7 +77,7 @@ nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 lgrph <- list_grph(imgs,nodes,edges,var="type")
-g.compar <- list_eds_compar(lgrph)
+g.compar <- list_eds_compar(lgrph,"type")
 length(g.compar)
 ## 6 different pairwise comparisons
 g.compar[[1]]
