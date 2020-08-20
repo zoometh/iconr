@@ -84,7 +84,8 @@ edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
 lgrph <- list_dec(imgs,nodes,edges,var="type")
 g.compar <- list_eds_compar(lgrph,"type")
 length(g.compar)
-## 6 different pairwise comparisons
+## 6 = means six different pairwise comparisons
+  
 g.compar[[1]]
 ## 1st pairwise comparison between graph 1 and graph 2
 # [[1]]
@@ -94,7 +95,7 @@ g.compar[[1]]
 # + edges from 7010a0e (vertex names):
 #   [1] personnage--lingot_pdb    bouclier  --lingot_pdb    personnage--bouclier      personnage--peigne
 # [5] lance     --peigne        personnage--casque        personnage--sexe_masculin personnage--lance
-# 
+
 # [[2]]
 # IGRAPH 7011161 UN-B 12 15 -- 2
 # + attr: name (g/n), site (g/c), decor (g/c), label (g/c), img (g/c), name (v/c), type (v/c), x
