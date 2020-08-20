@@ -13,7 +13,7 @@ plot_eds_compar <- function(listg,graph2){
   grDevices::png(out.compar,width = 14,height=7, units = "cm", res=300)
   graphics::par(mfrow=c(1,2),
                 mar=c(0,0,0,0))    # set the plotting area into a 1*2 array
-  side_plot(g,1); side_plot(g,2) # call to plot
+  side_plot_eds(g,1); side_plot_eds(g,2) # call to plot
   graphics::mtext(tit, side = 1, line = -1, outer = TRUE)
   grDevices::dev.off()
   shell.exec(out.compar)
