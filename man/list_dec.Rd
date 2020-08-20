@@ -3,7 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Store Graphs in a List}
 \description{
-  Store graphs in a list. Names of graphs refers to 'idf' field in the 'imgs' dataframe. Names of nodes depends on 'var' value.
+  Store graphs in a list. Names of graphs refers to 'idf' field in the 'imgs' dataframe. Names of nodes depends on 'var' value, by default 'var' is the "type" field.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -28,7 +28,7 @@
 }
             \item{var}{
 %%     ~~Describe \code{x} here~~
-    field name in 'nodes' used for further analysis
+    field name in 'nodes' used for further analysis, by default this is the "type" field
 }
 }
 \details{
@@ -67,6 +67,13 @@ edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
 lgrph <- list_dec(imgs,nodes,edges,var="type")
 # get the first graph
 g <- lgrph[[1]]
+g
+# IGRAPH effa525 UN-B 7 8 -- 1
+# + attr: name (g/n), site (g/c), decor (g/c), label (g/c), img (g/c), name (v/c), type (v/c), x
+# | (v/n), y (v/n), idf (v/c), type (e/c)
+# + edges from effa525 (vertex names):
+#   [1] personnage--lingot_pdb    bouclier  --lingot_pdb    personnage--bouclier      personnage--peigne       
+# [5] lance     --peigne        personnage--casque        personnage--sexe_masculin personnage--lance
 
 # graph name
 g$name
