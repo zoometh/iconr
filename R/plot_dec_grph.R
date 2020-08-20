@@ -52,22 +52,7 @@ plot_dec_grph <- function(nds.df,
              col=nd.color,
              bg=nd.color,
              cex=nd.size)
-      # labels shadow
-      # labels.shadow <- function(x, y=NULL, labels, col='white', bg='black', 
-      #                           theta= seq(0, 2*pi, length.out=50), r=0.1, ... ) {
-      # TODO: credits
-      # drop shadow
-      # xy <- xy.coords(ax,ay)
-      # r=0.2
-      # xo <- r*strwidth('A')
-      # yo <- r*strheight('A')
-      # # draw background text with small shift in x and y in background colour
-      # theta= seq(0, 2*pi, length.out=50)
-      # for (i in theta) {
-      #   text(xy$x+cos(i)*xo, xy$y+sin(i)*yo,
-      #        lbl, col=lbl.color, bg="white", cex=lbl.size, pos=3)
-      # }
-      labels_shadow(ax,ay,
+      .labels_shadow(ax,ay,
                     label=lbl,
                     col=lbl.color,
                     bg="white",
