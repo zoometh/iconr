@@ -1,19 +1,19 @@
 \name{list_nds_compar}
 \alias{list_nds_compar}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{List Graph with Common Edges}
+\title{List Graph with Common Nodes}
 \description{
     List of graph pairwise comparisons on common nodes with common nodes identified by different colors and/or sizes
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
 list_nds_compar(lgrph,
-                            var="type",
-                            common.nds.color="red",
-                            different.nds.color="orange",
-                            common.nds.size=1,
-                            different.nds.size=.5,
-                            verbose=F)
+                var="type",
+                common.nds.color="red",
+                different.nds.color="orange",
+                common.nds.size=1,
+                different.nds.size=.5,
+                verbose=F)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
