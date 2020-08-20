@@ -8,7 +8,7 @@
 }
 \usage{
 labels_shadow(x, y=NULL, labels, col='white', bg='black',
-                          theta= seq(0, 2*pi, length.out=50), r=0.1, ... ) 
+                          theta= seq(0, 2*pi, length.out=50), r=0.1, pos=3) 
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -28,6 +28,10 @@ labels_shadow(x, y=NULL, labels, col='white', bg='black',
 %%     ~~Describe \code{x} here~~
     parameter of the shadow buffer
 }
+              \item{pos}{
+%%     ~~Describe \code{x} here~~
+    position alignement of the label
+}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
@@ -38,7 +42,7 @@ labels_shadow(x, y=NULL, labels, col='white', bg='black',
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-  create a 'data.frame' with "site"  "decor" "id"    "type"  "x"     "y"  values for each node
+  
 }
 \references{
 %% ~put references to the literature/web site here ~
