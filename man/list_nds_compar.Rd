@@ -19,7 +19,7 @@ list_nds_compar(lgrph,
 \arguments{
   \item{lgrph}{
 %%     ~~Describe \code{x} here~~
-    a list of graph obtained with the function 'list.grph'
+    a list of graph obtained with the function 'list_dec'
 }
     \item{var}{
 %%     ~~Describe \code{x} here~~
@@ -69,7 +69,7 @@ list_nds_compar(lgrph,
 
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{list_eds_compar}}
+  \code{\link[decorr]{list_dec}},\code{\link[decorr]{list_eds_compar}}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
