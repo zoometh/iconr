@@ -13,7 +13,7 @@ plot_eds_compar(listg,graph2)
 \arguments{
   \item{listg}{
 %%     ~~Describe \code{x} here~~
-    a list of graph obtained with the function 'list.grph.compar'
+    a list of graph obtained with the function 'list_eds_compar'
 }
     \item{graph2}{
 %%     ~~Describe \code{x} here~~
@@ -39,6 +39,10 @@ plot_eds_compar(listg,graph2)
 }
 \note{
 %%  ~~further notes~~
+}
+\seealso{
+%% ~~objects to See Also as \code{\link{help}}, ~~~
+  \code{\link[decorr]{list_eds_compar}}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
