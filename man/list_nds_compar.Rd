@@ -37,7 +37,7 @@ list_nds_compar(lgrph,
 %%     ~~Describe \code{x} here~~
     size (cex) for common nodes between two graphs
 }
-          \item{different.eds.width}{
+          \item{different.nds.size}{
 %%     ~~Describe \code{x} here~~
     size (cex) for different nodes between two graphs
 }
