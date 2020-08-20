@@ -49,6 +49,9 @@ plot_eds_compar(listg,graph2)
 
 
 \examples{
+# set wd to data folder
+setwd(system.file("extdata", package = "decorr"))
+# read data
 imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
                    sep="\t",stringsAsFactors = FALSE)
 nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
