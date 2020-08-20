@@ -42,7 +42,7 @@ plot_eds_compar(listg,graph2)
 }
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{list_eds_compar}}
+  \code{\link[decorr]{list_eds_compar}},\code{\link[decorr]{plot_nds_compar}}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
