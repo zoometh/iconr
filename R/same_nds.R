@@ -9,10 +9,12 @@ same_nds <- function(lgrph,var="type"){
   mat.same_nodes[is.na(mat.same_nodes)] <- 0 # replace NA with 0
   for(g in 1:nrow(lcomp)){
     # pairwise comparisons
-    # g <- 1
+    # g <- 2
+    idx.A <- lcomp[g,1]
+    idx.B <- lcomp[g,2]
     # grphs
-    g.a <- lgrph[[1]]
-    g.b <- lgrph[[2]]
+    g.a <- lgrph[[idx.A]]
+    g.b <- lgrph[[idx.B]]
     # nodes
     nds.a <- igraph::get.vertex.attribute(g.a, var, index=igraph::V(g.a))
     nds.b <- igraph::get.vertex.attribute(g.b, var, index=igraph::V(g.b))
