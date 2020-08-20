@@ -40,6 +40,10 @@
 \note{
 %%  ~~further notes~~
 }
+\seealso{
+%% ~~objects to See Also as \code{\link{help}}, ~~~
+  \code{\link[decorr]{list_dec}}
+}
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
