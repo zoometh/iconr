@@ -1,8 +1,6 @@
-same_eds <- function(lgrph,var="type"){
+same_eds <- function(lgrph,var="type",verbose=FALSE){
   # TODO: change "type" to 'var'
-  # TODO: put 'verbose' in param
   # var <- "type"
-  verbose <- TRUE
   lgrph_nmes <- unlist(lapply(lgrph, function(x) x$name)) # get names
   mat.same_edges <- matrix(nrow = length(lgrph),
                            ncol = length(lgrph))
