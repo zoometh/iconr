@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
- same_eds(lgrph,var="type")
+ same_eds(lgrph,var="type",verbose=FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,6 +18,10 @@
             \item{var}{
 %%     ~~Describe \code{x} here~~
     field name in 'nodes' dataframe on which the comparisons will be done, by default the fieldname is "type"
+}
+              \item{verbose}{
+%%     ~~Describe \code{x} here~~
+    verbose, 'FALSE' by default
 }
 }
 \details{
