@@ -1,25 +1,25 @@
 \name{plot_dec_grph}
 \alias{plot_dec_grph}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Plot Geometric Graph on a Image of the Decoration}
+\title{Plot Geometric Graph on a Picture of the Decoration}
 \description{
-  Plot a geometric graph over a decoration image, for nodes only, for edges only, or for both
+  Plot a peometric graph (i.e. planar graph) over a decoration image, for nodes only, for edges only, or for both
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
 plot_dec_grph(nds.df,
-                          eds.df,
-                          site,
-                          decor,
-                          doss=getwd(),
-                          shw=c("nodes"),
-                          nd.color='orange',
-                          nd.size=1.7,
-                          lbl.txt='id',
-                          lbl.color='orange',
-                          lbl.size=1.2,
-                          ed.color='orange',
-                          ed.lwd=4)
+              eds.df,
+              site,
+              decor,
+              doss=getwd(),
+              shw=c("nodes"),
+              lbl.txt='id',
+              nd.color='orange',
+              nd.size=1.7,
+              lbl.color='orange',
+              lbl.size=1.2,
+              ed.color='orange',
+              ed.lwd=4)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -45,17 +45,20 @@ plot_dec_grph(nds.df,
 }
             \item{shw}{
 %%     ~~Describe \code{x} here~~
-    show only 'nodes', only 'edges', or both c('nodes','edges')
+    show only 'nodes' (by default), only 'edges', or both c('nodes','edges')
+}
+              \item{lbl.txt}{
+%%     ~~Describe \code{x} here~~
+    fieldname of the nodes that will be displayed, by default nodes 'id' 
 }
               \item{nd.color,
                     nd.size,
-                    lbl.txt,
                     lbl.color,
                     lbl.size,
                     ed.color,
                     ed.lwd}{
 %%     ~~Describe \code{x} here~~
-    parameters for node/edges colors, node/edges size, text size, etc.
+    graphical parameters for node/edges colors, node/edges size, text size, etc.
 }
 }
 \details{
