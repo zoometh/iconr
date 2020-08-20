@@ -24,7 +24,7 @@ same_eds <- function(lgrph,var="type"){
   tot.edges$V1 <- paste0(tot.edges$V1,tot.edges$type)
   tot.edges$V2 <- paste0(tot.edges$V2,tot.edges$type)
   tot.edges <- tot.edges[!duplicated(t(apply(tot.edges[1:2], 1, sort))), ] # rm duplicated
-  df.typ_edges <- f_typ_edges(tot.edges,lgrph,verbose = FALSE) # call function
+  df.typ_edges <- .f_typ_edges(tot.edges,lgrph,verbose = FALSE) # call private function
   # at least a common edge appears 2 times, limit the df
   df.typ_edges.sub <- df.typ_edges[,colSums(df.typ_edges) > 1]
   all.comp <- as.data.frame(t(utils::combn(row.names(df.typ_edges.sub),2)))
