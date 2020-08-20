@@ -14,7 +14,7 @@ plot_nds_compar(listg,
 \arguments{
   \item{listg}{
 %%     ~~Describe \code{x} here~~
-    a list of graph obtained with the function 'list.grph.compar'
+    a list of graph obtained with the function 'list_nds_compar'
 }
     \item{graph2}{
 %%     ~~Describe \code{x} here~~
@@ -40,6 +40,11 @@ plot_nds_compar(listg,
 }
 \note{
 %%  ~~further notes~~
+}
+
+\seealso{
+%% ~~objects to See Also as \code{\link{help}}, ~~~
+  \code{\link[decorr]{list_nds_compar}},\code{\link[decorr]{plot_eds_compar}}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
