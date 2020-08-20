@@ -8,7 +8,7 @@
 }
 \usage{
 labels_shadow(x, y=NULL, labels, col='white', bg='black',
-                          theta= seq(0, 2*pi, length.out=50), r=0.1, pos=3) 
+                          theta= seq(0, 2*pi, length.out=50), r=0.1, ...) 
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -28,9 +28,9 @@ labels_shadow(x, y=NULL, labels, col='white', bg='black',
 %%     ~~Describe \code{x} here~~
     parameter of the shadow buffer
 }
-              \item{pos}{
+              \item{...}{
 %%     ~~Describe \code{x} here~~
-    position alignement of the label
+    any graphical parameter (pos, cex, etc.)
 }
 }
 \details{
