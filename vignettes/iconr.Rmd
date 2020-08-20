@@ -60,32 +60,35 @@ plot(drawing)
 doss <- system.file("extdata", package = "decorr")
 site <- "Cerro Muriano"
 decor <- "Cerro Muriano 1"
-nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".shp") 
+nds.df <- read_nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".shp") 
 kable(nds.df)
 ```
 
   + column names  
+  
     - `id`: id of the edge (a unique number) 
     - `type`: type of the node    
     - `x,y`: coordinates of node  
 
-* 'edges': a dataframe or a shapefile of the nodes
+* 'edges': a dataframe or a shapefile of the nodes  
 
 ```{r edges.df}
 doss <- system.file("extdata", package = "decorr")
 site <- "Cerro Muriano"
 decor <- "Cerro Muriano 1"
-eds.df <- read.eds(doss = doss,site = site,decor = decor,edges = "edges",dev = ".shp")
+eds.df <- read_eds(doss = doss,site = site,decor = decor,edges = "edges",dev = ".shp")
 kable(eds.df)
 ```
   
   + column names 
+  
     - `id`: id of the edge (a unique number) 
     - `type`: type of the edge (`NA`: normal edge, `+`: node `b` is an attribute of node `a`)  
     - `a`: *id* of the first node  
     - `b`: *id* of the second node  
-    - `xa,ya`: coordinates of the first node  
-    - `xb,yb`: coordinates of the second node 
+    - `xa, ya`: coordinates of the first node  
+    - `xb, yb`: coordinates of the second node 
+    
 
 ## Example
 
@@ -94,9 +97,9 @@ load nodes, edges and create graph for "type" field
 ```{r read_img}
 site <- "Cerro Muriano"
 decor <- "Cerro Muriano 1"
-nds.df <- read.nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".shp")
-eds.df <- read.eds(doss = doss,site = site,decor = decor,edges = "edges",dev = ".shp")
-img.graph <- plot.dec.grph(nds.df = nds.df,
+nds.df <- read_nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".shp")
+eds.df <- read_eds(doss = doss,site = site,decor = decor,edges = "edges",dev = ".shp")
+img.graph <- plot_dec_grph(nds.df = nds.df,
                            eds.df = eds.df,
                            doss = doss,
                            site = "Cerro Muriano",
@@ -121,4 +124,4 @@ plot(img.graph)
 
 Thomas Huet, thomashuet7[at]gmail.com
 
-  + Huet, Thomas. "Geometric graphs to study ceramic decoration." Edited by Mieko Matsumoto and Espen Uleberg. Exploring Oceans of Data, proceedings of the 44th Conference on Computer Applications and Quantitative Methods in Archaeology, CAA 2016. Archaeopress, 2018. 311-324.
+  + Huet, Thomas. "Geometric graphs to study ceramic decoration" Edited by Mieko Matsumoto and Espen Uleberg. *Exploring Oceans of Data, proceedings of the 44th Conference on Computer Applications and Quantitative Methods in Archaeology, CAA 2016*, Archaeopress, 2018, pp 311-324.
