@@ -4,7 +4,7 @@ author: "Thomas Huet"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Graph and Spatial Analysis of Iconography for Archaeology}
-  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEngine{rmarkdown::render}
   %\VignetteEncoding{UTF-8}
 ---
 
