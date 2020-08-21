@@ -80,7 +80,7 @@ melt.df.same_edges <- melt(as.matrix(df.same_edges))
 heat.mat <- ggplot(data = melt.df.same_edges, aes(x=Var1, y=Var2, fill=value)) + 
   ggtitle(paste0("counts of edges with the same 'type'",
                  "\nbetween ",nrow(df.same_edges)," decorations"))+
-  geom_tile(na.rm = T) +
+  geom_tile(na.rm = TRUE) +
   scale_fill_gradient2(na.value = 'white',
                        breaks=c(1,3,8,12,18))+
   geom_text(aes(Var1, Var2, label = value),
