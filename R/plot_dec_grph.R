@@ -70,5 +70,6 @@ plot_dec_grph <- function(nds.df,
   img.out <- magick::image_annotate(img.out, tit.img, size = 30,
                             gravity = "southwest", color = "black")
   # img.out <- f.annotate(img.out,site,decor)
+  dev.off()
   return(img.out)
 }
