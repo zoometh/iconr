@@ -72,11 +72,11 @@ df.same_nodes
 require(ggplot2)
 require(reshape2)
 
-df.same_edges[lower.tri(df.same_edges,diag=T)] <- NA
-melt.df.same_edges <- melt(as.matrix(df.same_edges))
-heat.mat <- ggplot(data = melt.df.same_edges, aes(x=Var1, y=Var2, fill=value)) + 
-  ggtitle(paste0("counts of edges with the same 'type'",
-                 "\nbetween ",nrow(df.same_edges)," decorations"))+
+df.same_nodes[lower.tri(df.same_nodes,diag=T)] <- NA
+melt.df.same_nodes <- melt(as.matrix(df.same_nodes))
+heat.mat <- ggplot(data = melt.df.same_nodes, aes(x=Var1, y=Var2, fill=value)) + 
+  ggtitle(paste0("counts of nodes with the same 'type'",
+                 "\nbetween ",nrow(df.same_nodes)," decorations"))+
   geom_tile(na.rm = T) +
   scale_fill_gradient2(na.value = 'white',
                        breaks=c(1,3,8,12,18))+
