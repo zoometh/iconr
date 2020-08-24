@@ -1,4 +1,5 @@
 plot_nds_compar <- function(listg,graph2){
+  # TODO: plot the field on wich the comparison is done one each node
   # a manner to use only plot()
   # listg <- g.compar ; graph2 <- c(1,4)
   # get row index in tcompar
