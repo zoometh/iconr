@@ -16,5 +16,5 @@ plot_nds_compar <- function(listg,graph2){
   side_plot_nds(g,1); side_plot_nds(g,2) # call to plot
   graphics::mtext(tit, side = 1, line = -1, outer = TRUE)
   grDevices::dev.off()
-  # shell.exec(out.compar)
+  shell.exec(out.compar)
 }
