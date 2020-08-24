@@ -7,7 +7,7 @@ plot_dec_grph <- function(nds.df,
                           lbl.txt='id',
                           nd.color='orange',
                           nd.size=1.7,
-                          lbl.color='orange',
+                          lbl.color='white',
                           lbl.size=1.2,
                           ed.color='orange',
                           ed.lwd=4){
