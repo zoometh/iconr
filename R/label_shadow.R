@@ -13,5 +13,5 @@ labels_shadow <- function (x, y, labels, col, bg = "white",
                    labels, col = "white", ...)
   }
   # foreground
-  graphics::text(xy$x, xy$y, labels, col = "orange", ...)
+  graphics::text(xy$x, xy$y, labels, col = col, ...)
 }
