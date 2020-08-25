@@ -13,7 +13,7 @@ list_eds_compar <- function(lgrph,
   }
   grphAllcompar <- list()
   for (dec in 1:nrow(ldec.comp)){
-    # dec <- 1
+    # dec <- 3
     A <- ldec.comp[dec,][1]
     B <- ldec.comp[dec,][2]
     # get index in the list
@@ -56,6 +56,7 @@ list_eds_compar <- function(lgrph,
     grph.comp <- list(gA,gB)
     grph2compar <- list() # out list
     for(g in 1:length(grph.comp)){
+      # loop through A and B
       # g <- 1
       grp <- grph.comp[[g]]
       g.sz <- igraph::gsize(grp) # by edges
@@ -83,12 +84,15 @@ list_eds_compar <- function(lgrph,
             flag.same <- TRUE
           }
         }
+        # common vs different
         if(flag.same){
           grp <- igraph::set_edge_attr(grp, "color", index = e, common.eds.color)
           grp <- igraph::set_edge_attr(grp, "width", index = e, common.eds.width)
+          grp <- igraph::set_edge_attr(grp, "comm", index = e, 1)
         } else {
           grp <- igraph::set_edge_attr(grp, "color", index = e, different.eds.color)
           grp <- igraph::set_edge_attr(grp, "width", index = e, different.eds.width)
+          grp <- igraph::set_edge_attr(grp, "comm", index = e, 0)
         }
       }
       grph2compar[[length(grph2compar)+1]] <- grp # recompose list
