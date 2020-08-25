@@ -7,7 +7,9 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-plot_eds_compar(listg,graph2)
+plot_eds_compar(listg,
+                graph2,
+               var="type")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,6 +20,10 @@ plot_eds_compar(listg,graph2)
     \item{graph2}{
 %%     ~~Describe \code{x} here~~
     a vector with the two idf of the graphs
+}
+      \item{var}{
+%%     ~~Describe \code{x} here~~
+    the filed on which the comparison will be done, by default 'type'
 }
 }
 \details{
