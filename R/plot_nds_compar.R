@@ -1,4 +1,4 @@
-plot_nds_compar <- function(listg,graph2){
+plot_nds_compar <- function(listg,graph2,var){
   # TODO: plot the field on wich the comparison is done one each node
   # a manner to use only plot()
   # listg <- g.compar ; graph2 <- c(1,4)
@@ -14,8 +14,8 @@ plot_nds_compar <- function(listg,graph2){
   grDevices::png(out.compar,width = 14,height=7, units = "cm", res=300)
   graphics::par(mfrow=c(1,2),
                 mar=c(0,0,0,0))    # set the plotting area into a 1*2 array
-  side_plot_nds(g,1); side_plot_nds(g,2) # call to plot
-  graphics::mtext(tit, side = 1, line = -1, outer = TRUE)
+  side_plot_nds(g,1,var); side_plot_nds(g,2,var) # call to plot
+  graphics::mtext(tit, side = 1, line = -1, outer = TRUE, cex=0.8)
   grDevices::dev.off()
   # shell.exec(out.compar)
 }
