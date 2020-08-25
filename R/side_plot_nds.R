@@ -1,6 +1,6 @@
 side_plot_nds <- function(g,idf,var){
   # a manner to use only plot()
-  # idf <- 1
+  # idf <- 1 ; var <- "type"
   grp <- g[[idf]]
   dec.img <- magick::image_read(grp$img)
   # add the decor site and name
@@ -39,15 +39,15 @@ side_plot_nds <- function(g,idf,var){
                     lwd=g.edges[edg,"width"],col="orange")
   }
   for (nd in 1:nrow(g.nodes)){
-    graphics::points(c(g.nodes[nd,]$x), c(g.nodes[nd,]$y),
+    graphics::points(c(g.nodes[nd,"x"]), c(g.nodes[nd,"y"]),
                      pch=16,cex=g.nodes[nd,"cex"],col=g.nodes[nd,"color"])
   }
   for (nd.c in 1:nrow(nds.lbl)){
     # common nodes (end of common edges)
     # label on the node coordinates
-    labels_shadow(nds.lbl[nd.c,]$x,nds.lbl[nd.c,]$y,
-                  label=as.character(nds.lbl[nd.c,var]),
-                  col=common.color,
+    labels_shadow(nds.lbl[nd.c,"x"],nds.lbl[nd.c,"y"],
+                  label=nds.lbl[nd.c,var],
+                  col=nds.lbl[nd.c,"color"],
                   bg="white",
                   cex=0.4,
                   r=0.2)
