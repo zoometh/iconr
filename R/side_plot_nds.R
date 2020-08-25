@@ -1,8 +1,13 @@
-side_plot_nds <- function(g,idf){
+side_plot_nds <- function(g,idf,var){
   # a manner to use only plot()
-  # idf <- 2 ; g <- g
+  # idf <- 1
   grp <- g[[idf]]
-  drawing.decor <- grDevices::as.raster(magick::image_read(grp$img))
+  dec.img <- magick::image_read(grp$img)
+  # add the decor site and name
+  dec.img <- magick::image_annotate(dec.img,
+                                    paste0(grp$site,"\n",grp$decor),
+                                    gravity="northwest",size=20)
+  drawing.decor <- grDevices::as.raster(dec.img)
   graphics::plot(drawing.decor)
   offset.img <- dim(drawing.decor)[1] # offset depend on raster size
   # points(100,300)
@@ -20,6 +25,10 @@ side_plot_nds <- function(g,idf){
   # igraph::as_data_frame(grp, what="vertices")
   g.nodes <- igraph::as_data_frame(grp, what="vertices")
   g.nodes$y <- offset.img+g.nodes$y # add the offset
+  common.color <- unique(subset(g.nodes, comm == 1)$color)
+  # get common nodes (to plot labels)
+  as <- subset(g.nodes, comm == 1)$idf
+  nds.lbl <- subset(g.nodes, idf %in% as)
   # g.nodes <- cbind(igraph::as_data_frame(grp, what="vertices"),nds.xy) # bind to get coordinates & colors
   # graph.j <- edges[edges$site==gA$site & edges$decor==gA$decor,]
   g.edges <- cbind(igraph::as_data_frame(grp),eds.xy) # bind to get coordinates & colors
@@ -32,5 +41,15 @@ side_plot_nds <- function(g,idf){
   for (nd in 1:nrow(g.nodes)){
     graphics::points(c(g.nodes[nd,]$x), c(g.nodes[nd,]$y),
                      pch=16,cex=g.nodes[nd,"cex"],col=g.nodes[nd,"color"])
+  }
+  for (nd.c in 1:nrow(nds.lbl)){
+    # common nodes (end of common edges)
+    # label on the node coordinates
+    labels_shadow(nds.lbl[nd.c,]$x,nds.lbl[nd.c,]$y,
+                  label=as.character(nds.lbl[nd.c,var]),
+                  col=common.color,
+                  bg="white",
+                  cex=0.4,
+                  r=0.2)
   }
 }
