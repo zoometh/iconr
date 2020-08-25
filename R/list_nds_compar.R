@@ -44,15 +44,13 @@ list_nds_compar <- function(lgrph,
         # n <- 2
         a.n <- eval(parse(text=paste0("igraph::V(grp)[n]$",var))) # useful to get var
         if(a.n %in% common.nodes){
-          grp <- igraph::set_vertex_attr(grp, "color", index = n,
-                                         common.nds.color)
-          grp <- igraph::set_vertex_attr(grp, "cex", index = n, 
-                                       common.nds.size)
+          grp <- igraph::set_vertex_attr(grp, "color", index = n, common.nds.color)
+          grp <- igraph::set_vertex_attr(grp, "cex", index = n, common.nds.size)
+          grp <- igraph::set_vertex_attr(grp, "comm", index = n, 1)
         } else {
-          grp <- igraph::set_vertex_attr(grp, "color", index = n,
-                                         different.nds.color)
-          grp <- igraph::set_vertex_attr(grp, "cex", index = n, 
-                                       different.nds.size)
+          grp <- igraph::set_vertex_attr(grp, "color", index = n, different.nds.color)
+          grp <- igraph::set_vertex_attr(grp, "cex", index = n, different.nds.size)
+          grp <- igraph::set_vertex_attr(grp, "comm", index = n, 0)
         }
       }
       grph2compar[[length(grph2compar)+1]] <- grp # recompose list
