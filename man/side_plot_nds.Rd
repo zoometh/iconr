@@ -7,7 +7,9 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-side_plot_nds(g,idf)
+side_plot_nds(g,
+              idf,
+              var)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,6 +20,10 @@ side_plot_nds(g,idf)
           \item{idf}{
 %%     ~~Describe \code{x} here~~
     index of the first graph or index of the second graph
+}
+              \item{var}{
+%%     ~~Describe \code{x} here~~
+    the field on which the comparison will be done
 }
 }
 \details{
