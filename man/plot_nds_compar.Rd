@@ -8,7 +8,8 @@
 }
 \usage{
 plot_nds_compar(listg,
-                graph2)
+                graph2,
+                var)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -19,6 +20,10 @@ plot_nds_compar(listg,
     \item{graph2}{
 %%     ~~Describe \code{x} here~~
     a vector with the two idf of the graphs
+}
+        \item{var}{
+%%     ~~Describe \code{x} here~~
+    the filed on which the comparison will be done, by default 'type'
 }
 }
 \details{
