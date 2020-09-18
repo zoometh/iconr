@@ -1,9 +1,9 @@
 \name{list_dec}
 \alias{list_dec}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Store Graphs in a List}
+\title{Create graphs for decoration and store them in a list}
 \description{
-  Store graphs in a list. Names of graphs refers to 'idf' field in the 'imgs' dataframe. Names of nodes depends on 'var' value, by default 'var' is the "type" field.
+  Create undireted graphs from nodes, edges and images dataframes by decorations. Store the graphs decoration in a list. Names of graphs refers to \code{imgs$idf}. Names of nodes depends on 'var' value, by default 'var' is the "type" field.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -67,6 +67,7 @@ edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 # create the list of graphs
 lgrph <- list_dec(imgs,nodes,edges,var="type")
+  
 # get the first graph
 g <- lgrph[[1]]
 g
@@ -80,7 +81,7 @@ g
 # graph name
 g$name
 # [1] 1
-
+  
 # nb of nodes
 igraph::gorder(g)
 # [1] 7
