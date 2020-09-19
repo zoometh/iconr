@@ -3,7 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Create graphs for decoration and store them in a list}
 \description{
-  Create undireted graphs for eac decoration from nodes, edges and images dataframes (\code{imgs$idf},\code{imgs$idf},\code{imgs$idf}). Store the graphs decoration in a list. 
+  Create undireted graphs for each decoration from nodes, edges and images dataframes (\code{imgs$idf},\code{imgs$idf},\code{imgs$idf}). Store the graphs decoration in a list. 
   Graphs names refer to \code{imgs$idf}. Nodes names depend on 'var' value, by default 'var' is \code{nodes$type}.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
@@ -17,19 +17,19 @@
 \arguments{
       \item{imgs}{
 %%     ~~Describe \code{x} here~~
-    listing of decorations
+    dataframe of decorations
 }
         \item{nodes}{
 %%     ~~Describe \code{x} here~~
-    nodes
+    dataframe of nodes
 }
           \item{edges}{
 %%     ~~Describe \code{x} here~~
-    edges
+    dataframe of edges
 }
             \item{var}{
 %%     ~~Describe \code{x} here~~
-    field name in 'nodes' used for further analysis, by default this is the "type" field
+    by default 'var' is \code{nodes$type}
 }
 }
 \details{
@@ -59,12 +59,13 @@
 \examples{
 # set wd to data folder
 setwd(system.file("extdata", package = "decorr"))
+  
 # read imgs, nodes and edges dataframes
-imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
+imgs <- read.table(system.file("extdata", "imgs.csv", package = "decorr"),
                    sep="\t",stringsAsFactors = FALSE)
-nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
+nodes <- read.table(system.file("extdata", "nodes.csv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
-edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
+edges <- read.table(system.file("extdata", "edges.csv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 # create the list of graphs
 lgrph <- list_dec(imgs,nodes,edges,var="type")
