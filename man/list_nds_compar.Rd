@@ -90,6 +90,9 @@ edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
 # list graphs
 lgrph <- list_dec(imgs,nodes,edges,var="type")
 g.compar <- list_nds_compar(lgrph,"type")
+length(g.compar)
+# 6 = six pairwise comparisons   
+    
 g.compar[[1]]
 # [[1]]
 # IGRAPH 5414981 UN-B 7 8 -- 1
