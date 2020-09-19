@@ -3,7 +3,8 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Create graphs for decoration and store them in a list}
 \description{
-  Create undireted graphs from nodes, edges and images dataframes by decorations. Store the graphs decoration in a list. Names of graphs refers to \code{imgs$idf}. Names of nodes depends on 'var' value, by default 'var' is the "type" field.
+  Create undireted graphs for eac decoration from nodes, edges and images dataframes (\code{imgs$idf},\code{imgs$idf},\code{imgs$idf}). Store the graphs decoration in a list. 
+  Graphs names refer to \code{imgs$idf}. Nodes names depend on 'var' value, by default 'var' is \code{nodes$type}.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -16,7 +17,7 @@
 \arguments{
       \item{imgs}{
 %%     ~~Describe \code{x} here~~
-    list of decorations
+    listing of decorations
 }
         \item{nodes}{
 %%     ~~Describe \code{x} here~~
