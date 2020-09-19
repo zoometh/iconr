@@ -3,7 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Plot Geometric Graph on a Picture of the Decoration}
 \description{
-  Plot a peometric graph (i.e. planar graph) over a decoration image, for nodes only, for edges only, or for both
+  Plot a geometric graph (i.e. planar graph) over a decoration image, for nodes only, for edges only, or for both
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -45,11 +45,11 @@ plot_dec_grph(nds.df,
 }
             \item{shw}{
 %%     ~~Describe \code{x} here~~
-    show only 'nodes' (by default), only 'edges', or both c('nodes','edges')
+    show only \code{nodes} (by default), only \code{edges}, or both \code{c('nodes','edges')}
 }
               \item{lbl.txt}{
 %%     ~~Describe \code{x} here~~
-    fieldname of the nodes that will be displayed, by default nodes 'id' 
+    fieldname of the nodes that will be displayed, by default the identifier \code{nodes$id} 
 }
               \item{nd.color,
                     nd.size,
@@ -58,7 +58,7 @@ plot_dec_grph(nds.df,
                     ed.color,
                     ed.lwd}{
 %%     ~~Describe \code{x} here~~
-    graphical parameters for node/edges colors, node/edges size, text size, etc.
+    graphical parameters for node and/or edges colors, size, label size, etc.
 }
 }
 \details{
@@ -70,7 +70,7 @@ plot_dec_grph(nds.df,
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-  create a 'magick-image'
+  create a R 'magick-image' with the planar graph overlapping the decoration image
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -87,6 +87,7 @@ plot_dec_grph(nds.df,
 \examples{
 # set wd to data folder
 setwd(system.file("extdata", package = "decorr"))
+  
 # read nodes and edges
 nds.df <- read_nds(site = "Cerro Muriano",decor = "Cerro Muriano 1",dev = ".tsv")
 eds.df <- read_eds(site = "Cerro Muriano",decor = "Cerro Muriano 1",dev = ".tsv")
