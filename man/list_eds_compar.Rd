@@ -1,9 +1,12 @@
 \name{list_eds_compar}
 \alias{list_eds_compar}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Graph Pairwise Comparison with Common Edges}
+\title{Graph Pairwise Comparison on Common Edges}
 \description{
-  List of graph pairwise comparisons on common edges with common edges identified by different colors and/or widths
+  List of undirected graph pairwise comparisons on common edges. 
+  Common edges between two graphs are edges that have the same type of nodes ('horse','sword',...) and the same type of edge ('=','+',...).
+  For example \code{a -=- b} in graph 1 is equal to \code{b -=- a} in graph 2, but not to \code{b -+- a} or \code{b -=- c}.
+  Common edges are identified by different colors and/or widths
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -19,31 +22,31 @@ list_eds_compar(lgrph,
 \arguments{
   \item{lgrph}{
 %%     ~~Describe \code{x} here~~
-    a list of graph obtained with the function 'list.dec'
+    a list of graph obtained with the function \code{list.dec()}
 }
     \item{var}{
 %%     ~~Describe \code{x} here~~
-    a field on which the comparison will be done, by default "type" ('=','+',...)
+    a field of \code{edges} dataframe on which the comparison will be done, by default \code{edges$type}
 }
     \item{common.eds.color}{
 %%     ~~Describe \code{x} here~~
-    color for edges common between two graphs
+    color for common edges, by default \code{red}
 }
       \item{different.eds.color}{
 %%     ~~Describe \code{x} here~~
-    color for edges different between two graphs
+    color for different edges, by default \code{orange}
 }
         \item{common.eds.width}{
 %%     ~~Describe \code{x} here~~
-    width for edges common between two graphs
+    width for common edges, by default \code{2}
 }
           \item{different.eds.width}{
 %%     ~~Describe \code{x} here~~
-    width for edges different between two graphs
+    width for different edges, by default \code{1}
 }
             \item{verbose}{
 %%     ~~Describe \code{x} here~~
-    verbose
+    verbose, by default \code{FALSE}
 }
 }
 \details{
@@ -55,7 +58,7 @@ list_eds_compar(lgrph,
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-  return a list of pairwise graphs
+  return a list of graphs pairwise comparisons
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -77,6 +80,7 @@ list_eds_compar(lgrph,
 \examples{
 # set wd to data folder
 setwd(system.file("extdata", package = "decorr"))
+  
 # data
 imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
                    sep="\t",stringsAsFactors = FALSE)
@@ -88,9 +92,9 @@ lgrph <- list_dec(imgs,nodes,edges,var="type")
 g.compar <- list_eds_compar(lgrph,"type")
 length(g.compar)
 ## 6 = means six different pairwise comparisons
-  
-g.compar[[1]]
+
 ## 1st pairwise comparison between graph 1 and graph 2
+g.compar[[1]]
 # [[1]]
 # IGRAPH 7010a0e UN-B 7 8 -- 1
 # + attr: name (g/n), site (g/c), decor (g/c), label (g/c), img (g/c), name (v/c), type (v/c), x
