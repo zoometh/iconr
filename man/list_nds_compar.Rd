@@ -1,9 +1,10 @@
 \name{list_nds_compar}
 \alias{list_nds_compar}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Graph Pairwise Comparison with Common Nodes}
+\title{Graph Pairwise Comparison on Common Nodes}
 \description{
-    List of graph pairwise comparisons on common nodes with common nodes identified by different colors and/or sizes
+    List of graph pairwise comparisons on common nodes. Common nodes are those having the same type of nodes ('horse','sword',...).
+    Common nodes are identified by different colors and/or widths.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -13,37 +14,37 @@ list_nds_compar(lgrph,
                 different.nds.color="orange",
                 common.nds.size=1,
                 different.nds.size=.5,
-                verbose=F)
+                verbose=FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{lgrph}{
 %%     ~~Describe \code{x} here~~
-    a list of graph obtained with the function 'list_dec'
+    a list of graph obtained with the function \code{list_dec}
 }
     \item{var}{
 %%     ~~Describe \code{x} here~~
-    the field on which the comparison will be done, by default "type"
+    a field of \code{nodes} dataframe on which the comparison will be done, by default \code{nodes$type}
 }
     \item{common.nds.color}{
 %%     ~~Describe \code{x} here~~
-    color for nodes common between two graphs
+    color for common nodes, by default \code{red}
 }
       \item{different.nds.color}{
 %%     ~~Describe \code{x} here~~
-    color for nodes different between two graphs
+    color for different nodes, by default \code{orange}
 }
         \item{common.nds.size}{
 %%     ~~Describe \code{x} here~~
-    size (cex) for common nodes between two graphs
+    size (\code{cex}) for common nodes between two graphs
 }
           \item{different.nds.size}{
 %%     ~~Describe \code{x} here~~
-    size (cex) for different nodes between two graphs
+    size (\code{cex}) for different nodes between two graphs
 }
             \item{verbose}{
 %%     ~~Describe \code{x} here~~
-    verbose
+    verbose, by default FALSE
 }
 }
 \details{
@@ -69,7 +70,7 @@ list_nds_compar(lgrph,
 
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{list_dec}},\code{\link[decorr]{list_eds_compar}}
+  \code{\link[decorr]{list_dec}}, \code{\link[decorr]{list_eds_compar}}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
@@ -77,6 +78,7 @@ list_nds_compar(lgrph,
 \examples{
 # set wd to data folder
 setwd(system.file("extdata", package = "decorr"))
+    
 # read graphs
 imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
                    sep="\t",stringsAsFactors = FALSE)
@@ -84,6 +86,7 @@ nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
+    
 # list graphs
 lgrph <- list_dec(imgs,nodes,edges,var="type")
 g.compar <- list_nds_compar(lgrph,"type")
