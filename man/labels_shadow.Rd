@@ -3,12 +3,19 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Drop Colored Shadow Under Labels}
 \description{
-  Plot a colored buffer to make the labels more visible
+  Plot a colored buffer to make the labels more visible. 
+  This function is the \code{shadowtext()} function developed by Greg Snow.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-labels_shadow(x, y=NULL, labels, col='white', bg='black',
-                          theta= seq(0, 2*pi, length.out=50), r=0.1, ...) 
+labels_shadow(x,
+              y=NULL,
+              labels,
+              col='white',
+              bg='black',
+              theta= seq(0, 2*pi, length.out=50),
+              r=0.1,
+              ...) 
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -46,6 +53,7 @@ labels_shadow(x, y=NULL, labels, col='white', bg='black',
 }
 \references{
 %% ~put references to the literature/web site here ~
+  https://rdrr.io/cran/TeachingDemos/man/shadowtext.html
 }
 \author{
 %%  ~~who you are~~
