@@ -7,8 +7,11 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-read_nds(site, decor, doss = getwd(), nodes = "nodes", dev =
-                    ".tsv")
+read_nds(site,
+         decor,
+         doss = getwd(),
+         nodes = "nodes",
+         dev = ".tsv")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -60,6 +63,7 @@ read_nds(site, decor, doss = getwd(), nodes = "nodes", dev =
 \examples{
 # set wd to data folder
 setwd(system.file("extdata", package = "decorr"))
+  
 # read dataframe of nodes
 nds.df <- read_nds(site = "Cerro Muriano",decor = "Cerro Muriano 1",dev = ".tsv")
 nds.df
