@@ -3,7 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Plot Two Figures Side-by-Side for Edges}
 \description{
-  Plot figures side-by-side
+  Plot figures side-by-side. This function is used by \code{\link[decorr]{plot_eds_compar}}
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
