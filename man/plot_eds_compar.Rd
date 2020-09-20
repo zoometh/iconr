@@ -4,7 +4,7 @@
 \title{Plot and Save a Figure of Edges Comparison Between Two Graphs}
 \description{
   Plot and save two figures side-by-side for a graph pairwise with common edges identified. 
-  \code{plot_eds_compar()} uses the function \code{\link[decorr]{side_plot_eds}}
+  \code{plot_eds_compar()} uses the function \code{\link[decorr]{side_plot_eds()}}
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
