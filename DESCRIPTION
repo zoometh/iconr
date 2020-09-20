@@ -15,8 +15,6 @@ Imports:
     igraph (>= 1.2.4),
     magick,
     ggplot2,
-    reshape2,
-    sp,
     raster,
     grDevices,
     graphics,
