@@ -3,7 +3,8 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Plot and Save a Figure of Edges Comparison Between Two Graphs}
 \description{
-  Plot and save two figures side-by-side for a graph pairwise with common edges identified
+  Plot and save two figures side-by-side for a graph pairwise with common edges identified. 
+  \code{plot_eds_compar()} uses the function \code{\link[decorr]{side_plot_eds}}
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -48,7 +49,7 @@ plot_eds_compar(listg,
 }
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{list_eds_compar}},\code{\link[decorr]{plot_nds_compar}}
+  \code{\link[decorr]{list_eds_compar}}, \code{\link[decorr]{plot_nds_compar}}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
