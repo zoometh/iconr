@@ -68,6 +68,7 @@ read_eds(site,
 \examples{
 # set wd to data folder
 setwd(system.file("extdata", package = "decorr"))
+  
 # read .tsv file  
 eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1", 
                    edges = "edges",dev = ".tsv")
