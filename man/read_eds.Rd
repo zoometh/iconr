@@ -7,8 +7,12 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-read_eds(site, decor, doss = getwd(), edges = "edges", nodes =
-                    "nodes", dev = ".tsv")
+read_eds(site,
+         decor,
+         doss = getwd(),
+         edges = "edges",
+         nodes = "nodes",
+         dev = ".tsv")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
