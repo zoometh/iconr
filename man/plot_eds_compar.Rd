@@ -10,7 +10,8 @@
 \usage{
 plot_eds_compar(listg,
                 graph2,
-               var="type")
+                doss=getwd(),
+                var="type")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -21,6 +22,10 @@ plot_eds_compar(listg,
     \item{graph2}{
 %%     ~~Describe \code{x} here~~
     a vector with the two idf of the graphs
+}
+      \item{doss}{
+%%     ~~Describe \code{x} here~~
+    the working directory which contains the imgs, nodes, edges dataframes and the decoration images, by default the current wd (\code{getwd()})
 }
       \item{var}{
 %%     ~~Describe \code{x} here~~
