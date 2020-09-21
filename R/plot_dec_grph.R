@@ -16,10 +16,11 @@ plot_dec_grph <- function(nds.df,
   # lbl.size=1.2 ; nd.size=1.7 ; ed.lwd <- 4
   # site <- "Cerro Muriano" ; decor <- "Cerro Muriano 1" ; 
   # shw <- "edges" ; shw <- c("nodes","edges")
-  ## nodes
-  # select
+  ## select
+  # nodes, edges
   nds.df.select <- nds.df[nds.df[,"site"]==site & nds.df[,"decor"]==decor,]
-  ## image
+  eds.df.select <- eds.df[eds.df[,"site"]==site & eds.df[,"decor"]==decor,]
+  # images
   imgs <- utils::read.table(file = paste0(doss,"/imgs.tsv"), sep = '\t', header = TRUE)
   # select
   img.select <- imgs[imgs[,"site"]==site & imgs[,"decor"]==decor,]
@@ -28,14 +29,14 @@ plot_dec_grph <- function(nds.df,
   img.in <- magick::image_read(paste0(doss,'/',img.select))
   img.out <- magick::image_draw(img.in)
   if ("edges" %in% shw){
-    for (edg in 1:nrow(eds.df)){
+    for (edg in 1:nrow(eds.df.select)){
       # edg <- 1
       # type of edge
-      ed.type <- ifelse(is.na(eds.df[edg,"type"]),1,
-                        ifelse(eds.df[edg,"type"]=='+',2,1)
+      ed.type <- ifelse(is.na(eds.df.select[edg,"type"]),1,
+                        ifelse(eds.df.select[edg,"type"]=='+',2,1)
       )
-      graphics::lines(c(eds.df[edg,"xa"],eds.df[edg,"xb"]),
-            c(abs(eds.df[edg,"ya"]),abs(eds.df[edg,"yb"])),
+      graphics::lines(c(eds.df.select[edg,"xa"],eds.df.select[edg,"xb"]),
+            c(abs(eds.df.select[edg,"ya"]),abs(eds.df.select[edg,"yb"])),
             lty=ed.type,
             lwd=ed.lwd,col=ed.color)
     }
