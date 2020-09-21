@@ -16,6 +16,6 @@ plot_eds_compar <- function(listg, graph2, doss=getwd(), var="type"){
   side_plot_eds(g, 1, doss, var); side_plot_eds(g, 2, doss, var) # call to plot
   graphics::mtext(tit, side = 1, line = -1, outer = TRUE, cex=0.8)
   grDevices::dev.off()
-  return(paste0(doss,"/",out.compar)
+  return(paste0(doss,"/",out.compar))
   # shell.exec(out.compar)
 }
