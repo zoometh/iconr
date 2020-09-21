@@ -54,9 +54,9 @@ plot_eds_compar(listg,
 }
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{list_eds_compar()}}, 
-  \code{\link[decorr]{plot_nds_compar()}}, 
-  \code{\link[decorr]{side_plot_eds()}}
+  \code{\link[decorr]{list_eds_compar}}, 
+  \code{\link[decorr]{plot_nds_compar}}, 
+  \code{\link[decorr]{side_plot_eds}}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
