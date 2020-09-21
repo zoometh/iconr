@@ -1,6 +1,6 @@
-plot_eds_compar <- function(listg,graph2,var="type"){
+plot_eds_compar <- function(listg, graph2, doss=getwd(), var="type"){
   # a manner to use only plot()
-  # listg <- g.compar ; graph2 <- c(1,4)
+  # listg <- g.compar ; graph2 <- c(1,4) ; var="type"
   # get row index in tcompar
   flistg <- unlist(listg, recursive = FALSE) # flatten list
   lidf <- unique(unlist(lapply(flistg, function(x) x$name)))
@@ -13,8 +13,9 @@ plot_eds_compar <- function(listg,graph2,var="type"){
   grDevices::png(out.compar,width = 14,height=7, units = "cm", res=300)
   graphics::par(mfrow=c(1,2),
                 mar=c(0,0,0,0))    # set the plotting area into a 1*2 array
-  side_plot_eds(g,1,var); side_plot_eds(g,2,var) # call to plot
+  side_plot_eds(g, 1, doss, var); side_plot_eds(g, 2, doss, var) # call to plot
   graphics::mtext(tit, side = 1, line = -1, outer = TRUE, cex=0.8)
   grDevices::dev.off()
+  print(getwd())
   # shell.exec(out.compar)
 }
