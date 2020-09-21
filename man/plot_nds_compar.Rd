@@ -62,8 +62,6 @@ plot_nds_compar(listg,
 
 
 \examples{
-# set wd to data folder
-setwd(system.file("extdata", package = "decorr"))
 # read data
 imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
                    sep="\t",stringsAsFactors = FALSE)
@@ -73,8 +71,11 @@ edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs,nodes,edges,var="type")
 g.compar <- list_nds_compar(lgrph,"type")
-plot_nds_compar(g.compar,c(1,4))
-# plot graph 1 and graph 4 sid-by-side with common nodes identified
+  
+# plot 
+plot_nds_compar(g.compar, c(1,4), doss = system.file("extdata", package = "decorr"))
+# two graphs side-by-side, graph 1 and graph 4, with common nodes identified on field 'type' 
+# by different colors and widths
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
