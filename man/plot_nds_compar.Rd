@@ -41,7 +41,7 @@ plot_nds_compar(listg,
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-  create a 'data.frame' with "site"  "decor" "typ"   "a"     "b"     "xa"    "ya"    "xb"    "yb"   values for each edge
+  create an image for a pairwise comparisons between two decorations nodes and return the path of this image
 }
 \references{
 %% ~put references to the literature/web site here ~
