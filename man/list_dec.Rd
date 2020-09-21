@@ -3,8 +3,8 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Create graphs for decoration and store them in a list}
 \description{
-  Create undirected graphs for each decoration from \code{nodes}, \code{edges} and \code{imgs} \emp{dataframes} and store the graphs in a list.
-  The join between these \emp{dataframes} is done on the two fields \code{site} and \code{decor}.
+  Create undirected graphs for each decoration from \code{nodes}, \code{edges} and \code{imgs} dataframes and store the graphs in a list.
+  The join between these dataframes is done on the two fields \code{site} and \code{decor}.
   Graphs names refer to \code{imgs$idf}. Nodes names depend on 'var' value, by default 'var' is \code{nodes$type}.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
