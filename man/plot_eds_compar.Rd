@@ -41,7 +41,7 @@ plot_eds_compar(listg,
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-  create a \emph{data.frame} with "site"  "decor" "typ"   "a"     "b"     "xa"    "ya"    "xb"    "yb"   values for each edge
+  create a data.frame with "site"  "decor" "typ"   "a"     "b"     "xa"    "ya"    "xb"    "yb"   values for each edge
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -54,15 +54,13 @@ plot_eds_compar(listg,
 }
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{list_eds_compar}}, \code{\link[decorr]{plot_nds_compar}}
+  \code{\link[decorr]{list_eds_compar()}}, \code{\link[decorr]{plot_nds_compar()}, \code{\link[decorr]{side_plot_eds()}}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 
 \examples{
-# set wd to data folder
-setwd(system.file("extdata", package = "decorr"))
 # read data
 imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
                    sep="\t",stringsAsFactors = FALSE)
@@ -72,8 +70,10 @@ edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs,nodes,edges,var="type")
 g.compar <- list_eds_compar(lgrph,var="type")
-plot_eds_compar(g.compar,c(1,4))
-# plot two graphs side-by-side, graph 1 and graph 4, with common edges identified on field 'type' 
+  
+# plot 
+plot_eds_compar(g.compar, c(1,4), doss = system.file("extdata", package = "decorr"))
+# two graphs side-by-side, graph 1 and graph 4, with common edges identified on field 'type' 
 # by different colors and widths
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
