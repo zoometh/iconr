@@ -27,7 +27,6 @@ plot_dec_grph <- function(nds.df,
   # load
   img.in <- magick::image_read(paste0(doss,'/',img.select))
   img.out <- magick::image_draw(img.in)
-  print(shw)
   if ("edges" %in% shw){
     for (edg in 1:nrow(eds.df)){
       # edg <- 1
