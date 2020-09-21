@@ -4,7 +4,7 @@
 \title{Plot and Save a Figure of Nodes Comparison Between Two Graphs}
 \description{
   Plot and save two figures side-by-side for a graph pairwise with common nodes identified.
-  \code{plot_nds_compar()} uses the function \code{\link[decorr]{side_plot_nds()}}
+  \code{plot_nds_compar()} uses the function \code{\link[decorr]{side_plot_nds}}
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -55,9 +55,9 @@ plot_nds_compar(listg,
 
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{list_nds_compar()}},
-  \code{\link[decorr]{plot_eds_compar()}},
-  \code{\link[decorr]{side_plot_nds()}}
+  \code{\link[decorr]{list_nds_compar}},
+  \code{\link[decorr]{plot_eds_compar}},
+  \code{\link[decorr]{side_plot_nds}}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
