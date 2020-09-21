@@ -1,8 +1,8 @@
-side_plot_nds <- function(g,idf,var){
+side_plot_nds <- function(g, idf, doss, var){
   # a manner to use only plot()
   # idf <- 1 ; var <- "type"
   grp <- g[[idf]]
-  dec.img <- magick::image_read(grp$img)
+  dec.img <- magick::image_read(paste0(doss, "/", grp$img))
   # add the decor site and name
   dec.img <- magick::image_annotate(dec.img,
                                     paste0(grp$site,"\n",grp$decor),
@@ -13,11 +13,11 @@ side_plot_nds <- function(g,idf,var){
   # points(100,300)
   # add all edges
   # igraph::as_data_frame(gA)
-  eds.xy <- read_eds(site = grp$site,decor = grp$decor)
+  eds.xy <- read_eds(doss = doss, site = grp$site, decor = grp$decor)
   eds.xy$ya <- offset.img+eds.xy$ya # add the offset
   eds.xy$yb <- offset.img+eds.xy$yb # add the offset
   # eds.xy$ya <- abs(eds.xy$ya) ; eds.xy$yb <- abs(eds.xy$yb) # abs()
-  nds.xy <- read_nds(site = grp$site,decor = grp$decor)
+  nds.xy <- read_nds(doss = doss, site = grp$site, decor = grp$decor)
   nds.xy$y <- offset.img+nds.xy$y # add the offset
   # nds.xy$y <- abs(nds.xy$y) # abs()
   # modify idf of vertex because maybe two identical
