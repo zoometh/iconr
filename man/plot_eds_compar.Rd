@@ -63,6 +63,7 @@ plot_eds_compar(listg,
 
 
 \examples{
+  
 # read data
 imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
                    sep="\t",stringsAsFactors = FALSE)
