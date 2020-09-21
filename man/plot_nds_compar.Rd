@@ -10,6 +10,7 @@
 \usage{
 plot_nds_compar(listg,
                 graph2,
+                doss=getwd(),
                 var)
 }
 %- maybe also 'usage' for other objects documented here.
@@ -21,6 +22,10 @@ plot_nds_compar(listg,
     \item{graph2}{
 %%     ~~Describe \code{x} here~~
     a vector with the two idf of the graphs
+}
+        \item{doss}{
+%%     ~~Describe \code{x} here~~
+    the working directory which contains the imgs, nodes, edges dataframes and the decoration images, by default the current wd (\code{getwd()})
 }
         \item{var}{
 %%     ~~Describe \code{x} here~~
