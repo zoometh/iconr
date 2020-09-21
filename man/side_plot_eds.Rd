@@ -9,6 +9,7 @@
 \usage{
 side_plot_eds(g,
               idf,
+              doss,
               var)
 }
 %- maybe also 'usage' for other objects documented here.
@@ -20,6 +21,10 @@ side_plot_eds(g,
           \item{idf}{
 %%     ~~Describe \code{x} here~~
     index of the first graph or index of the second graph
+}
+          \item{doss}{
+%%     ~~Describe \code{x} here~~
+    the working directory which contains the imgs, nodes, edges dataframes and the decoration images
 }
             \item{var}{
 %%     ~~Describe \code{x} here~~
