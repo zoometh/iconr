@@ -6,7 +6,7 @@ plot_eds_compar <- function(listg, graph2, doss=getwd(), var="type"){
   ridx <- which(ldec.comp[,1] == A & ldec.comp[,2] == B, arr.ind = T)
   g <- listg[[ridx]]
   out.compar <- paste0("compar_eds_", as.character(A), "_", as.character(B), ".png")
-  tit <- paste0("compare decorations '", A,"' and '",B,"' on '",var,"'")
+  tit <- paste0("edges: compare decorations '", A,"' and '",B,"' on '",var,"'")
   grDevices::png(out.compar, width = 14, height=7, units = "cm", res=300)
   graphics::par(mfrow=c(1,2),
                 mar=c(0,0,0,0))    # set the plotting area into a 1*2 array
