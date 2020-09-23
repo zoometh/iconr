@@ -6,7 +6,7 @@ plot_nds_compar <- function(listg, graph2, doss=getwd(), var="type"){
   ridx <- which(ldec.comp[,1] == A & ldec.comp[,2] == B, arr.ind = T)
   g <- listg[[ridx]] # a row = two graphs
   out.compar <- paste0("compar_nds_",as.character(A),"_",as.character(B),".png")
-  tit <- paste0("compare nodes of decorations '",A,"' and '",B,"'")
+  tit <- paste0("nodes: compare decorations '",A,"' and '",B,"'")
   grDevices::png(out.compar, width = 14, height=7, units = "cm", res=300)
   graphics::par(mfrow=c(1,2),
                 mar=c(0,0,0,0))    # set the plotting area into a 1*2 array
