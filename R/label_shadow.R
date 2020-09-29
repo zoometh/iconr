@@ -1,4 +1,4 @@
-labels_shadow <- function (x, y, labels, col, bg = "white", 
+labels_shadow <- function (x, y = NULL, labels, col = "black", bg = "white", 
           theta = seq(0, 2 * pi, length.out = 50), r = 0.1, ...) 
 {
   # all credits of the function go to Greg Snow
