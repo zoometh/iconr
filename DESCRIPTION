@@ -24,4 +24,4 @@ Suggests:
     ggplot2,
     knitr,
     rmarkdown,
-VignetteBuilder: rmarkdown, knitr
+VignetteBuilder: knitr
