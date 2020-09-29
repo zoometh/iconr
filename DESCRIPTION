@@ -15,6 +15,7 @@ Imports:
     igraph (>= 1.2.4),
     magick,
     rgdal,
+    reshape2,
     grDevices,
     graphics,
     methods,
