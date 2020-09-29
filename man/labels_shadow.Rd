@@ -11,8 +11,8 @@
 labels_shadow(x,
               y=NULL,
               labels,
-              col='white',
-              bg='black',
+              col='black',
+              bg='white',
               theta= seq(0, 2*pi, length.out=50),
               r=0.1,
               ...) 
