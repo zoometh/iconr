@@ -32,9 +32,10 @@ plot_dec_grph <- function(nds.df,
     for (edg in 1:nrow(eds.df.select)){
       # edg <- 1
       # type of edge
-      ed.type <- ifelse(is.na(eds.df.select[edg,"type"]), 1,
-                        ifelse(eds.df.select[edg,"type"]=='+'), 2,
-                               ifelse(eds.df.select[edg,"type"]=='>'), 2, 1
+      ed.type <- ifelse(eds.df.select[edg,"type"], 1,
+                        (ifelse(eds.df.select[edg,"type"]=='+', 2, 
+                                ifelse(eds.df.select[edg,"type"]=='>', 2, 1))
+                        )
       )
       graphics::lines(c(eds.df.select[edg,"xa"],eds.df.select[edg,"xb"]),
             c(abs(eds.df.select[edg,"ya"]),abs(eds.df.select[edg,"yb"])),
