@@ -72,7 +72,7 @@ df.same_nodes
 require(ggplot2)
 require(reshape2)
 
-df.same_nodes[lower.tri(df.same_nodes,diag=T)] <- NA
+df.same_nodes[lower.tri(df.same_nodes,diag=TRUE)] <- NA
 melt.df.same_nodes <- melt(as.matrix(df.same_nodes))
 heat.mat <- ggplot(data = melt.df.same_nodes, aes(x=Var1, y=Var2, fill=value)) + 
   ggtitle(paste0("counts of nodes with the same 'type'",
