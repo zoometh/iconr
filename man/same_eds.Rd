@@ -76,7 +76,7 @@ df.same_edges
 require(ggplot2)
 require(reshape2)
 
-df.same_edges[lower.tri(df.same_edges,diag=T)] <- NA
+df.same_edges[lower.tri(df.same_edges, diag = TRUE)] <- NA
 melt.df.same_edges <- melt(as.matrix(df.same_edges))
 heat.mat <- ggplot(data = melt.df.same_edges, aes(x=Var1, y=Var2, fill=value)) + 
   ggtitle(paste0("counts of edges with the same 'type'",
