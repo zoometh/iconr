@@ -4,7 +4,7 @@ list_nds_compar <- function(lgrph,
                             different.nds.color="orange",
                             common.nds.size=1,
                             different.nds.size=.5,
-                            verbose=F){
+                            verbose=FALSE){
   # verbose <- T ; var <- "type"
   lidf <- unlist(lapply(lgrph, function(x) x$name))
   ldec.comp <- t(utils::combn(lidf, 2)) # all pairwise comparisons
