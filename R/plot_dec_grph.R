@@ -32,7 +32,7 @@ plot_dec_grph <- function(nds.df,
     for (edg in 1:nrow(eds.df.select)){
       # edg <- 1
       # type of edge
-      ed.type <- ifelse(eds.df.select[edg,"type"], 1,
+      ed.type <- ifelse(eds.df.select[edg,"type"]=='=', 1,
                         (ifelse(eds.df.select[edg,"type"]=='+', 2, 
                                 ifelse(eds.df.select[edg,"type"]=='>', 2, 1))
                         )
