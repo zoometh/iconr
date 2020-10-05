@@ -3,7 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Plot and Save a Figure of Nodes Comparison Between Two Graphs}
 \description{
-  Save an image of common edges for a two graphs pairwise comparison   
+  Save an image of common nodes for a two graphs pairwise comparison   
   and return the path of the image.
   \code{plot_nds_compar()} uses the function \code{\link[decorr]{side_plot_nds}}
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
