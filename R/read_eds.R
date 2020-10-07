@@ -1,4 +1,4 @@
-read_eds <- function(site,decor,doss=getwd(),edges="edges",nodes="nodes",dev=".tsv"){
+read_eds <- function(site, decor, doss=getwd(), edges="edges", nodes="nodes", dev=".tsv"){
   # doss <- doss.extdata ; edges <- "edges" ; dev <- ".shp"
   # doss <- doss.extdata ; edges <- "edges" ; dev <- ".tsv"
   # nodes <- "nodes"
@@ -12,10 +12,10 @@ read_eds <- function(site,decor,doss=getwd(),edges="edges",nodes="nodes",dev=".t
   # choice: tsv
   if(dev==".tsv"){
     # read nodes to get coordinates
-    flag.coords <- F
+    flag.coords <- FALSE
     if(file.exists(paste0(doss,'/',nodes,".tsv"))){
       nds.df <- read_nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".tsv")
-      flag.coords <- T
+      flag.coords <- TRUE
     }
     eds.df <- utils::read.table(file = paste0(doss,"/",edges,dev), sep = '\t', header = TRUE)
     eds.df <- eds.df[eds.df[,"site"]==site & eds.df[,"decor"]==decor,]
@@ -36,8 +36,8 @@ read_eds <- function(site,decor,doss=getwd(),edges="edges",nodes="nodes",dev=".t
   if(dev==".shp"){
     if(file.exists(paste0(doss,'/',nodes,".shp"))){
       nds.df <- read_nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".shp")
-      flag.coords <- T
-    }
+      flag.coords <- TRUE
+    } else {flag.coords <- FALSE}
     if(!flag.coords){
       return(paste0("Error: coordinates of the edges cannot be calculated",
                     "\ncreate first a nodes dataframe or a nodes shapefile",
