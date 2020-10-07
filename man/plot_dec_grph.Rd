@@ -85,16 +85,19 @@ plot_dec_grph(nds.df,
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \examples{
-# set wd to data folder
-setwd(system.file("extdata", package = "decorr"))
+# set data folder
+dataDir <- system.file("extdata", package = "decorr")
   
 # read nodes and edges
-nds.df <- read_nds(site = "Cerro Muriano",decor = "Cerro Muriano 1",dev = ".tsv")
-eds.df <- read_eds(site = "Cerro Muriano",decor = "Cerro Muriano 1",dev = ".tsv")
+nds.df <- read_nds( site = "Cerro Muriano", decor = "Cerro Muriano 1",
+					doss = dataDir, dev = ".tsv")
+eds.df <- read_eds(	site = "Cerro Muriano", decor = "Cerro Muriano 1",
+					doss = dataDir, dev = ".tsv")
 img.graph <- plot_dec_grph(nds.df = nds.df,
                            eds.df = eds.df,
                            site = "Cerro Muriano",
                            decor = "Cerro Muriano 1",
+                           doss = dataDir,
                            lbl.txt = "type",
                            shw = c("nodes","edges"))
 img.graph
