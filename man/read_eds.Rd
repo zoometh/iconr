@@ -71,7 +71,7 @@ dataDir <- system.file("extdata", package = "decorr")
   
 # read .tsv file  
 eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1", 
-                   doss = dataDir, edges = "edges",dev = ".tsv")
+                   doss = dataDir, edges = "edges", dev = ".tsv")
 eds.df
 # site           decor a b type       xa        ya       xb        yb
 # 1 Cerro Muriano Cerro Muriano 1 1 8    = 349.8148 -298.3244 451.1489 -237.4782
@@ -83,9 +83,9 @@ eds.df
 # 7 Cerro Muriano Cerro Muriano 1 1 7    + 349.8148 -298.3244 342.6884 -427.4917
 # 8 Cerro Muriano Cerro Muriano 1 3 1    = 238.4637 -298.3244 349.8148 -298.3244
 
-# read shapefile 
+# from shapefile 
 eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1",
-                   edges = "edges",dev = ".shp")
+                   doss = dataDir, edges = "edges", dev = ".shp")
 eds.df
 # site           decor a b type       xa        ya       xb        yb
 # 1 Cerro Muriano Cerro Muriano 1 1 8    = 349.8148 -298.3244 451.1489 -237.4782
