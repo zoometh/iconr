@@ -65,8 +65,8 @@ read_nds(site,
 dataDir <- system.file("extdata", package = "decorr")
   
 # read dataframe of nodes
-nds.df <- read_nds(	site = "Cerro Muriano", decor = "Cerro Muriano 1",
-					doss = dataDir, dev = ".tsv")
+nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1",
+		   doss = dataDir, dev = ".tsv")
 nds.df
 
 # site           decor id          type        x         y
@@ -78,8 +78,9 @@ nds.df
 # 6 Cerro Muriano Cerro Muriano 1  7 sexe_masculin 342.6884 -427.4917
 # 7 Cerro Muriano Cerro Muriano 1  8    lingot_pdb 451.1489 -237.4782
   
-# read shapefile of nodes
-nds.df <- read_nds(site = "Cerro Muriano",decor = "Cerro Muriano 1",dev = ".shp")
+# from shapefile
+nds.df <- read_nds(site = "Cerro Muriano",decor = "Cerro Muriano 1", 
+		   doss = dataDir, dev = ".shp")
 nds.df
 
 # site           decor id          type        x         y
@@ -90,7 +91,6 @@ nds.df
 # 5 Cerro Muriano Cerro Muriano 1  5        peigne 283.0041 -358.0086
 # 6 Cerro Muriano Cerro Muriano 1  7 sexe_masculin 342.6884 -427.4917
 # 7 Cerro Muriano Cerro Muriano 1  8    lingot_pdb 451.1489 -237.4782
-  
   
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
