@@ -14,7 +14,7 @@ read_eds <- function(site, decor, doss=getwd(), edges="edges", nodes="nodes", de
     # read nodes to get coordinates
     flag.coords <- FALSE
     if(file.exists(paste0(doss,'/',nodes,".tsv"))){
-      nds.df <- read_nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".tsv")
+      nds.df <- read_nds(doss = doss, site = site, decor = decor, nodes = "nodes", dev = ".tsv")
       flag.coords <- TRUE
     }
     eds.df <- utils::read.table(file = paste0(doss,"/",edges,dev), sep = '\t', header = TRUE)
