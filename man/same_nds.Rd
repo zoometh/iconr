@@ -50,8 +50,6 @@
 
 
 \examples{
-# set wd to data folder
-setwd(system.file("extdata", package = "decorr"))
 # read imgs, nodes and edges dataframes
 imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
                    sep="\t",stringsAsFactors = FALSE)

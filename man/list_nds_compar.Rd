@@ -76,9 +76,6 @@ list_nds_compar(lgrph,
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \examples{
-# set wd to data folder
-setwd(system.file("extdata", package = "decorr"))
-    
 # read graphs
 imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
                    sep="\t",stringsAsFactors = FALSE)
