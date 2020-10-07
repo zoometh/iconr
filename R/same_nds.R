@@ -1,5 +1,4 @@
 same_nds <- function(lgrph, var = "type") {
-    # var = 'type'
     lgrph_nmes <- unlist(lapply(lgrph, function(x) x$name))  # get names
     lcomp <- as.data.frame(t(utils::combn(lgrph_nmes, 2)))
     mat.same_nodes <- matrix(nrow = length(lgrph), ncol = length(lgrph))
