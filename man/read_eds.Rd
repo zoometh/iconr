@@ -3,7 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Read Edges of a Decoration}
 \description{
-  Read a '.tsv' or a '.shp' file of edges
+  Read a '.tsv', a '.csv' or a '.shp' file of edges
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -38,7 +38,7 @@ read_eds(site,
 }
               \item{dev}{
 %%     ~~Describe \code{x} here~~
-    a device '.tsv' or '.shp'
+    a device '.tsv', '.csv' (with ';' separated values) or '.shp'
 }
 }
 \details{
