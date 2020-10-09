@@ -1,0 +1,141 @@
+---
+title: "Graph and Spatial Analysis of Iconography for Archaeology"
+author: "Thomas Huet"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Graph and Spatial Analysis of Iconography for Archaeology}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+references:
+- id: Huet18
+  title: Geometric graphs to study ceramic decoration
+  author:
+  - family: Huet
+    given: Thomas
+  container-title: Proceedings of the 44th Conference on Computer Applications and Quantitative Methods in Archaeology, CAA 2016
+  publisher: Archaeopress
+  page: 311-324
+  type: article-journal
+  URL: 'https://www.researchgate.net/publication/343514122_Geometric_graphs_to_study_ceramic_decoration'
+  issued:
+    year: 2018
+---
+
+```{r, include = FALSE}
+library(knitr)
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.pos = 'H'
+)
+```
+
+# Introduction
+
+`decorr` package is used to study ancient iconography with spatial and network analysis indexes [@Huet18].
+
+A relative neighborhood graphs (RNG) is constructed over the decoration image to store spatial relationships between graphical units (GUs). To compare pairwises of decorations (ie, RNG) the `decorr` package has function to count and plot common nodes and/or common edges.
+
+# Install
+
+Install the `decorr` package and load it
+
+```{r load_decorr}
+# devtools::install_github("zoometh/iconr")
+library(decorr)
+```
+
+## Contents
+
+**functions**
+
+```{r ls_decorr}
+print(ls("package:decorr"))
+```
+
+**external data**
+
+```{r ushape.profile, fig.align="center",fig.cap="\\label{fig:figs}U-shape profile"}
+doss <- system.file("extdata", package = "decorr")
+print(list.files(doss))
+```
+
+... you may change `doss` to the path of your working directory
+
+* 'drawing': load an image with the `magick` package
+
+```{r drawing, out.width = "100%", fig.align="center"}
+drawing <- magick::image_read(system.file("extdata",
+                                          "Cerro_Muriano.Cerro_Muriano_1.jpg",
+                                          package = "decorr"))
+drawing <- magick::image_trim(drawing)
+plot(drawing)
+```
+
+* 'nodes': a dataframe or a shapefile of the nodes
+
+```{r nodes.df}
+doss <- system.file("extdata", package = "decorr")
+site <- "Cerro Muriano"
+decor <- "Cerro Muriano 1"
+nds.df <- read_nds(doss = doss, site = site, decor = decor, nodes = "nodes", dev = ".tsv") 
+kable(nds.df)
+```
+
+The `read_nds()` function allows to read `.tsv`, `.csv` (with ';' as values separator) or `.shp` files.
+
+  + column names  
+  
+    - `id`: identifiers of nodes (a unique number) 
+    - `type`: type of nodes    
+    - `x, y`: coordinates of nodes, these fields are only needed for the `.tsv`, `.csv` files    
+
+* 'edges': a dataframe or a shapefile of the nodes  
+
+```{r edges.df}
+doss <- system.file("extdata", package = "decorr")
+site <- "Cerro Muriano"
+decor <- "Cerro Muriano 1"
+eds.df <- read_eds(doss = doss, site = site, decor = decor, edges = "edges", dev = ".csv")
+kable(eds.df)
+```
+  
+  + column names 
+  
+    - `id`: identifiers of edges (a unique number) 
+    - `type`: type of edges (`=`: normal edge, `+`: node `b` is an attribute of node `a`, `>`: node `a` overlap node `b`)  
+    - `a`: *id* of the first node  
+    - `b`: *id* of the second node  
+    - `xa, ya`: coordinates of the first node  (only needed for the `.tsv`, `.csv` files)  
+    - `xb, yb`: coordinates of the second node (only needed for the `.tsv`, `.csv` files)  
+    
+
+## Example
+
+Load nodes, edges and create graph for "type" field. This field stores intrinsic values of the GU. It could be its type, its color, its technique, and so on.
+
+```{r read_img}
+site <- "Cerro Muriano"
+decor <- "Cerro Muriano 1"
+nds.df <- read_nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".shp")
+eds.df <- read_eds(doss = doss,site = site,decor = decor,edges = "edges",dev = ".shp")
+img.graph <- plot_dec_grph(nds.df = nds.df,
+                           eds.df = eds.df,
+                           doss = doss,
+                           site = "Cerro Muriano",
+                           decor = "Cerro Muriano 1",
+                           lbl.txt = "type",
+                           shw = c("nodes","edges"))
+```
+
+`img.graph` is a `r class(img.graph)`  
+
+Plot the RNG graph showing the "type" of the nodes
+
+```{r img.graph.plot, out.width = "100%",fig.align="center"}
+img.graph <- magick::image_trim(img.graph)
+plot(img.graph)
+```
+
+## References
+
