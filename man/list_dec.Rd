@@ -60,11 +60,11 @@
 \examples{
 # read imgs, nodes and edges dataframes
 imgs <- read.table(system.file("extdata", "imgs.csv", package = "decorr"),
-                   sep="\t",stringsAsFactors = FALSE)
+                   sep=";",stringsAsFactors = FALSE)
 nodes <- read.table(system.file("extdata", "nodes.csv", package = "decorr"),
-                    sep="\t",stringsAsFactors = FALSE)
+                    sep=";",stringsAsFactors = FALSE)
 edges <- read.table(system.file("extdata", "edges.csv", package = "decorr"),
-                    sep="\t",stringsAsFactors = FALSE)
+                    sep=";",stringsAsFactors = FALSE)
 # create the list of graphs
 lgrph <- list_dec(imgs,nodes,edges,var="type")
   
