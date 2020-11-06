@@ -339,12 +339,12 @@ nodes <- read.table(nodes_path, sep="\t", stringsAsFactors = FALSE)
 edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs, nodes, edges, "type") # call function
 g.compar <- list_nds_compar(lgrph, var="type")
-plot_nds_compar(g.compar,
-                dec.to.compare,
-                var="type",
-                doss = iconr_path)
+nds_compar <- plot_nds_compar(g.compar,
+                              dec.to.compare,
+                              var="type",
+                              doss = iconr_path)
 # open image
-knitr::include_graphics(out.img) 
+knitr::include_graphics(nds_compar) 
 ```
 
 #### Common Edges
@@ -369,7 +369,7 @@ To show them, use the  `plot_eds_compar(listg,graph2)` function.
 
 ```{r compare.2.edges, out.width = "700px", fig.align="center", warning=FALSE}
 dec.to.compare <- c(2,3)
-out.img <- paste0(getwd(),"/compar_eds_",dec.to.compare[1],"_",dec.to.compare[2],".png")
+out.img <- paste0(iconr_path,"/compar_eds_",dec.to.compare[1],"_",dec.to.compare[2],".png")
 # read data
 imgs_path <- paste0(iconr_path, "/imgs.tsv")
 nodes_path <- paste0(iconr_path, "/nodes.tsv")
@@ -379,12 +379,12 @@ nodes <- read.table(nodes_path, sep="\t", stringsAsFactors = FALSE)
 edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs, nodes, edges, "type") # call function
 g.compar <- list_eds_compar(lgrph,var="type")
-plot_eds_compar(g.compar,
-                dec.to.compare,
-                var="type",
-                doss = iconr_path)
+eds_compar <- plot_eds_compar(g.compar,
+                              dec.to.compare,
+                              var="type",
+                              doss = iconr_path)
 # open image
-knitr::include_graphics(out.img) 
+knitr::include_graphics(eds_compar) 
 ```
 
 
