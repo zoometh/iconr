@@ -1,5 +1,5 @@
 ---
-title: "Graph and Spatial Analysis of Iconography for Prehistory"
+title: "GRAPH and Spatial Analysis of Iconography for Prehistory"
 author: "Thomas Huet"
 email: "thomashuet7@gmail.com"
 date: "`r format(Sys.Date())`"
