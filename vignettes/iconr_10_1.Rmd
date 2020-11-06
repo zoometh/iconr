@@ -1,5 +1,5 @@
 ---
-title: "GRAPH and Spatial Analysis of Iconography for Prehistory"
+title: "Graph and Spatial Analysis of Iconography for Prehistory"
 author: "Thomas Huet"
 email: "thomashuet7@gmail.com"
 date: "`r format(Sys.Date())`"
@@ -75,7 +75,7 @@ Its purpose is to contribute to cross-cultural iconography comparisons studies b
 
 The main principle of `decorr` package is to considerate any iconographic composition (here, a 'decoration') as a geometric graph and to use analyses coming from Graph theory and GIS management.  
 
-The package has been designed to accept shapefiles (.shp) for nodes and edges since a GIS interface is often the most practicale to record nodes and edges. Data input should mostly come from `POINTS`, and optionally `LINES`, overlapping all the graphical units of decoration recorded as a raster image.  
+The package has been designed to accept shapefiles (.shp) for nodes and edges since a GIS interface is often the most practicale to record nodes and edges. Data input should mostly come from `POINTS`, and optionally `LINES`, overlapping all the graphical units (GUs) of decoration recorded as a raster image.  
 
 # Install
 
@@ -86,6 +86,7 @@ Other packages are required (`magick`) or suggested (`ggplot2`).
 ```{r load_decorr, warning=FALSE}
 # devtools::install_github("zoometh/iconr")
 library(decorr)
+iconr_path <- system.file("extdata", package = "decorr")
 ```
 
 ## Contents
@@ -107,7 +108,7 @@ External data attempt to give a training dataset to illustrate the format and pr
 The current path of training external data is the `extdata` folder of the package. Change this working directory for your own directory.
 
 ```{r ls_ext_data}
-cat(list.files(system.file("extdata", package = "decorr")),sep="\n")
+cat(list.files(iconr_path),sep="\n")
 ```
 
 
@@ -117,9 +118,9 @@ Each decoration is a set of:
   
   + a dataframe of decoration identifiers (.tsv)
   
-  + a dataframe of nodes (.tsv or .shp)
+  + a dataframe of nodes (.tsv, .csv or .shp)
   
-  + a dataframe of edges (.tsv or .shp)
+  + a dataframe of edges (.tsv, .csv or .shp)
   
 
 #### Drawings/Images
@@ -127,10 +128,9 @@ Each decoration is a set of:
 The decorations identifiers and paths to images are stored in the `imgs` dataframe
 
 ```{r imgs,fig.width=6, fig.height=6, fig.align="center",warning=FALSE, fig.cap="\\label{fig:figs}imgs.tsv"}
-# set wd to data folder
-setwd(system.file("extdata", package = "decorr"))
 # read data
-imgs <- read.table("imgs.tsv",sep="\t",stringsAsFactors = FALSE)
+imgs_path <- paste0(iconr_path, "/imgs.tsv")
+imgs <- read.table(imgs_path,sep="\t", stringsAsFactors = FALSE)
 knitr::kable(imgs)
 ```
 
@@ -141,12 +141,11 @@ Drawing/images (.jpg) are mostly managed with the R [`magick-image` package](htt
 
 ```{r drawing,fig.width=6, fig.height=6, fig.align="center",warning=FALSE, fig.cap="\\label{fig:figs}Cerro_Muriano.Cerro_Muriano_1.jpg"}
 library(magick)
-setwd(system.file("extdata", package = "decorr"))
-plot(image_read(a.img <- imgs[1,"img"]))
+plot(image_read(paste0(iconr_path,"/",imgs[1,"img"])))
 ```
 
 
-Nodes (ie, vertices) and edges inherit their coordinates from the decoration grid (ie, raster). Nodes are located approximatively on the centroid of graphical units. Two graphical units are connected with an edge when their Voronoi cell share a border (ie, neighbouring). The R [`igraph` package](https://igraph.org/r/) allow further network analysis. Other spatial analysis can be performed on a GIS.
+Nodes (ie, vertices) and edges inherit their coordinates from the decoration grid (ie, raster). Nodes are located approximatively on the centroid of GUs. Two GUs are connected with an edge when their Voronoi cell share a border (ie, neighbouring). The R [`igraph` package](https://igraph.org/r/) allow further network analysis. Other spatial analysis can be performed on a GIS.
 
 #### Nodes
 
@@ -154,8 +153,10 @@ A dataframe (.tsv) or a shapefile (.shp) of the nodes. If the input data is the 
 
 
 ```{r nodes.df, warning=FALSE,fig.align="center",warning=FALSE}
-setwd(system.file("extdata", package = "decorr"))
-nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1") 
+# setwd(system.file("extdata", package = "decorr"))
+# nds_path <- paste0(iconr_path, "/nds.tsv")
+# imgs <- read.table(nds_path,sep="\t", stringsAsFactors = FALSE)
+nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = iconr_path) 
 knitr::kable(nds.df)
 ```
 
@@ -179,8 +180,8 @@ knitr::kable(nds.df)
 A dataframe (.tsv) or a shapefile (.shp) of the edges If the input data is the .tsv dataframe, coordinates columns `xa` and `ya` (end of segment `a`), `xb` and `yb` (end of segment `b`), and are required
 
 ```{r edges.df, warning=FALSE}
-setwd(system.file("extdata", package = "decorr"))
-eds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1") 
+# setwd(system.file("extdata", package = "decorr"))
+eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = iconr_path) 
 knitr::kable(eds.df)
 ```
   
@@ -208,24 +209,29 @@ knitr::kable(eds.df)
   
 ##### Edges types
 
-Commonly differents graphical units close one with another have the value `=` for their edge `type` and are displayed in <span style="color:orange">orange</span> and a plain line
+Commonly differents GUs close one with another have the value `=` for their edge `type` and are displayed in <span style="color:orange">orange</span> and a plain line
 
 ```{r graph.attribute.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE}
-setwd(system.file("extdata", package = "decorr"))
-nds.df <- read_nds(site = "Zarza de Montanchez",decor = "Zarza De Montanchez")
-eds.df <- read_eds(site = "Zarza de Montanchez",decor = "Zarza De Montanchez")
+# setwd(system.file("extdata", package = "decorr"))
+nds.df <- read_nds(site = "Zarza de Montanchez", 
+                   decor = "Zarza De Montanchez",
+                   doss = iconr_path)
+eds.df <- read_eds(site = "Zarza de Montanchez",
+                   decor = "Zarza De Montanchez",
+                   doss = iconr_path)
 img.graph <- plot_dec_grph(nds.df = nds.df,
                            eds.df = eds.df,
                            site = "Zarza de Montanchez",
                            decor = "Zarza De Montanchez",
                            lbl.txt = "type",
-                           shw = c("nodes","edges"))
+                           shw = c("nodes","edges"),
+                           doss = iconr_path)
 plot(img.graph)
 ```
 
-When a graphical unit is an attribute of another, the edge is identified with a `+` and are displayed with a dashed line.  
+When a GU is an attribute of another, the edge is identified with a `+` and are displayed with a dashed line.  
 
-For example, at the bottom of the `Zarza De Montanchez` decoration, one (1) main graphical unit, the chariot `7`, connected with four (4) attributes (or secondary graphical units):
+For example, at the bottom of the `Zarza De Montanchez` decoration, one (1) main GU, the chariot `7`, connected with four (4) attributes (or secondary GUs):
 
   - two (2) horses `8` and `9`  
   
