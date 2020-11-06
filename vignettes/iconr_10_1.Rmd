@@ -130,7 +130,7 @@ The decorations identifiers and paths to images are stored in the `imgs` datafra
 ```{r imgs,fig.width=6, fig.height=6, fig.align="center",warning=FALSE, fig.cap="\\label{fig:figs}imgs.tsv"}
 # read data
 imgs_path <- paste0(iconr_path, "/imgs.tsv")
-imgs <- read.table(imgs_path,sep="\t", stringsAsFactors = FALSE)
+imgs <- read.table(imgs_path, sep="\t", stringsAsFactors = FALSE)
 knitr::kable(imgs)
 ```
 
@@ -239,16 +239,17 @@ For example, at the bottom of the `Zarza De Montanchez` decoration, one (1) main
   
 
 ```{r img.graph.plot.a.edge, fig.width=6, fig.height=6, fig.align="center", warning=FALSE}
-setwd(system.file("extdata", package = "decorr"))
-nds.df <- read_nds(site = "Zarza de Montanchez",decor = "Zarza De Montanchez")
-eds.df <- read_eds(site = "Zarza de Montanchez",decor = "Zarza De Montanchez")
+# setwd(system.file("extdata", package = "decorr"))
+nds.df <- read_nds(site = "Zarza de Montanchez", decor = "Zarza De Montanchez", doss = iconr_path)
+eds.df <- read_eds(site = "Zarza de Montanchez", decor = "Zarza De Montanchez", doss = iconr_path)
 img.graph <- plot_dec_grph(nds.df = nds.df,
                            eds.df = eds.df,
                            site = "Zarza de Montanchez",
                            decor = "Zarza De Montanchez",
                            lbl.txt = "id",
                            lbl.size = 2.2,
-                           shw = c("nodes","edges"))
+                           shw = c("nodes","edges"),
+                           doss = iconr_path)
 # one of the chariot edge
 an.attribute.edge <- paste0(eds.df[8,"a"]," -",eds.df[8,"type"],"- ",eds.df[8,"b"])
 cat(an.attribute.edge)
@@ -264,51 +265,37 @@ plot(img.graph)
 Plot `Cerro Muriano 1` nodes and edges for the field `type`
 
 ```{r img.graph.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE}
-setwd(system.file("extdata", package = "decorr"))
-nds.df <- read_nds(site = "Cerro Muriano",decor = "Cerro Muriano 1")
-eds.df <- read_eds(site = "Cerro Muriano",decor = "Cerro Muriano 1")
+# setwd(system.file("extdata", package = "decorr"))
+nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = iconr_path)
+eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = iconr_path)
 img.graph <- plot_dec_grph(nds.df = nds.df,
                            eds.df = eds.df,
                            site = "Cerro Muriano",
                            decor = "Cerro Muriano 1",
                            lbl.txt = "type",
-                           shw = c("nodes","edges"))
+                           shw = c("nodes","edges"),
+                           doss = iconr_path)
 plot(img.graph)
 ```
   
-Replot the graph with `id` field instead of the `type` field
+Replot the graph with `id` field instead of the `type` field with bigger and <span style="color:orange">orange</span> labels
 
 ```{r img.graph.plot.id, fig.width=6, fig.height=6, fig.align="center", warning=FALSE}
-setwd(system.file("extdata", package = "decorr"))
-nds.df <- read_nds(site = "Cerro Muriano",decor = "Cerro Muriano 1")
-eds.df <- read_eds(site = "Cerro Muriano",decor = "Cerro Muriano 1")
+# setwd(system.file("extdata", package = "decorr"))
+nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = iconr_path)
+eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = iconr_path)
 img.graph <- plot_dec_grph(nds.df = nds.df,
                            eds.df = eds.df,
                            site = "Cerro Muriano",
                            decor = "Cerro Muriano 1",
                            lbl.txt = "id",
-                           shw = c("nodes","edges"))
-plot(img.graph)
-```
-  
-  
-Replot the same graph with bigger and <span style="color:orange">orange</span> labels
-
-```{r img.graph.plot.id.big, fig.width=6, fig.height=6, fig.align="center", warning=FALSE}
-setwd(system.file("extdata", package = "decorr"))
-nds.df <- read_nds(site = "Cerro Muriano",decor = "Cerro Muriano 1")
-eds.df <- read_eds(site = "Cerro Muriano",decor = "Cerro Muriano 1")
-img.graph <- plot_dec_grph(nds.df = nds.df,
-                           eds.df = eds.df,
-                           site = "Cerro Muriano",
-                           decor = "Cerro Muriano 1",
-                           lbl.txt = "id",
-                           lbl.color = "orange",
+                           shw = c("nodes","edges"),
+                           lbl.color = "darkorange",
                            lbl.size=2,
-                           shw = c("nodes","edges"))
+                           doss = iconr_path)
 plot(img.graph)
 ```
-
+  
 ### Compare decoration graphs
 
 Between all the graphs, or between a pair of graphs, nodes and edges can be compared with the functions `same_*` (all the graphs) and `plot_*_compar` (a pair of graphs), where `*` is replaced by `nds` for nodes or `eds` for edges.  
@@ -319,15 +306,18 @@ By default, between two decorations, common nodes and edges are in <span style="
 Count the common nodes between two decorations
 
 ```{r compare.nodes, warning=FALSE}
-# set wd to data folder
-setwd(system.file("extdata", package = "decorr"))
+# # set wd to data folder
+# setwd(system.file("extdata", package = "decorr"))
 # read data
-imgs <- read.table("imgs.tsv",sep="\t",stringsAsFactors = FALSE)
-nodes <- read.table("nodes.tsv",sep="\t",stringsAsFactors = FALSE)
-edges <- read.table("edges.tsv",sep="\t",stringsAsFactors = FALSE)
-lgrph <- list_dec(imgs,nodes,edges,"type") # call function
-df.same_nodes <- same_nds(lgrph,"type")
-knitr::kable(df.same_nodes,row.names = T)
+imgs_path <- paste0(iconr_path, "/imgs.tsv")
+nodes_path <- paste0(iconr_path, "/nodes.tsv")
+edges_path <- paste0(iconr_path, "/edges.tsv")
+imgs <- read.table(imgs_path, sep="\t", stringsAsFactors = FALSE)
+nodes <- read.table(nodes_path, sep="\t", stringsAsFactors = FALSE)
+edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
+lgrph <- list_dec(imgs, nodes, edges, "type") # call function
+df.same_nodes <- same_nds(lgrph, "type")
+knitr::kable(df.same_nodes, row.names = T)
 ```
   
   
@@ -337,17 +327,22 @@ Here, we read that decorations `2` and `3` have five (5) common nodes. To show t
 
 ```{r compare.2.nodes, out.width = "700px", fig.align="center", warning=FALSE}
 # set wd to data folder
-setwd(system.file("extdata", package = "decorr"))
 # out.img path is only useful to open the output image
 dec.to.compare <- c(2,3)
-out.img <- paste0(getwd(),"/compar_nds_",dec.to.compare[1],"_",dec.to.compare[2],".png")
+out.img <- paste0(iconr_path,"/compar_nds_", dec.to.compare[1],"_",dec.to.compare[2],".png")
 # read data
-imgs <- read.table("imgs.tsv",sep="\t",stringsAsFactors = FALSE)
-nodes <- read.table("nodes.tsv",sep="\t",stringsAsFactors = FALSE)
-edges <- read.table("edges.tsv",sep="\t",stringsAsFactors = FALSE)
-lgrph <- list_dec(imgs,nodes,edges,var="type")
+imgs_path <- paste0(iconr_path, "/imgs.tsv")
+nodes_path <- paste0(iconr_path, "/nodes.tsv")
+edges_path <- paste0(iconr_path, "/edges.tsv")
+imgs <- read.table(imgs_path, sep="\t", stringsAsFactors = FALSE)
+nodes <- read.table(nodes_path, sep="\t", stringsAsFactors = FALSE)
+edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
+lgrph <- list_dec(imgs, nodes, edges, "type") # call function
 g.compar <- list_nds_compar(lgrph, var="type")
-plot_nds_compar(g.compar,dec.to.compare,var="type")
+plot_nds_compar(g.compar,
+                dec.to.compare,
+                var="type",
+                doss = iconr_path)
 # open image
 knitr::include_graphics(out.img) 
 ```
@@ -357,13 +352,13 @@ knitr::include_graphics(out.img)
 Count the common edges between two decorations
 
 ```{r compare.edges, warning=FALSE}
-# set wd to data folder
-setwd(system.file("extdata", package = "decorr"))
-# read data
-imgs <- read.table("imgs.tsv",sep="\t",stringsAsFactors = FALSE)
-nodes <- read.table("nodes.tsv",sep="\t",stringsAsFactors = FALSE)
-edges <- read.table("edges.tsv",sep="\t",stringsAsFactors = FALSE)
-lgrph <- list_dec(imgs,nodes,edges,"type") # call function
+imgs_path <- paste0(iconr_path, "/imgs.tsv")
+nodes_path <- paste0(iconr_path, "/nodes.tsv")
+edges_path <- paste0(iconr_path, "/edges.tsv")
+imgs <- read.table(imgs_path, sep="\t", stringsAsFactors = FALSE)
+nodes <- read.table(nodes_path, sep="\t", stringsAsFactors = FALSE)
+edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
+lgrph <- list_dec(imgs, nodes, edges, "type") # call function
 df.same_edges <- same_eds(lgrph,"type")
 knitr::kable(df.same_edges,row.names = T)
 ```
@@ -373,18 +368,21 @@ The output is a symetrical dataframe showing the number of common edges. Here, w
 To show them, use the  `plot_eds_compar(listg,graph2)` function.
 
 ```{r compare.2.edges, out.width = "700px", fig.align="center", warning=FALSE}
-# set wd to data folder
-setwd(system.file("extdata", package = "decorr"))
-# out.img path is only useful to open the output image
 dec.to.compare <- c(2,3)
 out.img <- paste0(getwd(),"/compar_eds_",dec.to.compare[1],"_",dec.to.compare[2],".png")
 # read data
-imgs <- read.table("imgs.tsv",sep="\t",stringsAsFactors = FALSE)
-nodes <- read.table("nodes.tsv",sep="\t",stringsAsFactors = FALSE)
-edges <- read.table("edges.tsv",sep="\t",stringsAsFactors = FALSE)
-lgrph <- list_dec(imgs,nodes,edges,var="type")
+imgs_path <- paste0(iconr_path, "/imgs.tsv")
+nodes_path <- paste0(iconr_path, "/nodes.tsv")
+edges_path <- paste0(iconr_path, "/edges.tsv")
+imgs <- read.table(imgs_path, sep="\t", stringsAsFactors = FALSE)
+nodes <- read.table(nodes_path, sep="\t", stringsAsFactors = FALSE)
+edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
+lgrph <- list_dec(imgs, nodes, edges, "type") # call function
 g.compar <- list_eds_compar(lgrph,var="type")
-plot_eds_compar(g.compar,dec.to.compare,"type")
+plot_eds_compar(g.compar,
+                dec.to.compare,
+                var="type",
+                doss = iconr_path)
 # open image
 knitr::include_graphics(out.img) 
 ```
