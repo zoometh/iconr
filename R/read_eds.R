@@ -1,61 +1,42 @@
-read_eds <- function(site, decor, doss = getwd(), edges = "edges", nodes = "nodes", 
-    dev = ".tsv") {
-    eds.shp.coords <- data.frame(xa = numeric(0), ya = numeric(0), xb = numeric(0), 
-        yb = numeric(0))
+read_eds <- function(site, decor, doss = getwd(),
+                     edges = "edges", nodes = "nodes",
+                     dev = ".tsv") {
+    eds.shp.coords <- data.frame(xa = numeric(0), ya = numeric(0),
+                                 xb = numeric(0), yb = numeric(0))
     eds.file <- paste0(doss, "/", edges, dev)
     nds.file <- paste0(doss, "/", nodes, dev)
     if (file.exists(eds.file) & file.exists(nds.file)) {
         if (dev == ".tsv" | dev == ".csv") {
             # choice: tsv or csv read nodes to get coordinates
-            if (dev == ".tsv") {
-                nds.df <- read_nds(doss = doss, site = site, decor = decor, 
-                  nodes = "nodes", dev = ".tsv")
-                eds.df <- utils::read.table(file = paste0(doss, "/", edges, 
-                  dev), sep = "\t", header = TRUE)
-            }
-            if (dev == ".csv") {
-                nds.df <- read_nds(doss = doss, site = site, decor = decor, 
-                  nodes = "nodes", dev = ".tsv")
-                eds.df <- utils::read.table(file = paste0(doss, "/", edges, 
-                  dev), sep = ";", header = TRUE)
-            }
-            eds.df <- eds.df[eds.df[, "site"] == site & eds.df[, "decor"] == 
-                decor, ]
+            nds.df <- read_nds(doss = doss, site = site, decor = decor,
+                               nodes = nodes, dev = dev)
+            sep=c(.tsv = "\t", .csv = ";")
+            eds.df <- utils::read.table(file = eds.file, sep = sep[dev], header = TRUE)
+            eds.df <- eds.df[eds.df$site  == site &
+                             eds.df$decor == decor, ]
             # get coordinates from nodes
             for (a.edge in 1:nrow(eds.df)) {
-                nd.a <- eds.df[a.edge, "a"]
-                nd.b <- eds.df[a.edge, "b"]
-                xa <- nds.df[nds.df[, "id"] == nd.a, "x"]
-                ya <- nds.df[nds.df[, "id"] == nd.a, "y"]
-                xb <- nds.df[nds.df[, "id"] == nd.b, "x"]
-                yb <- nds.df[nds.df[, "id"] == nd.b, "y"]
-                eds.shp.coords[nrow(eds.shp.coords) + 1, ] <- c(xa, ya, 
-                  xb, yb)
+                nd.a <- which(nds.df$id == eds.df$a[a.edge])
+                nd.b <- which(nds.df$id == eds.df$b[a.edge])
+                a.df = nds.df[c(nd.a, nd.b), c("x", "y")]
+                eds.shp.coords[a.edge, ] <- as.numeric(t(a.df))
             }
             eds.df <- cbind(eds.df, eds.shp.coords)
         }
         if (dev == ".shp") {
             # choice: shapefile
-            nds.df <- read_nds(doss = doss, site = site, decor = decor, 
-                nodes = "nodes", dev = ".shp")
-            eds.shp <- rgdal::readOGR(dsn = doss, layer = edges, verbose = F)
+            eds.shp <- rgdal::readOGR(dsn = doss, layer = edges, verbose = FALSE)
+            eds.shp <- eds.shp[eds.shp@data$site  == site &
+                               eds.shp@data$decor == decor, ]
             # extract edges coordinates
-            coords.eds <- lapply(methods::slot(eds.shp, "lines"), function(x) lapply(methods::slot(x, 
-                "Lines"), function(y) methods::slot(y, "coords")))
+            coords.eds <- lapply(eds.shp@lines,
+                                 function(x) x@Lines[[1]]@coords)
             # loop to get coordinates and fill df
             for (a.edge in 1:length(coords.eds)) {
-                a.df <- coords.eds[[a.edge]][[1]]
-                xa <- a.df[1, 1]
-                ya <- a.df[1, 2]
-                xb <- a.df[2, 1]
-                yb <- a.df[2, 2]
-                eds.shp.coords[nrow(eds.shp.coords) + 1, ] <- c(xa, ya, 
-                  xb, yb)
+                a.df <- coords.eds[[a.edge]][1:2,1:2]
+                eds.shp.coords[a.edge, ] <- as.numeric(t(a.df))
             }
-            eds.df <- eds.shp@data
-            eds.df <- cbind(eds.df, eds.shp.coords)
-            eds.df <- eds.df[eds.df[, "site"] == site & eds.df[, "decor"] == 
-                decor, ]
+            eds.df <- cbind(eds.shp@data, eds.shp.coords)
         }
     } else {
         stop(paste0("No file called ", eds.file, " and/or ", nds.file))
