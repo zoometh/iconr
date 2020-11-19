@@ -1,6 +1,6 @@
 ---
 title: "Graph and Spatial Analysis of Iconography for Prehistory"
-author: "Thomas Huet, Jose Pozo, Craig Alexxander"
+author: "Thomas Huet, Jose Pozo, Craig Alexander"
 email: "thomashuet7@gmail.com"
 date: "`r format(Sys.Date())`"
 output: 
@@ -60,6 +60,8 @@ references:
 
 ```{r, include = FALSE}
 library(knitr)
+library(dplyr)
+library(kableExtra)
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -73,20 +75,17 @@ The R package `decorr` is used to study iconography with network and spatial ana
 
 Its purpose is to contribute to cross-cultural iconography comparisons studies by a higher normalization of quantitative analysis [@HuetAlexander15]. This package has been grounded on the seminal work of C. Alexander [@Alexander08] and its first IT implementation by T. Huet [@Huet18]. 
 
-The main principle of `decorr` package is to considerate any iconographic composition (here, a 'decoration') as a geometric graph and to use analyses coming from Graph theory and GIS management.  
+The main principle of `decorr` package is to considerate any iconographic compositions (here, 'decorations') as relative neighborhood graphs (RNG) where the nodes are graphical units (GUs). Two GUs are connected with an edge when their Voronoi cell share a border.  
 
-The package has been designed to accept shapefiles (.shp) for nodes and edges since a GIS interface is often the most practicale to record nodes and edges. Data input should mostly come from `POINTS`, and optionally `LINES`, overlapping all the graphical units (GUs) of decoration recorded as a raster image.  
+Buidling a graph in a GIS allows to use analyses coming from Graph theory and GIS management.  
 
 # Install
 
 Install the `decorr` package from GitHub and load it.  
 
-Other packages are required (`magick`) or suggested (`ggplot2`).
-
 ```{r load_decorr, warning=FALSE}
 # devtools::install_github("zoometh/iconr")
 library(decorr)
-iconr_path <- system.file("extdata", package = "decorr")
 ```
 
 ## Contents
@@ -98,58 +97,59 @@ The R package `decorr` is composed by functions and a dataset example (external 
 Functions are provided to manage nodes (`nds`), edges (`eds`) and graphs (`grph`).
 
 ```{r ls_functions}
-cat(ls("package:decorr"),sep="\n")
+cat(ls("package:decorr"), sep="\n")
 ```
 
 ### Data
 
-External data attempt to give a training dataset to illustrate the format and procedures of the package.  
+External data attempt give a training dataset to illustrate the package functions.  
 
 The current path of training external data is the `extdata` folder of the package. Change this working directory for your own directory.
 
 ```{r ls_ext_data}
+iconr_path <- system.file("extdata", package = "decorr")
 cat(list.files(iconr_path),sep="\n")
 ```
 
-
 Each decoration is a set of:
 
-  + a drawing/image (.jpg)
+  + a drawing/image (`.jpg`)
   
-  + a dataframe of decoration identifiers (.tsv)
+  + a dataframe of decoration identifiers (`.tsv`)
   
-  + a dataframe of nodes (.tsv, .csv or .shp)
+  + a dataframe of nodes (`.tsv`, `.csv` or `.shp`)
   
-  + a dataframe of edges (.tsv, .csv or .shp)
+  + a dataframe of edges (`.tsv`, `.csv` or `.shp`)
   
+Since a GIS interface is often the most practicale to record nodes and edges, the package has been designed to accept shapefiles (`.shp`) for nodes (`POINTS` geometries) and edges (`LINES` geometries).  
+
 
 #### Drawings/Images
 
-The decorations identifiers and paths to images are stored in the `imgs` dataframe
+For a given decoration, its drawing (ie, images, raster, grid) is the space of reference of the graph: nodes and edges inherit their coordinates from the decoration grid. Identifiers and paths to images are stored in the `imgs` dataframe
 
 ```{r imgs,fig.width=6, fig.height=6, fig.align="center",warning=FALSE, fig.cap="\\label{fig:figs}imgs.tsv"}
-# read data
 imgs_path <- paste0(iconr_path, "/imgs.tsv")
 imgs <- read.table(imgs_path, sep="\t", stringsAsFactors = FALSE)
-knitr::kable(imgs)
+knitr::kable(imgs, "html") %>% 
+  kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
 
+The decorations unique identifiers are the concatenation of the name of the site and the name of the decoration. for example, the name of the `Cerrano Muriano 1` decoration is ``r imgs[1,"img"]``.  
 
-For example, the name of the `Cerrano Muriano 1` decoration is ``r imgs[1,"img"]``.  
+Drawing/images (`.jpg`) are mostly managed with the R [`magick-image` package](https://cran.r-project.org/web/packages/magick/vignettes/intro.html)
 
-Drawing/images (.jpg) are mostly managed with the R [`magick-image` package](https://cran.r-project.org/web/packages/magick/vignettes/intro.html)
-
-```{r drawing,fig.width=6, fig.height=6, fig.align="center",warning=FALSE, fig.cap="\\label{fig:figs}Cerro_Muriano.Cerro_Muriano_1.jpg"}
+```{r drawing,fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="\\label{fig:figs}Cerro_Muriano.Cerro_Muriano_1.jpg"}
 library(magick)
-plot(image_read(paste0(iconr_path,"/",imgs[1,"img"])))
+plot(image_read(paste0(iconr_path, "/", imgs[1,"img"])))
 ```
 
 
-Nodes (ie, vertices) and edges inherit their coordinates from the decoration grid (ie, raster). Nodes are located approximatively on the centroid of GUs. Two GUs are connected with an edge when their Voronoi cell share a border (ie, neighbouring). The R [`igraph` package](https://igraph.org/r/) allow further network analysis. Other spatial analysis can be performed on a GIS.
+Nodes are located approximatively on the centroid of GUs. The R [`igraph` package](https://igraph.org/r/) allow further network analysis. Other spatial analysis can be performed on a GIS.
 
 #### Nodes
 
-A dataframe (.tsv) or a shapefile (.shp) of the nodes. If the input data is the .tsv dataframe, column `x` and `y` are required
+Nodes (ie, vertices) are stored in a dataframe (`.csv` or `.tsv`) or a shapefile (`.shp`). If the input data come from a dataframe, coordinates columns `x` and `y` are required
 
 
 ```{r nodes.df, warning=FALSE,fig.align="center",warning=FALSE}
@@ -157,7 +157,8 @@ A dataframe (.tsv) or a shapefile (.shp) of the nodes. If the input data is the 
 # nds_path <- paste0(iconr_path, "/nds.tsv")
 # imgs <- read.table(nds_path,sep="\t", stringsAsFactors = FALSE)
 nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = iconr_path) 
-knitr::kable(nds.df)
+knitr::kable(nds.df, "html") %>% 
+  kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
 
 
@@ -167,24 +168,26 @@ knitr::kable(nds.df)
   
   - `decor`: decoration name 
   
-  - `id`: id of the edge (a unique number) 
+  - `id`: id of the edges (a unique number) 
     
-  - `type`: type of the node    
+  - `type`: type of the nodes    
     
-  - `x,y`: coordinates of node  
+  - `x, y`: coordinates of the nodes  
     
 
 #### Edges
 
 
-A dataframe (.tsv) or a shapefile (.shp) of the edges If the input data is the .tsv dataframe, coordinates columns `xa` and `ya` (end of segment `a`), `xb` and `yb` (end of segment `b`), and are required
+Edges are stored in a dataframe (`.csv` or `.tsv`) or a shapefile (`.shp`). If the input data is a dataframe, coordinates columns `xa` and `ya` (origins of the edges), `xb` and `yb` (ends of the edges) are required
 
 ```{r edges.df, warning=FALSE}
 # setwd(system.file("extdata", package = "decorr"))
 eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = iconr_path) 
-knitr::kable(eds.df)
+knitr::kable(eds.df, "html") %>% 
+  kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
-  
+
+
 * column names  
   
   - `site`: decoration site 
@@ -192,6 +195,10 @@ knitr::kable(eds.df)
   - `decor`: decoration name  
   
   - `id`: id of the edge (a unique number) 
+  
+  - `a`: *id* of the first node  
+    
+  - `b`: *id* of the second node  
     
   - `type`: type of the edge  
   
@@ -199,9 +206,7 @@ knitr::kable(eds.df)
     
     - `+`: node `b` is an attribute of node `a` 
     
-  - `a`: *id* of the first node  
-    
-  - `b`: *id* of the second node  
+    - `>`: node `a` overlaps node `b` 
     
   - `xa, ya`: coordinates of the first node  (`a`) 
     
