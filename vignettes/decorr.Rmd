@@ -216,13 +216,15 @@ knitr::kable(eds.df, "html") %>%
   
 ##### Edges types
 
-By default, all edges are displayed in <span style="color:orange"><b>orange</b></span>. Except the *normal* edges which is undirected, the *attribute* and *overlap* edges are directed.
+By default, all comtemporaneous GUs are linked with edges are displayed in <span style="color:orange"><b>orange</b></span>. At the opposite, GUs coming from different periods are linked with <span style="color:blue"><b>blue</b></span> edges.  
+
+Except the *normal* edges which is undirected, the *attribute* and *overlap* edges are directed. That is to say, that for *attribute* and *overlap* edges `1-*-2`, where `*` could be either `+` or `>`, is not equal to `2-*-1`. 
 
 * *normal* edges
 
 Usually, differents GUs considerated as contemporaneous and close one with another, shared an edge with the  value `=` for their `type`. By convention, these edges are called '*normal*' and are displayed with a plain line.
 
-```{r graph.normal.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="Brozas decoration"}
+```{r graph.normal.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="Brozas decoration, normal edges"}
 nds.df <- read_nds(site = "Brozas", 
                    decor = "Brozas",
                    doss = iconr_path)
@@ -247,7 +249,7 @@ When a GU is an attribute of another, the edge is identified with a `+` and are 
   
   - two wheels: `10` and `11` 
 
-```{r graph.attribute.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="Zarza De Montanchez decoration"}
+```{r graph.attribute.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="Zarza De Montanchez decoration, normal and attribute edges"}
 nds.df <- read_nds(site = "Zarza de Montanchez", 
                    decor = "Zarza De Montanchez",
                    doss = iconr_path)
@@ -269,7 +271,7 @@ plot(img.graph)
 When a GU overlapping another, the edge is identified with a `>` and are displayed with a XXXX line. For example, the `Ibahernando` stelae show a latin writing overlaping a spear (lance) and a shield (bouclier).
   
 
-```{r graph.overlap.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="Ibahernando decoration"}
+```{r graph.overlap.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="Ibahernando decoration, normal and overlap edges"}
 nds.df <- read_nds(site = "Ibahernando", 
                    decor = "Ibahernando",
                    doss = iconr_path)

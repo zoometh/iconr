@@ -5,7 +5,7 @@ plot_dec_grph <- function(nds.df, eds.df, site, decor, doss = getwd(),
                           ed.color = "orange", ed.lwd = 4) {
     ## plot nodes on image lbl.txt = 'id' ; nd.color <- lbl.color <-
     ## ed.color <- 'orange' lbl.size=1.2 ; nd.size=1.7 ; ed.lwd <- 4 site <-
-    ## 'Cerro Muriano' ; decor <- 'Cerro Muriano 1' ; shw <- 'edges' ; shw
+    ## 'Cerro Muriano' ; decor <- site <- 'Ibahernando' ; shw <- 'edges' ; shw
     ## <- c('nodes','edges') select nodes, edges
     nds.df.select <- nds.df[nds.df$site  == site &
                             nds.df$decor == decor, ]
@@ -22,13 +22,16 @@ plot_dec_grph <- function(nds.df, eds.df, site, decor, doss = getwd(),
     img.out <- magick::image_draw(img.in)
     if ("edges" %in% shw) {
         for (edg in 1:nrow(eds.df.select)) {
+            # edg <- 3
             edg.df <- eds.df.select[edg, ]
             # ed.type <- ifelse(edg.df$type %in% c("+", ">"), 2, 1)
             if(edg.df$type == "="){
                 ed.type <- 1
+                ed.color <- "orange"
             }
             if(edg.df$type == "+"){
                 ed.type <- 2
+                ed.color <- "orange"
             }
             if(edg.df$type == ">"){
                 ed.type <- 1
