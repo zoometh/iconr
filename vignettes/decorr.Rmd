@@ -266,9 +266,16 @@ img.graph <- plot_dec_grph(nds.df = nds.df,
 plot(img.graph)
 ```
 
+For example, the edge between the GUs `7` and `8` (respectively the chariot and a horse) is:
+
+```{r plot.a.edge.attribute, fig.width=6, fig.height=6, fig.align="center", warning=FALSE}
+eds.df <- read_eds(site = "Zarza de Montanchez", decor = "Zarza De Montanchez", doss = iconr_path)
+cat(paste0(eds.df[8,"a"]," -",eds.df[8,"type"],"- ",eds.df[8,"b"]))
+```
+
 * *overlap* edges
 
-When a GU overlapping another, the edge is identified with a `>` and are displayed with a XXXX line. For example, the `Ibahernando` stelae show a latin writing overlaping a spear (lance) and a shield (bouclier).
+When a GU overlapping another, the edge is identified with a `>` and are displayed with a blue plain line. For example, the `Ibahernando` stelae show a latin writing (écriture) overlaping a spear (lance) and a shield (bouclier).
   
 
 ```{r graph.overlap.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="Ibahernando decoration, normal and overlap edges"}
@@ -288,33 +295,18 @@ img.graph <- plot_dec_grph(nds.df = nds.df,
 plot(img.graph)
 ```
 
+For example, the edge between the GUs `1` and `2` (respectively the writing and the spear) is:
 
-
-```{r img.graph.plot.a.edge, fig.width=6, fig.height=6, fig.align="center", warning=FALSE}
-# setwd(system.file("extdata", package = "decorr"))
-nds.df <- read_nds(site = "Zarza de Montanchez", decor = "Zarza De Montanchez", doss = iconr_path)
-eds.df <- read_eds(site = "Zarza de Montanchez", decor = "Zarza De Montanchez", doss = iconr_path)
-img.graph <- plot_dec_grph(nds.df = nds.df,
-                           eds.df = eds.df,
-                           site = "Zarza de Montanchez",
-                           decor = "Zarza De Montanchez",
-                           lbl.txt = "id",
-                           lbl.size = 2.2,
-                           shw = c("nodes","edges"),
-                           doss = iconr_path)
-# one of the chariot edge
-an.attribute.edge <- paste0(eds.df[8,"a"]," -",eds.df[8,"type"],"- ",eds.df[8,"b"])
-cat(an.attribute.edge)
-# the decoration
-plot(img.graph)
-
+```{r plot.a.edge.overlap, fig.width=6, fig.height=6, fig.align="center", warning=FALSE}
+eds.df <- read_eds(site = "Ibahernando", decor = "Ibahernando", doss = iconr_path)
+cat(paste0(eds.df[1,"a"]," -",eds.df[1,"type"],"- ",eds.df[1,"b"]))
 ```
 
 ## Examples
 
 ### Plot decoration graph
 
-Plot `Cerro Muriano 1` nodes and edges for the field `type`
+Plot `Cerro Muriano 1` nodes and edges for the field `type` with with bigger and <span style="color:DarkOrange">dark orange</span> labels 
 
 ```{r img.graph.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE}
 # setwd(system.file("extdata", package = "decorr"))
@@ -326,11 +318,13 @@ img.graph <- plot_dec_grph(nds.df = nds.df,
                            decor = "Cerro Muriano 1",
                            lbl.txt = "type",
                            shw = c("nodes","edges"),
+                           lbl.color = "darkorange",
+                           lbl.size=2,
                            doss = iconr_path)
 plot(img.graph)
 ```
   
-Replot the graph with `id` field instead of the `type` field with bigger and <span style="color:orange">orange</span> labels
+Replot the graph with `id` field instead of the `type` field
 
 ```{r img.graph.plot.id, fig.width=6, fig.height=6, fig.align="center", warning=FALSE}
 # setwd(system.file("extdata", package = "decorr"))
@@ -355,12 +349,9 @@ By default, between two decorations, common nodes and edges are in <span style="
 
 #### Common Nodes
 
-Count the common nodes between two decorations
+A classic study is to count the common nodes between decorations pairwise. The `same_nds()` create a symetrical dataframe where cells show the total number of common nodes by decorations (rows and columns headers). Here it is the `type` of the nodes which is considered.
 
 ```{r compare.nodes, warning=FALSE}
-# # set wd to data folder
-# setwd(system.file("extdata", package = "decorr"))
-# read data
 imgs_path <- paste0(iconr_path, "/imgs.tsv")
 nodes_path <- paste0(iconr_path, "/nodes.tsv")
 edges_path <- paste0(iconr_path, "/edges.tsv")
@@ -369,13 +360,10 @@ nodes <- read.table(nodes_path, sep="\t", stringsAsFactors = FALSE)
 edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs, nodes, edges, "type") # call function
 df.same_nodes <- same_nds(lgrph, "type")
-knitr::kable(df.same_nodes, row.names = T)
+knitr::kable(df.same_nodes, row.names = TRUE)
 ```
   
-  
-The output is a symetrical dataframe where cells show the total number of common nodes by decorations (rows and columns headers).  
-
-Here, we read that decorations `2` and `3` have five (5) common nodes. To show them, use the  `plot_nds_compar(listg,graph2)` function
+Here, we read that decorations `2` and `3` have five (5) nodes with the same types (ie, common nodes). To show them, use the  `plot_nds_compar()` function.
 
 ```{r compare.2.nodes, out.width = "700px", fig.align="center", warning=FALSE}
 # set wd to data folder
@@ -401,7 +389,7 @@ knitr::include_graphics(nds_compar)
 
 #### Common Edges
 
-Count the common edges between two decorations
+A not so classic study is to count the common edges between decorations pairwise. The `same_eds()` create another symetrical dataframe where cells show the total number of common edges by decorations (rows and columns headers). Here it is the `type` of the edges which is considered.
 
 ```{r compare.edges, warning=FALSE}
 imgs_path <- paste0(iconr_path, "/imgs.tsv")
@@ -415,9 +403,7 @@ df.same_edges <- same_eds(lgrph,"type")
 knitr::kable(df.same_edges,row.names = T)
 ```
 
-The output is a symetrical dataframe showing the number of common edges. Here, we read that  decorations `2` and `3` have three (3) common edges. 
-
-To show them, use the  `plot_eds_compar(listg,graph2)` function.
+Here, we read that  decorations `2` and `3` have three (3) common edges. To show them, use the  `plot_eds_compar()` function.
 
 ```{r compare.2.edges, out.width = "700px", fig.align="center", warning=FALSE}
 dec.to.compare <- c(2,3)
@@ -439,6 +425,7 @@ eds_compar <- plot_eds_compar(g.compar,
 knitr::include_graphics(eds_compar) 
 ```
 
+#### TODO: classification, remove the 'écriture' node
 
 # References
 
