@@ -23,7 +23,17 @@ plot_dec_grph <- function(nds.df, eds.df, site, decor, doss = getwd(),
     if ("edges" %in% shw) {
         for (edg in 1:nrow(eds.df.select)) {
             edg.df <- eds.df.select[edg, ]
-            ed.type <- ifelse(edg.df$type %in% c("+", ">"), 2, 1)
+            # ed.type <- ifelse(edg.df$type %in% c("+", ">"), 2, 1)
+            if(edg.df$type == "="){
+                ed.type <- 1
+            }
+            if(edg.df$type == "+"){
+                ed.type <- 2
+            }
+            if(edg.df$type == ">"){
+                ed.type <- 1
+                ed.color <- "blue"
+            }
             graphics::lines(edg.df[c("xa", "xb")],
                             abs(edg.df[c("ya", "yb")]),
                             lty = ed.type, lwd = ed.lwd, col = ed.color)
