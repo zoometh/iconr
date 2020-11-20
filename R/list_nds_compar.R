@@ -1,11 +1,5 @@
 list_nds_compar <- function(lgrph, var = "type",
-                            common.nds.color = "red", different.nds.color = "orange",
-                            common.nds.size = 1, different.nds.size = 0.5,
                             verbose = FALSE) {
-    # Gathering "different" and "common" parameters in vectors
-    # avoids if statements.
-    nds.color <- c(different.nds.color, common.nds.color)
-    nds.size  <- c(different.nds.size,  common.nds.size)
     # Get the vertex names of each graph of the graph list.
     ldec.comp <- utils::combn(1:length(lgrph), 2)  # all pairwise comparisons
     if (verbose) {
@@ -25,19 +19,13 @@ list_nds_compar <- function(lgrph, var = "type",
     return(grphAllcompar)
 }
 
-nds_compar <- function(grphs, var = "type",
-                       nds.color = c("orange", "red"),
-                       nds.size = c(0.5, 1)) {
+nds_compar <- function(grphs, var = "type") {
     g.nds = lapply(grphs,
                    function(x) igraph::get.vertex.attribute(x, var,
                                                             index = igraph::V(x)))
     common.nodes <- intersect(g.nds[[1]], g.nds[[2]])
     for (i in 1:2) {
-        # loop through graphs i <- 1
-        v.com <- as.numeric(g.nds[[i]] %in% common.nodes)
-        igraph::V(grphs[[i]])$color <- nds.color[v.com + 1]
-        igraph::V(grphs[[i]])$cex <- nds.size[v.com + 1]
-        igraph::V(grphs[[i]])$comm <- v.com
+        igraph::V(grphs[[i]])$comm <- as.numeric(g.nds[[i]] %in% common.nodes)
     }
     return(grphs)
 }
