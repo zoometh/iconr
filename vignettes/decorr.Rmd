@@ -27,8 +27,10 @@ references:
 - id: HuetAlexander15
   title: "Méthodes informatiques pour l’étude des gravures rupestres : les exemples du Valcamonica (Italie) et du mont Bego (France)"
   author:
-  - name: "Thomas Huet"
-  - name: "Craig Alexander"
+  - family: Huet
+    given: Thomas
+  - family: Alexander
+    given: Craig
   container-title: "Recherches sur l'âge du Bronze, Nouvelles approches et perspectives, Actes de la journée d'étude de l'Association pour la promotion des recherches archéologiques sur l'âge du Bronze, 28 février 2014, Saint-Germain-en-Laye"
   publisher: "Bulletin de l'APRAB, suppl. n° 1"
   page: 15-29
@@ -102,7 +104,7 @@ cat(ls("package:decorr"), sep="\n")
 
 ### Data
 
-External data attempt give a training dataset to illustrate the package functions.  
+External data give a training dataset to illustrate the package main functions.  
 
 The current path of training external data is the `extdata` folder of the package. Change this working directory for your own directory.
 
@@ -135,13 +137,13 @@ knitr::kable(imgs, "html") %>%
   kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
 
-The decorations unique identifiers are the concatenation of the name of the site and the name of the decoration. for example, the name of the `Cerrano Muriano 1` decoration is ``r imgs[1,"img"]``.  
+The decorations unique identifiers are the concatenation of the site name and decoration name. For example, the name of the `Cerrano Muriano 1` decoration is ``r imgs[1,"img"]``.  
 
 Drawing/images (`.jpg`) are mostly managed with the R [`magick-image` package](https://cran.r-project.org/web/packages/magick/vignettes/intro.html)
 
-```{r drawing,fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="\\label{fig:figs}Cerro_Muriano.Cerro_Muriano_1.jpg"}
+```{r drawing,fig.width=6, fig.height=6, fig.align="center", warning=FALSE, echo=FALSE, message=FALSE, fig.cap="\\label{fig:figs}Cerro_Muriano.Cerro_Muriano_1.jpg"}
 library(magick)
-plot(image_read(paste0(iconr_path, "/", imgs[1,"img"])))
+plot(image_trim(image_read(paste0(iconr_path, "/", imgs[1,"img"]))))
 ```
 
 
@@ -202,11 +204,11 @@ knitr::kable(eds.df, "html") %>%
     
   - `type`: type of the edge  
   
-    - `=`: normal edge  
+    - `=`: *normal* edge (undirected)  
     
-    - `+`: node `b` is an attribute of node `a` 
+    - `+`: *attribute* edge, node `b` is an attribute of node `a` (directed)
     
-    - `>`: node `a` overlaps node `b` 
+    - `>`: *overlap* edge, node `a` overlaps node `b` (directed)
     
   - `xa, ya`: coordinates of the first node  (`a`) 
     
@@ -214,10 +216,38 @@ knitr::kable(eds.df, "html") %>%
   
 ##### Edges types
 
-Commonly differents GUs close one with another have the value `=` for their edge `type` and are displayed in <span style="color:orange">orange</span> and a plain line
+By default, all edges are displayed in <span style="color:orange"><b>orange</b></span>. Except the *normal* edges which is undirected, the *attribute* and *overlap* edges are directed.
 
-```{r graph.attribute.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE}
-# setwd(system.file("extdata", package = "decorr"))
+* *normal* edges
+
+Usually, differents GUs considerated as contemporaneous and close one with another, shared an edge with the  value `=` for their `type`. By convention, these edges are called '*normal*' and are displayed with a plain line.
+
+```{r graph.normal.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="Brozas decoration"}
+nds.df <- read_nds(site = "Brozas", 
+                   decor = "Brozas",
+                   doss = iconr_path)
+eds.df <- read_eds(site = "Brozas",
+                   decor = "Brozas",
+                   doss = iconr_path)
+img.graph <- plot_dec_grph(nds.df = nds.df,
+                           eds.df = eds.df,
+                           site = "Brozas",
+                           decor = "Brozas",
+                           lbl.txt = "type",
+                           shw = c("nodes","edges"),
+                           doss = iconr_path)
+plot(img.graph)
+```
+
+* *attribute* edges
+
+When a GU is an attribute of another, the edge is identified with a `+` and are displayed with a dashed line.  For example, at the bottom of the `Zarza De Montanchez` decoration, the main GU chariot `7` is connected with four GUs attributes (or secondary GUs):
+
+  - two horses: `8` and `9`  
+  
+  - two wheels: `10` and `11` 
+
+```{r graph.attribute.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="Zarza De Montanchez decoration"}
 nds.df <- read_nds(site = "Zarza de Montanchez", 
                    decor = "Zarza De Montanchez",
                    doss = iconr_path)
@@ -234,14 +264,29 @@ img.graph <- plot_dec_grph(nds.df = nds.df,
 plot(img.graph)
 ```
 
-When a GU is an attribute of another, the edge is identified with a `+` and are displayed with a dashed line.  
+* *overlap* edges
 
-For example, at the bottom of the `Zarza De Montanchez` decoration, one (1) main GU, the chariot `7`, connected with four (4) attributes (or secondary GUs):
+When a GU overlapping another, the edge is identified with a `>` and are displayed with a XXXX line. For example, the `Ibahernando` stelae show a latin writing overlaping a spear (lance) and a shield (bouclier).
+  
 
-  - two (2) horses `8` and `9`  
-  
-  - two (2) wheels `10` and `11` 
-  
+```{r graph.overlap.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="Ibahernando decoration"}
+nds.df <- read_nds(site = "Ibahernando", 
+                   decor = "Ibahernando",
+                   doss = iconr_path)
+eds.df <- read_eds(site = "Ibahernando",
+                   decor = "Ibahernando",
+                   doss = iconr_path)
+img.graph <- plot_dec_grph(nds.df = nds.df,
+                           eds.df = eds.df,
+                           site = "Ibahernando",
+                           decor = "Ibahernando",
+                           lbl.txt = "type",
+                           shw = c("nodes","edges"),
+                           doss = iconr_path)
+plot(img.graph)
+```
+
+
 
 ```{r img.graph.plot.a.edge, fig.width=6, fig.height=6, fig.align="center", warning=FALSE}
 # setwd(system.file("extdata", package = "decorr"))
