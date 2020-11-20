@@ -13,8 +13,7 @@ list_nds_compar <- function(lgrph, var = "type",
                           "' and '", lgrph[[idx.g[2]]]$name, "'")
             print(paste0("    ", dec, ") ", tit))
         }
-        grphAllcompar[[dec]] <- decorr::nds_compar(lgrph[idx.g], var,
-                                                   nds.color, nds.size)
+        grphAllcompar[[dec]] <- decorr::nds_compar(lgrph[idx.g], var)
     }
     return(grphAllcompar)
 }
