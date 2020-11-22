@@ -117,13 +117,13 @@ Each decoration is a set of:
 
   + a drawing/image (`.jpg`)
   
-  + a dataframe of decoration identifiers (`.tsv`)
+  + a dataframe of decoration identifiers (`.tsv` or `.csv`)
   
   + a dataframe of nodes (`.tsv`, `.csv` or `.shp`)
   
   + a dataframe of edges (`.tsv`, `.csv` or `.shp`)
   
-Since a GIS interface is often the most practicale to record nodes and edges, the package has been designed to accept shapefiles (`.shp`) for nodes (`POINTS` geometries) and edges (`LINES` geometries).  
+Since a GIS interface is often the most practicale to record nodes and edges, the package has been designed to accept shapefiles (`.shp`) for nodes (`POINTS` geometries) and edges (`LINES` geometries). Tabular data can be `.tsv` (tab-separated values) or `.csv` (semicolons-separated values) 
 
 
 #### Drawings/Images
