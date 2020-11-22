@@ -1,7 +1,8 @@
 side_plot_nds <- function(grp, doss, var,
                           nds.color = c("orange", "red"),
                           nds.size = c(0.5, 1),
-                          eds.color = "orange") {
+                          eds.color = "orange",
+                          lbl.size = 0.4) {
     dec.img <- magick::image_read(paste0(doss, "/", grp$img))
     # add the decor site and name
     dec.img <- magick::image_annotate(dec.img,
@@ -15,7 +16,6 @@ side_plot_nds <- function(grp, doss, var,
     g.nodes <- igraph::as_data_frame(grp, what = "vertices")
     g.nodes$y <- g.nodes$y + offset.img  # add the offset
     g.edges <- igraph::as_data_frame(grp)
-
     ed.type <- ifelse(g.edges$type %in% c("+", ">"), 2, 1)
     for (edg in 1:nrow(g.edges)) {
         edg.vert <- as.numeric(g.edges[edg, c("from","to")]) # Edge vertices.
@@ -30,5 +30,5 @@ side_plot_nds <- function(grp, doss, var,
     # Get common nodes to plot labels
     nds.lbl <- g.nodes[g.nodes$comm == 1, ]
     labels_shadow(nds.lbl$x, nds.lbl$y, label = nds.lbl[, var],
-                  col = nds.color[2], bg = "white", cex = 0.4, r = 0.2)
+                  col = nds.color[2], bg = "white", cex = lbl.size, r = 0.2)
 }

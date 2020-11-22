@@ -1,6 +1,6 @@
 plot_nds_compar <- function(listg, graph2 = NULL, doss = getwd(), var = "type",
                             common.nds.color = "red", different.nds.color = "orange",
-                            common.nds.size = 1, different.nds.size = 0.5,
+                            common.nds.size = 1, different.nds.size = 0.5, lbl.size = 0.4,
                             eds.color = "orange") {
     # Gathering "different" and "common" parameters in vectors
     # avoids if statements.
@@ -19,8 +19,8 @@ plot_nds_compar <- function(listg, graph2 = NULL, doss = getwd(), var = "type",
                            units = "cm", res = 300)
             # Set the plotting area into a 1*2 array
             graphics::par(mfrow = c(1, 2), mar = c(0, 0, 0, 0))
-            side_plot_nds(g[[1]], doss, var, nds.color, nds.size, eds.color)
-            side_plot_nds(g[[2]], doss, var, nds.color, nds.size, eds.color)
+            side_plot_nds(g[[1]], doss, var, nds.color, nds.size, lbl.size, eds.color)
+            side_plot_nds(g[[2]], doss, var, nds.color, nds.size, lbl.size, eds.color)
             graphics::mtext(tit, side = 1, line = -1, outer = TRUE, cex = 0.6)
             grDevices::dev.off()
             out.compar.list[length(out.compar.list) + 1] <- out.compar
