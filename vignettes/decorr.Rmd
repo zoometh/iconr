@@ -425,7 +425,7 @@ eds_compar <- plot_eds_compar(g.compar,
 knitr::include_graphics(eds_compar) 
 ```
 
-#### TODO: classification, remove the 'écriture' node
+#### TODO: classification, remove the 'écriture' node, dashed line when attributes
 
 # References
 
