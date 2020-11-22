@@ -111,6 +111,7 @@ External data give a training dataset to illustrate the package main functions.
 The current path of training external data is the `extdata` folder of the package. Change this working directory for your own directory.
 
 ```{r ls_ext_data}
+# iconr_path <- "C:/Documents/decorr/inst/extdata/"
 iconr_path <- system.file("extdata", package = "decorr")
 cat(list.files(iconr_path),sep="\n")
 ```
