@@ -1,11 +1,12 @@
 \name{plot_nds_compar}
 \alias{plot_nds_compar}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Plot and Save a Figure of Nodes Comparison Between Two Graphs}
+\title{Plot and Save a Figure of Nodes Comparison Between Graphs}
 \description{
-  Save an image of common nodes for a two graphs pairwise comparison
-  and return the path of the image.
-  \code{plot_nds_compar()} uses the function \code{\link[decorr]{side_plot_nds}}
+  Save an image of common edges for one or more graphs pairwise comparison
+  and return the path of the image. This function is the equivalent of
+  the \code{\link[decorr]{plot_eds_compar}} function for the edges.
+  %% \code{plot_nds_compar()} uses the function \code{\link[decorr]{side_plot_nds}}
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -17,6 +18,7 @@ plot_nds_compar(listg,
                 different.nds.color = "orange",
                 common.nds.size = 1,
                 different.nds.size = 0.5,
+                lbl.size = 0.4,
                 eds.color = "orange")
 }
 %- maybe also 'usage' for other objects documented here.
@@ -27,7 +29,7 @@ plot_nds_compar(listg,
 }
     \item{graph2}{
 %%     ~~Describe \code{x} here~~
-    a vector with the two idf of the graphs
+    a vector with two or more identifiers of the graphs
 }
         \item{doss}{
 %%     ~~Describe \code{x} here~~
@@ -35,7 +37,31 @@ plot_nds_compar(listg,
 }
         \item{var}{
 %%     ~~Describe \code{x} here~~
-    the filed on which the comparison will be done, by default 'type'
+    the field on which the comparison will be done, by default 'type'
+}
+        \item{common.nds.color}{
+%%     ~~Describe \code{x} here~~
+    the colors of the common nodes for graph comparison pairwises
+}
+        \item{different.nds.color}{
+%%     ~~Describe \code{x} here~~
+    the colors of the different nodes for graph comparison pairwises
+}
+        \item{common.nds.size}{
+%%     ~~Describe \code{x} here~~
+    the size of the common nodes for graph comparison pairwises
+}
+        \item{different.nds.size}{
+%%     ~~Describe \code{x} here~~
+    the size of the different nodes for graph comparison pairwises
+}
+        \item{lbl.size}{
+%%     ~~Describe \code{x} here~~
+    the size of the nodes labels for graph comparison pairwises. Only common nodes labels will be displayed
+}
+        \item{eds.color}{
+%%     ~~Describe \code{x} here~~
+    the color of the edges
 }
 }
 \details{
@@ -47,7 +73,7 @@ plot_nds_compar(listg,
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-  create an image for a pairwise comparisons between two decorations nodes and return the path of this image
+  create one or more images for pairwise comparisons between two or more decorations nodes shown side-by-side. Return the path of this image.
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -61,8 +87,6 @@ plot_nds_compar(listg,
 
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{plot_eds_compar}},
-  \code{\link[decorr]{side_plot_nds}}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~

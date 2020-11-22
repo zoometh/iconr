@@ -1,11 +1,12 @@
 \name{plot_eds_compar}
 \alias{plot_eds_compar}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Plot and Save a Figure of Edges Comparison Between Two Graphs}
+\title{Plot and Save a Figure of Edges Comparison Between Graphs}
 \description{
-  Save an image of common edges for a two graphs pairwise comparison   
-  and return the path of the image.
-  \code{plot_eds_compar()} uses the function \code{\link[decorr]{side_plot_eds}}
+  Save an image of common edges for one or more graphs pairwise comparison
+  and return the path of the image. This function is the equivalent of
+  the \code{\link[decorr]{plot_nds_compar}} function for the nodes.
+  %%\code{plot_eds_compar()} uses the function \code{\link[decorr]{side_plot_eds}}
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -55,8 +56,8 @@ plot_eds_compar(listg,
 }
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{list_eds_compar}}, 
-  \code{\link[decorr]{plot_nds_compar}}, 
+  \code{\link[decorr]{list_eds_compar}},
+  \code{\link[decorr]{plot_nds_compar}},
   \code{\link[decorr]{side_plot_eds}}
 }
 
@@ -64,7 +65,7 @@ plot_eds_compar(listg,
 
 
 \examples{
-  
+
 # read data
 imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
                    sep="\t",stringsAsFactors = FALSE)
@@ -74,10 +75,10 @@ edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs,nodes,edges,var="type")
 g.compar <- list_eds_compar(lgrph,var="type")
-  
-# plot 
+
+# plot
 plot_eds_compar(g.compar, c(1,4), doss = system.file("extdata", package = "decorr"))
-# two graphs side-by-side, graph 1 and graph 4, with common edges identified on field 'type' 
+# two graphs side-by-side, graph 1 and graph 4, with common edges identified on field 'type'
 # by different colors and widths
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
