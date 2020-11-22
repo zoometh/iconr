@@ -41,7 +41,8 @@ references:
 - id: Alexander08
   title: The Bedolina map -- an exploratory network analysis
   author:
-  - name: "Craig Alexander"
+  - family: Alexander
+    given: Craig
   container-title: Layers of Perception. Proceedings of the 35th International Conference on Computer Applications and Quantitative Methods in Archaeology (CAA),  Berlin, 2.-6. April 2007
   publisher: Koll. Vor- u. Frühgesch
   page: 366-371
@@ -53,7 +54,8 @@ references:
 - id: DiazGuardamino10
   title: Las estelas decoradas en la Prehistoria de la Pen{\'\i}nsula Ib{\'e}rica
   author:
-  - name: "Marta Diaz-Guardamino"
+  - family: Diaz-Guardamino
+    given: Marta
   publisher: Universidad Complutense de Madrid, Servicio de Publicaciones
   type: article-journal
   issued:
