@@ -35,7 +35,7 @@
   %%  \item{comp1 }{Description of 'comp1'}
   %%  \item{comp2 }{Description of 'comp2'}
   %% ...
-  return a list of length two with the dataframes of the dataframe of contemporaneous nodes (1) and edges (2)
+  return a list of length two with the dataframes of contemporaneous nodes (1) and edges (2)
 }
 \references{
   %% ~put references to the literature/web site here ~
@@ -50,31 +50,31 @@
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 
-  \examples{
-    # set data folder
-    dataDir <- system.file("extdata", package = "decorr")
+\examples{
+# set data folder
+dataDir <- system.file("extdata", package = "decorr")
 
-    # read a decoration
-    nds.df <- read_nds(site = "Ibahernando",
-                       decor = "Ibahernando",
-                       doss = dataDir)
-    eds.df <- read_eds(site = "Ibahernando",
-                       decor = "Ibahernando",
-                       doss = dataDir)
-    l_dec_df <- read_nds_contemp(nds.df, eds.df, 3)
+# read a decoration
+nds.df <- read_nds(site = "Ibahernando",
+                   decor = "Ibahernando",
+                   doss = dataDir)
+eds.df <- read_eds(site = "Ibahernando",
+                   decor = "Ibahernando",
+                   doss = dataDir)
+l_dec_df <- read_nds_contemp(nds.df, eds.df, 3)
 
-    l_dec_df[[1]]
-    #    id     type        x         y
-    # 39  2    lance 351.6009 -191.5644
-    # 40  3 bouclier 345.0360 -296.6023
-    # 41  4     epee 367.3566 -420.6782
+l_dec_df[[1]]
+#    id     type        x         y
+# 39  2    lance 351.6009 -191.5644
+# 40  3 bouclier 345.0360 -296.6023
+# 41  4     epee 367.3566 -420.6782
 
-    l_dec_df[[2]]
-    #    a b type       xa        ya       xb        yb
-    # 50 2 3    = 351.6009 -191.5644 345.0360 -296.6023
-    # 51 3 4    = 345.0360 -296.6023 367.3566 -420.6782
+l_dec_df[[2]]
+#    a b type       xa        ya       xb        yb
+# 50 2 3    = 351.6009 -191.5644 345.0360 -296.6023
+# 51 3 4    = 345.0360 -296.6023 367.3566 -420.6782
 
-  }
+}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ ~kwd1 graphs}% use one of  RShowDoc("KEYWORDS")

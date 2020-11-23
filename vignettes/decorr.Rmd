@@ -79,9 +79,9 @@ The R package `decorr` is used to study iconography with network and spatial ana
 
 Its purpose is to contribute to cross-cultural iconography comparisons studies by a higher normalization of quantitative analysis [@HuetAlexander15]. This package has been grounded on the seminal work of C. Alexander [@Alexander08] and its first IT implementation by T. Huet [@Huet18]. 
 
-The main principle of `decorr` package is to considerate any iconographic compositions (here, 'decorations') as relative neighborhood graphs (RNG) where the nodes are graphical units (GUs). Two GUs are connected with an edge when their Voronoi cell share a border.  
+The main principle of `decorr` package is to considerate any iconographic compositions (here, 'decorations') as relative neighborhood graphs (RNG) where the nodes are graphical units (GUs). Two GUs are connected with an edge when their Voronoi cell share a border. The RNG covers all the GUs, so the descoration is considered as a 1-component graph. Before the analysis process, contemporaneous and non-contemporaneous GUs can be studied separately.   
 
-Buidling a graph in a GIS allows to use analyses coming from Graph theory and GIS management.  
+Buidling graphs in a GIS facilitate the data recording (with snapping options for example) and allows to combine analyses coming from Graph theory and GIS management.  
 
 # Install
 
@@ -222,7 +222,7 @@ Except the *normal* edges which is undirected, the *attribute* and *overlap* edg
 
 * *normal* edges
 
-Usually, differents GUs considerated as contemporaneous and close one with another, shared an edge with the  value `=` for their `type`. By convention, these edges are called '*normal*' and are displayed with a plain line.
+Usually, differents GUs considerated as contemporaneous and close one with another, shared an edge with the  value `=` for their `type`. By convention, these edges are called '*normal*' and displayed with a plain line.
 
 ```{r graph.normal.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="Brozas decoration, normal edges"}
 nds.df <- read_nds(site = "Brozas", 
@@ -244,7 +244,7 @@ plot(img.graph)
 
 * *attribute* edges
 
-When a GU is an attribute of another, the edge is identified with a `+` and are displayed with a dashed line.  For example, at the bottom of the `Zarza De Montanchez` decoration, the main GU chariot `7` is connected with four GUs attributes (or secondary GUs):
+When a GU is an attribute of another, edges are identified with a `+` and displayed with a dashed line.  For example, at the bottom of the `Zarza De Montanchez` decoration, the main GU chariot `7` is connected with four GUs attributes (or secondary GUs):
 
   - two horses (cheval): `8` and `9`  
   
@@ -277,7 +277,7 @@ cat(paste0(eds.df[8,"a"]," -",eds.df[8,"type"],"- ",eds.df[8,"b"]))
 
 * *overlap* edges
 
-When a GU overlapping another -- or is more recent than antother -- the edge is identified with a `>` and are displayed with a blue plain line. For example, the `Ibahernando` stelae show a latin writing (écriture) overlaping a spear (lance) and a shield (bouclier).
+When a GU overlapping another -- or is more recent than antother -- edges ae identified with a `>` and displayed with a blue plain line. For example, the `Ibahernando` stelae show a latin writing (écriture) overlaping a spear (lance) and a shield (bouclier).
   
 
 ```{r graph.overlap.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="Ibahernando decoration, normal and overlap edges"}
@@ -304,6 +304,8 @@ For example, the edge between the GUs `1` and `2` (respectively the writing and 
 eds.df <- read_eds(site = "Ibahernando", decor = "Ibahernando", doss = iconr_path)
 cat(paste0(eds.df[1,"a"]," -",eds.df[1,"type"],"- ",eds.df[1,"b"]))
 ```
+
+Exists a function to [Remove non-contemporaneous iconographical content][]
 
 ## Examples
 
@@ -372,7 +374,7 @@ Here, we read that decorations `2` and `3` have five (5) nodes with the same typ
 # set wd to data folder
 # out.img path is only useful to open the output image
 dec.to.compare <- c(2, 3, 4)
-out.img <- paste0(iconr_path,"/compar_nds_", dec.to.compare[1],"_",dec.to.compare[2],".png")
+# out.img <- paste0(iconr_path,"/compar_nds_", dec.to.compare[1],"_",dec.to.compare[2],".png")
 # read data
 imgs_path <- paste0(iconr_path, "/imgs.tsv")
 nodes_path <- paste0(iconr_path, "/nodes.tsv")
@@ -414,7 +416,7 @@ Here, we read that  decorations `2` and `3` have three (3) common edges. To show
 
 ```{r compare.2.edges, out.width = "700px", fig.align="center", warning=FALSE}
 dec.to.compare <- c(2,3)
-out.img <- paste0(iconr_path,"/compar_eds_",dec.to.compare[1],"_",dec.to.compare[2],".png")
+# out.img <- paste0(iconr_path,"/compar_eds_",dec.to.compare[1],"_",dec.to.compare[2],".png")
 # read data
 imgs_path <- paste0(iconr_path, "/imgs.tsv")
 nodes_path <- paste0(iconr_path, "/nodes.tsv")
@@ -433,19 +435,19 @@ eds_compar <- plot_eds_compar(g.compar,
 knitr::include_graphics(eds_compar) 
 ```
 
-#### TODO: classification, remove the 'écriture' node, dashed line when attributes
+#### Remove non-contemporaneous iconographical content
 
-It occurs that some GUs are non-contemporaneous one with the others, like for the latin writing overlapping Late Bronze Age engravings on Ibaherando stelae. In this case, the non-contemporaneous layers of decoration can be removed before the comparison processes
+It occurs that some GUs are non-contemporaneous one with the others, like for the latin writing overlapping Late Bronze Age engravings on Ibaherando stelae (see [*overlap* edges][]). In this case, the non-contemporaneous layers of decoration can be removed before the comparison processes by removing `>` edges and selecting the graph component having a selected GU. For example, if we want to study the Late Bronze Age iconographic layer of Ibahernando stelae, we can choose the Late Bronze Age GU numbered 3
 
 ```{r rm.writing, out.width = "700px", fig.align="center", warning=FALSE}
-library(igraph)
+selected.nd <- 3
 nds.df <- read_nds(site = "Ibahernando", 
                    decor = "Ibahernando",
                    doss = iconr_path)
 eds.df <- read_eds(site = "Ibahernando",
                    decor = "Ibahernando",
                    doss = iconr_path)
-l_dec_df <- read_nds_contemp(nds.df, eds.df, 3)
+l_dec_df <- read_nds_contemp(nds.df, eds.df, selected.nd)
 Ibahernando.contemp <- plot_dec_grph(nds.df = l_dec_df[[1]],
                            eds.df = l_dec_df[[2]],
                            site = "Ibahernando",
