@@ -446,7 +446,25 @@ eds.df <- read_eds(site = "Ibahernando",
                    decor = "Ibahernando",
                    doss = iconr_path)
 l_dec_df <- read_nds_contemp(nds.df, eds.df, 3)
-
+Ibahernando.contemp <- plot_dec_grph(nds.df = l_dec_df[[1]],
+                           eds.df = l_dec_df[[2]],
+                           site = "Ibahernando",
+                           decor = "Ibahernando",
+                           lbl.txt = "type",
+                           shw = c("nodes","edges"),
+                           lbl.color = "darkorange",
+                           lbl.size=2,
+                           doss = iconr_path)
+Ibahernando <- plot_dec_grph(nds.df = nds.df,
+                           eds.df = eds.df,
+                           site = "Ibahernando",
+                           decor = "Ibahernando",
+                           lbl.txt = "type",
+                           shw = c("nodes","edges"),
+                           lbl.color = "darkorange",
+                           lbl.size=2,
+                           doss = iconr_path)
+image_append(c(Ibahernando.contemp, Ibahernando))
 ```
 
 # References
