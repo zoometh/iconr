@@ -385,6 +385,8 @@ g.compar <- list_nds_compar(lgrph, var="type")
 nds_compar <- plot_nds_compar(g.compar,
                               dec.to.compare,
                               var="type",
+                              common.nds.size = 1.5,
+                              lbl.size = 0.6,
                               doss = iconr_path)
 # open image
 knitr::include_graphics(nds_compar) 
@@ -423,6 +425,7 @@ g.compar <- list_eds_compar(lgrph,var="type")
 eds_compar <- plot_eds_compar(g.compar,
                               dec.to.compare,
                               var="type",
+                              lbl.size = .6,
                               doss = iconr_path)
 # open image
 knitr::include_graphics(eds_compar) 
