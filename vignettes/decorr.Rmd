@@ -158,9 +158,6 @@ Nodes (ie, vertices) are stored in a dataframe (`.csv` or `.tsv`) or a shapefile
 
 
 ```{r nodes.df, warning=FALSE,fig.align="center",warning=FALSE}
-# setwd(system.file("extdata", package = "decorr"))
-# nds_path <- paste0(iconr_path, "/nds.tsv")
-# imgs <- read.table(nds_path,sep="\t", stringsAsFactors = FALSE)
 nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = iconr_path) 
 knitr::kable(nds.df, "html") %>% 
   kable_styling(full_width = FALSE, position = "center", font_size=12)
@@ -183,10 +180,10 @@ knitr::kable(nds.df, "html") %>%
 #### Edges
 
 
-Edges are stored in a dataframe (`.csv` or `.tsv`) or a shapefile (`.shp`). If the input data is a dataframe, coordinates columns `xa` and `ya` (origins of the edges), `xb` and `yb` (ends of the edges) are required
+Edges are stored in a dataframe (`.csv` or `.tsv`) or a shapefile (`.shp`). If the input data is a dataframe, coordinates columns `xa` and `ya` (origins of the edges), `xb` and `yb` (ends of the edges) are required.  
+
 
 ```{r edges.df, warning=FALSE}
-# setwd(system.file("extdata", package = "decorr"))
 eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = iconr_path) 
 knitr::kable(eds.df, "html") %>% 
   kable_styling(full_width = FALSE, position = "center", font_size=12)
@@ -205,13 +202,13 @@ knitr::kable(eds.df, "html") %>%
     
   - `b`: *id* of the second node  
     
-  - `type`: type of the edge  
+  - `type`: [Edges types][]  
   
-    - `=`: *normal* edge (undirected)  
+    - `=`: [*normal* edges][] (undirected)  
     
-    - `+`: *attribute* edge, node `b` is an attribute of node `a` (directed)
+    - `+`: [*attribute* edges][], node `b` is an attribute of node `a` (directed)
     
-    - `>`: *overlap* edge, node `a` overlaps node `b` (directed)
+    - `>`: [*overlap* edges][], node `a` overlaps node `b` (directed)
     
   - `xa, ya`: coordinates of the first node  (`a`) 
     
@@ -239,6 +236,7 @@ img.graph <- plot_dec_grph(nds.df = nds.df,
                            site = "Brozas",
                            decor = "Brozas",
                            lbl.txt = "type",
+                           lbl.size = 2,
                            shw = c("nodes","edges"),
                            doss = iconr_path)
 plot(img.graph)
@@ -248,9 +246,9 @@ plot(img.graph)
 
 When a GU is an attribute of another, the edge is identified with a `+` and are displayed with a dashed line.  For example, at the bottom of the `Zarza De Montanchez` decoration, the main GU chariot `7` is connected with four GUs attributes (or secondary GUs):
 
-  - two horses: `8` and `9`  
+  - two horses (cheval): `8` and `9`  
   
-  - two wheels: `10` and `11` 
+  - two wheels (roue): `10` and `11` 
 
 ```{r graph.attribute.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="Zarza De Montanchez decoration, normal and attribute edges"}
 nds.df <- read_nds(site = "Zarza de Montanchez", 
@@ -264,6 +262,7 @@ img.graph <- plot_dec_grph(nds.df = nds.df,
                            site = "Zarza de Montanchez",
                            decor = "Zarza De Montanchez",
                            lbl.txt = "type",
+                           lbl.size = 2,
                            shw = c("nodes","edges"),
                            doss = iconr_path)
 plot(img.graph)
@@ -278,7 +277,7 @@ cat(paste0(eds.df[8,"a"]," -",eds.df[8,"type"],"- ",eds.df[8,"b"]))
 
 * *overlap* edges
 
-When a GU overlapping another, the edge is identified with a `>` and are displayed with a blue plain line. For example, the `Ibahernando` stelae show a latin writing (écriture) overlaping a spear (lance) and a shield (bouclier).
+When a GU overlapping another -- or is more recent than antother -- the edge is identified with a `>` and are displayed with a blue plain line. For example, the `Ibahernando` stelae show a latin writing (écriture) overlaping a spear (lance) and a shield (bouclier).
   
 
 ```{r graph.overlap.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="Ibahernando decoration, normal and overlap edges"}
@@ -293,6 +292,7 @@ img.graph <- plot_dec_grph(nds.df = nds.df,
                            site = "Ibahernando",
                            decor = "Ibahernando",
                            lbl.txt = "type",
+                           lbl.size = 2,
                            shw = c("nodes","edges"),
                            doss = iconr_path)
 plot(img.graph)
@@ -366,12 +366,12 @@ df.same_nodes <- same_nds(lgrph, "type")
 knitr::kable(df.same_nodes, row.names = TRUE)
 ```
   
-Here, we read that decorations `2` and `3` have five (5) nodes with the same types (ie, common nodes). To show them, use the  `plot_nds_compar()` function.
+Here, we read that decorations `2` and `3` have five (5) nodes with the same types (ie, common nodes), and decorations `2` and `4` have five (7) common nodes. To show them, use the  `plot_nds_compar()` function.
 
 ```{r compare.2.nodes, out.width = "700px", fig.align="center", warning=FALSE}
 # set wd to data folder
 # out.img path is only useful to open the output image
-dec.to.compare <- c(2,3)
+dec.to.compare <- c(2, 3, 4)
 out.img <- paste0(iconr_path,"/compar_nds_", dec.to.compare[1],"_",dec.to.compare[2],".png")
 # read data
 imgs_path <- paste0(iconr_path, "/imgs.tsv")
@@ -391,6 +391,8 @@ nds_compar <- plot_nds_compar(g.compar,
 # open image
 knitr::include_graphics(nds_compar) 
 ```
+
+The function creates an image for each pairwise of stelae, that is to say $\frac{n!}{(n-2)!2!}$ pairwise comparisons, when `n` is the number of compared decoration
 
 #### Common Edges
 
@@ -432,6 +434,20 @@ knitr::include_graphics(eds_compar)
 ```
 
 #### TODO: classification, remove the 'écriture' node, dashed line when attributes
+
+It occurs that some GUs are non-contemporaneous one with the others, like for the latin writing overlapping Late Bronze Age engravings on Ibaherando stelae. In this case, the non-contemporaneous layers of decoration can be removed before the comparison processes
+
+```{r rm.writing, out.width = "700px", fig.align="center", warning=FALSE}
+library(igraph)
+nds.df <- read_nds(site = "Ibahernando", 
+                   decor = "Ibahernando",
+                   doss = iconr_path)
+eds.df <- read_eds(site = "Ibahernando",
+                   decor = "Ibahernando",
+                   doss = iconr_path)
+l_dec_df <- read_nds_contemp(nds.df, eds.df, 3)
+
+```
 
 # References
 
