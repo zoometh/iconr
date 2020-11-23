@@ -7,7 +7,7 @@ read_nds_contemp <- function(nds.df, eds.df, selected.nd){
   # rm '>' edges
   # match(E(g)$type,'>')
   eds.overlap <- which(match(E(g)$type,'>') %in% 1)
-  g <- delete.edges(g, edg.overlap)
+  g <- delete.edges(g, eds.overlap)
   g.member <- components(g)$membership
 
   selected.comp <- as.numeric(g.member[selected.nd])
