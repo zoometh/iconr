@@ -90,6 +90,7 @@ Install the `decorr` package from GitHub and load it.
 ```{r load_decorr, warning=FALSE}
 # devtools::install_github("zoometh/iconr")
 library(decorr)
+require(igraph)
 ```
 
 ## Contents
