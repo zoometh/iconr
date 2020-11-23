@@ -1,9 +1,9 @@
-side_plot_eds <- function(g, idf, doss, var) {
+side_plot_eds <- function(g, idf, doss, var, lbl.size) {
     # a manner to use only plot() idf <- 1 ; var <- 'type'
     grp <- g[[idf]]
     dec.img <- magick::image_read(paste0(doss, "/", grp$img))
     # add the decor site and name
-    dec.img <- magick::image_annotate(dec.img, paste0(grp$site, "\n", grp$decor), 
+    dec.img <- magick::image_annotate(dec.img, paste0(grp$site, "\n", grp$decor),
         gravity = "northwest", size = 20)
     drawing.decor <- grDevices::as.raster(dec.img)
     graphics::plot(drawing.decor)
@@ -26,18 +26,18 @@ side_plot_eds <- function(g, idf, doss, var) {
     # graph.j <- edges[edges$site==gA$site & edges$decor==gA$decor,]
     for (nd in 1:nrow(nds.xy)) {
         # all nodes
-        graphics::points(c(nds.xy[nd, ]$x), c(nds.xy[nd, ]$y), pch = 16, 
+        graphics::points(c(nds.xy[nd, ]$x), c(nds.xy[nd, ]$y), pch = 16,
             cex = 0.5, col = "orange")
     }
     for (edg in 1:nrow(g.edges)) {
         # all edges edg <- 1
-        graphics::lines(c(g.edges[edg, "xa"], g.edges[edg, "xb"]), c(g.edges[edg, 
-            "ya"], g.edges[edg, "yb"]), lwd = g.edges[edg, "width"], col = g.edges[edg, 
+        graphics::lines(c(g.edges[edg, "xa"], g.edges[edg, "xb"]), c(g.edges[edg,
+            "ya"], g.edges[edg, "yb"]), lwd = g.edges[edg, "width"], col = g.edges[edg,
             "color"])
     }
     for (nd.c in 1:nrow(nds.lbl)) {
         # common nodes (end of common edges) label on the node coordinates
-        labels_shadow(nds.lbl[nd.c, ]$x, nds.lbl[nd.c, ]$y, label = as.character(nds.lbl[nd.c, 
-            var]), col = common.color, bg = "white", cex = 0.4, r = 0.2)
+        labels_shadow(nds.lbl[nd.c, ]$x, nds.lbl[nd.c, ]$y, label = as.character(nds.lbl[nd.c,
+            var]), col = common.color, bg = "white", cex = lbl.size, r = 0.2)
     }
 }

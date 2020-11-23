@@ -4,7 +4,6 @@ plot_nds_compar <- function(listg, graph2 = NULL, doss = getwd(), var = "type",
                             eds.color = "orange") {
     # Gathering "different" and "common" parameters in vectors
     # avoids if statements.
-    # listg <- g.compar ; graph2 <- dec.to.compare ; doss <- iconr_path
     nds.color <- c(different.nds.color, common.nds.color)
     nds.size  <- c(different.nds.size,  common.nds.size)
     out.compar.list <- character(0)
@@ -30,8 +29,3 @@ plot_nds_compar <- function(listg, graph2 = NULL, doss = getwd(), var = "type",
     }
     return(paste0(getwd(), "/", out.compar.list))
 }
-
-# nds_compar <- plot_nds_compar(g.compar,
-#                               dec.to.compare,
-#                               var="type",
-#                               doss = iconr_path)
