@@ -13,7 +13,7 @@ list_dec <- function(imgs, nodes, edges, var = "type") {
                                            vertices = g.nodes)
         # Vertex names saved as idf and replaced by types.
         igraph::V(g)$idf <- igraph::V(g)$name
-        igraph::V(g)$name <- igraph::as_data_frame(g, what = "vertices")[, var]
+        igraph::V(g)$name <- igraph::vertex_attr(g, var)
         # attributes
         g$name <- a.enr$idf
         g$site <- a.enr$site
