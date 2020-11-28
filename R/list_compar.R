@@ -1,0 +1,50 @@
+list_compar <- function(lgrph, var = "type",
+                        verbose = FALSE) {
+  # Get the vertex names of each graph of the graph list.
+  ldec.comp <- utils::combn(1:length(lgrph), 2)  # all pairwise comparisons
+  if (verbose) {
+    print(paste0("there is ", ncol(ldec.comp), " pairwise comparisons to compute"))
+  }
+  grphAllcompar <- list()
+  for (dec in 1:ncol(ldec.comp)) {
+    idx.g <- ldec.comp[, dec]
+    if (verbose) {
+      tit <- paste0("compare decorations '", lgrph[[idx.g[1]]]$name,
+                    "' and '", lgrph[[idx.g[2]]]$name, "'")
+      print(paste0("    ", dec, ") ", tit))
+    }
+    grph <- decorr::eds_compar(lgrph[idx.g], var)
+    grphAllcompar[[dec]] <- decorr::nds_compar(grph, var)
+  }
+  return(grphAllcompar)
+}
+
+nds_compar <- function(grphs, var = "type") {
+  g.nds <- lapply(grphs, function(x) igraph::vertex_attr(x, var))
+  common.nodes <- intersect(g.nds[[1]], g.nds[[2]])
+  for (i in 1:2) {
+    igraph::V(grphs[[i]])$comm <- as.numeric(g.nds[[i]] %in% common.nodes)
+  }
+  return(grphs)
+}
+
+eds_compar <- function(grphs, var = "type") {
+  g.eds <- lapply(grphs, function(x) named_edges(x, var))
+  common.edges <- intersect(g.eds[[1]], g.eds[[2]])
+  for (i in 1:2) {
+    igraph::E(grphs[[i]])$comm <- as.numeric(g.eds[[i]] %in% common.edges)
+  }
+  return(grphs)
+}
+
+named_edges <- function(grph, var = NULL)
+{
+  grph.eds <- igraph::as_data_frame(grph)[, c("from", var, "to")]
+  if (!igraph::is_directed(grph)) {
+    grph.eds[,c("from","to")] <- t(apply(grph.eds[c("from","to")], 1, sort))
+    infix <- "--"
+  } else {
+    infix <- "->"
+  }
+  return(apply(grph.eds, 1, paste0, collapse = infix))
+}
