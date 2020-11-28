@@ -4,7 +4,6 @@ plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
                         eds.color = c("orange", "red"), eds.width = c(1, 2),
                         lbl.size = 0.4,
                         img.format = "png", res = 300) {
-
   focus.option <- c("nodes", "edges") == focus
   if (!any(focus.option)) {
     stop(paste("plot_compar option focus =", focus, "not recognized."))
@@ -27,9 +26,11 @@ plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
       decorr::grDeviceOpen(out.compar, width = 14, height = 7, res = res)
       # Set the plotting area into a 1*2 array
       graphics::par(mfrow = c(1, 2), mar = c(0, 0, 0, 0))
-      side_plot(g[[1]], doss, var, focus,
+      side_plot(g[[1]], doss, var,
+                # focus,
                 nds.color, nds.size, eds.color, eds.width, lbl.size)
-      side_plot(g[[2]], doss, var, focus,
+      side_plot(g[[2]], doss, var,
+                # focus,
                 nds.color, nds.size, eds.color, eds.width, lbl.size)
       graphics::mtext(tit, side = 1, line = -1, outer = TRUE, cex = 0.6)
       grDevices::dev.off()

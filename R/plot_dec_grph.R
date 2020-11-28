@@ -19,7 +19,7 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL,
         edges.select <- edges[edges$site  == site &
                                 edges$decor == decor, ]
         for (edg in 1:nrow(edges.select)) {
-            # edg <- 3
+            # edg <- 1
             edg.df <- edges.select[edg, ]
             ed.type <- ifelse(edg.df$type == "+", 2, 1)
             ed.color <- eds.color[ifelse(edg.df$type == ">", 2,1)]

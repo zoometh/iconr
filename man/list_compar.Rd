@@ -1,21 +1,23 @@
-\name{list_nds_compar}
-\alias{list_nds_compar}
+\name{list_compar}
+\alias{list_compar}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Graph Pairwise Comparison on Common Nodes}
+\title{Graph Pairwise Comparison on Common Nodes and Common Edges}
 \description{
-    List of graph pairwise comparisons on common nodes. Common nodes are those having the same type of nodes ('horse','sword',...). This function is equivalent to \code{\link[decorr]{list_eds_compar}} for edges.
+    \textbf{nodes} List of graph pairwise comparisons on common nodes. Common nodes are those having the same type of nodes ('horse','sword',...).
+     \textbf{edges} List of undirected graph pairwise comparisons on common edges. Common edges between two graphs are edges that have the same type of starting and ending nodes ('horse', 'sword',...) and the same type of edge ('=','+',...). For example \code{a -=- b} in graph 1 is equal to \code{b -=- a} in graph 2, but not to \code{b -+- a}, \code{b ->- a} or \code{a -+- b}.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-list_nds_compar(lgrph,
-                var="type",
-                verbose=FALSE)
+
+list_compar(lgrph,
+            var = "type",
+            verbose = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{lgrph}{
 %%     ~~Describe \code{x} here~~
-    a list of graph obtained with the function \code{list_dec}
+    a list of graph obtained with the function \code{list_dec()}
 }
     \item{var}{
 %%     ~~Describe \code{x} here~~
@@ -28,6 +30,7 @@ list_nds_compar(lgrph,
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
+This function calls two other functions: \code{nds_compar()} and \code{eds_compar()} which return respectively the common nodes and the common edges of a graph pairwise.
 }
 \value{
 %%  ~Describe the value returned
@@ -65,24 +68,24 @@ edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
 
 # list graphs
 lgrph <- list_dec(imgs,nodes,edges,var="type")
-g.compar <- list_nds_compar(lgrph,"type")
+g.compar <- list_compar(lgrph,"type")
 length(g.compar)
-# 6 = six pairwise comparisons
+# 10 = ten pairwise comparisons
 
 g.compar[[1]]
 # [[1]]
-# IGRAPH 5414981 UN-B 7 8 -- 1
-# + attr: name (g/n), site (g/c), decor (g/c), label (g/c), img (g/c), name (v/c), type (v/c), x
-# | (v/n), y (v/n), idf (v/c), color (v/c), cex (v/n), type (e/c)
-# + edges from 5414981 (vertex names):
-#   [1] personnage--lingot_pdb    bouclier  --lingot_pdb    personnage--bouclier      personnage--peigne
-# [5] lance     --peigne        personnage--casque        personnage--sexe_masculin personnage--lance
+# IGRAPH eb2a10a UN-B 7 8 -- 1
+# + attr: name (g/n), site (g/c), decor (g/c), label (g/c), img (g/c), name (v/c), type (v/c), x (v/n),
+# | y (v/n), idf (v/c), comm (v/n), type (e/c), comm (e/n)
+# + edges from eb2a10a (vertex names):
+#   [1] personnage--bouclier      personnage--peigne        lance     --peigne        personnage--casque
+# [5] personnage--sexe_masculin personnage--lance         personnage--lingot_pdb    bouclier  --lingot_pdb
 #
 # [[2]]
-# IGRAPH 5415a9a UN-B 12 15 -- 2
-# + attr: name (g/n), site (g/c), decor (g/c), label (g/c), img (g/c), name (v/c), type (v/c), x
-# | (v/n), y (v/n), idf (v/c), color (v/c), cex (v/n), type (e/c)
-# + edges from 5415a9a (vertex names):
+# IGRAPH eb2a85f UN-B 12 15 -- 2
+# + attr: name (g/n), site (g/c), decor (g/c), label (g/c), img (g/c), name (v/c), type (v/c), x (v/n),
+# | y (v/n), idf (v/c), comm (v/n), type (e/c), comm (e/n)
+# + edges from eb2a85f (vertex names):
 #   [1] fibule      --epee     bouclier    --miroir   epee        --lance    chariot_char--bouclier
 # [5] chariot_char--cheval   chariot_char--cheval   bouclier    --arc      chariot_char--arc
 # [9] arc         --miroir   bouclier    --fibule   bouclier    --epee     miroir      --epee

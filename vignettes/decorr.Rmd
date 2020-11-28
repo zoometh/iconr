@@ -66,6 +66,7 @@ references:
 library(knitr)
 library(dplyr)
 library(kableExtra)
+library(igraph)
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -75,13 +76,13 @@ knitr::opts_chunk$set(
 
 # Introduction
 
-The R package `decorr` is used to study iconography with network and spatial analysis indexes.  
+The R package `decorr` is used to study iconography with graph theory and spatial analysis indexes.  
 
 Its purpose is to contribute to cross-cultural iconography comparisons studies by a higher normalization of quantitative analysis [@HuetAlexander15]. This package has been grounded on the seminal work of C. Alexander [@Alexander08] and its first IT implementation by T. Huet [@Huet18]. 
 
-The main principle of `decorr` package is to considerate any iconographic compositions (here, 'decorations') as relative neighborhood graphs (RNG) where the nodes are graphical units (GUs). Two GUs are connected with an edge when their Voronoi cell share a border. The RNG covers all the GUs, so the descoration is considered as a 1-component graph. Before the analysis process, contemporaneous and non-contemporaneous GUs can be studied separately.   
+The main principle of `decorr` package is to considerate any iconographic compositions (here, 'decorations') as relative neighborhood graphs (RNG) where the nodes are the graphical units (GUs) sharing an edge one with another (edges) when their Voronoi cell share a border. The RNG covers all the GUs, so the decoration is considered as a 1-component graph. Before the analysis process, contemporaneous and non-contemporaneous GUs can be studied separately.   
 
-Buidling graphs in a GIS facilitate the data recording (with snapping options for example) and allows to combine analyses coming from Graph theory and GIS management.  
+Buidling decoration graphs in a GIS is already a spatial database of the iconographic content. Furthermore, it facilitate the data recording, with snapping options for example to connect GUs (nodes) with lines (edges), and allows to combine analyses coming from Graph theory and GIS management.  
 
 # Install
 
@@ -90,7 +91,6 @@ Install the `decorr` package from GitHub and load it.
 ```{r load_decorr, warning=FALSE}
 # devtools::install_github("zoometh/iconr")
 library(decorr)
-require(igraph)
 ```
 
 ## Contents

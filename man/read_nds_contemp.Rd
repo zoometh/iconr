@@ -1,5 +1,5 @@
-\name{read_nds_contemp}
-\alias{read_nds_contemp}
+\name{contemp_nds}
+\alias{contemp_nds}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Select Comtempotoraneous Nodes}
 \description{
@@ -7,9 +7,10 @@
   %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-  read_nds_contemp(nds.df,
-                   eds.df,
-                   selected.nd)
+  contemp_nds(nds.df,
+              eds.df,
+              selected.nd,
+              var = "type")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -25,6 +26,10 @@
     %%     ~~Describe \code{x} here~~
       the 'id' of the node which will permit to identify the contemporaneous component of the decoration graph
   }
+  \item{var}{
+    %%     ~~Describe \code{x} here~~
+      the field of 'eds.df' on which the '>' value will be search, by default the 'type' field
+  }
 }
 \details{
   %%  ~~ If necessary, more details than the description above ~~
@@ -35,7 +40,7 @@
   %%  \item{comp1 }{Description of 'comp1'}
   %%  \item{comp2 }{Description of 'comp2'}
   %% ...
-  return a list of length two with the dataframes of contemporaneous nodes (1) and edges (2)
+  return a list of length two with the dataframes of contemporaneous nodes (1) and contemporaneous edges (2)
 }
 \references{
   %% ~put references to the literature/web site here ~
@@ -61,7 +66,7 @@ nds.df <- read_nds(site = "Ibahernando",
 eds.df <- read_eds(site = "Ibahernando",
                    decor = "Ibahernando",
                    doss = dataDir)
-l_dec_df <- read_nds_contemp(nds.df, eds.df, 3)
+l_dec_df <- contemp_nds(nds.df, eds.df, selected.nd, var = "type")
 
 l_dec_df[[1]]
 #    id     type        x         y

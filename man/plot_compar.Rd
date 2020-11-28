@@ -1,19 +1,21 @@
-\name{plot_eds_compar}
-\alias{plot_eds_compar}
+\name{plot_compar}
+\alias{plot_compar}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Plot and Save a Figure of Edges Comparison Between Graphs}
+\title{Plot and Save a Figure of Nodes and Edges Comparison Between Graphs}
 \description{
-  Save an image of common edges for one or more graphs pairwise comparison
-  and return the path of the image. This function is the equivalent of
-  the \code{\link[decorr]{plot_nds_compar}} function for the nodes.
+  \textbf{nodes} Save an image of common edges for one or more graphs pairwise comparison
+  and return the path of the image.
+  \textbf{edges} Save an image of common edges for one or more graphs pairwise comparison
+  and return the path of the image.
   %%\code{plot_eds_compar()} uses the function \code{\link[decorr]{side_plot_eds}}
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-plot_eds_compar(listg,
-                graph2,
-                doss=getwd(),
-                var="type")
+plot_compar(listg, graph2 = NULL, focus = "nodes",
+            doss = getwd(), var = "type",
+            nds.color = c("orange", "red"), nds.size = c(0.5, 1),
+            eds.color = c("orange", "red"), eds.width = c(1, 2),
+            lbl.size = 0.4, img.format = "png", res = 300)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -25,6 +27,10 @@ plot_eds_compar(listg,
 %%     ~~Describe \code{x} here~~
     a vector with the two idf of the graphs
 }
+    \item{focus}{
+%%     ~~Describe \code{x} here~~
+    \code{nodes} or \code{edges} will pot respectively comparisons for common nodes and common edges
+}
       \item{doss}{
 %%     ~~Describe \code{x} here~~
     the working directory which contains the imgs, nodes, edges dataframes and the decoration images, by default the current wd (\code{getwd()})
@@ -32,6 +38,14 @@ plot_eds_compar(listg,
       \item{var}{
 %%     ~~Describe \code{x} here~~
     the filed on which the comparison will be done, by default 'type'
+}
+      \item{nds.color, nds.size, eds.color, eds.width, lbl.size}{
+%%     ~~Describe \code{x} here~~
+    graphical parameters for nodes', edges' and labels color and size/widths
+}
+      \item{img.format, res}{
+%%     ~~Describe \code{x} here~~
+    graphical parameters, format (png, jpg, etc.) and resolution, for the output image
 }
 }
 \details{
@@ -43,7 +57,7 @@ plot_eds_compar(listg,
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-   create an image for a pairwise comparisons between two decorations edges and return the path of this image
+   create an image for a pairwise comparisons between two decorations for nodes or edges and return the path of this image
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -56,9 +70,9 @@ plot_eds_compar(listg,
 }
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{list_eds_compar}},
-  \code{\link[decorr]{plot_nds_compar}},
-  \code{\link[decorr]{side_plot_eds}}
+  \code{\link[decorr]{list_compar}},
+  \code{\link[decorr]{plot_compar}},
+  \code{\link[decorr]{side_plot}}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~

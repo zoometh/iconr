@@ -13,6 +13,7 @@ read_nds <- function(site, decor, doss = getwd(), nodes = "nodes", dev = ".tsv")
             nds.shp <- rgdal::readOGR(dsn = doss, layer = nodes, verbose = FALSE)
             names(nds.shp@coords) <- c("x", "y")
             nds.df <- cbind(nds.shp@data, nds.shp@coords)
+            nds.df <- nds.df[ , c("site", "decor", "id", "type", "x", "y")]
         }
         nds.df <- nds.df[ nds.df$site == site &
                           nds.df$decor == decor, ]
@@ -21,3 +22,7 @@ read_nds <- function(site, decor, doss = getwd(), nodes = "nodes", dev = ".tsv")
     }
     return(nds.df)
 }
+#
+# nds.df <- read_nds(site = sit, decor = dec, dev = ".shp",
+#                    doss = system.file("extdata", package = "decorr"))
+# nds.df

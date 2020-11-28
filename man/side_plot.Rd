@@ -1,34 +1,40 @@
-\name{side_plot_nds}
-\alias{side_plot_nds}
+\name{side_plot}
+\alias{side_plot}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Plot Two Figures Side-by-Side for Nodes}
+\title{Plot Two Figures Side-by-Side Identifying Common Nodes or Common Edges}
 \description{
-  Plot figures side-by-side for nodes comparisons. This function is used by \code{\link[decorr]{plot_nds_compar}}
+  Plot figures side-by-side for nodes and edges comparisons}
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-side_plot_nds(g,
-              idf,
-              doss,
-              var)
+side_plot(grp, doss, var,
+          nds.color = c("orange", "red"),
+          nds.size = c(0.5, 1),
+          eds.color = c("orange", "red"),
+          eds.width = c(1, 2),
+          lbl.size = 0.4)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-        \item{g}{
+        \item{grp}{
 %%     ~~Describe \code{x} here~~
-    a list of two 'igraph' graphs
+    a list of two or more 'igraph' graphs created with the list_compar() function
 }
-          \item{idf}{
-%%     ~~Describe \code{x} here~~
-    index of the first graph or index of the second graph
-}
-            \item{doss}{
+          \item{doss}{
 %%     ~~Describe \code{x} here~~
     the working directory which contains the imgs, nodes, edges dataframes and the decoration images
 }
-              \item{var}{
+            \item{var}{
 %%     ~~Describe \code{x} here~~
     the field on which the comparison will be done
+}
+            \item{nds.color, nds.size, eds.color, eds.width}{
+%%     ~~Describe \code{x} here~~
+    graphical parameters for the nodes and edges. The different nodes/edges will be displayed with the first values of the vectors (eg, "orange") while the common nodes/edges will be displayed with the second values of the vectors (eg, "red")
+}
+            \item{lbl.size}{
+%%     ~~Describe \code{x} here~~
+    size of the labels
 }
 }
 \details{
