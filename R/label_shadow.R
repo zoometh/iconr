@@ -8,7 +8,6 @@ labels_shadow <- function(x,
     # all credits of the function go to Greg Snow see
     # https://rdrr.io/cran/TeachingDemos/man/shadowtext.html
     xy <- grDevices::xy.coords(x, y)
-    r = 0.1
     xo <- r * graphics::strwidth("A")
     yo <- r * graphics::strheight("A")
     theta = seq(0, 2 * pi, length.out = 50)
