@@ -21,19 +21,19 @@ labels_shadow(x,
 \arguments{
         \item{x, y}{
 %%     ~~Describe \code{x} here~~
-    coordinates
+    the x and y coordinates of a set of labels. Alternatively, a single argument x can be provided with the same syntax as in grDevices::xy.coords.
 }
           \item{labels}{
 %%     ~~Describe \code{x} here~~
-    label field
+    set of labels provided as a character vector.
 }
         \item{col, bg}{
 %%     ~~Describe \code{x} here~~
-    graphical parameters for the color and background color
+    graphical parameters for the label color and background (buffer) color
 }
             \item{theta, r}{
 %%     ~~Describe \code{x} here~~
-    parameter of the shadow buffer
+    parameter of the shadow buffer geometry. r is the thickness of the buffer as a ratio with respect to the width and height of the character "A" in the used font.
 }
               \item{...}{
 %%     ~~Describe \code{x} here~~
