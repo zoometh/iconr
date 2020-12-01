@@ -6,7 +6,7 @@ plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
                         img.format = "png", res = 300) {
   focus.option <- c("nodes", "edges") == focus
   if (!any(focus.option)) {
-    stop(paste0("plot_compar option focus = \"", focus, "\" not recognized."))
+    stop(paste0("focus must be \"nodes\" or \"edges\"."))
   }
   img.prefix <- c("compar_nds_", "compar_eds_")[focus.option]
   caption.heading <- c("nodes: ", "edges: ")[focus.option]
