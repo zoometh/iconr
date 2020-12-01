@@ -1,5 +1,5 @@
-\name{same_neds}
-\alias{same_neds}
+\name{same_elements}
+\alias{same_elements}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Matching Nodes and Edges in a Pairwise Comparison}
 \description{
@@ -67,7 +67,7 @@ edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
 lgrph <- list_dec(imgs,nodes,edges,"type")
   
 # same nodes
-df.same_nodes <- same_neds(lgrph, "type", "nodes")
+df.same_nodes <- same_elements(lgrph, "type", "nodes")
 df.same_nodes
 #   1  2 3  4 5
 # 1 7  2 3  4 2
@@ -77,7 +77,7 @@ df.same_nodes
 # 5 2  3 3  3 4
 
 # same edges
-df.same_edges <- same_neds(lgrph, "type", "edges")
+df.same_edges <- same_elements(lgrph, "type", "edges")
 df.same_edges
 #   1  2  3  4 5
 # 1 8  0  1  2 0
