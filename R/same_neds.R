@@ -1,20 +1,16 @@
 same_neds <- function (lgrph, var = "type", focus = c("nodes")) {
   lgrph_nmes <- unlist(lapply(lgrph, function(x) x$name))
   if(focus == "nodes"){
-    g.nds <- lapply(lgrph, function(x) igraph::vertex_attr(x, var))
-    mat.same_nodes <- outer(g.nds, g.nds,
+    extract_features <- function(x) igraph::vertex_attr(x, var)
+  } else if(focus == "edges"){
+    extract_features <- function(x) named_edges(x, var)
+  } else {
+    stop("The 'focus' must be 'nodes' or 'edges'")
+  }
+  
+  g.features <- lapply(lgrph, extract_features)
+  mat.same_feature <- outer(g.features, g.features,
                             Vectorize(function(x,y) length(intersect(x,y))))
-    rownames(mat.same_nodes) <- colnames(mat.same_nodes) <- lgrph_nmes
-    return(mat.same_nodes)
-  }
-  if(focus == "edges"){
-    g.eds <- lapply(lgrph, function(x) named_edges(x, var))
-    mat.same_edges <- outer(g.eds, g.eds,
-                            Vectorize(function(x,y) length(intersect(x,y))))
-    rownames(mat.same_edges) <- colnames(mat.same_edges) <- lgrph_nmes
-    return(mat.same_edges)
-  }
-  if(!(focus == "nodes" | focus == "edges")){
-    stop("the 'focus' must be 'nodes' or 'edges'")
-  }
+  rownames(mat.same_features) <- colnames(mat.same_features) <- lgrph_nmes
+  return(mat.same_features)
 }
