@@ -3,7 +3,8 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Matching Edges in a Pairwise Comparison}
 \description{
-  Count matching edges of each decoration will be comparated to edges from the other decorations. For example "epee--casque" from decoration A match with "epee--casque" from decoration B
+  Create a symetrical matrix with the count of common edges for each pairwise of decorations, show the total number of edges in the diagonal of the matrix. For example "epee-=-casque" from decoration A 
+  match with "epee-=-casque" or "casque-=-epee" from decoration B
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
