@@ -14,7 +14,7 @@ same_neds <- function (lgrph, var = "type", focus = c("nodes")) {
     rownames(mat.same_edges) <- colnames(mat.same_edges) <- lgrph_nmes
     return(mat.same_edges)
   }
-  if(!(focus %in% ("nodes", "edges")){
+  if(!(focus %in% c("nodes", "edges")){
     stop("the 'focus' must be 'nodes' or 'edges'")
   }
 }
