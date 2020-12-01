@@ -3,9 +3,9 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Plot and Save a Figure of Nodes and Edges Comparison Between Graphs}
 \description{
-  \textbf{nodes} Save an image of common edges for one or more graphs pairwise comparison
+  \strong{nodes} Save an image of common edges for one or more graphs pairwise comparison
   and return the path of the image.
-  \textbf{edges} Save an image of common edges for one or more graphs pairwise comparison
+  \strong{edges} Save an image of common edges for one or more graphs pairwise comparison
   and return the path of the image.
   %%\code{plot_eds_compar()} uses the function \code{\link[decorr]{side_plot_eds}}
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
