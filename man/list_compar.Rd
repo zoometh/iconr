@@ -29,7 +29,7 @@ list_compar(lgrph,
   }
     \item{var}{
 %%     ~~Describe \code{x} here~~
-    an attribute of the graph vertices containing the node type on which the comparison will be done. By default \code{var = "type"}.
+    an attribute of the graph vertices containing the node variable (ie, field) on which the comparison will be done. By default \code{var = "type"}.
   }
             \item{verbose}{
 %%     ~~Describe \code{x} here~~
@@ -39,10 +39,10 @@ list_compar(lgrph,
 \details{
 %%  ~~ If necessary, more details than the description above ~~
     \code{list_compar} calls the two other functions: \code{nds_compar()} and \code{eds_compar()}, which were initially designed as internal functions. 
-    They return respectively the common nodes and the common edges of a graph pairwise. Nodes are common if they have the the same type ('horse','sword',...) in both graphs.
-    Edges are common if they have the same type of starting and ending nodes ('horse', 'sword',...) and the same type of edge ('=','+',...). 
-    For example, \code{a -=- b} in graph 1 is equal to \code{a -=- b} in graph 2, but not to \code{a -+- b} or \code{a ->- b}.
-    For undirected graphs (the usual case), \code{a -=- b} is also equal to \code{b -= a}.
+    They return respectively the common nodes and the common edges of a graph pairwise. 
+    Nodes are common when they have the same value for a given variable, for example 'horse', 'sword', etc., for \code{var = "type"}.
+    Edges are common when they have the same value for \emph{starting} and emph{ending} nodes ('horse', 'sword', etc.) and the same type of edge ('=', '+', etc.). 
+    For example, \code{a -=- b} in graph 1 is equal to \code{a -=- b} or \code{b -=- a} in graph 2, but is not equal to \code{a -+- b},\code{b -+- a} or \code{a ->- b}.
 }
 \value{
 %%  ~Describe the value returned
