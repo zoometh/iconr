@@ -3,7 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Plot Two Figures Side-by-Side Identifying Common Nodes or Common Edges}
 \description{
-  Plot figures side-by-side for nodes and edges comparisons}
+  Plot figures side-by-side for nodes and edges comparisons
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
