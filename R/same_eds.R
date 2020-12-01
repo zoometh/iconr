@@ -1,8 +1,8 @@
 same_eds <- function(lgrph, var = "type") {
     lgrph_nmes <- unlist(lapply(lgrph, function(x) x$name))  # get names
-    g.nds <- lapply(lgrph, function(x) igraph::vertex_attr(x, var))
-    mat.same_nodes <- outer(g.nds, g.nds,
+    g.eds <- lapply(lgrph, function(x) named_edges(x, var))
+    mat.same_edges <- outer(g.eds, g.eds,
                             Vectorize(function(x,y) length(intersect(x,y))))
-    rownames(mat.same_nodes) <- colnames(mat.same_nodes) <- lgrph_nmes
-    return(mat.same_nodes)
+    rownames(mat.same_edges) <- colnames(mat.same_edges) <- lgrph_nmes
+    return(mat.same_edges)
 }
