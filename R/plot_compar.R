@@ -4,13 +4,25 @@ plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
                         eds.color = c("orange", "red"), eds.width = c(1, 2),
                         lbl.size = 0.4,
                         img.format = "png", res = 300) {
-  focus.option <- c("nodes", "edges") == focus
-  if (!any(focus.option)) {
+# If a single value is set for an nds or eds parameter, it affects both types:
+  if (length(nds.color) == 1) nds.color[2] <- nds.color[1]
+  if (length(nds.size) == 1) nds.size[2] <- nds.size[1]
+  if (length(eds.color) == 1) eds.color[2] <- eds.color[1]
+  if (length(eds.width) == 1) eds.width[2] <- eds.width[1]
+# Focus-specific parameter defaults and names:
+  if (focus == "nodes") {
+    img.prefix <- "compar_nds_"
+    caption.heading <- "nodes: "
+    caption.end <- ""
+  } else if (focus == "edges") {
+    if (missing(nds.color)) nds.color <- eds.color
+    if (missing(nds.size)) nds.size[2] <- nds.size[1]
+    img.prefix <- "compar_eds_"
+    caption.heading <- "edges: "
+    caption.end <- paste0(" on '", var, "'")
+  } else {
     stop(paste0("focus must be \"nodes\" or \"edges\"."))
   }
-  img.prefix <- c("compar_nds_", "compar_eds_")[focus.option]
-  caption.heading <- c("nodes: ", "edges: ")[focus.option]
-  caption.end <- c("", paste0(" on '", var, "'"))[focus.option]
 
   out.compar.list <- character(0)
   for(i in 1:length(listg)) {
