@@ -15,7 +15,7 @@ side_plot <- function(grp, doss, var, focus = "nodes",
   g.nodes <- igraph::as_data_frame(grp, what = "vertices")
   g.nodes$y <- g.nodes$y + offset.img  # add the offset
   g.edges <- igraph::as_data_frame(grp)
-  ed.type <- ifelse(g.edges$type %in% c("+", ">"), 2, 1)
+  ed.type <- ifelse(g.edges$type %in% c("+", ">"), "21", "solid")
 
   if (focus == "nodes") {
     nodes.group <- g.nodes$comm + 1
@@ -44,5 +44,5 @@ side_plot <- function(grp, doss, var, focus = "nodes",
   # Get common nodes to plot labels
   nds.lbl <- g.nodes[nodes.group == 2, ]
   labels_shadow(nds.lbl$x, nds.lbl$y, label = nds.lbl[, var],
-                col = nds.color[2], bg = "white", cex = lbl.size, r = 0.2)
+                col = nds.color[2], bg = "white", cex = lbl.size, r = 0.15)
 }
