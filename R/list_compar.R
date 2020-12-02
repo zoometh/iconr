@@ -20,7 +20,7 @@ list_compar <- function(lgrph, var = "type",
 }
 
 nds_compar <- function(grphs, var = "type") {
-  g.nds <- lapply(grphs, function(x) igraph::vertex_attr(x, var))
+  g.nds <- lapply(grphs, function(x) named_nodes(x, var))
   common.nodes <- intersect(g.nds[[1]], g.nds[[2]])
   for (i in 1:2) {
     igraph::V(grphs[[i]])$comm <- as.numeric(g.nds[[i]] %in% common.nodes)
@@ -37,8 +37,7 @@ eds_compar <- function(grphs, var = "type") {
   return(grphs)
 }
 
-named_edges <- function(grph, var = NULL)
-{
+named_edges <- function(grph, var = NULL) {
   grph.eds <- igraph::as_data_frame(grph)[, c("from", var, "to")]
   if (!igraph::is_directed(grph)) {
     grph.eds[,c("from","to")] <- t(apply(grph.eds[c("from","to")], 1, sort))
@@ -46,5 +45,18 @@ named_edges <- function(grph, var = NULL)
   } else {
     infix <- "->"
   }
-  return(apply(grph.eds, 1, paste0, collapse = infix))
+  edges <- apply(grph.eds, 1, paste0, collapse = infix)
+  return(disambiguate_duplicates(edges))
+}
+
+named_nodes <- function(grph, var = "name") {
+  nodes <- igraph::vertex_attr(grph, var)
+  return(disambiguate_duplicates(nodes))
+}
+
+disambiguate_duplicates <- function(x, marker = "#") {
+  while(any(dup <- duplicated(x))) {
+    x[dup] <- paste0(x[dup], marker)
+  }
+  return(x)
 }
