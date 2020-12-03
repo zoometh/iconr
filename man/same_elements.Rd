@@ -1,14 +1,17 @@
-\name{same_eds}
-\alias{same_eds}
+\name{same_elements}
+\alias{same_elements}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Matching Edges in a Pairwise Comparison}
+\title{Matching Nodes and Edges in a Pairwise Comparison}
 \description{
-  Create a symetrical matrix with the count of common edges for each pairwise of decorations, show the total number of edges in the diagonal of the matrix. For example "epee-=-casque" from decoration A 
-  match with "epee-=-casque" or "casque-=-epee" from decoration B
+  Create a symetrical matrix with the count of common nodes/edges for each pairwise of decorations, show the total number of nodes/edges in the diagonal of the matrix. 
+  For example "casque" node from decoration A match with "casque" node from decoration B.
+  For example "epee-=-casque" edge from decoration A match with "epee-=-casque" or "casque-=-epee" edge from decoration B
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
- same_eds(lgrph,var="type",verbose=FALSE)
+ same_neds(lgrph,
+           var = "type",
+           focus = c("nodes"))
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -20,9 +23,9 @@
 %%     ~~Describe \code{x} here~~
     field name in 'nodes' dataframe on which the comparisons will be done, by default the fieldname is "type"
 }
-              \item{verbose}{
+              \item{focus}{
 %%     ~~Describe \code{x} here~~
-    verbose, 'FALSE' by default
+    comparisons on \code{nodes} (by default) or \code{edges}
 }
 }
 \details{
@@ -34,7 +37,7 @@
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-  create a symetric matrix of coincidences
+  create a symetric matrix of coincidences for nodes/edges
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -61,34 +64,27 @@ nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
-lgrph <- list_dec(imgs,nodes,edges,"type") # call function
-df.same_edges <- same_eds(lgrph,"type")
-df.same_edges
-#   1 2 3 4
-# 1 0 0 1 2
-# 2 0 0 3 7
-# 3 1 3 0 1
-# 4 2 7 1 0
+lgrph <- list_dec(imgs,nodes,edges,"type")
   
-# compute heatmap
-require(ggplot2)
-require(reshape2)
+# same nodes
+df.same_nodes <- same_elements(lgrph, "type", "nodes")
+df.same_nodes
+#   1  2 3  4 5
+# 1 7  2 3  4 2
+# 2 2 10 5  7 3
+# 3 3  5 6  4 3
+# 4 4  7 4 10 3
+# 5 2  3 3  3 4
 
-df.same_edges[lower.tri(df.same_edges, diag = TRUE)] <- NA
-melt.df.same_edges <- melt(as.matrix(df.same_edges))
-heat.mat <- ggplot(data = melt.df.same_edges, aes(x=Var1, y=Var2, fill=value)) + 
-  ggtitle(paste0("counts of edges with the same 'type'",
-                 "\nbetween ",nrow(df.same_edges)," decorations"))+
-  geom_tile(na.rm = TRUE) +
-  scale_fill_gradient2(na.value = 'white',
-                       breaks=c(1,3,8,12,18))+
-  geom_text(aes(Var1, Var2, label = value),
-            color = "black", size = 4)+
-  theme_minimal() +
-  theme(axis.title = element_blank()) +
-  theme(legend.position = "none")
-heat.mat
-## output a the ggplot heatmap
+# same edges
+df.same_edges <- same_elements(lgrph, "type", "edges")
+df.same_edges
+#   1  2  3  4 5
+# 1 8  0  1  2 0
+# 2 0 13  3  5 1
+# 3 1  3 10  1 2
+# 4 2  5  1 12 1
+# 5 0  1  2  1 4
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

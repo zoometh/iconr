@@ -1,6 +1,4 @@
-list_dec <- function(imgs, nodes, edges, var = "type") {
-    # 'var': field on which the comparison will be done create list of
-    # graphs
+list_dec <- function(imgs, nodes, edges) {
     lgrph <- list()
     for (r in 1:nrow(imgs)) {
         a.enr <- imgs[r, ]
@@ -11,9 +9,6 @@ list_dec <- function(imgs, nodes, edges, var = "type") {
         # create graph
         g <- igraph::graph_from_data_frame(g.edges, directed = FALSE,
                                            vertices = g.nodes)
-        # Vertex names saved as idf and replaced by types.
-        igraph::V(g)$idf <- igraph::V(g)$name
-        igraph::V(g)$name <- igraph::vertex_attr(g, var)
         # attributes
         g$name <- a.enr$idf
         g$site <- a.enr$site
