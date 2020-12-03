@@ -1,8 +1,8 @@
 plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
-                        doss = getwd(), var = "type",
+                        doss = getwd(), nds.var = "type",
                         nds.color = c("orange", "red"), nds.size = c(0.5, 1),
                         eds.color = c("orange", "red"), eds.width = c(1, 2),
-                        lbl.size = 0.4,
+                        lbl.size = 0.5,
                         img.format = "png", res = 300) {
 # If a single value is set for an nds or eds parameter, it affects both types:
   if (length(nds.color) == 1) nds.color[2] <- nds.color[1]
@@ -19,7 +19,7 @@ plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
     if (missing(nds.size)) nds.size[2] <- nds.size[1]
     img.prefix <- "compar_eds_"
     caption.heading <- "edges: "
-    caption.end <- paste0(" on '", var, "'")
+    caption.end <- paste0(" on '", nds.var, "'")
   } else {
     stop(paste0("focus must be \"nodes\" or \"edges\"."))
   }
@@ -37,9 +37,9 @@ plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
       decorr::grDeviceOpen(out.compar, width = 14, height = 7, res = res)
       # Set the plotting area into a 1*2 array
       graphics::par(mfrow = c(1, 2), mar = c(0, 0, 0, 0))
-      side_plot(g[[1]], doss, var, focus,
+      side_plot(g[[1]], doss, nds.var, focus,
                 nds.color, nds.size, eds.color, eds.width, lbl.size)
-      side_plot(g[[2]], doss, var, focus,
+      side_plot(g[[2]], doss, nds.var, focus,
                 nds.color, nds.size, eds.color, eds.width, lbl.size)
       graphics::mtext(tit, side = 1, line = -1, outer = TRUE, cex = 0.6)
       grDevices::dev.off()

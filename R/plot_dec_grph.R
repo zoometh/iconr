@@ -1,9 +1,9 @@
 plot_dec_grph <- function(nodes = NULL, edges = NULL,
                           site, decor, doss = getwd(),
                           nd.color = "orange", nd.size = 1.7,
-                          lbl.color = "black", lbl.size = 1.2, lbl.txt = "id",
+                          lbl.color = "black", lbl.size = 1.2, nds.lbl = "id",
                           eds.color = c("orange","blue"), ed.lwd = 4) {
-    ## plot nodes on image lbl.txt = 'id' ; nd.color <- lbl.color <-
+    ## plot nodes on image nds.lbl = 'id' ; nd.color <- lbl.color <-
     ## ed.color <- 'orange' lbl.size=1.2 ; nd.size=1.7 ; ed.lwd <- 4 site <-
     ## 'Cerro Muriano' ; decor <- site <- 'Ibahernando' ;
     # images
@@ -34,14 +34,14 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL,
                                 nodes$decor == decor, ]
         ax <- nodes.select$x
         ay <- -nodes.select$y  # coordinates
-        lbl <- nodes.select[, lbl.txt]  # labels
+        lbl <- nodes.select[, nds.lbl]  # labels
         graphics::points(ax, ay, pch = 21, col = nd.color, bg = nd.color,
             cex = nd.size)
         labels_shadow(ax, ay, label = lbl, col = lbl.color, bg = "white",
             cex = lbl.size, r = 0.2, pos = 3)
     }
     ## annotate studied variable up
-    img.out <- magick::image_annotate(img.out, lbl.txt, size = 20,
+    img.out <- magick::image_annotate(img.out, nds.lbl, size = 20,
                                       gravity = "northwest", color = "black")
     # decor title down
     tit.img <- paste0(site, "\n", decor)
