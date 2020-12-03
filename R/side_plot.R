@@ -1,7 +1,7 @@
 side_plot <- function(grp, doss, nds.var, focus = "nodes",
-                          nds.color = c("orange", "red"), nds.size = c(0.5, 1),
-                          eds.color = c("orange", "red"), eds.width = c(1, 2),
-                          lbl.size = 0.5) {
+                      nds.color = c("orange", "red"), nds.size = c(0.5, 1),
+                      eds.color = c("orange", "red"), eds.width = c(1, 2),
+                      lbl.size = 0.5) {
   dec.img <- magick::image_read(paste0(doss, "/", grp$img))
   # add the decor site and name
   dec.img <- magick::image_annotate(dec.img,
