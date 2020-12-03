@@ -1,5 +1,5 @@
 plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
-                        doss = getwd(), nds.var = "type",
+                        doss = getwd(),
                         nds.color = c("orange", "red"), nds.size = c(0.5, 1),
                         eds.color = c("orange", "red"), eds.width = c(1, 2),
                         lbl.size = 0.5,
@@ -12,14 +12,10 @@ plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
 # Focus-specific parameter defaults and names:
   if (focus == "nodes") {
     img.prefix <- "compar_nds_"
-    caption.heading <- "nodes: "
-    caption.end <- ""
   } else if (focus == "edges") {
     if (missing(nds.color)) nds.color <- eds.color
     if (missing(nds.size)) nds.size[2] <- nds.size[1]
     img.prefix <- "compar_eds_"
-    caption.heading <- "edges: "
-    caption.end <- paste0(" on '", nds.var, "'")
   } else {
     stop(paste0("focus must be \"nodes\" or \"edges\"."))
   }
@@ -28,12 +24,17 @@ plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
   for(i in 1:length(listg)) {
     # i <- 1
     g <- listg[[i]]
-    g.names <- unlist(lapply(g, function(x) x$name))
+    g.names <- unlist(lapply(g[1:2], function(x) x$name))
     if(is.null(graph2) || all(g.names %in% graph2)) {
+      nds.var <- g$nds.var
       out.compar <- paste0(img.prefix, g.names[1], "_",
                            g.names[2], ".", img.format)
-      tit <- paste0(caption.heading, "compare decorations '", g.names[1],
-                    "' and '", g.names[2], "'", caption.end)
+      com.elm.num <- ifelse(focus == "nodes", sum(igraph::V(g[[1]])$comm),
+                                              sum(igraph::E(g[[1]])$comm))
+      tit <- paste0("Common ", focus,
+                    " (n=", com.elm.num, "): ",
+                    "compare decorations '", g.names[1], "' and '", g.names[2],
+                    "' on nodes '", nds.var, "'")
       decorr::grDeviceOpen(out.compar, width = 14, height = 7, res = res)
       # Set the plotting area into a 1*2 array
       graphics::par(mfrow = c(1, 2), mar = c(0, 0, 0, 0))
