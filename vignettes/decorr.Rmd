@@ -3,12 +3,13 @@ title: "Graph and Spatial Analysis of Iconography for Prehistory"
 author: "Thomas Huet, Jose Pozo, Craig Alexander"
 email: "thomashuet7@gmail.com"
 date: "`r format(Sys.Date())`"
-output: 
-  rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Graph and Spatial Analysis of Iconography for Prehistory}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+output: html_document
+# output: 
+#   rmarkdown::html_vignette
+# vignette: >
+#   %\VignetteIndexEntry{Graph and Spatial Analysis of Iconography for Prehistory}
+#   %\VignetteEngine{knitr::rmarkdown}
+#   %\VignetteEncoding{UTF-8}
   
 references:
 - id: Huet18
