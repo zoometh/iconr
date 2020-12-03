@@ -1,4 +1,5 @@
 read_nds <- function(site, decor, doss = getwd(), nodes = "nodes", dev = ".tsv") {
+    # site = "Cerro Muriano"; decor = "Cerro Muriano 1"; dev = ".shp"; doss=dataDir
     nds.file <- paste0(doss, "/", nodes, dev)
     if (file.exists(nds.file)) {
         if (dev == ".tsv") {
@@ -11,9 +12,12 @@ read_nds <- function(site, decor, doss = getwd(), nodes = "nodes", dev = ".tsv")
         }
         if (dev == ".shp") {
             nds.shp <- rgdal::readOGR(dsn = doss, layer = nodes, verbose = FALSE)
-            names(nds.shp@coords) <- c("x", "y")
-            nds.df <- cbind(nds.shp@data, nds.shp@coords)
-            nds.df <- nds.df[ , c("site", "decor", "id", "type", "x", "y")]
+            nds.df <- nds.shp@data
+            nds.df$x <- nds.shp@coords[ , 1]
+            nds.df$y <- nds.shp@coords[ , 2]
+            # names(nds.shp@coords) <- c("x", "y")
+            # nds.df <- cbind(nds.shp@data, nds.shp@coords)
+            # nds.df <- nds.df[ , c("site", "decor", "id", "type", "x", "y")]
         }
         nds.df <- nds.df[ nds.df$site == site &
                           nds.df$decor == decor, ]
