@@ -1,48 +1,52 @@
 \name{list_compar}
 \alias{list_compar}
+\alias{nds_compar}
+\alias{eds_compar}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Graph Pairwise Comparison on Common Nodes and Common Edges}
+\title{Graph Pairwise Comparison on Common Nodes and Edges}
 \description{
     \code{nds_compar} identifies common nodes in a pair of graphs.
+
     \code{eds_compar} identifies common edges in a pair of graphs.
+
     Given a list of graphs, \code{list_compar} extract all combinations of graph pairs and compare them for both common nodes and common edges.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
+nds_compar(grphs, nds.var = "type")
 
-nds_compar(grphs, var = "type")
-    
-eds_compar(grphs, var = "type")
+eds_compar(grphs, nds.var = "type")
 
-list_compar(lgrph,
-            var = "type",
+list_compar(lgrph, nds.var = "type",
             verbose = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{grphs}{
-      a list of two graphs (pair of graphs) to be compared.
+      A list of two graphs (pair of graphs) to be compared.
   }
   \item{lgrph}{
 %%     ~~Describe \code{x} here~~
-    a list of any number of graphs to be pairwise compared. The list can be typically obtained with the function \code{list_dec()}
+    A list of any number of graphs to be pairwise compared. The list can be typically obtained with the function \code{list_dec()}
   }
-    \item{var}{
+    \item{nds.var}{
 %%     ~~Describe \code{x} here~~
-    an attribute of the graph vertices containing the node variable (ie, field) on which the comparison will be done. By default \code{var = "type"}.
+    An attribute of the graph vertices containing the node variable (ie, field) on which the comparison will be done. By default \code{nds.var = "type"}.
   }
             \item{verbose}{
 %%     ~~Describe \code{x} here~~
-    logical. If TRUE, the names of each graph pair combination are listed on the screen. By default \code{verbose = FALSE}.
+    Logical. If TRUE, the names of each graph pair combination are listed on the screen. By default \code{verbose = FALSE}.
   }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
-    \code{list_compar} calls the two other functions: \code{nds_compar()} and \code{eds_compar()}, which were initially designed as internal functions. 
-    They return respectively the common nodes and the common edges of a graph pairwise. 
-    Nodes are common when they have the same value for a given variable, for example 'horse', 'sword', etc., for \code{var = "type"}.
-    Edges are common when they have the same value for \emph{starting} and emph{ending} nodes ('horse', 'sword', etc.) and the same type of edge ('=', '+', etc.). 
-    For example, \code{a -=- b} in graph 1 is equal to \code{a -=- b} or \code{b -=- a} in graph 2, but is not equal to \code{a -+- b},\code{b -+- a} or \code{a ->- b}.
+    \code{list_compar} calls the two other functions: \code{nds_compar()} and \code{eds_compar()}, which were initially designed as internal functions.
+They return respectively the common nodes and the common edges of a graph pair.
+
+    Nodes are common when they have the same value for a given variable, for example 'horse', 'sword', etc., for \code{nds.var = "type"}.
+
+    Edges are common when they have the same value for \emph{starting} and \emph{ending} nodes ('horse', 'sword', etc.) and the same type of edge ('=', '+', etc.).
+    For example, \code{a -=- b} in graph 1 is equal to \code{a -=- b} in graph 2, but not equal to \code{a -+- b}. Edges of type "=" are undirected, so that \code{a -=- b} is equal to \code{b -=- a}. But edges of types "+" or ">" are directed, so that \code{a ->- b} is not equal to \code{b ->- a}.
 }
 \value{
 %%  ~Describe the value returned
@@ -51,8 +55,10 @@ list_compar(lgrph,
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
   \code{nds_compar} returns the input pair of graphs complemented with a new vertex attribute named \code{comm} with value 1 for common nodes and 0 for non-common nodes.
+
   \code{eds_compar} returns the input pair of graphs complemented with a new edge attribute named \code{comm} with value 1 for common edges and 0 for non-common edges.
-  \code{list_compar} returns a list of all combinations of graph pairs. For each pair, both graphs are complemented with the vertex attribute and edge attribute included by \code{nds_compar} and \code{eds_compar}, identifying the common nodes and edges, respectively.
+
+  \code{list_compar} returns a list of all combinations of graph pairs. For each pair, both graphs are complemented with the vertex attribute and edge attribute included by \code{nds_compar} and \code{eds_compar}, identifying the common nodes and edges, respectively. Each pair is also added an attribute named \code{nds.var} saving the compared node variable.
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -72,83 +78,95 @@ list_compar(lgrph,
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \examples{
-# read graphs
+# Read data
 imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
                    sep="\t",stringsAsFactors = FALSE)
 nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
+# Generate list of graphs from the three data.frames
+lgrph <- list_dec(imgs, nodes, edges)
 
-# list graphs
-lgrph <- list_dec(imgs, nodes, edges,var="type")
-g.compar <- list_compar(lgrph, "type")
+# Generate all pairwise comparisons of the graphs with respect to nodes "type"
+g.compar <- list_compar(lgrph, nds.var="type")
+
 length(g.compar)
 # 10 = ten pairwise comparisons
 
 g.compar[[2]]
 # [[1]]
-# IGRAPH d91bfd7 UN-B 7 8 -- 1
+# IGRAPH 2521a03 UN-B 7 8 -- 1
 # + attr: name (g/n), site (g/c), decor (g/c), label (g/c), img (g/c), name
-# | (v/c), type (v/c), x (v/n), y (v/n), idf (v/c), comm (v/n), type (e/c),
-# | comm (e/n)
-# + edges from d91bfd7 (vertex names):
-# [1] personnage--bouclier      personnage--peigne        lance     --peigne       
-# [4] personnage--casque        personnage--sexe_masculin personnage--lance        
-# [7] personnage--lingot_pdb    bouclier  --lingot_pdb   
+# | (v/c), type (v/c), x (v/n), y (v/n), comm (v/n), type (e/c), comm (e/n)
+# + edges from 2521a03 (vertex names):
+# [1] 1--4 1--5 3--5 1--2 1--7 1--3 1--8 4--8
 
+#
 # [[2]]
-# IGRAPH baa4760 UN-B 6 10 -- 3
+# IGRAPH 68532a5 UN-B 6 10 -- 3
 # + attr: name (g/n), site (g/c), decor (g/c), label (g/c), img (g/c), name
-# | (v/c), type (v/c), x (v/n), y (v/n), idf (v/c), comm (v/n), type (e/c),
-# | comm (e/n)
-# + edges from baa4760 (vertex names):
-# [1] lance   --peigne   lance   --fibule   peigne  --fibule   lance   --miroir  
-# [5] fibule  --miroir   lance   --bouclier peigne  --bouclier fibule  --bouclier
-# [9] miroir  --bouclier bouclier--epee  
+# | (v/c), type (v/c), x (v/n), y (v/n), comm (v/n), type (e/c), comm (e/n)
+# + edges from 68532a5 (vertex names):
+# [1] 1--2 1--3 2--3 1--4 3--4 1--5 2--5 3--5 4--5 5--6
+#
+# attr(,"nds.var")
+# [1] "type"
 
 # Inspecting nodes:
 igraph::as_data_frame(g.compar[[2]][[1]], "vertices")
-#                        name          type        x         y idf comm
-# personnage       personnage    personnage 349.8148 -298.3244   1    0
-# casque               casque        casque 349.8148 -243.9851   2    0
-# lance                 lance         lance 238.4637 -298.3244   3    1
-# bouclier           bouclier      bouclier 446.0222 -381.1697   4    1
-# peigne               peigne        peigne 283.0041 -358.0086   5    1
-# sexe_masculin sexe_masculin sexe_masculin 342.6884 -427.4917   7    0
-# lingot_pdb       lingot_pdb    lingot_pdb 451.1489 -237.4782   8    0
+#   name          type        x         y comm
+# 1    1    personnage 349.8148 -298.3244    0
+# 2    2        casque 349.8148 -243.9851    0
+# 3    3         lance 238.4637 -298.3244    1
+# 4    4      bouclier 446.0222 -381.1697    1
+# 5    5        peigne 283.0041 -358.0086    1
+# 7    7 sexe_masculin 342.6884 -427.4917    0
+# 8    8    lingot_pdb 451.1489 -237.4782    0
 igraph::as_data_frame(g.compar[[2]][[2]], "vertices")
-#              name     type        x         y idf comm
-# lance       lance    lance 354.1114 -123.3621   1    1
-# peigne     peigne   peigne 346.3455 -151.8371   2    1
-# fibule     fibule   fibule 279.0411 -162.1916   3    0
-# miroir     miroir   miroir 211.7366 -206.1984   4    0
-# bouclier bouclier bouclier 392.9409 -343.3959   5    1
-# epee         epee     epee 387.7636 -564.7240   6    0    
+#   name     type        x         y comm
+# 1    1    lance 354.1114 -123.3621    1
+# 2    2   peigne 346.3455 -151.8371    1
+# 3    3   fibule 279.0411 -162.1916    0
+# 4    4   miroir 211.7366 -206.1984    0
+# 5    5 bouclier 392.9409 -343.3959    1
+# 6    6     epee 387.7636 -564.7240    0
 
 # Inspecting edges:
 igraph::as_data_frame(g.compar[[2]][[1]])
-#         from            to type comm
-# 1 personnage      bouclier    =    0
-# 2 personnage        peigne    =    0
-# 3      lance        peigne    =    1
-# 4 personnage        casque    +    0
-# 5 personnage sexe_masculin    +    0
-# 6 personnage         lance    =    0
-# 7 personnage    lingot_pdb    =    0
-# 8   bouclier    lingot_pdb    =    0
+#   from to type comm
+# 1    1  4    =    0
+# 2    1  5    =    0
+# 3    3  5    =    1
+# 4    1  2    +    0
+# 5    1  7    +    0
+# 6    1  3    =    0
+# 7    1  8    =    0
+# 8    4  8    =    0
 igraph::as_data_frame(g.compar[[2]][[2]])
-#        from       to type comm
-# 1     lance   peigne    =    1
-# 2     lance   fibule    =    0
-# 3    peigne   fibule    =    0
-# 4     lance   miroir    =    0
-# 5    fibule   miroir    =    0
-# 6     lance bouclier    =    0
-# 7    peigne bouclier    =    0
-# 8    fibule bouclier    =    0
-# 9    miroir bouclier    =    0
-# 10 bouclier     epee    =    0
+#    from to type comm
+# 1     1  2    =    1
+# 2     1  3    =    0
+# 3     2  3    =    0
+# 4     1  4    =    0
+# 5     3  4    =    0
+# 6     1  5    =    0
+# 7     2  5    =    0
+# 8     3  5    =    0
+# 9     4  5    =    0
+# 10    5  6    =    0
+
+# Named edges are better inspected with
+as.character(decorr::named_edges(g.compar[[2]][[1]], nds.var="type"))
+# [1] "bouclier--=--personnage"      "peigne--=--personnage"
+# [3] "lance--=--peigne"             "personnage--+--casque"
+# [5] "personnage--+--sexe_masculin" "lance--=--personnage"
+# [7] "lingot_pdb--=--personnage"    "bouclier--=--lingot_pdb"
+as.character(decorr::named_edges(g.compar[[2]][[2]], nds.var="type"))
+#  [1] "lance--=--peigne"    "fibule--=--lance"    "fibule--=--peigne"
+#  [4] "lance--=--miroir"    "fibule--=--miroir"   "bouclier--=--lance"
+#  [7] "bouclier--=--peigne" "bouclier--=--fibule" "bouclier--=--miroir"
+# [10] "bouclier--=--epee"
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

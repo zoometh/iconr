@@ -24,9 +24,9 @@ plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
   for(i in 1:length(listg)) {
     # i <- 1
     g <- listg[[i]]
-    g.names <- unlist(lapply(g[1:2], function(x) x$name))
+    g.names <- unlist(lapply(g, function(x) x$name))
     if(is.null(graph2) || all(g.names %in% graph2)) {
-      nds.var <- g$nds.var
+      nds.var <- attributes(g)$nds.var
       out.compar <- paste0(img.prefix, g.names[1], "_",
                            g.names[2], ".", img.format)
       com.elm.num <- ifelse(focus == "nodes", sum(igraph::V(g[[1]])$comm),

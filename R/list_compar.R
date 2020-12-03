@@ -15,7 +15,7 @@ list_compar <- function(lgrph, nds.var = "type",
     }
     grph <- decorr::eds_compar(lgrph[idx.g], nds.var)
     grph <- decorr::nds_compar(grph, nds.var)
-    grph$nds.var <- nds.var
+    attributes(grph)$nds.var <- nds.var
     grphAllcompar[[dec]] <- grph
   }
   return(grphAllcompar)

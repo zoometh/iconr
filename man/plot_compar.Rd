@@ -1,52 +1,58 @@
 \name{plot_compar}
 \alias{plot_compar}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Plot and Save a Figure of Nodes and Edges Comparison Between Graphs}
+\title{Plot and Save Comparison Figures Between Pairs of Graphs}
 \description{
-  \strong{nodes} Save an image of common edges for one or more graphs pairwise comparison
-  and return the path of the image.
-  \strong{edges} Save an image of common edges for one or more graphs pairwise comparison
-  and return the path of the image.
+  \code{plot_compar} produces images displaying side by side pairs of graphs highlighting common nodes or edges.
+  The user can focus the comparison on nodes or edges, and can define several appearance parameters.
+  Given a list of pairwise graph comparisons, it plots any given subset selected by graph name.
+  The images can be saved in png, bmp, tiff, jpeg, or pdf format.
   %%\code{plot_eds_compar()} uses the function \code{\link[decorr]{side_plot_eds}}
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+  %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-plot_compar(listg, graph2 = NULL, focus = "nodes",
-            doss = getwd(), var = "type",
-            nds.color = c("orange", "red"), nds.size = c(0.5, 1),
-            eds.color = c("orange", "red"), eds.width = c(1, 2),
-            lbl.size = 0.4, img.format = "png", res = 300)
+  plot_compar(listg, graph2 = NULL, focus = "nodes",
+              doss = getwd(),
+              nds.color = c("orange", "red"), nds.size = c(0.5, 1),
+              eds.color = c("orange", "red"), eds.width = c(1, 2),
+              lbl.size = 0.4, img.format = "png", res = 300)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{listg}{
-%%     ~~Describe \code{x} here~~
-    a list of graph obtained with the function 'list_eds_compar'
-}
-    \item{graph2}{
-%%     ~~Describe \code{x} here~~
-    a vector with the two idf of the graphs
-}
-    \item{focus}{
-%%     ~~Describe \code{x} here~~
-    \code{nodes} or \code{edges} will pot respectively comparisons for common nodes and common edges
-}
-      \item{doss}{
-%%     ~~Describe \code{x} here~~
-    the working directory which contains the imgs, nodes, edges dataframes and the decoration images, by default the current wd (\code{getwd()})
-}
-      \item{var}{
-%%     ~~Describe \code{x} here~~
-    the filed on which the comparison will be done, by default 'type'
-}
-      \item{nds.color, nds.size, eds.color, eds.width, lbl.size}{
-%%     ~~Describe \code{x} here~~
-    graphical parameters for nodes', edges' and labels color and size/widths
-}
-      \item{img.format, res}{
-%%     ~~Describe \code{x} here~~
-    graphical parameters, format (png, jpg, etc.) and resolution, for the output image
-}
+    %%     ~~Describe \code{x} here~~
+      A list of graph pairwise comparisons as obtained with the function \code{list_compar}.
+  }
+  \item{graph2}{
+    %%     ~~Describe \code{x} here~~
+      A vector with the names of the graphs for which comparisons are to be plotted.
+    The user can select to plot all pairwise combinations (default), all combinations of a subset, or a single pair.
+  }
+  \item{focus}{
+    %%     ~~Describe \code{x} here~~
+      Either \code{"nodes"} or \code{"edges"}. It selects the type of comparison to be plotted, highlighting common nodes or common edges, respectively.
+  }
+  \item{doss}{
+    %%     ~~Describe \code{x} here~~
+      The working directory containing the decoration images. The default is the current directory (\code{getwd()}).
+  }
+  \item{nds.color, nds.size, eds.color, eds.width}{
+    %%     ~~Describe \code{x} here~~
+      Graphical parameters for color and size/widths of nodes and edges.
+    Each of them is a vector with two values for different and common nodes/edges, respectively.
+    If only one value is provided, it is taken for both different and common elements.
+    Labels are displayed with the same color as common nodes.
+    For \code{focus = "nodes"} all edges are plotted with the first value of \code{eds.color} and \code{eds.width}.
+  }
+  \item{lbl.size}{
+    %%     ~~Describe \code{x} here~~
+      Graphical parameter for the size of the labels with the node names. The default is 0.4.
+  }
+  \item{img.format, res}{
+    %%     ~~Describe \code{x} here~~
+      Format and resolution of the saved images. The handled formats are \code{"png"} (default), \code{"bmp"}, \code{"tiff"}/\code{"tif"}, \code{"jpeg"}/\code{"jpg"}, and \code{"pdf"}.
+      The default resolution is 300 (ppi). The resolution does not applies to format pdf.
+  }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
@@ -57,7 +63,7 @@ plot_compar(listg, graph2 = NULL, focus = "nodes",
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-   create an image for a pairwise comparisons between two decorations for nodes or edges and return the path of this image
+   \code{plot_compar} generates and save images in the indicated format for pairwise comparisons between two or more decorations, comparing nodes or edges. The return value is a character vector with the the path/name of every saved image.
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -71,7 +77,6 @@ plot_compar(listg, graph2 = NULL, focus = "nodes",
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
   \code{\link[decorr]{list_compar}},
-  \code{\link[decorr]{plot_compar}},
   \code{\link[decorr]{side_plot}}
 }
 
@@ -79,27 +84,39 @@ plot_compar(listg, graph2 = NULL, focus = "nodes",
 
 
 \examples{
-
-# read data
+# Read data
 imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
                    sep="\t",stringsAsFactors = FALSE)
 nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
-lgrph <- list_dec(imgs, nodes, edges, var="type")
-  
-# compar on "type"
-g.compar <- list_compar(lgrph, var="type")
+# Generate list of graphs from the three data.frames
+lgrph <- list_dec(imgs, nodes, edges)
 
-# plot common nodes
-plot_compar(g.compar, c(1,4), focus = "nodes", doss = system.file("extdata", package = "decorr"))
-  
-# plot common edges
-plot_compar(g.compar, c(1,4), focus = "edges", doss = system.file("extdata", package = "decorr"))
+# Generate all pairwise comparisons of the graphs with respect to nodes "type"
+g.compar <- list_compar(lgrph, nds.var="type")
 
-# two graphs side-by-side, graph 1 and graph 4, with common nodes/edges identified on field 'type'
-# by different colors and widths
+# Plot the comparison on common nodes of graphs '1' and '4',
+# and save it as png (default)
+plot_compar(g.compar, c(1,4), focus = "nodes",
+            doss = system.file("extdata", package = "decorr"))
+
+# Plot the comparison on common edges of graphs '1' and '4',
+# and save it as jpeg. Plot all nodes and node labels in blue.
+plot_compar(g.compar, c(1,4), focus = "edges",
+            doss = system.file("extdata", package = "decorr"),
+            nds.color = "blue",
+            img.format = "jpg")
+
+# Plot the comparison on common edges of all pairwise combinations
+# of graphs '1','3', and '4', and save them as pdf.
+# Plot nodes involved in non-common edges in orange and
+# nodes involved in common edges and the corresponding labels in blue.
+plot_compar(g.compar, c(1,3,4), focus = "edges",
+            doss = system.file("extdata", package = "decorr"),
+            nds.color = c("orange", "blue"),
+            img.format = "pdf")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
