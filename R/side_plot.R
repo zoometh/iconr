@@ -1,7 +1,7 @@
-side_plot <- function(grp, doss, var, focus = "nodes",
+side_plot <- function(grp, doss, nds.var, focus = "nodes",
                           nds.color = c("orange", "red"), nds.size = c(0.5, 1),
                           eds.color = c("orange", "red"), eds.width = c(1, 2),
-                          lbl.size = 0.4) {
+                          lbl.size = 0.5) {
   dec.img <- magick::image_read(paste0(doss, "/", grp$img))
   # add the decor site and name
   dec.img <- magick::image_annotate(dec.img,
@@ -43,6 +43,6 @@ side_plot <- function(grp, doss, var, focus = "nodes",
                    col = nds.color[nodes.group])
   # Get common nodes to plot labels
   nds.lbl <- g.nodes[nodes.group == 2, ]
-  labels_shadow(nds.lbl$x, nds.lbl$y, label = nds.lbl[, var],
+  labels_shadow(nds.lbl$x, nds.lbl$y, label = nds.lbl[, nds.var],
                 col = nds.color[2], bg = "white", cex = lbl.size, r = 0.15)
 }
