@@ -84,7 +84,6 @@
 
 
 \examples{
-
 # Read data
 imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
                    sep="\t",stringsAsFactors = FALSE)
