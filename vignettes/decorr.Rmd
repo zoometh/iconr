@@ -6,11 +6,11 @@ date: "`r format(Sys.Date())`"
 output: 
   rmarkdown::html_vignette
 vignette: >
-%\VignetteIndexEntry{Graph and Spatial Analysis of Iconography for Prehistory}
+  %\VignetteIndexEntry{Graph and Spatial Analysis of Iconography for Prehistory}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
   
-  references:
+references:
 - id: Huet18
   title: Geometric graphs to study ceramic decoration
   author:
