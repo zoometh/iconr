@@ -1,9 +1,10 @@
 \name{contemp_nds}
 \alias{contemp_nds}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Select Comtempotoraneous Nodes}
+\title{Select Contempotoraneous Nodes}
 \description{
-  Subset contemporaneous nodes and remove the others with their edges
+  Find the subset of nodes contemporaneous to a given node and remove the
+  others together with their edges
   %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
