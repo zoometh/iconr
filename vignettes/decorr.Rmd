@@ -3,14 +3,18 @@ title: "Graph and Spatial Analysis of Iconography for Prehistory"
 author: "Thomas Huet, Jose Pozo, Craig Alexander"
 email: "thomashuet7@gmail.com"
 date: "`r format(Sys.Date())`"
-# output: html_document
-output:
-  rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Graph and Spatial Analysis of Iconography for Prehistory}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
-  
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+# output:
+#   rmarkdown::html_vignette
+# vignette: >
+#   %\VignetteIndexEntry{Graph and Spatial Analysis of Iconography for Prehistory}
+#   %\VignetteEngine{knitr::rmarkdown}
+#   %\VignetteEncoding{UTF-8}
+#   
 references:
 - id: Huet18
   title: Geometric graphs to study ceramic decoration
@@ -99,7 +103,7 @@ The main principle of `decorr` package is to considerate any iconographic compos
 &nbsp;
   
   
-```{r gis, out.width="33%", echo=F, fig.cap="GIS view of the Cerro Muriano 1 stelae with the Voronoi cells of its GUs, GUs (nodes) and proximity links between these GUs (edges)"}
+```{r gis, out.width="33%", echo=F, fig.align='center', fig.cap="GIS view of the Cerro Muriano 1 stelae with the Voronoi cells of its GUs, GUs (nodes) and proximity links between these GUs (edges)"}
 dataDir <- paste0(system.file("extdata", package = "decorr"))
 include_graphics(paste0(dataDir,"/gis.png"))
 ```
