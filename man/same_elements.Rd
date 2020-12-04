@@ -48,7 +48,7 @@ same_elements(lgrph, nds.var = "type",
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-  A symetric matrix with the counts of the pairwise coincidences of nodes or edges. The matrix has as row and column names the names of nodes or edges, respectively.
+  A symetric matrix with the counts of the pairwise coincidences of nodes or edges. The matrix has as row and column names the names of the corresponding graphs in the input list.
 }
 \references{
 %% ~put references to the literature/web site here ~
