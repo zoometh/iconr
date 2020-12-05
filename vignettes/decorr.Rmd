@@ -1,19 +1,20 @@
 ---
-title: "Graph and Spatial Analysis of Iconography for Prehistory"
+title: "The ***decorr*** package. Graph and Spatial Analysis of Iconography for Prehistory with R"
 author: "Thomas Huet, Jose Pozo, Craig Alexander"
 email: "thomashuet7@gmail.com"
 date: "`r format(Sys.Date())`"
-output: 
-  html_document:
-    toc: true
-    toc_float: true
-    toc_depth: 3
-# output:
-#   rmarkdown::html_vignette
-# vignette: >
-#   %\VignetteIndexEntry{Graph and Spatial Analysis of Iconography for Prehistory}
-#   %\VignetteEngine{knitr::rmarkdown}
-#   %\VignetteEncoding{UTF-8}
+# output: 
+#   html_document:
+#     toc: true
+#     toc_float: 
+#       collapsed: false
+#       smooth_scroll: false
+output:
+  rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Graph and Spatial Analysis of Iconography for Prehistory}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 #   
 references:
 - id: Huet18
@@ -74,12 +75,24 @@ references:
   author:
   - family: Toussaint
     given: G. T.
-  container-title: "Pattern recognition 12(4)"
+  container-title: Pattern recognition
+  volume: 12
+  issue: 4
   type: article-journal
   page: 261-268
   URL: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.54.6448&rep=rep1&type=pdf
   issued:
     year: 1980 
+
+- id: Almagro66b
+  title: Las estelas decoradas del Suroeste peninsular
+  author:
+  - family: Bash
+    given: Martin Almagro
+  container-title: "Editorial CSIC-CSIC Press"
+  type: book
+  issued:
+    year: 1966 
     
 ---
 
@@ -94,12 +107,14 @@ knitr::opts_chunk$set(
   fig.pos = 'H'
 )
 ```
+&nbsp;
+  
+  
+The R package `decorr` is grounded on graph theory and spatial analysis. It offers concepts and functions to model Prehistorical iconographical composition and to prepare further analysis (clustering, Harris diagram, etc.) in order to contribute to cross-cultural iconography comparisons studies by a higher normalization of quantitative analysis [@Alexander08; @HuetAlexander15; @Huet18].  
 
-# Introduction
+# Decoration graphs
 
-The R package `decorr` is grounded on graph theory and spatial analysis. It offers concepts and functions to model Prehistorical iconographical composition and to prepare further analysis (clustering, Harris diagram, etc.) in oreder to contribute to cross-cultural iconography comparisons studies by a higher normalization of quantitative analysis [@Alexander08; @HuetAlexander15; @Huet18].  
-
-The main principle of `decorr` package is to considerate any iconographic compositions (here, 'decorations') as relative neighborhood graphs (RNG) of graphical units (GUs). The GUs are decorated surfaces (`POLYGONS`) modelised as nodes (`POINTS`) sharing a proximity link one with another (edges) when their Voronoi cell share a border. 
+The main principle of `decorr` package is to considerate any iconographic compositions (here, 'decorations') as relative neighborhood graphs (RNG) of graphical units (GUs): a decoration graph. The GUs are decorated surfaces (`POLYGONS`) modelised as nodes (`POINTS`) sharing a proximity link one with another (edges) when their Voronoi cell share a border. 
 &nbsp;
   
   
@@ -120,14 +135,14 @@ The R package `decorr` is composed by [functions](#functions) and a [dataset exa
 
 # Functions {#functions}
 
-Functions are provided to manage [nodes (`nds`)](#nd), edges [(`eds`)](#ed), [graphs](#grph) with the basic requirements to [plot](#plot) and [compare](#compare) them
+Decoration graphs are constructed from nodes and the edges. As a RNG graph, graphs are 1-component: each decoration graph covers all the GUs of the decoration. The functions of the `decorr` package provide basic requirements to manage these [nodes data](#nd) (`.csv`, `.tsv` or `.shp`) and [edges data](#ed) (`.csv`, `.tsv` or `.shp`) in order to create graphs, to [plot](#plot) and to [compare](#compare) them
 
 ```{r ls_functions}
 library(decorr)
 cat(ls("package:decorr"), sep="\n")
 ```
 
-## Plot decoration graph {#plot}
+## Plot {#plot}
 
 The graphical functions, `plot_dec_grph()` and `plot_compar()` allow different choices for the color and the size of the nodes, edges or labels. For example, nodes and edges of `Cerro Muriano 1`, and the field `type` used for the label can be selected instead of the default `id` field (identifier of the node)
 
@@ -165,7 +180,7 @@ plot(img.graph)
 ```
 &nbsp;
   
-## Compare decoration graphs {#compare}
+## Compare {#compare}
 
 Between all the graphs, or between a pair of graphs, elements of the graphs (nodes and edges) can be compared with the `same_elements()` and `plot_compar()` functions
 
@@ -175,9 +190,9 @@ Between all the graphs, or between a pair of graphs, elements of the graphs (nod
 
 By default, between a pairwise of decorations, common nodes and edges are displayed in <span style="color:red">red</span>, but their colors -- and other graphical parameters -- can be modified. When not all GUs are contemporaneous one with another, the non-contemporaneous ones can be removed with the `contemp_nds()` function. 
 
-### Common nodes
+### Nodes comparisons
 
-A classic study in archaeological research is to count the common GUs between decoration pairwises. This can be done with the `same_elements()` function with a node focus (`focus = "nodes"`), and considering for example their `type`.
+A classic study in archaeological research is to count the common nodes between decoration pairwises. This can be done with the `same_elements()` function with a node focus (`focus = "nodes"`), and considering for example their `type`.
 
 ```{r compare.nodes, warning=FALSE}
 imgs_path <- paste0(dataDir, "/imgs.tsv")
@@ -190,7 +205,8 @@ lgrph <- list_dec(imgs, nodes, edges)
 df.same_nodes <- same_elements(lgrph,
                                focus = "nodes",
                                nds.var = "type")
-knitr::kable(df.same_nodes, row.names = TRUE)
+knitr::kable(df.same_nodes, row.names = TRUE) %>%
+  kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
 &nbsp;
   
@@ -226,7 +242,7 @@ knitr::include_graphics(nds_compar)
   
 The function creates an image for each pairwise of stelae contained in the `dec.to.compare` variable (`r dec.to.compare`), with a focus on nodes (`focus = "nodes"`). That is to say $\frac{n!}{(n-2)!2!}$ pairwise comparisons, when `n` is the number of compared decoration.
 
-### Common Edges
+### Edges comparisons
 
 A not so classic study in archaeological research is to count the common edges between decorations pairwise. The `same_elements()` function with an edge focus (`focus = "edges"`) and considering the  `type` of the nodes 
 
@@ -239,13 +255,14 @@ nodes <- read.table(nodes_path, sep="\t", stringsAsFactors = FALSE)
 edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs, nodes, edges)
 df.same_edges <- same_elements(lgrph, nds.var = "type", focus = "edges")
-knitr::kable(df.same_edges,row.names = T)
+knitr::kable(df.same_edges,row.names = T) %>%
+  kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
 &nbsp;
   
 In this dataframe:
 
-* cells of the dataframe show the total number of common edges by decorations  
+* cells show the total number of common edges by decorations  
 
 * the diagonal of the dataframe shows is the total number of a given decoration  
 
@@ -270,11 +287,11 @@ eds_compar <- plot_compar(listg = g.compar,
 knitr::include_graphics(eds_compar) 
 ```
 
-## Contemporaneous iconographical contents {#contemp}
+## Manage contemporaneous contents {#contemp}
 
 It occurs that some GUs are non-contemporaneous one with the others, like for the latin writing overlapping Late Bronze Age engravings on Ibahernando stelae. In this case, the non-contemporaneous layers of decoration should be removed before the comparison process. To do so, the original graph (1-component) will be splitted into different sub-graphs (n-component) by selecting `->-` edges (see [edge types](#ed.type)). The studied graph component will be retieved with the component membership of a selected node in the `contemp_nds()` function parameters.  
 
-For example, the Ibahernando stelae have been found reused in a Roman funerary context. A latin inscription have been carved over a spear (lance, node 2) and overlaps partially a V-notched shield (bouclier, node 3). To study only the Late Bronze Age iconographic layer, we can choose the Late Bronze Age node 4, the figure of sword (epee) dated to the middle and final stages of Late Bronze Age (ca 1250-950 BC)
+For example, the Ibahernando stelae have been found reused as a funerary steale during Roman times [@Almagro66b]. A latin inscription have been carved over a spear (lance, node 2) and overlaps partially a V-notched shield (bouclier, node 3). To study only the Late Bronze Age iconographic layer, we can choose the Late Bronze Age node 4, the figure of sword (epee) dated to the middle and final stages of Late Bronze Age (ca 1250-950 BC)
 
 ```{r rm.writing, out.width="100%", fig.align="center", warning=FALSE, fig.cap="Ibahernando before and after the suppression of the overlapping node"}
 selected.nd <- 4
@@ -290,7 +307,7 @@ Ibahernando <- plot_dec_grph(nodes = nds.df,
                              site = "Ibahernando",
                              decor = "Ibahernando",
                              nds.lbl = "id",
-                             lbl.color = "orange",
+                             lbl.color = "brown",
                              lbl.size=2.2,
                              doss = dataDir)
 Ibahernando.contemp <- plot_dec_grph(nodes = l_dec_df[[1]],
@@ -298,7 +315,7 @@ Ibahernando.contemp <- plot_dec_grph(nodes = l_dec_df[[1]],
                                      site = "Ibahernando",
                                      decor = "Ibahernando",
                                      nds.lbl = "type",
-                                     lbl.color = "orange",
+                                     lbl.color = "brown",
                                      lbl.size=2.2,
                                      doss = dataDir)
 magick::image_append(c(Ibahernando, Ibahernando.contemp))
@@ -348,11 +365,7 @@ plot(image_trim(image_read(paste0(dataDir, "/", imgs[1,"img"]))))
   
 This drawing, like all the training dataset drawings, have been published by M. Diaz-Guardamino [@DiazGuardamino10]
 
-## Graph decoration {#grph}
-
-The decoration graph is constructed from the [nodes data](#nd) (`.csv`, `.tsv` or `.shp`) and the [edges data](#ed) (`.csv`, `.tsv` or `.shp`). As a RNG graph, the graph is 1-component: the graph covers all the GUs of the decoration
-
-### Nodes data {#nd}
+## Nodes data {#nd}
 
 Nodes are stored in a dataframe (`.csv` or `.tsv`) or a shapefile (`.shp`). If the input data comes from a dataframe (`.csv` or `.tsv`), coordinates columns `x` and `y` are required
 
@@ -377,15 +390,15 @@ While, in theory, the nodes are the exacts centroids of each GU, in a more handy
 * `x, y`: coordinates of the nodes  
 
 
-
-### Edges {#ed}
+## Edges data {#ed}
 
 Edges are stored in a dataframe (`.csv` or `.tsv`) or a shapefile (`.shp`).
 
 ```{r edges.df, warning=FALSE}
 edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
 knitr::kable(head(edges), "html") %>% 
-  kable_styling(full_width = FALSE, position = "center", font_size=12)
+  kable_styling(full_width = FALSE, position = "center", font_size=12) %>%
+  gsub("\\+", "$$+$$", .)
 ```
 &nbsp;
   
@@ -394,7 +407,8 @@ Edges geometries are stored as `LINES` between a starting node (columns `xa` and
 ```{r edges.df.1, warning=FALSE}
 eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = dataDir) 
 knitr::kable(eds.df, "html") %>% 
-  kable_styling(full_width = FALSE, position = "center", font_size=12)
+  kable_styling(full_width = FALSE, position = "center", font_size=12) %>%
+  gsub("\\+", "$$+$$", .)
 ```
 &nbsp;
   
@@ -423,7 +437,7 @@ knitr::kable(eds.df, "html") %>%
 * `xb, yb`: coordinates of the *ending* node, or *attribute* node, or *overlapped* node (`b`) 
   
   
-#### Edges types {#ed.type}
+### Edges types {#ed.type}
 
 As state by the graph theory:
 
