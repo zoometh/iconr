@@ -7,8 +7,11 @@ contemp_nds <- function(nds.df, eds.df, selected.nd){
                                      vertices = nds.df[nds.g.cols],
                                      directed=FALSE)
   eds.overlap <- which(igraph::E(g)$type == ">")
-  g <- igraph::delete.edges(g, eds.overlap)
-  g.member <- igraph::components(g)$membership
-  contemp.cases <- g.member == g.member[selected.nd]
-  return(list(nds.df[contemp.cases, ], eds.df[eds.df$type != '>', ]))
+  g.split <- igraph::delete.edges(g, eds.overlap)
+  nds.member <- igraph::components(g.split)$membership
+  contemp.nds <- nds.member == nds.member[selected.nd]
+  contemp.eds <- eds.df$type != '>' &
+                 contemp.nds[igraph::ends(g,igraph::E(g))[,1]]
+  return(list(nodes = nds.df[contemp.nds, ],
+              edges = eds.df[contemp.eds, ]))
 }
