@@ -1,6 +1,7 @@
 read_eds <- function(site, decor, doss = getwd(),
                      edges = "edges", nodes = "nodes",
                      dev = ".tsv") {
+    mandatory.columns <- c("site", "decor", "a", "b", "xa", "ya", "xb", "yb")
     eds.shp.coords <- data.frame(xa = numeric(0), ya = numeric(0),
                                  xb = numeric(0), yb = numeric(0))
     eds.file <- paste0(doss, "/", edges, dev)
@@ -34,13 +35,17 @@ read_eds <- function(site, decor, doss = getwd(),
                                  function(x) x@Lines[[1]]@coords)
             # loop to get coordinates and fill df
             for (a.edge in 1:length(coords.eds)) {
-                a.df <- coords.eds[[a.edge]][1:2,1:2]
+                a.df <- coords.eds[[a.edge]][1:2, 1:2]
                 eds.shp.coords[a.edge, ] <- as.numeric(t(a.df))
             }
             eds.df <- cbind(eds.shp@data, eds.shp.coords)
         }
     } else {
         stop(paste0("No file called ", eds.file, " and/or ", nds.file))
+    }
+    if (any(!mandatory.columns %in% colnames(eds.df))) {
+        stop(paste0("Not all the mandatory columns are present: ",
+                    paste(mandatory.columns, collapse = ", ")))
     }
     return(eds.df)
 }

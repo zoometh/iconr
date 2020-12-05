@@ -18,7 +18,8 @@ plot_dec_grph(nds.df,
               lbl.color = 'black',
               lbl.size = 1.2,
               ed.color = 'orange',
-              ed.lwd = 4)
+              ed.lwd = 4,
+              img.format = "png")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -55,6 +56,10 @@ plot_dec_grph(nds.df,
 %%     ~~Describe \code{x} here~~
     graphical parameters for node and/or edges colors, size, label size, etc.
 }
+  \item{img.format}{
+    %%     ~~Describe \code{x} here~~
+      Format and resolution of the saved images. The handled formats are \code{"png"} (default), \code{"bmp"}, \code{"tiff"}/\code{"tif"}, \code{"jpeg"}/\code{"jpg"}, and \code{"pdf"}.
+  }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
@@ -93,7 +98,7 @@ eds.df <- read_eds(	site = "Brozas", decor = "Brozas",
                     doss = dataDir, dev = ".tsv")
 
 # save nodes and edges of 'Cerro Muriano 1' with nodes' "type" as labels
-# with the default format (png) in a new file and return the path
+# with the default image format (png) in a new file and return the path
 img.graph <- plot_dec_grph(nodes = nds.df,
                            edges = eds.df,
                            site = "Brozas",
@@ -103,7 +108,7 @@ img.graph <- plot_dec_grph(nodes = nds.df,
 img.graph
 
 # save only edges of 'Cerro Muriano 1' with smaller widths
-# with a new format (jpg) in a new file
+# with a new image format (jpg) in a new file,
 # and open the file with 'magick::image_read()'
 img.graph <- plot_dec_grph(nodes = NULL,
                            edges = eds.df,

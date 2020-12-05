@@ -1,5 +1,5 @@
 read_nds <- function(site, decor, doss = getwd(), nodes = "nodes", dev = ".tsv") {
-    # site = "Cerro Muriano"; decor = "Cerro Muriano 1"; dev = ".shp"; doss=dataDir
+    mandatory.columns <- c("site", "decor", "id", "x", "y")
     nds.file <- paste0(doss, "/", nodes, dev)
     if (file.exists(nds.file)) {
         if (dev == ".tsv") {
@@ -15,18 +15,15 @@ read_nds <- function(site, decor, doss = getwd(), nodes = "nodes", dev = ".tsv")
             nds.df <- nds.shp@data
             nds.df$x <- nds.shp@coords[ , 1]
             nds.df$y <- nds.shp@coords[ , 2]
-            # names(nds.shp@coords) <- c("x", "y")
-            # nds.df <- cbind(nds.shp@data, nds.shp@coords)
-            # nds.df <- nds.df[ , c("site", "decor", "id", "type", "x", "y")]
         }
         nds.df <- nds.df[ nds.df$site == site &
                           nds.df$decor == decor, ]
     } else {
         stop(paste0("No file called ", nds.file))
     }
+    if (any(!mandatory.columns %in% colnames(nds.df))) {
+        stop(paste0("Not all the mandatory columns are present: ",
+                    paste(mandatory.columns, collapse = ", ")))
+    }
     return(nds.df)
 }
-#
-# nds.df <- read_nds(site = sit, decor = dec, dev = ".shp",
-#                    doss = system.file("extdata", package = "decorr"))
-# nds.df
