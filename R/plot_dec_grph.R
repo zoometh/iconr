@@ -15,7 +15,7 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL,
         stop(paste0("There must be exactly 1 decoration. Here there is ",
                     nrow(img.select)))
     }
-    id <- img.select$id
+    id <- as.character(img.select$id)
     # load
     img.in <- magick::image_read(paste0(doss, "/", img.select$img))
     img <- magick::image_draw(img.in)
@@ -52,7 +52,7 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL,
     img <- magick::image_annotate(img, tit.img, size = 20,
                                       gravity = "northwest", color = "black")
     grDevices::dev.off()
-    img.out <- paste0(doss, "/_", site, "_", decor, ".",img.format)
+    img.out <- paste0(doss, "/", id, "_", site, "_", decor, "_", nds.var, ".",img.format)
     magick::image_write(img, path = img.out,
                         format = img.format)
     return(img.out)
