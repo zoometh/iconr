@@ -21,7 +21,7 @@
 \arguments{
   \item{listg}{
     %%     ~~Describe \code{x} here~~
-      A list of graph pairwise comparisons returned by \code{\link[decorr]{list_compar()}}.
+      A list of graph pairwise comparisons returned by \code{\link[decorr]{list_compar}}.
   }
   \item{graph2}{
     %%     ~~Describe \code{x} here~~
@@ -76,8 +76,8 @@
 }
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{list_compar()}},
-  \code{\link[decorr]{side_plot()}}
+  \code{\link[decorr]{list_compar}},
+  \code{\link[decorr]{side_plot}}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
