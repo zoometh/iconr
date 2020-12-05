@@ -1,5 +1,5 @@
 ---
-title: "The ***decorr*** package. Graph and Spatial Analysis of Iconography for Prehistory with R"
+title: "The ***decorr*** package. Graph Analysis of Prehistorical Iconography with R"
 author: "Thomas Huet, Jose Pozo, Craig Alexander"
 email: "thomashuet7@gmail.com"
 date: "`r format(Sys.Date())`"
@@ -12,7 +12,7 @@ date: "`r format(Sys.Date())`"
 output:
   rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Graph and Spatial Analysis of Iconography for Prehistory}
+  %\VignetteIndexEntry{The ***decorr*** package. Graph Analysis of Prehistorical Iconography with R}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 #   
@@ -135,7 +135,7 @@ The R package `decorr` is composed by [functions](#functions) and a [dataset exa
 
 # Functions {#functions}
 
-Decoration graphs are constructed from nodes and the edges. As a RNG graph, graphs are 1-component: each decoration graph covers all the GUs of the decoration. The functions of the `decorr` package provide basic requirements to manage these [nodes data](#nd) (`.csv`, `.tsv` or `.shp`) and [edges data](#ed) (`.csv`, `.tsv` or `.shp`) in order to create graphs, to [plot](#plot) and to [compare](#compare) them
+Decoration graphs are constructed from nodes and the edges. As a RNG graph, graphs are 1-component: each decoration graph covers all the GUs of the decoration. The functions of the `decorr` package provide basic requirements to manage these [nodes data](#nd) (`.csv`, `.tsv` or `.shp`) and [edges data](#ed) (`.csv`, `.tsv` or `.shp`) to create graphs, to [plot](#plot) and to [compare](#compare) them, to select [contemporaneous GUs compositions](#contemp).
 
 ```{r ls_functions}
 library(decorr)
@@ -400,7 +400,7 @@ knitr::kable(imgs, "html") %>%
   kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
 
-The decorations unique identifiers are the concatenation of the site name and decoration name. For example, the name of the `Cerrano Muriano 1` decoration is ``r imgs[1,"img"]``.  
+The decorations unique identifiers are the concatenation of the site name and decoration name. For example, the name of the Cerrano Muriano 1 decoration is ``r imgs[1,"img"]``.  
 
 ```{r drawing,fig.width=6, fig.height=6, fig.align="center", warning=FALSE, echo=TRUE, message=FALSE, fig.cap="\\label{fig:figs}Cerro_Muriano.Cerro_Muriano_1.jpg"}
 library(magick)
