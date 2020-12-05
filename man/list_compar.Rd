@@ -46,6 +46,8 @@ list_compar(lgrph, nds.var = "type",
 
     Edges are common when they have the same value for \emph{starting} and \emph{ending} nodes ('horse', 'sword', etc.) and the same type of edge ('=', '+', etc.).
     For example, \code{a -=- b} in graph 1 is equal to \code{a -=- b} in graph 2, but not equal to \code{a -+- b}. Edges of type "=" (\emph{normal} edges) are undirected, so that \code{a -=- b} is equal to \code{b -=- a}. But edges of types "+" (\emph{attribute} edges) or ">" (\emph{overlap} edges) are directed, so that \code{a ->- b} is not equal to \code{b ->- a}.
+
+  If any of the graphs has multiple nodes/edges with the same value, it is considered to count for as many coincidences as the smaller multiplicity. For instance, if there are 2 nodes with value "epee" in graph 1, and 3 nodes with value "epee" in graph 2, they count as 2 coincidences.
 }
 \value{
 %%  ~Describe the value returned

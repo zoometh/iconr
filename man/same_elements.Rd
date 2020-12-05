@@ -3,10 +3,9 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Number of Equal Nodes or Edges Between Each Decoration Pair}
 \description{
-  Create the (simmetric) matrix with the count of common nodes/edges for each
-  pair of decorations (graphs) from a list.
-  The comparison is performed with respect to a given node variable (attribute).
-  In addition, edges equality requires also same edge type.
+  Create the (symmetric) dataframe with the count of
+  common nodes or common edges (see \code{\link[decorr]{list_compar}} for comparison criteria) for each pair of decorations (graphs) from a list.
+  The diagonal of the dataframe is filled with counts of nodes/edges for each decoration.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -33,14 +32,6 @@ same_elements(lgrph, nds.var = "type",
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
-  Observe that the output diagonal elements show the coincidences of each decoration with itself. Thus, it coincides with the total number of nodes or edges.
-
-  Nodes are common when they have the same value for a given variable, for example 'horse', 'sword', etc., for \code{nds.var = "type"}.
-
-  Edges are common when they have the same value for \emph{starting} and \emph{ending} nodes ('horse', 'sword', etc.) and the same type of edge ('=', '+', etc.).
-  For example, \code{a -=- b} in graph 1 is equal to \code{a -=- b} in graph 2, but not equal to \code{a -+- b}. Edges of type "=" are undirected, so that \code{a -=- b} is equal to \code{b -=- a}. But edges of types "+" or ">" are directed, so that \code{a ->- b} is not equal to \code{b ->- a}.
-
-  If any of the graphs has multiple nodes/edges with the same value, it is considered to count for as many coincidences as the smaller multiplicity. For instance, if there are 2 nodes with value "sword" in graph 1, and 3 nodes with value "sword" in graph 2, they count as 2 coincidences.
 }
 \value{
 %%  ~Describe the value returned

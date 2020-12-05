@@ -3,7 +3,7 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Plot and Save Comparison Figures Between Pairs of Graphs}
 \description{
-  \code{plot_compar} produces images displaying side by side pairs of graphs highlighting common nodes or edges.
+  \code{plot_compar} produces images displaying side by side pairs of graphs highlighting common nodes or common edges (see \code{\link[decorr]{list_compar}} for comparison criteria).
   The user can focus the comparison on nodes or edges, and can define several appearance parameters.
   Given a list of pairwise graph comparisons, it plots any given subset selected by graph name.
   The images can be saved in png, bmp, tiff, jpeg, or pdf format.
@@ -56,6 +56,7 @@
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
+As stated in the function \code{\link[decorr]{list_compar}}, if there is multiple nodes/edges with the same value, it is considered to count for as many coincidences as the smaller multiplicity.
 }
 \value{
 %%  ~Describe the value returned
@@ -76,7 +77,6 @@
 }
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{list_compar}},
   \code{\link[decorr]{side_plot}}
 }
 
