@@ -72,7 +72,9 @@ They return respectively the common nodes and the common edges of a graph pair.
 
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{list_dec}}, \code{\link[decorr]{plot_compar}}
+  \code{\link[decorr]{list_dec}},
+  \code{\link[decorr]{plot_compar}},
+  \code{\link[decorr]{same_elements}}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~

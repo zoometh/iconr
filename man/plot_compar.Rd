@@ -30,7 +30,7 @@
   }
   \item{focus}{
     %%     ~~Describe \code{x} here~~
-      Either \code{"nodes"} or \code{"edges"}. It selects the type of comparison to be plotted, highlighting common nodes or common edges, respectively.
+      Either \code{"nodes"} (default) or \code{"edges"}. It selects the type of comparison to be plotted, highlighting common nodes or common edges, respectively.
   }
   \item{doss}{
     %%     ~~Describe \code{x} here~~
