@@ -3,13 +3,13 @@
 \alias{nds_compar}
 \alias{eds_compar}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Graph Pairwise Comparison on Common Nodes and Edges}
+\title{Graph Pairwise Comparison on Common Elements}
 \description{
     \code{nds_compar} identifies common nodes in a pair of graphs.
 
     \code{eds_compar} identifies common edges in a pair of graphs.
 
-    Given a list of graphs, \code{list_compar} extract all combinations of graph pairs and compare them for both common nodes and common edges.
+    Given a list of graphs, \code{list_compar} extract all combinations of graph pairs and compare them for common elements (nodes and edges).
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -31,7 +31,7 @@ list_compar(lgrph, nds.var = "type",
   }
     \item{nds.var}{
 %%     ~~Describe \code{x} here~~
-    An attribute of the graph vertices containing the node variable (ie, field) on which the comparison will be done. By default \code{nds.var = "type"}.
+    An attribute of the graph nodes containing the node variable (ie, field) on which the comparison will be done. By default \code{nds.var = "type"}.
   }
             \item{verbose}{
 %%     ~~Describe \code{x} here~~
@@ -40,13 +40,12 @@ list_compar(lgrph, nds.var = "type",
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
-    \code{list_compar} calls the two other functions: \code{nds_compar()} and \code{eds_compar()}, which were initially designed as internal functions.
-They return respectively the common nodes and the common edges of a graph pair.
+    \code{list_compar()} calls the functions: \code{nds_compar()} and \code{eds_compar()} which return respectively the common nodes and the common edges of a graph pair.
 
     Nodes are common when they have the same value for a given variable, for example 'horse', 'sword', etc., for \code{nds.var = "type"}.
 
     Edges are common when they have the same value for \emph{starting} and \emph{ending} nodes ('horse', 'sword', etc.) and the same type of edge ('=', '+', etc.).
-    For example, \code{a -=- b} in graph 1 is equal to \code{a -=- b} in graph 2, but not equal to \code{a -+- b}. Edges of type "=" are undirected, so that \code{a -=- b} is equal to \code{b -=- a}. But edges of types "+" or ">" are directed, so that \code{a ->- b} is not equal to \code{b ->- a}.
+    For example, \code{a -=- b} in graph 1 is equal to \code{a -=- b} in graph 2, but not equal to \code{a -+- b}. Edges of type "=" (\emph{normal} edges) are undirected, so that \code{a -=- b} is equal to \code{b -=- a}. But edges of types "+" (\emph{attribute} edges) or ">" (\emph{overlap} edges) are directed, so that \code{a ->- b} is not equal to \code{b ->- a}.
 }
 \value{
 %%  ~Describe the value returned
@@ -54,11 +53,11 @@ They return respectively the common nodes and the common edges of a graph pair.
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-  \code{nds_compar} returns the input pair of graphs complemented with a new vertex attribute named \code{comm} with value 1 for common nodes and 0 for non-common nodes.
+  \code{nds_compar()} returns the input pair of graphs complemented with a new vertex attribute named \code{comm} with value 1 for common nodes and 0 for non-common nodes.
 
-  \code{eds_compar} returns the input pair of graphs complemented with a new edge attribute named \code{comm} with value 1 for common edges and 0 for non-common edges.
+  \code{eds_compar()} returns the input pair of graphs complemented with a new edge attribute named \code{comm} with value 1 for common edges and 0 for non-common edges.
 
-  \code{list_compar} returns a list of all combinations of graph pairs. For each pair, both graphs are complemented with the vertex attribute and edge attribute included by \code{nds_compar} and \code{eds_compar}, identifying the common nodes and edges, respectively. Each pair is also added an attribute named \code{nds.var} saving the compared node variable.
+  \code{list_compar()} returns a list of all combinations of graph pairs. For each pair, both graphs are complemented with the vertex attribute and edge attribute included by \code{nds_compar} and \code{eds_compar}, identifying the common nodes and edges, respectively. Each pair is also added an attribute named \code{nds.var} saving the compared node variable.
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -72,9 +71,9 @@ They return respectively the common nodes and the common edges of a graph pair.
 
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{list_dec}},
-  \code{\link[decorr]{plot_compar}},
-  \code{\link[decorr]{same_elements}}
+  \code{\link[decorr]{list_dec()}},
+  \code{\link[decorr]{plot_compar()}},
+  \code{\link[decorr]{same_elements()}}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
@@ -159,16 +158,25 @@ igraph::as_data_frame(g.compar[[2]][[2]])
 # 10    5  6    =    0
 
 # Named edges are better inspected with
+as.character(decorr::named_edges(lgrph[[1]], nds.var="type"))
+# [1] "bouclier-=-personnage"      "peigne-=-personnage"
+# [3] "lance-=-peigne"             "personnage-+-casque"
+# [5] "personnage-+-sexe_masculin" "lance-=-personnage"
+# [7] "lingot_pdb-=-personnage"    "bouclier-=-lingot_pdb"
 as.character(decorr::named_edges(g.compar[[2]][[1]], nds.var="type"))
-# [1] "bouclier--=--personnage"      "peigne--=--personnage"
-# [3] "lance--=--peigne"             "personnage--+--casque"
-# [5] "personnage--+--sexe_masculin" "lance--=--personnage"
-# [7] "lingot_pdb--=--personnage"    "bouclier--=--lingot_pdb"
+#  [1] "epee-=-fibule"           "bouclier-=-miroir"
+#  [3] "epee-=-lance"            "bouclier-=-chariot_char"
+#  [5] "chariot_char-+-cheval"   "chariot_char-+-cheval#"
+#  [7] "arc-=-bouclier"          "arc-=-chariot_char"
+#  [9] "arc-=-miroir"            "bouclier-=-fibule"
+# [11] "bouclier-=-epee"         "epee-=-miroir"
+# [13] "arc-+-fleche"            "chariot_char-+-roue"
+# [15] "chariot_char-+-roue#"
 as.character(decorr::named_edges(g.compar[[2]][[2]], nds.var="type"))
-#  [1] "lance--=--peigne"    "fibule--=--lance"    "fibule--=--peigne"
-#  [4] "lance--=--miroir"    "fibule--=--miroir"   "bouclier--=--lance"
-#  [7] "bouclier--=--peigne" "bouclier--=--fibule" "bouclier--=--miroir"
-# [10] "bouclier--=--epee"
+#  [1] "lance-=-peigne"    "fibule-=-lance"    "fibule-=-peigne"
+#  [4] "lance-=-miroir"    "fibule-=-miroir"   "bouclier-=-lance"
+#  [7] "bouclier-=-peigne" "bouclier-=-fibule" "bouclier-=-miroir"
+# [10] "bouclier-=-epee"
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

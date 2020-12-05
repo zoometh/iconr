@@ -1,10 +1,10 @@
 \name{contemp_nds}
 \alias{contemp_nds}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Select Contempotoraneous Nodes}
+\title{Select Contemporaneous Nodes}
 \description{
-  Find the subset of nodes contemporaneous to a given node and remove the
-  others together with their edges
+  Find the connected component of contemporaneous nodes given a selected node and remove the
+  other components
   %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -15,16 +15,16 @@
   \item{nds.df}{
     %%     ~~Describe \code{x} here~~
       Dataframe of the nodes as the one obtained by the function
-      \code{read_nds}.
+      \code{\link[decorr]{read_nds()}}.
   }
   \item{eds.df}{
     %%     ~~Describe \code{x} here~~
       Dataframe of the edges as the one obtained by the function
-      \code{read_eds}.
+      \code{\link[decorr]{read_eds()}}.
   }
   \item{selected.nd}{
     %%     ~~Describe \code{x} here~~
-      The node of the decoration graph for which to extract the contemporaneous subgraph. It can be either the node order (numeric) or the node name/id (character).
+      The node of the decoration graph for which to extract the connected component. It can be either the node order (numeric) or the node name/id (character).
   }
 }
 \details{
@@ -36,7 +36,7 @@
   %%  \item{comp1 }{Description of 'comp1'}
   %%  \item{comp2 }{Description of 'comp2'}
   %% ...
-  \code{contemp_nds} returns a list of two dataframes, the first one including
+  \code{contemp_nds()} returns a list of two dataframes, the first one including
   the contemporaneous nodes and the second one, the contemporaneous edges.
 }
 \references{
@@ -55,6 +55,7 @@
 \examples{
 # Set data folder
 dataDir <- system.file("extdata", package = "decorr")
+
 # Read a decoration
 nds.df <- read_nds(site = "Ibahernando",
                    decor = "Ibahernando",

@@ -11,7 +11,7 @@ contemp_nds <- function(nds.df, eds.df, selected.nd){
   nds.member <- igraph::components(g.split)$membership
   contemp.nds <- nds.member == nds.member[selected.nd]
   contemp.eds <- eds.df$type != '>' &
-                 contemp.nds[igraph::ends(g,igraph::E(g))[,1]]
+                 contemp.nds[igraph::ends(g,igraph::E(g))[, 1]]
   return(list(nodes = nds.df[contemp.nds, ],
               edges = eds.df[contemp.eds, ]))
 }

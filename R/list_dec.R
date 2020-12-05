@@ -13,7 +13,7 @@ list_dec <- function(imgs, nodes, edges) {
         g$name <- a.enr$idf
         g$site <- a.enr$site
         g$decor <- a.enr$decor
-        g$label <- paste0(g$name, "-", g$site, ".", g$decor)
+        g$lbl <- paste0(g$name, "-", g$site, ".", g$decor)
         g$img <- a.enr$img
         lgrph[[r]] <- g
     }

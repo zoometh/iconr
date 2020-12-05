@@ -21,7 +21,7 @@
 \arguments{
   \item{listg}{
     %%     ~~Describe \code{x} here~~
-      A list of graph pairwise comparisons as obtained with the function \code{list_compar}.
+      A list of graph pairwise comparisons returned by \code{\link[decorr]{list_compar()}}.
   }
   \item{graph2}{
     %%     ~~Describe \code{x} here~~
@@ -40,7 +40,7 @@
     %%     ~~Describe \code{x} here~~
       Graphical parameters for color and size/widths of nodes and edges.
     Each of them is a vector with two values for different and common nodes/edges, respectively.
-    If only one value is provided, it is taken for both different and common elements.
+    If only one value is provided, this unique value is taken for both different and common elements.
     Labels are displayed with the same color as common nodes.
     For \code{focus = "nodes"} all edges are plotted with the first value of \code{eds.color} and \code{eds.width}.
   }
@@ -63,7 +63,7 @@
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-   \code{plot_compar} generates and save images in the indicated format for pairwise comparisons between two or more decorations, comparing nodes or edges. The return value is a character vector with the the path/name of every saved image.
+   \code{plot_compar()} generates and save images in the indicated format for pairwise comparisons between two or more decorations, comparing nodes or edges. The return value is a character vector with the the path/name of every saved image.
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -76,8 +76,8 @@
 }
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{list_compar}},
-  \code{\link[decorr]{side_plot}}
+  \code{\link[decorr]{list_compar()}},
+  \code{\link[decorr]{side_plot()}}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
@@ -91,32 +91,41 @@ nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
 edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
                     sep="\t",stringsAsFactors = FALSE)
-# Generate list of graphs from the three data.frames
+
+# Generate list of graphs from the three dataframes
 lgrph <- list_dec(imgs, nodes, edges)
 
 # Generate all pairwise comparisons of the graphs with respect to nodes "type"
 g.compar <- list_compar(lgrph, nds.var="type")
 
-# Plot the comparison on common nodes of graphs '1' and '4',
+# Return the path of the image showing the comparison on common nodes of graphs '1' and '4',
 # and save it as png (default)
 plot_compar(g.compar, c(1,4), focus = "nodes",
             doss = system.file("extdata", package = "decorr"))
 
-# Plot the comparison on common edges of graphs '1' and '4',
-# and save it as jpeg. Plot all nodes and node labels in blue.
+# Return the path of the image showing the comparison on common edges of graphs '1' and '4',
+# and save it as jpeg. Plot all nodes and node labels in brown.
 plot_compar(g.compar, c(1,4), focus = "edges",
             doss = system.file("extdata", package = "decorr"),
-            nds.color = "blue",
+            nds.color = "brown",
             img.format = "jpg")
 
-# Plot the comparison on common edges of all pairwise combinations
+# Return the path of the image showing the comparison on common edges of all pairwise combinations
 # of graphs '1','3', and '4', and save them as pdf.
-# Plot nodes involved in non-common edges in orange and
-# nodes involved in common edges and the corresponding labels in blue.
+# Save the plot of nodes involved in non-common edges in orange and
+# nodes involved in common edges and the corresponding labels in brown.
 plot_compar(g.compar, c(1,3,4), focus = "edges",
             doss = system.file("extdata", package = "decorr"),
-            nds.color = c("orange", "blue"),
+            nds.color = c("orange", "brown"),
             img.format = "pdf")
+
+# Return the path of the image showing the comparison on common nodes of graphs '1' and '4',
+# and save it as png (default),
+# and plot the image
+p <- plot_compar(g.compar, c(1,4), focus = "nodes",
+            doss = system.file("extdata", package = "decorr"))
+plot(magick::image_read(p))
+
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

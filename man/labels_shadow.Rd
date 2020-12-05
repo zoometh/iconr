@@ -22,7 +22,7 @@ labels_shadow(x, y = NULL, labels,
 %%     ~~Describe \code{x} here~~
     Numeric vector of coordinates where the labels should be plotted.
     Alternatively, a single argument \code{x} can be provided
-    with the same syntax as in \code{grDevices::xy.coords}.
+    with the same syntax as in \code{\link[grDevices]{xy.coords}.
 }
           \item{labels}{
 %%     ~~Describe \code{x} here~~
@@ -44,7 +44,7 @@ labels_shadow(x, y = NULL, labels,
 }
         \item{...}{
 %%     ~~Describe \code{x} here~~
-    Further graphical parameter accepted by \code{graphics::text}, such as
+    Further graphical parameter accepted by \code{\link[graphics]{text}}, such as
     \code{pos}, \code{offset}, or \code{family}.
 }
 }

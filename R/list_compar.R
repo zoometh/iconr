@@ -41,6 +41,7 @@ eds_compar <- function(grphs, nds.var = "type") {
 
 named_edges <- function(grph, nds.var = "type",
                         directed.types = c(">", "+")) {
+  # grph <- lgrph[[5]] ; nds.var = "type" ; directed.types = c(">", "+")
   grph.eds <- igraph::as_data_frame(grph)[, c("from", "type", "to")]
   grph.nds <- igraph::as_data_frame(grph, "vertices")
   grph.eds[c("from", "to")] <-
@@ -49,9 +50,11 @@ named_edges <- function(grph, nds.var = "type",
     directed.eds = grph.eds$type %in% directed.types
     grph.eds[!directed.eds, c("from","to")] <-
       t(apply(grph.eds[!directed.eds, c("from","to")], 1, sort))
-    infix <- "--"
+    # infix <- "--"
+    infix <- "-"
   } else {
-    infix <- "->"
+    # infix <- "->"
+    infix <- "-"
   }
   edges <- apply(grph.eds, 1, paste0, collapse = infix)
   return(disambiguate_duplicates(edges))
