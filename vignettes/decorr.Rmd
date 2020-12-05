@@ -118,7 +118,7 @@ The main principle of `decorr` package is to considerate any iconographic compos
 &nbsp;
   
   
-```{r gis, out.width="33%", echo=F, fig.align='center', fig.cap="GIS view of the Cerro Muriano 1 stelae with the Voronoi cells of its GUs, GUs (nodes) and proximity links between these GUs (edges)"}
+```{r gis, out.width="40%", echo=F, fig.align='center', fig.cap="GIS view of the Cerro Muriano 1 stelae with the Voronoi cells of its GUs, GUs (nodes) and proximity links between these GUs (edges)"}
 dataDir <- paste0(system.file("extdata", package = "decorr"))
 include_graphics(paste0(dataDir,"/gis.png"))
 ```
@@ -146,23 +146,23 @@ cat(ls("package:decorr"), sep="\n")
 
 The graphical functions, `plot_dec_grph()` and `plot_compar()` allow different choices for the color and the size of the nodes, edges or labels. For example, nodes and edges of `Cerro Muriano 1`, and the field `type` used for the label can be selected instead of the default `id` field (identifier of the node)
 
-```{r img.graph.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 drawing with the type of each GU"}
+```{r img.graph.plot.type, out.width="60%", fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 drawing with the type of each GU"}
 nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = dataDir)
 eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = dataDir)
 img.graph <- plot_dec_grph(nodes = nds.df,
                            edges = eds.df,
                            site = "Cerro Muriano",
                            decor = "Cerro Muriano 1",
-                           nds.lbl = 'type',
+                           nds.var = 'type',
                            lbl.size=2,
                            doss = dataDir)
-plot(img.graph)
+magick::image_read(img.graph)
 ```
 &nbsp;
   
 A new field, `long_cm` is added to Cerro Muriano 1 nodes and the graph is replot on this field instead of the `type` field, with <span style="color:brown">brown</span> colors and label bigger sizes
 
-```{r img.graph.plot.id, fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 drawing with the maximum length (in cm) of each GU"}
+```{r img.graph.plot.id, out.width="60%", fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 drawing with the maximum length (in cm) of each GU"}
 nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = dataDir)
 nds.df$long_cm <- c(47, 9, 47, 18, 7, 3, 13)
 eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = dataDir)
@@ -170,13 +170,13 @@ img.graph <- plot_dec_grph(nodes = nds.df,
                            edges = eds.df,
                            site = "Cerro Muriano",
                            decor = "Cerro Muriano 1",
-                           nds.lbl = 'long_cm',
+                           nds.var = 'long_cm',
                            nd.color = "brown",
                            lbl.color = "brown",
                            eds.color = "brown",
                            lbl.size=2.5,
                            doss = dataDir)
-plot(img.graph)
+magick::image_read(img.graph)
 ```
 &nbsp;
   
@@ -289,11 +289,31 @@ knitr::include_graphics(eds_compar)
 
 ## Manage contemporaneous contents {#contemp}
 
-It occurs that some GUs are non-contemporaneous one with the others, like for the latin writing overlapping Late Bronze Age engravings on Ibahernando stelae. In this case, the non-contemporaneous layers of decoration should be removed before the comparison process. To do so, the original graph (1-component) will be splitted into different sub-graphs (n-component) by selecting `->-` edges (see [edge types](#ed.type)). The studied graph component will be retieved with the component membership of a selected node in the `contemp_nds()` function parameters.  
+It occurs that some GUs are non-contemporaneous one with the others, like for the Ibahernando stelae. This stelae have been found reused as a funerary steale during Roman times [@Almagro66b]. A latin inscription (ecriture, node 1) have been carved over a spear (lance, node 2) and overlaps partially a V-notched shield (bouclier, node 3). The edges between node 1 and node 2, and the edge between node 1 and node 3, are *overlap* edges.
 
-For example, the Ibahernando stelae have been found reused as a funerary steale during Roman times [@Almagro66b]. A latin inscription have been carved over a spear (lance, node 2) and overlaps partially a V-notched shield (bouclier, node 3). To study only the Late Bronze Age iconographic layer, we can choose the Late Bronze Age node 4, the figure of sword (epee) dated to the middle and final stages of Late Bronze Age (ca 1250-950 BC)
 
-```{r rm.writing, out.width="100%", fig.align="center", warning=FALSE, fig.cap="Ibahernando before and after the suppression of the overlapping node"}
+```{r ibahernando, out.width="60%", fig.align="center", warning=FALSE, fig.cap="Ibahernando decoration with only *normal* edges, node 1  overlaps node 2 and node 3"}
+nds.df <- read_nds(site = "Ibahernando", 
+                   decor = "Ibahernando",
+                   doss = dataDir)
+eds.df <- read_eds(site = "Ibahernando",
+                   decor = "Ibahernando",
+                   doss = dataDir)
+img.graph <- plot_dec_grph(nodes = nds.df,
+                           edges = eds.df,
+                           site = "Ibahernando",
+                           decor = "Ibahernando",
+                           lbl.size = 2,
+                           doss = dataDir)
+magick::image_read(img.graph)
+```
+&nbsp;
+  
+In this case, the non-contemporaneous layers of decoration should be removed before the comparison process. To do so, the original graph (1-component) will be splitted into different sub-graphs (n-component) by selecting `>` edges (see [*overlap* edges](#ed.type.over)). The studied graph component will be retrieved with the component membership of a selected node in the `contemp_nds()` function parameters.  
+  
+To study only the Late Bronze Age iconographic layer of the Ibahernando steale, we can choose the Late Bronze Age node 4, the figure of sword (epee) dated to the middle and final stages of Late Bronze Age (ca 1250-950 BC). This node is supposed to be contemporaneous to node 2 and node 3 (see [*normal* edges ](#ed.type.norm))
+
+```{r rm.writing, out.width="100%", fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae before and after the selection of node 4 (sword) graph component"}
 selected.nd <- 4
 nds.df <- read_nds(site = "Ibahernando", 
                    decor = "Ibahernando",
@@ -306,19 +326,44 @@ Ibahernando <- plot_dec_grph(nodes = nds.df,
                              edges = eds.df,
                              site = "Ibahernando",
                              decor = "Ibahernando",
-                             nds.lbl = "id",
+                             nds.var = "type",
                              lbl.color = "brown",
                              lbl.size=2.2,
                              doss = dataDir)
+Ibahernando.img <- magick::image_read(Ibahernando)
 Ibahernando.contemp <- plot_dec_grph(nodes = l_dec_df[[1]],
                                      edges = l_dec_df[[2]],
                                      site = "Ibahernando",
                                      decor = "Ibahernando",
-                                     nds.lbl = "type",
+                                     nds.var = "type",
                                      lbl.color = "brown",
                                      lbl.size=2.2,
                                      doss = dataDir)
-magick::image_append(c(Ibahernando, Ibahernando.contemp))
+Ibahernando.contemp.img <- magick::image_read(Ibahernando.contemp)
+magick::image_append(c(Ibahernando.img, Ibahernando.contemp.img))
+```
+&nbsp;
+  
+At the opposite, epigraphist will study only the latin writing
+
+```{r ibahernando.lat, out.width="60%", fig.align="center", warning=FALSE, fig.cap="Ibahernando steale after the selection of node 1 (writing) graph component"}
+selected.nd <- 1
+nds.df <- read_nds(site = "Ibahernando", 
+                   decor = "Ibahernando",
+                   doss = dataDir)
+eds.df <- read_eds(site = "Ibahernando",
+                   decor = "Ibahernando",
+                   doss = dataDir)
+l_dec_df <- contemp_nds(nds.df, eds.df, selected.nd)
+img.graph <- plot_dec_grph(nodes = l_dec_df[[1]],
+                           edges = l_dec_df[[2]],
+                           site = "Ibahernando",
+                           decor = "Ibahernando",
+                           nds.var = "type",
+                           lbl.size = 2,
+                           lbl.color = "brown",
+                           doss = dataDir)
+magick::image_read(img.graph)
 ```
 &nbsp;
   
@@ -439,25 +484,17 @@ knitr::kable(eds.df, "html") %>%
   
 ### Edges types {#ed.type}
 
-As state by the graph theory:
+As stated by the graph theory, edges can be undirected or directed. In the `decorr` package, by default: 
 
-* **undirected edges**: *normal* edge (`1-=-2`) is equal to (`2-=-1`)  
+* all comtemporaneous nodes have [*normal* edges](#ed.type.norm) or [*attribute* edges](#ed.type.attrib)  edges displayed in <span style="color:orange"><b>orange</b></span>
 
-* **directed edges**: 
-  * *attribute* edges (`1-+-2`) is not equal to (`2-+-1`)
-  * *overlap* edges (`1->-2`) is not equal to (`2->-1`) 
-  
-By default: 
+* all non-comtemporaneous nodes have [*overlap* edges](#ed.type.over) and displayed in <span style="color:blue"><b>blue</b></span> edges (see [contemporaneous nodes](#contemp)). 
 
-* all comtemporaneous nodes have *normal* or *attribute* edges displayed in <span style="color:orange"><b>orange</b></span>
+#### ***normal* edges** {#ed.type.norm}
 
-* all non-comtemporaneous have an *overlap* edge and displayed in <span style="color:blue"><b>blue</b></span> edges (see [contemporaneous nodes](#contemp)). 
+The *normal* edges are undirected:  `1-=-2` is equal to `2-=-1`, node 1 and node 2 are two different *main* nodes. Differents *main* nodes considerated as contemporaneous and close one with another, shared an edge with the  value `=` (textual notation: `-=-`) for their `type`. By convention, these edges are called *normal* and displayed with a plain line.
 
-***normal* edges**
-
-Usually, differents nodes considerated as contemporaneous and close one with another, shared an edge with the  value `=` (textual notation: `-=-`) for their `type`. By convention, these edges are called *normal* and displayed with a plain line.
-
-```{r graph.normal.plot.type, fig.width=6, fig.height=6, fig.align="center", warning=FALSE, fig.cap="Brozas decoration with only *normal* edges: all the composition seems contemporaneous"}
+```{r graph.normal.plot.type, out.width="60%", fig.align="center", warning=FALSE, fig.cap="Brozas decoration with only *normal* edges: all the composition seems contemporaneous"}
 nds.df <- read_nds(site = "Brozas", 
                    decor = "Brozas",
                    doss = dataDir)
@@ -468,10 +505,10 @@ img.graph <- plot_dec_grph(nodes = nds.df,
                            edges = eds.df,
                            site = "Brozas",
                            decor = "Brozas",
-                           nds.lbl = 'type',
+                           nds.var= 'type',
                            lbl.size = 2,
                            doss = dataDir)
-plot(img.graph)
+magick::image_read(img.graph)
 ```
 &nbsp;
   
@@ -479,17 +516,17 @@ For example, the *normal* edge between the nodes `5` and `6` (respectively the s
 
 ```{r plot.a.edge.attribute;1, fig.width=6, fig.height=6, fig.align="center", warning=FALSE}
 eds.df <- read_eds(site = "Brozas", decor = "Brozas", doss = dataDir)
-cat(paste0(eds.df[10,"a"]," -",eds.df[10,"type"],"- ",eds.df[10,"b"]))
+cat(paste0(eds.df[10,"a"],"-",eds.df[10,"type"],"-",eds.df[10,"b"]))
 ```
   
-***attribute* edges**
+#### ***attribute* edges** {#ed.type.attrib}
 
-When a node is an attribute of another, edges are identified with a `+` (textual notation: `-+-`) and displayed with a dashed line.  For example, at the bottom of the `Zarza De Montanchez` decoration, the main GU chariot `7` is connected with four nodes attributes:
+When a node is an attribute of another, edges are identified with a `+` (textual notation: `-+-`) and displayed with a dashed line.  The *attribute* edges are directed: `1-+-2` is not equal to `2-+-1`, `1-+-2` means that node 1 is the *main* node and node 2 is one of its *attribute* node. For example, at the bottom of the `Zarza De Montanchez` decoration, the main node chariot `7` is connected with four nodes attributes:
 
 - two horses (cheval): `8` and `9`  
 - two wheels (roue): `10` and `11` 
 
-```{r graph.attribute.plot.type, out.width="100%", fig.align="center", warning=FALSE, fig.cap="Zarza De Montanchez decoration, *normal* and *attribute* edges"}
+```{r graph.attribute.plot.type, out.width="100%", fig.align="center", warning=FALSE, fig.cap="Zarza De Montanchez decoration showing *normal* and *attribute* edges"}
 nds.df <- read_nds(site = "Zarza de Montanchez", 
                    decor = "Zarza De Montanchez",
                    doss = dataDir)
@@ -507,9 +544,10 @@ img.graph.type <- plot_dec_grph(nodes = nds.df,
                                 site = "Zarza de Montanchez",
                                 decor = "Zarza De Montanchez",
                                 lbl.size = 2,
-                                nds.lbl = 'type',
+                                nds.var = 'type',
                                 doss = dataDir)
-magick::image_append(c(img.graph.id,img.graph.type))
+magick::image_append(c(magick::image_read(img.graph.id),
+                       magick::image_read(img.graph.type)))
 ```
 &nbsp;
   
@@ -517,15 +555,15 @@ For example, the attribute edge between the nodes `7` and `8` (respectively the 
 
 ```{r plot.a.edge.attribute, fig.width=6, fig.height=6, fig.align="center", warning=FALSE}
 eds.df <- read_eds(site = "Zarza de Montanchez", decor = "Zarza De Montanchez", doss = dataDir)
-cat(paste0(eds.df[8,"a"]," -",eds.df[8,"type"],"- ",eds.df[8,"b"]))
+cat(paste0(eds.df[8,"a"],"-",eds.df[8,"type"],"-",eds.df[8,"b"]))
 ```
 
-***overlapping* edges**
+#### ***overlap* edges** {#ed.type.over}
 
-When a node overlaps another -- or is more recent than another -- edges are identified with a `>` (textual notation: `->-`) and displayed with a blue plain line. For example, the `Ibahernando` stelae show a latin writing (écriture) overlapping a spear (lance) and a shield (bouclier).
+When a node overlaps another -- or is more recent than another -- edges are identified with a `>` (textual notation: `->-`) and displayed with a blue plain line. The *overlap* edges are directed: `1->-2` is not equal to `2->-1`, `1->-2` means that node 1 overlaps node 2. For example, the Ibahernando stelae shows a latin writing (écriture) overlapping a spear (lance) and a shield (bouclier).
 
 
-```{r graph.overlap.plot.type, out.width="100%", fig.align="center", warning=FALSE, fig.cap="Ibahernando decoration, *normal* and *overlap* edges"}
+```{r graph.overlap.plot.type, out.width="100%", fig.align="center", warning=FALSE, fig.cap="Ibahernando decoration showing *normal* and *overlap* edges"}
 nds.df <- read_nds(site = "Ibahernando", 
                    decor = "Ibahernando",
                    doss = dataDir)
@@ -542,20 +580,22 @@ img.graph.type <- plot_dec_grph(nodes = nds.df,
                            edges = eds.df,
                            site = "Ibahernando",
                            decor = "Ibahernando",
-                           nds.lbl = 'type',
+                           nds.var = 'type',
                            lbl.size = 2,
                            doss = dataDir)
-magick::image_append(c(img.graph.id,img.graph.type))
+magick::image_append(c(magick::image_read(img.graph.id),
+                       magick::image_read(img.graph.type)))
 ```
 &nbsp;
   
-For example, the *overlap* edge between the nodes `1` and `2` (respectively the writing and the spear) is:
+For example, the *overlap* edge between the nodes 1 and 2 (respectively the writing and the spear) is:
 
 ```{r plot.a.edge.overlap, echo = T, fig.width=6, fig.height=6, fig.align="center", warning=FALSE}
 eds.df <- read_eds(site = "Ibahernando", decor = "Ibahernando", doss = dataDir)
-cat(paste0(eds.df[1,"a"]," -",eds.df[1,"type"],"- ",eds.df[1,"b"]))
+cat(paste0(eds.df[1,"a"],"-",eds.df[1,"type"],"-",eds.df[1,"b"]))
 ```
-  
+
+To remove one of the two connected component of the Ibahernando stelae, see the section [**Manage contemporaneous contents**](#contemp)
   
   
 # References

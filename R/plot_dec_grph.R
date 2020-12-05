@@ -19,7 +19,7 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL,
     # load
     img.in <- magick::image_read(paste0(doss, "/", img.select$img))
     img <- magick::image_draw(img.in)
-    if (!is.null(edges)) {
+    if (!is.null(edges) & nrow(edges) > 0) {
         edges.select <- edges[edges$site  == site &
                                 edges$decor == decor, ]
         for (edg in 1:nrow(edges.select)) {
@@ -32,7 +32,7 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL,
                             lty = ed.type, lwd = ed.lwd, col = ed.color)
         }
     }
-    if (!is.null(nodes)) {
+    if (!is.null(nodes) & nrow(nodes) > 0) {
         ## Plot nodes and labels
         nodes.select <- nodes[nodes$site  == site &
                                 nodes$decor == decor, ]
