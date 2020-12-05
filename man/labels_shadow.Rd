@@ -1,43 +1,51 @@
 \name{labels_shadow}
 \alias{labels_shadow}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Drop Colored Shadow Under Labels}
+\title{Plot Labels with Contrasting Shadow}
 \description{
-  Plot a colored buffer to make the labels more visible. 
+  Plot labels (text) with a contrasting buffer to make them more visible
+  when located on a similar color background.
+
   This function is the \code{shadowtext()} function developed by Greg Snow.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-labels_shadow(x,
-              y=NULL,
-              labels,
-              col='black',
-              bg='white',
-              theta= seq(0, 2*pi, length.out=50),
-              r=0.1,
-              ...) 
+labels_shadow(x, y = NULL, labels,
+              col = "black", bg = "white",
+              theta = seq(0, 2 * pi, length.out = 50),
+              r = 0.1,
+              cex = 1, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
         \item{x, y}{
 %%     ~~Describe \code{x} here~~
-    the x and y coordinates of a set of labels. Alternatively, a single argument x can be provided with the same syntax as in grDevices::xy.coords.
+    Numeric vector of coordinates where the labels should be plotted.
+    Alternatively, a single argument \code{x} can be provided
+    with the same syntax as in \code{grDevices::xy.coords}.
 }
           \item{labels}{
 %%     ~~Describe \code{x} here~~
-    set of labels provided as a character vector.
+    Set of labels provided as a character vector.
 }
         \item{col, bg}{
 %%     ~~Describe \code{x} here~~
-    graphical parameters for the label color and background (buffer) color
+    Graphical parameters for the label color and background (buffer) color.
 }
-            \item{theta, r}{
+        \item{theta}{
 %%     ~~Describe \code{x} here~~
-    parameter of the shadow buffer geometry. r is the thickness of the buffer as a ratio with respect to the width and height of the character "A" in the used font.
+    Angles for generating the buffer with possible anisotropy along one
+    direction (default is isotropic)
+    and controling buffer smoothness (angular resolution).
 }
-              \item{...}{
+        \item{r}{
 %%     ~~Describe \code{x} here~~
-    any graphical parameter (pos, cex, etc.)
+    Thickness of the buffer relative to the size of the used font.
+}
+        \item{...}{
+%%     ~~Describe \code{x} here~~
+    Further graphical parameter accepted by \code{graphics::text}, such as
+    \code{pos}, \code{offset}, or \code{family}.
 }
 }
 \details{
@@ -49,7 +57,7 @@ labels_shadow(x,
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-  
+
 }
 \references{
 %% ~put references to the literature/web site here ~
