@@ -11,11 +11,11 @@ plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
   if (length(eds.width) == 1) eds.width[2] <- eds.width[1]
 # Focus-specific parameter defaults and names:
   if (focus == "nodes") {
-    img.prefix <- "compar_nds_"
+    img.prefix <- "_compar_nds_"
   } else if (focus == "edges") {
     if (missing(nds.color)) nds.color <- eds.color
     if (missing(nds.size)) nds.size[2] <- nds.size[1]
-    img.prefix <- "compar_eds_"
+    img.prefix <- "_compar_eds_"
   } else {
     stop(paste0("focus must be \"nodes\" or \"edges\"."))
   }
@@ -30,10 +30,8 @@ plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
                            g.names[2], ".", img.format)
       com.elm.num <- ifelse(focus == "nodes", sum(igraph::V(g[[1]])$comm),
                                               sum(igraph::E(g[[1]])$comm))
-      tit <- paste0("Common ", focus,
-                    " (n=", com.elm.num, "): ",
-                    "compare decorations '", g.names[1], "' and '", g.names[2],
-                    "' on nodes '", nds.var, "'")
+      tit <- paste0("common ", focus,
+                    " (n=", com.elm.num, ")")
       decorr::grDeviceOpen(out.compar, doss, width = 14, height = 7, res = res)
       # Set the plotting area into a 1*2 array
       graphics::par(mfrow = c(1, 2), mar = c(0, 0, 0, 0))
@@ -51,7 +49,6 @@ plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
 
 grDeviceOpen <- function(img.file.name, doss, width, height, res = res)
 {
-  print(doss)
   #Extract image format from the extension of the file name.
   m <- regexpr("\\.([[:alnum:]])+", img.file.name)
   img.format <- regmatches(img.file.name, m+1)

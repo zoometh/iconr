@@ -1,9 +1,9 @@
 \name{plot_dec_grph}
 \alias{plot_dec_grph}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Plot Geometric Graph on a Picture of the Decoration}
+\title{Plot a Graph on a Decoration}
 \description{
-  Plot a geometric graph (i.e. planar graph) over a decoration image, for nodes only, for edges only, or for both
+  Plot nodes only, edges only, or both (graph) over a decoration image
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -11,15 +11,14 @@ plot_dec_grph(nds.df,
               eds.df,
               site,
               decor,
-              doss=getwd(),
-              shw=c("nodes"),
-              lbl.txt='id',
-              nd.color='orange',
-              nd.size=1.7,
-              lbl.color='black',
-              lbl.size=1.2,
-              ed.color='orange',
-              ed.lwd=4)
+              doss = getwd(),
+              nds.var = 'id',
+              nd.color = 'orange',
+              nd.size = 1.7,
+              lbl.color = 'black',
+              lbl.size = 1.2,
+              ed.color = 'orange',
+              ed.lwd = 4)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -43,13 +42,9 @@ plot_dec_grph(nds.df,
 %%     ~~Describe \code{x} here~~
     path of the working folder, by default the working directory
 }
-            \item{shw}{
+              \item{nds.var}{
 %%     ~~Describe \code{x} here~~
-    show only \code{nodes} (by default), only \code{edges}, or both \code{c('nodes','edges')}
-}
-              \item{lbl.txt}{
-%%     ~~Describe \code{x} here~~
-    fieldname of the nodes that will be displayed, by default the identifier \code{nodes$id} 
+    fieldname of the nodes that will be displayed, by default the identifier \code{nodes$id}
 }
               \item{nd.color,
                     nd.size,
@@ -63,6 +58,9 @@ plot_dec_grph(nds.df,
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
+  Plot nodes only (\code{edges = NULL} or \code{eds.df} is null), edges only (\code{nodes = NULL} or \code{eds.df} is null), or both (graph) over a decoration image
+
+
 }
 \value{
 %%  ~Describe the value returned
@@ -70,7 +68,7 @@ plot_dec_grph(nds.df,
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-  create a R 'magick-image' with the planar graph overlapping the decoration image
+  create a R 'magick-image' with nodes, edges, or both, overlapping the decoration image
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -87,21 +85,34 @@ plot_dec_grph(nds.df,
 \examples{
 # set data folder
 dataDir <- system.file("extdata", package = "decorr")
-  
+
 # read nodes and edges
-nds.df <- read_nds( site = "Cerro Muriano", decor = "Cerro Muriano 1",
-					doss = dataDir, dev = ".tsv")
-eds.df <- read_eds(	site = "Cerro Muriano", decor = "Cerro Muriano 1",
-					doss = dataDir, dev = ".tsv")
-img.graph <- plot_dec_grph(nds.df = nds.df,
-                           eds.df = eds.df,
-                           site = "Cerro Muriano",
-                           decor = "Cerro Muriano 1",
+nds.df <- read_nds( site = "Brozas", decor = "Brozas",
+                    doss = dataDir, dev = ".tsv")
+eds.df <- read_eds(	site = "Brozas", decor = "Brozas",
+                    doss = dataDir, dev = ".tsv")
+
+# save nodes and edges of 'Cerro Muriano 1' with nodes' "type" as labels
+# with the default format (png) in a new file and return the path
+img.graph <- plot_dec_grph(nodes = nds.df,
+                           edges = eds.df,
+                           site = "Brozas",
+                           decor = "Brozas",
                            doss = dataDir,
-                           lbl.txt = "type",
-                           shw = c("nodes","edges"))
+                           nds.var = "type")
 img.graph
-## plot the graph of 'Cerro Muriano 1' with nodes' "type" as labels
+
+# save only edges of 'Cerro Muriano 1' with smaller widths
+# with a new format (jpg) in a new file
+# and open the file with 'magick::image_read()'
+img.graph <- plot_dec_grph(nodes = NULL,
+                           edges = eds.df,
+                           site = "Brozas",
+                           decor = "Brozas",
+                           doss = dataDir,
+                           ed.lwd = 2,
+                           img.format = "jpg")
+magick::image_read(img.graph)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

@@ -3,10 +3,15 @@ side_plot <- function(grp, doss, nds.var, focus = "nodes",
                       eds.color = c("orange", "red"), eds.width = c(1, 2),
                       lbl.size = 0.5) {
   dec.img <- magick::image_read(paste0(doss, "/", grp$img))
-  # add the decor site and name
+  # add the decoration name, site and decor
   dec.img <- magick::image_annotate(dec.img,
-                                    paste0(grp$site, "\n", grp$decor),
+                                    paste0(grp$name, "\n",
+                                           grp$site, "\n",
+                                           grp$decor),
                                     gravity = "northwest", size = 20)
+  # add the nds.vars
+  dec.img <- magick::image_annotate(dec.img, nds.var,
+                                    gravity = "northeast", size = 20)
   drawing.decor <- grDevices::as.raster(dec.img)
   graphics::plot(drawing.decor)
   offset.img <- nrow(drawing.decor)  # offset depends on raster size
@@ -15,7 +20,7 @@ side_plot <- function(grp, doss, nds.var, focus = "nodes",
   g.nodes <- igraph::as_data_frame(grp, what = "vertices")
   g.nodes$y <- g.nodes$y + offset.img  # add the offset
   g.edges <- igraph::as_data_frame(grp)
-  ed.type <- ifelse(g.edges$type %in% c("+", ">"), "21", "solid")
+  ed.type <- ifelse(g.edges$type %in% c("+"), "21", "solid")
 
   if (focus == "nodes") {
     nodes.group <- g.nodes$comm + 1
