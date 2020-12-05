@@ -15,12 +15,12 @@
   \item{nds.df}{
     %%     ~~Describe \code{x} here~~
       Dataframe of the nodes as the one obtained by the function
-      \code{\link[decorr]{read_nds()}}.
+      \code{\link[decorr]{read_nds}}.
   }
   \item{eds.df}{
     %%     ~~Describe \code{x} here~~
       Dataframe of the edges as the one obtained by the function
-      \code{\link[decorr]{read_eds()}}.
+      \code{\link[decorr]{read_eds}}.
   }
   \item{selected.nd}{
     %%     ~~Describe \code{x} here~~
