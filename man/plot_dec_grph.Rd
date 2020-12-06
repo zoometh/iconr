@@ -7,8 +7,8 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-plot_dec_grph(nds.df,
-              eds.df,
+plot_dec_grph(nodes,
+              edges,
               site,
               decor,
               doss = getwd(),
@@ -23,11 +23,11 @@ plot_dec_grph(nds.df,
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{nds.df}{
+  \item{nodes}{
 %%     ~~Describe \code{x} here~~
     a dataframe of nodes
 }
-    \item{eds.df}{
+    \item{edges}{
 %%     ~~Describe \code{x} here~~
     a dataframe of edges
 }

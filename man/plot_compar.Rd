@@ -15,7 +15,7 @@
               doss = getwd(),
               nds.color = c("orange", "red"), nds.size = c(0.5, 1),
               eds.color = c("orange", "red"), eds.width = c(1, 2),
-              lbl.size = 0.4, img.format = "png", res = 300)
+              lbl.size = 0.5, img.format = "png", res = 300)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

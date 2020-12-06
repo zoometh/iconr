@@ -3,7 +3,7 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL,
                           nds.var = "id",
                           nd.color = "orange", nd.size = 1.7,
                           lbl.color = "black", lbl.size = 1.2,
-                          eds.color = c("orange","blue"), ed.lwd = 4,
+                          ed.color = c("orange","blue"), ed.lwd = 4,
                           img.format = "png") {
     # images
     imgs <- utils::read.table(file = paste0(doss, "/imgs.tsv"),
@@ -19,20 +19,20 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL,
     # load
     img.in <- magick::image_read(paste0(doss, "/", img.select$img))
     img <- magick::image_draw(img.in)
-    if (!is.null(edges) & nrow(edges) > 0) {
+    if (!is.null(edges) & length(nrow(edges)) > 0) {
         edges.select <- edges[edges$site  == site &
                                 edges$decor == decor, ]
         for (edg in 1:nrow(edges.select)) {
             # edg <- 1
             edg.df <- edges.select[edg, ]
             ed.type <- ifelse(edg.df$type == "+", 2, 1)
-            ed.color <- eds.color[ifelse(edg.df$type == ">", 2, 1)]
+            ed.color <- ed.color[ifelse(edg.df$type == ">", 2, 1)]
             graphics::lines(edg.df[c("xa", "xb")],
                             -edg.df[c("ya", "yb")],
                             lty = ed.type, lwd = ed.lwd, col = ed.color)
         }
     }
-    if (!is.null(nodes) & nrow(nodes) > 0) {
+    if (!is.null(nodes) & length(nrow(nodes)) > 0) {
         ## Plot nodes and labels
         nodes.select <- nodes[nodes$site  == site &
                                 nodes$decor == decor, ]

@@ -3,10 +3,10 @@ title: "The ***decorr*** package. Graph Analysis of Prehistorical Iconography wi
 author: "Thomas Huet, Jose Pozo, Craig Alexander"
 email: "thomashuet7@gmail.com"
 date: "`r format(Sys.Date())`"
-# output: 
+# output:
 #   html_document:
 #     toc: true
-#     toc_float: 
+#     toc_float:
 #       collapsed: false
 #       smooth_scroll: false
 output:
@@ -129,7 +129,7 @@ RNG is "*a powerful model of low-level visual process*" [@Toussaint80]. Graph th
   
 The R package `decorr` is composed by [functions](#functions) and a [dataset example](#data). The main packages used by the `decorr` package are:
 
-* [magick-image package](https://cran.r-project.org/web/packages/magick/vignettes/intro.html): for drawing/images management 
+* [magick-image](https://cran.r-project.org/web/packages/magick/vignettes/intro.html): for drawing/images management 
 * [igraph package](https://igraph.org/r/): for graphs management 
 * [rgdal](https://cran.r-project.org/web/packages/rgdal/index.html): for shapefiles management
 

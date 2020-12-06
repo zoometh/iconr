@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-side_plot(grp, doss, var,
+side_plot(grp, doss, nds.var, focus = "nodes",
           nds.color = c("orange", "red"),
           nds.size = c(0.5, 1),
           eds.color = c("orange", "red"),
@@ -24,9 +24,14 @@ side_plot(grp, doss, var,
 %%     ~~Describe \code{x} here~~
     the working directory which contains the imgs, nodes, edges dataframes and the decoration images
 }
-            \item{var}{
+            \item{nds.var}{
 %%     ~~Describe \code{x} here~~
-    the field on which the comparison will be done
+    the field of nodes on which the comparison will be done
+}
+
+            \item{focus}{
+%%     ~~Describe \code{x} here~~
+    focus on nodes or on edges
 }
             \item{nds.color, nds.size, eds.color, eds.width}{
 %%     ~~Describe \code{x} here~~

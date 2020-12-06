@@ -40,7 +40,11 @@ labels_shadow(x, y = NULL, labels,
 }
         \item{r}{
 %%     ~~Describe \code{x} here~~
-    Thickness of the buffer relative to the size of the used font.
+    Thickness of the buffer relative to the size of the used font, by default 0.1.
+}
+        \item{cex}{
+%%     ~~Describe \code{x} here~~
+    Size of the label, by default 1.
 }
         \item{...}{
 %%     ~~Describe \code{x} here~~

@@ -5,15 +5,13 @@
 \description{
   Create undirected graphs for each decoration from \code{nodes}, \code{edges} and \code{imgs} dataframes and store the graphs in a list.
   The join between these dataframes is done on the two fields \code{site} and \code{decor}.
-  Graphs names refer to \code{imgs$idf}. Nodes names depend on 'var' value,
-  by default 'var' is \code{nodes$type} (\code{var = "type"}).
+  Graphs names refer to \code{imgs$idf}.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
   list_dec(imgs,
            nodes,
-           edges,
-           var="type")
+           edges)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -28,10 +26,6 @@
           \item{edges}{
 %%     ~~Describe \code{x} here~~
     dataframe of edges
-}
-            \item{var}{
-%%     ~~Describe \code{x} here~~
-    by default 'var' is \code{nodes$type}
 }
 }
 \details{
