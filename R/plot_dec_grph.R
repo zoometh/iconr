@@ -1,3 +1,4 @@
+#' @export
 plot_dec_grph <- function(nodes = NULL, edges = NULL,
                           site, decor, doss = getwd(),
                           nd.var = "id",
@@ -44,7 +45,7 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL,
             lbl <- nodes.select[, nd.var]  # labels
             graphics::points(ax, ay, pch = 21, col = nd.color, bg = nd.color,
                              cex = nd.size)
-            labels_shadow(ax, ay, label = lbl, col = lbl.color, bg = "white",
+            labels_shadow(ax, ay, labels = lbl, col = lbl.color, bg = "white",
                           cex = lbl.size, r = 0.2, pos = 3)
         }
     }
