@@ -1,5 +1,4 @@
 \name{named_elements}
-\alias{named_elements}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Textual Notation of Graph Elements
 %%  ~~function to do ... ~~
@@ -10,15 +9,17 @@
   \code{named_edges} textual notation of edges.
 }
 \usage{
-named_nodes(grphs, nd.var = "type")
-
-named_edges(grph, nd.var = "type", directed.types = c(">", "+"))
+named_elements(grphs, focus = "edges", nd.var = "type")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{grph}{
 %%     ~~Describe \code{grph} here~~
   A decoration graph.
+}
+  \item{focus}{
+%%     ~~Describe \code{nd.var} here~~
+    Textual notation of edges (\code{focus = "edges"}) or nodes (\code{focus = "nodes"}). By default \code{focus = "edges"}.
 }
   \item{nd.var}{
 %%     ~~Describe \code{nd.var} here~~
@@ -63,7 +64,7 @@ edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
 lgrph <- list_dec(imgs, nodes, edges)
 
 # Textual notation of edges
-as.character(named_edges(lgrph[[1]], nd.var="type"))
+as.character(named_elements(lgrph[[1]], focus = "edges", nd.var="type"))
 # [1] "bouclier-=-personnage"      "peigne-=-personnage"
 # [3] "lance-=-peigne"             "personnage-+-casque"
 # [5] "personnage-+-sexe_masculin" "lance-=-personnage"
