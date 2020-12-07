@@ -1,7 +1,7 @@
 #' @export
 same_elements <- function (lgrph, nd.var = "type", focus = "nodes") {
-  extract_elements <- list(nodes = function(x) named_nodes(x, nd.var),
-                           edges = function(x) named_edges(x, nd.var))
+  extract_elements <- list(nodes = function(x) decorr::named_elements(x, focus = "nodes", nd.var),
+                           edges = function(x) decorr::named_elements(x, focus = "edges", nd.var))
   if (!focus %in% names(extract_elements)) {
     stop(paste0("focus must be \"nodes\" or \"edges\"."))
   }
