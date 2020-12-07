@@ -344,7 +344,7 @@ magick::image_append(c(Ibahernando.img, Ibahernando.contemp.img))
 ```
 &nbsp;
   
-At the opposite, epigraphist will study only the latin writing
+At the opposite, epigraphists will study only the iconographic layer of the latin writing
 
 ```{r ibahernando.lat, out.width="60%", fig.align="center", warning=FALSE, fig.cap="Ibahernando steale after the selection of node 1 (writing) graph component"}
 selected.nd <- 1

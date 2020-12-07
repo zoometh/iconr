@@ -25,7 +25,7 @@ plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
     g <- listg[[i]]
     g.names <- unlist(lapply(g, function(x) x$name))
     if(is.null(graph2) || all(g.names %in% graph2)) {
-      nds.var <- attributes(g)$nds.var
+      nd.var <- attributes(g)$nd.var
       out.compar <- paste0(img.prefix, g.names[1], "_",
                            g.names[2], ".", img.format)
       com.elm.num <- ifelse(focus == "nodes", sum(igraph::V(g[[1]])$comm),
@@ -35,9 +35,9 @@ plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
       decorr::grDeviceOpen(out.compar, doss, width = 14, height = 7, res = res)
       # Set the plotting area into a 1*2 array
       graphics::par(mfrow = c(1, 2), mar = c(0, 0, 0, 0))
-      side_plot(g[[1]], doss, nds.var, focus,
+      side_plot(g[[1]], doss, nd.var, focus,
                 nd.color, nd.size, ed.color, ed.width, lbl.size)
-      side_plot(g[[2]], doss, nds.var, focus,
+      side_plot(g[[2]], doss, nd.var, focus,
                 nd.color, nd.size, ed.color, ed.width, lbl.size)
       graphics::mtext(tit, side = 1, line = -1, outer = TRUE, cex = 0.6)
       grDevices::dev.off()
