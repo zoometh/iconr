@@ -96,7 +96,7 @@ edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
 lgrph <- list_dec(imgs, nodes, edges)
 
 # Generate all pairwise comparisons of the graphs with respect to nodes "type"
-g.compar <- list_compar(lgrph, nds.var="type")
+g.compar <- list_compar(lgrph, nd.var="type")
 
 # Return the path of the image showing the comparison on common nodes of graphs '1' and '4',
 # and save it as png (default)

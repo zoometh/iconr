@@ -29,4 +29,7 @@ Suggests:
     ggplot2,
     knitr,
     rmarkdown,
+    dplyr,
+    kableExtra
 VignetteBuilder: knitr
+RoxygenNote: 7.1.1

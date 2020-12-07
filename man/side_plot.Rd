@@ -12,7 +12,7 @@ side_plot(grp, doss, nd.var, focus = "nodes",
           nd.size = c(0.5, 1),
           ed.color = c("orange", "red"),
           ed.width = c(1, 2),
-          lbl.size = 0.4)
+          lbl.size = 0.5)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{

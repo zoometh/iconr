@@ -7,8 +7,8 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-plot_dec_grph(nodes,
-              edges,
+plot_dec_grph(nodes = NULL,
+              edges = NULL,
               site,
               decor,
               doss = getwd(),
@@ -17,7 +17,7 @@ plot_dec_grph(nodes,
               nd.size = 1.7,
               lbl.color = 'black',
               lbl.size = 1.2,
-              ed.color = 'orange',
+              ed.color = c("orange", "blue"),
               ed.lwd = 4,
               img.format = "png")
 }

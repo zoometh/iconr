@@ -98,9 +98,9 @@ references:
 
 ```{r, include = FALSE}
 library(knitr)
+library(igraph)
 library(dplyr)
 library(kableExtra)
-library(igraph)
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = ">",
@@ -206,7 +206,7 @@ df.same_nodes <- same_elements(lgrph,
                                focus = "nodes",
                                nd.var = "type")
 knitr::kable(df.same_nodes, row.names = TRUE) %>%
-  kable_styling(full_width = FALSE, position = "center", font_size=12)
+  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
 &nbsp;
   
@@ -256,7 +256,7 @@ edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs, nodes, edges)
 df.same_edges <- same_elements(lgrph, nd.var = "type", focus = "edges")
 knitr::kable(df.same_edges,row.names = T) %>%
-  kable_styling(full_width = FALSE, position = "center", font_size=12)
+  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
 &nbsp;
   
@@ -397,7 +397,7 @@ For a given decoration, its drawing (ie, images, raster, grid) is the space of r
 imgs_path <- paste0(dataDir, "/imgs.tsv")
 imgs <- read.table(imgs_path, sep="\t", stringsAsFactors = FALSE)
 knitr::kable(imgs, "html") %>% 
-  kable_styling(full_width = FALSE, position = "center", font_size=12)
+  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
 
 The decorations unique identifiers are the concatenation of the site name and decoration name. For example, the name of the Cerrano Muriano 1 decoration is ``r imgs[1,"img"]``.  
@@ -417,7 +417,7 @@ Nodes are stored in a dataframe (`.csv` or `.tsv`) or a shapefile (`.shp`). If t
 ```{r nodes.df, warning=FALSE,fig.align="center",warning=FALSE}
 nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = dataDir) 
 knitr::kable(nds.df, "html") %>% 
-  kable_styling(full_width = FALSE, position = "center", font_size=12)
+  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
 
 While, in theory, the nodes are the exacts centroids of each GU, in a more handy manner they can be located manually near to these centroids.
@@ -442,7 +442,7 @@ Edges are stored in a dataframe (`.csv` or `.tsv`) or a shapefile (`.shp`).
 ```{r edges.df, warning=FALSE}
 edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
 knitr::kable(head(edges), "html") %>% 
-  kable_styling(full_width = FALSE, position = "center", font_size=12) %>%
+  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12) %>%
   gsub("\\+", "$$+$$", .)
 ```
 &nbsp;
@@ -452,7 +452,7 @@ Edges geometries are stored as `LINES` between a starting node (columns `xa` and
 ```{r edges.df.1, warning=FALSE}
 eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = dataDir) 
 knitr::kable(eds.df, "html") %>% 
-  kable_styling(full_width = FALSE, position = "center", font_size=12) %>%
+  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12) %>%
   gsub("\\+", "$$+$$", .)
 ```
 &nbsp;
