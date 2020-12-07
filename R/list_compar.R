@@ -1,3 +1,4 @@
+#' @export
 list_compar <- function(lgrph, nd.var = "type",
                         verbose = FALSE) {
   # Get the vertex names of each graph of the graph list.
@@ -21,6 +22,7 @@ list_compar <- function(lgrph, nd.var = "type",
   return(grphAllcompar)
 }
 
+#' @export
 nds_compar <- function(grphs, nd.var = "type") {
   g.nds <- lapply(grphs, function(x) named_nodes(x, nd.var))
   common.nodes <- intersect(g.nds[[1]], g.nds[[2]])
@@ -30,6 +32,7 @@ nds_compar <- function(grphs, nd.var = "type") {
   return(grphs)
 }
 
+#' @export
 eds_compar <- function(grphs, nd.var = "type") {
   g.eds <- lapply(grphs, function(x) named_edges(x, nd.var))
   common.edges <- intersect(g.eds[[1]], g.eds[[2]])

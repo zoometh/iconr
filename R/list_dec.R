@@ -1,3 +1,4 @@
+#' @export
 list_dec <- function(imgs, nodes, edges) {
     lgrph <- list()
     for (r in 1:nrow(imgs)) {

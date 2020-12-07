@@ -1,3 +1,4 @@
+#' @export
 plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
                         doss = getwd(),
                         nd.color = c("orange", "red"), nd.size = c(0.5, 1),
@@ -32,7 +33,7 @@ plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
                                               sum(igraph::E(g[[1]])$comm))
       tit <- paste0("common ", focus,
                     " (n=", com.elm.num, ")")
-      decorr::grDeviceOpen(out.compar, doss, width = 14, height = 7, res = res)
+      grDeviceOpen(out.compar, doss, width = 14, height = 7, res = res)
       # Set the plotting area into a 1*2 array
       graphics::par(mfrow = c(1, 2), mar = c(0, 0, 0, 0))
       side_plot(g[[1]], doss, nd.var, focus,

@@ -1,3 +1,4 @@
+#' @export
 read_eds <- function(site, decor, doss = getwd(),
                      edges = "edges", nodes = "nodes",
                      dev = ".tsv") {

@@ -48,6 +48,6 @@ side_plot <- function(grp, doss, nd.var, focus = "nodes",
                    col = nd.color[nodes.group])
   # Get common nodes to plot labels
   nds.lbl <- g.nodes[nodes.group == 2, ]
-  labels_shadow(nds.lbl$x, nds.lbl$y, label = nds.lbl[, nd.var],
+  labels_shadow(nds.lbl$x, nds.lbl$y, labels = nds.lbl[, nd.var],
                 col = nd.color[2], bg = "white", cex = lbl.size, r = 0.15)
 }
