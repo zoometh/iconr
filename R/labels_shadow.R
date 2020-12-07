@@ -1,3 +1,4 @@
+#' @export
 labels_shadow <- function(x, y = NULL, labels,
                           col = "black", bg = "white",
                           theta = seq(0, 2 * pi, length.out = 50),
