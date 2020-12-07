@@ -7,11 +7,11 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-side_plot(grp, doss, nds.var, focus = "nodes",
-          nds.color = c("orange", "red"),
-          nds.size = c(0.5, 1),
-          eds.color = c("orange", "red"),
-          eds.width = c(1, 2),
+side_plot(grp, doss, nd.var, focus = "nodes",
+          nd.color = c("orange", "red"),
+          nd.size = c(0.5, 1),
+          ed.color = c("orange", "red"),
+          ed.width = c(1, 2),
           lbl.size = 0.4)
 }
 %- maybe also 'usage' for other objects documented here.
@@ -24,7 +24,7 @@ side_plot(grp, doss, nds.var, focus = "nodes",
 %%     ~~Describe \code{x} here~~
     the working directory which contains the imgs, nodes, edges dataframes and the decoration images
 }
-            \item{nds.var}{
+            \item{nd.var}{
 %%     ~~Describe \code{x} here~~
     the field of nodes on which the comparison will be done
 }
@@ -33,7 +33,7 @@ side_plot(grp, doss, nds.var, focus = "nodes",
 %%     ~~Describe \code{x} here~~
     focus on nodes or on edges
 }
-            \item{nds.color, nds.size, eds.color, eds.width}{
+            \item{nd.color, nd.size, ed.color, ed.width}{
 %%     ~~Describe \code{x} here~~
     graphical parameters for the nodes and edges. The different nodes/edges will be displayed with the first values of the vectors (eg, "orange") while the common nodes/edges will be displayed with the second values of the vectors (eg, "red")
 }

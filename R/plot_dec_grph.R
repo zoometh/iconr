@@ -1,6 +1,6 @@
 plot_dec_grph <- function(nodes = NULL, edges = NULL,
                           site, decor, doss = getwd(),
-                          nds.var = "id",
+                          nd.var = "id",
                           nd.color = "orange", nd.size = 1.7,
                           lbl.color = "black", lbl.size = 1.2,
                           ed.color = c("orange","blue"), ed.lwd = 4,
@@ -38,21 +38,21 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL,
                                 nodes$decor == decor, ]
         ax <- nodes.select$x
         ay <- -nodes.select$y  # coordinates
-        lbl <- nodes.select[, nds.var]  # labels
+        lbl <- nodes.select[, nd.var]  # labels
         graphics::points(ax, ay, pch = 21, col = nd.color, bg = nd.color,
             cex = nd.size)
         labels_shadow(ax, ay, label = lbl, col = lbl.color, bg = "white",
             cex = lbl.size, r = 0.2, pos = 3)
     }
-    # nds.var label
-    img <- magick::image_annotate(img, nds.var, size = 20,
+    # nd.var label
+    img <- magick::image_annotate(img, nd.var, size = 20,
                                       gravity = "northeast", color = "black")
     # decor title
     tit.img <- paste0(id, "\n", site, "\n", decor)
     img <- magick::image_annotate(img, tit.img, size = 20,
                                       gravity = "northwest", color = "black")
     grDevices::dev.off()
-    img.out <- paste0(doss, "/", id, "_", site, "_", decor, "_", nds.var, ".",img.format)
+    img.out <- paste0(doss, "/", id, "_", site, "_", decor, "_", nd.var, ".",img.format)
     magick::image_write(img, path = img.out,
                         format = img.format)
     return(img.out)

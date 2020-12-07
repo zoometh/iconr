@@ -1,20 +1,20 @@
 plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
                         doss = getwd(),
-                        nds.color = c("orange", "red"), nds.size = c(0.5, 1),
-                        eds.color = c("orange", "red"), eds.width = c(1, 2),
+                        nd.color = c("orange", "red"), nd.size = c(0.5, 1),
+                        ed.color = c("orange", "red"), ed.width = c(1, 2),
                         lbl.size = 0.5,
                         img.format = "png", res = 300) {
 # If a single value is set for an nds or eds parameter, it affects both types:
-  if (length(nds.color) == 1) nds.color[2] <- nds.color[1]
-  if (length(nds.size) == 1) nds.size[2] <- nds.size[1]
-  if (length(eds.color) == 1) eds.color[2] <- eds.color[1]
-  if (length(eds.width) == 1) eds.width[2] <- eds.width[1]
+  if (length(nd.color) == 1) nd.color[2] <- nd.color[1]
+  if (length(nd.size) == 1) nd.size[2] <- nd.size[1]
+  if (length(ed.color) == 1) ed.color[2] <- ed.color[1]
+  if (length(ed.width) == 1) ed.width[2] <- ed.width[1]
 # Focus-specific parameter defaults and names:
   if (focus == "nodes") {
     img.prefix <- "_compar_nds_"
   } else if (focus == "edges") {
-    if (missing(nds.color)) nds.color <- eds.color
-    if (missing(nds.size)) nds.size[2] <- nds.size[1]
+    if (missing(nd.color)) nd.color <- ed.color
+    if (missing(nd.size)) nd.size[2] <- nd.size[1]
     img.prefix <- "_compar_eds_"
   } else {
     stop(paste0("focus must be \"nodes\" or \"edges\"."))
@@ -36,9 +36,9 @@ plot_compar <- function(listg, graph2 = NULL, focus = "nodes",
       # Set the plotting area into a 1*2 array
       graphics::par(mfrow = c(1, 2), mar = c(0, 0, 0, 0))
       side_plot(g[[1]], doss, nds.var, focus,
-                nds.color, nds.size, eds.color, eds.width, lbl.size)
+                nd.color, nd.size, ed.color, ed.width, lbl.size)
       side_plot(g[[2]], doss, nds.var, focus,
-                nds.color, nds.size, eds.color, eds.width, lbl.size)
+                nd.color, nd.size, ed.color, ed.width, lbl.size)
       graphics::mtext(tit, side = 1, line = -1, outer = TRUE, cex = 0.6)
       grDevices::dev.off()
       out.compar.list[length(out.compar.list) + 1] <- out.compar

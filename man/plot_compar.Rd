@@ -13,8 +13,8 @@
 \usage{
   plot_compar(listg, graph2 = NULL, focus = "nodes",
               doss = getwd(),
-              nds.color = c("orange", "red"), nds.size = c(0.5, 1),
-              eds.color = c("orange", "red"), eds.width = c(1, 2),
+              nd.color = c("orange", "red"), nd.size = c(0.5, 1),
+              ed.color = c("orange", "red"), ed.width = c(1, 2),
               lbl.size = 0.5, img.format = "png", res = 300)
 }
 %- maybe also 'usage' for other objects documented here.
@@ -36,13 +36,13 @@
     %%     ~~Describe \code{x} here~~
       The working directory containing the decoration images. The default is the current directory (\code{getwd()}).
   }
-  \item{nds.color, nds.size, eds.color, eds.width}{
+  \item{nd.color, nd.size, ed.color, ed.width}{
     %%     ~~Describe \code{x} here~~
       Graphical parameters for color and size/widths of nodes and edges.
     Each of them is a vector with two values for different and common nodes/edges, respectively.
     If only one value is provided, this unique value is taken for both different and common elements.
     Labels are displayed with the same color as common nodes.
-    For \code{focus = "nodes"} all edges are plotted with the first value of \code{eds.color} and \code{eds.width}.
+    For \code{focus = "nodes"} all edges are plotted with the first value of \code{ed.color} and \code{ed.width}.
   }
   \item{lbl.size}{
     %%     ~~Describe \code{x} here~~
@@ -107,7 +107,7 @@ plot_compar(g.compar, c(1,4), focus = "nodes",
 # and save it as jpeg. Plot all nodes and node labels in brown.
 plot_compar(g.compar, c(1,4), focus = "edges",
             doss = system.file("extdata", package = "decorr"),
-            nds.color = "brown",
+            nd.color = "brown",
             img.format = "jpg")
 
 # Return the path of the image showing the comparison on common edges of all pairwise combinations
@@ -116,7 +116,7 @@ plot_compar(g.compar, c(1,4), focus = "edges",
 # nodes involved in common edges and the corresponding labels in brown.
 plot_compar(g.compar, c(1,3,4), focus = "edges",
             doss = system.file("extdata", package = "decorr"),
-            nds.color = c("orange", "brown"),
+            nd.color = c("orange", "brown"),
             img.format = "pdf")
 
 # Return the path of the image showing the comparison on common nodes of graphs '1' and '4',

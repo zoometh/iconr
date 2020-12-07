@@ -12,7 +12,7 @@ plot_dec_grph(nodes,
               site,
               decor,
               doss = getwd(),
-              nds.var = 'id',
+              nd.var = 'id',
               nd.color = 'orange',
               nd.size = 1.7,
               lbl.color = 'black',
@@ -43,7 +43,7 @@ plot_dec_grph(nodes,
 %%     ~~Describe \code{x} here~~
     path of the working folder, by default the working directory
 }
-              \item{nds.var}{
+              \item{nd.var}{
 %%     ~~Describe \code{x} here~~
     fieldname of the nodes that will be displayed, by default the identifier \code{nodes$id}
 }
@@ -104,7 +104,7 @@ img.graph <- plot_dec_grph(nodes = nds.df,
                            site = "Brozas",
                            decor = "Brozas",
                            doss = dataDir,
-                           nds.var = "type")
+                           nd.var = "type")
 img.graph
 
 # save only edges of 'Cerro Muriano 1' with smaller widths

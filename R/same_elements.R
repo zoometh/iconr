@@ -1,6 +1,6 @@
-same_elements <- function (lgrph, nds.var = "type", focus = "nodes") {
-  extract_elements <- list(nodes = function(x) named_nodes(x, nds.var),
-                           edges = function(x) named_edges(x, nds.var))
+same_elements <- function (lgrph, nd.var = "type", focus = "nodes") {
+  extract_elements <- list(nodes = function(x) named_nodes(x, nd.var),
+                           edges = function(x) named_edges(x, nd.var))
   if (!focus %in% names(extract_elements)) {
     stop(paste0("focus must be \"nodes\" or \"edges\"."))
   }

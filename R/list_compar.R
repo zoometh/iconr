@@ -1,4 +1,4 @@
-list_compar <- function(lgrph, nds.var = "type",
+list_compar <- function(lgrph, nd.var = "type",
                         verbose = FALSE) {
   # Get the vertex names of each graph of the graph list.
   ldec.comp <- utils::combn(1:length(lgrph), 2)  # all pairwise comparisons
@@ -13,16 +13,16 @@ list_compar <- function(lgrph, nds.var = "type",
                     "' and '", lgrph[[idx.g[2]]]$name, "'")
       print(paste0("    ", dec, ") ", tit))
     }
-    grph <- decorr::eds_compar(lgrph[idx.g], nds.var)
-    grph <- decorr::nds_compar(grph, nds.var)
-    attributes(grph)$nds.var <- nds.var
+    grph <- decorr::eds_compar(lgrph[idx.g], nd.var)
+    grph <- decorr::nds_compar(grph, nd.var)
+    attributes(grph)$nd.var <- nd.var
     grphAllcompar[[dec]] <- grph
   }
   return(grphAllcompar)
 }
 
-nds_compar <- function(grphs, nds.var = "type") {
-  g.nds <- lapply(grphs, function(x) named_nodes(x, nds.var))
+nds_compar <- function(grphs, nd.var = "type") {
+  g.nds <- lapply(grphs, function(x) named_nodes(x, nd.var))
   common.nodes <- intersect(g.nds[[1]], g.nds[[2]])
   for (i in 1:2) {
     igraph::V(grphs[[i]])$comm <- as.numeric(g.nds[[i]] %in% common.nodes)
@@ -30,8 +30,8 @@ nds_compar <- function(grphs, nds.var = "type") {
   return(grphs)
 }
 
-eds_compar <- function(grphs, nds.var = "type") {
-  g.eds <- lapply(grphs, function(x) named_edges(x, nds.var))
+eds_compar <- function(grphs, nd.var = "type") {
+  g.eds <- lapply(grphs, function(x) named_edges(x, nd.var))
   common.edges <- intersect(g.eds[[1]], g.eds[[2]])
   for (i in 1:2) {
     igraph::E(grphs[[i]])$comm <- as.numeric(g.eds[[i]] %in% common.edges)
@@ -39,13 +39,13 @@ eds_compar <- function(grphs, nds.var = "type") {
   return(grphs)
 }
 
-named_edges <- function(grph, nds.var = "type",
+named_edges <- function(grph, nd.var = "type",
                         directed.types = c(">", "+")) {
-  # grph <- lgrph[[5]] ; nds.var = "type" ; directed.types = c(">", "+")
+  # grph <- lgrph[[5]] ; nd.var = "type" ; directed.types = c(">", "+")
   grph.eds <- igraph::as_data_frame(grph)[, c("from", "type", "to")]
   grph.nds <- igraph::as_data_frame(grph, "vertices")
   grph.eds[c("from", "to")] <-
-    grph.nds[unlist(grph.eds[c("from", "to")]), nds.var]
+    grph.nds[unlist(grph.eds[c("from", "to")]), nd.var]
   if (!igraph::is_directed(grph)) {
     directed.eds = grph.eds$type %in% directed.types
     grph.eds[!directed.eds, c("from","to")] <-
@@ -60,8 +60,8 @@ named_edges <- function(grph, nds.var = "type",
   return(disambiguate_duplicates(edges))
 }
 
-named_nodes <- function(grph, nds.var = "type") {
-  nodes <- igraph::vertex_attr(grph, nds.var)
+named_nodes <- function(grph, nd.var = "type") {
+  nodes <- igraph::vertex_attr(grph, nd.var)
   return(disambiguate_duplicates(nodes))
 }
 

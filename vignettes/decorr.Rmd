@@ -153,7 +153,7 @@ img.graph <- plot_dec_grph(nodes = nds.df,
                            edges = eds.df,
                            site = "Cerro Muriano",
                            decor = "Cerro Muriano 1",
-                           nds.var = 'type',
+                           nd.var = 'type',
                            lbl.size=2,
                            doss = dataDir)
 magick::image_read(img.graph)
@@ -170,10 +170,10 @@ img.graph <- plot_dec_grph(nodes = nds.df,
                            edges = eds.df,
                            site = "Cerro Muriano",
                            decor = "Cerro Muriano 1",
-                           nds.var = 'long_cm',
+                           nd.var = 'long_cm',
                            nd.color = "brown",
                            lbl.color = "brown",
-                           eds.color = "brown",
+                           ed.color = "brown",
                            lbl.size=2.5,
                            doss = dataDir)
 magick::image_read(img.graph)
@@ -204,7 +204,7 @@ edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs, nodes, edges)
 df.same_nodes <- same_elements(lgrph,
                                focus = "nodes",
-                               nds.var = "type")
+                               nd.var = "type")
 knitr::kable(df.same_nodes, row.names = TRUE) %>%
   kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
@@ -230,11 +230,11 @@ imgs <- read.table(imgs_path, sep="\t", stringsAsFactors = FALSE)
 nodes <- read.table(nodes_path, sep="\t", stringsAsFactors = FALSE)
 edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs, nodes, edges)
-g.compar <- list_compar(lgrph, nds.var = "type")
+g.compar <- list_compar(lgrph, nd.var = "type")
 nds_compar <- plot_compar(listg = g.compar, 
                           graph2 = dec.to.compare,
                           focus = "nodes",
-                          nds.size = c(0.5, 1.5),
+                          nd.size = c(0.5, 1.5),
                           doss = dataDir)
 knitr::include_graphics(nds_compar) 
 ```
@@ -254,7 +254,7 @@ imgs <- read.table(imgs_path, sep="\t", stringsAsFactors = FALSE)
 nodes <- read.table(nodes_path, sep="\t", stringsAsFactors = FALSE)
 edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs, nodes, edges)
-df.same_edges <- same_elements(lgrph, nds.var = "type", focus = "edges")
+df.same_edges <- same_elements(lgrph, nd.var = "type", focus = "edges")
 knitr::kable(df.same_edges,row.names = T) %>%
   kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
@@ -277,11 +277,11 @@ imgs <- read.table(imgs_path, sep="\t", stringsAsFactors = FALSE)
 nodes <- read.table(nodes_path, sep="\t", stringsAsFactors = FALSE)
 edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs, nodes, edges) # call function
-g.compar <- list_compar(lgrph, nds.var = "type")
+g.compar <- list_compar(lgrph, nd.var = "type")
 eds_compar <- plot_compar(listg = g.compar, 
                           graph2 = dec.to.compare,
                           focus = "edges",
-                          nds.size = c(0.5, 1.5),
+                          nd.size = c(0.5, 1.5),
                           doss = dataDir)
 # open image
 knitr::include_graphics(eds_compar) 
@@ -326,18 +326,18 @@ Ibahernando <- plot_dec_grph(nodes = nds.df,
                              edges = eds.df,
                              site = "Ibahernando",
                              decor = "Ibahernando",
-                             nds.var = "type",
+                             nd.var = "type",
                              lbl.color = "brown",
-                             lbl.size=2.2,
+                             lbl.size = 2.2,
                              doss = dataDir)
 Ibahernando.img <- magick::image_read(Ibahernando)
 Ibahernando.contemp <- plot_dec_grph(nodes = l_dec_df[[1]],
                                      edges = l_dec_df[[2]],
                                      site = "Ibahernando",
                                      decor = "Ibahernando",
-                                     nds.var = "type",
+                                     nd.var = "type",
                                      lbl.color = "brown",
-                                     lbl.size=2.2,
+                                     lbl.size = 2.2,
                                      doss = dataDir)
 Ibahernando.contemp.img <- magick::image_read(Ibahernando.contemp)
 magick::image_append(c(Ibahernando.img, Ibahernando.contemp.img))
@@ -359,7 +359,7 @@ img.graph <- plot_dec_grph(nodes = l_dec_df[[1]],
                            edges = l_dec_df[[2]],
                            site = "Ibahernando",
                            decor = "Ibahernando",
-                           nds.var = "type",
+                           nd.var = "type",
                            lbl.size = 2,
                            lbl.color = "brown",
                            doss = dataDir)
@@ -505,7 +505,7 @@ img.graph <- plot_dec_grph(nodes = nds.df,
                            edges = eds.df,
                            site = "Brozas",
                            decor = "Brozas",
-                           nds.var= 'type',
+                           nd.var= 'type',
                            lbl.size = 2,
                            doss = dataDir)
 magick::image_read(img.graph)
@@ -544,7 +544,7 @@ img.graph.type <- plot_dec_grph(nodes = nds.df,
                                 site = "Zarza de Montanchez",
                                 decor = "Zarza De Montanchez",
                                 lbl.size = 2,
-                                nds.var = 'type',
+                                nd.var = 'type',
                                 doss = dataDir)
 magick::image_append(c(magick::image_read(img.graph.id),
                        magick::image_read(img.graph.type)))
@@ -580,7 +580,7 @@ img.graph.type <- plot_dec_grph(nodes = nds.df,
                            edges = eds.df,
                            site = "Ibahernando",
                            decor = "Ibahernando",
-                           nds.var = 'type',
+                           nd.var = 'type',
                            lbl.size = 2,
                            doss = dataDir)
 magick::image_append(c(magick::image_read(img.graph.id),

@@ -1,6 +1,6 @@
-side_plot <- function(grp, doss, nds.var, focus = "nodes",
-                      nds.color = c("orange", "red"), nds.size = c(0.5, 1),
-                      eds.color = c("orange", "red"), eds.width = c(1, 2),
+side_plot <- function(grp, doss, nd.var, focus = "nodes",
+                      nd.color = c("orange", "red"), nd.size = c(0.5, 1),
+                      ed.color = c("orange", "red"), ed.width = c(1, 2),
                       lbl.size = 0.5) {
   dec.img <- magick::image_read(paste0(doss, "/", grp$img))
   # add the decoration name, site and decor
@@ -9,8 +9,8 @@ side_plot <- function(grp, doss, nds.var, focus = "nodes",
                                            grp$site, "\n",
                                            grp$decor),
                                     gravity = "northwest", size = 20)
-  # add the nds.vars
-  dec.img <- magick::image_annotate(dec.img, nds.var,
+  # add the nd.vars
+  dec.img <- magick::image_annotate(dec.img, nd.var,
                                     gravity = "northeast", size = 20)
   drawing.decor <- grDevices::as.raster(dec.img)
   graphics::plot(drawing.decor)
@@ -40,14 +40,14 @@ side_plot <- function(grp, doss, nds.var, focus = "nodes",
     graphics::lines(g.nodes$x[edg.vert],
                     g.nodes$y[edg.vert],
                     lty = ed.type[edg],
-                    lwd = eds.width[edges.group[edg]],
-                    col = eds.color[edges.group[edg]])
+                    lwd = ed.width[edges.group[edg]],
+                    col = ed.color[edges.group[edg]])
   }
   graphics::points(g.nodes$x, g.nodes$y, pch = 16,
-                   cex = nds.size[nodes.group],
-                   col = nds.color[nodes.group])
+                   cex = nd.size[nodes.group],
+                   col = nd.color[nodes.group])
   # Get common nodes to plot labels
   nds.lbl <- g.nodes[nodes.group == 2, ]
-  labels_shadow(nds.lbl$x, nds.lbl$y, label = nds.lbl[, nds.var],
-                col = nds.color[2], bg = "white", cex = lbl.size, r = 0.15)
+  labels_shadow(nds.lbl$x, nds.lbl$y, label = nds.lbl[, nd.var],
+                col = nd.color[2], bg = "white", cex = lbl.size, r = 0.15)
 }

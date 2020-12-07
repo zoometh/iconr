@@ -9,7 +9,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-same_elements(lgrph, nds.var = "type",
+same_elements(lgrph, nd.var = "type",
                focus = "nodes")
 }
 %- maybe also 'usage' for other objects documented here.
@@ -19,10 +19,10 @@ same_elements(lgrph, nds.var = "type",
     A list of any number of graphs to be pairwise compared. The list can
     be typically obtained with the function \code{list_dec()}
 }
-      \item{nds.var}{
+      \item{nd.var}{
 %%     ~~Describe \code{x} here~~
     An attribute of the graph vertices containing the node variable (ie, field)
-    on which the comparison will be done. By default \code{nds.var = "type"}.
+    on which the comparison will be done. By default \code{nd.var = "type"}.
 }
       \item{focus}{
 %%     ~~Describe \code{x} here~~
@@ -71,7 +71,7 @@ edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
 lgrph <- list_dec(imgs,nodes,edges)
 
 # Counting same nodes
-df.same_nodes <- same_elements(lgrph, nds.var = "type",
+df.same_nodes <- same_elements(lgrph, nd.var = "type",
                                focus = "nodes")
 df.same_nodes
 #   1  2 3  4 5
@@ -82,7 +82,7 @@ df.same_nodes
 # 5 2  3 3  3 4
 
 # same edges
-df.same_edges <- same_elements(lgrph, nds.var = "type",
+df.same_edges <- same_elements(lgrph, nd.var = "type",
                                focus = "edges")
 df.same_edges
 #   1  2  3  4 5
