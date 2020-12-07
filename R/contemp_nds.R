@@ -1,3 +1,4 @@
+#' @export
 contemp_nds <- function(nds.df, eds.df, selected.nd){
   # nds.df, eds.df, selected.nd
   # selected.nd <- 3
