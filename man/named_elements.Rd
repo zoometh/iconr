@@ -9,7 +9,7 @@
   create a textual notation for nodes or edges.
 }
 \usage{
-named_elements(grphs, focus = "edges", nd.var = "type")
+named_elements(grph, focus = "edges", nd.var = "type")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
