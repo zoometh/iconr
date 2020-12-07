@@ -1,12 +1,12 @@
 \name{named_elements}
+\alias{named_elements}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Textual Notation of Graph Elements
 %%  ~~function to do ... ~~
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
-  \code{named_nodes} textual notation of nodes.
-  \code{named_edges} textual notation of edges.
+  create a textual notation for nodes or edges.
 }
 \usage{
 named_elements(grphs, focus = "edges", nd.var = "type")
