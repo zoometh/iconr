@@ -63,12 +63,22 @@ edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
 # Generate list of graphs from the three data.frames
 lgrph <- list_dec(imgs, nodes, edges)
 
-# Textual notation of edges
-as.character(named_elements(lgrph[[1]], focus = "edges", nd.var="type"))
-# [1] "bouclier-=-personnage"      "peigne-=-personnage"
-# [3] "lance-=-peigne"             "personnage-+-casque"
-# [5] "personnage-+-sexe_masculin" "lance-=-personnage"
-# [7] "lingot_pdb-=-personnage"    "bouclier-=-lingot_pdb"
+# Textual notation of disambiguated edges
+as.character(named_elements(lgrph[[2]], focus = "edges", nd.var="type"))
+# [1] "fibule-=-epee"           "bouclier-=-miroir"
+# [3] "epee-=-lance"            "chariot_char-=-bouclier"
+# [5] "chariot_char-+-cheval"   "chariot_char-+-cheval#"
+# [7] "bouclier-=-arc"          "chariot_char-=-arc"
+# [9] "arc-=-miroir"            "bouclier-=-fibule"
+# [11] "bouclier-=-epee"         "miroir-=-epee"
+# [13] "arc-+-fleche"            "chariot_char-+-roue"
+# [15] "chariot_char-+-roue#"
+
+# Textual notation of disambiguated nodes
+as.character(named_elements(lgrph[[2]], focus = "nodes", nd.var="type"))
+# [1] "chariot_char" "bouclier"     "arc"          "miroir"
+# [5] "fibule"       "epee"         "lance"        "cheval"
+# [9] "cheval#"      "roue"         "roue#"        "fleche"
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
