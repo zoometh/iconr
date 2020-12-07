@@ -130,7 +130,7 @@ RNG is "*a powerful model of low-level visual process*" [@Toussaint80]. Graph th
 The R package `decorr` is composed by [functions](#functions) and a [dataset example](#data). The main packages used by the `decorr` package are:
 
 * [magick-image](https://cran.r-project.org/web/packages/magick/vignettes/intro.html): for drawing/images management 
-* [igraph package](https://igraph.org/r/): for graphs management 
+* [igraph](https://igraph.org/r/): for graphs management 
 * [rgdal](https://cran.r-project.org/web/packages/rgdal/index.html): for shapefiles management
 
 # Functions {#functions}
