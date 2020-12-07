@@ -158,27 +158,6 @@ igraph::as_data_frame(g.compar[[2]][[2]])
 # 8     3  5    =    0
 # 9     4  5    =    0
 # 10    5  6    =    0
-
-# Named edges are better inspected with
-#as.character(named_edges(lgrph[[1]], nd.var="type"))
-# [1] "bouclier-=-personnage"      "peigne-=-personnage"
-# [3] "lance-=-peigne"             "personnage-+-casque"
-# [5] "personnage-+-sexe_masculin" "lance-=-personnage"
-# [7] "lingot_pdb-=-personnage"    "bouclier-=-lingot_pdb"
-#as.character(named_edges(g.compar[[2]][[1]], nd.var="type"))
-#  [1] "epee-=-fibule"           "bouclier-=-miroir"
-#  [3] "epee-=-lance"            "bouclier-=-chariot_char"
-#  [5] "chariot_char-+-cheval"   "chariot_char-+-cheval#"
-#  [7] "arc-=-bouclier"          "arc-=-chariot_char"
-#  [9] "arc-=-miroir"            "bouclier-=-fibule"
-# [11] "bouclier-=-epee"         "epee-=-miroir"
-# [13] "arc-+-fleche"            "chariot_char-+-roue"
-# [15] "chariot_char-+-roue#"
-#as.character(named_edges(g.compar[[2]][[2]], nd.var="type"))
-#  [1] "lance-=-peigne"    "fibule-=-lance"    "fibule-=-peigne"
-#  [4] "lance-=-miroir"    "fibule-=-miroir"   "bouclier-=-lance"
-#  [7] "bouclier-=-peigne" "bouclier-=-fibule" "bouclier-=-miroir"
-# [10] "bouclier-=-epee"
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
