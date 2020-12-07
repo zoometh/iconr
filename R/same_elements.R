@@ -1,3 +1,4 @@
+#' @export
 same_elements <- function (lgrph, nd.var = "type", focus = "nodes") {
   extract_elements <- list(nodes = function(x) named_nodes(x, nd.var),
                            edges = function(x) named_edges(x, nd.var))
