@@ -1,3 +1,4 @@
+#' @export
 read_nds <- function(site, decor, doss = getwd(), nodes = "nodes", dev = ".tsv") {
     mandatory.columns <- c("site", "decor", "id", "x", "y")
     nds.file <- paste0(doss, "/", nodes, dev)
