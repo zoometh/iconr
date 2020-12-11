@@ -1,5 +1,6 @@
 #' @export
 named_elements <- function(grph, focus = "edges", nd.var = "type") {
+  # grph <- lgrph[[4]]
   if(focus == "edges"){
     directed.types <- c(">", "+")
     infix <- "-"
