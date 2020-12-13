@@ -4,7 +4,7 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL,
                           nd.var = "id",
                           nd.color = "orange", nd.size = 1.7,
                           lbl.color = "black", lbl.size = 1.2,
-                          ed.color = c("orange","blue"), ed.lwd = 4,
+                          ed.color = c("orange", "blue"), ed.lwd = 4,
                           img.format = "png") {
     # images
     imgs <- utils::read.table(file = paste0(doss, "/imgs.tsv"),
@@ -25,13 +25,12 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL,
             edges.select <- edges[edges$site  == site &
                                       edges$decor == decor, ]
             for (edg in 1:nrow(edges.select)) {
-                # edg <- 1
                 edg.df <- edges.select[edg, ]
-                ed.type <- ifelse(edg.df$type == "+", 2, 1)
-                ed.color <- ed.color[ifelse(edg.df$type == ">", 2, 1)]
+                edg.type <- ifelse(edg.df$type == "+", 2, 1)
+                edg.color <- ed.color[ifelse(edg.df$type == ">", 2, 1)]
                 graphics::lines(edg.df[c("xa", "xb")],
                                 -edg.df[c("ya", "yb")],
-                                lty = ed.type, lwd = ed.lwd, col = ed.color)
+                                lty = edg.type, lwd = ed.lwd, col = edg.color)
             }
         }
     }
