@@ -6,28 +6,40 @@
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
-  create a textual notation for nodes or edges.
+  Create a textual notation for nodes or edges.
 }
 \usage{
-named_elements(grph, focus = "edges", nd.var = "type")
+  named_elements(grph, focus = "edges", nd.var = "type")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{grph}{
 %%     ~~Describe \code{grph} here~~
-  A decoration graph.
-}
+    A decoration graph
+    (object of class \code{\link[igraph]{igraph}}).
+  }
   \item{focus}{
 %%     ~~Describe \code{nd.var} here~~
-    Textual notation of edges (\code{focus = "edges"}) or nodes (\code{focus = "nodes"}). By default \code{focus = "edges"}.
-}
+    Textual notation of edges (\code{focus = "edges"}) or nodes
+    (\code{focus = "nodes"}). By default \code{focus = "edges"}.
+  }
   \item{nd.var}{
 %%     ~~Describe \code{nd.var} here~~
-    An attribute of the graph nodes containing the node variable (ie, field) on which the comparison will be done. By default \code{nd.var = "type"}.
-}
+    The attribute of the graph nodes containing the node variable (ie, field)
+    for the textual anotation. By default \code{nd.var = "type"}.
+  }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
+  Edges of type "=" (\emph{normal} edges) are undirected, so that the order of
+  their nodes is irrelevant and they are presented in alphabetical order.
+  Conversely, edges of types "+" (\emph{attribute} edges) and ">" (\emph{overlap} edges)
+  are directed, so that the given order of nodes is preserved.
+
+  Repeated node or edge names are
+  disambiguated by appending the simbol '#' at the end of the
+  second appearance (suffix). Subsequent appearances are marked
+  by additional '#'s.
 }
 \value{
 %%  ~Describe the value returned
@@ -35,7 +47,7 @@ named_elements(grph, focus = "edges", nd.var = "type")
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-return a vector of named nodes or edges with a disambiguation of nodes or edges adding '#' suffixes when these nodes or edges have the same values
+  A character vector of named nodes or edges.
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -51,6 +63,8 @@ return a vector of named nodes or edges with a disambiguation of nodes or edges 
 
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
+  \code{\link[decorr]{list_compar}},
+  \code{\link[decorr]{same_elements}}
 }
 \examples{
 # Read data
@@ -64,18 +78,18 @@ edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
 lgrph <- list_dec(imgs, nodes, edges)
 
 # Textual notation of disambiguated edges
-as.character(named_elements(lgrph[[2]], focus = "edges", nd.var="type"))
-# [1] "fibule-=-epee"           "bouclier-=-miroir"
-# [3] "epee-=-lance"            "chariot_char-=-bouclier"
-# [5] "chariot_char-+-cheval"   "chariot_char-+-cheval#"
-# [7] "bouclier-=-arc"          "chariot_char-=-arc"
-# [9] "arc-=-miroir"            "bouclier-=-fibule"
-# [11] "bouclier-=-epee"         "miroir-=-epee"
+named_elements(lgrph[[2]], focus = "edges", nd.var="type")
+#  [1] "epee-=-fibule"           "bouclier-=-miroir"
+#  [3] "epee-=-lance"            "bouclier-=-chariot_char"
+#  [5] "chariot_char-+-cheval"   "chariot_char-+-cheval#"
+#  [7] "arc-=-bouclier"          "arc-=-chariot_char"
+#  [9] "arc-=-miroir"            "bouclier-=-fibule"
+# [11] "bouclier-=-epee"         "epee-=-miroir"
 # [13] "arc-+-fleche"            "chariot_char-+-roue"
 # [15] "chariot_char-+-roue#"
 
 # Textual notation of disambiguated nodes
-as.character(named_elements(lgrph[[2]], focus = "nodes", nd.var="type"))
+named_elements(lgrph[[2]], focus = "nodes", nd.var="type")
 # [1] "chariot_char" "bouclier"     "arc"          "miroir"
 # [5] "fibule"       "epee"         "lance"        "cheval"
 # [9] "cheval#"      "roue"         "roue#"        "fleche"
