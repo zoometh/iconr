@@ -70,19 +70,19 @@ references:
   issued:
     year: 2010 
     
-- id: Toussaint80
-  title: The relative neighbourhood graph of a finite planar set
-  author:
-  - family: Toussaint
-    given: G. T.
-  container-title: Pattern recognition
-  volume: 12
-  issue: 4
-  type: article-journal
-  page: 261-268
-  URL: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.54.6448&rep=rep1&type=pdf
-  issued:
-    year: 1980 
+# - id: Toussaint80
+#   title: The relative neighbourhood graph of a finite planar set
+#   author:
+#   - family: Toussaint
+#     given: G. T.
+#   container-title: Pattern recognition
+#   volume: 12
+#   issue: 4
+#   type: article-journal
+#   page: 261-268
+#   URL: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.54.6448&rep=rep1&type=pdf
+#   issued:
+#     year: 1980 
 
 - id: Almagro66b
   title: Las estelas decoradas del Suroeste peninsular
@@ -106,6 +106,7 @@ knitr::opts_chunk$set(
   comment = ">",
   fig.pos = 'H'
 )
+img.path <- dirname(getwd())
 ```
 &nbsp;
   
@@ -124,8 +125,14 @@ include_graphics(paste0(dataDir,"/gis.png"))
 ```
 &nbsp;
   
-RNG is "*a powerful model of low-level visual process*" [@Toussaint80]. Graph theory offers a conceptual framework and indices (global at the entire graph scale, local at the vertex scale) to deal with notions of networks, relationships and neighbourhoods. The graph is commonly built within a GIS interface. Indeed, use of GIS allows to consitute a spatial database of the decoration's iconographic contents and facilitates data recording and visualization: snapping options for example to connect GUs (nodes) with lines (edges), features symbology, layer transparency, etc. 
+Graph theory offers a conceptual framework and indices (global at the entire graph scale, local at the vertex scale) to deal with notions of networks, relationships and neighbourhoods. The graph is commonly built within a GIS interface. Indeed, use of GIS allows to consitute a spatial database of the decoration's iconographic contents and facilitates data recording and visualization: snapping options for example to connect GUs (nodes) with lines (edges), features symbology, layer transparency, etc. 
 &nbsp;
+
+The development version of `decorr` package and its vignette can be download from GitHub
+
+```{r down,eval=FALSE, echo=TRUE}
+devtools::install_github("zoometh/iconr", build_vignettes=TRUE)
+```
   
 The R package `decorr` is composed by [functions](#functions) and a [dataset example](#data). The main packages used by the `decorr` package are:
 
@@ -194,7 +201,7 @@ By default, between a pairwise of decorations, common nodes and edges are displa
 
 A classic study in archaeological research is to count the common nodes between decoration pairwises. This can be done with the `same_elements()` function with a node focus (`focus = "nodes"`), and considering for example their `type`.
 
-```{r compare.nodes, warning=FALSE}
+```{r compare.nodes, results='asis', warning=FALSE}
 imgs_path <- paste0(dataDir, "/imgs.tsv")
 nodes_path <- paste0(dataDir, "/nodes.tsv")
 edges_path <- paste0(dataDir, "/edges.tsv")
@@ -205,7 +212,11 @@ lgrph <- list_dec(imgs, nodes, edges)
 df.same_nodes <- same_elements(lgrph,
                                focus = "nodes",
                                nd.var = "type")
-knitr::kable(df.same_nodes, row.names = TRUE) %>%
+diag(df.same_nodes) <- cell_spec(diag(df.same_nodes),
+                                 font_size = 9,  
+                                 italic = TRUE)
+knitr::kable(df.same_nodes, row.names = TRUE, escape = F) %>%
+  column_spec(1, bold=TRUE) %>%
   kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
 &nbsp;
@@ -216,7 +227,7 @@ The results of `same_elements()` is a symetrical dataframe where row names and c
 
 * the diagonal of the dataframe shows the total number of nodes or edges of a given decoration
 
-For example, the decoration `4` has twelve (12) nodes, shares nine (9) nodes having the same `type` (common nodes) with the decoration `2` and shares four (4) nodes having the same `type` with the decoration `3`. To compare decorations `2`, `3` and `4` on the `type` variable:
+Regarding the node `type` variable, the decoration 4 has twelve (12) nodes, has nine (9) common nodes with the decoration 2, and has four (4) common nodes with the decoration 3. To compare the decorations 2, 3 and 4 on the `type` variable:
 
 * first: `type` variable is pasted to the `list_compar()` function  
 * then: the plot is made with the `plot_compar()` function
@@ -240,7 +251,7 @@ knitr::include_graphics(nds_compar)
 ```
 &nbsp;
   
-The function creates an image for each pairwise of stelae contained in the `dec.to.compare` variable (`r dec.to.compare`), with a focus on nodes (`focus = "nodes"`). That is to say $\frac{n!}{(n-2)!2!}$ pairwise comparisons, when `n` is the number of compared decoration.
+The function creates an image for each pairwise of stelae contained in the `dec.to.compare` variable (`r dec.to.compare`), with a focus on nodes (`focus = "nodes"`). That is to say $\frac{n!}{(n-2)!2!}$ pairwise comparisons, when `n` is the number of compared decoration. Then, to compare each pairwsise of the five (5) decorations of the training dataset, there is 10 possible comparisons.
 
 ### Edges comparisons
 
@@ -255,8 +266,14 @@ nodes <- read.table(nodes_path, sep="\t", stringsAsFactors = FALSE)
 edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs, nodes, edges)
 df.same_edges <- same_elements(lgrph, nd.var = "type", focus = "edges")
-knitr::kable(df.same_edges,row.names = T) %>%
+diag(df.same_edges) <- cell_spec(diag(df.same_edges),
+                                 font_size = 9,  
+                                 italic = TRUE)
+knitr::kable(df.same_edges, row.names = TRUE, escape = F) %>%
+  column_spec(1, bold = TRUE) %>%
   kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12)
+# knitr::kable(df.same_edges,row.names = T) %>%
+#   kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
 &nbsp;
   
@@ -266,7 +283,7 @@ In this dataframe:
 
 * the diagonal of the dataframe shows is the total number of a given decoration  
 
-Here, the decoration `2` has fiftheen (15) edges, and share three (3) common edges with the decoration `3`. To show them, and the decoration `4`, we use the `list_compar()` function on the same variable (`type`) and the `plot_compar()` function with an edge focus (`focus = "edges"`).
+Here, the decoration 2 has fiftheen (15) edges and shares three (3) common edges with the decoration 3. To show them, and the decoration 4, we use the `list_compar()` function on the same variable (`type`) and the `plot_compar()` function with an edge focus (`focus = "edges"`).
 
 ```{r compare.2.edges, out.width = "700px", fig.align="center", warning=FALSE}
 dec.to.compare <- c(2, 3, 4)
@@ -281,7 +298,7 @@ g.compar <- list_compar(lgrph, nd.var = "type")
 eds_compar <- plot_compar(listg = g.compar, 
                           graph2 = dec.to.compare,
                           focus = "edges",
-                          nd.size = c(0.5, 1.5),
+                          nd.size = c(0.5, 1.7),
                           doss = dataDir)
 # open image
 knitr::include_graphics(eds_compar) 
@@ -289,7 +306,11 @@ knitr::include_graphics(eds_compar)
 
 ## Manage contemporaneous contents {#contemp}
 
-It occurs that some GUs are non-contemporaneous one with the others, like for the Ibahernando stelae. This stelae have been found reused as a funerary steale during Roman times [@Almagro66b]. A latin inscription (ecriture, node 1) have been carved over a spear (lance, node 2) and overlaps partially a V-notched shield (bouclier, node 3). The edges between node 1 and node 2, and the edge between node 1 and node 3, are *overlap* edges.
+It occurs that some nodes are non-contemporaneous one with the others, like for the Ibahernando stelae. This stelae have been found reused as a funerary steale during Roman times [@Almagro66b]. 
+
+![Ibahernando](/path/to/image.png)
+
+A latin inscription (ecriture, node 1) have been carved over a spear (lance, node 2) and overlaps partially a V-notched shield (bouclier, node 3). The edges between node 1 and node 2, and the edge between node 1 and node 3, are *overlap* edges.
 
 
 ```{r ibahernando, out.width="60%", fig.align="center", warning=FALSE, fig.cap="Ibahernando decoration with only *normal* edges, node 1  overlaps node 2 and node 3"}
@@ -311,7 +332,7 @@ magick::image_read(img.graph)
   
 In this case, the non-contemporaneous layers of decoration should be removed before the comparison process. To do so, the original graph (1-component) will be splitted into different sub-graphs (n-component) by selecting `>` edges (see [*overlap* edges](#ed.type.over)). The studied graph component will be retrieved with the component membership of a selected node in the `contemp_nds()` function parameters.  
   
-To study only the Late Bronze Age iconographic layer of the Ibahernando steale, we can choose the Late Bronze Age node 4, the figure of sword (epee) dated to the middle and final stages of Late Bronze Age (ca 1250-950 BC). This node is supposed to be contemporaneous to node 2 and node 3 (see [*normal* edges ](#ed.type.norm))
+To study only the Late Bronze Age iconographic layer of the Ibahernando steale, we can choose the Late Bronze Age node 4, the figure of sword (`epee`) dated to the middle and final stages of Late Bronze Age (ca 1250-950 BC). This node is supposed to be contemporaneous to node 2 and node 3 (see [*normal* edges ](#ed.type.norm))
 
 ```{r rm.writing, out.width="100%", fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae before and after the selection of node 4 (sword) graph component"}
 selected.nd <- 4
@@ -369,12 +390,12 @@ magick::image_read(img.graph)
   
 # Dataset {#data}
 
-The training dataset are [drawings with their listing](#drawings) and data for [nodes](#nd), [edges](#ed). The current path of training dataset is the *exdata/* folder.
+The training dataset are [drawings with their listing](#drawings) and data for [nodes](#nd), [edges](#ed). The current path of training dataset is the *exdata/* folder. All the *input* data (dataframes, shapefiles, images) start with a letter (`"^[[:alpha:]]"`) while the *output* data start with a punctuation (`"[[:punct:]]"`) or a numerical (`"[[:digit:]]"`)
 
 ```{r ls_ext_data}
 # dataDir <- "C:/Documents/decorr/inst/extdata/"
 dataDir <- system.file("extdata", package = "decorr")
-cat(list.files(dataDir), sep="\n")
+cat(grep("^[[:alpha:]]",list.files(dataDir),value=T), sep="\n")
 ```
 
 Each decoration is identified by its the name and the name of the site it belongs. Each decoration is a set of:
