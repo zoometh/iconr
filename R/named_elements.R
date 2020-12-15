@@ -1,6 +1,7 @@
 #' @export
 named_elements <- function(grph, focus = "edges", nd.var = "type") {
   # grph <- lgrph[[4]]
+  elements <- c()
   if(focus == "edges"){
     directed.types <- c(">", "+")
     infix <- "-"
@@ -13,13 +14,14 @@ named_elements <- function(grph, focus = "edges", nd.var = "type") {
       grph.eds[!directed.eds, c("from","to")] <-
         t(apply(grph.eds[!directed.eds, c("from","to")], 1, sort))
     }
-    edges <- apply(grph.eds, 1, paste0, collapse = infix)
-    return(disambiguate_duplicates(edges))
+    elements <- as.character(apply(grph.eds, 1, paste0, collapse = infix))
   }
-  if(focus == "nodes"){
-    nodes <- igraph::vertex_attr(grph, nd.var)
-    return(disambiguate_duplicates(nodes))
+  else if(focus == "nodes"){
+    elements <- igraph::vertex_attr(grph, nd.var)
+  } else {
+    stop(paste0("focus must be \"nodes\" or \"edges\"."))
   }
+  return(disambiguate_duplicates(elements))
 }
 
 disambiguate_duplicates <- function(x, marker = "#") {
