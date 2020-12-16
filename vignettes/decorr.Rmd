@@ -3,19 +3,19 @@ title: "The ***decorr*** package. Graph Analysis of Prehistorical Iconography wi
 author: "Thomas Huet, Jose Pozo, Craig Alexander"
 email: "thomashuet7@gmail.com"
 date: "`r format(Sys.Date())`"
-output:
-  html_document:
-    toc: true
-    toc_float:
-      collapsed: false
-      smooth_scroll: false
 # output:
-#   rmarkdown::html_vignette
-# vignette: >
-#   %\VignetteIndexEntry{The ***decorr*** package. Graph Analysis of Prehistorical Iconography with R}
-#   %\VignetteEngine{knitr::rmarkdown}
-#   %\VignetteEncoding{UTF-8}
-#   
+#   html_document:
+#     toc: true
+#     toc_float:
+#       collapsed: false
+#       smooth_scroll: false
+output:
+  rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{The ***decorr*** package. Graph Analysis of Prehistorical Iconography with R}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+
 references:
 - id: Huet18
   title: Geometric graphs to study ceramic decoration
@@ -590,7 +590,7 @@ knitr::include_graphics(eds_compar)
 
 ## Contemporaneous elements {#contemp}
 
-It occurs that some nodes are non-contemporaneous one with the others, like for the Ibahernando stelae. This stelae have been found reused as a funerary steale during Roman times [@Almagro66b]. 
+It occurs that some nodes are non-contemporaneous one with the others, like for the Ibahernando stelae. This stelae have been found reused as a funerary steale during Roman times with latin insciption "*Alloquiu protaeidi.f hece. stitus*": Alluquio, son of Protacido, lies here.
 
 <center>
 
@@ -598,7 +598,7 @@ It occurs that some nodes are non-contemporaneous one with the others, like for 
 
 </center>
 
-A latin inscription (ecriture, node 1) have been carved over a spear (lance, node 2) and overlaps partially a V-notched shield (bouclier, node 3). The edges between node 1 and node 2, and the edge between node 1 and node 3, are *overlap* edges
+The writing (ecriture, node 1) has been carved over a spear (lance, node 2) and overlaps partially a V-notched shield (bouclier, node 3). The edges between node 1 and node 2, and the edge between node 1 and node 3, are *overlap* edges
 
 
 ```{r ibahernando, out.width="60%", fig.align="center", warning=FALSE, fig.cap="Ibahernando decoration with only *normal* edges, node 1  overlaps node 2 and node 3"}
