@@ -4,97 +4,18 @@ author: "Thomas Huet, Jose Pozo, Craig Alexander"
 email: "thomashuet7@gmail.com"
 date: "`r format(Sys.Date())`"
 bibliography: references.bib
-output:
-  html_document:
-    toc: true
-    toc_float:
-      collapsed: false
-      smooth_scroll: false
 # output:
-#   rmarkdown::html_vignette
-# vignette: >
-#   %\VignetteIndexEntry{The ***decorr*** package. Graph Analysis of Prehistorical Iconography with R}
-#   %\VignetteEngine{knitr::rmarkdown}
-#   %\VignetteEncoding{UTF-8}
-
-# references:
-# - id: Huet18
-#   title: Geometric graphs to study ceramic decoration
-#   author:
-#   - family: Huet
-#     given: Thomas
-#   container-title: Proceedings of the 44th Conference on Computer Applications and Quantitative Methods in Archaeology, CAA 2016
-#   publisher: Archaeopress
-#   page: 311-324
-#   type: article-journal
-#   URL: 'https://www.researchgate.net/publication/343514122_Geometric_graphs_to_study_ceramic_decoration'
-#   issued:
-#     year: 2018
-#     
-# - id: HuetAlexander15
-#   title: "Méthodes informatiques pour l’étude des gravures rupestres : les exemples du Valcamonica (Italie) et du mont Bego (France)"
-#   author:
-#   - family: Huet
-#     given: Thomas
-#   - family: Alexander
-#     given: Craig
-#   container-title: "Recherches sur l'âge du Bronze, Nouvelles approches et perspectives, Actes de la journée d'étude de l'Association pour la promotion des recherches archéologiques sur l'âge du Bronze, 28 février 2014, Saint-Germain-en-Laye"
-#   publisher: "Bulletin de l'APRAB, suppl. n° 1"
-#   page: 15-29
-#   URL: https://www.academia.edu/38252719/M%C3%A9thodes_informatiques_pour_l_%C3%A9tude_des_gravures_rupestres_les_exemples_du_Valcamonica_Italie_et_du_mont_Bego_France_
-#   type: article-journal
-#   issued:
-#     year: 2015
-# 
-# - id: Alexander08
-#   title: The Bedolina map -- an exploratory network analysis
-#   author:
-#   - family: Alexander
-#     given: Craig
-#   container-title: Layers of Perception. Proceedings of the 35th International Conference on Computer Applications and Quantitative Methods in Archaeology (CAA),  Berlin, 2.-6. April 2007
-#   publisher: Koll. Vor- u. Frühgesch
-#   page: 366-371
-#   type: article-journal
-#   doi: 'https://doi.org/10.11588/propylaeumdok.00000512'
-#   URL: https://archiv.ub.uni-heidelberg.de/propylaeumdok/512/1/11_04_alexander_bedolina.pdf
-#   issued:
-#     year: 2008   
-# 
-# - id: DiazGuardamino10
-#   title: Las estelas decoradas en la Prehistoria de la Peninsula Iberica
-#   author:
-#   - family: Diaz-Guardamino
-#     given: Marta
-#   publisher: "Universidad Complutense de Madrid, Servicio de Publicaciones"
-#   URL: https://eprints.ucm.es/11070/1/T32200.pdf
-#   type: article-journal
-#   issued:
-#     year: 2010 
-#     
-# # - id: Toussaint80
-# #   title: The relative neighbourhood graph of a finite planar set
-# #   author:
-# #   - family: Toussaint
-# #     given: G. T.
-# #   container-title: Pattern recognition
-# #   volume: 12
-# #   issue: 4
-# #   type: article-journal
-# #   page: 261-268
-# #   URL: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.54.6448&rep=rep1&type=pdf
-# #   issued:
-# #     year: 1980 
-# 
-# - id: Almagro66b
-#   title: Las estelas decoradas del Suroeste peninsular
-#   author:
-#   - family: Bash
-#     given: Martin Almagro
-#   container-title: "Editorial CSIC-CSIC Press"
-#   type: book
-#   issued:
-#     year: 1966 
-#     
+#   html_document:
+#     toc: true
+#     toc_float:
+#       collapsed: false
+#       smooth_scroll: false
+output:
+  rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{The ***decorr*** package. Graph Analysis of Prehistorical Iconography with R}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}
@@ -149,10 +70,9 @@ library(decorr)
 
 # Dataset {#data}
 
-The training dataset are [drawings with their listing](#drawings) and data for [nodes](#nd), [edges](#ed). The current path of training dataset is the *exdata/* folder. All the *input* data (dataframes, shapefiles, images) start with a letter (*regex* `"^[[:alpha:]]"`) while the *output* data start with a punctuation (*regex*` "^[[:punct:]]"`) or a numerical (*regex* `"^[[:digit:]]"`)
+The training dataset are [drawings with their listing](#drawings) and data for [nodes](#nd), [edges](#ed). The current path of training dataset is the *exdata/* folder. All the *input* data (dataframes, shapefiles, images) start with a letter (*regex* `"^[[:alpha:]]"`) while the *output* data start with a punctuation (*regex* `"^[[:punct:]]"`) or a numerical (*regex* `"^[[:digit:]]"`)
 
 ```{r ls_ext_data}
-# dataDir <- "C:/Documents/decorr/inst/extdata/"
 dataDir <- system.file("extdata", package = "decorr")
 cat(grep("^[[:alpha:]]",list.files(dataDir),value=T), sep="\n")
 ```
@@ -200,11 +120,11 @@ as.character(class(g))
 
 By default, the `plot.igraph()` function (ie, `igraph::plot()`) spazialisation (`layout`) is based on `x` and `y` columns, when exist. This is our case since we work with geometric graphs. But very different layouts exist for the same graphs (*graph drawing*) 
 
-```{r igraph.1, warning=FALSE, fig.align="center", out.width="75%"}
+```{r igraph.1, warning=FALSE, fig.align="center", fig.width=7}
 par(mfrow=c(1, 2))
 coords <- layout.fruchterman.reingold(lgrph[[1]])
 plot(g,
-     vertex.size = 20,
+     vertex.size = 30,
      vertex.frame.color="white",
      vertex.label.family = "sans",
      vertex.label.cex = .8,
@@ -212,7 +132,7 @@ plot(g,
 title("graph drawing on x, y coordinates", cex.main=1, font.main= 1)
 plot(g,
      layout = coords,
-     vertex.size = degree(g)*10,
+     vertex.size = 20 + (degree(g)*10),
      vertex.frame.color="white",
      vertex.label.family = "sans",
      vertex.label.cex = .8,
@@ -222,6 +142,8 @@ title(paste0("force-directed graph drawing,",
       cex.main=1, font.main= 1)
 mtext(lgrph[[1]]$decor, cex = 1.2, side = 3, line = -20, outer = TRUE)
 ```
+&nbsp;
+  
 
 ## Images {#drawings}
 
@@ -233,10 +155,12 @@ imgs <- read.table(imgs_path, sep="\t", stringsAsFactors = FALSE)
 knitr::kable(imgs, "html") %>% 
   kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
-
+&nbsp;
+  
+  
 The decorations unique identifiers are the concatenation of the site name and decoration name. For example, the name of the Cerrano Muriano 1 decoration is ``r imgs[1,"img"]``.  For a given decoration, its image is the space of reference of the graph: nodes and edges inherit their coordinates from the image grid. Identifiers and paths to images are stored in the `imgs` dataframe
 
-```{r drawing,fig.width=6, fig.height=6, fig.align="center", warning=FALSE, echo=TRUE, message=FALSE, fig.cap="\\label{fig:figs}Cerro_Muriano.Cerro_Muriano_1.jpg with the coordinates of its corners"}
+```{r drawing, out.width="60%", fig.align="center", warning=FALSE, echo=TRUE, message=FALSE, fig.cap="\\label{fig:figs}Cerro_Muriano.Cerro_Muriano_1.jpg with the coordinates of its corners in 'px'"}
 library(magick)
 dataDir <- paste0(system.file("extdata", package = "decorr"))
 imgs_path <- paste0(dataDir, "/imgs.csv")
@@ -247,16 +171,16 @@ H <- as.character(image_info(cm1)$height)
 o <- "0"
 image_border(image = cm1, "#808080", "2x2") %>%
   image_annotate(text = paste0(o, ", ", o),
-                 size = 30,
+                 size = 20,
                  gravity = "northwest") %>%
   image_annotate(text = paste0(W, ", ", o),
-                 size = 30,
+                 size = 20,
                  gravity = "northeast") %>%
   image_annotate(text = paste0(o, ", ", H),
-                 size = 30,
+                 size = 20,
                  gravity = "southwest") %>%
   image_annotate(text = paste0(W, ", ", H),
-                 size = 30,
+                 size = 20,
                  gravity = "southeast")
 ```
 &nbsp;
@@ -535,10 +459,10 @@ df.same_nodes <- same_elements(lgrph,
                                nd.var = "type")
 diag(df.same_nodes) <- cell_spec(diag(df.same_nodes),
                                  font_size = 9)
-knitr::kable(df.same_nodes, row.names = TRUE, escape = F,
+knitr::kable(df.same_nodes, row.names = TRUE, escape = F, table.attr = "style='width:30%;'",
              caption = "count of common nodes between decorations") %>%
   column_spec(1, bold=TRUE) %>%
-  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12)
+  kableExtra::kable_styling(position = "center", font_size = 12)
 ```
 &nbsp;
   
@@ -591,10 +515,10 @@ lgrph <- list_dec(imgs, nodes, edges)
 df.same_edges <- same_elements(lgrph, nd.var = "type", focus = "edges")
 diag(df.same_edges) <- cell_spec(diag(df.same_edges),
                                  font_size = 9)
-knitr::kable(df.same_edges, row.names = TRUE, escape = F,
+knitr::kable(df.same_edges, row.names = TRUE, escape = F, table.attr = "style='width:30%;'",
              caption = "count of common edges between decorations") %>%
-  column_spec(1, bold = TRUE) %>%
-  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12)
+  column_spec(1, bold=TRUE) %>%
+  kableExtra::kable_styling(position = "center", font_size = 12)
 ```
 &nbsp;
   
@@ -724,7 +648,7 @@ Plasticity of graph theory and facilities coming from the GIS database make `dec
 
 Beside graphical functions permitting to highlight common elements (nodes and edges) between decorations, the package allows to prepare data for unsupervised classification, like Hierarchical clustering with the `dist()` and `hclust()`
 
-```{r clust.comp, warning=FALSE, fig.align="center", out.width="75%"}
+```{r clust.comp, warning=FALSE, fig.align="center", fig.width=7, fig.height=5}
 par(mfrow=c(1, 2))
 df.same_edges <- same_elements(lgrph, "type", "edges")
 df.same_nodes<- same_elements(lgrph, "type", "nodes")
@@ -737,9 +661,9 @@ plot(hc.eds, main = "common edges", cex = .8)
 ```
 &nbsp;
   
-Classifications themselves can be compared one to another
+Decorations clustering on commons nodes and decorations clustering on commons edges can be compared one to another
 
-```{r hclust.compar, warning=FALSE, fig.align="center", out.width="75%"}
+```{r hclust.compar, warning=FALSE, fig.align="center", fig.width=7}
 suppressPackageStartupMessages(library(dendextend))
 suppressPackageStartupMessages(library(dplyr))
 par(mfrow=c(1, 2))
@@ -748,12 +672,10 @@ dend.eds <- as.dendrogram (hc.eds)
 dendlist(dend.nds, dend.eds) %>%
   untangle(method = "step1side") %>% 
   tanglegram(columns_width = c(6, 1, 6),
-             main = paste0("comparison between decorations clustering on commons nodes\n",
-                           "and decorations clustering on common edges"),
              main_left = "common nodes",
              main_right = "common edges",
              lab.cex = 1.3,
-             cex_main = 1.8,
+             cex_main = 1.5,
              highlight_branches_lwd = F) 
 ```
 &nbsp;
@@ -790,8 +712,8 @@ Here, the comparisons have only been done on the different type of (ie, graphica
 
 Graph theory permit to construct tree structures for controled vocabulary (eg. the different types of GUs). These structures allow generalization processes (up to the parent level) and specification processes (down to the children level). For example, a sword and a spear belongs both to the `weapons` group (sub-group `offensive weapons`), a shield belongs to the `weapons` group (sub-group `defensive weapons`), etc. 
 
-```{r hierac, warning=FALSE, out.width="100%"}
-par(mar=c(0.1, 0.1, 0.1, 0.1) )
+```{r hierac, warning=FALSE, fig.width=7, fig.height=5, asp=0}
+par(mar=c(0,0,0,0))
 g <- graph_from_literal(objects-+weapons,
                         objects-+personnal_item,
                         weapons-+offensive_weapons,
@@ -802,16 +724,16 @@ g <- graph_from_literal(objects-+weapons,
                         defensive_weapons-+helmet,
                         personnal_item-+miror,
                         personnal_item-+comb)
+layout <- layout.reingold.tilford(g)
 plot(g,
-     layout = layout.reingold.tilford,
-     vertex.color="white",
-     vertex.frame.color="white",
-     vertex.size=40,
-     vertex.label.cex=0.8,
-     vertex.label.color="black",
+     layout = layout,
+     vertex.color = "white",
+     vertex.frame.color = "white",
+     vertex.size = 20,
+     vertex.label.cex = 0.8,
+     vertex.label.color = "black",
      vertex.label.family = "sans",
-     edge.arrow.size=0.5,
-          margin = -0.1
+     edge.arrow.size = 0.5
      )
 ```
 
