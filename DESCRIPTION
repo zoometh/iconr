@@ -12,10 +12,6 @@ Authors@R:
            role = c("cre"),
            email = "josmpozo@gmail.com",
            comment = c(ORCID = "0000-0002-0759-3510"))
-    person(given = "Craig",
-           family = "Alexander",
-           role = c("ctb"),
-           email = "craiga304@gmail.com")
 Description: Set of formal methods to study archaeological iconographic datasets (pottery decorations, rock-art, stelae, etc.) with network and spatial analysis.
 License: GPL-2
 Encoding: UTF-8
