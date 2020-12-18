@@ -1,5 +1,5 @@
 Package: iconr
-Title: Graph and Spatial Analysis for Prehistorical Iconography
+Title: Graph and Spatial Analysis for Prehistoric Iconography
 Version: 0.0.0.9000
 Authors@R: c(person("Thomas","Huet", role=c("aut","cre"),email=c("thomashuet7@gmail.com"),comment=c(ORCID="0000-0002-1112-6122")),
 	     person("Jose","Pozo", role=c("aut"),email=c("josmpozo@gmail.com"),comment=c(ORCID="0000-0002-0759-3510")),
