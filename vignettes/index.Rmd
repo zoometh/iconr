@@ -4,18 +4,20 @@ author: "Thomas Huet, Jose Pozo, Craig Alexander"
 email: "thomashuet7@gmail.com"
 date: "`r format(Sys.Date())`"
 bibliography: references.bib
-# output:
-#   html_document:
-#     toc: true
-#     toc_float:
-#       collapsed: false
-#       smooth_scroll: false
+## to create the vignettes 'outside' the package, with table of content (toc)
 output:
-  rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{The ***iconr*** package. Graph Analysis of Prehistorical Iconography with R}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+## to create the vignettes 'inside' the package, without table of content (toc)
+# output:
+#   rmarkdown::html_vignette
+# vignette: >
+#   %\VignetteIndexEntry{The ***iconr*** package. Graph Analysis of Prehistorical Iconography with R}
+#   %\VignetteEngine{knitr::rmarkdown}
+#   %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}
