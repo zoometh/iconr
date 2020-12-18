@@ -12,7 +12,7 @@ Authors@R:
            role = c("cre"),
            email = "josmpozo@gmail.com",
            comment = c(ORCID = "0000-0002-0759-3510"))
-Description: Set of formal methods to study archaeological iconographic datasets (pottery decorations, rock-art, stelae, etc.) with Graph theory
+Description: Set of formal methods to study archaeological iconographic datasets (pottery decorations, rock-art, stelae, etc.) with Graph theory.
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
