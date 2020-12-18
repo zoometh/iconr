@@ -15,7 +15,8 @@ Authors@R:
     person(given = "Craig",
            family = "Alexander",
            role = c("ctb"),
-           email = "craiga304@gmail.com")
+           email = "craiga304@gmail.com",
+           comment = c())
 Description: Set of formal methods to study archaeological iconographic datasets (pottery decorations, rock-art, stelae, etc.) with Graph theory
 License: GPL-2
 Encoding: UTF-8
