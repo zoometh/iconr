@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-side_plot(grp, doss, nd.var, focus = "nodes",
+side_plot(grph, doss, nd.var, focus = "nodes",
           nd.color = c("orange", "red"),
           nd.size = c(0.5, 1),
           ed.color = c("orange", "red"),
@@ -16,9 +16,9 @@ side_plot(grp, doss, nd.var, focus = "nodes",
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-        \item{grp}{
+        \item{grph}{
 %%     ~~Describe \code{x} here~~
-    a list of two or more 'igraph' graphs created with the list_compar() function
+    a list of two or more 'igraph' graphs created with the \code{\link[iconr]{list_compar}} function
 }
           \item{doss}{
 %%     ~~Describe \code{x} here~~

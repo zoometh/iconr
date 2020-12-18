@@ -1,13 +1,13 @@
-side_plot <- function(grp, doss, nd.var, focus = "nodes",
+side_plot <- function(grph, doss, nd.var, focus = "nodes",
                       nd.color = c("orange", "red"), nd.size = c(0.5, 1),
                       ed.color = c("orange", "red"), ed.width = c(1, 2),
                       lbl.size = 0.5) {
-  dec.img <- magick::image_read(paste0(doss, "/", grp$img))
+  dec.img <- magick::image_read(paste0(doss, "/", grph$img))
   # add the decoration name, site and decor
   dec.img <- magick::image_annotate(dec.img,
-                                    paste0(grp$name, "\n",
-                                           grp$site, "\n",
-                                           grp$decor),
+                                    paste0(grph$name, "\n",
+                                           grph$site, "\n",
+                                           grph$decor),
                                     gravity = "northwest", size = 20)
   # add the nd.vars
   dec.img <- magick::image_annotate(dec.img, nd.var,
@@ -16,17 +16,17 @@ side_plot <- function(grp, doss, nd.var, focus = "nodes",
   graphics::plot(drawing.decor)
   offset.img <- nrow(drawing.decor)  # offset depends on raster size
 
-  igraph::V(grp)$name <- 1:igraph::gorder(grp)
-  g.nodes <- igraph::as_data_frame(grp, what = "vertices")
+  igraph::V(grph)$name <- 1:igraph::gorder(grph)
+  g.nodes <- igraph::as_data_frame(grph, what = "vertices")
   g.nodes$y <- g.nodes$y + offset.img  # add the offset
-  g.edges <- igraph::as_data_frame(grp)
+  g.edges <- igraph::as_data_frame(grph)
   ed.type <- ifelse(g.edges$type %in% c("+"), "21", "solid")
 
   if (focus == "nodes") {
     nodes.group <- g.nodes$comm + 1
     edges.group <- rep(1, nrow(g.edges))
   } else if (focus == "edges") {
-    comm.eds.subgr <- igraph::subgraph.edges(grp, which(g.edges$comm == 1))
+    comm.eds.subgr <- igraph::subgraph.edges(grph, which(g.edges$comm == 1))
     nodes.group <- as.numeric(
       g.nodes$name %in% igraph::V(comm.eds.subgr)$name) + 1
     edges.group <- g.edges$comm + 1
