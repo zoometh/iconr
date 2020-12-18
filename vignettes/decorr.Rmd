@@ -1,5 +1,5 @@
 ---
-title: "The ***decorr*** package. Graph Analysis of Prehistorical Iconography with R"
+title: "The ***iconr*** package. Graph Analysis of Prehistorical Iconography with R"
 author: "Thomas Huet, Jose Pozo, Craig Alexander"
 email: "thomashuet7@gmail.com"
 date: "`r format(Sys.Date())`"
@@ -13,7 +13,7 @@ bibliography: references.bib
 output:
   rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{The ***decorr*** package. Graph Analysis of Prehistorical Iconography with R}
+  %\VignetteIndexEntry{The ***iconr*** package. Graph Analysis of Prehistorical Iconography with R}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -35,16 +35,16 @@ brozas.path <- paste0(iconr.path,"/docs/img/brozas.png")
 &nbsp;
   
   
-The R package `decorr` is grounded on graph theory and spatial analysis. It offers concepts and functions to model Prehistorical iconographical composition and to prepare further analysis (clustering, Harris diagram, etc.) in order to contribute to cross-cultural iconography comparisons studies by a higher normalization of quantitative analysis [@Alexander08; @HuetAlexander15; @Huet18a].  
+The R package `iconr` is grounded on graph theory and spatial analysis. It offers concepts and functions to model Prehistorical iconographical composition and to prepare further analysis (clustering, Harris diagram, etc.) in order to contribute to cross-cultural iconography comparisons studies by a higher normalization of quantitative analysis [@Alexander08; @HuetAlexander15; @Huet18a].  
 
 # Decoration graphs  
 
-The main principle of `decorr` package is to considerate any iconographic compositions (here, 'decorations') as geometric graph of graphical units (GUs). This geometric graph is also known as planar graph or spatialised graph. The GUs are decorated surfaces (`POLYGONS`) modelised as nodes (`POINTS`) sharing proximity links (edges, `LINES`) one with another when their Voronoi cell share a border (*birel*: touches). 
+The main principle of `iconr` package is to considerate any iconographic compositions (here, 'decorations') as geometric graph of graphical units (GUs). This geometric graph is also known as planar graph or spatialised graph. The GUs are decorated surfaces (`POLYGONS`) modelised as nodes (`POINTS`) sharing proximity links (edges, `LINES`) one with another when their Voronoi cell share a border (*birel*: touches). 
 &nbsp;
   
   
 ```{r gis, out.width="40%", echo=F, fig.align='center', fig.cap="GIS view of the Cerro Muriano 1 stelae with the Voronoi cells of its GUs, GUs (nodes) and proximity links between these GUs (edges)"}
-dataDir <- paste0(system.file("extdata", package = "decorr"))
+dataDir <- paste0(system.file("extdata", package = "iconr"))
 include_graphics(paste0(dataDir,"/gis.png"))
 ```
 &nbsp;
@@ -52,20 +52,22 @@ include_graphics(paste0(dataDir,"/gis.png"))
 Graph theory offers a conceptual framework and indices (global at the entire graph scale, local at the vertex scale) to deal with notions of networks, relationships and neighbourhoods. The graph is commonly built within a GIS interface. Indeed, use of GIS allows to consitute a spatial database of the decoration's iconographic contents and facilitates data recording and visualization: snapping options for example to connect GUs (nodes) with lines (edges), features symbology, layer transparency, etc. 
 &nbsp;
 
-The development version of `decorr` package and its vignette can be download from GitHub
+The last development version of `iconr` package and its vignette can be download from GitHub
 
 ```{r down,eval=FALSE, echo=TRUE}
 devtools::install_github("zoometh/iconr", build_vignettes=TRUE)
 ```
 
-The R package `decorr` is composed by [functions](#functions) and a [dataset example](#data). The main packages used by the `decorr` package are:
+The R package `iconr` is composed by [functions](#functions) and a [dataset example](#data). The main R packages used by `iconr` package are:
 
 * [magick-image](https://cran.r-project.org/web/packages/magick/vignettes/intro.html): for drawing/images management 
 * [igraph](https://igraph.org/r/): for graphs management 
 * [rgdal](https://cran.r-project.org/web/packages/rgdal/index.html): for shapefiles management
 
+Load the package `iconr`
+
 ```{r load, echo=TRUE}
-library(decorr)
+library(iconr)
 ``` 
 
 # Dataset {#data}
@@ -73,7 +75,7 @@ library(decorr)
 The training dataset are [drawings with their listing](#drawings) and data for [nodes](#nd), [edges](#ed). The current path of training dataset is the *exdata/* folder. All the *input* data (dataframes, shapefiles, images) start with a letter (*regex* `"^[[:alpha:]]"`) while the *output* data start with a punctuation (*regex* `"^[[:punct:]]"`) or a numerical (*regex* `"^[[:digit:]]"`)
 
 ```{r ls_ext_data}
-dataDir <- system.file("extdata", package = "decorr")
+dataDir <- system.file("extdata", package = "iconr")
 cat(grep("^[[:alpha:]]",list.files(dataDir),value=T), sep="\n")
 ```
 
@@ -162,7 +164,7 @@ The decorations unique identifiers are the concatenation of the site name and de
 
 ```{r drawing, out.width="60%", fig.align="center", warning=FALSE, echo=TRUE, message=FALSE, fig.cap="\\label{fig:figs}Cerro_Muriano.Cerro_Muriano_1.jpg with the coordinates of its corners in 'px'"}
 library(magick)
-dataDir <- paste0(system.file("extdata", package = "decorr"))
+dataDir <- paste0(system.file("extdata", package = "iconr"))
 imgs_path <- paste0(dataDir, "/imgs.csv")
 imgs <- read.table(imgs_path, sep=";", stringsAsFactors = FALSE)
 cm1 <- image_read(paste0(dataDir, "/", imgs[1,"img"]))
@@ -251,20 +253,20 @@ knitr::kable(head(eds.df), "html") %>%
 
   * `+` : *attribute* edges, between contemporaneous nodes where the node `b` is an attribute of node `a` (directed edge)
 
-  * `>` : *overlap* edges, between non-contemporaneous nodes where the node `a` overlaps node `b` (directed edge)
+  * `>` : *diachronic* edges, between non-contemporaneous nodes where the node `a` overlaps node `b`, or `a` is more ancient than node `b` (directed edge)
 
-* `xa, ya`: coordinates of the *starting* node, or *main* node, or *overlapping* node  (`a`) 
+* `xa, ya`: coordinates of the *starting* node, or *main* node, or *overlapping* node, or *more recent* node  (`a`) 
 
-* `xb, yb`: coordinates of the *ending* node, or *attribute* node, or *overlapped* node (`b`) 
+* `xb, yb`: coordinates of the *ending* node, or *attribute* node, or *overlapped* node, , or *more ancient* node (`b`) 
   
   
 ### Edges types {#ed.type}
 
-As stated by the graph theory, edges can be undirected or directed. In the `decorr` package, by default: 
+As stated by the graph theory, edges can be undirected or directed. In the `iconr` package, by default: 
 
 * all comtemporaneous nodes have [*normal* edges](#ed.type.norm) or [*attribute* edges](#ed.type.attrib)  edges displayed in <span style="color:orange"><b>orange</b></span>
 
-* all non-comtemporaneous nodes have [*overlap* edges](#ed.type.over) and displayed in <span style="color:blue"><b>blue</b></span> edges (see [contemporaneous nodes](#contemp))
+* all non-comtemporaneous nodes have [*diachronic* edges](#ed.type.over) and displayed in <span style="color:blue"><b>blue</b></span> edges (see [contemporaneous nodes](#contemp))
 
 The `named_elements()` function allow to display the textual notation of the different types of edges (`-=-`, `-+-` or `->-`)
 
@@ -354,12 +356,12 @@ magick::image_append(c(magick::image_read(img.graph.id),
 ```
 &nbsp;
   
-#### ***overlap* edges** {#ed.type.over}
+#### ***diachronic* edges** {#ed.type.over}
 
-When a node overlaps another -- or is more recent than another -- edges are identified with a `>` (textual notation: `->-`) and displayed with a blue plain line. The *overlap* edges are directed: `1->-2` is not equal to `2->-1`, `1->-2` means that node 1 overlaps node 2. For example, the Ibahernando stelae shows a latin writing (écriture) overlapping a spear (lance) and a shield (bouclier).
+When a node overlaps another or is more recent than another, edges are identified with a `>` (textual notation: `->-`) and displayed with a blue plain line. The *diachronic* edges are directed: `1->-2` is not equal to `2->-1`, `1->-2` means that node 1 overlaps node 2, or node 1 is more recent than node 2. For example, the Ibahernando stelae shows a latin writing (écriture) overlapping a spear (lance) and a shield (bouclier).
 
 
-```{r graph.overlap.plot.type, out.width="100%", fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae (decoration 5) showing *normal* and *overlap* edges"}
+```{r graph.overlap.plot.type, out.width="100%", fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae (decoration 5) showing *normal* and *diachronic* edges"}
 nds.df <- read_nds(site = "Ibahernando", 
                    decor = "Ibahernando",
                    doss = dataDir)
@@ -384,14 +386,14 @@ magick::image_append(c(magick::image_read(img.graph.id),
 ```
 &nbsp;
   
-These overlappings can be manage with the `contemp_nds()` function (see the section [Contemporaneous contents](#contemp))
+These overlappings, or diachronic iconographical layers, can be manage with the `contemp_nds()` function (see the section [Contemporaneous contents](#contemp))
 
 # Functions {#functions}
 
-Decoration graphs are constructed from nodes and the edges. As a RNG graph, graphs are 1-component: each decoration graph covers all the GUs of the decoration. The functions of the `decorr` package provide basic requirements to manage these [nodes data](#nd) (`.csv`, `.tsv` or `.shp`) and [edges data](#ed) (`.csv`, `.tsv` or `.shp`) to create graphs, to [plot](#plot) and to [compare](#compare) them, to select [contemporaneous GUs compositions](#contemp)
+Decoration graphs are constructed from nodes and the edges. As a RNG graph, graphs are 1-component: each decoration graph covers all the GUs of the decoration. The functions of the `iconr` package provide basic requirements to manage these [nodes data](#nd) (`.csv`, `.tsv` or `.shp`) and [edges data](#ed) (`.csv`, `.tsv` or `.shp`) to create graphs, to [plot](#plot) and to [compare](#compare) them, to select [contemporaneous GUs compositions](#contemp)
 
 ```{r ls_functions}
-cat(ls("package:decorr"), sep="\n")
+cat(ls("package:iconr"), sep="\n")
 ```
 
 ## Plot {#plot}
@@ -561,7 +563,7 @@ It occurs that some nodes are non-contemporaneous one with the others, like for 
 
 </center>
 
-The writing (ecriture, node 1) has been carved over a spear (lance, node 2) and overlaps partially a V-notched shield (bouclier, node 3). The edges between node 1 and node 2, and the edge between node 1 and node 3, are *overlap* edges
+The writing (ecriture, node 1) has been carved over a spear (lance, node 2) and overlaps partially a V-notched shield (bouclier, node 3). The edges between node 1 and node 2, and the edge between node 1 and node 3, are *diachronic* edges
 
 
 ```{r ibahernando, out.width="60%", fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae (decoration 5) with only *normal* edges, node 1  overlaps node 2 and node 3"}
@@ -581,7 +583,7 @@ magick::image_read(img.graph)
 ```
 &nbsp;
   
-In this case, the non-contemporaneous layers of decoration, both for nodes and edges, should be removed before the comparison process. To do so, the original graph (1-component) will be splitted into different sub-graphs (n-component) by selecting `>` edges (see [*overlap* edges](#ed.type.over)). The studied graph component will be retrieved with the component membership of a selected node in the `contemp_nds()` function parameters.  
+In this case, the non-contemporaneous layers of decoration, both for nodes and edges, should be removed before the comparison process. To do so, the original graph (1-component) will be splitted into different sub-graphs (n-component) by selecting `>` edges (see [*diachronic* edges](#ed.type.over)). The studied graph component will be retrieved with the component membership of a selected node in the `contemp_nds()` function parameters.  
   
 To study only the Late Bronze Age iconographic layer of the Ibahernando steale, we can choose the Late Bronze Age node 4, the figure of sword (`epee`) dated to the middle and final stages of Late Bronze Age (ca 1250-950 BC). This node is supposed to be contemporaneous to node 2 and node 3 (see [*normal* edges ](#ed.type.norm))
 
@@ -642,7 +644,7 @@ magick::image_read(img.graph)
 
 # Summary {#sum}
 
-Plasticity of graph theory and facilities coming from the GIS database make `decorr` package usefull to manage, plot and compare large series of iconographical contents.  
+Plasticity of graph theory and facilities coming from the GIS database make `iconr` package usefull to manage, plot and compare large series of iconographical contents.  
   
 ## Classify decorations {#sum.class}
 
@@ -739,7 +741,7 @@ plot(g,
 
 Such a formalism can be used to weight the differences between nodes, to conduct analysis with different level of precision or to overcome idiosynchratic typologies issues.
 
-Using the *overlap* edge notation, tree structure can also be used to construct relative chronology diagrams, like a Harris matrix. For example, with the `data.tree` package and the Ibahernado stelae
+Using the *diachronic* edge notation, tree structure can also be used to construct relative chronology diagrams, like a Harris matrix. For example, with the `data.tree` package and the Ibahernado stelae
 
 ```{r overlap, warning=FALSE, out.width="100%"}
 library(data.tree)
