@@ -3,10 +3,7 @@ Title: Graph and Spatial Analysis for Prehistorical Iconography
 Version: 0.0.0.9000
 Authors@R: c(person("Thomas","Huet", role=c("aut","cre"),email=c("thomashuet7@gmail.com"),comment=c(ORCID="0000-0002-1112-6122")),
 	     person("Jose","Pozo", role=c("aut"),email=c("josmpozo@gmail.com"),comment=c(ORCID="0000-0002-0759-3510")),
-	     person("Craig","Alexander",role=c("ctb"),email="craiga304@gmail.com"),
-	     person("Martin","Hinz", role=c("ctb"),email="martin.hinz@iaw.unibe.ch"),
-	     person("Philip","Riris", role=c("ctb"),email="priris@bournemouth.ac.uk"),
-	     person("Fabio","Silva", role=c("ctb"),email="fabio.silva@ucl.ac.uk"))
+	     person("Craig","Alexander",role=c("ctb"),email="craiga304@gmail.com"))
 Description: Set of formal methods to study archaeological iconographic datasets (pottery decorations, rock-art, stelae, etc.) with network and spatial analysis.
 License: GPL-2
 Encoding: UTF-8
