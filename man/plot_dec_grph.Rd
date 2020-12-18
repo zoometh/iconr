@@ -89,7 +89,7 @@ plot_dec_grph(nodes = NULL,
 
 \examples{
 # set data folder
-dataDir <- system.file("extdata", package = "decorr")
+dataDir <- system.file("extdata", package = "iconr")
 
 # read nodes and edges
 nds.df <- read_nds( site = "Brozas", decor = "Brozas",

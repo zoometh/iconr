@@ -63,7 +63,7 @@ read_nds(site,
 
   \examples{
 # set data folder
-dataDir <- system.file("extdata", package = "decorr")
+dataDir <- system.file("extdata", package = "iconr")
 
 # read dataframe of nodes
 nds.df <- read_nds(	site = "Cerro Muriano", decor = "Cerro Muriano 1",

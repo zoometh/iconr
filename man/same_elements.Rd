@@ -4,7 +4,7 @@
 \title{Number of Equal Nodes or Edges Between Each Decoration Pair}
 \description{
   Create the (symmetric) dataframe with the count of
-  common nodes or common edges (see \code{\link[decorr]{list_compar}} for comparison criteria) for each pair of decorations (graphs) from a list.
+  common nodes or common edges (see \code{\link[iconr]{list_compar}} for comparison criteria) for each pair of decorations (graphs) from a list.
   The diagonal of the dataframe is filled with counts of nodes/edges for each decoration.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
@@ -52,9 +52,9 @@ same_elements(lgrph, nd.var = "type",
 }
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{list_dec}},
-  \code{\link[decorr]{list_compar}},
-  \code{\link[decorr]{plot_compar}}
+  \code{\link[iconr]{list_dec}},
+  \code{\link[iconr]{list_compar}},
+  \code{\link[iconr]{plot_compar}}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
@@ -62,11 +62,11 @@ same_elements(lgrph, nd.var = "type",
 
 \examples{
 # read imgs, nodes and edges dataframes
-imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
+imgs <- read.table(system.file("extdata", "imgs.tsv", package = "iconr"),
                    sep="\t",stringsAsFactors = FALSE)
-nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
+nodes <- read.table(system.file("extdata", "nodes.tsv", package = "iconr"),
                     sep="\t",stringsAsFactors = FALSE)
-edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
+edges <- read.table(system.file("extdata", "edges.tsv", package = "iconr"),
                     sep="\t",stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs,nodes,edges)
 

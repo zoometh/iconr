@@ -3,11 +3,11 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Plot and Save Comparison Figures Between Pairs of Graphs}
 \description{
-  \code{plot_compar} produces images displaying side by side pairs of graphs highlighting common nodes or common edges (see \code{\link[decorr]{list_compar}} for comparison criteria).
+  \code{plot_compar} produces images displaying side by side pairs of graphs highlighting common nodes or common edges (see \code{\link[iconr]{list_compar}} for comparison criteria).
   The user can focus the comparison on nodes or edges, and can define several appearance parameters.
   Given a list of pairwise graph comparisons, it plots any given subset selected by graph name.
   The images can be saved in png, bmp, tiff, jpeg, or pdf format.
-  %%\code{plot_eds_compar()} uses the function \code{\link[decorr]{side_plot_eds}}
+  %%\code{plot_eds_compar()} uses the function \code{\link[iconr]{side_plot_eds}}
   %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -21,7 +21,7 @@
 \arguments{
   \item{listg}{
     %%     ~~Describe \code{x} here~~
-      A list of graph pairwise comparisons returned by \code{\link[decorr]{list_compar}}.
+      A list of graph pairwise comparisons returned by \code{\link[iconr]{list_compar}}.
   }
   \item{graph2}{
     %%     ~~Describe \code{x} here~~
@@ -56,7 +56,7 @@
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
-As stated in the function \code{\link[decorr]{list_compar}}, if there is multiple nodes/edges with the same value, it is considered to count for as many coincidences as the smaller multiplicity.
+As stated in the function \code{\link[iconr]{list_compar}}, if there is multiple nodes/edges with the same value, it is considered to count for as many coincidences as the smaller multiplicity.
 }
 \value{
 %%  ~Describe the value returned
@@ -77,7 +77,7 @@ As stated in the function \code{\link[decorr]{list_compar}}, if there is multipl
 }
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{side_plot}}
+  \code{\link[iconr]{side_plot}}
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
@@ -85,11 +85,11 @@ As stated in the function \code{\link[decorr]{list_compar}}, if there is multipl
 
 \examples{
 # Read data
-imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
+imgs <- read.table(system.file("extdata", "imgs.tsv", package = "iconr"),
                    sep="\t",stringsAsFactors = FALSE)
-nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
+nodes <- read.table(system.file("extdata", "nodes.tsv", package = "iconr"),
                     sep="\t",stringsAsFactors = FALSE)
-edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
+edges <- read.table(system.file("extdata", "edges.tsv", package = "iconr"),
                     sep="\t",stringsAsFactors = FALSE)
 
 # Generate list of graphs from the three dataframes
@@ -101,12 +101,12 @@ g.compar <- list_compar(lgrph, nd.var="type")
 # Return the path of the image showing the comparison on common nodes of graphs '1' and '4',
 # and save it as png (default)
 plot_compar(g.compar, c(1,4), focus = "nodes",
-            doss = system.file("extdata", package = "decorr"))
+            doss = system.file("extdata", package = "iconr"))
 
 # Return the path of the image showing the comparison on common edges of graphs '1' and '4',
 # and save it as jpeg. Plot all nodes and node labels in brown.
 plot_compar(g.compar, c(1,4), focus = "edges",
-            doss = system.file("extdata", package = "decorr"),
+            doss = system.file("extdata", package = "iconr"),
             nd.color = "brown",
             img.format = "jpg")
 
@@ -115,7 +115,7 @@ plot_compar(g.compar, c(1,4), focus = "edges",
 # Save the plot of nodes involved in non-common edges in orange and
 # nodes involved in common edges and the corresponding labels in brown.
 plot_compar(g.compar, c(1,3,4), focus = "edges",
-            doss = system.file("extdata", package = "decorr"),
+            doss = system.file("extdata", package = "iconr"),
             nd.color = c("orange", "brown"),
             img.format = "pdf")
 
@@ -123,7 +123,7 @@ plot_compar(g.compar, c(1,3,4), focus = "edges",
 # and save it as png (default),
 # and plot the image
 p <- plot_compar(g.compar, c(1,4), focus = "nodes",
-            doss = system.file("extdata", package = "decorr"))
+            doss = system.file("extdata", package = "iconr"))
 plot(magick::image_read(p))
 
 }

@@ -16,7 +16,7 @@
   \item{grph}{
 %%     ~~Describe \code{grph} here~~
     A decoration graph
-    (object of class \code{\link[igraph]{igraph}}).
+    (object of class \code{igraph}).
   }
   \item{focus}{
 %%     ~~Describe \code{nd.var} here~~
@@ -63,16 +63,16 @@
 
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-  \code{\link[decorr]{list_compar}},
-  \code{\link[decorr]{same_elements}}
+  \code{\link[iconr]{list_compar}},
+  \code{\link[iconr]{same_elements}}
 }
 \examples{
 # Read data
-imgs <- read.table(system.file("extdata", "imgs.tsv", package = "decorr"),
+imgs <- read.table(system.file("extdata", "imgs.tsv", package = "iconr"),
                    sep="\t",stringsAsFactors = FALSE)
-nodes <- read.table(system.file("extdata", "nodes.tsv", package = "decorr"),
+nodes <- read.table(system.file("extdata", "nodes.tsv", package = "iconr"),
                     sep="\t",stringsAsFactors = FALSE)
-edges <- read.table(system.file("extdata", "edges.tsv", package = "decorr"),
+edges <- read.table(system.file("extdata", "edges.tsv", package = "iconr"),
                     sep="\t",stringsAsFactors = FALSE)
 # Generate list of graphs from the three data.frames
 lgrph <- list_dec(imgs, nodes, edges)

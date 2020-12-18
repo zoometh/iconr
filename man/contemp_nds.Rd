@@ -15,12 +15,12 @@
   \item{nds.df}{
     %%     ~~Describe \code{x} here~~
       Dataframe of the nodes as the one obtained by the function
-      \code{\link[decorr]{read_nds}}.
+      \code{\link[iconr]{read_nds}}.
   }
   \item{eds.df}{
     %%     ~~Describe \code{x} here~~
       Dataframe of the edges as the one obtained by the function
-      \code{\link[decorr]{read_eds}}.
+      \code{\link[iconr]{read_eds}}.
   }
   \item{selected.nd}{
     %%     ~~Describe \code{x} here~~
@@ -54,7 +54,7 @@
 
 \examples{
 # Set data folder
-dataDir <- system.file("extdata", package = "decorr")
+dataDir <- system.file("extdata", package = "iconr")
 
 # Read a decoration
 nds.df <- read_nds(site = "Ibahernando",

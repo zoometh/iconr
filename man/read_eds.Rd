@@ -70,7 +70,7 @@ subset the dataframe of edges depending on 'site' and 'decor'
 
 \examples{
 # set data folder
-dataDir <- system.file("extdata", package = "decorr")
+dataDir <- system.file("extdata", package = "iconr")
 
 # read .tsv file
 eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1",

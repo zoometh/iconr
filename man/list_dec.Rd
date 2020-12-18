@@ -54,11 +54,11 @@
 
 \examples{
 # read imgs, nodes and edges dataframes
-imgs <- read.table(system.file("extdata", "imgs.csv", package = "decorr"),
+imgs <- read.table(system.file("extdata", "imgs.csv", package = "iconr"),
                    sep=";", stringsAsFactors = FALSE)
-nodes <- read.table(system.file("extdata", "nodes.csv", package = "decorr"),
+nodes <- read.table(system.file("extdata", "nodes.csv", package = "iconr"),
                     sep=";", stringsAsFactors = FALSE)
-edges <- read.table(system.file("extdata", "edges.csv", package = "decorr"),
+edges <- read.table(system.file("extdata", "edges.csv", package = "iconr"),
                     sep=";", stringsAsFactors = FALSE)
 # create the list of graphs
 lgrph <- list_dec(imgs, nodes, edges)
