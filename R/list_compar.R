@@ -15,8 +15,8 @@ list_compar <- function(lgrph, nd.var = "type",
                     "' and '", lgrph[[idx.g[2]]]$name, "'")
       print(paste0("    ", dec, ") ", tit))
     }
-    grph <- decorr::eds_compar(lgrph[idx.g], nd.var)
-    grph <- decorr::nds_compar(grph, nd.var)
+    grph <- iconr::eds_compar(lgrph[idx.g], nd.var)
+    grph <- iconr::nds_compar(grph, nd.var)
     attributes(grph)$nd.var <- nd.var
     grphAllcompar[[dec]] <- grph
   }
@@ -25,7 +25,7 @@ list_compar <- function(lgrph, nd.var = "type",
 
 #' @export
 nds_compar <- function(grphs, nd.var = "type") {
-  g.nds <- lapply(grphs, function(x) decorr::named_elements(x, "nodes", nd.var))
+  g.nds <- lapply(grphs, function(x) iconr::named_elements(x, "nodes", nd.var))
   common.nodes <- intersect(g.nds[[1]], g.nds[[2]])
   for (i in 1:2) {
     igraph::V(grphs[[i]])$comm <- as.numeric(g.nds[[i]] %in% common.nodes)
@@ -35,7 +35,7 @@ nds_compar <- function(grphs, nd.var = "type") {
 
 #' @export
 eds_compar <- function(grphs, nd.var = "type") {
-  g.eds <- lapply(grphs, function(x) decorr::named_elements(x, "edges", nd.var))
+  g.eds <- lapply(grphs, function(x) iconr::named_elements(x, "edges", nd.var))
   common.edges <- intersect(g.eds[[1]], g.eds[[2]])
   for (i in 1:2) {
     igraph::E(grphs[[i]])$comm <- as.numeric(g.eds[[i]] %in% common.edges)
