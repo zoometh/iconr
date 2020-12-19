@@ -41,7 +41,7 @@ The R package `iconr` is grounded on graph theory and spatial analysis. It offer
 
 # Decoration graphs  
 
-The main principle of `iconr` package is to considerate any iconographic compositions (here, 'decorations') as geometric graph of graphical units (GUs). This geometric graph is also known as planar graph or spatialised graph. The GUs are decorated surfaces (`POLYGONS`) modelised as nodes (`POINTS`) sharing proximity links (edges, `LINES`) one with another when their Voronoi cell share a border (*birel*: touches). 
+The main principle of `iconr` package is to consider any iconographic compositions (here, 'decorations') as geometric graph of graphical units (GUs). This geometric graph is also known as planar graph or spatialised graph. The GUs are decorated surfaces (`POLYGONS`) modelised as nodes (`POINTS`) sharing proximity links (edges, `LINES`) one with another when their Voronoi cell share a border (*birel*: touches). 
 &nbsp;
   
   
