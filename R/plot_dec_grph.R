@@ -10,7 +10,7 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL,
     imgs <- utils::read.table(file = paste0(doss, "/imgs.tsv"),
                               sep = "\t", header = TRUE)
     # select
-    img.select <- imgs[imgs$site  == site &
+    img.select <- imgs[imgs$site == site &
                            imgs$decor == decor, ]
     if (nrow(img.select) != 1){
         stop(paste0("There must be exactly 1 decoration. Here there is ",
