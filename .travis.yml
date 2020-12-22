@@ -7,7 +7,11 @@ addons:
     packages:
     - libgdal-dev
     - libnetcdf-dev
-
+    update: true
+    sources:
+      - sourceline: 'ppa:opencpu/imagemagick'
+    packages:
+      - libmagick++-dev
 # needed for magick
-r_binary_packages:
-    - magick
+# r_binary_packages:
+#    - magick
