@@ -5,7 +5,7 @@
 \description{
   Create undirected graphs for each decoration from \code{nodes}, \code{edges} and \code{imgs} dataframes and store the graphs in a list.
   The join between these dataframes is done on the two fields \code{site} and \code{decor}.
-  Graphs names refer to \code{imgs$idf}.
+  Graph names refer to \code{imgs$idf}.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -17,53 +17,33 @@
 \arguments{
       \item{imgs}{
 %%     ~~Describe \code{x} here~~
-    dataframe of decorations
+    Dataframe of decorations
 }
         \item{nodes}{
 %%     ~~Describe \code{x} here~~
-    dataframe of nodes
+    Dataframe of nodes
 }
           \item{edges}{
 %%     ~~Describe \code{x} here~~
-    dataframe of edges
+    Dataframe of edges
 }
-}
-\details{
-%%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
   Return a list of graphs
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
 
 \examples{
-# read imgs, nodes and edges dataframes
+# Read imgs, nodes and edges dataframes
 imgs <- read.table(system.file("extdata", "imgs.csv", package = "iconr"),
                    sep=";", stringsAsFactors = FALSE)
 nodes <- read.table(system.file("extdata", "nodes.csv", package = "iconr"),
                     sep=";", stringsAsFactors = FALSE)
 edges <- read.table(system.file("extdata", "edges.csv", package = "iconr"),
                     sep=";", stringsAsFactors = FALSE)
-# create the list of graphs
+# Create the list of graphs
 lgrph <- list_dec(imgs, nodes, edges)
 
-# get the first graph
+# Get the first graph
 g <- lgrph[[1]]
 g
 # IGRAPH effa525 UN-B 7 8 -- 1
@@ -73,15 +53,15 @@ g
 # + edges from 18fec0b (vertex names):
 # [1] 1--4 1--5 3--5 1--2 1--7 1--3 1--8 4--8
 
-# graph name
+# Graph name
 g$name
 # [1] 1
 
-# graph label
+# Graph label
 g$lbl
 # [1] "1-Cerro Muriano.Cerro Muriano 1"
 
-# graph number of nodes
+# Graph number of nodes
 igraph::gorder(g)
 # [1] 7
 

@@ -1,11 +1,8 @@
 \name{same_elements}
 \alias{same_elements}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{Number of Equal Nodes or Edges Between Each Decoration Pair}
+\title{Number of Equal Elements Between Each Decoration Pair}
 \description{
-  Create the (symmetric) dataframe with the count of
-  common nodes or common edges (see \code{\link[iconr]{list_compar}} for comparison criteria) for each pair of decorations (graphs) from a list.
-  The diagonal of the dataframe is filled with counts of nodes/edges for each decoration.
+  Create the (symmetric) dataframe with the count of \strong{common nodes} or \strong{common edges} (see \code{\link[iconr]{list_compar}} for comparison criteria) for each pair of decorations (graphs) from a list. The diagonal of the symmetric dataframe is filled with counts of nodes/edges for each decoration.
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -17,7 +14,7 @@ same_elements(lgrph, nd.var = "type",
       \item{lgrph}{
 %%     ~~Describe \code{x} here~~
     A list of any number of graphs to be pairwise compared. The list can
-    be typically obtained with the function \code{list_dec()}
+    be typically obtained with the function \code{\link[iconr]{list_dec}}
 }
       \item{nd.var}{
 %%     ~~Describe \code{x} here~~
@@ -26,39 +23,18 @@ same_elements(lgrph, nd.var = "type",
 }
       \item{focus}{
 %%     ~~Describe \code{x} here~~
-      Either \code{"nodes"} (default) or \code{"edges"}. It selects the
+      Either \code{"nodes"} (default) or \code{"edges"} to select the
       type of elements to be compared for the count.
 }
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
   A symetric matrix with the counts of the pairwise coincidences of nodes or edges. The matrix has as row and column names the names of the corresponding graphs in the input list.
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
-}
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
   \code{\link[iconr]{list_dec}},
   \code{\link[iconr]{list_compar}},
   \code{\link[iconr]{plot_compar}}
 }
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
 
 \examples{
 # read imgs, nodes and edges dataframes
@@ -92,6 +68,5 @@ df.same_edges
 # 4 2  7  1 14 1
 # 5 0  1  2  1 4
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
+
 \keyword{ ~kwd1 graph}% use one of  RShowDoc("KEYWORDS")

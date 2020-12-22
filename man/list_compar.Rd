@@ -5,12 +5,11 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Graph Pairwise Comparison on Common Elements}
 \description{
-    \code{nds_compar} identifies common nodes in a pair of graphs.
+    \code{nds_compar} identifies \strong{common nodes} in a pair of graphs.
 
-    \code{eds_compar} identifies common edges in a pair of graphs.
+    \code{eds_compar} identifies \strong{common edges} in a pair of graphs.
 
-    Given a list of graphs, \code{list_compar} extract all combinations of graph pairs and compare them for common elements (nodes and edges).
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+    Given a list of graphs, \code{list_compar} extract all combinations of graph pairs and compare them on common elements (nodes and edges).
 }
 \usage{
 nds_compar(grphs, nd.var = "type")
@@ -20,17 +19,14 @@ eds_compar(grphs, nd.var = "type")
 list_compar(lgrph, nd.var = "type",
             verbose = FALSE)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{grphs}{
       A list of two graphs (pair of graphs) to be compared.
   }
   \item{lgrph}{
-%%     ~~Describe \code{x} here~~
-    A list of any number of graphs to be pairwise compared. The list can be typically obtained with the function \code{list_dec()}
+    A list of any number of graphs to be pairwise compared. The list can be typically obtained with the function \code{\link[iconr]{list_dec}}
   }
     \item{nd.var}{
-%%     ~~Describe \code{x} here~~
     An attribute of the graph nodes containing the node variable (ie, field) on which the comparison will be done. By default \code{nd.var = "type"}.
   }
             \item{verbose}{
@@ -40,45 +36,27 @@ list_compar(lgrph, nd.var = "type",
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
-    \code{list_compar()} calls the functions: \code{nds_compar()} and \code{eds_compar()} which return respectively the common nodes and the common edges of a graph pair.
+    \code{list_compar()} calls the functions: \code{nds_compar()} and \code{eds_compar()} which return respectively the \strong{common nodes} and the \strong{common edges} of a graph pairwise.
 
-    Nodes are common when they have the same value for a given variable, for example 'horse', 'sword', etc., for \code{nd.var = "type"}.
+    \strong{Nodes} are common when they have the same value for a given variable, for example \code{horse}, \code{sword}, etc., for the variable \code{type} (\code{nd.var = "type"}).
 
-    Edges are common when they have the same value for \emph{starting} and \emph{ending} nodes ('horse', 'sword', etc.) and the same type of edge ('=', '+', etc.).
-    For example, \code{a -=- b} in graph 1 is equal to \code{a -=- b} in graph 2, but not equal to \code{a -+- b}. Edges of type "=" (\emph{normal} edges) are undirected, so that \code{a -=- b} is equal to \code{b -=- a}. But edges of types "+" (\emph{attribute} edges) or ">" (\emph{overlap} edges) are directed, so that \code{a ->- b} is not equal to \code{b ->- a}.
+     \strong{Edges} are common when they have the same value for \emph{starting} and \emph{ending} nodes (\code{horse}, \code{sword}, etc.) and the same type of edge (\code{'='}, \code{'+'}, etc.).
+    For example, \code{a -=- b} in graph 1 is equal to \code{a -=- b} in graph 2, but not equal to \code{a -+- b}. Edges of type \code{=} (\emph{normal} edges) are undirected, so that \code{a -=- b} is equal to \code{b -=- a}. But edges of types \code{+} (\emph{attribute} edges) or \code{>} (\emph{diachronic} edges) are directed, so: \code{a ->- b} is not equal to \code{b ->- a}.
 
-  If any of the graphs has multiple nodes/edges with the same value, it is considered to count for as many coincidences as the smaller multiplicity. For instance, if there are 2 nodes with value "epee" in graph 1, and 3 nodes with value "epee" in graph 2, they count as 2 coincidences.
+If any of the graphs has multiple nodes/edges with the same value, it is considered to count for as many coincidences as the smaller multiplicity. For instance, if there are 2 nodes with value \code{epee} in graph 1, and 3 nodes with value \code{epee} in graph 2, their number of common nodes is \code{min(2, 3) = 2}.
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-  \code{nds_compar()} returns the input pair of graphs complemented with a new vertex attribute named \code{comm} with value 1 for common nodes and 0 for non-common nodes.
+  \code{nds_compar()} returns the input pair of graphs complemented with a new \strong{node} attribute named \code{comm} with value 1 for common nodes and 0 for non-common nodes.
 
-  \code{eds_compar()} returns the input pair of graphs complemented with a new edge attribute named \code{comm} with value 1 for common edges and 0 for non-common edges.
+  \code{eds_compar()} returns the input pair of graphs complemented with a new \strong{edge} attribute named \code{comm} with value 1 for common edges and 0 for non-common edges.
 
-  \code{list_compar()} returns a list of all combinations of graph pairs. For each pair, both graphs are complemented with the vertex attribute and edge attribute included by \code{nds_compar} and \code{eds_compar}, identifying the common nodes and edges, respectively. Each pair is also added an attribute named \code{nd.var} saving the compared node variable.
+  \code{list_compar()} returns a list of all combinations of graph pairs. For each pair, both graphs are complemented with the node attribute and edge attribute included by \code{nds_compar()} and \code{eds_compar()}, identifying respectively the common nodes and edges. To each pair is also added an attribute named \code{nd.var} saving the compared node variable.
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
-}
-
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
   \code{\link[iconr]{list_dec}},
   \code{\link[iconr]{plot_compar}},
   \code{\link[iconr]{same_elements}}
 }
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \examples{
 # Read data
@@ -91,12 +69,13 @@ edges <- read.table(system.file("extdata", "edges.tsv", package = "iconr"),
 # Generate list of graphs from the three data.frames
 lgrph <- list_dec(imgs, nodes, edges)
 
-# Generate all pairwise comparisons of the graphs with respect to nodes "type"
-g.compar <- list_compar(lgrph, nd.var="type")
+# Generate list of all graph comparisons depending on the node "type" variable
+g.compar <- list_compar(lgrph, nd.var = "type")
 
 length(g.compar)
 # 10 = ten pairwise comparisons
 
+# Inspect the second pairwise comparison of the list
 g.compar[[2]]
 # [[1]]
 # IGRAPH 2521a03 UN-B 7 8 -- 1
@@ -159,6 +138,5 @@ igraph::as_data_frame(g.compar[[2]][[2]])
 # 9     4  5    =    0
 # 10    5  6    =    0
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
+
 \keyword{ ~kwd1 graph}% use one of  RShowDoc("KEYWORDS")
