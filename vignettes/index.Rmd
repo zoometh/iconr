@@ -30,9 +30,8 @@ knitr::opts_chunk$set(
   comment = ">",
   fig.pos = 'H'
 )
-iconr.path <- dirname(getwd())
-ibahernando.path <- paste0(iconr.path,"/docs/img/ibahernando.png")
-brozas.path <- paste0(iconr.path,"/docs/img/brozas.png")
+ibahernando.path <- paste0(getwd(),"/docs/img/ibahernando.png")
+brozas.path <- paste0(getwd(),"/docs/img/brozas.png")
 ```
 &nbsp;
   
