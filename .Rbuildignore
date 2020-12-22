@@ -2,4 +2,5 @@
 ^\.Rproj\.user$
 ^\.travis\.yml
 ^README\.md$
+^cran-comments\.md$
 ^logo/iconr\.png$

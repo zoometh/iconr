@@ -1,2 +1,9 @@
 language: R
 cache: packages
+
+# needed for gdal
+addons:
+  apt:
+    packages:
+    - libgdal-dev
+    - libnetcdf-dev
