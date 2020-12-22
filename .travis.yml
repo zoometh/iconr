@@ -4,13 +4,12 @@ cache: packages
 # needed for gdal
 addons:
   apt:
+#    update: true
+#    sources:
+#      - sourceline: 'ppa:opencpu/imagemagick'
     packages:
-    - libgdal-dev
-    - libnetcdf-dev
-    update: true
-    sources:
-      - sourceline: 'ppa:opencpu/imagemagick'
-    packages:
+      - libgdal-dev
+      - libnetcdf-dev
       - libmagick++-dev
 # needed for magick
 # r_binary_packages:
