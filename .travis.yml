@@ -11,6 +11,7 @@ addons:
       - libgdal-dev
       - libnetcdf-dev
       - libmagick++-dev
+warnings_are_errors: true
 # needed for magick
 # r_binary_packages:
 #    - magick
