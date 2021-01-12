@@ -1,6 +1,6 @@
 ---
 title: "The ***iconr*** package. Graph Analysis of Prehistoric Iconography with R"
-author: "Thomas Huet, Jose Pozo, Craig Alexander"
+author: "Thomas Huet, Jose M Pozo, Craig Alexander"
 email: "thomashuet7@gmail.com"
 date: "`r format(Sys.Date())`"
 bibliography: references.bib
@@ -20,6 +20,17 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+<style>
+.figure {
+   margin-top: 0px;
+   margin-bottom: 20px;
+}
+table {
+    margin-top: 0px;
+    margin-bottom: 24px;
+}
+</style>
+
 ```{r, include = FALSE}
 library(knitr)
 library(igraph)
@@ -33,25 +44,20 @@ knitr::opts_chunk$set(
 ibahernando.path <- paste0(getwd(),"/img/ibahernando.png")
 brozas.path <- paste0(getwd(),"/img/brozas.png")
 ```
-&nbsp;
+
   
-  
-The R package `iconr` is grounded in graph theory and spatial analysis. It offers concepts and functions for modeling Prehistoric iconographic compositions and for preparing for further analysis (clustering, Harris diagram, etc.) in order to contribute to cross-cultural iconography comparison studies through a greater normalization of quantitative analysis [@Alexander08; @HuetAlexander15; @Huet18a].  
+The R package `iconr` is grounded in graph theory and spatial analysis. It offers concepts and functions for modeling Prehistoric iconographic compositions and for their preparation for further analysis (clustering, Harris diagram, etc.) in order to contribute to cross-cultural iconography comparison studies through a greater normalization of quantitative analysis [@Alexander08; @HuetAlexander15; @Huet18a].  
 
 # Decoration graphs  
 
 The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units (GUs). This geometric graph is also known as a planar graph or spatialised graph. The GUs are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). When these GUs are *main* nodes, and not *attribute* nodes, they share edges (`LINES`) with one another when their Voronoi cells share a border (*birel*: touches). 
-&nbsp;
   
-  
-```{r gis, out.width="60%", echo=F, fig.align='center', fig.cap="GIS view of the Cerro Muriano 1 stelae with the Voronoi cells of its GUs, GUs (main nodes) and proximity links between these GUs (edges)"}
+```{r gis, out.width="60%", echo=FALSE, fig.align='center', fig.cap="GIS view of the Cerro Muriano 1 stelae with the Voronoi cells of its GUs, GUs (main nodes) and proximity links between these GUs (edges)"}
 dataDir <- paste0(system.file("extdata", package = "iconr"))
 include_graphics(paste0(dataDir,"/gis.png"))
 ```
-&nbsp;
   
 Graph theory offers a conceptual framework and indices (global at the entire graph scale, local at the vertex scale) to deal with notions of networks, relationships and neighbourhoods. The graph is commonly built within a GIS interface. Indeed, use of GIS allows one to create a spatial database of the decoration's iconographic contents and facilitates data recording and visualization. For example, snapping options can connect GUs (nodes) with lines (edges) and we can exploit tools such as feature symbology, layer transparency, etc. 
-&nbsp;
 
 The latest development version of the `iconr` package and its vignette can be downloaded from GitHub
 
@@ -59,7 +65,7 @@ The latest development version of the `iconr` package and its vignette can be do
 devtools::install_github("zoometh/iconr", build_vignettes=TRUE)
 ```
 
-The R package `iconr` is composed of [functions](#functions) and a [dataset example](#data). The main R packages used by the `iconr` package are:
+The R package `iconr` is composed of [functions](#functions) and a [example dataset](#data). The main R packages used by the `iconr` package are:
 
 * [magick-image](https://cran.r-project.org/web/packages/magick/vignettes/intro.html): for drawing/image management 
 * [igraph](https://igraph.org/r/): for graph management 
@@ -73,43 +79,46 @@ library(iconr)
 
 # Dataset {#data}
 
-The training dataset comprises [drawings with their listing](#drawings) and data for [nodes](#nd), [edges](#ed). The current path for the training dataset is the *exdata/* folder. All the *input* data (dataframes, shapefiles, images) start with a letter (*regex* `"^[[:alpha:]]"`) while the *output* data start with a punctuation symbol (*regex* `"^[[:punct:]]"`) or a number (*regex* `"^[[:digit:]]"`)
+The input dataset is expected to include decoration images and corresponding node and edge data in a single data folder. This folder should include the following files:
+
+* **[Table of decorations](#decorations):** Tabular file storing the set of decoration identifiers and corresponding image filenames.
+* **[Images](#drawings):** An image file for each decoration.
+* **[Node data](#nd):** A single file storing the data of each node for all decorations. 
+* **[Edge data](#ed):** A single file storing the data of each edge for all decorations.
+
+The `iconr` package includes an example dataset with the input files in several alternative formats. The path for the example dataset is the package *exdata* folder:
 
 ```{r ls_ext_data}
 dataDir <- system.file("extdata", package = "iconr")
-cat(grep("^[[:alpha:]]",list.files(dataDir),value=T), sep="\n")
+cat(list.files(dataDir), sep="\n")
 ```
 
-Each decoration is identified by its name and the name of the site to which it belongs. Each decoration is a set of:
-
-+ images (`.jpg, .png, .jpeg, .tiff, .pdf,` etc.)
-
-+ decoration identifiers dataframe (`.tsv` or `.csv`)
+The table of decorations is given in two formats: comma- or semicolon-separated values (`imgs.csv`) and tab-separated value (`imgs.tsv`).
 
 ```{r paths.imgs, echo=TRUE}
 imgs_path <- paste0(dataDir, "/imgs.csv")
 imgs <- read.table(imgs_path, sep=";", stringsAsFactors = FALSE)
 ```
 
-+ nodes and edges dataframe (`.tsv`, `.csv` or `.shp`)
+Each decoration is identified by its name and the name of the site to which it belongs. In the example dataset, this is transparent in the name of each decoration image, included in jpeg format. Any other image format supported by the R package `magick` (jpeg, png, tiff, pdf, etc.) is suitable.
 
-A GIS interface is often the most practical way to record graph nodes and graph edges with `POINTS` and `LINES` geometries coming from shapefiles (`.shp`)
+A GIS interface is often the most practical way to record graph nodes and graph edges with `POINTS` and `LINES` geometries, respectively. This is typically saved in shapefile (shp) format, which is composed of at least 3 files with extensions `.shp`, `.shx`, and `dbf`. The example dataset includes them for nodes and edges separatelly, with obvious names:
 
 ```{r paths, echo=TRUE}
 nodes_path <- paste0(dataDir, "/nodes.shp")
-nodes.shp <- rgdal::readOGR(dsn = nodes_path, layer = "nodes", verbose = F)
+nodes.shp <- rgdal::readOGR(dsn = nodes_path, verbose = FALSE)
 nodes <- as.data.frame(nodes.shp)
 edges_path <- paste0(dataDir, "/edges.shp")
-edges.shp <- rgdal::readOGR(dsn = edges_path, layer = "edges", verbose = F)
+edges.shp <- rgdal::readOGR(dsn = edges_path, verbose = FALSE)
 edges <- as.data.frame(edges.shp)
 ```
 
-Nodes and edges can also be recorded in tabular format: `.tsv` (tab-separated values) or `.csv` (comma or semicolon-separated values)   
+Nodes and edges can also be recorded in tabular format: `.csv` or `.tsv`.  
 
 ```{r paths.1, echo=TRUE}
 nodes_path <- paste0(dataDir, "/nodes.tsv")
-edges_path <- paste0(dataDir, "/edges.tsv")
 nodes <- read.table(nodes_path, sep="\t", stringsAsFactors = FALSE)
+edges_path <- paste0(dataDir, "/edges.tsv")
 edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
 ```
 
@@ -121,36 +130,34 @@ g <- lgrph[[1]]
 as.character(class(g))
 ```
 
-By default, the `plot.igraph()` function (ie, `igraph::plot()`) spazialisation (`layout`) is based on `x` and `y` columns, when these exist. This is so in our case since we are working with geometric graphs. Very different layouts exist for the same graph (*graph drawing*) 
+By default, the `plot.igraph()` function (ie, `igraph::plot()`) spatialisation (`layout`) is based on `x` and `y` columns, when these exist. This is appropriate in our case since we are working with geometric graphs. If this spatialisation (node coordinates) is ignored, then very different layouts are possible for the same graph (*graph drawing*):
 
-```{r igraph.1, warning=FALSE, fig.align="center", fig.width=7}
-par(mfrow=c(1, 2))
+```{r igraph.1, warning=FALSE, fig.align="center", fig.width=6.5, fig.asp=0.58}
+par(mar=c(1,0,2,0), mfrow=c(1, 2), cex.main=0.9, font.main= 1)
 coords <- layout.fruchterman.reingold(lgrph[[1]])
 plot(g,
      vertex.size = 15,
      vertex.frame.color="white",
      vertex.label.family = "sans",
-     vertex.label.cex = .7,
+     vertex.label.cex = .8,
+     main = "Graph drawing based on x, y coordinates"
 )
-title("graph drawing based on x, y coordinates", cex.main=.8, font.main= 1)
 plot(g,
-     layout = coords,
-     vertex.size = 15 + (degree(g)*10),
+     layout = layout.fruchterman.reingold(g),
+     vertex.size = 5 + degree(g)*10,
      vertex.frame.color="white",
      vertex.label.family = "sans",
-     vertex.label.cex = .7,
+     vertex.label.cex = .8,
+     main = "Force-directed graph drawing,\nwith degree-dependent node size."
 )
-title(paste0("force-directed graph drawing,",
-             " \n size of nodes depending on their degree"),
-      cex.main=.8, font.main= 1)
-mtext(lgrph[[1]]$decor, cex = 1, side = 3, line = -20, outer = TRUE)
+mtext(g$decor, cex = 1, side = 1, line = -1, outer = TRUE)
 ```
-&nbsp;
   
+## Table of decorations {#decorations}
 
-## Images {#drawings}
+in any compatible file format readable by R, such as comma-separated-value (csv).
 
-Image or drawing (eg, images, rasters, grids) formats accepted are the common ones (`jpg, png, jpeg, tiff, pdf,` etc.). The images in the current training dataset come from a PhD thesis, published by M. Diaz-Guardamino [@DiazGuardamino10]:
+Their identifiers and image filenames are stored in the `imgs` dataframe:
 
 ```{r imgs,fig.width=6, fig.height=6, fig.align="center",warning=FALSE, fig.cap="\\label{fig:figs}imgs.tsv"}
 imgs_path <- paste0(dataDir, "/imgs.tsv")
@@ -158,97 +165,102 @@ imgs <- read.table(imgs_path, sep="\t", stringsAsFactors = FALSE)
 knitr::kable(imgs, "html") %>% 
   kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
-&nbsp;
-  
-  
-The decoration's unique identifiers are the concatenation of the site name and the decoration name. For example, the name of the Cerrano Muriano 1 decoration is ``r imgs[1,"img"]``.  For a given decoration, its image is the reference space of the graph: nodes and edges inherit their coordinates from the image grid. Identifiers and paths to images are stored in the `imgs` dataframe:
 
-```{r drawing, out.width="60%", fig.align="center", warning=FALSE, echo=TRUE, message=FALSE, fig.cap="\\label{fig:figs}Cerro_Muriano.Cerro_Muriano_1.jpg with the coordinates of its corners in 'px'"}
+The decoration's unique identifiers are the concatenation of the site name and the decoration name. For example, the name of the Cerrano Muriano 1 decoration is ``r imgs[1,"img"]``. 
+
+## Images {#drawings}
+
+Image or drawing (eg, images, rasters, grids) formats accepted are the common ones (`jpg, png, jpeg, tiff, pdf,` etc.). The images in the current example dataset come from a PhD thesis, published by M. Diaz-Guardamino [@DiazGuardamino10]. 
+
+For a given decoration, its image is the reference space of the graph: nodes and edges inherit their coordinates from the image grid. The package `iconr` considers the following coordinate conventions:
+
+* **Unit of length:** number of pixels.
+* **Origin:** top-left corner.
+* **Axes orientation:** x-coordinates rightward and y-coordinates upwards. 
+
+Observe that the origin and y-axis orientation implies that y-coordinates are always negative in the image. This follows the same convention as relative coordinates in GIS, which are referenced to the top left corner of the local map with upwards y-axis orientation. However, it contrast with both default R plots (upwards y-axis but bottom-left origin) and `magick` image package plots (top-left origin but downwards y-axis), for which `y` values are positive.
+
+
+```{r drawing, out.width="50%", fig.align="center", warning=FALSE, echo=TRUE, message=FALSE, fig.cap="\\label{fig:figs}Cerro_Muriano.Cerro_Muriano_1.jpg with the coordinates of its corners following the package `iconr` convention."}
 library(magick)
-dataDir <- paste0(system.file("extdata", package = "iconr"))
+dataDir <- system.file("extdata", package = "iconr")
 imgs_path <- paste0(dataDir, "/imgs.csv")
 imgs <- read.table(imgs_path, sep=";", stringsAsFactors = FALSE)
-cm1 <- image_read(paste0(dataDir, "/", imgs[1,"img"]))
-W <- as.character(image_info(cm1)$width)
-H <- as.character(image_info(cm1)$height)
-o <- "0"
+cm1 <- image_read(paste0(dataDir, "/", imgs$img[1]))
+W <- image_info(cm1)$width
+H <- -image_info(cm1)$height
 image_border(image = cm1, "#808080", "2x2") %>%
-  image_annotate(text = paste0(o, ", ", o),
-                 size = 20,
+  image_annotate(text = paste0(0, ", ", 0), size = 30,
                  gravity = "northwest") %>%
-  image_annotate(text = paste0(W, ", ", o),
-                 size = 20,
+  image_annotate(text = paste0(W, ", ", 0), size = 30,
                  gravity = "northeast") %>%
-  image_annotate(text = paste0(o, ", ", H),
-                 size = 20,
+  image_annotate(text = paste0(0, ", ", H), size = 30,
                  gravity = "southwest") %>%
-  image_annotate(text = paste0(W, ", ", H),
-                 size = 20,
+  image_annotate(text = paste0(W, ", ", H), size = 30,
                  gravity = "southeast")
 ```
-&nbsp;
-  
 
-## Nodes data {#nd}
+## Node data {#nd}
 
-Nodes are stored in a dataframe (`.csv` or `.tsv`) or a shapefile (`.shp`). If the input data comes from a dataframe (`.csv` or `.tsv`), coordinate columns `x` and `y` are required:
+Nodes can be stored in any of the following formats: comma-separated-value (`.csv`), tab-separated-value (`.tsv`), or shapefile (`.shp`). Any of these formats is consistenly read by the function `iconr::read_nds` generating a data.frame with the node data. For the generic csv and tsv formats, at least the following five columns are required to be included: 
+
+* **site**: decoration site 
+* **decor**: decoration name 
+* **id**: id uniquelly identifying each node
+* **x**: x-coordinate of nodes
+* **y**: y-coordinate of nodes 
+
+Additional columns can be included providing relevant characteristics of each node. The example dataset includes the column
+
+* **type**: type of GU
+
+These node characteristics can then be used for image annotations and decoration comparisons and analysis.
 
 ```{r nodes.df, warning=FALSE,fig.align="center",warning=FALSE}
-nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = dataDir) 
+nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1", dir = dataDir) 
 knitr::kable(nds.df, "html") %>% 
   kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
 
-While, in theory, the nodes are the exact centroids of each GU. However, they can also be located manually near to the centroids.
+In principle, the nodes are defined to be located at the exact centroids of each GU. However, they can also be manually located near the centroids.
 
-**column names**  
+## Edge data {#ed}
 
-* `site`: decoration site 
+Edges can be stored in the same three formats as nodes: csv, tsv, or shp. At least the following five columns or variables are required to be included:
 
-* `decor`: decoration name 
+* **site**: decoration site 
+* **decor**: decoration name
+* **a**: *id* of the first [node](#nd) of each edge
+* **b**: *id* of the second [node](#nd) of each edge
+* **type**: [edge types](#ed.type)
 
-* `id`: id of the edges (a unique number) 
-
-* `type`: type of node    
-
-* `x, y`: coordinates of node  
-
-
-## Edges data {#ed}
-
-Edges are stored in a dataframe (`.csv` or `.tsv`) or a shapefile (`.shp`). 
+These columns can be seen in the example dataset:
 
 ```{r edges.df, warning=FALSE}
-edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
-knitr::kable(head(edges), "html") %>% 
-  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12) %>%
-  gsub("\\+", "$$+$$", .)
+edges <- read.table(edges_path, sep = "\t", stringsAsFactors = FALSE)
+knitr::kable(head(edges), "html", align = "llccc") %>%
+  kableExtra::kable_styling(full_width = FALSE, position = "center",
+                            font_size=12) %>%
+  gsub("\\+", "$+$", .)
 ```
-&nbsp;
-  
-Edge identifiers are composed by their `site`, `decor`, `a` and `b` fields. For each decorattion (key: `site` and `decor`), their geometries are calculated or recalculated from node geometries with a join between the node `id` field and the `a` and `b` edge fields where `a` is the starting node of the edge (columns `xa` and `ya`) and `b` is the ending node of the edge (columns `xb` and `yb`): 
+
+Analogously to nodes, any of these formats is consistently read by the function `iconr::read_eds` generating a data.frame with the edges data. Additionally, this function includes columns with the coordinates of the edge nodes:
+
+* **xa**: x-coordinate of the first node of each edge
+* **ya**: y-coordinate of the first node of each edge 
+* **xb**: x-coordinate of the second node of each edge
+* **yb**: y-coordinate of the second node of each edge 
+
+Those are imported from the `x` and `y` coordinates in the corresponding [node](#nd) file, identified by the node `id` as stated in the edge fields `a` and `b`, respectively.
 
 ```{r edges.df.1, warning=FALSE}
-eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = dataDir) 
-knitr::kable(head(eds.df), "html") %>% 
+eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1", dir = dataDir) 
+knitr::kable(head(eds.df), "html", align = "llcccrrrr") %>% 
   kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12) %>%
-  gsub("\\+", "$$+$$", .)
+  gsub("\\+", "$+$", .)
 ```
-&nbsp;
-  
-In a GIS and in any image matrix (raster, grid, etc.) the origin (0, 0) is the top-left corner and the `x` axes are always positive. But the `y` axis in a GIS shows always negative values while these `y` values are always positive in R. To overlap the nodes and the edges on the image, the plot functions calculate negative values of nodes and the edges `y` coordinates 
-  
+
 **column names** 
-
-* `site` : decoration site 
-
-* `decor` : decoration name  
-
-* `id` : id of the edge (a unique number) 
-
-* `a` : *id* of the first node (see, [nodes](#nd)) 
-
-* `b` : *id* of the second node (see, [nodes](#nd))  
 
 * `type` : [edges types](#ed.type)  
 
@@ -280,73 +292,49 @@ named_elements(lgrph[[1]], focus = "edges", nd.var="type")[1]
 When there are nodes with the same `nd.var`, this function adds the suffix `#` to the `nd.var` in order to disambiguate the node list. This is the case, for example, for the `chariot_char-+-cheval` (x2) and `chariot_char-+-roue` (x2) edges of the Zarza de Montsanchez stelae (decoration 4)
 
 ```{r count1, warning=FALSE}
-sort(named_elements(lgrph[[4]], focus = "edges", nd.var="type"))
-```
-
-```{r img.graph.zarza, out.width="60%", fig.align="center", warning=FALSE, fig.cap="Zarza de Montsanchez stelae (decoration 4)"}
-nds.df <- read_nds(site = "Zarza de Montanchez", 
-                   decor = "Zarza De Montanchez",
-                   doss = dataDir)
-eds.df <- read_eds(site = "Zarza de Montanchez",
-                   decor = "Zarza De Montanchez",
-                   doss = dataDir)
-img.graph <- plot_dec_grph(nodes = nds.df,
-                           edges = eds.df,
-                           site = "Zarza de Montanchez",
-                           decor = "Zarza De Montanchez",
-                           doss = dataDir,
-                           nd.var = "type")
+named_elements(lgrph[[4]], focus = "edges", nd.var="type")
 ```
 
 Employed with the basic R functions for loop (`lapply()`), count (`table()`) and order (`order()`), and removing the the suffix `#`, this function can be used to count the different types of edge.  Here, we enumerate the most represented types:
 
 ```{r count.all, warning=FALSE}
-all.edges <- lapply(lgrph, 
-                    function(x) named_elements(x, focus = "edges",
-                                               nd.var="type"))
-edges.list <- gsub("#", "", unlist(all.edges))
-all.edges.ct <- as.data.frame(table(edges.list))
-all.edges.ct <- all.edges.ct[with(all.edges.ct, order(-Freq)), ] 
-knitr::kable(head(all.edges.ct), row.names = F) %>%
+all.edges <- unlist(lapply(lgrph, named_elements, 
+                           focus = "edges", nd.var="type", disamb.marker=""))
+edges.count <- as.data.frame(table(all.edges))
+edges.order <- order(edges.count$Freq, decreasing = TRUE)
+edges.count <- edges.count[edges.order, ] 
+knitr::kable(head(edges.count), row.names = FALSE) %>%
   kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
 
-#### ***normal* edges** {#ed.type.norm}
+#### ***Normal* edges** {#ed.type.norm}
 
 The *normal* edges are undirected:  `1-=-2` is equal to `2-=-1`, node 1 and node 2 are two different *main* nodes. Different *main* nodes considerated to be contemporaneous and close to one another, may share an edge with the  value `=` (textual notation: `-=-`) for their `type`. By convention, these edges are called *normal* and displayed as a plain line.
 
-```{r graph.normal.plot.type,  out.width="100%", fig.align="center", warning=FALSE, fig.cap="Brozas stelae (decoration 3) with only *normal* edges: all the composition elements seem contemporaneous"}
-nds.df <- read_nds(site = "Brozas", 
-                   decor = "Brozas",
-                   doss = dataDir)
-eds.df <- read_eds(site = "Brozas",
-                   decor = "Brozas",
-                   doss = dataDir)
-img.graph.id <- plot_dec_grph(nodes = nds.df,
-                              edges = eds.df,
-                              site = "Brozas",
-                              decor = "Brozas",
-                              lbl.size = 2,
-                              doss = dataDir)
-img.graph.type <- plot_dec_grph(nodes = nds.df,
-                                edges = eds.df,
-                                site = "Brozas",
-                                decor = "Brozas",
-                                lbl.size = 2,
-                                nd.var = 'type',
-                                doss = dataDir)
-magick::image_append(c(magick::image_read(img.graph.id),
-                       magick::image_read(img.graph.type)))
+```{r graph.normal.plot.type,  out.width="100%", fig.width=16, fig.asp=0.55, fig.align="center", warning=FALSE, fig.cap="Brozas stelae (decoration 3) with only *normal* edges: all the composition elements seem contemporaneous"}
+site <- "Brozas"
+decor <- "Brozas"
+nds.df <- read_nds(site, decor, dataDir)
+eds.df <- read_eds(site, decor, dataDir)
+par(mfrow = c(1,2))
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir,
+              lbl.size = 0.8,
+              img.format = NULL)
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir,
+              nd.var = 'type',
+              lbl.size = 0.6,
+              img.format = NULL)
 ```
-&nbsp;
-  
+
 For example, all the edges of the Brozas stelae are  *normal*:
 
 ```{r count2, warning=FALSE}
 sort(named_elements(lgrph[[3]], focus = "edges", nd.var = "type"))
 ```
   
-#### ***attribute* edges** {#ed.type.attrib}
+#### ***Attribute* edges** {#ed.type.attrib}
 
 When a node is an attribute of another, edges are identified with a `+` (textual notation: `-+-`) and displayed with a dashed line.  The *attribute* edges are directed: `1-+-2` is not equal to `2-+-1`, `1-+-2` means that node 1 is the *main* node and node 2 is one of its *attribute* nodes. For example, at the bottom of the Zarza de Montsanchez stelae (decoration 4), the main node 7 (`chariot`) is connected with four (4) attribute nodes:
 
@@ -355,69 +343,51 @@ When a node is an attribute of another, edges are identified with a `+` (textual
 - two wheels (`roue`): 10 and 11 
 
 
-```{r graph.attribute.plot.type, out.width="100%", fig.align="center", warning=FALSE, fig.cap="Zarza De Montanchez stelae (decoration 4) showing *normal* and *attribute* edges"}
-nds.df <- read_nds(site = "Zarza de Montanchez", 
-                   decor = "Zarza De Montanchez",
-                   doss = dataDir)
-eds.df <- read_eds(site = "Zarza de Montanchez",
-                   decor = "Zarza De Montanchez",
-                   doss = dataDir)
-img.graph.id <- plot_dec_grph(nodes = nds.df,
-                              edges = eds.df,
-                              site = "Zarza de Montanchez",
-                              decor = "Zarza De Montanchez",
-                              ed.lwd = 2,
-                              ed.color = c("darkorange"),
-                              lbl.size = 1.5,
-                              doss = dataDir)
-img.graph.type <- plot_dec_grph(nodes = NULL,
-                                edges = eds.df,
-                                site = "Zarza de Montanchez",
-                                decor = "Zarza De Montanchez",
-                                ed.lwd = 2,
-                                ed.color = c("darkorange"),
-                                nd.var = 'type',
-                                doss = dataDir)
-magick::image_append(c(magick::image_read(img.graph.id),
-                       magick::image_read(img.graph.type)))
+```{r graph.attribute.plot.type, out.width="100%", fig.width=16, fig.asp=0.55, fig.align="center", warning=FALSE, fig.cap="Zarza De Montanchez stelae (decoration 4) showing *normal* and *attribute* edges"}
+site <- "Zarza de Montanchez" 
+decor <- "Zarza De Montanchez"
+nds.df <- read_nds(site, decor, dataDir)
+eds.df <- read_eds(site, decor, dataDir)
+par(mfrow = c(1,2))
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir,
+              ed.lwd = 2, ed.color = c("darkorange"),
+              lbl.size = 0.8,
+              img.format = NULL)
+plot_dec_grph(nodes = NULL, eds.df, imgs,
+              site, decor, dataDir,
+              ed.lwd = 2, ed.color = c("darkorange"),
+              img.format = NULL)
 ```
-&nbsp;
-  
-#### ***diachronic* edges** {#ed.type.over}
+
+#### ***Diachronic* edges** {#ed.type.over}
 
 When a node overlaps another or is more recent than another, edges are identified with a `>` (textual notation: `->-`) and displayed with a blue plain line. The *diachronic* edges are directed: `1->-2` is not equal to `2->-1`, `1->-2` means that node 1 overlaps node 2, or node 1 is more recent than node 2. For example, the Ibahernando stelae has a latin inscription (`écriture`) overlapping a spear (`lance`) and a shield (`bouclier`).
 
 
-```{r graph.overlap.plot.type, out.width="100%", fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae (decoration 5) showing *normal* and *diachronic* edges"}
-nds.df <- read_nds(site = "Ibahernando", 
-                   decor = "Ibahernando",
-                   doss = dataDir)
-eds.df <- read_eds(site = "Ibahernando",
-                   decor = "Ibahernando",
-                   doss = dataDir)
-img.graph.id <- plot_dec_grph(nodes = nds.df,
-                           edges = eds.df,
-                           site = "Ibahernando",
-                           decor = "Ibahernando",
-                           lbl.size = 2,
-                           doss = dataDir)
-img.graph.type <- plot_dec_grph(nodes = nds.df,
-                           edges = eds.df,
-                           site = "Ibahernando",
-                           decor = "Ibahernando",
-                           nd.var = 'type',
-                           lbl.size = 2,
-                           doss = dataDir)
-magick::image_append(c(magick::image_read(img.graph.id),
-                       magick::image_read(img.graph.type)))
+```{r graph.overlap.plot.type, out.width="100%", fig.width=16, fig.asp=0.55, fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae (decoration 5) showing *normal* and *diachronic* edges"}
+site <- "Ibahernando"
+decor <- "Ibahernando"
+nds.df <- read_nds(site, decor, dataDir)
+eds.df <- read_eds(site, decor, dataDir)
+par(mfrow = c(1,2))
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir,
+              lbl.size = 0.8,
+              img.format = NULL)
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir,
+              nd.var = 'type',
+              lbl.size = 0.6,
+              img.format = NULL)
 ```
 
 ```{r count3, warning=FALSE}
-sort(named_elements(lgrph[[5]], focus = "edges", nd.var = "type"))
+named_elements(lgrph[[5]], focus = "edges", nd.var = "type")
 ```
-&nbsp;
-  
+
 These overlappings, or diachronic iconographical layers, can be managed with the `contemp_nds()` function (see the section [Contemporaneous contents](#contemp))
+
 
 # Functions {#functions}
 
@@ -431,40 +401,31 @@ cat(ls("package:iconr"), sep="\n")
 
 The graphical functions `plot_dec_grph()` and `plot_compar()` allow different choices for the color and size of the nodes, edges or labels. For example, the nodes and edges of `Cerro Muriano 1`, and the field `type` used for the label can be selected instead of the default `id` field (identifier of the node)
 
-```{r img.graph.plot.type, out.width="60%", fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 stelae (decoration 1) with the type of each GU"}
-nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = dataDir)
-eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = dataDir)
-img.graph <- plot_dec_grph(nodes = nds.df,
-                           edges = eds.df,
-                           site = "Cerro Muriano",
-                           decor = "Cerro Muriano 1",
+```{r img.graph.plot.type, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 stelae (decoration 1) with the type of each GU"}
+site <- "Cerro Muriano"
+decor <- "Cerro Muriano 1"
+nds.df <- read_nds(site, decor, dataDir)
+eds.df <- read_eds(site, decor, dataDir)
+img.graph <- plot_dec_grph(nds.df, eds.df, imgs,
+                           site, decor, dataDir,
                            nd.var = 'type',
-                           lbl.size = 1.8,
-                           doss = dataDir)
-magick::image_read(img.graph)
+                           lbl.size = 0.55,
+                           img.format = NULL)
 ```
-&nbsp;
-  
-A new field, `long_cm`, is added to the Cerro Muriano 1 nodes and the graph is replotted using this field instead of the `type` field, with <span style="color:brown">brown</span> colors and label bigger sizes
 
-```{r img.graph.plot.id, out.width="60%", fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 stelae (decoration 1) with the maximum length (in cm) of each GU"}
-nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = dataDir)
-nds.df$long_cm <- c(47, 9, 47, 18, 7, 3, 13)
-eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1", doss = dataDir)
-img.graph <- plot_dec_grph(nodes = nds.df,
-                           edges = eds.df,
-                           site = "Cerro Muriano",
-                           decor = "Cerro Muriano 1",
+A new field, `long_cm`, is added to the Cerro Muriano 1 nodes and the graph is replotted using this field instead of the `type` field, with <span style="color:brown">brown</span> colors and larger labels.
+
+```{r img.graph.plot.id, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 stelae (decoration 1) with the maximum length (in cm) of each GU"}
+nds.df$long_cm <- paste0(c(47, 9, 47, 18, 7, 3, 13), "cm")
+img.graph <- plot_dec_grph(nds.df, eds.df, imgs,
+                           site, decor, dataDir,
                            nd.var = 'long_cm',
                            nd.color = "brown",
-                           lbl.color = "brown",
+                           lbl.color = "brown", lbl.size = 0.8,
                            ed.color = "brown",
-                           lbl.size = 2.5,
-                           doss = dataDir)
-magick::image_read(img.graph)
+                           img.format = NULL)
 ```
-&nbsp;
-  
+
 ## Compare {#compare}
 
 Elements of the graphs (nodes and edges) can be compared across all graphs or between a pair of graphs with the `same_elements()` and `plot_compar()` functions
@@ -492,22 +453,17 @@ df.same_nodes <- same_elements(lgrph,
                                nd.var = "type")
 diag(df.same_nodes) <- cell_spec(diag(df.same_nodes),
                                  font_size = 9)
-knitr::kable(df.same_nodes, row.names = TRUE, escape = F, table.attr = "style='width:30%;'",
-             caption = "count of common nodes between decorations") %>%
+knitr::kable(df.same_nodes, row.names = TRUE, escape = FALSE, table.attr = "style='width:30%;'",
+             caption = "Count of common nodes between decorations") %>%
   column_spec(1, bold=TRUE) %>%
   kableExtra::kable_styling(position = "center", font_size = 12)
 ```
-&nbsp;
-  
-The result of `same_elements()` is a symetrical dataframe where row names and column headers are the identifiers of the decorations:
 
-* cells of the dataframe show the total number of common nodes by pairs of decorations  
+The result of `same_elements()` is a symmetric matrix giving the number of common nodes for each pair of decorations, where the row and column names are the identifiers of the decorations. Observe that, accordingly, the diagonal elements show the total number of nodes of each decoration.
 
-* the diagonal of the dataframe shows the total number of nodes of a given decoration
+Regarding the node variable `type`, the decoration 4 has twelve (12) nodes, has nine (9) common nodes with the decoration 2, and has four (4) common nodes with the decoration 3. This matrix can be used for further [clustering analysis](#sum.class)
 
-Regarding the node `type` variable, the decoration 4 has twelve (12) nodes, has nine (9) common nodes with the decoration 2, and has four (4) common nodes with the decoration 3. This matrix can be used for further [clustering analysis](#sum.class)
-
-To compare graphically the decorations 2, 3 and 4 on the `type` variable:
+To compare graphically the decorations 2, 3 and 4 on the node variable `type`:
 
 * first: `type` variable is pasted to the `list_compar()` function  
 
@@ -524,15 +480,14 @@ edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs, nodes, edges)
 g.compar <- list_compar(lgrph, nd.var = "type")
 nds_compar <- plot_compar(listg = g.compar, 
-                          graph2 = dec.to.compare,
+                          dec2comp = dec.to.compare,
                           focus = "nodes",
                           nd.size = c(0.5, 1.5),
-                          doss = dataDir)
+                          dir = dataDir)
 knitr::include_graphics(nds_compar) 
 ```
-&nbsp;
-  
-The function creates an image for each pair of stelae contained in the `dec.to.compare` variable (`r dec.to.compare`), with a focus on nodes (`focus = "nodes"`). That is to say $\frac{n!}{(n-2)!2!}$ pairwise comparisons, when `n` is the number of compared decorations. Then, to compare each pair of the five (5) decorations in the training dataset, there are 10 possible comparisons.
+
+The function creates an image for each pair of stelae contained in the `dec.to.compare` variable (`r dec.to.compare`), with a focus on nodes (`focus = "nodes"`). Thus, if $n$ decorations are compared, it results in $n\choose 2$ $\frac{n!}{(n-2)!2!}$ pairwise comparison images. For instance, if all 5 decorations in the example dataset are compared, there will be 10 pairwise comparisons.
 
 ### Edge comparisons
 
@@ -550,12 +505,11 @@ df.same_edges <- same_elements(lgrph, nd.var = "type", focus = "edges")
 diag(df.same_edges) <- cell_spec(diag(df.same_edges),
                                  font_size = 9)
 knitr::kable(df.same_edges, row.names = TRUE, escape = F, table.attr = "style='width:30%;'",
-             caption = "count of common edges between decorations") %>%
+             caption = "Count of common edges between decorations") %>%
   column_spec(1, bold=TRUE) %>%
   kableExtra::kable_styling(position = "center", font_size = 12)
 ```
-&nbsp;
-  
+
 In this dataframe:
 
 * cells show the total number of common edges by decoration  
@@ -563,6 +517,9 @@ In this dataframe:
 * the diagonal of the dataframe shows is the total number of edges of a given decoration  
 
 Here, the decoration 2 has fifteen (15) edges and shares three (3) common edges with the decoration 3. To show them, and the decoration 4, we use the `list_compar()` function on the same variable (`type`) and the `plot_compar()` function with an edge focus (`focus = "edges"`).
+
+This matrix can be used for further [clustering analysis](#sum.class)
+
 
 ```{r compare.2.edges, out.width = "700px", fig.align="center", warning=FALSE}
 dec.to.compare <- c(2, 3, 4)
@@ -575,14 +532,12 @@ edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs, nodes, edges)
 g.compar <- list_compar(lgrph, nd.var = "type")
 eds_compar <- plot_compar(listg = g.compar, 
-                          graph2 = dec.to.compare,
+                          dec2comp = dec.to.compare,
                           focus = "edges",
                           nd.size = c(0.5, 1.7),
-                          doss = dataDir)
+                          dir = dataDir)
 knitr::include_graphics(eds_compar) 
 ```
-
-This matrix can be used for further [clustering analysis](#sum.class)
 
 ## Contemporaneous elements {#contemp}
 
@@ -597,80 +552,56 @@ At times some nodes are non-contemporaneous with one another, like on the Ibaher
 The writing (`ecriture`, node 1) has been carved over a spear (`lance`, node 2) and overlaps partially a V-notched shield (`bouclier`, node 3). The edges between node 1 and node 2, and the edge between node 1 and node 3, are *diachronic* edges
 
 
-```{r ibahernando, out.width="60%", fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae (decoration 5) with only *normal* edges, node 1  overlaps node 2 and node 3"}
-nds.df <- read_nds(site = "Ibahernando", 
-                   decor = "Ibahernando",
-                   doss = dataDir)
-eds.df <- read_eds(site = "Ibahernando",
-                   decor = "Ibahernando",
-                   doss = dataDir)
-img.graph <- plot_dec_grph(nodes = nds.df,
-                           edges = eds.df,
-                           site = "Ibahernando",
-                           decor = "Ibahernando",
-                           lbl.size = 2,
-                           doss = dataDir)
-magick::image_read(img.graph)
+```{r ibahernando, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae (decoration 5) with only *normal* edges, node 1  overlaps node 2 and node 3"}
+site <- "Ibahernando" 
+decor <- "Ibahernando"
+nds.df <- read_nds(site, decor, dataDir)
+eds.df <- read_eds(site, decor, dataDir)
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir,
+              lbl.size = 0.8,
+              img.format = NULL)
 ```
-&nbsp;
-  
-In this case, the non-contemporaneous layers of decoration, both for nodes and edges, should be removed before the comparison process. To do so, the original graph (1-component) will be split into different sub-graphs (n-component) by selecting `>` edges (see [*diachronic* edges](#ed.type.over)). The studied graph component will be retrieved with the component membership of a selected node.  
+
+In this case, the non-contemporaneous layers of decoration, both nodes and edges, should be removed before the comparison process. To that purpose, the original graph (1-component) can be split into different contemporaneous sub-graphs. By removing the [*diachronic* edges](#ed.type.over) (`>`), the graph is split into connected components, each including the synchronic nodes of a different period. The studied graph component will be retrieved with the component membership of a selected node.  
   
 To study only the Late Bronze Age iconographic layer of the Ibahernando steale, we can choose the Late Bronze Age node 4, the image of a sword (`epee`) dated to the middle and final stages of Late Bronze Age (ca 1250-950 BC). This node is believed to be contemporaneous with the spear (`lance`, node 2) and the shield (`bouclier`, node 3) so these three nodes are linked with [*normal* edges ](#ed.type.norm). We pass the node 4 to the parameters of the `contemp_nds()` function: 
 
-```{r rm.writing, out.width="100%", fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae before and after the selection of node 4 (sword) graph component"}
+```{r rm.writing, out.width="100%", fig.width=16, fig.asp=0.55, fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae before and after the selection of node 4 (sword) graph component"}
+site = "Ibahernando"
+decor = "Ibahernando"
 selected.nd <- 4
-nds.df <- read_nds(site = "Ibahernando", 
-                   decor = "Ibahernando",
-                   doss = dataDir)
-eds.df <- read_eds(site = "Ibahernando",
-                   decor = "Ibahernando",
-                   doss = dataDir)
+nds.df <- read_nds(site, decor, dataDir)
+eds.df <- read_eds(site, decor, dataDir)
 l_dec_df <- contemp_nds(nds.df, eds.df, selected.nd)
-Ibahernando <- plot_dec_grph(nodes = nds.df,
-                             edges = eds.df,
-                             site = "Ibahernando",
-                             decor = "Ibahernando",
-                             nd.var = "type",
-                             lbl.color = "brown",
-                             lbl.size = 2.2,
-                             doss = dataDir)
-Ibahernando.img <- magick::image_read(Ibahernando)
-Ibahernando.contemp <- plot_dec_grph(nodes = l_dec_df[[1]],
-                                     edges = l_dec_df[[2]],
-                                     site = "Ibahernando",
-                                     decor = "Ibahernando",
-                                     nd.var = "type",
-                                     lbl.color = "brown",
-                                     lbl.size = 2.2,
-                                     doss = dataDir)
-Ibahernando.contemp.img <- magick::image_read(Ibahernando.contemp)
-magick::image_append(c(Ibahernando.img, Ibahernando.contemp.img))
+par(mfrow=c(1,2))
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir,
+              nd.var = "type",
+              lbl.color = "brown", lbl.size = 0.6,
+              img.format = NULL)
+plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
+              site, decor, dataDir,
+              nd.var = "type",
+              lbl.color = "brown", lbl.size = 0.6,
+              img.format = NULL)
 ```
-&nbsp;
-  
+
 Epigraphers, on the other hand, will want to study only the iconographic layer with the Latin writing. By selecting node 1 (`ecriture`), only the graph component of this node will be retained:
 
 ```{r ibahernando.lat, out.width="60%", fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae after the selection of node 1 (writing) graph component"}
 selected.nd <- 1
-nds.df <- read_nds(site = "Ibahernando", 
-                   decor = "Ibahernando",
-                   doss = dataDir)
-eds.df <- read_eds(site = "Ibahernando",
-                   decor = "Ibahernando",
-                   doss = dataDir)
+site <- "Ibahernando"
+decor <- "Ibahernando"
+nds.df <- read_nds(site, decor, dir = dataDir)
+eds.df <- read_eds(site, decor, dir = dataDir)
 l_dec_df <- contemp_nds(nds.df, eds.df, selected.nd)
-img.graph <- plot_dec_grph(nodes = l_dec_df[[1]],
-                           edges = l_dec_df[[2]],
-                           site = "Ibahernando",
-                           decor = "Ibahernando",
+img.graph <- plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
+                           site, decor, dir = dataDir,
                            nd.var = "type",
-                           lbl.size = 2,
-                           lbl.color = "brown",
-                           doss = dataDir)
+                           lbl.size = 0.6, lbl.color = "brown")
 magick::image_read(img.graph)
 ```
-&nbsp;
 
 
 # Summary {#sum}
@@ -689,11 +620,10 @@ dist.nodes <- dist(as.matrix(df.same_nodes), method = "euclidean")
 dist.edges <- dist(as.matrix(df.same_edges), method = "euclidean")
 hc.nds <- hclust(dist.nodes, method = "ward.D")
 hc.eds <- hclust(dist.edges, method = "ward.D") 
-plot(hc.nds, main = "common nodes", cex = .8)
-plot(hc.eds, main = "common edges", cex = .8)
+plot(hc.nds, main = "Common nodes", cex = .8)
+plot(hc.eds, main = "Common edges", cex = .8)
 ```
-&nbsp;
-  
+
 Clustering of decorations on common nodes and  clustering on common edges can be directly compared to one another:
 
 ```{r hclust.compar, warning=FALSE, fig.align="center", fig.width=7}
@@ -705,14 +635,13 @@ dend.eds <- as.dendrogram(hc.eds)
 dendlist(dend.nds, dend.eds) %>%
   untangle(method = "step1side") %>% 
   tanglegram(columns_width = c(6, 1, 6),
-             main_left = "common nodes",
-             main_right = "common edges",
+             main_left = "Common nodes",
+             main_right = "Common edges",
              lab.cex = 1.3,
              cex_main = 1.5,
              highlight_branches_lwd = F) 
 ```
-&nbsp;
-  
+
   
 In both clusterings, the Brozas stelae (decoration 3) and the Ibahernando stelae (decoration 5) are the ones having the most important proximities (ie the least Euclidian distance)
 
@@ -720,15 +649,15 @@ In both clusterings, the Brozas stelae (decoration 3) and the Ibahernando stelae
 dec.to.compare <- c(3, 5)
 g.compar <- list_compar(lgrph, nd.var = "type")
 nds_compar <- plot_compar(listg = g.compar, 
-                          graph2 = dec.to.compare,
+                          dec2comp = dec.to.compare,
                           focus = "nodes",
                           nd.size = c(0.5, 1.7),
-                          doss = dataDir)
+                          dir = dataDir)
 eds_compar <- plot_compar(listg = g.compar, 
-                          graph2 = dec.to.compare,
+                          dec2comp = dec.to.compare,
                           focus = "edges",
                           nd.size = c(0.5, 1.7),
-                          doss = dataDir)
+                          dir = dataDir)
 knitr::include_graphics(nds_compar)
 knitr::include_graphics(eds_compar) 
 ```
@@ -778,13 +707,10 @@ Using the *diachronic* edge notation, tree structure can also be used to constru
 library(data.tree)
 lgrph <- list_dec(imgs, nodes, edges)
 edges.iba <- igraph::as_data_frame(lgrph[[5]], what="edges")
-overlap.nodes <- unlist(unique(edges.iba[edges.iba$type == ">", "from"]))
-overlap.nodes <- unique(as.character(overlap.nodes))
-contemp.nodes <- unlist(unique(edges.iba[edges.iba$type == "=", c("from","to")]))
-contemp.nodes <- unique(as.character(contemp.nodes))
+overlap.nodes <- unique(edges.iba[edges.iba$type == ">", "from"])
+contemp.nodes <- unique(unlist(edges.iba[edges.iba$type == "=", c("from","to")]))
 df.stratig <- data.frame(over = rep(overlap.nodes, length(contemp.nodes)),
-                            under = contemp.nodes)
-
+                         under = contemp.nodes)
 df.stratig$pathString <- paste(lgrph[[5]]$decor,
                                df.stratig$over, 
                                df.stratig$under, 
