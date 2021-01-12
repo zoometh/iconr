@@ -1,53 +1,99 @@
-side_plot <- function(grph, doss, nd.var, focus = "nodes",
+side_plot <- function(grph, dir, nd.var, focus = "nodes",
                       nd.color = c("orange", "red"), nd.size = c(0.5, 1),
                       ed.color = c("orange", "red"), ed.width = c(1, 2),
                       lbl.size = 0.5) {
-  dec.img <- magick::image_read(paste0(doss, "/", grph$img))
-  # add the decoration name, site and decor
-  dec.img <- magick::image_annotate(dec.img,
-                                    paste0(grph$name, "\n",
-                                           grph$site, "\n",
-                                           grph$decor),
-                                    gravity = "northwest", size = 20)
-  # add the nd.vars
-  dec.img <- magick::image_annotate(dec.img, nd.var,
-                                    gravity = "northeast", size = 20)
-  drawing.decor <- grDevices::as.raster(dec.img)
-  graphics::plot(drawing.decor)
-  offset.img <- nrow(drawing.decor)  # offset depends on raster size
-
   igraph::V(grph)$name <- 1:igraph::gorder(grph)
-  g.nodes <- igraph::as_data_frame(grph, what = "vertices")
-  g.nodes$y <- g.nodes$y + offset.img  # add the offset
-  g.edges <- igraph::as_data_frame(grph)
-  ed.type <- ifelse(g.edges$type %in% c("+"), "21", "solid")
+  nodes <- igraph::as_data_frame(grph, what = "vertices")
+  edges <- igraph::as_data_frame(grph)
+  # Set edge positions
+  edg.vert <- unlist(edges[, c("from","to")])
+  edges[, c("xa", "xb", "ya", "yb")] <- unlist(nodes[edg.vert, c("x", "y")])
 
   if (focus == "nodes") {
-    nodes.group <- g.nodes$comm + 1
-    edges.group <- rep(1, nrow(g.edges))
+    nodes.group <- nodes$comm + 1
+    edges.group <- rep(1, nrow(edges))
   } else if (focus == "edges") {
-    comm.eds.subgr <- igraph::subgraph.edges(grph, which(g.edges$comm == 1))
+    comm.eds.subgr <- igraph::subgraph.edges(grph, which(edges$comm == 1))
     nodes.group <- as.numeric(
-      g.nodes$name %in% igraph::V(comm.eds.subgr)$name) + 1
-    edges.group <- g.edges$comm + 1
-  } else {
-    nodes.group <- rep(1, nrow(g.nodes))
-    edges.group <- rep(1, nrow(g.edges))
+      nodes$name %in% igraph::V(comm.eds.subgr)$name) + 1
+    edges.group <- edges$comm + 1
   }
-
-  for (edg in 1:nrow(g.edges)) {
-    edg.vert <- as.numeric(g.edges[edg, c("from","to")]) # Edge vertices.
-    graphics::lines(g.nodes$x[edg.vert],
-                    g.nodes$y[edg.vert],
-                    lty = ed.type[edg],
-                    lwd = ed.width[edges.group[edg]],
-                    col = ed.color[edges.group[edg]])
-  }
-  graphics::points(g.nodes$x, g.nodes$y, pch = 16,
-                   cex = nd.size[nodes.group],
-                   col = nd.color[nodes.group])
+  edges$lty <- ifelse(edges$type %in% c("+"), "21", "solid")
+  edges$col <- ed.color[edges.group]
+  edges$lwd <- ed.width[edges.group]
+  nodes$cex <- nd.size[nodes.group]
+  nodes$lbl.col <- nodes$col <- nd.color[nodes.group]
+  nodes$lbl.cex <- lbl.size
   # Get common nodes to plot labels
-  nds.lbl <- g.nodes[nodes.group == 2, ]
-  labels_shadow(nds.lbl$x, nds.lbl$y, labels = nds.lbl[, nd.var],
-                col = nd.color[2], bg = "white", cex = lbl.size, r = 0.15)
+  lbl.nds <- nodes.group == 2
+
+  dec.img <- magick::image_read(paste0(dir, "/", grph$img))
+
+  draw_graph(nodes, edges, lbl.nds,
+             nd.var, dec.img,
+             paste0(grph$name, "\n", grph$site, "\n", grph$decor))
+}
+
+draw_edges <- function(edges, offset) {
+  if(is.null(edges) || nrow(edges) == 0) return()
+  edges$lwd <- edges$lwd * scale_factor()
+  edges[, c("ya", "yb")] <- edges[, c("ya", "yb")] + offset
+  for (edg in 1:nrow(edges)) {
+    graphics::lines(edges[edg, c("xa", "xb")],
+                    edges[edg, c("ya", "yb")],
+                    lty = edges$lty[edg],
+                    lwd = edges$lwd[edg],
+                    col = edges$col[edg])
+  }
+}
+
+draw_nodes <- function(nodes, lbl.nds, nd.var, offset) {
+  if(is.null(nodes) || nrow(nodes) == 0) return()
+  nodes$y <- nodes$y + offset
+  graphics::points(nodes$x, nodes$y, pch = 16,
+                   cex = nodes$cex,
+                   col = nodes$col)
+  labels <- nodes[lbl.nds, ]
+  labels_shadow(labels$x, labels$y, labels = labels[, nd.var],
+                col = labels$lbl.col, bg = "white",
+                cex = labels$lbl.cex, r = 0.15, adj = c(0.5, -0.2))
+}
+
+annotate_dec <- function(dec.img, title, nd.var) {
+  # Add the decoration name, site and decor at the top-left corner:
+  graphics::text(1, magick::image_info(dec.img)$height - 4,
+                 title,
+                 cex = 0.5, adj = c(0, 1))
+  # Add the nd.vars at the top-right corner:
+  graphics::text(magick::image_info(dec.img)$width - 1,
+                 magick::image_info(dec.img)$height - 4,
+                 nd.var, cex = 0.5, adj = c(1, 1))
+}
+
+
+draw_graph <- function(nodes, edges, lbl.nds,
+                       nd.var, dec.img, title) {
+  graphics::plot(dec.img)
+  graphics::par(cex = scale_factor())
+
+  annotate_dec(dec.img, title, nd.var)
+
+  # The y-coordinate requires to be added the image offset
+  offset <- magick::image_info(dec.img)$height
+
+  draw_edges(edges, offset)
+  draw_nodes(nodes, lbl.nds, nd.var, offset)
+}
+
+scale_factor <- function() {
+  # The text, labels and point sizes have been calibrated with the plot size
+  # used in plot_compar() and plot_dec_graph() (height=7cm). In case it is
+  # used with different sizes a global cex variable is defined dependent on
+  # plot height to make them appear with the same relative sizes.
+  # The plot width is secondarily taken into account. If plot aspect ratio
+  # is above 750/666, then the sizes are further corrected considering the
+  # plot width instead of the height.
+  dec.asp <- dev.size()[2]/dev.size()[1]
+  exp.dec.asp <- 750/(666*par("mfrow")[2])
+  return(dev.size(units = "cm")[1] * min(dec.asp, exp.dec.asp) / 7)
 }
