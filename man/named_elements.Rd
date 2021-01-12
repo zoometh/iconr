@@ -8,7 +8,8 @@
 \usage{
   named_elements(grph,
                  focus = "edges",
-                 nd.var = "type")
+                 nd.var = "type",
+                 disamb.marker = "#")
 }
 \arguments{
   \item{grph}{
@@ -23,17 +24,23 @@
     The attribute of the graph nodes containing the node variable (ie, field)
     for the textual anotation. By default \code{nd.var = "type"}.
   }
+  \item{disamb.marker}{
+    Marker used to dissambiguate repeated elements.
+    By default \code{disamb.marker = "#"}.
+  }
 }
 \details{
-  Edges of type \code{'='} (\emph{normal} edges) are \strong{undirected}, so that the order of
-  their nodes is irrelevant and they are presented in alphabetical order.
-  Conversely, edges of types \code{'+'} (\emph{attribute} edges) and \code{'>'} (\emph{diachronic} edges)
-  are \strong{directed}, so that the given order of nodes is preserved.
+  Edges of type \code{'='} (\emph{normal} edges) are \strong{undirected}, so
+  that the order of their nodes is irrelevant and they are presented in
+  alphabetical order.
+  Conversely, edges of types \code{'+'} (\emph{attribute} edges) and \code{'>'}
+  (\emph{diachronic} edges) are \strong{directed}, so that the given order of
+  nodes is preserved.
 
   Repeated node or edge names are
-  disambiguated by appending the symbol \code{'#'} at the end of the
-  second appearance (suffix). Subsequent appearances are marked
-  by additional \code{'#'}s.
+  disambiguated by appending the symbol \code{disamb.marker} (\code{'#'} by
+  default) at the end of the second appearance (suffix). Subsequent appearances
+  are marked by additional \code{disamb.marker}s.
 }
 \value{
   A character vector of named nodes or edges.
@@ -46,11 +53,11 @@
 \examples{
 # Read data
 imgs <- read.table(system.file("extdata", "imgs.tsv", package = "iconr"),
-                   sep="\t",stringsAsFactors = FALSE)
+                   sep="\t", stringsAsFactors = FALSE)
 nodes <- read.table(system.file("extdata", "nodes.tsv", package = "iconr"),
-                    sep="\t",stringsAsFactors = FALSE)
+                    sep="\t", stringsAsFactors = FALSE)
 edges <- read.table(system.file("extdata", "edges.tsv", package = "iconr"),
-                    sep="\t",stringsAsFactors = FALSE)
+                    sep="\t", stringsAsFactors = FALSE)
 
 # Generate list of graphs from the three data.frames
 lgrph <- list_dec(imgs, nodes, edges)
