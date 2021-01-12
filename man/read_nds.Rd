@@ -7,7 +7,7 @@
 \usage{
 read_nds(site,
         decor,
-        doss = getwd(),
+        dir = getwd(),
         nodes = "nodes",
         dev = ".tsv")
 }
@@ -18,7 +18,7 @@ read_nds(site,
   \item{decor}{
       Name of the decoration
   }
-  \item{doss}{
+  \item{dir}{
       Path to the working folder, by default it is the working directory
   }
   \item{nodes}{
@@ -37,7 +37,7 @@ dataDir <- system.file("extdata", package = "iconr")
 
 # Read dataframe of nodes
 nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1",
-                    doss = dataDir, dev = ".tsv")
+                    dir = dataDir, dev = ".tsv")
 nds.df
 
 #            site           decor id          type        x         y
@@ -51,7 +51,7 @@ nds.df
 
 # Read shapefile of nodes
 nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1",
-                    doss = dataDir, dev = ".shp")
+                    dir = dataDir, dev = ".shp")
 nds.df
 
 #            site           decor id          type        x         y
