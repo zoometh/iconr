@@ -1,5 +1,6 @@
 #' @export
-named_elements <- function(grph, focus = "edges", nd.var = "type") {
+named_elements <- function(grph, focus = "edges", nd.var = "type",
+                           disamb.marker = "#") {
   # grph <- lgrph[[4]]
   elements <- c()
   if(focus == "edges"){
@@ -21,12 +22,14 @@ named_elements <- function(grph, focus = "edges", nd.var = "type") {
   } else {
     stop(paste0("focus must be \"nodes\" or \"edges\"."))
   }
-  return(disambiguate_duplicates(elements))
+  return(disambiguate_duplicates(elements, disamb.marker))
 }
 
 disambiguate_duplicates <- function(x, marker = "#") {
-  while(any(dup <- duplicated(x))) {
-    x[dup] <- paste0(x[dup], marker)
+  if(marker != "") {
+    while(any(dup <- duplicated(x))) {
+      x[dup] <- paste0(x[dup], marker)
+    }
   }
   return(x)
 }

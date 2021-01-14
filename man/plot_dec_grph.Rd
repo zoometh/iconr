@@ -2,94 +2,123 @@
 \alias{plot_dec_grph}
 \title{Plot a Graph on a Decoration}
 \description{
-  Plot with nodes only, edges only, or both (geometric graph) over a decoration image
+  Plot with nodes only, edges only, or both (geometric graph) over a decoration image.
 }
 \usage{
 plot_dec_grph(nodes = NULL,
               edges = NULL,
+              imgs,
               site,
               decor,
-              doss = getwd(),
+              dir = getwd(),
               nd.var = 'id',
               nd.color = 'orange',
-              nd.size = 1.7,
+              nd.size = 0.5,
               lbl.color = 'black',
-              lbl.size = 1.2,
+              lbl.size = 0.5,
               ed.color = c("orange", "blue"),
-              ed.lwd = 4,
-              img.format = "png")
+              ed.lwd = 1,
+              dir.out = dir,
+              out.file.name = NULL,
+              img.format = "png",
+              res = 300)
 }
 \arguments{
   \item{nodes}{
     Dataframe of nodes
 }
-    \item{edges}{
+  \item{edges}{
     Dataframe of edges
 }
-        \item{site}{
+  \item{imgs}{
+    Dataframe of decorations
+}
+  \item{site}{
     Name of the site
 }
-          \item{decor}{
+  \item{decor}{
     Name of the decoration
 }
-        \item{doss}{
-    Path of the working folder, by default the working directory
+  \item{dir}{
+    Data folder including the decoration images.
+    By default the working directory.
 }
-              \item{nd.var}{
-    Fieldname of the nodes that will be displayed, by default the identifier \code{nodes$id}
+  \item{nd.var}{
+    Field name in the nodes data frame to be displayed as node labels.
+    By default the identifier \code{nodes$id}.
 }
-              \item{nd.color,
-                    nd.size,
-                    lbl.color,
-                    lbl.size,
-                    ed.color,
-                    ed.lwd}{
-    Graphical parameters for node and/or edges colors, size, label size, etc.
+  \item{nd.color,
+        nd.size,
+        lbl.color,
+        lbl.size,
+        ed.color,
+        ed.lwd}{
+    Graphical parameters for color and size/widths of nodes, edges, and labels.
+    \code{ed.color} is a vector with two values (the second value is used for diachronic
+    edges).
 }
-  \item{img.format}{
-      Format and resolution of the saved images. The handled formats are \code{"png"} (default), \code{"bmp"}, \code{"tiff"}/\code{"tif"}, \code{"jpeg"}/\code{"jpg"}, and \code{"pdf"}.
+  \item{dir.out}{
+    Folder for the output image. By default, it coincides with the input \code{dir}.
+}
+  \item{out.file.name}{
+    Name of the output image, including path from current directory and extension.
+    By default the name is automatically generated including \code{site},
+    \code{decor}, \code{nd.var}, and the extension from \code{img.format}.
+
+    If set, \code{out.file.name} overrides \code{dir.out} and \code{img.format}.
+}
+  \item{img.format, res}{
+      Format and resolution of the saved images. The handled formats are
+      \code{"png"} (default), \code{"bmp"}, \code{"tiff"}/\code{"tif"},
+      \code{"jpeg"}/\code{"jpg"}, and \code{"pdf"}.
+      The default resolution is 300 (ppi). The resolution does not applies to format pdf.
+
+      if \code{img.format=NULL}, the plot is sent to the active device.
   }
 }
 \details{
-  Plot \strong{nodes only} (\code{edges = NULL} or \code{eds.df} is null), \strong{edges only} (\code{nodes = NULL} or \code{eds.df} is null), or both (graph) over a decoration image
-
-
+  Plot \strong{nodes only} (if \code{edges = NULL}), \strong{edges only} (if \code{nodes = NULL}), or both (graph) over a decoration image.
 }
 \value{
-  Create a R 'magick-image' with nodes, edges, or both, overlapping the decoration image
+   Generates and save images in the indicated format with nodes, edges, or both, overlapping the decoration image. The return value is a character vector with the dir/name of the saved image.
+
+   If \code{img.format=NULL}, the plot is sent to the active device and no value is returned.
 }
 
 \examples{
 # Set data folder
 dataDir <- system.file("extdata", package = "iconr")
+# Decoration to be plotted
+site <- "Brozas"
+decor <- "Brozas"
+# Read nodes, edges, and decorations
+nds.df <- read_nds(site, decor, dataDir)
+eds.df <- read_eds(site, decor, dataDir)
+imgs <- read.table(paste0(dataDir, "/imgs.tsv"),
+                   sep="\t", stringsAsFactors = FALSE)
 
-# Read nodes and edges
-nds.df <- read_nds( site = "Brozas", decor = "Brozas",
-                    doss = dataDir, dev = ".tsv")
-eds.df <- read_eds(	site = "Brozas", decor = "Brozas",
-                    doss = dataDir, dev = ".tsv")
+# Save the plot of nodes and edges with node variable "type" as labels
+# in the default image format (png) and return the image file name.
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor,
+              dir = dataDir,
+              nd.var = "type")
 
-# Save nodes and edges of 'Cerro Muriano 1' with nodes' "type" as labels
-# with the default image format (png) in a new file and return the path
-img.graph <- plot_dec_grph(nodes = nds.df,
-                           edges = eds.df,
-                           site = "Brozas",
-                           decor = "Brozas",
-                           doss = dataDir,
-                           nd.var = "type")
-img.graph
-
-# Save only edges of 'Cerro Muriano 1' with smaller widths
-# with a new image format (jpg) in a new file,
-# and open the file with 'magick::image_read()'
-img.graph <- plot_dec_grph(nodes = NULL,
-                           edges = eds.df,
-                           site = "Brozas",
-                           decor = "Brozas",
-                           doss = dataDir,
+# Save only edges of 'Brozas' with smaller widths and in image format jpg.
+# Then read and plot the image.
+img.filename <- plot_dec_grph(nodes = NULL, eds.df, imgs,
+                           site, decor,
+                           dir = dataDir,
                            ed.lwd = 2,
                            img.format = "jpg")
-magick::image_read(img.graph)
+magick::image_read(img.filename)
+
+# Plot directly on the active device.
+plot_dec_grph(nodes = NULL, eds.df, imgs,
+              site, decor,
+              dir = dataDir,
+              ed.lwd = 2,
+              img.format = NULL)
 }
 
 \keyword{ ~kwd1 graph}% use one of  RShowDoc("KEYWORDS")

@@ -5,25 +5,28 @@
   Given a list of pairwise graph comparisons, the function plots any given subset selected by graph name, displaying side-by-side pairs of graphs and highlighting common nodes or common edges with a choice of several graphical parameters.
 }
 \usage{
-  plot_compar(listg, graph2 = NULL, focus = "nodes",
-              doss = getwd(),
+  plot_compar(listg, dec2comp = NULL, focus = "nodes",
+              dir = getwd(),
               nd.color = c("orange", "red"), nd.size = c(0.5, 1),
               ed.color = c("orange", "red"), ed.width = c(1, 2),
-              lbl.size = 0.5, img.format = "png", res = 300)
+              lbl.size = 0.5,
+              dir.out = dir, out.file.name = NULL,
+              img.format = "png", res = 300)
 }
 \arguments{
   \item{listg}{
-      A list of graph pairwise comparisons returned by \code{\link[iconr]{list_compar}}.
+      A list of graph pairwise comparisons as returned by \code{\link[iconr]{list_compar}}.
   }
-  \item{graph2}{
+  \item{dec2comp}{
       A vector with the names of the graphs for which comparisons are to be plotted.
     The user can select to plot all pairwise combinations (by default), all combinations of a subset, or a single pair.
   }
   \item{focus}{
       Either \code{"nodes"} (default) or \code{"edges"}. It selects the type of comparison to be plotted, highlighting common nodes or common edges, respectively.
   }
-  \item{doss}{
-      The working directory containing the decoration images. The default is the current directory (\code{getwd()}).
+  \item{dir}{
+    Data folder including the decoration images.
+    By default the working directory.
   }
   \item{nd.color, nd.size, ed.color, ed.width}{
     Graphical parameters for color and size/widths of nodes and edges.
@@ -33,22 +36,41 @@
     For \code{focus = "nodes"} all edges are plotted with the first value of \code{ed.color} and \code{ed.width}.
   }
   \item{lbl.size}{
-      Graphical parameter for the size of the labels with the node names. The default is 0.4.
+      Graphical parameter for the size of the labels with the node names. The default is 0.5.
   }
+  \item{dir.out}{
+    Folder for the output image. By default, it coincides with the input \code{dir}.
+}
+  \item{out.file.name}{
+    Name of the output image, including path from current directory and extension.
+    By default the name is automatically generated including \code{site},
+    \code{decor}, \code{nd.var}, and the extension from \code{img.format}.
+
+    If set, \code{out.file.name} overrides \code{dir.out} and \code{img.format}.
+}
   \item{img.format, res}{
-      Format and resolution of the saved images. The handled formats are \code{"png"} (default), \code{"bmp"}, \code{"tiff"}/\code{"tif"}, \code{"jpeg"}/\code{"jpg"}, and \code{"pdf"}.
+      Format and resolution of the saved images. The handled formats are
+      \code{"png"} (default), \code{"bmp"}, \code{"tiff"}/\code{"tif"},
+      \code{"jpeg"}/\code{"jpg"}, and \code{"pdf"}.
       The default resolution is 300 (ppi). The resolution does not applies to format pdf.
+
+      if \code{img.format=NULL}, the plot is sent to the active device.
   }
 }
 \details{
   To highlight common elements between a list of graphs, the user can focus on nodes \code{(focus = "nodes")} or edges \code{(focus = "edges")}. As stated in the function \code{\link[iconr]{list_compar}}, for a given comparison variable (eg. \code{nd.var="type"}) if there is multiple nodes/edges with the same value, it is considered to count for as many coincidences as the smaller multiplicity.
+
+  \code{img.format=NULL} (plot to the active device) does not make sense for
+  more than one comparison.
 }
 \value{
-   Generates and save images in the indicated format for pairwise comparisons between two or more decorations, comparing graphs elements (nodes or edges). The return value is a character vector with the path/name of every saved image.
+   Generates and save images in the indicated format for pairwise comparisons between two or more decorations, comparing graphs elements (nodes or edges). The return value is a character vector with the dir/name of every saved image.
+
+   If \code{img.format=NULL}, the plot is sent to the active device and no value is returned.
 }
 \seealso{
   \code{\link[iconr]{list_compar}}
-  \code{\link[iconr]{side_plot}}
+  \code{\link[iconr]{plot_dec_grph}}
 }
 
 \examples{
@@ -66,33 +88,39 @@ lgrph <- list_dec(imgs, nodes, edges)
 # Generate all pairwise comparisons of the graphs with respect to nodes "type"
 g.compar <- list_compar(lgrph, nd.var="type")
 
-# Return the path of the image showing the comparison on common nodes of graphs '1' and '4',
-# and save it as png (default)
+# Return the path of the image showing the comparison on common nodes of graphs
+# '1' and '4', and save it as png (default)
 plot_compar(g.compar, c(1,4), focus = "nodes",
-            doss = system.file("extdata", package = "iconr"))
+            dir = system.file("extdata", package = "iconr"))
 
-# Return the path of the image showing the comparison on common edges of graphs '1' and '4',
-# and save it as jpeg. Plot all nodes and node labels in brown.
+# Return the path of the image showing the comparison on common edges of graphs
+# '1' and '4', and save it as jpeg. Plot all nodes and node labels in brown.
 plot_compar(g.compar, c(1,4), focus = "edges",
-            doss = system.file("extdata", package = "iconr"),
+            dir = system.file("extdata", package = "iconr"),
             nd.color = "brown",
             img.format = "jpg")
 
-# Return the path of the image showing the comparison on common edges of all pairwise combinations
-# of graphs '1','3', and '4', and save them as pdf.
+# Return the path of the image showing the comparison on common edges of all
+# pairwise combinations of graphs '1','3', and '4', and save them as pdf.
 # Save the plot of nodes involved in non-common edges in orange and
 # nodes involved in common edges and the corresponding labels in brown.
 plot_compar(g.compar, c(1, 3, 4), focus = "edges",
-            doss = system.file("extdata", package = "iconr"),
+            dir = system.file("extdata", package = "iconr"),
             nd.color = c("orange", "brown"),
             img.format = "pdf")
 
-# Return the path of the image showing the comparison on common nodes of graphs '1' and '4',
-# and save it as png (default),
-# and plot the image
+# Save the png (default) image showing the comparison on common nodes of graphs
+# '1' and '4'.
+# Then read and plot the image.
 p <- plot_compar(g.compar, c(1, 4), focus = "nodes",
-            doss = system.file("extdata", package = "iconr"))
+            dir = system.file("extdata", package = "iconr"))
 plot(magick::image_read(p))
+
+# Plot directly on the active device the comparison on common nodes of graphs
+# '1' and '4'.
+plot_compar(g.compar, c(1, 4), focus = "nodes",
+            dir = system.file("extdata", package = "iconr"),
+            img.format = NULL)
 }
 
 \keyword{ ~kwd1 graph}% use one of  RShowDoc("KEYWORDS")

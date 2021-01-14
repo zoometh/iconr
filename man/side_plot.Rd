@@ -5,7 +5,7 @@
   Plot two decoration graphs side-by-side identifying common nodes and common edges. This function is called by the function \code{\link[iconr]{plot_compar}}.
 }
 \usage{
-side_plot(grph, doss, nd.var, focus = "nodes",
+side_plot(grph, dir, nd.var, focus = "nodes",
           nd.color = c("orange", "red"),
           nd.size = c(0.5, 1),
           ed.color = c("orange", "red"),
@@ -16,7 +16,7 @@ side_plot(grph, doss, nd.var, focus = "nodes",
         \item{grph}{
     List of two or more 'igraph' graphs created with the \code{\link[iconr]{list_compar}} function.
 }
-          \item{doss}{
+          \item{dir}{
     Working directory which contains the imgs, nodes, edges dataframes and the decoration images.
 }
             \item{nd.var}{

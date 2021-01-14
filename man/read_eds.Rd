@@ -7,7 +7,7 @@
 \usage{
 read_eds(site,
          decor,
-         doss = getwd(),
+         dir = getwd(),
          edges = "edges",
          nodes = "nodes",
          dev = ".tsv")
@@ -19,7 +19,7 @@ read_eds(site,
           \item{decor}{
     Name of the decoration
 }
-        \item{doss}{
+        \item{dir}{
     Path to the working folder, by default it is the working directory
 }
             \item{edges}{
@@ -46,7 +46,7 @@ dataDir <- system.file("extdata", package = "iconr")
 
 # Read .tsv file
 eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1",
-                   doss = dataDir, edges = "edges", dev = ".tsv")
+                   dir = dataDir, edges = "edges", dev = ".tsv")
 eds.df
 #          site           decor a b type       xa        ya       xb        yb
 # 1 Cerro Muriano Cerro Muriano 1 1 8    = 349.8148 -298.3244 451.1489 -237.4782
@@ -60,7 +60,7 @@ eds.df
 
 # Read shapefile
 eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1",
-                   doss = dataDir, edges = "edges", dev = ".shp")
+                   dir = dataDir, edges = "edges", dev = ".shp")
 eds.df
 #          site           decor a b type       xa        ya       xb        yb
 # 1 Cerro Muriano Cerro Muriano 1 1 8    = 349.8148 -298.3244 451.1489 -237.4782
