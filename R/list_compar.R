@@ -15,8 +15,8 @@ list_compar <- function(lgrph, nd.var = "type",
                     "' and '", lgrph[[idx.g[2]]]$name, "'")
       print(paste0("    ", dec, ") ", tit))
     }
-    grph <- iconr::eds_compar(lgrph[idx.g], nd.var)
-    grph <- iconr::nds_compar(grph, nd.var)
+    grph <- eds_compar(lgrph[idx.g], nd.var)
+    grph <- nds_compar(grph, nd.var)
     attributes(grph)$nd.var <- nd.var
     grphAllcompar[[dec]] <- grph
   }
