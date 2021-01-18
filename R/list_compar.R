@@ -3,7 +3,7 @@ list_compar <- function(lgrph, nd.var = "type",
                         verbose = FALSE) {
   # Get the vertex names of each graph of the graph list.
   # lgrph <- c(1,4)
-  ldec.comp <- utils::combn(seq_len(length(lgrph)), 2)  # all pairwise comparisons
+  ldec.comp <- utils::combn(seq_len(length(lgrph)), 2)
   if (verbose) {
     print(paste0("there is ", ncol(ldec.comp),
                  " pairwise comparisons to compute"))
