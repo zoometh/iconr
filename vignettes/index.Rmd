@@ -4,14 +4,14 @@ author: "Thomas Huet, Jose M Pozo, Craig Alexander"
 email: "thomashuet7@gmail.com"
 date: "`r format(Sys.Date())`"
 bibliography: references.bib
-# # to create the vignettes 'outside' the package, with table of content (toc)
+## to create the vignettes 'outside' the package, with table of content (toc)
 # output:
 #   html_document:
 #     toc: true
 #     toc_float:
 #       collapsed: false
 #       smooth_scroll: false
-# to create the vignettes 'inside' the package, without table of content (toc)
+## to create the vignettes 'inside' the package, without table of content (toc)
 output:
   rmarkdown::html_vignette
 vignette: >
@@ -163,7 +163,7 @@ imgs <- read.table(imgs_path, sep="\t", stringsAsFactors = FALSE)
 knitr::kable(imgs, "html") %>% 
   kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
-
+  
 The decoration's unique identifiers are the concatenation of the site name and the decoration name. For example, the name of the Cerrano Muriano 1 decoration is: ``r imgs[1,"img"]``. 
 
 ## Images {#drawings}
@@ -183,7 +183,7 @@ knitr::kable(df.equi) %>%
   kableExtra::add_header_above(c(" " = 1, " " = 1, " " = 1, "axes orientation" = 2)) %>%
   kable_styling(full_width = F)
 ``` 
-
+  
 Observe that the y-axis orientation are different between the GIS interface and R grids. In the GIS the y-axis is oriented upwards (ie, with negative values downwards), while in a R grid the y-axis is oriented downwards (ie, with positive values downwards). Then, the heights (ie, y-axis) coming from the GIS have to be inverted. This can be illustrated with the `magick` package.
 
 ```{r drawing, out.width="50%", fig.align="center", warning=FALSE, echo=TRUE, message=FALSE, fig.cap="\\label{fig:figs}R grid conformed to the GIS coordinates: `Cerro_Muriano.Cerro_Muriano_1.jpg` with the coordinates of its corners."}
@@ -226,7 +226,7 @@ nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1", dir = data
 knitr::kable(nds.df, "html") %>% 
   kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
-
+  
 In principle, the nodes are defined to be located at the exact centroids of each GU. However, for practical reasons, they can also be manually located close to these centroids.  
 
 ### Nodes types {#nd.type}
@@ -256,7 +256,7 @@ knitr::kable(head(edges), "html", align = "llccc") %>%
                             font_size=12) %>%
   gsub("\\+", "$+$", .)
 ```
-
+  
 Analogously to nodes, any of these formats is consistently read by the function `iconr::read_eds()` generating a data.frame with the edges data. Additionally, this function includes columns with the coordinates of the edge nodes:
 
 * **xa**: x-coordinate of the first node of each edge
@@ -272,7 +272,7 @@ knitr::kable(head(eds.df), "html", align = "llcccrrrr") %>%
   kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12) %>%
   gsub("\\+", "$+$", .)
 ```
-
+  
 **column names** 
 
 * `type` : [edges types](#ed.type)  
@@ -319,7 +319,7 @@ edges.count <- edges.count[edges.order, ]
 knitr::kable(head(edges.count), row.names = FALSE) %>%
   kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12)
 ```
-
+  
 #### ***Normal* edges** {#ed.type.norm}
 
 Different *main* nodes considerated to be contemporaneous and close to one another, may share an edge with the  value `=` for their `type`. By convention, these edges are called *normal* and displayed as a plain line.
@@ -340,7 +340,7 @@ plot_dec_grph(nds.df, eds.df, imgs,
               lbl.size = 0.6,
               img.format = NULL)
 ```
-
+  
 The textual notation of a *normal* edge is `-=-`:
 
 ```{r count2_norm, warning=FALSE}
@@ -356,7 +356,6 @@ When a node is an attribute of another, edges are identified with a `+` and disp
 - two horses (`cheval`): 8 and 9  
 
 - two wheels (`roue`): 10 and 11 
-
 
 ```{r graph.attribute.plot.type, out.width="100%", fig.width=16, fig.asp=0.55, fig.align="center", warning=FALSE, fig.cap="Zarza De Montanchez stelae (decoration 4) showing *attribute* and *normal* edges"}
 site <- "Zarza de Montanchez" 
@@ -374,7 +373,7 @@ plot_dec_grph(nodes = NULL, eds.df, imgs,
               ed.lwd = 2, ed.color = c("darkorange"),
               img.format = NULL)
 ```
-
+  
 The textual notation of an *attribute* edge is `-+-`:
 
 ```{r count_att, warning=FALSE}
@@ -383,11 +382,9 @@ sort(named_elements(lgrph[[4]], focus = "edges", nd.var = "type"))
   
 The *attribute* edges are directed: `1-+-2` is not equal to `2-+-1`, `1-+-2` means that node 1 is the *main* node and node 2 is one of its *attribute* nodes. 
  
- 
 #### ***Diachronic* edges** {#ed.type.over}
 
-When a node overlaps another or is more recent than another, edges are identified with a `>` and displayed with a blue plain line. For example, the Ibahernando stelae has a latin inscription (`ecriture`) overlapping a spear (`lance`) and a shield (`bouclier`).
-
+When a node overlaps another or is more recent than another, edges are identified with a `>` and displayed with a blue plain line. For example, the Ibahernando stelae has a latin inscription (`ecriture`) overlapping a spear (`lance`) and a shield (`bouclier`).  
 
 ```{r graph.overlap.plot.type, out.width="100%", fig.width=16, fig.asp=0.55, fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae (decoration 5) showing *diachronic* and *normal* edges"}
 site <- "Ibahernando"
@@ -405,19 +402,18 @@ plot_dec_grph(nds.df, eds.df, imgs,
               lbl.size = 0.6,
               img.format = NULL)
 ```
-
+  
 The textual notation of an *diachronic* edge is `->-`:
 
 ```{r count3, warning=FALSE}
 named_elements(lgrph[[5]], focus = "edges", nd.var = "type")
 ```
 
-The *diachronic* edges are directed: `1->-2` is not equal to `2->-1`. The `1->-2` edge means that node 1 overlaps node 2, or node 1 is more recent than node 2. These overlappings, or diachronic iconographical layers, can be managed with the `contemp_nds()` function (see the section [Contemporaneous contents](#contemp))
-
+The *diachronic* edges are directed: `1->-2` is not equal to `2->-1`. The `1->-2` edge means that node 1 overlaps node 2, or node 1 is more recent than node 2. These overlappings, or diachronic iconographical layers, can be managed with the `contemp_nds()` function (see the section [Contemporaneous contents](#contemp))  
 
 # Functions {#functions}
 
-Decoration graphs are constructed from nodes and edges. Graphs are 1-component: each decoration graph covers all the GUs of the decoration. The functions of the `iconr` package provide basic tools to manage these [node data](#nd) (`.csv`, `.tsv` or `.shp`) and [edge data](#ed) (`.csv`, `.tsv` or `.shp`) to create graphs, to [plot](#plot) and to [compare](#compare) them, to select [contemporaneous GU compositions](#contemp)
+Decoration graphs are constructed from nodes and edges. Graphs are 1-component: each decoration graph covers all the GUs of the decoration. The functions of the `iconr` package provide basic tools to manage these [node data](#nd) (`.csv`, `.tsv` or `.shp`) and [edge data](#ed) (`.csv`, `.tsv` or `.shp`) to create graphs, to [plot](#plot) and to [compare](#compare) them, to select [contemporaneous GU compositions](#contemp)  
 
 ```{r ls_functions}
 cat(ls("package:iconr"), sep="\n")
@@ -438,7 +434,7 @@ img.graph <- plot_dec_grph(nds.df, eds.df, imgs,
                            lbl.size = 0.55,
                            img.format = NULL)
 ```
-
+  
 A new field, `long_cm`, is added to the Cerro Muriano 1 nodes and the graph is replotted using this field instead of the `type` field, with <span style="color:brown">brown</span> colors and larger labels.
 
 ```{r img.graph.plot.id, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 stelae (decoration 1) with the maximum length (in cm) of each GU"}
@@ -451,7 +447,7 @@ img.graph <- plot_dec_grph(nds.df, eds.df, imgs,
                            ed.color = "brown",
                            img.format = NULL)
 ```
-
+  
 ## Compare {#compare}
 
 Elements of the graphs (nodes and edges) can be compared across all graphs or between a pair of graphs with the `same_elements()` and `plot_compar()` functions
@@ -484,7 +480,7 @@ knitr::kable(df.same_nodes, row.names = TRUE, escape = FALSE, table.attr = "styl
   column_spec(1, bold=TRUE) %>%
   kableExtra::kable_styling(position = "center", font_size = 12)
 ```
-
+  
 The result of `same_elements()` is a symmetric matrix giving the number of common nodes for each pair of decorations, where the row and column names are the identifiers of the decorations. Observe that, accordingly, the diagonal elements show the total number of nodes of each decoration.
 
 Regarding the node variable `type`, the decoration 4 has a total twelve (12) nodes (see the diagonal). Decoration 4 and decoration 2 have nine (9) common nodes. Decoration 4 and decoration 3 have four (4) common nodes. This matrix can be used for further [clustering analysis](#sum.class)
@@ -505,7 +501,7 @@ nds_compar <- plot_compar(listg = g.compar,
                           dir = dataDir)
 knitr::include_graphics(nds_compar) 
 ```
-
+  
 The function creates an image for each pair of stelae contained in the `dec.to.compare` variable (`r dec.to.compare`), with a focus on nodes (`focus = "nodes"`). Thus, if $n$ decorations are compared, it results in $n\choose 2$ $\frac{n!}{(n-2)!2!}$ pairwise comparison images. For instance, if all 5 decorations in the example dataset are compared, there will be 10 pairwise comparisons.
 
 ### Edge comparisons
@@ -530,8 +526,7 @@ In this dataframe:
 
 Here, the decoration 2 has fifteen (15) edges and shares three (3) common edges with the decoration 3. To show them, and the decoration 4, we use the `list_compar()` function on the same variable (`type`) and the `plot_compar()` function with an edge focus (`focus = "edges"`).
 
-This matrix can be used for further [clustering analysis](#sum.class)
-
+This matrix can be used for further [clustering analysis](#sum.class)  
 
 ```{r compare.2.edges, out.width = "700px", fig.align="center", warning=FALSE}
 dec.to.compare <- c(2, 3, 4)
@@ -543,7 +538,7 @@ eds_compar <- plot_compar(listg = g.compar,
                           dir = dataDir)
 knitr::include_graphics(eds_compar) 
 ```
-
+  
 ## Contemporaneous elements {#contemp}
 
 At times some nodes are non-contemporaneous with one another, like on the Ibahernando stelae. This stelae was reused as a funerary stelae during Roman times with the addition of a Latin insciption "*Alloquiu protaeidi.f hece. stitus*": Alluquio, son of Protacido, lies here [@Almagro66b].
@@ -554,8 +549,7 @@ At times some nodes are non-contemporaneous with one another, like on the Ibaher
 
 </center>
 
-The writing (`ecriture`, node 1) has been carved over a spear (`lance`, node 2) and overlaps partially a V-notched shield (`bouclier`, node 3). The edges between node 1 and node 2, and the edge between node 1 and node 3, are *diachronic* edges
-
+The writing (`ecriture`, node 1) has been carved over a spear (`lance`, node 2) and overlaps partially a V-notched shield (`bouclier`, node 3). The edges between node 1 and node 2, and the edge between node 1 and node 3, are *diachronic* edges  
 
 ```{r ibahernando, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae (decoration 5) with *diachronic* and *normal* edges, node 1 overlaps node 2 and node 3"}
 site <- "Ibahernando" 
@@ -567,7 +561,7 @@ plot_dec_grph(nds.df, eds.df, imgs,
               lbl.size = 0.7,
               img.format = NULL)
 ```
-
+  
 In this case, the non-contemporaneous layers of decoration, both nodes and edges, should be removed before the comparison process. To that purpose, the original graph (1-component) can be split into different contemporaneous sub-graphs. By removing the [*diachronic* edges](#ed.type.over) (`->-`), the graph is split into connected components, each including the synchronic nodes of a different period. The studied graph component will be retrieved with the component membership of a selected node.  
   
 To study only the Late Bronze Age iconographic layer of the Ibahernando steale, we can choose the Late Bronze Age node 4, the image of a sword (`epee`) dated to the middle and final stages of Late Bronze Age (ca 1250-950 BC). This node is believed to be contemporaneous with the spear (`lance`, node 2) and the shield (`bouclier`, node 3) so these three nodes are linked with [*normal* edges ](#ed.type.norm). We pass the node 4 to the parameters of the `contemp_nds()` function: 
@@ -590,7 +584,7 @@ plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
               lbl.color = "brown", lbl.size = 0.6,
               img.format = NULL)
 ```
-
+  
 On the other hand, epigraphers will only want to study the iconographic layer with the Latin writing. By selecting node 1 (`ecriture`), only the graph component of this node will be retained:
 
 ```{r ibahernando.lat, out.width="60%", fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae after the selection of node 1 (writing) graph component"}
@@ -604,8 +598,7 @@ img.graph <- plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
                            lbl.size = 0.6, lbl.color = "brown")
 magick::image_read(img.graph)
 ```
-
-
+  
 # Summary {#sum}
 
 The flexibility of graph theory and tools available for the GIS database make the `iconr` package useful in managing, plotting and comparing (potentially large) sets of iconographic content.  
@@ -643,7 +636,6 @@ dendlist(dend.nds, dend.eds) %>%
              cex_main = 1.5,
              highlight_branches_lwd = F) 
 ```
-
   
 In both clusterings, the Brozas stelae (decoration 3) and the Ibahernando stelae (decoration 5) are the ones having the most important proximities (ie, the least Euclidian distance). The 'Common edges' clustering is more accurate than the 'Common nodes' clustering because the former takes into account the common combination, or common permutation, of two nodes with the type of their edge, while the latter only takes into account the presence of common nodes.
 
@@ -700,7 +692,7 @@ plot(g,
      edge.arrow.size = 0.5
      )
 ```
-
+  
 Such a formalism can be used to weight the differences between nodes, to conduct analysis with different levels of precision or to overcome issues of idiosynchratic typologies.
 
 Using the *diachronic* edge notation, tree structure can also be used to construct relative chronology diagrams, similar to a Harris matrix. For example, with the `data.tree` package and the Ibahernado stelae (decoration 5):
