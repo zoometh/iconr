@@ -28,7 +28,7 @@ labels_shadow(x, y = NULL, labels,
         \item{theta}{
     Angles for generating the buffer with possible anisotropy along one
     direction (default is isotropic)
-    and controling buffer smoothness (angular resolution).
+    and controlling buffer smoothness (angular resolution).
 }
         \item{r}{
     Thickness of the buffer relative to the size of the used font, by default 0.1.

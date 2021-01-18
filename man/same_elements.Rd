@@ -28,7 +28,7 @@ same_elements(lgrph, nd.var = "type",
 }
 }
 \value{
-  A symetric matrix with the counts of the pairwise coincidences of nodes or edges. The matrix has as row and column names the names of the corresponding graphs in the input list.
+  A symmetric matrix with the counts of the pairwise coincidences of nodes or edges. The matrix has as row and column names the names of the corresponding graphs in the input list.
 }
 \seealso{
   \code{\link[iconr]{list_dec}},

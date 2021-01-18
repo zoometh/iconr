@@ -22,10 +22,10 @@
   }
   \item{nd.var}{
     The attribute of the graph nodes containing the node variable (ie, field)
-    for the textual anotation. By default \code{nd.var = "type"}.
+    for the textual annotation. By default \code{nd.var = "type"}.
   }
   \item{disamb.marker}{
-    Marker used to dissambiguate repeated elements.
+    Marker used to disambiguated repeated elements.
     By default \code{disamb.marker = "#"}.
   }
 }

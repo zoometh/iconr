@@ -1,5 +1,5 @@
 #' @export
-plot_dec_grph <- function(nodes = NULL, edges = NULL, imgs, 
+plot_dec_grph <- function(nodes = NULL, edges = NULL, imgs,
                           site, decor,
                           dir = getwd(),
                           nd.var = "id",
@@ -21,7 +21,7 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL, imgs,
         out.file.name <- paste0(dir.out, "/", idf, "_", site, "_",
                                 decor, "_", nd.var, ".", img.format)
     } else {
-        img.format = file_extension(out.file.name)
+        img.format <- file_extension(out.file.name)
     }
 
     if (!is.null(edges) && nrow(edges)>0) {

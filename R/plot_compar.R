@@ -24,7 +24,7 @@ plot_compar <- function(listg, dec2comp = NULL, focus = "nodes",
 
   out.list <- character(0)
   out.i <- 0
-  for(i in 1:length(listg)) {
+  for(i in seq_len(length(listg))) {
     g <- listg[[i]]
     g.names <- unlist(lapply(g, function(x) x$name))
     if(is.null(dec2comp) || all(g.names %in% dec2comp)) {
@@ -34,7 +34,7 @@ plot_compar <- function(listg, dec2comp = NULL, focus = "nodes",
         out.list[out.i] <- paste0(dir.out, "/", img.prefix, g.names[1],
                                   "_", g.names[2], ".", img.format)
       } else {
-        img.format = file_extension(out.file.name[out.i])
+        img.format <- file_extension(out.file.name[out.i])
         out.list[out.i] <- out.file.name[out.i]
       }
       com.elm.num <- ifelse(focus == "nodes", sum(igraph::V(g[[1]])$comm),

@@ -38,7 +38,7 @@ draw_edges <- function(edges, offset) {
   if(is.null(edges) || nrow(edges) == 0) return()
   edges$lwd <- edges$lwd * scale_factor()
   edges[, c("ya", "yb")] <- edges[, c("ya", "yb")] + offset
-  for (edg in 1:nrow(edges)) {
+  for (edg in seq_len(nrow(edges))) {
     graphics::lines(edges[edg, c("xa", "xb")],
                     edges[edg, c("ya", "yb")],
                     lty = edges$lty[edg],

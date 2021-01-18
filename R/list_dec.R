@@ -1,7 +1,7 @@
 #' @export
 list_dec <- function(imgs, nodes, edges) {
     lgrph <- list()
-    for (r in 1:nrow(imgs)) {
+    for (r in seq_len(nrow(imgs))) {
         a.enr <- imgs[r, ]
         g.nodes <- nodes[nodes$site == a.enr$site & nodes$decor == a.enr$decor,
                          ! (names(nodes) %in% c("site", "decor"))]

@@ -11,7 +11,7 @@ named_elements <- function(grph, focus = "edges", nd.var = "type",
     grph.eds[c("from", "to")] <-
       grph.nds[unlist(grph.eds[c("from", "to")]), nd.var]
     if (!igraph::is_directed(grph)) {
-      directed.eds = grph.eds$type %in% directed.types
+      directed.eds <- grph.eds$type %in% directed.types
       grph.eds[!directed.eds, c("from","to")] <-
         t(apply(grph.eds[!directed.eds, c("from","to")], 1, sort))
     }

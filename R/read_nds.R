@@ -1,15 +1,16 @@
 #' @export
-read_nds <- function(site, decor, dir = getwd(), nodes = "nodes", dev = ".tsv") {
+read_nds <- function(site, decor,
+                     dir = getwd(), nodes = "nodes", dev = ".tsv") {
     mandatory.columns <- c("site", "decor", "id", "x", "y")
     nds.file <- paste0(dir, "/", nodes, dev)
     if (file.exists(nds.file)) {
         if (dev == ".tsv") {
-            nds.df <- utils::read.table(file = nds.file, sep = "\t", header = TRUE,
-                                        stringsAsFactors = FALSE)
+            nds.df <- utils::read.table(file = nds.file, sep = "\t",
+                                        header = TRUE, stringsAsFactors = FALSE)
         }
         if (dev == ".csv") {
-            nds.df <- utils::read.table(file = nds.file, sep = ";", header = TRUE,
-                                        stringsAsFactors = FALSE)
+            nds.df <- utils::read.table(file = nds.file, sep = ";",
+                                        header = TRUE, stringsAsFactors = FALSE)
         }
         if (dev == ".shp") {
             nds.shp <- rgdal::readOGR(dsn = dir, layer = nodes, verbose = FALSE)

@@ -50,7 +50,7 @@ The R package `iconr` is grounded in graph theory and spatial analysis. It offer
 
 # Decoration graphs  
 
-The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units (GUs). This geometric graph is also known as a planar graph or spatialised graph. The GUs are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). When these GUs are *main* nodes, and not *attribute* nodes, they share edges (`LINES`) with one another when their Voronoi cells share a border (*birel*: touches). 
+The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units (GUs). This geometric graph is also known as a planar graph or spatialized graph. The GUs are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). When these GUs are *main* nodes, and not *attribute* nodes, they share edges (`LINES`) with one another when their Voronoi cells share a border (*birel*: touches). 
   
 ```{r gis, out.width="60%", echo=FALSE, fig.align='center', fig.cap="GIS view of the Cerro Muriano 1 stelae with the Voronoi cells of its GUs, GUs (main nodes) and proximity links between these GUs (edges)"}
 dataDir <- paste0(system.file("extdata", package = "iconr"))
@@ -86,7 +86,7 @@ The input dataset is expected to include decoration images and corresponding nod
 * **[Node data](#nd):** A single file storing the data of each node for all decorations. 
 * **[Edge data](#ed):** A single file storing the data of each edge for all decorations.
 
-The `iconr` package includes an example dataset with the input files in several alternative formats. The path for the example dataset is the package *exdata* folder:
+The `iconr` package includes an example dataset with the input files in several alternative formats. The path for the example dataset is the package *extdata* folder:
 
 ```{r ls_ext_data}
 dataDir <- system.file("extdata", package = "iconr")
@@ -100,9 +100,9 @@ imgs_path <- paste0(dataDir, "/imgs.csv")
 imgs <- read.table(imgs_path, sep=";", stringsAsFactors = FALSE)
 ```
 
-Each decoration is identified by its name (column `decor`) and the name of the site (column `site`) to which it belongs. In the example dataset, this is transparent in the name of each decoration image, included in jpeg format. Any other image format supported by the R package `magick` (jpeg, png, tiff, pdf, etc.) is suitable.
+Each decoration is identified by its name (column `decor`) and the name of the site (column `site`) to which it belongs. In the example dataset, this is transparent in the name of each decoration image, included in jpg format. Any other image format supported by the R package `magick` (jpg, png, tiff, pdf, etc.) is suitable.
 
-As we have stated, a GIS interface is often the most practical way to record graph nodes and graph edges with `POINTS` and `LINES` geometries, respectively. This is typically saved in shapefile (shp) format, which is composed of at least 3 files with extensions `.shp` (geometries), `.shx` (indices), and `dbf` (attribute data). The example dataset includes them for nodes and edges separatelly, with obvious names:
+As we have stated, a GIS interface is often the most practical way to record graph nodes and graph edges with `POINTS` and `LINES` geometries, respectively. This is typically saved in shapefile (shp) format, which is composed of at least 3 files with extensions `.shp` (geometries), `.shx` (indices), and `dbf` (attribute data). The example dataset includes them for nodes and edges separately, with obvious names:
 
 ```{r paths, echo=TRUE}
 nodes_path <- paste0(dataDir, "/nodes.shp")
@@ -130,7 +130,7 @@ g <- lgrph[[1]]
 as.character(class(g))
 ```
 
-By default, the `plot.igraph()` function (ie, `igraph::plot()`) spatialisation (`layout`) is based on `x` and `y` columns, when these exist. This is appropriate in our case since we are working with geometric graphs. If this spatialisation (node coordinates) is ignored, then very different layouts are possible for the same graph (*graph drawing*):
+By default, the `plot.igraph()` function (ie, `igraph::plot()`) spatialization (`layout`) is based on `x` and `y` columns, when these exist. This is appropriate in our case since we are working with geometric graphs. If this spatialisation (node coordinates) is ignored, then very different layouts are possible for the same graph (*graph drawing*):
 
 ```{r igraph.1, warning=FALSE, fig.align="center", fig.width=6.5, fig.asp=0.58}
 par(mar=c(1,0,2,0), mfrow=c(1, 2), cex.main=0.9, font.main= 1)
@@ -235,7 +235,7 @@ Nodes can be *main* nodes or *attribute* nodes depending on the type of edges th
 
 * **main nodes**: the anthropomorph, the spear, the shield, the comb and the ingot can be considered as *main* nodes because they are separated and they show different graphical contents.
 
-* **attribute nodes**: the helmet and the male sex of the anthropomorph can be considered as *attribute* nodes of the anthropomorph because they are characteristic features of this latter.
+* **attribute nodes**: the helmet and the male sex of the antropomorphic figure can be considered as *attribute* nodes of the anthropomorph because they are characteristic features of this latter.
 
 ## Edge data {#ed}
 
@@ -292,7 +292,7 @@ knitr::kable(head(eds.df), "html", align = "llcccrrrr") %>%
 
 Graph theory says that edges can be undirected or directed. In the `iconr` package, by default: 
 
-* all comtemporaneous nodes have [*normal* edges](#ed.type.norm) or [*attribute* edges](#ed.type.attrib)  edges displayed in <span style="color:orange"><b>orange</b></span>
+* all contemporaneous nodes have [*normal* edges](#ed.type.norm) or [*attribute* edges](#ed.type.attrib)  edges displayed in <span style="color:orange"><b>orange</b></span>
 
 * all non-comtemporaneous nodes have [*diachronic* edges](#ed.type.over) displayed in <span style="color:blue"><b>blue</b></span> edges (see [contemporaneous nodes](#contemp))
 
@@ -322,7 +322,7 @@ knitr::kable(head(edges.count), row.names = FALSE) %>%
   
 #### ***Normal* edges** {#ed.type.norm}
 
-Different *main* nodes considerated to be contemporaneous and close to one another, may share an edge with the  value `=` for their `type`. By convention, these edges are called *normal* and displayed as a plain line.
+Different *main* nodes considered to be contemporaneous and close to one another, may share an edge with the  value `=` for their `type`. By convention, these edges are called *normal* and displayed as a plain line.
 
 ```{r graph.normal.plot.type,  out.width="100%", fig.width=16, fig.asp=0.55, fig.align="center", warning=FALSE, fig.cap="Brozas stelae (decoration 3) with only *normal* edges: all the composition elements seem contemporaneous"}
 site <- "Brozas"
@@ -409,7 +409,7 @@ The textual notation of an *diachronic* edge is `->-`:
 named_elements(lgrph[[5]], focus = "edges", nd.var = "type")
 ```
 
-The *diachronic* edges are directed: `1->-2` is not equal to `2->-1`. The `1->-2` edge means that node 1 overlaps node 2, or node 1 is more recent than node 2. These overlappings, or diachronic iconographical layers, can be managed with the `contemp_nds()` function (see the section [Contemporaneous contents](#contemp))  
+The *diachronic* edges are directed: `1->-2` is not equal to `2->-1`. The `1->-2` edge means that node 1 overlaps node 2, or node 1 is more recent than node 2. These overlays, or diachronic iconographic layers, can be managed with the `contemp_nds()` function (see the section [Contemporaneous contents](#contemp))  
 
 # Functions {#functions}
 
@@ -541,7 +541,7 @@ knitr::include_graphics(eds_compar)
   
 ## Contemporaneous elements {#contemp}
 
-At times some nodes are non-contemporaneous with one another, like on the Ibahernando stelae. This stelae was reused as a funerary stelae during Roman times with the addition of a Latin insciption "*Alloquiu protaeidi.f hece. stitus*": Alluquio, son of Protacido, lies here [@Almagro66b].
+At times some nodes are non-contemporaneous with one another, like on the Ibahernando stelae. This stelae was reused as a funerary stelae during Roman times with the addition of a Latin inscription "*Alloquiu protaeidi.f hece. stitus*": Alluquio, son of Protacido, lies here [@Almagro66b].
 
 <center>
 
@@ -564,7 +564,7 @@ plot_dec_grph(nds.df, eds.df, imgs,
   
 In this case, the non-contemporaneous layers of decoration, both nodes and edges, should be removed before the comparison process. To that purpose, the original graph (1-component) can be split into different contemporaneous sub-graphs. By removing the [*diachronic* edges](#ed.type.over) (`->-`), the graph is split into connected components, each including the synchronic nodes of a different period. The studied graph component will be retrieved with the component membership of a selected node.  
   
-To study only the Late Bronze Age iconographic layer of the Ibahernando steale, we can choose the Late Bronze Age node 4, the image of a sword (`epee`) dated to the middle and final stages of Late Bronze Age (ca 1250-950 BC). This node is believed to be contemporaneous with the spear (`lance`, node 2) and the shield (`bouclier`, node 3) so these three nodes are linked with [*normal* edges ](#ed.type.norm). We pass the node 4 to the parameters of the `contemp_nds()` function: 
+To study only the Late Bronze Age iconographic layer of the Ibahernando stelae, we can choose the Late Bronze Age node 4, the image of a sword (`epee`) dated to the middle and final stages of Late Bronze Age (ca 1250-950 BC). This node is believed to be contemporaneous with the spear (`lance`, node 2) and the shield (`bouclier`, node 3) so these three nodes are linked with [*normal* edges ](#ed.type.norm). We pass the node 4 to the parameters of the `contemp_nds()` function: 
 
 ```{r rm.writing, out.width="100%", fig.width=16, fig.asp=0.55, fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae before and after the selection of node 4 (sword) graph component"}
 site <- decor <- "Ibahernando"
@@ -585,7 +585,7 @@ plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
               img.format = NULL)
 ```
   
-On the other hand, epigraphers will only want to study the iconographic layer with the Latin writing. By selecting node 1 (`ecriture`), only the graph component of this node will be retained:
+On the other hand, epigraphists will only want to study the iconographic layer with the Latin writing. By selecting node 1 (`ecriture`), only the graph component of this node will be retained:
 
 ```{r ibahernando.lat, out.width="60%", fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae after the selection of node 1 (writing) graph component"}
 selected.nd <- 1
@@ -695,7 +695,7 @@ plot(g,
   
 Such a formalism can be used to weight the differences between nodes, to conduct analysis with different levels of precision or to overcome issues of idiosynchratic typologies.
 
-Using the *diachronic* edge notation, tree structure can also be used to construct relative chronology diagrams, similar to a Harris matrix. For example, with the `data.tree` package and the Ibahernado stelae (decoration 5):
+Using the *diachronic* edge notation, tree structure can also be used to construct relative chronology diagrams, similar to a Harris matrix. For example, with the `data.tree` package and the Ibahernando stelae (decoration 5):
 
 ```{r overlap, warning=FALSE, out.width="100%"}
 library(data.tree)

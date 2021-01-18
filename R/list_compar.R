@@ -3,12 +3,13 @@ list_compar <- function(lgrph, nd.var = "type",
                         verbose = FALSE) {
   # Get the vertex names of each graph of the graph list.
   # lgrph <- c(1,4)
-  ldec.comp <- utils::combn(1:length(lgrph), 2)  # all pairwise comparisons
+  ldec.comp <- utils::combn(seq_len(length(lgrph)), 2)  # all pairwise comparisons
   if (verbose) {
-    print(paste0("there is ", ncol(ldec.comp), " pairwise comparisons to compute"))
+    print(paste0("there is ", ncol(ldec.comp),
+                 " pairwise comparisons to compute"))
   }
   grphAllcompar <- list()
-  for (dec in 1:ncol(ldec.comp)) {
+  for (dec in seq_len(ncol(ldec.comp))) {
     idx.g <- ldec.comp[, dec]
     if (verbose) {
       tit <- paste0("compare decorations '", lgrph[[idx.g[1]]]$name,
