@@ -93,7 +93,7 @@ scale_factor <- function() {
   # The plot width is secondarily taken into account. If plot aspect ratio
   # is above 750/666, then the sizes are further corrected considering the
   # plot width instead of the height.
-  dec.asp <- dev.size()[2]/dev.size()[1]
-  exp.dec.asp <- 750/(666*par("mfrow")[2])
-  return(dev.size(units = "cm")[1] * min(dec.asp, exp.dec.asp) / 7)
+  dec.asp <- grDevices::dev.size()[2]/grDevices::dev.size()[1]
+  exp.dec.asp <- 750/(666*graphics::par("mfrow")[2])
+  return(grDevices::dev.size(units = "cm")[1] * min(dec.asp, exp.dec.asp) / 7)
 }
