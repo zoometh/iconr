@@ -1,4 +1,4 @@
-<img src="https://travis-ci.org/zoometh/iconr.svg?branch=master&status=passed />
+[![Build Status](https://travis-ci.org/zoometh/iconr.svg?branch=master)](https://travis-ci.org/zoometh/iconr)
           
 # ***iconr*** R package: modeling Prehistoric iconography <img src="/logo/iconr_logo.png" align="right" />
 
