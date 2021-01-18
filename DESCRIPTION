@@ -12,10 +12,8 @@ Imports:
     igraph,
     magick,
     rgdal,
-    reshape2,
     grDevices,
     graphics,
-    methods,
     utils
 Suggests: 
     ggplot2,
