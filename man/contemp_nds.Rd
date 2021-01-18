@@ -34,10 +34,10 @@ dataDir <- system.file("extdata", package = "iconr")
 # Read a decoration
 nds.df <- read_nds(site = "Ibahernando",
                    decor = "Ibahernando",
-                   doss = dataDir)
+                   dir = dataDir)
 eds.df <- read_eds(site = "Ibahernando",
                    decor = "Ibahernando",
-                   doss = dataDir)
+                   dir = dataDir)
 
 # Extract the subgraph contemporaneous to the node 2
 l_dec_df <- contemp_nds(nds.df, eds.df, selected.nd = 2)
