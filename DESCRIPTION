@@ -1,6 +1,6 @@
 Package: iconr
 Title: Graphical and Spatial Analysis for Prehistoric Iconography
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: c(person("Thomas","Huet", role = c("aut","cre"), email = c("thomashuet7@gmail.com"), comment=c(ORCID="0000-0002-1112-6122")),
 	     person("Jose","Pozo", role = c("aut"), email = c("josmpozo@gmail.com"), comment = c(ORCID="0000-0002-0759-3510")),
 	     person("Craig","Alexander", role = c("ctb"), email = c("craiga304@gmail.com"), comment = c(ORCID="0000-0001-7539-6415")))
