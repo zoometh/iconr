@@ -1,4 +1,6 @@
-[![R-CMD-check](https://github.com/zoometh/iconr/workflows/R-CMD-check/badge.svg)](https://github.com/zoometh/iconr/actions)
+  <!-- badges: start -->
+  [![R-CMD-check](https://github.com/zoometh/iconr/workflows/R-CMD-check/badge.svg)](https://github.com/zoometh/iconr/actions)
+  <!-- badges: end -->
 [![Build Status](https://travis-ci.org/zoometh/iconr.svg?branch=master)](https://travis-ci.org/zoometh/iconr)
           
 # ***iconr*** R package: modeling Prehistoric iconography <img src="/logo/iconr_logo.png" align="right" height="50%"/>
