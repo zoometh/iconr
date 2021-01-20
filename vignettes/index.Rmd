@@ -2,22 +2,22 @@
 title: "The ***iconr*** package. Graph Analysis of Prehistoric Iconography with R"
 author: "Thomas Huet, Jose M Pozo, Craig Alexander"
 email: "thomashuet7@gmail.com"
-date: "`r format(Sys.Date())`"
+# date: "`r format(Sys.Date())`"
 bibliography: references.bib
 ## to create the vignettes 'outside' the package, with table of content (toc)
-# output:
-#   html_document:
-#     toc: true
-#     toc_float:
-#       collapsed: false
-#       smooth_scroll: false
-## to create the vignettes 'inside' the package, without table of content (toc)
 output:
-  rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{The ***iconr*** package. Graph Analysis of Prehistoric Iconography with R}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+## to create the vignettes 'inside' the package, without table of content (toc)
+# output:
+#   rmarkdown::html_vignette
+# vignette: >
+#   %\VignetteIndexEntry{The ***iconr*** package. Graph Analysis of Prehistoric Iconography with R}
+#   %\VignetteEngine{knitr::rmarkdown}
+#   %\VignetteEncoding{UTF-8}
 ---
 
 <style>
@@ -43,22 +43,33 @@ knitr::opts_chunk$set(
 )
 ibahernando.path <- paste0(getwd(),"/img/ibahernando.png")
 brozas.path <- paste0(getwd(),"/img/brozas.png")
+solanas.path <- paste0(getwd(),"/img/solana_detail.png")
+solanas.vor.path <- paste0(getwd(),"/img/solana_voronoi.png")
 ```
-
   
 The R package `iconr` is grounded in graph theory and spatial analysis. It offers concepts and functions for modeling Prehistoric iconographic compositions and for their preparation for further analysis (clustering, Harris diagram, etc.) in order to contribute to cross-cultural iconography comparison studies through a greater normalization of quantitative analysis [@Alexander08; @HuetAlexander15; @Huet18a].  
 
+<center>
+
+![Detail of the Solana de Cabanas stelae (Caceres, Spain) dated to the Late Bronze Age](`r solanas.path`){width=220px}
+
+</center>
+  
+The flexibility of graph theory and tools available for the GIS database make the `iconr` package useful in managing, plotting and comparing (potentially large) sets of iconographic content
+  
 # Decoration graphs  
 
-The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units (GUs). This geometric graph is also known as a planar graph or spatialized graph. The GUs are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). When these GUs are *main* nodes, and not *attribute* nodes, they share edges (`LINES`) with one another when their Voronoi cells share a border (*birel*: touches). 
-  
-```{r gis, out.width="60%", echo=FALSE, fig.align='center', fig.cap="GIS view of the Cerro Muriano 1 stelae with the Voronoi cells of its GUs, GUs (main nodes) and proximity links between these GUs (edges)"}
-dataDir <- paste0(system.file("extdata", package = "iconr"))
-include_graphics(paste0(dataDir,"/gis.png"))
-```
-  
-Graph theory offers a conceptual framework and indices (global at the entire graph scale, local at the vertex scale) to deal with notions of networks, relationships and neighbourhoods. The geometric graph is commonly built within a GIS interface. Indeed, use of GIS allows one to create a spatial database of the decoration's iconographic contents and facilitates data recording and visualization. For example, snapping options can connect GUs (nodes) with lines (edges) and we can exploit tools such as feature symbology, layer transparency, etc. 
+The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units (GUs). This geometric graph is also known as a planar graph or spatialized graph. The GUs are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). When these GUs are *main* nodes, and not *attribute* nodes, they share edges (`LINES`) with one another when their Voronoi cells share a border (*birel*: touches).  
 
+<center>
+
+![GIS view. The Solana de Cabanas stelae: from its photograph to the modeling of its graphical content](`r solanas.vor.path`){width=900px}
+
+</center>  
+  
+  
+Graph theory offers a conceptual framework and indices (global at the entire graph scale, local at the vertex scale) to deal with notions of networks, relationships and neighbourhoods. The geometric graph is commonly built within a GIS interface. Indeed, use of GIS allows one to create a spatial database of the decoration's iconographic contents and facilitates data recording and visualization. For example, snapping options can connect GUs (nodes) with lines (edges) and we can exploit tools such as feature symbology, layer transparency, etc.  
+  
 The latest development version of the `iconr` package and its vignette can be downloaded from GitHub
 
 ```{r down,eval=FALSE, echo=TRUE}
@@ -322,32 +333,7 @@ knitr::kable(head(edges.count), row.names = FALSE) %>%
   
 #### ***Normal* edges** {#ed.type.norm}
 
-Different *main* nodes considered to be contemporaneous and close to one another, may share an edge with the  value `=` for their `type`. By convention, these edges are called *normal* and displayed as a plain line.
-
-```{r graph.normal.plot.type,  out.width="100%", fig.width=16, fig.asp=0.55, fig.align="center", warning=FALSE, fig.cap="Brozas stelae (decoration 3) with only *normal* edges: all the composition elements seem contemporaneous"}
-site <- "Brozas"
-decor <- "Brozas"
-nds.df <- read_nds(site, decor, dataDir)
-eds.df <- read_eds(site, decor, dataDir)
-par(mfrow = c(1,2))
-plot_dec_grph(nds.df, eds.df, imgs,
-              site, decor, dataDir,
-              lbl.size = 0.7,
-              img.format = NULL)
-plot_dec_grph(nds.df, eds.df, imgs,
-              site, decor, dataDir,
-              nd.var = 'type',
-              lbl.size = 0.6,
-              img.format = NULL)
-```
-  
-The textual notation of a *normal* edge is `-=-`:
-
-```{r count2_norm, warning=FALSE}
-sort(named_elements(lgrph[[3]], focus = "edges", nd.var = "type"))
-```
-  
-The *normal* edges are undirected:  `1-=-2` is equal to `2-=-1`, where node 1 and node 2 are two different *main* nodes.  
+Different *main* nodes considered to be contemporaneous and close to one another, may share an edge with the  value `=` for their `type`. By convention, these edges are called *normal* and displayed as a plain line. Its textual notation is `-=-`. The *normal* edges are undirected:  `1-=-2` is equal to `2-=-1`, where node 1 and node 2 are two different *main* nodes.  
 
 #### ***Attribute* edges** {#ed.type.attrib}
 
@@ -357,20 +343,15 @@ When a node is an attribute of another, edges are identified with a `+` and disp
 
 - two wheels (`roue`): 10 and 11 
 
-```{r graph.attribute.plot.type, out.width="100%", fig.width=16, fig.asp=0.55, fig.align="center", warning=FALSE, fig.cap="Zarza De Montanchez stelae (decoration 4) showing *attribute* and *normal* edges"}
+```{r graph.attribute.plot.type, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Zarza De Montanchez stelae (decoration 4) showing *normal* and *attribute*  edges"}
 site <- "Zarza de Montanchez" 
 decor <- "Zarza De Montanchez"
 nds.df <- read_nds(site, decor, dataDir)
 eds.df <- read_eds(site, decor, dataDir)
-par(mfrow = c(1,2))
 plot_dec_grph(nds.df, eds.df, imgs,
               site, decor, dataDir,
-              ed.lwd = 2, ed.color = c("darkorange"),
+              ed.lwd = 1, ed.color = c("darkorange"),
               lbl.size = 0.7,
-              img.format = NULL)
-plot_dec_grph(nodes = NULL, eds.df, imgs,
-              site, decor, dataDir,
-              ed.lwd = 2, ed.color = c("darkorange"),
               img.format = NULL)
 ```
   
@@ -419,15 +400,22 @@ Decoration graphs are constructed from nodes and edges. Graphs are 1-component: 
 cat(ls("package:iconr"), sep="\n")
 ```
 
-## Plot {#plot}
+## Read {#read}
 
-The graphical functions `plot_dec_grph()` and `plot_compar()` allow different choices for the color and size of the nodes, edges or labels. For example, the nodes and edges of Cerro Muriano 1, and the field `type` used for the label can be selected instead of the default `id` field (identifier of the node)
+The functions `read_nds()` and `read_eds()` allow, respectively, to read a dataframe or a shapefile of nodes, and a dataframe or a shapefile of edges. For example, the nodes and edges of Cerro Muriano 1 can be read
 
-```{r img.graph.plot.type, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 stelae (decoration 1) with the type of each GU"}
+```{r img.graph.read, echo=TRUE}
 site <- "Cerro Muriano"
 decor <- "Cerro Muriano 1"
 nds.df <- read_nds(site, decor, dataDir)
 eds.df <- read_eds(site, decor, dataDir)
+```
+
+## Plot {#plot}
+
+The graphical functions `plot_dec_grph()` and `plot_compar()` allow, respectively, to plot one decoration or pairwise(s) of decorations. These function offer different choices for the color and size of the nodes, edges or labels. For example, for the Cerro Muriano 1 decoration, the field `id` (identifier of the node), used by default for the labels, can be changed to the `type` field
+
+```{r img.graph.plot.type, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 stelae (decoration 1) with the type of each GU"}
 img.graph <- plot_dec_grph(nds.df, eds.df, imgs,
                            site, decor, dataDir,
                            nd.var = 'type',
@@ -483,7 +471,7 @@ knitr::kable(df.same_nodes, row.names = TRUE, escape = FALSE, table.attr = "styl
   
 The result of `same_elements()` is a symmetric matrix giving the number of common nodes for each pair of decorations, where the row and column names are the identifiers of the decorations. Observe that, accordingly, the diagonal elements show the total number of nodes of each decoration.
 
-Regarding the node variable `type`, the decoration 4 has a total twelve (12) nodes (see the diagonal). Decoration 4 and decoration 2 have nine (9) common nodes. Decoration 4 and decoration 3 have four (4) common nodes. This matrix can be used for further [clustering analysis](#sum.class)
+Regarding the node variable `type`, the decoration 4 has a total twelve (12) nodes (see the diagonal). Decoration 4 and decoration 2 have nine (9) common nodes. Decoration 4 and decoration 3 have four (4) common nodes. This matrix can be used for further [clustering analysis](#sum)
 
 To compare graphically the decorations 2, 3 and 4 on the node variable `type`:
 
@@ -526,7 +514,7 @@ In this dataframe:
 
 Here, the decoration 2 has fifteen (15) edges and shares three (3) common edges with the decoration 3. To show them, and the decoration 4, we use the `list_compar()` function on the same variable (`type`) and the `plot_compar()` function with an edge focus (`focus = "edges"`).
 
-This matrix can be used for further [clustering analysis](#sum.class)  
+This matrix can be used for further [clustering analysis](#sum)  
 
 ```{r compare.2.edges, out.width = "700px", fig.align="center", warning=FALSE}
 dec.to.compare <- c(2, 3, 4)
@@ -599,11 +587,7 @@ img.graph <- plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
 magick::image_read(img.graph)
 ```
   
-# Summary {#sum}
-
-The flexibility of graph theory and tools available for the GIS database make the `iconr` package useful in managing, plotting and comparing (potentially large) sets of iconographic content.  
-  
-## Classify decorations {#sum.class}
+# Classify decorations {#sum}
 
 Besides graphical functions allowing one to highlight common elements (nodes and edges) between decorations, the package also allows one to prepare data for unsupervised classification, such as hierarchical clustering with the `dist()` and `hclust()`:
 
@@ -664,7 +648,7 @@ Here, the comparisons have been made on the basis of different types (ie, graphi
 
 </center>
 
-## Nodes tree
+# Next developments
 
 Graph theory allows one to construct tree structures for categorical variables (eg. the different types of GUs). These structures allow generalization processes (upward to the parent level) and specification processes (downward to the child level). For example, a `sword` and a `spear` belong both to the `weapons` group (sub-group `offensive weapons`), a `shield` belongs to the `weapons` group (sub-group `defensive weapons`), etc.: 
 
@@ -713,6 +697,7 @@ superpo <- as.Node(df.stratig)
 print(superpo)
 ```
 
+  
 # References
 
 
