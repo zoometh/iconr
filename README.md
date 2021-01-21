@@ -7,6 +7,8 @@ The R package ***iconr*** is grounded in graph theory and spatial analysis to of
 
 <img src="/vignettes/img/solana.png" align="center" style="width: 25%; height: 25%"/>
 
+![](/vignettes/img/solana.png =250x)
+
 To get and install the latest development version from GitHub:
 
 ```
