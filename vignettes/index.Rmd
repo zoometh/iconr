@@ -351,8 +351,7 @@ eds.df <- read_eds(site, decor, dataDir)
 plot_dec_grph(nds.df, eds.df, imgs,
               site, decor, dataDir,
               ed.lwd = 1, ed.color = c("darkorange"),
-              lbl.size = 0.7,
-              img.format = NULL)
+              lbl.size = 0.7)
 ```
   
 The textual notation of an *attribute* edge is `-+-`:
@@ -375,13 +374,11 @@ eds.df <- read_eds(site, decor, dataDir)
 par(mfrow = c(1,2))
 plot_dec_grph(nds.df, eds.df, imgs,
               site, decor, dataDir,
-              lbl.size = 0.7,
-              img.format = NULL)
+              lbl.size = 0.7)
 plot_dec_grph(nds.df, eds.df, imgs,
               site, decor, dataDir,
               nd.var = 'type',
-              lbl.size = 0.6,
-              img.format = NULL)
+              lbl.size = 0.6)
 ```
   
 The textual notation of an *diachronic* edge is `->-`:
@@ -419,8 +416,7 @@ The graphical functions `plot_dec_grph()` and `plot_compar()` allow, respectivel
 img.graph <- plot_dec_grph(nds.df, eds.df, imgs,
                            site, decor, dataDir,
                            nd.var = 'type',
-                           lbl.size = 0.55,
-                           img.format = NULL)
+                           lbl.size = 0.55)
 ```
   
 A new field, `long_cm`, is added to the Cerro Muriano 1 nodes and the graph is replotted using this field instead of the `type` field, with <span style="color:brown">brown</span> colors and larger labels.
@@ -432,8 +428,7 @@ img.graph <- plot_dec_grph(nds.df, eds.df, imgs,
                            nd.var = 'long_cm',
                            nd.color = "brown",
                            lbl.color = "brown", lbl.size = 0.7,
-                           ed.color = "brown",
-                           img.format = NULL)
+                           ed.color = "brown")
 ```
   
 ## Compare {#compare}
@@ -486,7 +481,8 @@ nds_compar <- plot_compar(listg = g.compar,
                           dec2comp = dec.to.compare,
                           focus = "nodes",
                           nd.size = c(0.5, 1.5),
-                          dir = dataDir)
+                          dir = dataDir,
+                          img.format = "png")
 knitr::include_graphics(nds_compar) 
 ```
   
@@ -523,7 +519,8 @@ eds_compar <- plot_compar(listg = g.compar,
                           dec2comp = dec.to.compare,
                           focus = "edges",
                           nd.size = c(0.5, 1.7),
-                          dir = dataDir)
+                          dir = dataDir,
+                          img.format = "png")
 knitr::include_graphics(eds_compar) 
 ```
   
@@ -546,8 +543,7 @@ nds.df <- read_nds(site, decor, dataDir)
 eds.df <- read_eds(site, decor, dataDir)
 plot_dec_grph(nds.df, eds.df, imgs,
               site, decor, dataDir,
-              lbl.size = 0.7,
-              img.format = NULL)
+              lbl.size = 0.7)
 ```
   
 In this case, the non-contemporaneous layers of decoration, both nodes and edges, should be removed before the comparison process. To that purpose, the original graph (1-component) can be split into different contemporaneous sub-graphs. By removing the [*diachronic* edges](#ed.type.over) (`->-`), the graph is split into connected components, each including the synchronic nodes of a different period. The studied graph component will be retrieved with the component membership of a selected node.  
@@ -564,13 +560,11 @@ par(mfrow=c(1,2))
 plot_dec_grph(nds.df, eds.df, imgs,
               site, decor, dataDir,
               nd.var = "type",
-              lbl.color = "brown", lbl.size = 0.6,
-              img.format = NULL)
+              lbl.color = "brown", lbl.size = 0.6)
 plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
               site, decor, dataDir,
               nd.var = "type",
-              lbl.color = "brown", lbl.size = 0.6,
-              img.format = NULL)
+              lbl.color = "brown", lbl.size = 0.6)
 ```
   
 On the other hand, epigraphists will only want to study the iconographic layer with the Latin writing. By selecting node 1 (`ecriture`), only the graph component of this node will be retained:
@@ -580,11 +574,10 @@ selected.nd <- 1
 nds.df <- read_nds(site, decor, dir = dataDir)
 eds.df <- read_eds(site, decor, dir = dataDir)
 l_dec_df <- contemp_nds(nds.df, eds.df, selected.nd)
-img.graph <- plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
-                           site, decor, dir = dataDir,
-                           nd.var = "type",
-                           lbl.size = 0.6, lbl.color = "brown")
-magick::image_read(img.graph)
+plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
+              site, decor, dir = dataDir,
+              nd.var = "type",
+              lbl.size = 0.6, lbl.color = "brown")
 ```
   
 # Classify decorations {#sum}
@@ -630,12 +623,14 @@ nds_compar <- plot_compar(listg = g.compar,
                           dec2comp = dec.to.compare,
                           focus = "nodes",
                           nd.size = c(0.5, 1.7),
-                          dir = dataDir)
+                          dir = dataDir,
+                          img.format = "png")
 eds_compar <- plot_compar(listg = g.compar, 
                           dec2comp = dec.to.compare,
                           focus = "edges",
                           nd.size = c(0.5, 1.7),
-                          dir = dataDir)
+                          dir = dataDir,
+                          img.format = "png")
 knitr::include_graphics(nds_compar)
 knitr::include_graphics(eds_compar) 
 ```

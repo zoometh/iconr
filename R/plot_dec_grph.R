@@ -7,7 +7,7 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL, imgs,
                           lbl.color = "black", lbl.size = 0.5,
                           ed.color = c("orange", "blue"), ed.lwd = 1,
                           dir.out = dir, out.file.name = NULL,
-                          img.format = "png", res = 300) {
+                          img.format = NULL, res = 300) {
     # Select the image corresponding to site and decor.
     img.select <- imgs[imgs$site == site & imgs$decor == decor, ]
     if (nrow(img.select) != 1){
@@ -26,7 +26,7 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL, imgs,
 
     if (!is.null(edges) && nrow(edges)>0) {
         edges <- edges[edges$site  == site & edges$decor == decor, ]
-        edges$lty <- ifelse(edges$type == "+", "21", "solid")
+        edges$lty <- ifelse(edges$type == "+", "33", "solid")
         edges$col <- ed.color[ifelse(edges$type == ">", 2, 1)]
         edges$lwd <- ed.lwd
     }
