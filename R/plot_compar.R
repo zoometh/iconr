@@ -5,7 +5,7 @@ plot_compar <- function(listg, dec2comp = NULL, focus = "nodes",
                         ed.color = c("orange", "red"), ed.width = c(1, 2),
                         lbl.size = 0.5,
                         dir.out = dir, out.file.name = NULL,
-                        img.format = "png", res = 300) {
+                        img.format = NULL, res = 300) {
 # If a single value is set for an nds or eds parameter, it affects both types:
   if (length(nd.color) == 1) nd.color[2] <- nd.color[1]
   if (length(nd.size) == 1) nd.size[2] <- nd.size[1]

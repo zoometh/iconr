@@ -11,7 +11,7 @@
               ed.color = c("orange", "red"), ed.width = c(1, 2),
               lbl.size = 0.5,
               dir.out = dir, out.file.name = NULL,
-              img.format = "png", res = 300)
+              img.format = NULL, res = 300)
 }
 \arguments{
   \item{listg}{
@@ -50,11 +50,11 @@
 }
   \item{img.format, res}{
       Format and resolution of the saved images. The handled formats are
-      \code{"png"} (default), \code{"bmp"}, \code{"tiff"}/\code{"tif"},
+      \code{"png"}, \code{"bmp"}, \code{"tiff"}/\code{"tif"},
       \code{"jpeg"}/\code{"jpg"}, and \code{"pdf"}.
       The default resolution is 300 (ppi). The resolution does not applies to format pdf.
 
-      if \code{img.format=NULL}, the plot is sent to the active device.
+      if \code{img.format=NULL} (default), the plot is sent to the active device.
   }
 }
 \details{
@@ -88,39 +88,43 @@ lgrph <- list_dec(imgs, nodes, edges)
 # Generate all pairwise comparisons of the graphs with respect to nodes "type"
 g.compar <- list_compar(lgrph, nd.var="type")
 
-# Return the path of the image showing the comparison on common nodes of graphs
-# '1' and '4', and save it as png (default)
+# Generate the image showing the comparison on common nodes of graphs
+# '1' and '4', save it in png format, and return its path.
+dataDir <- system.file("extdata", package = "iconr")
 plot_compar(g.compar, c(1,4), focus = "nodes",
-            dir = system.file("extdata", package = "iconr"))
+            dir = dataDir,
+            img.format = "png")
 
-# Return the path of the image showing the comparison on common edges of graphs
-# '1' and '4', and save it as jpeg. Plot all nodes and node labels in brown.
+# Generate the image showing the comparison on common edges of graphs
+# '1' and '4', save it in jpeg format, and return its path.
+# Plot all nodes and node labels in brown.
 plot_compar(g.compar, c(1,4), focus = "edges",
-            dir = system.file("extdata", package = "iconr"),
+            dir = dataDir,
             nd.color = "brown",
             img.format = "jpg")
 
-# Return the path of the image showing the comparison on common edges of all
-# pairwise combinations of graphs '1','3', and '4', and save them as pdf.
-# Save the plot of nodes involved in non-common edges in orange and
+# Generate the image showing the comparison on common edges of all pairwise
+# combinations of graphs '1','3', and '4', save them in pdf format, and return
+# their path.
+# Plot nodes involved in non-common edges in orange and
 # nodes involved in common edges and the corresponding labels in brown.
 plot_compar(g.compar, c(1, 3, 4), focus = "edges",
-            dir = system.file("extdata", package = "iconr"),
+            dir = dataDir,
             nd.color = c("orange", "brown"),
             img.format = "pdf")
 
-# Save the png (default) image showing the comparison on common nodes of graphs
+# Save the png image showing the comparison on common nodes of graphs
 # '1' and '4'.
 # Then read and plot the image.
 p <- plot_compar(g.compar, c(1, 4), focus = "nodes",
-            dir = system.file("extdata", package = "iconr"))
+                 dir = dataDir,
+                 img.format = "png")
 plot(magick::image_read(p))
 
-# Plot directly on the active device the comparison on common nodes of graphs
-# '1' and '4'.
+# Plot directly on the active device (default) the comparison on common nodes
+# of graphs '1' and '4'.
 plot_compar(g.compar, c(1, 4), focus = "nodes",
-            dir = system.file("extdata", package = "iconr"),
-            img.format = NULL)
+            dir = dataDir)
 }
 
 \keyword{ ~kwd1 graph}% use one of  RShowDoc("KEYWORDS")

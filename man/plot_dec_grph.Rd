@@ -20,7 +20,7 @@ plot_dec_grph(nodes = NULL,
               ed.lwd = 1,
               dir.out = dir,
               out.file.name = NULL,
-              img.format = "png",
+              img.format = NULL,
               res = 300)
 }
 \arguments{
@@ -69,11 +69,11 @@ plot_dec_grph(nodes = NULL,
 }
   \item{img.format, res}{
       Format and resolution of the saved images. The handled formats are
-      \code{"png"} (default), \code{"bmp"}, \code{"tiff"}/\code{"tif"},
+      \code{"png"}, \code{"bmp"}, \code{"tiff"}/\code{"tif"},
       \code{"jpeg"}/\code{"jpg"}, and \code{"pdf"}.
       The default resolution is 300 (ppi). The resolution does not applies to format pdf.
 
-      if \code{img.format=NULL}, the plot is sent to the active device.
+      if \code{img.format=NULL} (default), the plot is sent to the active device.
   }
 }
 \details{
@@ -98,7 +98,7 @@ imgs <- read.table(paste0(dataDir, "/imgs.tsv"),
                    sep="\t", stringsAsFactors = FALSE)
 
 # Save the plot of nodes and edges with node variable "type" as labels
-# in the default image format (png) and return the image file name.
+# in png image format and return the image file name.
 plot_dec_grph(nds.df, eds.df, imgs,
               site, decor,
               dir = dataDir,
@@ -117,8 +117,7 @@ magick::image_read(img.filename)
 plot_dec_grph(nodes = NULL, eds.df, imgs,
               site, decor,
               dir = dataDir,
-              ed.lwd = 2,
-              img.format = NULL)
+              ed.lwd = 2)
 }
 
 \keyword{ ~kwd1 graph}% use one of  RShowDoc("KEYWORDS")

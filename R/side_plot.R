@@ -18,7 +18,7 @@ side_plot <- function(grph, dir, nd.var, focus = "nodes",
       nodes$name %in% igraph::V(comm.eds.subgr)$name) + 1
     edges.group <- edges$comm + 1
   }
-  edges$lty <- ifelse(edges$type %in% c("+"), "21", "solid")
+  edges$lty <- ifelse(edges$type %in% c("+"), "33", "solid")
   edges$col <- ed.color[edges.group]
   edges$lwd <- ed.width[edges.group]
   nodes$cex <- nd.size[nodes.group]
