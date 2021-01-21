@@ -55,7 +55,7 @@ The R package `iconr` is grounded in graph theory and spatial analysis. It offer
 
 </center>
   
-The flexibility of graph theory and tools available for the GIS database make the `iconr` package useful in managing, plotting and comparing (potentially large) sets of iconographic content
+The flexibility of graph theory and tools available for the GIS database make the `iconr` package useful in managing, plotting and comparing (potentially large) sets of iconographic content: Atlantic rock-art, Scandinavian rock art, Late Bronze Age stelae, Mycenean figurative pottery, etc. 
   
 # Decoration graphs  
 
