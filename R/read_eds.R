@@ -1,19 +1,19 @@
 #' @export
 read_eds <- function(site, decor, dir = getwd(),
                      edges = "edges", nodes = "nodes",
-                     dev = ".tsv") {
+                     format = "tsv") {
     mandatory.columns <- c("site", "decor", "a", "b", "xa", "ya", "xb", "yb")
     eds.shp.coords <- data.frame(xa = numeric(0), ya = numeric(0),
                                  xb = numeric(0), yb = numeric(0))
-    eds.file <- paste0(dir, "/", edges, dev)
-    nds.file <- paste0(dir, "/", nodes, dev)
+    eds.file <- paste0(dir, "/", edges, ".", format)
+    nds.file <- paste0(dir, "/", nodes, ".", format)
     if (file.exists(eds.file) & file.exists(nds.file)) {
-        if (dev == ".tsv" | dev == ".csv") {
+        if (format == "tsv" | format == "csv") {
             # choice: tsv or csv read nodes to get coordinates
             nds.df <- read_nds(dir = dir, site = site, decor = decor,
-                               nodes = nodes, dev = dev)
-            sep <- c(.tsv = "\t", .csv = ";")
-            eds.df <- utils::read.table(file = eds.file, sep = sep[dev],
+                               nodes = nodes, format = format)
+            sep <- c(tsv = "\t", csv = ";")
+            eds.df <- utils::read.table(file = eds.file, sep = sep[format],
                                         header = TRUE, stringsAsFactors = FALSE)
             eds.df <- eds.df[eds.df$site  == site &
                              eds.df$decor == decor, ]
@@ -26,7 +26,7 @@ read_eds <- function(site, decor, dir = getwd(),
             }
             eds.df <- cbind(eds.df, eds.shp.coords)
         }
-        if (dev == ".shp") {
+        if (format == "shp") {
             # choice: shapefile
             eds.shp <- rgdal::readOGR(dsn = dir, layer = edges, verbose = FALSE)
             eds.shp <- eds.shp[eds.shp@data$site  == site &
