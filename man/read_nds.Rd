@@ -2,14 +2,16 @@
 \alias{read_nds}
 \title{Read Nodes of a Decoration}
 \description{
-  Read a '.tsv', a '.csv' or a '.shp' file of nodes and extract nodes of one decoration
+  Read nodes' information from a file including all nodes and extract nodes of one decoration.
+  Accepted formats are tab separated values ('tsv'), semicolon separated values ('csv'), or
+  shapefile ('shp').
 }
 \usage{
 read_nds(site,
         decor,
         dir = getwd(),
         nodes = "nodes",
-        dev = ".tsv")
+        format = "tsv")
 }
 \arguments{
   \item{site}{
@@ -24,8 +26,10 @@ read_nds(site,
   \item{nodes}{
       Name of the nodes file (a dataframe or a shapefile)
   }
-  \item{dev}{
-      A device '.tsv' (with '\\t' separated values), '.csv' (with ';' separated values) or '.shp'. If '.tsv' or '.csv' then the nodes coordinates (\code{nodes$x}, \code{nodes$y}) are required.
+  \item{format}{
+    File extension indicating a file format from 'tsv' (tab separated values),
+    'csv' (semicolon separated values) or 'shp' (shapefile). For 'tsv' and 'csv'
+    the files must include node coordinates (\code{nodes$x}, \code{nodes$y}).
   }
 }
 \value{
@@ -37,7 +41,7 @@ dataDir <- system.file("extdata", package = "iconr")
 
 # Read dataframe of nodes
 nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1",
-                    dir = dataDir, dev = ".tsv")
+                    dir = dataDir, format = "tsv")
 nds.df
 
 #            site           decor id          type        x         y
@@ -51,7 +55,7 @@ nds.df
 
 # Read shapefile of nodes
 nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1",
-                    dir = dataDir, dev = ".shp")
+                    dir = dataDir, format = "shp")
 nds.df
 
 #            site           decor id          type        x         y

@@ -1,18 +1,18 @@
 #' @export
 read_nds <- function(site, decor,
-                     dir = getwd(), nodes = "nodes", dev = ".tsv") {
+                     dir = getwd(), nodes = "nodes", format = "tsv") {
     mandatory.columns <- c("site", "decor", "id", "x", "y")
-    nds.file <- paste0(dir, "/", nodes, dev)
+    nds.file <- paste0(dir, "/", nodes, ".", format)
     if (file.exists(nds.file)) {
-        if (dev == ".tsv") {
+        if (format == "tsv") {
             nds.df <- utils::read.table(file = nds.file, sep = "\t",
                                         header = TRUE, stringsAsFactors = FALSE)
         }
-        if (dev == ".csv") {
+        if (format == "csv") {
             nds.df <- utils::read.table(file = nds.file, sep = ";",
                                         header = TRUE, stringsAsFactors = FALSE)
         }
-        if (dev == ".shp") {
+        if (format == "shp") {
             nds.shp <- rgdal::readOGR(dsn = dir, layer = nodes, verbose = FALSE)
             nds.df <- nds.shp@data
             nds.df$x <- nds.shp@coords[ , 1]
