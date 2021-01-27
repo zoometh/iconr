@@ -48,10 +48,11 @@ solanas.vor.path <- paste0(getwd(),"/img/solana_voronoi.png")
 ```
   
 The R package `iconr` is grounded in graph theory and spatial analysis. It offers concepts and functions for modeling Prehistoric iconographic compositions and for their preparation for further analysis (clustering, Harris diagram, etc.) in order to contribute to cross-cultural iconography comparison studies through a greater normalization of quantitative analysis [@Alexander08; @HuetAlexander15; @Huet18a].  
-
+  
+  
 <center>
 
-![Detail of the Solana de Cabanas stelae (Caceres, Spain) dated to the Late Bronze Age](`r solanas.path`){width=220px}
+![Detail of a Late Bronze Age stelae (Solana de Cabañas, Cáceres, Spain). Credits: Museo Arqueológico Nacional, Madrid](`r solanas.path`){width=220px}
 
 </center>
   
@@ -63,7 +64,7 @@ The main principle of the `iconr` package is to consider any iconographic compos
 
 <center>
 
-![GIS view. The Solana de Cabanas stelae: from its photograph to the modeling of its graphical content](`r solanas.vor.path`){width=900px}
+![GIS view. The Solana de Cabanas stelae: from its photograph to the modeling of its graphical content](`r solanas.vor.path`){width=800px}
 
 </center>  
   
@@ -97,11 +98,14 @@ The input dataset is expected to include decoration images and corresponding nod
 * **[Node data](#nd):** A single file storing the data of each node for all decorations. 
 * **[Edge data](#ed):** A single file storing the data of each edge for all decorations.
 
-The `iconr` package includes an example dataset with the input files in several alternative formats. The path for the example dataset is the package *extdata* folder:
+The `iconr` package includes an example dataset with the input files in several alternative formats. The path for the example dataset is the package *extdata* folder. This folder is also -- by default -- the output folder. In order to differentiate input data from output data, the output data filenames always start with a digit or an underscore (ie, a punctuation). So, the input data are :
 
 ```{r ls_ext_data}
 dataDir <- system.file("extdata", package = "iconr")
-cat(list.files(dataDir), sep="\n")
+all.files <- list.files(dataDir)
+input.files <- all.files [!grepl("^[[:digit:]]", all.files) &
+                            !grepl("^[[:punct:]]", all.files)]
+cat(input.files, sep="\n")
 ```
 
 The table of decorations is given in two formats: comma- or semicolon-separated values (`imgs.csv`) and tab-separated value (`imgs.tsv`).
@@ -413,22 +417,22 @@ eds.df <- read_eds(site, decor, dataDir)
 The graphical functions `plot_dec_grph()` and `plot_compar()` allow, respectively, to plot one decoration or pairwise(s) of decorations. These function offer different choices for the color and size of the nodes, edges or labels. For example, for the Cerro Muriano 1 decoration, the field `id` (identifier of the node), used by default for the labels, can be changed to the `type` field
 
 ```{r img.graph.plot.type, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 stelae (decoration 1) with the type of each GU"}
-img.graph <- plot_dec_grph(nds.df, eds.df, imgs,
-                           site, decor, dataDir,
-                           nd.var = 'type',
-                           lbl.size = 0.55)
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir,
+              nd.var = 'type',
+              lbl.size = 0.55)
 ```
   
 A new field, `long_cm`, is added to the Cerro Muriano 1 nodes and the graph is replotted using this field instead of the `type` field, with <span style="color:brown">brown</span> colors and larger labels.
 
 ```{r img.graph.plot.id, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 stelae (decoration 1) with the maximum length (in cm) of each GU"}
 nds.df$long_cm <- paste0(c(47, 9, 47, 18, 7, 3, 13), "cm")
-img.graph <- plot_dec_grph(nds.df, eds.df, imgs,
-                           site, decor, dataDir,
-                           nd.var = 'long_cm',
-                           nd.color = "brown",
-                           lbl.color = "brown", lbl.size = 0.7,
-                           ed.color = "brown")
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir,
+              nd.var = 'long_cm',
+              nd.color = "brown",
+              lbl.color = "brown", lbl.size = 0.7,
+              ed.color = "brown")
 ```
   
 ## Compare {#compare}
@@ -474,7 +478,7 @@ To compare graphically the decorations 2, 3 and 4 on the node variable `type`:
 
 * then: the plot is made with the `plot_compar()` function
   
-```{r compare.2.nodes, out.width = "700px", fig.align="center", warning=FALSE}
+```{r compare.2.nodes, fig.show = TRUE, out.width = "700px", fig.align="center", warning=FALSE}
 dec.to.compare <- c(2, 3, 4)
 g.compar <- list_compar(lgrph, nd.var = "type")
 nds_compar <- plot_compar(listg = g.compar, 
@@ -548,7 +552,7 @@ plot_dec_grph(nds.df, eds.df, imgs,
   
 In this case, the non-contemporaneous layers of decoration, both nodes and edges, should be removed before the comparison process. To that purpose, the original graph (1-component) can be split into different contemporaneous sub-graphs. By removing the [*diachronic* edges](#ed.type.over) (`->-`), the graph is split into connected components, each including the synchronic nodes of a different period. The studied graph component will be retrieved with the component membership of a selected node.  
   
-To study only the Late Bronze Age iconographic layer of the Ibahernando stelae, we can choose the Late Bronze Age node 4, the image of a sword (`epee`) dated to the middle and final stages of Late Bronze Age (ca 1250-950 BC). This node is believed to be contemporaneous with the spear (`lance`, node 2) and the shield (`bouclier`, node 3) so these three nodes are linked with [*normal* edges ](#ed.type.norm). We pass the node 4 to the parameters of the `contemp_nds()` function: 
+To study only the Late Bronze Age iconographic layer of the Ibahernando stelae, we can choose the Late Bronze Age node 4, the image of a sword (`epee`) dated to the middle and final stages of Late Bronze Age (ca 1250-950 BC). This node is believed to be contemporaneous with the spear (`lance`, node 2) and the shield (`bouclier`, node 3) so these three nodes are linked with [*normal* edges](#ed.type.norm) (`-=-`). We pass the node 4 to the parameters of the `contemp_nds()` function: 
 
 ```{r rm.writing, out.width="100%", fig.width=16, fig.asp=0.55, fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae before and after the selection of node 4 (sword) graph component"}
 site <- decor <- "Ibahernando"
