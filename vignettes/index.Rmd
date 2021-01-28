@@ -79,9 +79,9 @@ devtools::install_github("zoometh/iconr", build_vignettes=TRUE)
 
 The R package `iconr` is composed of [functions](#functions) and a [example dataset](#data). The main R packages used by the `iconr` package are:
 
-* [magick-image](https://cran.r-project.org/web/packages/magick/vignettes/intro.html): for drawing/image management 
-* [igraph](https://igraph.org/r/): for graph management 
-* [rgdal](https://cran.r-project.org/web/packages/rgdal/index.html): for shapefile management
+* [magick-image](https://CRAN.R-project.org/package=magick): for drawing/image management 
+* [igraph](https://CRAN.R-project.org/package=igraph): for graph management 
+* [rgdal](https://CRAN.R-project.org/package=rgdal): for shapefile management
 
 Load the package `iconr`
 
