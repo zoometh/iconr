@@ -40,25 +40,11 @@ solanas.vor.path <- paste0(getwd(),"/img/solana_voronoi.png")
   
 The R package `iconr` is grounded in graph theory and spatial analysis. It offers concepts and functions for modeling Prehistoric iconographic compositions and for their preparation for further analysis (clustering, Harris diagram, etc.) in order to contribute to cross-cultural iconography comparison studies through a greater normalization of quantitative analysis [@Alexander08; @HuetAlexander15; @Huet18a].  
   
-  
-<center>
-
-![Detail of a Late Bronze Age stelae (Solana de Cabañas, Cáceres, Spain). Credits: Museo Arqueológico Nacional, Madrid](`r solanas.path`){width=220px}
-
-</center>
-  
 The flexibility of graph theory and tools available for the GIS database make the `iconr` package useful in managing, plotting and comparing (potentially large) sets of iconographic content: Atlantic rock-art, Scandinavian rock art, Late Bronze Age stelae, Mycenean figurative pottery, etc. 
   
 # Decoration graphs  
 
 The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units (GUs). This geometric graph is also known as a planar graph or spatialized graph. The GUs are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). When these GUs are *main* nodes, and not *attribute* nodes, they share edges (`LINES`) with one another when their Voronoi cells share a border (*birel*: touches).  
-
-<center>
-
-![GIS view. The Solana de Cabanas stelae: from its photograph to the modeling of its graphical content](`r solanas.vor.path`){width=800px}
-
-</center>  
-  
   
 Graph theory offers a conceptual framework and indices (global at the entire graph scale, local at the vertex scale) to deal with notions of networks, relationships and neighbourhoods. The geometric graph is commonly built within a GIS interface. Indeed, use of GIS allows one to create a spatial database of the decoration's iconographic contents and facilitates data recording and visualization. For example, snapping options can connect GUs (nodes) with lines (edges) and we can exploit tools such as feature symbology, layer transparency, etc.  
   
@@ -183,7 +169,7 @@ df.equi <- data.frame("devices" = c("GIS interface","R grid"),
                       "units of measures" = c("number of pixels", "number of pixels"),
                       "origin corner" = c("top-left", "top-left"),
                       "x-axis" = c("rightward", "rightward"),
-                      "y-axis" = c("upwards", "downwards"),
+                      "y-axis" = c("upward", "downward"),
                       check.names = FALSE)
 knitr::kable(df.equi) %>%
   kableExtra::add_header_above(c(" " = 1, " " = 1, " " = 1, "axes orientation" = 2)) %>%
@@ -343,10 +329,13 @@ site <- "Zarza de Montanchez"
 decor <- "Zarza De Montanchez"
 nds.df <- read_nds(site, decor, dataDir)
 eds.df <- read_eds(site, decor, dataDir)
-plot_dec_grph(nds.df, eds.df, imgs,
-              site, decor, dataDir,
-              ed.lwd = 1, ed.color = c("darkorange"),
-              lbl.size = 0.7)
+img.filename <- plot_dec_grph(nds.df, eds.df, imgs,
+                              site, decor, dataDir,
+                              ed.lwd = 1, ed.color = c("darkorange"),
+                              lbl.size = 0.7,
+                              img.format = "png",
+                              res = 150)
+magick::image_read(img.filename)
 ```
   
 The textual notation of an *attribute* edge is `-+-`:
@@ -408,22 +397,28 @@ eds.df <- read_eds(site, decor, dataDir)
 The graphical functions `plot_dec_grph()` and `plot_compar()` allow, respectively, to plot one decoration or pairwise(s) of decorations. These function offer different choices for the color and size of the nodes, edges or labels. For example, for the Cerro Muriano 1 decoration, the field `id` (identifier of the node), used by default for the labels, can be changed to the `type` field
 
 ```{r img.graph.plot.type, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 stelae (decoration 1) with the type of each GU"}
-plot_dec_grph(nds.df, eds.df, imgs,
-              site, decor, dataDir,
-              nd.var = 'type',
-              lbl.size = 0.55)
+img.filename <- plot_dec_grph(nds.df, eds.df, imgs,
+                              site, decor, dataDir,
+                              nd.var = 'type',
+                              lbl.size = 0.55,
+                              img.format = "png",
+                              res = 150)
+magick::image_read(img.filename)
 ```
   
 A new field, `long_cm`, is added to the Cerro Muriano 1 nodes and the graph is replotted using this field instead of the `type` field, with <span style="color:brown">brown</span> colors and larger labels.
 
 ```{r img.graph.plot.id, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 stelae (decoration 1) with the maximum length (in cm) of each GU"}
 nds.df$long_cm <- paste0(c(47, 9, 47, 18, 7, 3, 13), "cm")
-plot_dec_grph(nds.df, eds.df, imgs,
-              site, decor, dataDir,
-              nd.var = 'long_cm',
-              nd.color = "brown",
-              lbl.color = "brown", lbl.size = 0.7,
-              ed.color = "brown")
+img.filename <- plot_dec_grph(nds.df, eds.df, imgs,
+                              site, decor, dataDir,
+                              nd.var = 'long_cm',
+                              nd.color = "brown",
+                              lbl.color = "brown", lbl.size = 0.7,
+                              ed.color = "brown",
+                              img.format = "png",
+                              res = 150)
+magick::image_read(img.filename)
 ```
   
 ## Compare {#compare}
@@ -477,7 +472,8 @@ nds_compar <- plot_compar(listg = g.compar,
                           focus = "nodes",
                           nd.size = c(0.5, 1.5),
                           dir = dataDir,
-                          img.format = "png")
+                          img.format = "png",
+                          res = 150)
 knitr::include_graphics(nds_compar) 
 ```
   
@@ -515,30 +511,26 @@ eds_compar <- plot_compar(listg = g.compar,
                           focus = "edges",
                           nd.size = c(0.5, 1.7),
                           dir = dataDir,
-                          img.format = "png")
+                          img.format = "png",
+                          res = 150)
 knitr::include_graphics(eds_compar) 
 ```
   
 ## Contemporaneous elements {#contemp}
 
-At times some nodes are non-contemporaneous with one another, like on the Ibahernando stelae. This stelae was reused as a funerary stelae during Roman times with the addition of a Latin inscription "*Alloquiu protaeidi.f hece. stitus*": Alluquio, son of Protacido, lies here [@Almagro66b].
-
-<center>
-
-![GIS view. The Ibahernando stelae (decoration 5)](`r ibahernando.path`){width=400px}
-
-</center>
-
-The writing (`ecriture`, node 1) has been carved over a spear (`lance`, node 2) and overlaps partially a V-notched shield (`bouclier`, node 3). The edges between node 1 and node 2, and the edge between node 1 and node 3, are *diachronic* edges  
+At times some nodes are non-contemporaneous with one another, like on the Ibahernando stelae. This stelae was reused as a funerary stelae during Roman times with the addition of a Latin inscription "*Alloquiu protaeidi.f hece. stitus*": Alluquio, son of Protacido, lies here [@Almagro66b]. The writing (`ecriture`, node 1) has been carved over a spear (`lance`, node 2) and overlaps partially a V-notched shield (`bouclier`, node 3). The edges between node 1 and node 2, and the edge between node 1 and node 3, are *diachronic* edges  
 
 ```{r ibahernando, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae (decoration 5) with *diachronic* and *normal* edges, node 1 overlaps node 2 and node 3"}
 site <- "Ibahernando" 
 decor <- "Ibahernando"
 nds.df <- read_nds(site, decor, dataDir)
 eds.df <- read_eds(site, decor, dataDir)
-plot_dec_grph(nds.df, eds.df, imgs,
-              site, decor, dataDir,
-              lbl.size = 0.7)
+img.filename <- plot_dec_grph(nds.df, eds.df, imgs,
+                              site, decor, dataDir,
+                              lbl.size = 0.7,
+                              img.format = "png",
+                              res = 150)
+magick::image_read(img.filename)
 ```
   
 In this case, the non-contemporaneous layers of decoration, both nodes and edges, should be removed before the comparison process. To that purpose, the original graph (1-component) can be split into different contemporaneous sub-graphs. By removing the [*diachronic* edges](#ed.type.over) (`->-`), the graph is split into connected components, each including the synchronic nodes of a different period. The studied graph component will be retrieved with the component membership of a selected node.  
@@ -569,10 +561,13 @@ selected.nd <- 1
 nds.df <- read_nds(site, decor, dir = dataDir)
 eds.df <- read_eds(site, decor, dir = dataDir)
 l_dec_df <- contemp_nds(nds.df, eds.df, selected.nd)
-plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
-              site, decor, dir = dataDir,
-              nd.var = "type",
-              lbl.size = 0.6, lbl.color = "brown")
+img.filename <- plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
+                              site, decor, dir = dataDir,
+                              nd.var = "type",
+                              lbl.size = 0.6, lbl.color = "brown",
+                              img.format = "png",
+                              res = 150)
+magick::image_read(img.filename)
 ```
   
 # Classify decorations {#sum}
@@ -619,24 +614,20 @@ nds_compar <- plot_compar(listg = g.compar,
                           focus = "nodes",
                           nd.size = c(0.5, 1.7),
                           dir = dataDir,
-                          img.format = "png")
+                          img.format = "png",
+                          res = 150)
 eds_compar <- plot_compar(listg = g.compar, 
                           dec2comp = dec.to.compare,
                           focus = "edges",
                           nd.size = c(0.5, 1.7),
                           dir = dataDir,
-                          img.format = "png")
+                          img.format = "png",
+                          res = 150)
 knitr::include_graphics(nds_compar)
 knitr::include_graphics(eds_compar) 
 ```
   
-Here, the comparisons have been made on the basis of different types (ie, graphical units, GUs) with the variable `type` (`nd.var = "type"`). However, if a new column is added to the node dataframe or shapefile, the study can also incorporate the technique by which the GU was created (`nd.var = "technique"`) or any other categorical variable. For example, two GUs on the Brozas steale were made with incisions (`g_inc`): the fibula (*fibula de codo tipo Huelva*, ca 1050-950 BC) and the comb. 
-
-<center>
-
-![GIS view. The Brozas stelae (decoration 1) with the different engraving techniques: `g_piq` (peckings) and `g_inc` (incisions) ](`r brozas.path`){width=400px}
-
-</center>
+Here, the comparisons have been made on the basis of different types (ie, graphical units, GUs) with the variable `type` (`nd.var = "type"`). However, if a new column is added to the node dataframe or shapefile, the study can also incorporate the technique by which the GU was created (`nd.var = "technique"`) or any other categorical variable.  
 
 # Next developments
 
