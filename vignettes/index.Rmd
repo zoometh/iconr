@@ -2,16 +2,7 @@
 title: "The ***iconr*** package. Graph Analysis of Prehistoric Iconography with R"
 author: "Thomas Huet, Jose M Pozo, Craig Alexander"
 email: "thomashuet7@gmail.com"
-# date: "`r format(Sys.Date())`"
 bibliography: references.bib
-## to create the vignettes 'outside' the package, with table of content (toc)
-# output:
-#   html_document:
-#     toc: true
-#     toc_float:
-#       collapsed: false
-#        ## smooth_scroll: false
-# to create the vignettes 'inside' the package, without table of content (toc)
 output:
   rmarkdown::html_vignette
 vignette: >
