@@ -42,7 +42,6 @@ plot_compar <- function(listg, dec2comp = NULL, focus = "nodes",
       tit <- paste0("Common ", focus, " (n=", com.elm.num, ")")
       if (!is.null(img.format))
         grDeviceOpen(out.list[out.i], width = 14, height = 7, res = res)
-      else if (out.i > 1) grDevices::dev.new()
 
       # Set the plotting area into a 1*2 array
       graphics::par(mfrow = c(1, 2), mar = c(0, 0, 0, 0))

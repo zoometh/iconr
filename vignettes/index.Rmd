@@ -79,9 +79,7 @@ The `iconr` package includes an example dataset with the input files in several 
 
 ```{r ls_ext_data}
 dataDir <- system.file("extdata", package = "iconr")
-all.files <- list.files(dataDir)
-input.files <- all.files [!grepl("^[[:digit:]]", all.files) &
-                            !grepl("^[[:punct:]]", all.files)]
+input.files <- list.files(dataDir)
 cat(input.files, sep="\n")
 ```
 
@@ -324,18 +322,15 @@ When a node is an attribute of another, edges are identified with a `+` and disp
 
 - two wheels (`roue`): 10 and 11 
 
-```{r graph.attribute.plot.type, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Zarza De Montanchez stelae (decoration 4) showing *normal* and *attribute*  edges"}
+```{r graph.attribute.plot.type, out.width="60%", fig.width=6, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Zarza De Montanchez stelae (decoration 4) showing *normal* and *attribute*  edges"}
 site <- "Zarza de Montanchez" 
 decor <- "Zarza De Montanchez"
 nds.df <- read_nds(site, decor, dataDir)
 eds.df <- read_eds(site, decor, dataDir)
-img.filename <- plot_dec_grph(nds.df, eds.df, imgs,
-                              site, decor, dataDir,
-                              ed.lwd = 1, ed.color = c("darkorange"),
-                              lbl.size = 0.7,
-                              img.format = "png",
-                              res = 150)
-magick::image_read(img.filename)
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir,
+              ed.lwd = 1, ed.color = c("darkorange"),
+              lbl.size = 0.7)
 ```
   
 The textual notation of an *attribute* edge is `-+-`:
@@ -350,7 +345,7 @@ The *attribute* edges are directed: `1-+-2` is not equal to `2-+-1`, `1-+-2` mea
 
 When a node overlaps another or is more recent than another, edges are identified with a `>` and displayed with a blue plain line. For example, the Ibahernando stelae has a latin inscription (`ecriture`) overlapping a spear (`lance`) and a shield (`bouclier`).  
 
-```{r graph.overlap.plot.type, out.width="100%", fig.width=16, fig.asp=0.55, fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae (decoration 5) showing *diachronic* and *normal* edges"}
+```{r graph.overlap.plot.type, out.width="100%", fig.width=12, fig.asp=0.55, fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae (decoration 5) showing *diachronic* and *normal* edges"}
 site <- "Ibahernando"
 decor <- "Ibahernando"
 nds.df <- read_nds(site, decor, dataDir)
@@ -396,29 +391,23 @@ eds.df <- read_eds(site, decor, dataDir)
 
 The graphical functions `plot_dec_grph()` and `plot_compar()` allow, respectively, to plot one decoration or pairwise(s) of decorations. These function offer different choices for the color and size of the nodes, edges or labels. For example, for the Cerro Muriano 1 decoration, the field `id` (identifier of the node), used by default for the labels, can be changed to the `type` field
 
-```{r img.graph.plot.type, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 stelae (decoration 1) with the type of each GU"}
-img.filename <- plot_dec_grph(nds.df, eds.df, imgs,
-                              site, decor, dataDir,
-                              nd.var = 'type',
-                              lbl.size = 0.55,
-                              img.format = "png",
-                              res = 150)
-magick::image_read(img.filename)
+```{r img.graph.plot.type, out.width="60%", fig.width=6, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 stelae (decoration 1) with the type of each GU"}
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir,
+              nd.var = 'type',
+              lbl.size = 0.55)
 ```
   
 A new field, `long_cm`, is added to the Cerro Muriano 1 nodes and the graph is replotted using this field instead of the `type` field, with <span style="color:brown">brown</span> colors and larger labels.
 
-```{r img.graph.plot.id, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 stelae (decoration 1) with the maximum length (in cm) of each GU"}
+```{r img.graph.plot.id, out.width="60%", fig.width=6, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Cerro Muriano 1 stelae (decoration 1) with the maximum length (in cm) of each GU"}
 nds.df$long_cm <- paste0(c(47, 9, 47, 18, 7, 3, 13), "cm")
-img.filename <- plot_dec_grph(nds.df, eds.df, imgs,
-                              site, decor, dataDir,
-                              nd.var = 'long_cm',
-                              nd.color = "brown",
-                              lbl.color = "brown", lbl.size = 0.7,
-                              ed.color = "brown",
-                              img.format = "png",
-                              res = 150)
-magick::image_read(img.filename)
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir,
+              nd.var = 'long_cm',
+              nd.color = "brown",
+              lbl.color = "brown", lbl.size = 0.7,
+              ed.color = "brown")
 ```
   
 ## Compare {#compare}
@@ -464,17 +453,14 @@ To compare graphically the decorations 2, 3 and 4 on the node variable `type`:
 
 * then: the plot is made with the `plot_compar()` function
   
-```{r compare.2.nodes, fig.show = TRUE, out.width = "700px", fig.align="center", warning=FALSE}
+```{r compare.2.nodes, fig.show = TRUE, out.width="100%", fig.width=12, fig.asp=0.52, fig.align="center", warning=FALSE}
 dec.to.compare <- c(2, 3, 4)
 g.compar <- list_compar(lgrph, nd.var = "type")
-nds_compar <- plot_compar(listg = g.compar, 
-                          dec2comp = dec.to.compare,
-                          focus = "nodes",
-                          nd.size = c(0.5, 1.5),
-                          dir = dataDir,
-                          img.format = "png",
-                          res = 150)
-knitr::include_graphics(nds_compar) 
+plot_compar(listg = g.compar, 
+            dec2comp = dec.to.compare,
+            focus = "nodes",
+            nd.size = c(0.5, 1.5),
+            dir = dataDir) 
 ```
   
 The function creates an image for each pair of stelae contained in the `dec.to.compare` variable (`r dec.to.compare`), with a focus on nodes (`focus = "nodes"`). Thus, if $n$ decorations are compared, it results in $n\choose 2$ $\frac{n!}{(n-2)!2!}$ pairwise comparison images. For instance, if all 5 decorations in the example dataset are compared, there will be 10 pairwise comparisons.
@@ -503,41 +489,35 @@ Here, the decoration 2 has fifteen (15) edges and shares three (3) common edges 
 
 This matrix can be used for further [clustering analysis](#sum)  
 
-```{r compare.2.edges, out.width = "700px", fig.align="center", warning=FALSE}
+```{r compare.2.edges, out.width="100%", fig.width=12, fig.asp=0.52, fig.align="center", warning=FALSE}
 dec.to.compare <- c(2, 3, 4)
 g.compar <- list_compar(lgrph, nd.var = "type")
-eds_compar <- plot_compar(listg = g.compar, 
-                          dec2comp = dec.to.compare,
-                          focus = "edges",
-                          nd.size = c(0.5, 1.7),
-                          dir = dataDir,
-                          img.format = "png",
-                          res = 150)
-knitr::include_graphics(eds_compar) 
+plot_compar(listg = g.compar, 
+            dec2comp = dec.to.compare,
+            focus = "edges",
+            nd.size = c(0.5, 1.7),
+            dir = dataDir)
 ```
   
 ## Contemporaneous elements {#contemp}
 
 At times some nodes are non-contemporaneous with one another, like on the Ibahernando stelae. This stelae was reused as a funerary stelae during Roman times with the addition of a Latin inscription "*Alloquiu protaeidi.f hece. stitus*": Alluquio, son of Protacido, lies here [@Almagro66b]. The writing (`ecriture`, node 1) has been carved over a spear (`lance`, node 2) and overlaps partially a V-notched shield (`bouclier`, node 3). The edges between node 1 and node 2, and the edge between node 1 and node 3, are *diachronic* edges  
 
-```{r ibahernando, out.width="60%", fig.width=8, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae (decoration 5) with *diachronic* and *normal* edges, node 1 overlaps node 2 and node 3"}
+```{r ibahernando, out.width="60%", fig.width=6, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae (decoration 5) with *diachronic* and *normal* edges, node 1 overlaps node 2 and node 3"}
 site <- "Ibahernando" 
 decor <- "Ibahernando"
 nds.df <- read_nds(site, decor, dataDir)
 eds.df <- read_eds(site, decor, dataDir)
-img.filename <- plot_dec_grph(nds.df, eds.df, imgs,
-                              site, decor, dataDir,
-                              lbl.size = 0.7,
-                              img.format = "png",
-                              res = 150)
-magick::image_read(img.filename)
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir,
+              lbl.size = 0.7)
 ```
   
 In this case, the non-contemporaneous layers of decoration, both nodes and edges, should be removed before the comparison process. To that purpose, the original graph (1-component) can be split into different contemporaneous sub-graphs. By removing the [*diachronic* edges](#ed.type.over) (`->-`), the graph is split into connected components, each including the synchronic nodes of a different period. The studied graph component will be retrieved with the component membership of a selected node.  
   
 To study only the Late Bronze Age iconographic layer of the Ibahernando stelae, we can choose the Late Bronze Age node 4, the image of a sword (`epee`) dated to the middle and final stages of Late Bronze Age (ca 1250-950 BC). This node is believed to be contemporaneous with the spear (`lance`, node 2) and the shield (`bouclier`, node 3) so these three nodes are linked with [*normal* edges](#ed.type.norm) (`-=-`). We pass the node 4 to the parameters of the `contemp_nds()` function: 
 
-```{r rm.writing, out.width="100%", fig.width=16, fig.asp=0.55, fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae before and after the selection of node 4 (sword) graph component"}
+```{r rm.writing, out.width="100%", fig.width=12, fig.asp=0.55, fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae before and after the selection of node 4 (sword) graph component"}
 site <- decor <- "Ibahernando"
 selected.nd <- 4
 nds.df <- read_nds(site, decor, dataDir)
@@ -556,18 +536,15 @@ plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
   
 On the other hand, epigraphists will only want to study the iconographic layer with the Latin writing. By selecting node 1 (`ecriture`), only the graph component of this node will be retained:
 
-```{r ibahernando.lat, out.width="60%", fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae after the selection of node 1 (writing) graph component"}
+```{r ibahernando.lat, out.width="60%", fig.width=6, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Ibahernando stelae after the selection of node 1 (writing) graph component"}
 selected.nd <- 1
 nds.df <- read_nds(site, decor, dir = dataDir)
 eds.df <- read_eds(site, decor, dir = dataDir)
 l_dec_df <- contemp_nds(nds.df, eds.df, selected.nd)
-img.filename <- plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
-                              site, decor, dir = dataDir,
-                              nd.var = "type",
-                              lbl.size = 0.6, lbl.color = "brown",
-                              img.format = "png",
-                              res = 150)
-magick::image_read(img.filename)
+plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
+              site, decor, dir = dataDir,
+              nd.var = "type",
+              lbl.size = 0.6, lbl.color = "brown")
 ```
   
 # Classify decorations {#sum}
@@ -606,25 +583,19 @@ dendlist(dend.nds, dend.eds) %>%
   
 In both clusterings, the Brozas stelae (decoration 3) and the Ibahernando stelae (decoration 5) are the ones having the most important proximities (ie, the least Euclidian distance). The 'Common edges' clustering is more accurate than the 'Common nodes' clustering because the former takes into account the common combination, or common permutation, of two nodes with the type of their edge, while the latter only takes into account the presence of common nodes.
 
-```{r compare.c.edges, out.width = "700px", fig.align="center", warning=FALSE}
+```{r compare.c.edges, out.width="100%", fig.width=12, fig.asp=0.52, fig.align="center", warning=FALSE}
 dec.to.compare <- c(3, 5)
 g.compar <- list_compar(lgrph, nd.var = "type")
-nds_compar <- plot_compar(listg = g.compar, 
-                          dec2comp = dec.to.compare,
-                          focus = "nodes",
-                          nd.size = c(0.5, 1.7),
-                          dir = dataDir,
-                          img.format = "png",
-                          res = 150)
-eds_compar <- plot_compar(listg = g.compar, 
-                          dec2comp = dec.to.compare,
-                          focus = "edges",
-                          nd.size = c(0.5, 1.7),
-                          dir = dataDir,
-                          img.format = "png",
-                          res = 150)
-knitr::include_graphics(nds_compar)
-knitr::include_graphics(eds_compar) 
+plot_compar(listg = g.compar, 
+            dec2comp = dec.to.compare,
+            focus = "nodes",
+            nd.size = c(0.5, 1.7),
+            dir = dataDir)
+plot_compar(listg = g.compar, 
+            dec2comp = dec.to.compare,
+            focus = "edges",
+            nd.size = c(0.5, 1.7),
+            dir = dataDir)
 ```
   
 Here, the comparisons have been made on the basis of different types (ie, graphical units, GUs) with the variable `type` (`nd.var = "type"`). However, if a new column is added to the node dataframe or shapefile, the study can also incorporate the technique by which the GU was created (`nd.var = "technique"`) or any other categorical variable.  
