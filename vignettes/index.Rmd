@@ -186,13 +186,13 @@ W <- image_info(cm1)$width
 H <- -image_info(cm1)$height
 image_border(image = cm1, "#808080", "2x2") %>%
   image_annotate(text = paste0(0, ", ", 0), size = 30,
-                 gravity = "northwest") %>%
-  image_annotate(text = paste0(W, ", ", 0), size = 30,
-                 gravity = "northeast") %>%
-  image_annotate(text = paste0(0, ", ", H), size = 30,
-                 gravity = "southwest") %>%
-  image_annotate(text = paste0(W, ", ", H), size = 30,
-                 gravity = "southeast")
+                 gravity = "northwest") # %>%
+#   image_annotate(text = paste0(W, ", ", 0), size = 30,
+#                  gravity = "northeast") %>%
+#   image_annotate(text = paste0(0, ", ", H), size = 30,
+#                  gravity = "southwest") %>%
+#   image_annotate(text = paste0(W, ", ", H), size = 30,
+#                  gravity = "southeast")
 ```
 
 ## Node data {#nd}
