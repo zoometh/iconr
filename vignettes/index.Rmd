@@ -176,23 +176,22 @@ knitr::kable(df.equi) %>%
   
 Observe that the y-axis orientation are different between the GIS interface and R grids. In the GIS the y-axis is oriented upwards (ie, with negative values downwards), while in a R grid the y-axis is oriented downwards (ie, with positive values downwards). Then, the heights (ie, y-axis) coming from the GIS have to be inverted. This can be illustrated with the `magick` package.
 
-```{r drawing, out.width="50%", fig.align="center", warning=FALSE, echo=TRUE, message=FALSE, fig.cap="\\label{fig:figs}R grid conformed to the GIS coordinates: `Cerro_Muriano.Cerro_Muriano_1.jpg` with the coordinates of its corners."}
+```{r drawing, out.width="50%", fig.width=6, fig.asp=750/666, fig.align="center", warning=FALSE, echo=TRUE, message=FALSE, fig.cap="\\label{fig:figs}R grid conformed to the GIS coordinates: `Cerro_Muriano.Cerro_Muriano_1.jpg` with the coordinates of its corners."}
 library(magick)
+library(graphics)
 dataDir <- system.file("extdata", package = "iconr")
 imgs_path <- paste0(dataDir, "/imgs.csv")
 imgs <- read.table(imgs_path, sep=";", stringsAsFactors = FALSE)
 cm1 <- image_read(paste0(dataDir, "/", imgs$img[1]))
 W <- image_info(cm1)$width
 H <- -image_info(cm1)$height
-image_border(image = cm1, "#808080", "2x2") %>%
-  image_annotate(text = paste0(0, ", ", 0), size = 30,
-                 gravity = "northwest") %>%
-  image_annotate(text = paste0(W, ", ", 0), size = 30,
-                 gravity = "northeast") %>%
-  image_annotate(text = paste0(0, ", ", H), size = 30,
-                 gravity = "southwest") %>%
-  image_annotate(text = paste0(W, ", ", H), size = 30,
-                 gravity = "southeast")
+par(mar = c(0,0,0,0))
+plot(cm1)
+box(lwd = 2)
+text(0, -H, paste0(0, ",", 0), cex = 2, adj = c(0, 1.1))
+text(W, -H, paste0(W, ",", 0), cex = 2, adj = c(1, 1.1))
+text(0, 0, paste0(0, ",", H), cex = 2, adj = c(0, -0.2))
+text(W, 0, paste0(W, ",", H), cex = 2, adj = c(1, -0.2))
 ```
 
 ## Node data {#nd}
