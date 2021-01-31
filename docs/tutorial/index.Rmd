@@ -13,15 +13,58 @@ library(magick)
 
 # Open Image with magick package
 
+Read the image and show image proprieties
+
 ```{r echo=FALSE}
 path_img <- "D:/Sites_10/Abela/Abela.jpg"
 img <- image_read(path_img)
-print(img)
+img
 ```
 
+Plot the image
 
 
-## THOMAS
+```{r echo=FALSE, out.width="60%", fig.width=6, fig.asp=750/666}
+plot(image_trim(img))
+```
+
+Add the coordinates of the image four corners:
+
+* top-left
+
+* top-right
+
+* bottom-right
+
+* bottom-left
+
+```{r echo=FALSE, out.width="60%", fig.width=6, fig.asp=750/666}
+W <- image_info(img)$width
+H <- image_info(img)$height
+# par(mar = c(0,0,0,0))
+plot(img)
+box(lwd = 2)
+# min width & min height (origin)
+text(0, 0, 
+     paste0(0, ",", 0),
+     cex = 2, adj = c(0, -0.2))
+# min width & max height
+text(0, image_info(img)$height,
+     paste0(0, ",", image_info(img)$height),
+     cex = 2, adj = c(0, 1.1))
+# max width & min height
+text(image_info(img)$width, 0,
+     paste0(image_info(img)$width, ",", 0),
+     cex = 2, adj = c(1, -0.2))
+# max width & max height
+text(image_info(img)$width, image_info(img)$height,
+     paste0(image_info(img)$width, ",", image_info(img)$height),
+     cex = 2, adj = c(1, 1.1))
+```
+
+# The two proposed versions
+
+## Thomas
 
 For a given decoration, its image is the reference space of the graph:
 nodes and edges inherit their coordinates from the image grid. The package
@@ -48,7 +91,7 @@ with positive values downwards). Then, the heights (ie, y-axis) coming from
 the GIS have to be inverted. This can be illustrated with the `magick`
 package.
 
-## JOSE
+## Jose
 
 For a given decoration, its image is the reference space of the graph:
 nodes and edges inherit their coordinates from the image grid. The package
