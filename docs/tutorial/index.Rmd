@@ -1,0 +1,67 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(kableExtra)
+library(magick)
+```
+
+
+# Open Image with magick package
+
+```{r echo=FALSE}
+path_img <- "D:/Sites_10/Abela/Abela.jpg"
+img <- image_read(path_img)
+print(img)
+```
+
+
+
+## THOMAS
+
+For a given decoration, its image is the reference space of the graph:
+nodes and edges inherit their coordinates from the image grid. The package
+`iconr` considers the following coordinate conventions:
+
+```{r xy_coords,out.width="50%", fig.align="center",echo=FALSE,warning=FALSE}
+df.equi <- data.frame("devices" = c("GIS interface","R grid"),
+"units of measures" = c("number of pixels", "number
+of pixels"),
+"origin corner" = c("top-left", "top-left"),
+"x-axis" = c("rightward", "rightward"),
+"y-axis" = c("upward", "downward"),
+check.names = FALSE)
+knitr::kable(df.equi) %>%
+kableExtra::add_header_above(c(" " = 1, " " = 1, " " = 1, "axes
+orientation" = 2)) %>%
+kable_styling(full_width = F)
+```
+
+Observe that the y-axis orientation are different between the GIS interface
+and R grids. In the GIS the y-axis is oriented upwards (ie, with negative
+values downwards), while in a R grid the y-axis is oriented downwards (ie,
+with positive values downwards). Then, the heights (ie, y-axis) coming from
+the GIS have to be inverted. This can be illustrated with the `magick`
+package.
+
+## JOSE
+
+For a given decoration, its image is the reference space of the graph:
+nodes and edges inherit their coordinates from the image grid. The package
+`iconr` considers the following coordinate conventions:
+
+* **Unit of length:** number of pixels.
+* **Origin:** top-left corner.
+* **Axes orientation:** x-coordinates rightward and y-coordinates upwards.
+
+Observe that the origin and y-axis orientation implies that y-coordinates
+are always negative in the image. This follows the same convention as
+relative coordinates in GIS, which are referenced to the top left corner of
+the local map with upwards y-axis orientation. However, it contrast with
+both default R plots (upwards y-axis but bottom-left origin) and `magick`
+image package plots (top-left origin but downwards y-axis), for which `y`
+values are positive.
