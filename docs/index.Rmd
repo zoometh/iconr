@@ -177,21 +177,21 @@ The decoration's unique identifiers are the concatenation of the site name and t
 
 Image or drawing (eg, images, rasters, grids) formats accepted are the common ones (jpg, png, jpeg, tiff, pdf, etc.). The images in the current example dataset come from a PhD thesis, published by M. Diaz-Guardamino [@DiazGuardamino10]. 
 
-For a given decoration, its image is the reference space of the graph: nodes and edges inherit their coordinates from the image grid. The package `iconr` considers the following coordinate conventions:
+For a given decoration, its image is the reference space of the graph: nodes and edges inherit their coordinates from this image. Firstly, the decoration image is open in the GIS and the graph is build. The, these features are imported into R:
 
-```{r xy_coords,out.width="50%", fig.align="center",echo=FALSE, warning=FALSE}
-df.equi <- data.frame("devices" = c("GIS interface","R grid"),
+```{r xy_coords,out.width="50%", fig.align="center",echo=FALSE,warning=FALSE}
+df.equi <- data.frame("devices" = c("GIS raster","R bitmap image"),
                       "units of measures" = c("number of pixels", "number of pixels"),
                       "origin corner" = c("top-left", "top-left"),
                       "x-axis" = c("rightward", "rightward"),
-                      "y-axis" = c("upwards", "downwards"),
+                      "y-axis" = c("upward", "downward"),
                       check.names = FALSE)
 knitr::kable(df.equi) %>%
   kableExtra::add_header_above(c(" " = 1, " " = 1, " " = 1, "axes orientation" = 2)) %>%
   kable_styling(full_width = F)
-``` 
-  
-Observe that the y-axis orientation are different between the GIS interface and R grids. In the GIS the y-axis is oriented upwards (ie, with negative values downwards), while in a R grid the y-axis is oriented downwards (ie, with positive values downwards). Then, the heights (ie, y-axis) coming from the GIS have to be inverted. This can be illustrated with the `magick` package.
+```
+
+Observe that the y-axis orientation are different between a GIS raster/grid and R bitmap images. In the GIS the y-axis is oriented upwards (ie, with negative values downwards) and y-coordinates are always negative. However, it contrast with R bitmap image (top-left origin but downwards y-axis), for which `y` values are positive. Then, the heights (ie, y-axis) coming from the GIS have to be inverted. This can be illustrated with the `magick` package.
 
 ```{r drawing, out.width="50%", fig.align="center", warning=FALSE, echo=TRUE, message=FALSE, fig.cap="\\label{fig:figs}R grid conformed to the GIS coordinates: `Cerro_Muriano.Cerro_Muriano_1.jpg` with the coordinates of its corners."}
 library(magick)
