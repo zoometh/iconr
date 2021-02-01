@@ -1,4 +1,11 @@
-## Resubmission
+## Resubmission 2
+
+This is the second resubmission, responding to feedback from Uwe Ligges after the first resubmission
+
+* Thanks, but please write the url in the form <https://hal.archives-ouvertes.fr/hal-02913656>
+  + Done
+
+## Resubmission 1
 
 This is the first resubmission, responding to feedback from Uwe Ligges after the first submission
 
