@@ -160,23 +160,23 @@ The decoration's unique identifiers are the concatenation of the site name and t
 
 Image or drawing (eg, bitmap images, rasters, grids) formats accepted are the common ones (jpg, png, jpeg, tiff, pdf, etc.). The images in the current example dataset come from a PhD thesis, published by M. Diaz-Guardamino [@DiazGuardamino10]. 
 
-For a given decoration, its image is the reference space of the graph: nodes and edges inherit their coordinates from this image. Firstly, the decoration image is open in the GIS and the graph is build. The, these features are imported into R:
+For a given decoration, its image is the reference space of the graph: nodes and edges inherit their coordinates from this image. However, different image or graphic systems use different coordinate conventions. The following table illustrates some of the most relevant ones:
 
 ```{r xy_coords,out.width="50%", fig.align="center",echo=FALSE,warning=FALSE}
-df.equi <- data.frame("devices" = c("GIS raster","R bitmap image"),
-                      "units of measures" = c("number of pixels", "number of pixels"),
-                      "origin corner" = c("top-left", "top-left"),
-                      "x-axis" = c("rightward", "rightward"),
-                      "y-axis" = c("upward", "downward"),
-                      check.names = FALSE)
+df.equi <- data.frame(
+  "Device/Package" = c("*R graphics*", "*R raster*", "*R magick*", "***GIS interface***"),
+  "Unit of measure" = c("number of pixels", "number of pixels", "number of pixels", "**number of pixels**"),
+  "Origin" = c("bottom-left corner", "top-left corner", "top-left corner", "**top-left corner**"),
+  "x-axis orientation" = c("rightward", "downward", "rightward", "**rightward**"),
+  "y-axis orientation" = c("upward", "rightward", "downward", "**upward**"),
+  check.names = FALSE)
 knitr::kable(df.equi) %>%
-  kableExtra::add_header_above(c(" " = 1, " " = 1, " " = 1, "axes orientation" = 2)) %>%
   kable_styling(full_width = F)
 ```
 
-Observe that the y-axis orientation are different between a GIS raster/grid and R bitmap images. In the GIS the y-axis is oriented upwards (ie, with negative values downwards) and y-coordinates are always negative. However, it contrast with R bitmap image (top-left origin but downwards y-axis), for which `y` values are positive. Then, the heights (ie, y-axis) coming from the GIS have to be inverted. This can be illustrated with the `magick` package.
+The package `iconr` follows the coordinate conventions of the GIS interface. This is in agreement with our advice above to use the GIS as the preferred interface to extract nodes and edges from the decoration image. Observe that the y-axis is oriented upwards from the top-left corner, which implies that y-coordinates are always negative in the image (ie, downwards). The following image illustrates a decoration with the `iconr` (GIS) coordinates for the four corners. Note the contrast with the coordinates in the code generating it with the standard graphics package.
 
-```{r drawing, out.width="50%", fig.width=6, fig.asp=750/666, fig.align="center", warning=FALSE, echo=TRUE, message=FALSE, fig.cap="\\label{fig:figs}R grid conformed to the GIS coordinates: `Cerro_Muriano.Cerro_Muriano_1.jpg` with the coordinates of its corners."}
+```{r drawing, out.width="50%", fig.width=6, fig.asp=750/666, fig.align="center", warning=FALSE, echo=TRUE, message=FALSE, fig.cap="\\label{fig:figs} `iconr` (GIS) coordinate convention: decoration `Cerro_Muriano.Cerro_Muriano_1.jpg` with the coordinates of its corners."}
 library(magick)
 library(graphics)
 dataDir <- system.file("extdata", package = "iconr")
@@ -184,14 +184,14 @@ imgs_path <- paste0(dataDir, "/imgs.csv")
 imgs <- read.table(imgs_path, sep=";", stringsAsFactors = FALSE)
 cm1 <- image_read(paste0(dataDir, "/", imgs$img[1]))
 W <- image_info(cm1)$width
-H <- -image_info(cm1)$height
+H <- image_info(cm1)$height
 par(mar = c(0,0,0,0))
 plot(cm1)
 box(lwd = 2)
-text(0, -H, paste0(0, ",", 0), cex = 2, adj = c(0, 1.1))
-text(W, -H, paste0(W, ",", 0), cex = 2, adj = c(1, 1.1))
-text(0, 0, paste0(0, ",", H), cex = 2, adj = c(0, -0.2))
-text(W, 0, paste0(W, ",", H), cex = 2, adj = c(1, -0.2))
+text(0, H, paste0(0, ",", 0), cex = 2, adj = c(0, 1.1))
+text(W, H, paste0(W, ",", 0), cex = 2, adj = c(1, 1.1))
+text(0, 0, paste0(0, ",", -H), cex = 2, adj = c(0, -0.2))
+text(W, 0, paste0(W, ",", -H), cex = 2, adj = c(1, -0.2))
 ```
 
 ## Node data {#nd}
