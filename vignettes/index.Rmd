@@ -120,7 +120,7 @@ g <- lgrph[[1]]
 as.character(class(g))
 ```
 
-By default, the `plot.igraph()` function (ie, `igraph::plot()`) spatialization (`layout`) is based on `x` and `y` columns, when these exist. This is appropriate in our case since we are working with geometric graphs. If this spatialisation (node coordinates) is ignored, then very different layouts are possible for the same graph (*graph drawing*):
+By default, the `plot.igraph()` function (ie, `igraph::plot()`) spatialization (`layout`) is based on `x` and `y` columns, when these exist. This is appropriate in our case since we are working with geometric graphs. If this spatialization (node coordinates) is ignored, then very different layouts are possible for the same graph (*graph drawing*):
 
 ```{r igraph.1, warning=FALSE, fig.align="center", fig.width=6.5, fig.asp=0.58}
 par(mar=c(1,0,2,0), mfrow=c(1, 2), cex.main=0.9, font.main= 1)
@@ -222,9 +222,9 @@ In principle, the nodes are defined to be located at the exact centroids of each
 
 Nodes can be *main* nodes or *attribute* nodes depending on the type of edges they share with other nodes (see [edge types](#ed.type)). For example, considering the Cerro Muriano 1 stelae:
 
-* **main nodes**: the anthropomorph, the spear, the shield, the comb and the ingot can be considered as *main* nodes because they are separated and they show different graphical contents.
+* **main nodes**: the anthropomorphic figure, the spear, the shield, the comb and the ingot can be considered as *main* nodes because they are separated and they show different graphical contents.
 
-* **attribute nodes**: the helmet and the male sex of the antropomorphic figure can be considered as *attribute* nodes of the anthropomorph because they are characteristic features of this latter.
+* **attribute nodes**: the helmet and the male sex of the antropomorphic figure can be considered as *attribute* nodes of the anthropomorphic figure because they are characteristic features of this latter.
 
 ## Edge data {#ed}
 
@@ -283,7 +283,7 @@ Graph theory says that edges can be undirected or directed. In the `iconr` packa
 
 * all contemporaneous nodes have [*normal* edges](#ed.type.norm) or [*attribute* edges](#ed.type.attrib)  edges displayed in <span style="color:orange"><b>orange</b></span>
 
-* all non-comtemporaneous nodes have [*diachronic* edges](#ed.type.over) displayed in <span style="color:blue"><b>blue</b></span> edges (see [contemporaneous nodes](#contemp))
+* all non-contemporaneous nodes have [*diachronic* edges](#ed.type.over) displayed in <span style="color:blue"><b>blue</b></span> edges (see [contemporaneous nodes](#contemp))
 
 The `named_elements()` function allows one to display the textual notation of the different types of edges (`-=-`, `-+-` or `->-`)
 
@@ -291,7 +291,7 @@ The `named_elements()` function allows one to display the textual notation of th
 named_elements(lgrph[[1]], focus = "edges", nd.var="type")[1]      
 ```
 
-When there are nodes with the same `nd.var`, this function adds the suffix `#` to the `nd.var` in order to disambiguate the node list. This is the case, for example, for the `chariot_char-+-cheval` (x2) and `chariot_char-+-roue` (x2) edges of the Zarza de Montsanchez stelae (decoration 4)
+When there are nodes with the same `nd.var`, this function adds the suffix `#` to the `nd.var` in order to disambiguate the node list. This is the case, for example, for the `chariot_char-+-cheval` (x2) and `chariot_char-+-roue` (x2) edges of the Zarza de Montanchez stelae (decoration 4)
 
 ```{r count1, warning=FALSE}
 named_elements(lgrph[[4]], focus = "edges", nd.var="type")
@@ -315,7 +315,7 @@ Different *main* nodes considered to be contemporaneous and close to one another
 
 #### ***Attribute* edges** {#ed.type.attrib}
 
-When a node is an attribute of another, edges are identified with a `+` and displayed with a dashed line. For example, at the bottom of the Zarza de Montsanchez stelae (decoration 4), the main node 7 (`chariot`) is connected with four (4) attribute nodes:
+When a node is an attribute of another, edges are identified with a `+` and displayed with a dashed line. For example, at the bottom of the Zarza de Montanchez stelae (decoration 4), the main node 7 (`chariot`) is connected with four (4) attribute nodes:
 
 - two horses (`cheval`): 8 and 9  
 
@@ -628,7 +628,7 @@ plot(g,
      )
 ```
   
-Such a formalism can be used to weight the differences between nodes, to conduct analysis with different levels of precision or to overcome issues of idiosynchratic typologies.
+Such a formalism can be used to weight the differences between nodes, to conduct analysis with different levels of precision or to overcome issues of idiosyncratic typologies.
 
 Using the *diachronic* edge notation, tree structure can also be used to construct relative chronology diagrams, similar to a Harris matrix. For example, with the `data.tree` package and the Ibahernando stelae (decoration 5):
 
