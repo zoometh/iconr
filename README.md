@@ -1,6 +1,6 @@
 [![R-CMD-check](https://github.com/zoometh/iconr/workflows/R-CMD-check/badge.svg)](https://github.com/zoometh/iconr/actions) [![Build Status](https://travis-ci.org/zoometh/iconr.svg?branch=master)](https://travis-ci.org/zoometh/iconr)
           
-# ***iconr*** package: modeling Prehistoric iconography <img src="docs/tutorial/img/iconr_logo.png" align="right"/>
+# ***iconr*** package <br> modeling Prehistoric iconography <img src="docs/tutorial/img/iconr_logo.png" align="right"/>
 > Created by [Thomas Huet](mailto:thomashuet7@gmail.com), [Jose M Pozo](mailto:josmpozo@gmail.com), [Craig Alexander](mailto:craiga304@gmail.com)
   
   
