@@ -1,13 +1,13 @@
 [![R-CMD-check](https://github.com/zoometh/iconr/workflows/R-CMD-check/badge.svg)](https://github.com/zoometh/iconr/actions) [![Build Status](https://travis-ci.org/zoometh/iconr.svg?branch=master)](https://travis-ci.org/zoometh/iconr)
           
-# ***iconr*** package: modeling Prehistoric iconography <img src="/logo/iconr_logo.png" align="right" width="80"/>
+# ***iconr*** package: modeling Prehistoric iconography <img src="docs/tutorial/img/iconr_logo.png" align="right"/>
 > Created by [Thomas Huet](mailto:thomashuet7@gmail.com), [Jose M Pozo](mailto:josmpozo@gmail.com), [Craig Alexander](mailto:craiga304@gmail.com)
   
   
   
 The R package ***iconr*** is grounded in graph theory and spatial analysis to offer concepts and functions for modeling Prehistoric iconographic compositions and preparing for further analysis (clustering, typology tree, Harris diagram, etc.). The package purpose is to contribute to cross-cultural comparison through a greater normalization of quantitative analysis. 
 
-<img src="/docs/img/solana.png" align="center"/>
+<img src="docs/img/solana.png" align="center"/>
 
 To get and install the latest development version from GitHub:
 
