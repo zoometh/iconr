@@ -2,14 +2,31 @@
 title: | 
   | **The R *iconr* package** 
   | a tutorial
+author: "Thomas Huet, Jose M Pozo, Craig Alexander"
 bibliography: references.bib
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+---
+
+```{r, echo=FALSE}
+# print(getwd())
+# print(file.path("../logo", "iconr_logo.png"))
+htmltools::img(src = knitr::image_uri(file.path("img", "iconr_logo.png")), 
+# htmltools::img(src = knitr::image_uri(file.path(R.home("doc"), "html", "logo.jpg")), 
+               alt = 'logo', 
+               style = 'position:absolute; top:0; right:0; padding:10px;')
+```
+
 ---
 
 <style>
 .figure {
    margin-top: 0px;
-   margin-bottom: 20px;
+   margin-bottom: 40px;
 }
 table {
     margin-top: 0px;
@@ -20,16 +37,18 @@ table {
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(kableExtra)
+library(dplyr)
+
 solanas.vor.path <- "img/all_process.gif"
 ```
   
 
-Any iconographic contents can be modeled with a geometric graph where nodes, also called **graphical units (GUs)**, linked together with edges and then analyzed with the **Graph Theory** and spatial analysis at the support scale [@Alexander08; @HuetAlexander15; @Huet18a]
+Any iconographic contents can be modeled with a geometric graph where nodes, also called **graphical units (GUs)**, linked together with edges and then analyzed with the **Graph Theory** and spatial analysis at the support scale. This modeling is particularly interesting for compositions coming from Paleolithic, Neolithic and Protohistoric times [@Alexander08; @HuetAlexander15; @Huet18a].
 
 
-The ***iconr*** R package grounds concepts and provides normalized tools to manage iconographic contents. To record large series of iconographic contents, the **GIS interface** appears to be the most appropriate one for users. This tutorial explains how to construct the graph _before_ using the package ***iconr***.  
-  
-This tutorial offers also tipping points to facilitate the recording process. The chapter '[Dataset](https://zoometh.github.io/iconr/docs/#Dataset)' of the  ***iconr*** documentation can complete the present tutorial.
+The ***iconr*** R package grounds concepts and provides normalized tools to manage iconographic contents. To record large series of iconographic contents, the [GIS interface](#gis) appears to be the most appropriate one for users. This tutorial explains how to construct the graph _before_ using the package ***iconr***, offering also tipping points to facilitate the recording process. The chapter '[Dataset](https://zoometh.github.io/iconr/docs/#Dataset)' of the  ***iconr*** documentation can complete the present tutorial.
 
 <center>
 
@@ -37,118 +56,175 @@ This tutorial offers also tipping points to facilitate the recording process. Th
 
 </center>
 
-GIS offer multiple tools and options to facilitate the data entry.  Use of GIS offers a graphic interface and ensures the correctness of spatial relationships between GUs. Here, we only focus on the most basic ones and point out the possible short cuts or good practices. Obviously, the main GIS facility is the presence of **attributes tables** which allow to record, filter and sort GUs on many information: types, techniques, orientations, lengths, etc. The other most important GIS facilities for the recording process are:
+
+## A GIS ? Yes but why ? {#gis}
+
+The *tenet* of the ***iconr*** is to always keep the user connected with the iconographic content -- his primary data source -- and emphasise the significance of the spatial dimension for any graphical content. Geographical Information Systems (GIS) offer multiple tools and options to facilitate the data entry.  Use of GIS offers a graphic interface and ensures the correctness of spatial relationships between GUs. It forms a permanent interface between the image of he decoration and the database. Obviously, the main GIS facility is the presence of **attributes tables** which allow to record, filter and sort GUs on many information: types, techniques, orientations, lengths, etc. 
+
+The other most important GIS facilities for the recording process are:
 
 * the snapping tools
 * the measurement line
-* the georeferencing tools
-* 
+* the georeferencing tools (see [Absolute scale](#scale.abs))
 
+From far, our software preference goes to [QGIS](https://www.qgis.org/fr/site/), because it is open source, offers a large rank of database connections facilities (with PostGRES/GIS for example), has a large user community, but also because the source file is a XML (.qgs, .qgz) structure that can be parsed, modified, copied and moved with scripting languages like R and Python
 
 ## Always start with an **image**
 
-The *tenet* of the ***iconr*** is to always keep the user connected with the iconographic content -- his primary data source -- and emphasise the significance of the spatial dimension for any graphical content.The image will be the reference space of the graph. So, before anything, start by opening the image decoration into a GIS (for example QGIS), or [downloading the training decoration from GitHub](https://github.com/zoometh/iconr/blob/master/docs/tutorial/img/Abela.jpg)
+The image will be the reference space of the graph. So, before anything, start by opening the image decoration into the GIS. In this tutorial we will take the example of the South Western Iberian Abela stela dated to the Middle Bronze Age. The original drawing can be download [here](https://github.com/zoometh/iconr/blob/master/docs/tutorial/img/Abela.jpg) [@DiazGuardamino10]
+
+
+<center>
+  
+  
+![Drag and drop the decoration image before anything](img/openImageGIS.gif){width=70%}
+</center>
+  
+  
+Beside the ***iconr*** embedded training dataset, others datasets are available. To facilitate the starting, ready to use QGIS projects (.qgz) are also provided for each decoration:
+
+```{r, echo = F}
+gh.root <- "https://downgit.github.io/#/home?url=https://github.com/zoometh/iconr/tree/master/docs/datasets/"
+url.df <- c(paste0(gh.root, "stele%20bas%20aragon"),
+            paste0(gh.root, "Valcamonica"))
+url.ref <- c("https://doi.org/10.3989/gladius.2013.0002",
+             "https://scholar.google.fr/scholar?hl=fr&as_sdt=0%2C5&q=Le+Pietre+degli+Dei%2C+menhir+e+stele+dell%27Eta+del+Rame+in+Valcamonica+e+Valtellina&btnG=")
+df.datasets <- data.frame("download" = c("stele bas aragon", "Valcamonica"),
+                          "name" = c("Estelas Ibericas con Lanzas", "Ossimo"),
+                          "nb.decor" = c("5","3"),
+                          "sort.description" = c("Late Iron Age stelae with ranges of spears, writings, etc.",
+                                                 "Chalcolithic rock-art of Ossimo, Valcamonica"),
+                          "drawings.references" = c("Vargas 2013","Fedele 1994"),
+                          stringsAsFactors = F)
+# row.names(df.datasets) <- df.datasets$family
+df.datasets %>% 
+  mutate(download = cell_spec(download, "html", link = url.df)) %>%
+  mutate(drawings.references = cell_spec(drawings.references, "html", link = url.ref)) %>%
+  kable("html", escape = FALSE, row.names = F) %>%
+  kable_styling(bootstrap_options = c("hover", "condensed"), full_width = F)
+```
+These datasets can be downloaded by clicking on their names
+
+```{r, echo=TRUE, eval=FALSE}
+library(iconr)
+# After unzipped
+dataDir <- "C:/Users/supernova/Dropbox/My PC (supernova-pc)/Downloads/Valcamonica/Valcamonica"
+# Read data
+imgs <- read.table(paste0(dataDir, "/imgs.tsv"),
+                   sep="\t",stringsAsFactors = FALSE)
+nodes <- read.table(paste0(dataDir, "/nodes.tsv"),
+                    sep="\t",stringsAsFactors = FALSE)
+edges <- read.table(paste0(dataDir, "/edges.tsv"),
+                    sep="\t",stringsAsFactors = FALSE)
+# Generate list of graphs from the three dataframes
+lgrph <- list_dec(imgs, nodes, edges)
+
+# Generate all pairwise comparisons of the graphs with respect to nodes "type"
+g.compar <- list_compar(lgrph, nd.var="type")
+
+# Generate the image showing the comparison on common nodes of graphs
+# '1' and '4', save it in png format, and return its path.
+plot_compar(g.compar, c(1:3), 
+            nd.color = c("orange", "red"), nd.size = c(0.5, 3),
+            ed.color = c("orange", "red"), ed.width = c(1, 3),
+            lbl.size = 0.5,
+            focus = "edges",
+            dir = dataDir)
+```
+
+### Scales
+
+Use of GIS easy the scaling process. The creation of a spatialized graph permit to combine network analysis with spatial analysis of the graphical content
+
+#### Relative scale {#scale.rel}
+
+The image extent is measured in pixels with a top-left corner origin (0,0). The coordinates system is irrelevant: image, nodes and edges are measured on the pixel grid
+
 
 <center>
 
-![](img/openImageGIS.gif){width=70%}
+![Coordinates system in pixels](img/coordsQGIS.gif){width=70%}
 </center>
 
-Whether it is not mandatory -- and not available in all GIS -- you can check the box **Non projection (or unknown/non-Earth projection)**. The projection system will not affect the next step.  
+#### Absolute scale {#scale.abs}
 
-### Relative scale
-
-The image extent is measured in pixels with a top-left corner origin (0,0). 
+To retrieve to true scale of the decoration, one can create a scale bar and apply a simple rule of three to convert pixels into centimeters, or meters. For example, if the scale belongs to another drawing, you can import it and 'georeferenced' it on the original drawing with the [*Freehand raster georeferencer* plugin](https://gvellut.github.io/FreehandRasterGeoreferencer/), and then create the scale bar
 
 <center>
 
-![](img/coordsQGIS.gif){width=70%}
+![Importing information on the scale and creation of a scale bar](img/scaleAll.gif){width=70%}
+
 </center>
 
-### Absolute scale
-
-To retrieve to true scale of the decoration, you can create a scale bar and apply a simple rule of three to convert pixels into centimeters or meters. For example, if the scale belongs to another drawing, you can import it and 'georeferenced' it on the original drawing with the [*Freehand raster georeferencer* plugin](https://gvellut.github.io/FreehandRasterGeoreferencer/), and then create the scale bar
+Parallely, the dimensions of each GU can be measured with the QGIS **Measure Line** tool. At first, only the maximum length of the GU is important. It has also to be noted that if a Polygonization is done on the GUs, the maximum length -- between all other type of shape analysis indexes -- do not have to be calculated 
 
 <center>
 
-![](img/scaleAll.gif){width=70%}
+![Measure and record the dimensions of each GUs in pixels](img/scaleRuleOfThree.gif){width=70%}
 
 </center>
 
 To retrieve the real dimensions of each GUs, first get the pixel sizes with the Measure line tools, then apply a simple rule of three with:
 
-* the size of the scale in pixels (native QGIS function `$length`)
-* the real size of the scale in cm (here, 100 cm)
-* the size of each GUs in cm
+1. the size of the scale in pixels (native QGIS function `$length`)
+2. the real size of the scale in cm (here, 100 cm)
+3. the size of each GUs in cm
+
+
+## Nodes and edges attribute tables
+
+[Nodes](#nodes) and [edges](#edges) are the graph elements. At first, we have to create attribute tables for each of them. For example the nodes shapefiles:
+
 
 <center>
-
-![](img/scaleRuleOfThree.gif){width=70%}
-
+  
+![Create the **nodes** shapefile with its attribute table](img/createNodes.gif){width=70%}
+  
 </center>
 
-## Create attribute tables and add graph elements
+In the GIS, [add a node](#graph.enodes.add) for each GUs and [add an edge](#graph.edges.add) between two contiguous GUs. Always start with the nodes
 
-**Graph elements are nodes and edges**. At first, we have to create the attribute tables:
+[HELP](https://zoometh.github.io/iconr/docs/#Edge)
+[HELP](https://zoometh.github.io/iconr/docs/#Node)
+[HELP](https://zoometh.github.io/iconr/docs/#Table_of_decorations)
 
-### Nodes
+
+### Nodes {#nodes}
 
 **Nodes** represent the basic information of the graphical content. For example, it would be easy to distinguish a decoration with aurochs (`type = auroch`) from a decoration with swords (`type = sword`). The former iconographical content should be probably related to the Late Paleolithic/Early Neolithic while the second one is more probably related to a period starting with the Bronze Age. Nodes are created as a shapefile of `POINTS`. The attribute table of the nodes has at least four (4) fields:
 
-1. `site` (Text)
-2. `decor` (Text)
-3. `id` (Integer)
-4. a relevant characteristics of each node, like its `type` (Text)
-
-<center>
-  
-![Create the **nodes** attribute table](img/createNodes.gif){width=70%}
-  
-</center>
+1. `site` (Text): name of the site
+2. `decor` (Text): name of the decoration
+3. `id` (Integer): node identifier
+4. `type`(Text): one of the relevant characteristics of each node
 
 The nodes are created near the centroids of each different graphical units (GUs).
 
 <center>
   
-![Add a **node** for each GU](img/addNodes.gif){width=70%}
+![Adding **nodes** for each GU](img/addNodes.gif){width=70%}
   
 </center>
 
 In this example, beside the *main* nodes sword (`epee`), anciform (`anciforme`) and halberd (`hallebarde`), we can also observe that the sword is connected to a belt and the anciform is worn as necklace. We probably would like to register this piece of graphical content as we also probably would like to characterize the types of blades for the sword and halberd, point out the presence of rivets on the sword depiction, etc. To do so, see the [Attribute edges](https://zoometh.github.io/iconr/docs/#Edge_types) part of the ***iconr*** package documentation
 
-### Edges
+### Edges {#edges}
 
-**Edges** give information on the relative location of each node and, depending on their `type` value, give information on the nature of the nodes (main node *vs* attribute node, overlapping *vs* overlapped node, etc.). Edges are created as a shapefile of `LINES` and the **edges** table attributes is created in the same way as nodes. Edges attribute table has at least five (5) fields:
+**Edges** types (field `type`) give information on nodes relative locations and on the nature of these nodes (main node *vs* attribute node, overlapping *vs* overlapped node, etc.). Edges are created as a shapefile of `LINES`. Edges attribute table has at least five (5) fields:
 
-1. `site` (Text)
-2. `decor` (Text)
-3. `a` (Integer)
-4. `b` (Integer)
-5. `type` (Text)
+1. `site` (Text): name of the site
+2. `decor` (Text): name of the decoration
+3. `a` (Integer): *starting* node
+4. `b` (Integer) *ending* node
+5. `type` (Text): values`=`, `+` or `>` [HELP](https://zoometh.github.io/iconr/docs/#Edge_types)
 
-Theoretically, between two *main* nodes, edges exist when their Voronoi cells are contiguous. In practice, if you consider that two GUs are neighbors, you can create an edge between their two nodes
+Theoretically, between two *main* nodes, edges exist when their Voronoi cells are contiguous. In practice, if you consider that two GUs are neighbors, you can create an edge between their two nodes: GIS snapping tool help !
 
 <center>
   
-![](img/addEdges.gif){width=70%}
+![Adding edges between contiguous GU](img/addEdges.gif){width=70%}
   
 </center>
-
-To understand the structure of the attribute table of the edges, see the [Edge data](https://zoometh.github.io/iconr/docs/#Edge_data) documentation part of the ***incor*** documentation. To understand the different types edges (field `type`, values`=`, `+` or `>`), see the [Edge types](https://zoometh.github.io/iconr/docs/#Edge_types) part 
-
-
-See the [Node data](https://zoometh.github.io/iconr/docs/#Node_data) and  parts of the ***incor*** documentation
-
-Their coordinates system are irrelevant: their coordinates are measured in pixels (like the decoration image). 
-
-
-
-
-
-## 
-
-In the GIS, [add a node](#graph.enodes.add) for each GUs and [add an edge](#graph.edges.add) between two contiguous GUs. Always start with the nodes.
-
 
 
 ### Summary
@@ -163,7 +239,7 @@ For the Abela decoration, we have created three (3) nodes (`1`,`2`,`3`) and two 
 
 ## Create the **table of decorations**
 
-A dataframe, the **table of decorations**, record the joins between nodes and edges dataframes. The default name of the **table of decorations** is `imgs.tsv` in the ***incor*** package, a tabulate separated-values (but it also can be a`.csv`, comma separated-values)
+The **table of decorations** is a correspondance table which records joins between nodes and edges dataframes. The default name of the **table of decorations** is `imgs.tsv` in the ***incor*** package, a tabulate separated-values (but it also can be a`.csv`, comma separated-values)
 
 <center>
   
@@ -173,12 +249,11 @@ A dataframe, the **table of decorations**, record the joins between nodes and ed
 
 The **table of decorations** has four (4) mandatory fields:
 
-1. `idf` (Integer)
-2. `site` (Text)
-3. `decor` (Text)
-4. `img` (Text)
+1. `idf` (Integer): short name of the decoration
+1. `site` (Text): name of the site
+2. `decor` (Text): name of the decoration
+4. `img` (Text): name of the drawing/photograph/...
 
-To understand the meaning of these fields, see the [Table of decorations](https://zoometh.github.io/iconr/docs/#Table_of_decorations) part of the ***incor*** documentation
 
 ## Start to work with the ***incor*** package
 
@@ -220,7 +295,5 @@ plot_dec_grph(nds.df, eds.df, imgs,
               nd.var = "type")
 ```
 
-# Summary
-
-Once you record all your dataset (nodes, edges, table of decoration and images), you can use the ***iconr*** package
+# References
 
