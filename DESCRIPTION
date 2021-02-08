@@ -25,5 +25,5 @@ Suggests:
     dendextend
 VignetteBuilder: knitr
 RoxygenNote: 7.1.1
-URL: https://zoometh.github.io/iconr/docs/
+URL: https://zoometh.github.io/iconr/
 BugReports: https://github.com/zoometh/iconr/issues
