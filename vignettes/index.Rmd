@@ -1,12 +1,12 @@
 ---
-title: "The ***iconr*** package <br> Graph Analysis of Prehistoric Iconography with R"
+title: "***iconr*** package <br> Analysis of Prehistoric Iconography with R"
 author: "Thomas Huet, Jose M Pozo, Craig Alexander"
 email: "thomashuet7@gmail.com"
 bibliography: references.bib
 output:
   rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{The ***iconr*** package <br> Graph Analysis of Prehistoric Iconography with R}
+  %\VignetteIndexEntry{***iconr*** package <br> Analysis of Prehistoric Iconography with R}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
