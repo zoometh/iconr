@@ -34,6 +34,8 @@ side_plot(grph, dir, nd.var, focus = "nodes",
     Size of the labels
 }
 }
+\value{No return value, group images side-by-side}
+
 \seealso{
   \code{\link[iconr]{plot_compar}}
 }

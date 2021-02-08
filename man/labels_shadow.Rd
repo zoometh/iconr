@@ -5,6 +5,7 @@
   Plot labels (text) with a contrasting buffer to make them more visible
   when located on a similar color background.
   This function is the \code{shadowtext()} function developed by Greg Snow.
+  Called by plot functions: \code{\link[iconr]{plot_dec_grph}}, \code{\link[iconr]{plot_compar}}
 }
 \usage{
 labels_shadow(x, y = NULL, labels,
@@ -41,6 +42,9 @@ labels_shadow(x, y = NULL, labels,
     \code{pos}, \code{offset}, or \code{family}.
 }
 }
+}
+\value{No return value, create a contrasting buffer to make labels more visible}
+
 \references{
   https://rdrr.io/cran/TeachingDemos/man/shadowtext.html
 }

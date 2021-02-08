@@ -43,6 +43,8 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL, imgs,
                         magick::image_info(dec.img)$height
         grDeviceOpen(out.file.name, width = 7*img.ratio, height = 7, res = res)
     }
+    oldpar <- graphics::par(no.readonly = TRUE)
+    on.exit(graphics::par(oldpar))
     graphics::par(mar = c(0, 0, 0, 0))
 
     draw_graph(nodes, edges, TRUE,

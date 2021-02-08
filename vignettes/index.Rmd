@@ -123,7 +123,9 @@ as.character(class(g))
 By default, the `plot.igraph()` function (ie, `igraph::plot()`) spatialization (`layout`) is based on `x` and `y` columns, when these exist. This is appropriate in our case since we are working with geometric graphs. If this spatialization (node coordinates) is ignored, then very different layouts are possible for the same graph (*graph drawing*):
 
 ```{r igraph.1, warning=FALSE, fig.align="center", fig.width=6.5, fig.asp=0.58}
-par(mar=c(1,0,2,0), mfrow=c(1, 2), cex.main=0.9, font.main= 1)
+oldpar <- par(no.readonly = TRUE)
+on.exit(par(oldpar))           
+par(mar=c(1, 0, 2, 0), mfrow=c(1, 2), cex.main = 0.9, font.main = 1)
 coords <- layout.fruchterman.reingold(lgrph[[1]])
 plot(g,
      vertex.size = 15,
@@ -185,7 +187,9 @@ imgs <- read.table(imgs_path, sep=";", stringsAsFactors = FALSE)
 cm1 <- image_read(paste0(dataDir, "/", imgs$img[1]))
 W <- image_info(cm1)$width
 H <- image_info(cm1)$height
-par(mar = c(0,0,0,0))
+oldpar <- par(no.readonly = TRUE)   
+on.exit(par(oldpar))            
+par(mar = c(0, 0, 0, 0))
 plot(cm1)
 box(lwd = 2)
 text(0, H, paste0(0, ",", 0), cex = 2, adj = c(0, 1.1))
@@ -349,7 +353,9 @@ site <- "Ibahernando"
 decor <- "Ibahernando"
 nds.df <- read_nds(site, decor, dataDir)
 eds.df <- read_eds(site, decor, dataDir)
-par(mfrow = c(1,2))
+oldpar <- par(no.readonly = TRUE)
+on.exit(par(oldpar))          
+par(mfrow = c(1, 2))
 plot_dec_grph(nds.df, eds.df, imgs,
               site, decor, dataDir,
               lbl.size = 0.7)
@@ -522,7 +528,9 @@ selected.nd <- 4
 nds.df <- read_nds(site, decor, dataDir)
 eds.df <- read_eds(site, decor, dataDir)
 l_dec_df <- contemp_nds(nds.df, eds.df, selected.nd)
-par(mfrow=c(1,2))
+oldpar <- par(no.readonly = TRUE)
+on.exit(par(oldpar))
+par(mfrow=c(1, 2))
 plot_dec_grph(nds.df, eds.df, imgs,
               site, decor, dataDir,
               nd.var = "type",
@@ -551,6 +559,8 @@ plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
 Besides graphical functions allowing one to highlight common elements (nodes and edges) between decorations, the package also allows one to prepare data for unsupervised classification, such as hierarchical clustering with the `dist()` and `hclust()`:
 
 ```{r clust.comp, warning=FALSE, fig.align="center", fig.width=7, fig.height=5}
+oldpar <- par(no.readonly = TRUE)
+on.exit(par(oldpar))           
 par(mfrow=c(1, 2))
 df.same_edges <- same_elements(lgrph, "type", "edges")
 df.same_nodes<- same_elements(lgrph, "type", "nodes")
@@ -567,6 +577,8 @@ Clustering of decorations on common nodes and  clustering on common edges can be
 ```{r hclust.compar, warning=FALSE, fig.align="center", fig.width=7}
 suppressPackageStartupMessages(library(dendextend))
 suppressPackageStartupMessages(library(dplyr))
+oldpar <- par(no.readonly = TRUE)   
+on.exit(par(oldpar))           
 par(mfrow=c(1, 2))
 dend.nds <- as.dendrogram(hc.nds)
 dend.eds <- as.dendrogram(hc.eds)
@@ -604,7 +616,9 @@ Here, the comparisons have been made on the basis of different types (ie, graphi
 Graph theory allows one to construct tree structures for categorical variables (eg. the different types of GUs). These structures allow generalization processes (upward to the parent level) and specification processes (downward to the child level). For example, a `sword` and a `spear` belong both to the `weapons` group (sub-group `offensive weapons`), a `shield` belongs to the `weapons` group (sub-group `defensive weapons`), etc.: 
 
 ```{r hierac, warning=FALSE, fig.width=7, fig.height=4, asp=0}
-par(mar=c(0,0,0,0))
+oldpar <- par(no.readonly = TRUE)
+on.exit(par(oldpar))
+par(mar=c(0, 0, 0, 0))
 g <- graph_from_literal(objects-+weapons,
                         objects-+personnal_item,
                         weapons-+offensive_weapons,

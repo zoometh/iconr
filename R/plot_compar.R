@@ -44,6 +44,8 @@ plot_compar <- function(listg, dec2comp = NULL, focus = "nodes",
         grDeviceOpen(out.list[out.i], width = 14, height = 7, res = res)
 
       # Set the plotting area into a 1*2 array
+      oldpar <- graphics::par(no.readonly = TRUE)
+      on.exit(graphics::par(oldpar))
       graphics::par(mfrow = c(1, 2), mar = c(0, 0, 0, 0))
       side_plot(g[[1]], dir, nd.var, focus,
                 nd.color, nd.size, ed.color, ed.width, lbl.size)

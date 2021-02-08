@@ -99,7 +99,7 @@ g.compar[[2]]
 igraph::as_data_frame(g.compar[[2]][[1]], "vertices")
 #   name          type        x         y comm
 # 1    1    personnage 349.8148 -298.3244    0
-# 2    2        casque 349.8148 -243.9851    0
+# 2    2        casque 349.8148 -243.9851    0
 # 3    3         lance 238.4637 -298.3244    1
 # 4    4      bouclier 446.0222 -381.1697    1
 # 5    5        peigne 283.0041 -358.0086    1

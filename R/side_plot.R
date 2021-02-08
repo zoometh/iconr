@@ -74,6 +74,8 @@ annotate_dec <- function(dec.img, title, nd.var) {
 draw_graph <- function(nodes, edges, lbl.nds,
                        nd.var, dec.img, title) {
   graphics::plot(dec.img)
+  oldpar <- graphics::par(no.readonly = TRUE)
+  on.exit(graphics::par(oldpar))
   graphics::par(cex = scale_factor())
 
   annotate_dec(dec.img, title, nd.var)
