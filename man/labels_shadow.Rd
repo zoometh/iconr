@@ -42,7 +42,6 @@ labels_shadow(x, y = NULL, labels,
     \code{pos}, \code{offset}, or \code{family}.
 }
 }
-}
 \value{No return value, create a contrasting buffer to make labels more visible}
 
 \references{
