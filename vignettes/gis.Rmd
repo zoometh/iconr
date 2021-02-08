@@ -1,5 +1,5 @@
 ---
-title: "**The R *iconr* package** <br> GIS interface entry"
+title: "GIS interface entry"
 author: "Thomas Huet, Jose M Pozo, Craig Alexander"
 bibliography: references.bib
 output:
