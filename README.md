@@ -15,4 +15,4 @@ To get and install the latest development version from GitHub:
 devtools::install_github("zoometh/iconr", build_vignettes=TRUE)
 ```
 
-Check the ***iconr*** documentation [**here**](https://zoometh.github.io/iconr/docs/)
+Check the ***iconr*** web site [**here**](https://zoometh.github.io/iconr/)
