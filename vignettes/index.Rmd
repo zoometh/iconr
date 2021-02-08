@@ -1,14 +1,25 @@
 ---
-title: "The ***iconr*** package. Graph Analysis of Prehistoric Iconography with R"
+title: "The ***iconr*** package <br> Graph Analysis of Prehistoric Iconography with R"
 author: "Thomas Huet, Jose M Pozo, Craig Alexander"
 email: "thomashuet7@gmail.com"
 bibliography: references.bib
 output:
   rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{The ***iconr*** package. Graph Analysis of Prehistoric Iconography with R}
+  %\VignetteIndexEntry{The ***iconr*** package <br> Graph Analysis of Prehistoric Iconography with R}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo=FALSE}
+# print(getwd())
+# print(file.path("../logo", "iconr_logo.png"))
+htmltools::img(src = knitr::image_uri(file.path("img", "iconr_logo.png")), 
+# htmltools::img(src = knitr::image_uri(file.path(R.home("doc"), "html", "logo.jpg")), 
+               alt = 'logo', 
+               style = 'position:absolute; top:0; right:0; padding:10px;')
+```
+
 ---
 
 <style>
@@ -32,10 +43,14 @@ knitr::opts_chunk$set(
   comment = ">",
   fig.pos = 'H'
 )
-ibahernando.path <- paste0(getwd(),"/img/ibahernando_256colours.png")
-brozas.path <- paste0(getwd(),"/img/brozas_256colours.png")
-solanas.path <- paste0(getwd(),"/img/solana_detail_256colours.png")
-solanas.vor.path <- paste0(getwd(),"/img/solana_voronoi_256colours.png")
+# ibahernando.path <- paste0(getwd(),"/img/ibahernando_256colours.png")
+# brozas.path <- paste0(getwd(),"/img/brozas_256colours.png")
+# solanas.path <- paste0(getwd(),"/img/solana_detail_256colours.png")
+# solanas.vor.path <- paste0(getwd(),"/img/solana_voronoi_256colours.png")
+ibahernando.path <- "img/ibahernando_256colours.png"
+brozas.path <- "img/brozas_256colours.png"
+solanas.path <- "img/solana_detail_256colours.png"
+solanas.vor.path <- "img/solana_voronoi_256colours.png"
 ```
   
 The R package `iconr` is grounded in graph theory and spatial analysis. It offers concepts and functions for modeling Prehistoric iconographic compositions and for their preparation for further analysis (clustering, Harris diagram, etc.) in order to contribute to cross-cultural iconography comparison studies through a greater normalization of quantitative analysis [@Alexander08; @HuetAlexander15; @Huet18a].  
