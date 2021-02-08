@@ -1,7 +1,7 @@
 ---
 title: | 
   | **The R *iconr* package** 
-  | a tutorial
+  | GIS interface entry
 author: "Thomas Huet, Jose M Pozo, Craig Alexander"
 bibliography: references.bib
 output:
@@ -103,9 +103,10 @@ df.datasets %>%
   kable("html", escape = FALSE, row.names = F) %>%
   kable_styling(bootstrap_options = c("hover", "condensed"), full_width = F)
 ```
+
 These datasets can be downloaded by clicking on their names
 
-```{r, echo=FALSE, eval=TRUE}
+```{r, echo=FALSE, eval=FALSE}
 datasets.path <- paste0(getwd(),"/docs/datasets")
 
 ui <- fluidPage(

@@ -54,6 +54,11 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/gis.html">| **The R *iconr* package** 
+| GIS interface entry
+</a>
+    </li>
+    <li>
       <a href="../articles/index.html">***iconr*** package &lt;br&gt; Analysis of Prehistoric Iconography with R</a>
     </li>
   </ul>
@@ -109,7 +114,7 @@ table {
 <p>The R package <code>iconr</code> is grounded in graph theory and spatial analysis. It offers concepts and functions for modeling Prehistoric iconographic compositions and for their preparation for further analysis (clustering, Harris diagram, etc.) in order to contribute to cross-cultural iconography comparison studies through a greater normalization of quantitative analysis <span class="citation">(Alexander 2008; Huet and Alexander 2015; Huet 2018)</span>.</p>
 <center>
 <div class="figure">
-<img src="../../../../My%20PC%20(supernova-pc)/Documents/iconr/vignettes/img/solana_detail_256colours.png" width="220" alt=""><p class="caption">Detail of a Late Bronze Age stelae (Solana de Cabañas, Cáceres, Spain). Credits: Museo Arqueológico Nacional, Madrid</p>
+<img src="../man/figures/solana_detail_256colours.png" width="220" alt=""><p class="caption">Detail of a Late Bronze Age stelae (Solana de Cabañas, Cáceres, Spain). Credits: Museo Arqueológico Nacional, Madrid</p>
 </div>
 </center>
 <p>The flexibility of graph theory and tools available for the GIS database make the <code>iconr</code> package useful in managing, plotting and comparing (potentially large) sets of iconographic content: Atlantic rock-art, Scandinavian rock art, Late Bronze Age stelae, Mycenean figurative pottery, etc.</p>
@@ -119,7 +124,7 @@ table {
 <p>The main principle of the <code>iconr</code> package is to consider any iconographic composition (here, ‘decoration’) as a geometric graph of graphical units (GUs). This geometric graph is also known as a planar graph or spatialized graph. The GUs are decorated surfaces (<code>POLYGONS</code>) modeled as nodes (<code>POINTS</code>). When these GUs are <em>main</em> nodes, and not <em>attribute</em> nodes, they share edges (<code>LINES</code>) with one another when their Voronoi cells share a border (<em>birel</em>: touches).</p>
 <center>
 <div class="figure">
-<img src="../../../../My%20PC%20(supernova-pc)/Documents/iconr/vignettes/img/solana_voronoi_256colours.png" width="800" alt=""><p class="caption">GIS view. The Solana de Cabanas stelae: from its photograph to the modeling of its graphical content</p>
+<img src="../man/figures/solana_voronoi_256colours.png" width="800" alt=""><p class="caption">GIS view. The Solana de Cabanas stelae: from its photograph to the modeling of its graphical content</p>
 </div>
 </center>
 <p>Graph theory offers a conceptual framework and indices (global at the entire graph scale, local at the vertex scale) to deal with notions of networks, relationships and neighbourhoods. The geometric graph is commonly built within a GIS interface. Indeed, use of GIS allows one to create a spatial database of the decoration’s iconographic contents and facilitates data recording and visualization. For example, snapping options can connect GUs (nodes) with lines (edges) and we can exploit tools such as feature symbology, layer transparency, etc.</p>
@@ -1593,7 +1598,7 @@ Count of common edges between decorations
 <p>At times some nodes are non-contemporaneous with one another, like on the Ibahernando stelae. This stelae was reused as a funerary stelae during Roman times with the addition of a Latin inscription “<em>Alloquiu protaeidi.f hece. stitus</em>”: Alluquio, son of Protacido, lies here <span class="citation">(Basch 1966)</span>.</p>
 <center>
 <div class="figure">
-<img src="../../../../My%20PC%20(supernova-pc)/Documents/iconr/vignettes/img/ibahernando_256colours.png" width="400" alt=""><p class="caption">GIS view. The Ibahernando stelae (decoration 5)</p>
+<img src="../man/figures/ibahernando_256colours.png" width="400" alt=""><p class="caption">GIS view. The Ibahernando stelae (decoration 5)</p>
 </div>
 </center>
 <p>The writing (<code>ecriture</code>, node 1) has been carved over a spear (<code>lance</code>, node 2) and overlaps partially a V-notched shield (<code>bouclier</code>, node 3). The edges between node 1 and node 2, and the edge between node 1 and node 3, are <em>diachronic</em> edges</p>
@@ -1706,7 +1711,7 @@ Ibahernando stelae after the selection of node 1 (writing) graph component
 <p>Here, the comparisons have been made on the basis of different types (ie, graphical units, GUs) with the variable <code>type</code> (<code>nd.var = "type"</code>). However, if a new column is added to the node dataframe or shapefile, the study can also incorporate the technique by which the GU was created (<code>nd.var = "technique"</code>) or any other categorical variable. For example, two GUs on the Brozas steale were made with incisions (<code>g_inc</code>): the fibula (<em>fibula de codo tipo Huelva</em>, ca 1050-950 BC) and the comb.</p>
 <center>
 <div class="figure">
-<img src="../../../../My%20PC%20(supernova-pc)/Documents/iconr/vignettes/img/brozas_256colours.png" width="400" alt=""><p class="caption">GIS view. The Brozas stelae (decoration 1) with the different engraving techniques: <code>g_piq</code> (peckings) and <code>g_inc</code> (incisions)</p>
+<img src="../man/figures/brozas_256colours.png" width="400" alt=""><p class="caption">GIS view. The Brozas stelae (decoration 1) with the different engraving techniques: <code>g_piq</code> (peckings) and <code>g_inc</code> (incisions)</p>
 </div>
 </center>
 </div>

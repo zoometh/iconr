@@ -1,0 +1,12 @@
+name: decoration_graph
+title: decoration_graph
+username:
+account: epispat
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3600519
+bundleId: 4196220
+url: https://epispat.shinyapps.io/decoration_graph/
+when: 1612797004.34265
+asMultiple: FALSE
+asStatic: FALSE

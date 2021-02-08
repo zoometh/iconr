@@ -1,19 +1,36 @@
+## Resubmission 3
+
+This is the third resubmission, responding to feedback from Gregor Seyer after the seconde resubmission
+
+* Missing Rd-tags:
+  + labels_shadow.Rd: \value
+  + side_plot.Rd: \value
+  
+Done
+
+* Please make sure that you do not change the user's options, par or working directory
+
+
+
 ## Resubmission 2
 
 This is the second resubmission, responding to feedback from Uwe Ligges after the first resubmission
 
 * Write the url in the form <https://hal.archives-ouvertes.fr/hal-02913656>
-  + Done
+
+Done
 
 ## Resubmission 1
 
 This is the first resubmission, responding to feedback from Uwe Ligges after the first submission
 
 * Not more than 5 MB for a CRAN package, please.
-  + Done
+
+Done
 
 * Is there some reference about the method you can add in the Description field in the form Authors (year) <doi:.....>?
-  + Done
+
+Done
 
 ## Test environments
 * local Windows 8 install, R 4.0.3
