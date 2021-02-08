@@ -1,6 +1,10 @@
 library(shiny)
 library(iconr)
 
+# - - - - - - - - - - - - - - - - - - - #
+# the shiny app for iconr documentation #
+# - - - - - - - - - - - - - - - - - - - #
+
 famille <- c("stele bas aragon", "Valcamonica")
 # setwd("..")
 df <- read.csv(paste0(getwd(), "/", famille[1], "/imgs.csv"), sep=";")

@@ -1,0 +1,141 @@
+---
+title: "Next developments"
+author: "Thomas Huet, Jose M Pozo, Craig Alexander"
+bibliography: references.bib
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+---
+
+```{r, echo=FALSE}
+# print(getwd())
+# print(file.path("../logo", "iconr_logo.png"))
+htmltools::img(src = knitr::image_uri(file.path("../doc/tutorial/img", "iconr_logo.png")),
+# htmltools::img(src = knitr::image_uri(file.path("img", "iconr_logo.png")), 
+# htmltools::img(src = knitr::image_uri(file.path(R.home("doc"), "html", "logo.jpg")), 
+               alt = 'logo', 
+               style = 'position:absolute; top:0; right:0; padding:10px;')
+```
+
+---
+
+<style>
+.figure {
+   margin-top: 0px;
+   margin-bottom: 40px;
+}
+table {
+    margin-top: 0px;
+    margin-bottom: 24px;
+}
+</style>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(kableExtra)
+library(dplyr)
+library(igraph)
+library(iconr)
+# library(ggdag)
+library(tidygraph)
+library(ggraph)
+library(png)
+library(grid)
+library(gridExtra)
+
+ibahernando.path <- "../man/figures/ibahernando_256colours.png"
+dummies.path <- "../man/figures/dummies.png"
+ibahernando <-  rasterGrob(as.raster(readPNG(ibahernando.path)), interpolate = FALSE)
+```
+
+# Shape analysis
+
+When the decoration iconographical content is composed by GUs separated one with another with neutral background, is could be easy to binarize them (black GUs on white backgroud) and to process shape analysis numerous indexes (convexhull, MBR, MBC, Feret diameter, etc.). GUs can also be binarized separately and reintegrated to the GIS interface
+
+<center>
+
+![GIS view. Graph decoration with shape analysis indexes (ConveHull, Minimum Bound Rectangle, Minimum Bound Circle)](`r dummies.path`){width=500px}
+
+</center>
+
+# Typology
+
+Graph theory allows one to construct tree structures for categorical variables (eg. the different types of GUs). These structures allow generalization processes (upward to the parent level) and specification processes (downward to the child level). For example, a `sword` and a `spear` belong both to the `weapons` group (sub-group `offensive weapons`), a `shield` belongs to the `weapons` group (sub-group `defensive weapons`), etc.: 
+
+```{r hierac, warning=FALSE, fig.width=7, fig.height=4, asp=0}
+oldpar <- par(no.readonly = TRUE)
+on.exit(par(oldpar))
+par(mar=c(0, 0, 0, 0))
+g <- graph_from_literal(objects-+weapons,
+                        objects-+personnal_item,
+                        weapons-+offensive_weapons,
+                        weapons-+defensive_weapons,
+                        offensive_weapons-+spear,
+                        offensive_weapons-+sword,
+                        defensive_weapons-+shield,
+                        defensive_weapons-+helmet,
+                        personnal_item-+miror,
+                        personnal_item-+comb)
+layout <- layout.reingold.tilford(g)
+plot(g,
+     layout = layout,
+     vertex.color = "white",
+     vertex.frame.color = "white",
+     vertex.size = 20,
+     vertex.label.cex = 0.7,
+     vertex.label.color = "black",
+     vertex.label.family = "sans",
+     edge.arrow.size = 0.5
+     )
+```
+  
+Such a formalism can be used to weight the differences between nodes, to conduct analysis with different levels of precision or to overcome issues of idiosyncratic typologies.
+
+# Harris matrix
+
+Using the *diachronic* edge notation, tree structure can also be used to construct relative chronology diagrams, similar to a Harris matrix. For example, with the `data.tree` package and the Ibahernando stelae (decoration 5)
+
+```{r overlap, echo=FALSE, warning=FALSE, out.width="100%"}
+# library(data.tree)
+
+imgs <- read.table(system.file("extdata", "imgs.csv", package = "iconr"),
+                   sep=";", stringsAsFactors = FALSE)
+nodes <- read.table(system.file("extdata", "nodes.csv", package = "iconr"),
+                    sep=";", stringsAsFactors = FALSE)
+edges <- read.table(system.file("extdata", "edges.csv", package = "iconr"),
+                    sep=";", stringsAsFactors = FALSE)
+lgrph <- list_dec(imgs, nodes, edges)
+edges.iba <- igraph::as_data_frame(lgrph[[5]], what="edges")
+overlap.nodes <- unique(edges.iba[edges.iba$type == ">", "from"])
+contemp.nodes <- unique(unlist(edges.iba[edges.iba$type == "=", c("from", "to")]))
+df.stratig <- data.frame(over = rep(overlap.nodes, length(contemp.nodes)),
+                         under = contemp.nodes)
+df.stratig$pathString <- paste(lgrph[[5]]$decor,
+                               df.stratig$over, 
+                               df.stratig$under, 
+                               sep = "/")
+# superpo <- as.Node(df.stratig)
+# print(superpo)
+gd <- graph_from_data_frame(df.stratig, directed = TRUE, vertices = NULL)
+gd.ed <- as_data_frame(gd, what="edges")
+gd.nd <- as_data_frame(gd, what="vertices")
+rstat_nodes <- data.frame(name = gd.nd)
+rstat_edges <- data.frame(from = gd.ed$from,
+                          to = gd.ed$to)
+# rstat_nodes <- data.frame(name = c("Hadley", "David", "Romain", "Julia"))
+# rstat_edges <- data.frame(from = c(1, 1, 1, 2, 3, 3, 4, 4, 4),
+#                           to = c(2, 3, 4, 1, 1, 2, 1, 2, 3))
+gd.all <- tbl_graph(nodes = rstat_nodes, edges = rstat_edges)
+gd.all <- set.vertex.attribute(gd.all, "context", value=as.character(V(gd.all)))
+a.g <- ggraph(gd.all, layout = "sugiyama") +
+  geom_edge_elbow() +
+  geom_node_label(aes(label = context), label.r = unit(0, "mm")) +
+  theme_graph()
+# knitr::include_graphics(c("path/to/img1","path/to/img1"))
+grid.arrange(ibahernando, a.g, ncol = 2)
+```
