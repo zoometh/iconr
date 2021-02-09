@@ -55,7 +55,7 @@ ibahernando <-  rasterGrob(as.raster(readPNG(ibahernando.path)), interpolate = F
 
 # Shape analysis
 
-When the decoration iconographical content is composed by GUs separated one with another with neutral background, is could be easy to binarize them (black GUs on white backgroud) and to process shape analysis numerous indexes (convexhull, MBR, MBC, Feret diameter, etc.). GUs can also be binarized separately and reintegrated to the GIS interface
+When the decoration iconographical content is composed by GUs separated one with another with neutral background, is could be easy to binarize and polygonize them (black GUs on white background). GUs can also be binarized/polygonized separately and reintegrated to the GIS interface
 
 <center>
 
@@ -63,9 +63,11 @@ When the decoration iconographical content is composed by GUs separated one with
 
 </center>
 
+> Shape analysis allows to calculate numerous indexes (e.g., convexhull, MBR, MBC, Feret diameter) and/or contour comparisons (e.g., Procrustes analysis) that can be used in multivariate analysis to quantify the (dis)similarities between GUs 
+
 # Typology
 
-Graph theory allows one to construct tree structures for categorical variables (eg. the different types of GUs). These structures allow generalization processes (upward to the parent level) and specification processes (downward to the child level). For example, a `sword` and a `spear` belong both to the `weapons` group (sub-group `offensive weapons`), a `shield` belongs to the `weapons` group (sub-group `defensive weapons`), etc.: 
+Graph theory and structured vocabularies allows one to construct tree structures for categorical variables (eg. the different types of GUs). These structures allow generalization processes (upward to the parent level) and specification processes (downward to the child level). For example, a `sword` and a `spear` belong both to the `weapons` group (sub-group `offensive weapons`), a `shield` belongs to the `weapons` group (sub-group `defensive weapons`), etc.: 
 
 ```{r hierac, warning=FALSE, fig.width=7, fig.height=4, asp=0}
 oldpar <- par(no.readonly = TRUE)
@@ -96,9 +98,11 @@ plot(g,
   
 Such a formalism can be used to weight the differences between nodes, to conduct analysis with different levels of precision or to overcome issues of idiosyncratic typologies.
 
+> A major issue will be to manage multi-linguism shared vocabularies to describe the iconographical content, the techniques used, etc.
+
 # Harris matrix
 
-Using the *diachronic* edge notation, tree structure can also be used to construct relative chronology diagrams, similar to a Harris matrix. For example, with the `data.tree` package and the Ibahernando stelae (decoration 5)
+Using the *diachronic* edge notation, layered directed acyclic graphs (DAG) -- like the Harris matrix relative chronology diagrams -- can also be used to construct. For example, with the Ibahernando stelae (decoration 5)
 
 ```{r overlap, echo=FALSE, warning=FALSE, out.width="100%"}
 # library(data.tree)
@@ -139,3 +143,5 @@ a.g <- ggraph(gd.all, layout = "sugiyama") +
 # knitr::include_graphics(c("path/to/img1","path/to/img1"))
 grid.arrange(ibahernando, a.g, ncol = 2)
 ```
+  
+> DAG is a common graphical formalism to represent chronological ordering such as Bayesian, radiocarbon and age-depth models (e.g., [RChronoModel](https://cran.r-project.org/web/packages/RChronoModel/index.html), [stratigraphr](https://stratigraphr.joeroe.io/articles/stratigraph.html)). DAGs can also be used for cultural period sequences like GUs chrono-cultural attribution (e.g., "Late Bronze Age", "Iron Age", "Roman Times")    

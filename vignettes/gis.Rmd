@@ -76,7 +76,6 @@ The image will be the reference space of the graph. So, before anything, start b
 
 <center>
   
-  
 ![Drag and drop the decoration image before anything](../doc/tutorial/img/openImageGIS.gif){width=70%}
 </center>
   
@@ -175,7 +174,7 @@ The nodes are created near the centroids of each different graphical units (GUs)
   
 </center>
 
-In this example, beside the *main* nodes sword (`epee`), anciform (`anciforme`) and halberd (`hallebarde`), we can also observe that the sword is connected to a belt and the anciform is worn as necklace. We probably would like to register this piece of graphical content as we also probably would like to characterize the types of blades for the sword and halberd, point out the presence of rivets on the sword depiction, etc. To do so, see the [Attribute edges](https://zoometh.github.io/iconr/docs/#Edge_types) part of the ***iconr*** package documentation
+In this example, beside the *main* nodes sword (`epee`), anciform (`anciforme`) and halberd (`hallebarde`), we can also observe that the sword is connected to a belt and the anciform is worn as necklace. We probably would like to register this piece of graphical content as we also probably would like to characterize the types of blades for the sword and halberd, point out the presence of rivets on the sword depiction, etc. To do so, create 'Attribute edges' (`-+-`)
 
 ## Edges {#edges}
 
@@ -185,7 +184,7 @@ In this example, beside the *main* nodes sword (`epee`), anciform (`anciforme`) 
 2. `decor` (Text): name of the decoration
 3. `a` (Integer): *starting* node
 4. `b` (Integer) *ending* node
-5. `type` (Text): values`=`, `+` or `>` [HELP](https://zoometh.github.io/iconr/docs/#Edge_types)
+5. `type` (Text): values `=`, `+` or `>`; textual notation `-=-`, `-+-` or `->-`
 
 Theoretically, between two *main* nodes, edges exist when their Voronoi cells are contiguous. In practice, if you consider that two GUs are neighbors, you can create an edge between their two nodes: GIS snapping tool help !
 
