@@ -102,6 +102,7 @@ imgs <- read.table(paste0(dataDir, "/imgs.tsv"),
 # Plot 'Brozas' nodes and edges on the active device
 # with node variable "type" as labels
 plot_dec_grph(nds.df, eds.df, imgs,
+              lbl.size = 0.4,
               site, decor,
               dir = dataDir,
               nd.var = "type")
@@ -109,11 +110,18 @@ plot_dec_grph(nds.df, eds.df, imgs,
 # Save only edges of 'Brozas' with bigger widths and in image format jpg.
 # Then read and plot the image.
 img.filename <- plot_dec_grph(nodes = NULL, eds.df, imgs,
-                           site, decor,
-                           dir = dataDir,
-                           ed.lwd = 2,
-                           img.format = "jpg")
-magick::image_read(img.filename)
+                              site, decor,
+                              dir = dataDir,
+                              ed.lwd = 2,
+                              img.format = "jpg")
+a.dec <- magick::image_read(img.filename)
+
+## Inspect the output image
+magick::image_info(a.dec)
+
+## Plot the output image
+plot(a.dec)
+
 }
 
 \keyword{ ~kwd1 graph}% use one of  RShowDoc("KEYWORDS")

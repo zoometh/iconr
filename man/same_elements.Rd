@@ -50,23 +50,14 @@ lgrph <- list_dec(imgs,nodes,edges)
 df.same_nodes <- same_elements(lgrph, nd.var = "type",
                                focus = "nodes")
 df.same_nodes
-#   1  2 3  4 5
-# 1 7  2 3  4 2
-# 2 2 12 5  9 3
-# 3 3  5 6  4 3
-# 4 4  9 4 12 3
-# 5 2  3 3  3 4
+## a symmetric matrix of nodes comparisons
 
 # same edges
 df.same_edges <- same_elements(lgrph, nd.var = "type",
                                focus = "edges")
 df.same_edges
-#   1  2  3  4 5
-# 1 8  0  1  2 0
-# 2 0 15  3  7 1
-# 3 1  3 10  1 2
-# 4 2  7  1 14 1
-# 5 0  1  2  1 4
+## a symmetric matrix of edges comparisons
+
 }
 
 \keyword{ ~kwd1 graph}% use one of  RShowDoc("KEYWORDS")

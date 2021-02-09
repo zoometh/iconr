@@ -64,20 +64,10 @@ lgrph <- list_dec(imgs, nodes, edges)
 
 # Textual notation of disambiguated edges
 named_elements(lgrph[[2]], focus = "edges", nd.var="type")
-#  [1] "epee-=-fibule"           "bouclier-=-miroir"
-#  [3] "epee-=-lance"            "bouclier-=-chariot_char"
-#  [5] "chariot_char-+-cheval"   "chariot_char-+-cheval#"
-#  [7] "arc-=-bouclier"          "arc-=-chariot_char"
-#  [9] "arc-=-miroir"            "bouclier-=-fibule"
-# [11] "bouclier-=-epee"         "epee-=-miroir"
-# [13] "arc-+-fleche"            "chariot_char-+-roue"
-# [15] "chariot_char-+-roue#"
 
 # Textual notation of disambiguated nodes
 named_elements(lgrph[[2]], focus = "nodes", nd.var="type")
-# [1] "chariot_char" "bouclier"     "arc"          "miroir"
-# [5] "fibule"       "epee"         "lance"        "cheval"
-# [9] "cheval#"      "roue"         "roue#"        "fleche"
+
 }
 
 \keyword{ ~kwd1 graph}% use one of  RShowDoc("KEYWORDS")

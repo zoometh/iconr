@@ -35,7 +35,8 @@ read_nds(site,
 \value{
   Create a dataframe of node with, at a minimum, "site", "decor", "id", "x", "y" values for each node.
 }
-  \examples{
+
+\examples{
 # Set data folder
 dataDir <- system.file("extdata", package = "iconr")
 
@@ -43,29 +44,14 @@ dataDir <- system.file("extdata", package = "iconr")
 nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1",
                     dir = dataDir, format = "tsv")
 nds.df
-
-#            site           decor id          type        x         y
-# 1 Cerro Muriano Cerro Muriano 1  1    personnage 349.8148 -298.3244
-# 2 Cerro Muriano Cerro Muriano 1  2        casque 349.8148 -243.9851
-# 3 Cerro Muriano Cerro Muriano 1  3         lance 238.4637 -298.3244
-# 4 Cerro Muriano Cerro Muriano 1  4      bouclier 446.0222 -381.1697
-# 5 Cerro Muriano Cerro Muriano 1  5        peigne 283.0041 -358.0086
-# 6 Cerro Muriano Cerro Muriano 1  7 sexe_masculin 342.6884 -427.4917
-# 7 Cerro Muriano Cerro Muriano 1  8    lingot_pdb 451.1489 -237.4782
+## Dataframe of nodes
 
 # Read shapefile of nodes
 nds.df <- read_nds(site = "Cerro Muriano", decor = "Cerro Muriano 1",
                     dir = dataDir, format = "shp")
 nds.df
+## Dataframe of nodes
 
-#            site           decor id          type        x         y
-# 1 Cerro Muriano Cerro Muriano 1  1    personnage 349.8148 -298.3244
-# 2 Cerro Muriano Cerro Muriano 1  2        casque 349.8148 -243.9851
-# 3 Cerro Muriano Cerro Muriano 1  3         lance 238.4637 -298.3244
-# 4 Cerro Muriano Cerro Muriano 1  4      bouclier 446.0222 -381.1697
-# 5 Cerro Muriano Cerro Muriano 1  5        peigne 283.0041 -358.0086
-# 6 Cerro Muriano Cerro Muriano 1  7 sexe_masculin 342.6884 -427.4917
-# 7 Cerro Muriano Cerro Muriano 1  8    lingot_pdb 451.1489 -237.4782
-  }
+}
 
 \keyword{ ~kwd1 graphs}% use one of  RShowDoc("KEYWORDS")

@@ -43,15 +43,6 @@ eds.df <- read_eds(site = "Ibahernando",
 l_dec_df <- contemp_nds(nds.df, eds.df, selected.nd = 2)
 
 l_dec_df
-# $nodes
-#           site       decor id     type        x         y
-# 39 Ibahernando Ibahernando  2    lance 351.6009 -191.5644
-# 40 Ibahernando Ibahernando  3 bouclier 345.0360 -296.6023
-# 41 Ibahernando Ibahernando  4     epee 367.3566 -420.6782
-#
-# $edges
-#           site       decor a b type       xa        ya       xb        yb
-# 50 Ibahernando Ibahernando 2 3    = 351.6009 -191.5644 345.0360 -296.6023
-# 51 Ibahernando Ibahernando 3 4    = 345.0360 -296.6023 367.3566 -420.6782
+## Return two dataframes, one for nodes, one for edges
 }
 \keyword{ ~kwd1 graphs}

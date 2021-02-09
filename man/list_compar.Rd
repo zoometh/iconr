@@ -73,70 +73,26 @@ lgrph <- list_dec(imgs, nodes, edges)
 g.compar <- list_compar(lgrph, nd.var = "type")
 
 length(g.compar)
-# 10 = ten pairwise comparisons
+## Ten pairwise comparisons
 
 # Inspect the second pairwise comparison of the list
 g.compar[[2]]
-# [[1]]
-# IGRAPH 2521a03 UN-B 7 8 -- 1
-# + attr: name (g/n), site (g/c), decor (g/c), label (g/c), img (g/c), name
-# | (v/c), type (v/c), x (v/n), y (v/n), comm (v/n), type (e/c), comm (e/n)
-# + edges from 2521a03 (vertex names):
-# [1] 1--4 1--5 3--5 1--2 1--7 1--3 1--8 4--8
-
-#
-# [[2]]
-# IGRAPH 68532a5 UN-B 6 10 -- 3
-# + attr: name (g/n), site (g/c), decor (g/c), label (g/c), img (g/c), name
-# | (v/c), type (v/c), x (v/n), y (v/n), comm (v/n), type (e/c), comm (e/n)
-# + edges from 68532a5 (vertex names):
-# [1] 1--2 1--3 2--3 1--4 3--4 1--5 2--5 3--5 4--5 5--6
-#
-# attr(,"nd.var")
-# [1] "type"
+## The two compared graphs with the name of the comparison variable
 
 # Inspecting nodes:
 igraph::as_data_frame(g.compar[[2]][[1]], "vertices")
-#   name          type        x         y comm
-# 1    1    personnage 349.8148 -298.3244    0
-# 2    2        casque 349.8148 -243.9851    0
-# 3    3         lance 238.4637 -298.3244    1
-# 4    4      bouclier 446.0222 -381.1697    1
-# 5    5        peigne 283.0041 -358.0086    1
-# 7    7 sexe_masculin 342.6884 -427.4917    0
-# 8    8    lingot_pdb 451.1489 -237.4782    0
+## Vertices from the first decoration graph
+
 igraph::as_data_frame(g.compar[[2]][[2]], "vertices")
-#   name     type        x         y comm
-# 1    1    lance 354.1114 -123.3621    1
-# 2    2   peigne 346.3455 -151.8371    1
-# 3    3   fibule 279.0411 -162.1916    0
-# 4    4   miroir 211.7366 -206.1984    0
-# 5    5 bouclier 392.9409 -343.3959    1
-# 6    6     epee 387.7636 -564.7240    0
+## Vertices from the second decoration graph
 
 # Inspecting edges:
 igraph::as_data_frame(g.compar[[2]][[1]])
-#   from to type comm
-# 1    1  4    =    0
-# 2    1  5    =    0
-# 3    3  5    =    1
-# 4    1  2    +    0
-# 5    1  7    +    0
-# 6    1  3    =    0
-# 7    1  8    =    0
-# 8    4  8    =    0
+## Edges of the first decoration graph
+
 igraph::as_data_frame(g.compar[[2]][[2]])
-#    from to type comm
-# 1     1  2    =    1
-# 2     1  3    =    0
-# 3     2  3    =    0
-# 4     1  4    =    0
-# 5     3  4    =    0
-# 6     1  5    =    0
-# 7     2  5    =    0
-# 8     3  5    =    0
-# 9     4  5    =    0
-# 10    5  6    =    0
+## Edges of the second decoration graph
+
 }
 
 \keyword{ ~kwd1 graph}% use one of  RShowDoc("KEYWORDS")
