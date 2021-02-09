@@ -47,12 +47,6 @@ solanas.vor.path <- "../man/figures/solana_voronoi_256colours.png"
 ```
   
 The R package `iconr` is grounded in graph theory and spatial analysis. It offers concepts and functions for modeling Prehistoric iconographic compositions and for their preparation for further analysis (clustering, Harris diagram, etc.) in order to contribute to cross-cultural iconography comparison studies through a greater normalization of quantitative analysis [@Alexander08; @HuetAlexander15; @Huet18a].  
-
-<center>
-
-![Detail of a Late Bronze Age stelae (Solana de Cabañas, Cáceres, Spain). Credits: Museo Arqueológico Nacional, Madrid](`r solanas.path`){width=220px}
-
-</center>
   
 The flexibility of graph theory and tools available for the GIS database make the `iconr` package useful in managing, plotting and comparing (potentially large) sets of iconographic content: Atlantic rock-art, Scandinavian rock art, Late Bronze Age stelae, Mycenean figurative pottery, etc. 
   
@@ -638,14 +632,7 @@ plot_compar(listg = g.compar,
             dir = dataDir)
 ```
   
-Here, the comparisons have been made on the basis of different types (ie, graphical units, GUs) with the variable `type` (`nd.var = "type"`). However, if a new column is added to the node dataframe or shapefile, the study can also incorporate the technique by which the GU was created (`nd.var = "technique"`) or any other categorical variable. For example, two GUs on the Brozas steale were made with incisions (`g_inc`): the fibula (*fibula de codo tipo Huelva*, ca 1050-950 BC) and the comb. 
-
-<center>
-
-![GIS view. The Brozas stelae (decoration 1) with the different engraving techniques: `g_piq` (peckings) and `g_inc` (incisions) ](`r brozas.path`){width=400px}
-
-</center>  
-
+  
 # References
 
 

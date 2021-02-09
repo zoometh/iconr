@@ -48,11 +48,22 @@ library(grid)
 library(gridExtra)
 
 ibahernando.path <- "../man/figures/ibahernando_256colours.png"
+brozas.path <- "../man/figures/brozas_256colours.png"
 dummies.path <- "../man/figures/dummies.png"
 ibahernando <-  rasterGrob(as.raster(readPNG(ibahernando.path)), interpolate = FALSE)
 ```
 
 ***iconr*** package is hope to lay the foundation of further developments
+
+# Multifactorial analysis
+
+In those examples, the study and comparisons have been made on the basis of different types of GUs with the variable `type` (`nd.var = "type"`). However, if a new column is added to the node dataframe or shapefile, the study can also incorporate other variables. Fox example, one of these new variable could be the technique by which the GU was created (`nd.var = "technique"`): 
+
+<center>
+
+![GIS view. The Brozas stelae (decoration 1) with the different engraving techniques: `g_piq` (peckings) for the spear, the shield and the sword; `g_inc` (incisions) for the the fibula and the comb](`r brozas.path`){width=400px}
+
+</center>  
 
 # Shape analysis
 
