@@ -52,7 +52,7 @@ The ***iconr*** R package grounds concepts and provides normalized tools to mana
 
 <center>
 
-![GIS view. A Late Bronze Age stelae (Solana de Cabañas, Cáceres, Spain).Stelae photograph (photograph credits: Museo Arqueológico Nacional, Madrid); Georeferencing of the steale drawing over its photograph (dawing credits: Diaz-Guardamino 2010); Binarization and polygonization/vectorization of the graphical content (graphical units, GUs) of the steale (now `POLYGONS`); Calcul of their centroid; Calcul of their Voronoi cells; Binary topological relationships (*birel*) for each pairwise of Voronoi cells: the ones that share a border (*touches* = TRUE) will share a link (ie, edge) between their centroids (ie, nodes); Identification of the different types (nodes' column `type`)](`r solanas.vor.path`)
+![GIS view. A Late Bronze Age stelae (Solana de Cabañas, Cáceres, Spain).Stelae photograph (photograph credits: Museo Arqueológico Nacional, Madrid); Georeferencing of the steale drawing over its photograph (dawing credits: Diaz-Guardamino 2010); Binarization and polygonization/vectorization of the graphical content (graphical units, GUs) of the stelae (now `POLYGONS`); Calcul of their centroid; Calcul of their Voronoi cells; Binary topological relationships (*birel*) for each pairwise of Voronoi cells: the ones that share a border (*touches* = TRUE) will share a link (ie, edge) between their centroids (ie, nodes); Identification of the different types (nodes' column `type`)](`r solanas.vor.path`)
 
 </center>
 
@@ -159,7 +159,7 @@ In the GIS, [add a node](#graph.enodes.add) for each GUs and [add an edge](#grap
 
 ## Nodes {#nodes}
 
-**Nodes** represent the basic information of the graphical content. For example, it would be easy to distinguish a decoration with aurochs (`type = auroch`) from a decoration with swords (`type = sword`). The former iconographical content should be probably related to the Late Paleolithic/Early Neolithic while the second one is more probably related to a period starting with the Bronze Age. Nodes are created as a shapefile of `POINTS`. The attribute table of the nodes has at least four (4) fields:
+**Nodes** represent the basic information of the graphical content. For example, it would be easy to distinguish a decoration with aurochs (`type = auroch`) from a decoration with swords (`type = sword`). The former iconographic content should be probably related to the Late Paleolithic/Early Neolithic while the second one is more probably related to a period starting with the Bronze Age. Nodes are created as a shapefile of `POINTS`. The attribute table of the nodes has at least four (4) fields:
 
 1. `site` (Text): name of the site
 2. `decor` (Text): name of the decoration

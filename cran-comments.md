@@ -1,15 +1,23 @@
 ## Resubmission 3
 
-This is the third resubmission, responding to feedback from Gregor Seyer after the seconde resubmission
+This is the third resubmission, responding to feedback from Gregor Seyer after the second resubmission
 
-* Missing Rd-tags:
+* Rd-tags. Missing Rd-tags:
   + labels_shadow.Rd: \value
   + side_plot.Rd: \value
   
 Done
 
-* Please make sure that you do not change the user's options, par or working directory
+* Rd-tags. More about the structure of the output (class) and also what the output means
 
+Done
+
+* Please make sure that you do not change the user's options, `par()` or working directory
+  
+    `oldpar <- par(no.readonly = TRUE)`  
+    `on.exit(par(oldpar))`
+
+... have been added before all calls of the `par()` function. The current package version does not contains any changes of user's working directory (`setwd()`)
 
 
 ## Resubmission 2

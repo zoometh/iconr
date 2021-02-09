@@ -110,7 +110,7 @@ plot(g,
   
 Such a formalism can be used to weight the differences between nodes, to conduct analysis with different levels of precision or to overcome issues of idiosyncratic typologies.
 
-> A major issue will be to manage multi-linguism shared vocabularies to describe the iconographical content, the techniques used, etc.
+> A major issue will be to manage multi-linguism shared vocabularies to describe the iconographic content, the techniques used, etc.
 
 # Harris matrix
 
