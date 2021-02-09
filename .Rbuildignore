@@ -11,3 +11,5 @@
 ^pkgdown$
 ^CRAN-RELEASE$
 ^doc$
+^docs/gis.Rmd$
+^docs/next.Rmd$
