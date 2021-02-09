@@ -205,44 +205,28 @@ Given a list of graphs, list_compar extract all combinations of graph pairs and 
 <span class='va'>g.compar</span> <span class='op'>&lt;-</span> <span class='fu'>list_compar</span><span class='op'>(</span><span class='va'>lgrph</span>, nd.var <span class='op'>=</span> <span class='st'>"type"</span><span class='op'>)</span>
 
 <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>g.compar</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] 10</div><div class='input'><span class='co'># 10 = ten pairwise comparisons</span>
+</div><div class='output co'>#&gt; [1] 10</div><div class='input'><span class='co'>## Ten pairwise comparisons</span>
 
 <span class='co'># Inspect the second pairwise comparison of the list</span>
 <span class='va'>g.compar</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span>
 </div><div class='output co'>#&gt; [[1]]
-#&gt; IGRAPH 63e1d38 UN-B 7 8 -- 1
+#&gt; IGRAPH 1360f72 UN-B 7 8 -- 1
 #&gt; + attr: name (g/n), site (g/c), decor (g/c), lbl (g/c), img (g/c), name
 #&gt; | (v/c), type (v/c), x (v/n), y (v/n), comm (v/n), type (e/c), comm
 #&gt; | (e/n)
-#&gt; + edges from 63e1d38 (vertex names):
+#&gt; + edges from 1360f72 (vertex names):
 #&gt; [1] 1--4 1--5 3--5 1--2 1--7 1--3 1--8 4--8
 #&gt; 
 #&gt; [[2]]
-#&gt; IGRAPH 63e248c UN-B 6 10 -- 3
+#&gt; IGRAPH 1361938 UN-B 6 10 -- 3
 #&gt; + attr: name (g/n), site (g/c), decor (g/c), lbl (g/c), img (g/c), name
 #&gt; | (v/c), type (v/c), x (v/n), y (v/n), comm (v/n), type (e/c), comm
 #&gt; | (e/n)
-#&gt; + edges from 63e248c (vertex names):
+#&gt; + edges from 1361938 (vertex names):
 #&gt;  [1] 1--2 1--3 2--3 1--4 3--4 1--5 2--5 3--5 4--5 5--6
 #&gt; 
 #&gt; attr(,"nd.var")
-#&gt; [1] "type"</div><div class='input'><span class='co'># [[1]]</span>
-<span class='co'># IGRAPH 2521a03 UN-B 7 8 -- 1</span>
-<span class='co'># + attr: name (g/n), site (g/c), decor (g/c), label (g/c), img (g/c), name</span>
-<span class='co'># | (v/c), type (v/c), x (v/n), y (v/n), comm (v/n), type (e/c), comm (e/n)</span>
-<span class='co'># + edges from 2521a03 (vertex names):</span>
-<span class='co'># [1] 1--4 1--5 3--5 1--2 1--7 1--3 1--8 4--8</span>
-
-<span class='co'>#</span>
-<span class='co'># [[2]]</span>
-<span class='co'># IGRAPH 68532a5 UN-B 6 10 -- 3</span>
-<span class='co'># + attr: name (g/n), site (g/c), decor (g/c), label (g/c), img (g/c), name</span>
-<span class='co'># | (v/c), type (v/c), x (v/n), y (v/n), comm (v/n), type (e/c), comm (e/n)</span>
-<span class='co'># + edges from 68532a5 (vertex names):</span>
-<span class='co'># [1] 1--2 1--3 2--3 1--4 3--4 1--5 2--5 3--5 4--5 5--6</span>
-<span class='co'>#</span>
-<span class='co'># attr(,"nd.var")</span>
-<span class='co'># [1] "type"</span>
+#&gt; [1] "type"</div><div class='input'><span class='co'>## The two compared graphs with the name of the comparison variable</span>
 
 <span class='co'># Inspecting nodes:</span>
 <span class='fu'>igraph</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/graph_from_data_frame.html'>as_data_frame</a></span><span class='op'>(</span><span class='va'>g.compar</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span>, <span class='st'>"vertices"</span><span class='op'>)</span>
@@ -253,14 +237,8 @@ Given a list of graphs, list_compar extract all combinations of graph pairs and 
 #&gt; 4    4      bouclier 446.0222 -381.1697    1
 #&gt; 5    5        peigne 283.0041 -358.0086    1
 #&gt; 7    7 sexe_masculin 342.6884 -427.4917    0
-#&gt; 8    8    lingot_pdb 451.1489 -237.4782    0</div><div class='input'><span class='co'>#   name          type        x         y comm</span>
-<span class='co'># 1    1    personnage 349.8148 -298.3244    0</span>
-<span class='co'># 2    2        casque 349.8148 -243.9851    0</span>
-<span class='co'># 3    3         lance 238.4637 -298.3244    1</span>
-<span class='co'># 4    4      bouclier 446.0222 -381.1697    1</span>
-<span class='co'># 5    5        peigne 283.0041 -358.0086    1</span>
-<span class='co'># 7    7 sexe_masculin 342.6884 -427.4917    0</span>
-<span class='co'># 8    8    lingot_pdb 451.1489 -237.4782    0</span>
+#&gt; 8    8    lingot_pdb 451.1489 -237.4782    0</div><div class='input'><span class='co'>## Vertices from the first decoration graph</span>
+
 <span class='fu'>igraph</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/graph_from_data_frame.html'>as_data_frame</a></span><span class='op'>(</span><span class='va'>g.compar</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span>, <span class='st'>"vertices"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;   name     type        x         y comm
 #&gt; 1    1    lance 354.1114 -123.3621    1
@@ -268,13 +246,7 @@ Given a list of graphs, list_compar extract all combinations of graph pairs and 
 #&gt; 3    3   fibule 279.0411 -162.1916    0
 #&gt; 4    4   miroir 211.7366 -206.1984    0
 #&gt; 5    5 bouclier 392.9409 -343.3959    1
-#&gt; 6    6     epee 387.7636 -564.7240    0</div><div class='input'><span class='co'>#   name     type        x         y comm</span>
-<span class='co'># 1    1    lance 354.1114 -123.3621    1</span>
-<span class='co'># 2    2   peigne 346.3455 -151.8371    1</span>
-<span class='co'># 3    3   fibule 279.0411 -162.1916    0</span>
-<span class='co'># 4    4   miroir 211.7366 -206.1984    0</span>
-<span class='co'># 5    5 bouclier 392.9409 -343.3959    1</span>
-<span class='co'># 6    6     epee 387.7636 -564.7240    0</span>
+#&gt; 6    6     epee 387.7636 -564.7240    0</div><div class='input'><span class='co'>## Vertices from the second decoration graph</span>
 
 <span class='co'># Inspecting edges:</span>
 <span class='fu'>igraph</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/graph_from_data_frame.html'>as_data_frame</a></span><span class='op'>(</span><span class='va'>g.compar</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
@@ -286,15 +258,8 @@ Given a list of graphs, list_compar extract all combinations of graph pairs and 
 #&gt; 5    1  7    +    0
 #&gt; 6    1  3    =    0
 #&gt; 7    1  8    =    0
-#&gt; 8    4  8    =    0</div><div class='input'><span class='co'>#   from to type comm</span>
-<span class='co'># 1    1  4    =    0</span>
-<span class='co'># 2    1  5    =    0</span>
-<span class='co'># 3    3  5    =    1</span>
-<span class='co'># 4    1  2    +    0</span>
-<span class='co'># 5    1  7    +    0</span>
-<span class='co'># 6    1  3    =    0</span>
-<span class='co'># 7    1  8    =    0</span>
-<span class='co'># 8    4  8    =    0</span>
+#&gt; 8    4  8    =    0</div><div class='input'><span class='co'>## Edges of the first decoration graph</span>
+
 <span class='fu'>igraph</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/igraph/man/graph_from_data_frame.html'>as_data_frame</a></span><span class='op'>(</span><span class='va'>g.compar</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span><span class='op'>[[</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>]</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;    from to type comm
 #&gt; 1     1  2    =    1
@@ -306,17 +271,8 @@ Given a list of graphs, list_compar extract all combinations of graph pairs and 
 #&gt; 7     2  5    =    0
 #&gt; 8     3  5    =    0
 #&gt; 9     4  5    =    0
-#&gt; 10    5  6    =    0</div><div class='input'><span class='co'>#    from to type comm</span>
-<span class='co'># 1     1  2    =    1</span>
-<span class='co'># 2     1  3    =    0</span>
-<span class='co'># 3     2  3    =    0</span>
-<span class='co'># 4     1  4    =    0</span>
-<span class='co'># 5     3  4    =    0</span>
-<span class='co'># 6     1  5    =    0</span>
-<span class='co'># 7     2  5    =    0</span>
-<span class='co'># 8     3  5    =    0</span>
-<span class='co'># 9     4  5    =    0</span>
-<span class='co'># 10    5  6    =    0</span>
+#&gt; 10    5  6    =    0</div><div class='input'><span class='co'>## Edges of the second decoration graph</span>
+
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
