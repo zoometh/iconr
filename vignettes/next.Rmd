@@ -20,7 +20,6 @@ htmltools::img(src = knitr::image_uri(file.path("../doc/tutorial/img", "iconr_lo
                style = 'position:absolute; top:0; right:0; padding:10px;')
 ```
 
----
 
 <style>
 .figure {
@@ -52,6 +51,8 @@ ibahernando.path <- "../man/figures/ibahernando_256colours.png"
 dummies.path <- "../man/figures/dummies.png"
 ibahernando <-  rasterGrob(as.raster(readPNG(ibahernando.path)), interpolate = FALSE)
 ```
+
+***iconr*** package is hope to lay the foundation of further developments
 
 # Shape analysis
 

@@ -54,10 +54,13 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/index.html">***iconr*** package &lt;br&gt; Analysis of Prehistoric Iconography with R</a>
+    </li>
+    <li>
       <a href="../articles/gis.html">GIS interface entry</a>
     </li>
     <li>
-      <a href="../articles/index.html">***iconr*** package &lt;br&gt; Analysis of Prehistoric Iconography with R</a>
+      <a href="../articles/next.html">Next developments</a>
     </li>
   </ul>
 </li>
@@ -262,7 +265,7 @@ Chalcolithic rock-art of Ossimo, Valcamonica
 <img src="../doc/tutorial/img/addNodes.gif" style="width:70.0%" alt=""><p class="caption">Adding <strong>nodes</strong> for each GU</p>
 </div>
 </center>
-<p>In this example, beside the <em>main</em> nodes sword (<code>epee</code>), anciform (<code>anciforme</code>) and halberd (<code>hallebarde</code>), we can also observe that the sword is connected to a belt and the anciform is worn as necklace. We probably would like to register this piece of graphical content as we also probably would like to characterize the types of blades for the sword and halberd, point out the presence of rivets on the sword depiction, etc. To do so, see the <a href="https://zoometh.github.io/iconr/docs/#Edge_types">Attribute edges</a> part of the <strong><em>iconr</em></strong> package documentation</p>
+<p>In this example, beside the <em>main</em> nodes sword (<code>epee</code>), anciform (<code>anciforme</code>) and halberd (<code>hallebarde</code>), we can also observe that the sword is connected to a belt and the anciform is worn as necklace. We probably would like to register this piece of graphical content as we also probably would like to characterize the types of blades for the sword and halberd, point out the presence of rivets on the sword depiction, etc. To do so, create ‘Attribute edges’ (<code>-+-</code>)</p>
 </div>
 <div id="edges" class="section level2">
 <h2 class="hasAnchor">
@@ -278,7 +281,7 @@ Chalcolithic rock-art of Ossimo, Valcamonica
 <li>
 <code>b</code> (Integer) <em>ending</em> node</li>
 <li>
-<code>type</code> (Text): values<code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code>, <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> or <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code> <a href="https://zoometh.github.io/iconr/docs/#Edge_types">HELP</a>
+<code>type</code> (Text): values <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code>, <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> or <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code>; textual notation <code>-=-</code>, <code>-+-</code> or <code>-&gt;-</code>
 </li>
 </ol>
 <p>Theoretically, between two <em>main</em> nodes, edges exist when their Voronoi cells are contiguous. In practice, if you consider that two GUs are neighbors, you can create an edge between their two nodes: GIS snapping tool help !</p>
@@ -348,7 +351,7 @@ Huet, Thomas, and Craig Alexander. 2015. <span>“Méthodes Informatiques Pour l
 
 
       <footer><div class="copyright">
-  <p>Developed by Thomas Huet, Jose Pozo.</p>
+  <p>Developed by <a href="https://github.com/zoometh/thomashuet#thomas-huet-dr">Thomas Huet</a>, Jose Pozo.</p>
 </div>
 
 <div class="pkgdown">

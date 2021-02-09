@@ -4,5 +4,9 @@ pkgdown_sha: ~
 articles:
   gis: gis.html
   index: index.html
-last_built: 2021-02-08T17:00Z
+  next: next.html
+last_built: 2021-02-09T10:48Z
+urls:
+  reference: https://zoometh.github.io/iconr//reference
+  article: https://zoometh.github.io/iconr//articles
 

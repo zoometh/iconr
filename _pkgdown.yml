@@ -7,13 +7,11 @@ authors:
   Thomas Huet:
     href: https://github.com/zoometh/thomashuet#thomas-huet-dr
 
-left:
-- icon: fa-home
-  href: index.html
-- text: "How To"
-  menu:
-  -  text: incor package use
-	 href: articles/index.html
-  -  text: before iconr - the GIS
-	 href: articles/gis.html
-  -  text: after iconr - next developments
+articles:
+- title: Customise your site
+  navbar: ~
+  contents:
+  - index
+  - gis
+  - next
+
