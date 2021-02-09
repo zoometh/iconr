@@ -41,7 +41,7 @@ read_eds(site,
 Subset the dataframe of edges depending on 'site' and 'decor'.
 }
 \value{
-  Create a dataframe with, at a minimum, "site", "decor", "a", "b", "xa", "ya", "xb", "yb"
+  Create a dataframe of edges with, at a minimum, "site", "decor", "a", "b", "xa", "ya", "xb", "yb"
   values for each edge.
 }
 

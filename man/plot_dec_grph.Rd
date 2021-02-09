@@ -80,9 +80,11 @@ plot_dec_grph(nodes = NULL,
   Plot \strong{nodes only} (if \code{edges = NULL}), \strong{edges only} (if \code{nodes = NULL}), or both (graph) over a decoration image.
 }
 \value{
-   Generates and save images in the indicated format with nodes, edges, or both, overlapping the decoration image. The return value is a character vector with the dir/name of the saved image.
+   Generates graph decoration images with nodes, edges, or both, overlapping the decoration image.
 
    If \code{img.format=NULL}, the plot is sent to the active device and no value is returned.
+
+   If \code{img.format=} \code{"png"} or \code{"bmp"} or \code{"tiff"}/\code{"tif"} or \code{"jpeg"}/\code{"jpg"} or \code{"pdf"}, the return value is a character vector with the dir/name of the saved image in the indicated format.
 }
 
 \examples{
@@ -97,14 +99,14 @@ eds.df <- read_eds(site, decor, dataDir)
 imgs <- read.table(paste0(dataDir, "/imgs.tsv"),
                    sep="\t", stringsAsFactors = FALSE)
 
-# Save the plot of nodes and edges with node variable "type" as labels
-# in png image format and return the image file name.
+# Plot 'Brozas' nodes and edges on the active device
+# with node variable "type" as labels
 plot_dec_grph(nds.df, eds.df, imgs,
               site, decor,
               dir = dataDir,
               nd.var = "type")
 
-# Save only edges of 'Brozas' with smaller widths and in image format jpg.
+# Save only edges of 'Brozas' with bigger widths and in image format jpg.
 # Then read and plot the image.
 img.filename <- plot_dec_grph(nodes = NULL, eds.df, imgs,
                            site, decor,
@@ -112,12 +114,6 @@ img.filename <- plot_dec_grph(nodes = NULL, eds.df, imgs,
                            ed.lwd = 2,
                            img.format = "jpg")
 magick::image_read(img.filename)
-
-# Plot directly on the active device.
-plot_dec_grph(nodes = NULL, eds.df, imgs,
-              site, decor,
-              dir = dataDir,
-              ed.lwd = 2)
 }
 
 \keyword{ ~kwd1 graph}% use one of  RShowDoc("KEYWORDS")

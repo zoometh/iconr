@@ -64,9 +64,12 @@
   more than one comparison.
 }
 \value{
-   Generates and save images in the indicated format for pairwise comparisons between two or more decorations, comparing graphs elements (nodes or edges). The return value is a character vector with the dir/name of every saved image.
+    Generates graph decoration images, for pairwise comparisons between two or more decorations, comparing graphs elements (nodes or edges).
 
    If \code{img.format=NULL}, the plot is sent to the active device and no value is returned.
+
+   If \code{img.format=} \code{"png"} or \code{"bmp"} or \code{"tiff"}/\code{"tif"} or \code{"jpeg"}/\code{"jpg"} or \code{"pdf"}, the return value is a character vector with the dir/name of every saved image in the indicated format.
+
 }
 \seealso{
   \code{\link[iconr]{list_compar}}
@@ -94,14 +97,6 @@ dataDir <- system.file("extdata", package = "iconr")
 plot_compar(g.compar, c(1,4), focus = "nodes",
             dir = dataDir,
             img.format = "png")
-
-# Generate the image showing the comparison on common edges of graphs
-# '1' and '4', save it in jpeg format, and return its path.
-# Plot all nodes and node labels in brown.
-plot_compar(g.compar, c(1,4), focus = "edges",
-            dir = dataDir,
-            nd.color = "brown",
-            img.format = "jpg")
 
 # Generate the image showing the comparison on common edges of all pairwise
 # combinations of graphs '1','3', and '4', save them in pdf format, and return

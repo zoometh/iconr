@@ -29,7 +29,10 @@
 }
 }
 \value{
-  Return a list of graphs
+  Return a list of graphs \code{igraph}
+}
+\seealso{
+  \code{\link[igraph]{graph_from_data_frame}}
 }
 
 \examples{

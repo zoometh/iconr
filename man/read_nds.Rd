@@ -33,7 +33,7 @@ read_nds(site,
   }
 }
 \value{
-  Create a dataframe with, at a minimum, "site", "decor", "id", "x", "y" values for each node.
+  Create a dataframe of node with, at a minimum, "site", "decor", "id", "x", "y" values for each node.
 }
   \examples{
 # Set data folder

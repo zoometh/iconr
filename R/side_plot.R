@@ -74,15 +74,12 @@ annotate_dec <- function(dec.img, title, nd.var) {
 draw_graph <- function(nodes, edges, lbl.nds,
                        nd.var, dec.img, title) {
   graphics::plot(dec.img)
-  oldpar <- graphics::par(no.readonly = TRUE)
-  on.exit(graphics::par(oldpar))
+  # the par() user's parameters will be restore after the
+  # run of the plot_compar() function
   graphics::par(cex = scale_factor())
-
   annotate_dec(dec.img, title, nd.var)
-
   # The y-coordinate requires to be added the image offset
   offset <- magick::image_info(dec.img)$height
-
   draw_edges(edges, offset)
   draw_nodes(nodes, lbl.nds, nd.var, offset)
 }
@@ -96,6 +93,8 @@ scale_factor <- function() {
   # is above 750/666, then the sizes are further corrected considering the
   # plot width instead of the height.
   dec.asp <- grDevices::dev.size()[2]/grDevices::dev.size()[1]
+  # the par() user's parameters will be restore after the
+  # run of the plot_compar() function
   exp.dec.asp <- 750/(666*graphics::par("mfrow")[2])
   return(grDevices::dev.size(units = "cm")[1] * min(dec.asp, exp.dec.asp) / 7)
 }

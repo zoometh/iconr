@@ -20,7 +20,6 @@ htmltools::img(src = knitr::image_uri(file.path("img", "iconr_logo.png")),
                style = 'position:absolute; top:0; right:0; padding:10px;')
 ```
 
----
 
 <style>
 .figure {
@@ -73,7 +72,7 @@ The main principle of the `iconr` package is to consider any iconographic compos
 
 <center>
 
-![GIS view. The Solana de Cabanas stelae: from its photograph to the modeling of its graphical content](`r solanas.vor.path`){width=800px}
+![GIS view. The Solana de Cabanas stelae: from its photograph to the modeling of its graphical content](`r solanas.vor.path`){width=700px}
 
 </center>  
   
@@ -657,58 +656,6 @@ Here, the comparisons have been made on the basis of different types (ie, graphi
 
 </center>  
 
-# Next developments
-
-Graph theory allows one to construct tree structures for categorical variables (eg. the different types of GUs). These structures allow generalization processes (upward to the parent level) and specification processes (downward to the child level). For example, a `sword` and a `spear` belong both to the `weapons` group (sub-group `offensive weapons`), a `shield` belongs to the `weapons` group (sub-group `defensive weapons`), etc.: 
-
-```{r hierac, warning=FALSE, fig.width=7, fig.height=4, asp=0}
-oldpar <- par(no.readonly = TRUE)
-on.exit(par(oldpar))
-par(mar=c(0, 0, 0, 0))
-g <- graph_from_literal(objects-+weapons,
-                        objects-+personnal_item,
-                        weapons-+offensive_weapons,
-                        weapons-+defensive_weapons,
-                        offensive_weapons-+spear,
-                        offensive_weapons-+sword,
-                        defensive_weapons-+shield,
-                        defensive_weapons-+helmet,
-                        personnal_item-+miror,
-                        personnal_item-+comb)
-layout <- layout.reingold.tilford(g)
-plot(g,
-     layout = layout,
-     vertex.color = "white",
-     vertex.frame.color = "white",
-     vertex.size = 20,
-     vertex.label.cex = 0.7,
-     vertex.label.color = "black",
-     vertex.label.family = "sans",
-     edge.arrow.size = 0.5
-     )
-```
-  
-Such a formalism can be used to weight the differences between nodes, to conduct analysis with different levels of precision or to overcome issues of idiosyncratic typologies.
-
-Using the *diachronic* edge notation, tree structure can also be used to construct relative chronology diagrams, similar to a Harris matrix. For example, with the `data.tree` package and the Ibahernando stelae (decoration 5):
-
-```{r overlap, warning=FALSE, out.width="100%"}
-library(data.tree)
-lgrph <- list_dec(imgs, nodes, edges)
-edges.iba <- igraph::as_data_frame(lgrph[[5]], what="edges")
-overlap.nodes <- unique(edges.iba[edges.iba$type == ">", "from"])
-contemp.nodes <- unique(unlist(edges.iba[edges.iba$type == "=", c("from", "to")]))
-df.stratig <- data.frame(over = rep(overlap.nodes, length(contemp.nodes)),
-                         under = contemp.nodes)
-df.stratig$pathString <- paste(lgrph[[5]]$decor,
-                               df.stratig$over, 
-                               df.stratig$under, 
-                               sep = "/")
-superpo <- as.Node(df.stratig)
-print(superpo)
-```
-
-  
 # References
 
 
