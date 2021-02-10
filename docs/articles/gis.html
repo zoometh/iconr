@@ -54,6 +54,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/examples.html">***iconr***, training datasets</a>
+    </li>
+    <li>
       <a href="../articles/gis.html">GIS interface entry</a>
     </li>
     <li>
@@ -61,6 +64,9 @@
     </li>
     <li>
       <a href="../articles/next.html">Next developments</a>
+    </li>
+    <li>
+      <a href="../articles/shiny.html">***iconr***, examples on training datasets</a>
     </li>
   </ul>
 </li>
@@ -85,8 +91,7 @@
 
       
 
-      </header><script src="gis_files/header-attrs-2.6/header-attrs.js"></script><script src="gis_files/kePrint-0.0.1/kePrint.js"></script><link href="gis_files/lightable-0.0.1/lightable.css" rel="stylesheet">
-<div class="row">
+      </header><script src="gis_files/header-attrs-2.6/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>GIS interface entry</h1>
@@ -118,14 +123,14 @@ table {
 <p>The <strong><em>iconr</em></strong> R package grounds concepts and provides normalized tools to manage iconographic contents. This modeling is particularly interesting for compositions coming from Paleolithic, Neolithic and Protohistoric times <span class="citation">(Alexander 2008; Huet and Alexander 2015; Huet 2018)</span>. To record large series of iconographic contents, the <a href="#gis">GIS interface</a> appears to be the most appropriate one for users. This demo explains how to construct the graph <em>before</em> using the package, offering also tipping points to facilitate the recording process.</p>
 <center>
 <div class="figure">
-<img src="../doc/tutorial/img/all_process.gif" alt=""><p class="caption">GIS view. Detail of a Late Bronze Age stelae (Solana de Cabañas, Cáceres, Spain).Stelae photograph (photograph credits: Museo Arqueológico Nacional, Madrid); Georeferencing of the steale drawing over its photograph (dawing credits: Diaz-Guardamino 2010); Binarization and polygonization/vectorization of the graphical content (graphical units, GUs) of the steale (now <code>POLYGONS</code>); Calcul of their centroid; Calcul of their Voronoi cells; Binary topological relationships (<em>birel</em>) for each pairwise of Voronoi cells: the ones that share a border (<em>touches</em> = TRUE) will share a link (ie, edge) between their centroids (ie, nodes); Identification of the different types (nodes’ column <code>type</code>)</p>
+<img src="../doc/tutorial/img/all_process.gif" alt=""><p class="caption">GIS view. A Late Bronze Age stelae (Solana de Cabañas, Cáceres, Spain).Stelae photograph (photograph credits: Museo Arqueológico Nacional, Madrid); Georeferencing of the steale drawing over its photograph (dawing credits: Diaz-Guardamino 2010); Binarization and polygonization/vectorization of the graphical content (graphical units, GUs) of the stelae (now <code>POLYGONS</code>); Calcul of their centroid; Calcul of their Voronoi cells; Binary topological relationships (<em>birel</em>) for each pairwise of Voronoi cells: the ones that share a border (<em>touches</em> = TRUE) will share a link (ie, edge) between their centroids (ie, nodes); Identification of the different types (nodes’ column <code>type</code>)</p>
 </div>
 </center>
 </div>
 <div id="gis" class="section level1">
 <h1 class="hasAnchor">
 <a href="#gis" class="anchor"></a>A GIS ? Yes but why ?</h1>
-<p>The <em>tenet</em> of the <strong><em>iconr</em></strong> is to always keep the user connected with the iconographic content – his primary data source – and emphasise the significance of the spatial dimension for any graphical content. Geographical Information Systems (GIS) offer multiple tools and options to facilitate the data entry. Use of GIS offers a graphic interface and ensures the correctness of spatial relationships between GUs. It forms a permanent interface between the image of he decoration and the database. Obviously, the main GIS facility is the presence of <strong>attributes tables</strong> which allow to record, filter and sort GUs on many information: types, techniques, orientations, lengths, etc.</p>
+<p>The <em>tenet</em> of the <strong><em>iconr</em></strong> is to always keep the user connected with the iconographic content – his primary data source – and emphasize the significance of the spatial dimension for any graphical content. Geographical Information Systems (GIS) offer multiple tools and options to facilitate the data entry. Use of GIS offers a graphic interface and ensures the correctness of spatial relationships between GUs. It forms a permanent interface between the image of he decoration and the database. Obviously, the main GIS facility is the presence of <strong>attributes tables</strong> which allow to record, filter and sort GUs on many information: types, techniques, orientations, lengths, etc.</p>
 <p>The other most important GIS facilities for the recording process are:</p>
 <ul>
 <li>the snapping tools</li>
@@ -142,63 +147,6 @@ table {
 <center>
 <img src="../doc/tutorial/img/openImageGIS.gif" title="fig:" style="width:70.0%" alt="Drag and drop the decoration image before anything">
 </center>
-<p>Beside the <strong><em>iconr</em></strong> embedded training dataset, others datasets are available. To facilitate the starting, ready to use QGIS projects (.qgz) are also provided for each decoration:</p>
-<table class="table table table-hover table-condensed">
-<thead><tr>
-<th style="text-align:left;">
-download
-</th>
-<th style="text-align:left;">
-name
-</th>
-<th style="text-align:left;">
-nb.decor
-</th>
-<th style="text-align:left;">
-sort.description
-</th>
-<th style="text-align:left;">
-drawings.references
-</th>
-</tr></thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-<a href="https://downgit.github.io/#/home?url=https://github.com/zoometh/iconr/tree/master/docs/datasets/stele%20bas%20aragon" style="     ">stele bas aragon</a>
-</td>
-<td style="text-align:left;">
-Estelas Ibericas con Lanzas
-</td>
-<td style="text-align:left;">
-5
-</td>
-<td style="text-align:left;">
-Late Iron Age stelae with ranges of spears, writings, etc.
-</td>
-<td style="text-align:left;">
-<a href="https://doi.org/10.3989/gladius.2013.0002" style="     ">Vargas 2013</a>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-<a href="https://downgit.github.io/#/home?url=https://github.com/zoometh/iconr/tree/master/docs/datasets/Valcamonica" style="     ">Valcamonica</a>
-</td>
-<td style="text-align:left;">
-Ossimo
-</td>
-<td style="text-align:left;">
-3
-</td>
-<td style="text-align:left;">
-Chalcolithic rock-art of Ossimo, Valcamonica
-</td>
-<td style="text-align:left;">
-<a href="https://scholar.google.fr/scholar?hl=fr&amp;as_sdt=0%2C5&amp;q=Le+Pietre+degli+Dei%2C+menhir+e+stele+dell%27Eta+del+Rame+in+Valcamonica+e+Valtellina&amp;btnG=" style="     ">Fedele 1994</a>
-</td>
-</tr>
-</tbody>
-</table>
-<p>These datasets can be downloaded by clicking on their names. A RShiny app allows to <a href="https://epispat.shinyapps.io/decoration_graph/">interactively plot these datasets</a> with the <code>plot_dec()</code> function</p>
 <div id="scales" class="section level2">
 <h2 class="hasAnchor">
 <a href="#scales" class="anchor"></a>Scales</h2>
@@ -248,7 +196,7 @@ Chalcolithic rock-art of Ossimo, Valcamonica
 <div id="nodes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#nodes" class="anchor"></a>Nodes</h2>
-<p><strong>Nodes</strong> represent the basic information of the graphical content. For example, it would be easy to distinguish a decoration with aurochs (<code>type = auroch</code>) from a decoration with swords (<code>type = sword</code>). The former iconographical content should be probably related to the Late Paleolithic/Early Neolithic while the second one is more probably related to a period starting with the Bronze Age. Nodes are created as a shapefile of <code>POINTS</code>. The attribute table of the nodes has at least four (4) fields:</p>
+<p><strong>Nodes</strong> represent the basic information of the graphical content. For example, it would be easy to distinguish a decoration with aurochs (<code>type = auroch</code>) from a decoration with swords (<code>type = sword</code>). The former iconographic content should be probably related to the Late Paleolithic/Early Neolithic while the second one is more probably related to a period starting with the Bronze Age. Nodes are created as a shapefile of <code>POINTS</code>. The attribute table of the nodes has at least four (4) fields:</p>
 <ol style="list-style-type: decimal">
 <li>
 <code>site</code> (Text): name of the site</li>
@@ -304,7 +252,7 @@ Chalcolithic rock-art of Ossimo, Valcamonica
 <h1 class="hasAnchor">
 <a href="#the-table-of-decorations" class="anchor"></a>The <strong>table of decorations</strong>
 </h1>
-<p>The <strong>table of decorations</strong> is a correspondance table which records joins between nodes and edges dataframes. In the package, the default name of this table is <code>imgs.tsv</code>, a tabulate separated-values (but it also can be a<code>.csv</code>, comma separated-values)</p>
+<p>The <strong>table of decorations</strong> is a correspondence table which records joins between nodes and edges dataframes. In the package, the default name of this table is <code>imgs.tsv</code>, a tabulate separated-values (but it also can be a<code>.csv</code>, comma separated-values)</p>
 <center>
 <p><img src="../doc/tutorial/img/createTableOfDecorations.gif" style="width:70.0%"></p>
 </center>

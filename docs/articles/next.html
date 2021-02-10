@@ -54,6 +54,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/examples.html">***iconr***, training datasets</a>
+    </li>
+    <li>
       <a href="../articles/gis.html">GIS interface entry</a>
     </li>
     <li>
@@ -61,6 +64,9 @@
     </li>
     <li>
       <a href="../articles/next.html">Next developments</a>
+    </li>
+    <li>
+      <a href="../articles/shiny.html">***iconr***, examples on training datasets</a>
     </li>
   </ul>
 </li>
@@ -110,6 +116,16 @@ table {
 }
 </style>
 <p><strong><em>iconr</em></strong> package is hope to lay the foundation of further developments</p>
+<div id="multifactorial-analysis" class="section level1">
+<h1 class="hasAnchor">
+<a href="#multifactorial-analysis" class="anchor"></a>Multifactorial analysis</h1>
+<p>In those examples, the study and comparisons have been made on the basis of different types of GUs with the variable <code>type</code> (<code>nd.var = "type"</code>). However, if a new column is added to the node dataframe or shapefile, the study can also incorporate other variables. Fox example, one of these new variable could be the technique by which the GU was created (<code>nd.var = "technique"</code>):</p>
+<center>
+<div class="figure">
+<img src="../man/figures/brozas_256colours.png" width="400" alt=""><p class="caption">GIS view. The Brozas stelae (decoration 1) with the different engraving techniques: <code>g_piq</code> (peckings) for the spear, the shield and the sword; <code>g_inc</code> (incisions) for the the fibula and the comb</p>
+</div>
+</center>
+</div>
 <div id="shape-analysis" class="section level1">
 <h1 class="hasAnchor">
 <a href="#shape-analysis" class="anchor"></a>Shape analysis</h1>
@@ -126,7 +142,7 @@ table {
 <div id="typology" class="section level1">
 <h1 class="hasAnchor">
 <a href="#typology" class="anchor"></a>Typology</h1>
-<p>Graph theory and structured vocabularies allows one to construct tree structures for categorical variables (eg. the different types of GUs). These structures allow generalization processes (upward to the parent level) and specification processes (downward to the child level). For example, a <code>sword</code> and a <code>spear</code> belong both to the <code>weapons</code> group (sub-group <code>offensive weapons</code>), a <code>shield</code> belongs to the <code>weapons</code> group (sub-group <code>defensive weapons</code>), etc.:</p>
+<p>Graph theory and structured vocabularies allows one to construct tree structures for categorical variables (e.g., the different types of GUs). These structures allow generalization processes (upward to the parent level) and specification processes (downward to the child level). For example, a <code>sword</code> and a <code>spear</code> belong both to the <code>weapons</code> group (sub-group <code>offensive weapons</code>), a <code>shield</code> belongs to the <code>weapons</code> group (sub-group <code>defensive weapons</code>), etc.:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">oldpar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>no.readonly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/on.exit.html">on.exit</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span><span class="va">oldpar</span><span class="op">)</span><span class="op">)</span>
@@ -155,7 +171,7 @@ table {
 <p><img src="next_files/figure-html/hierac-1.png" width="672"></p>
 <p>Such a formalism can be used to weight the differences between nodes, to conduct analysis with different levels of precision or to overcome issues of idiosyncratic typologies.</p>
 <blockquote>
-<p>A major issue will be to manage multi-linguism shared vocabularies to describe the iconographical content, the techniques used, etc.</p>
+<p>A major issue will be to manage multi-linguism shared vocabularies to describe the iconographic content, the techniques used, etc.</p>
 </blockquote>
 </div>
 <div id="harris-matrix" class="section level1">

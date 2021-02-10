@@ -5,7 +5,8 @@ library(iconr)
 # the shiny app for iconr documentation #
 # - - - - - - - - - - - - - - - - - - - #
 
-famille <- c("stele bas aragon", "Valcamonica", "Pena Tu")
+famille <- c("stele bas aragon","Valcamonica","Pena Tu")
+# famille <- c("stele bas aragon", "Valcamonica", "Pena Tu")
 # setwd("..")
 df <- read.csv(paste0(getwd(), "/", famille[1], "/imgs.csv"), sep=";")
 def.dec <- paste0(df[1, "idf"], ".", df[1, "site"], "_", df[1, "decor"])
@@ -17,8 +18,13 @@ ui <- fluidPage(
   sidebarPanel(
     selectInput("A", "family", choices = famille, selected = famille[1]),
     selectInput("B", "decoration", choices = def.dec),
-    selectInput("C", "label", choices = c("id", "type"), selected = "type")
-    ),
+    checkboxGroupInput("D", "graph elements",
+                       c("nodes" = "nds",
+                         "edges" = "eds"),
+                       selected = c("nds", "eds"),
+                       inline = T),
+    selectInput("C", "node labels", choices = c("id", "type"), selected = "type")
+  ),
   mainPanel(plotOutput("plot"))
 )
 
@@ -36,14 +42,22 @@ server <- function(input, output, session) {
     # Decoration to be plotted
     site <- df[a.idf, "site"]
     decor <- df[a.idf, "decor"]
-    # Read nodes, edges, and decorations
-    nds.df <- read_nds(site, decor, dataDir, format = "shp")
-    eds.df <- read_eds(site, decor, dataDir, format = "shp")
+    ## Read nodes, edges, and decorations
+    # nodes
+    if ("nds" %in% input$D){
+      nds.df <- read_nds(site, decor, dataDir, format = "shp")
+    } else {nds.df <- NULL}
+    # edges
+    if ("eds" %in% input$D){
+      eds.df <- read_eds(site, decor, dataDir, format = "shp")
+    } else {eds.df <- NULL}
     imgs <- read.table(paste0(dataDir, "/imgs.tsv"),
                        sep="\t", stringsAsFactors = FALSE, header = T)
     # Save the plot of nodes and edges with node variable "type" as labels
     # in png image format and return the image file name.
-    plot_dec_grph(nds.df, eds.df, imgs,
+    plot_dec_grph(nds.df,
+                  eds.df,
+                  imgs,
                   site, decor,
                   dir = dataDir,
                   nd.var = input$C)

@@ -79,31 +79,6 @@ The image will be the reference space of the graph. So, before anything, start b
 ![Drag and drop the decoration image before anything](../doc/tutorial/img/openImageGIS.gif){width=70%}
 </center>
   
-  
-Beside the ***iconr*** embedded training dataset, others datasets are available. To facilitate the starting, ready to use QGIS projects (.qgz) are also provided for each decoration:
-
-```{r, echo = F}
-gh.root <- "https://downgit.github.io/#/home?url=https://github.com/zoometh/iconr/tree/master/docs/datasets/"
-url.df <- c(paste0(gh.root, "stele%20bas%20aragon"),
-            paste0(gh.root, "Valcamonica"))
-url.ref <- c("https://doi.org/10.3989/gladius.2013.0002",
-             "https://scholar.google.fr/scholar?hl=fr&as_sdt=0%2C5&q=Le+Pietre+degli+Dei%2C+menhir+e+stele+dell%27Eta+del+Rame+in+Valcamonica+e+Valtellina&btnG=")
-df.datasets <- data.frame("download" = c("stele bas aragon", "Valcamonica"),
-                          "name" = c("Estelas Ibericas con Lanzas", "Ossimo"),
-                          "nb.decor" = c("5","3"),
-                          "sort.description" = c("Late Iron Age stelae with ranges of spears, writings, etc.",
-                                                 "Chalcolithic rock-art of Ossimo, Valcamonica"),
-                          "drawings.references" = c("Vargas 2013","Fedele 1994"),
-                          stringsAsFactors = F)
-# row.names(df.datasets) <- df.datasets$family
-df.datasets %>% 
-  mutate(download = cell_spec(download, "html", link = url.df)) %>%
-  mutate(drawings.references = cell_spec(drawings.references, "html", link = url.ref)) %>%
-  kable("html", escape = FALSE, row.names = F) %>%
-  kable_styling(bootstrap_options = c("hover", "condensed"), full_width = F)
-```
-
-These datasets can be downloaded by clicking on their names. A RShiny app allows to [interactively plot these datasets](https://epispat.shinyapps.io/decoration_graph/) with the `plot_dec()` function
 
 ## Scales
 

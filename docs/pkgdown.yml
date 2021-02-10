@@ -2,8 +2,10 @@ pandoc: 2.11.2
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
+  examples: examples.html
   gis: gis.html
   index: index.html
   next: next.html
-last_built: 2021-02-09T12:30Z
+  shiny: shiny.html
+last_built: 2021-02-10T10:57Z
 
