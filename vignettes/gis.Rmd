@@ -59,7 +59,7 @@ The ***iconr*** R package grounds concepts and provides normalized tools to mana
 
 # A GIS ? Yes but why ? {#gis}
 
-The *tenet* of the ***iconr*** is to always keep the user connected with the iconographic content -- his primary data source -- and emphasise the significance of the spatial dimension for any graphical content. Geographical Information Systems (GIS) offer multiple tools and options to facilitate the data entry.  Use of GIS offers a graphic interface and ensures the correctness of spatial relationships between GUs. It forms a permanent interface between the image of he decoration and the database. Obviously, the main GIS facility is the presence of **attributes tables** which allow to record, filter and sort GUs on many information: types, techniques, orientations, lengths, etc. 
+The *tenet* of the ***iconr*** is to always keep the user connected with the iconographic content -- his primary data source -- and emphasize the significance of the spatial dimension for any graphical content. Geographical Information Systems (GIS) offer multiple tools and options to facilitate the data entry.  Use of GIS offers a graphic interface and ensures the correctness of spatial relationships between GUs. It forms a permanent interface between the image of he decoration and the database. Obviously, the main GIS facility is the presence of **attributes tables** which allow to record, filter and sort GUs on many information: types, techniques, orientations, lengths, etc. 
 
 The other most important GIS facilities for the recording process are:
 
@@ -207,7 +207,7 @@ For the Abela decoration, we have created three (3) nodes (`1`,`2`,`3`) and two 
 
 # The **table of decorations**
 
-The **table of decorations** is a correspondance table which records joins between nodes and edges dataframes. In the package, the default name of this table is `imgs.tsv`, a tabulate separated-values (but it also can be a`.csv`, comma separated-values)
+The **table of decorations** is a correspondence table which records joins between nodes and edges dataframes. In the package, the default name of this table is `imgs.tsv`, a tabulate separated-values (but it also can be a`.csv`, comma separated-values)
 
 <center>
   

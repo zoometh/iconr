@@ -13,3 +13,4 @@
 ^doc$
 ^vignettes/gis.Rmd$
 ^vignettes/next.Rmd$
+^vignettes/examples.Rmd$

@@ -5,7 +5,7 @@ library(iconr)
 # the shiny app for iconr documentation #
 # - - - - - - - - - - - - - - - - - - - #
 
-famille <- c("stele bas aragon", "Valcamonica")
+famille <- c("stele bas aragon", "Valcamonica", "Pena Tu")
 # setwd("..")
 df <- read.csv(paste0(getwd(), "/", famille[1], "/imgs.csv"), sep=";")
 def.dec <- paste0(df[1, "idf"], ".", df[1, "site"], "_", df[1, "decor"])

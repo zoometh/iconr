@@ -79,7 +79,7 @@ When the decoration iconographical content is composed by GUs separated one with
 
 # Typology
 
-Graph theory and structured vocabularies allows one to construct tree structures for categorical variables (eg. the different types of GUs). These structures allow generalization processes (upward to the parent level) and specification processes (downward to the child level). For example, a `sword` and a `spear` belong both to the `weapons` group (sub-group `offensive weapons`), a `shield` belongs to the `weapons` group (sub-group `defensive weapons`), etc.: 
+Graph theory and structured vocabularies allows one to construct tree structures for categorical variables (e.g., the different types of GUs). These structures allow generalization processes (upward to the parent level) and specification processes (downward to the child level). For example, a `sword` and a `spear` belong both to the `weapons` group (sub-group `offensive weapons`), a `shield` belongs to the `weapons` group (sub-group `defensive weapons`), etc.: 
 
 ```{r hierac, warning=FALSE, fig.width=7, fig.height=4, asp=0}
 oldpar <- par(no.readonly = TRUE)
