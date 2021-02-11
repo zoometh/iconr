@@ -42,7 +42,7 @@ labels_shadow(x, y = NULL, labels,
     \code{pos}, \code{offset}, or \code{family}.
 }
 }
-\value{No return value, create a contrasting buffer to make labels more visible}
+\value{No return value. It creates a contrasting buffer to make labels more visible.}
 
 \references{
   https://rdrr.io/cran/TeachingDemos/man/shadowtext.html
