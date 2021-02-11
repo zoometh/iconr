@@ -46,11 +46,11 @@ list_compar(lgrph, nd.var = "type",
 If any of the graphs has multiple nodes/edges with the same value, it is considered to count for as many coincidences as the smaller multiplicity. For instance, if there are 2 nodes with value \code{epee} in graph 1, and 3 nodes with value \code{epee} in graph 2, their number of common nodes is \code{min(2, 3) = 2}.
 }
 \value{
-  \code{nds_compar()} returns the input pair of graphs complemented with a new \strong{node} attribute named \code{comm} with value 1 for common nodes and 0 for non-common nodes.
+  \code{nds_compar()} returns the input pair of graphs, each complemented with a new node attribute named \code{comm} with value 1 for common nodes and 0 for non-common nodes.
 
-  \code{eds_compar()} returns the input pair of graphs complemented with a new \strong{edge} attribute named \code{comm} with value 1 for common edges and 0 for non-common edges.
+  \code{eds_compar()} returns the input pair of graphs, each complemented with a new edge attribute named \code{comm} with value 1 for common edges and 0 for non-common edges.
 
-  \code{list_compar()} returns a list of all combinations of graph pairs. For each pair, both graphs are complemented with the node attribute and edge attribute included by \code{nds_compar()} and \code{eds_compar()}, identifying respectively the common nodes and edges. To each pair is also added an attribute named \code{nd.var} saving the compared node variable.
+  \code{list_compar()} returns a list of all combinations of graph pairs. For each pair, both graphs are complemented with the node attribute (\code{comm}) identifying common nodes and the edge attribute (\code{comm}) identifying common edges. Each pair is also complemented with an attribute named \code{nd.var} recording the compared node variable.
 }
 \seealso{
   \code{\link[iconr]{list_dec}},
