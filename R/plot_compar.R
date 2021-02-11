@@ -40,24 +40,42 @@ plot_compar <- function(listg, dec2comp = NULL, focus = "nodes",
       com.elm.num <- ifelse(focus == "nodes", sum(igraph::V(g[[1]])$comm),
                                               sum(igraph::E(g[[1]])$comm))
       tit <- paste0("Common ", focus, " (n=", com.elm.num, ")")
-      if (!is.null(img.format))
-        grDeviceOpen(out.list[out.i], width = 14, height = 7, res = res)
 
-      # Set the plotting area into a 1*2 array
-      oldpar <- graphics::par(no.readonly = TRUE)
-      on.exit(graphics::par(oldpar))
-      graphics::par(mfrow = c(1, 2), mar = c(0, 0, 0, 0))
-      side_plot(g[[1]], dir, nd.var, focus,
-                nd.color, nd.size, ed.color, ed.width, lbl.size)
-      side_plot(g[[2]], dir, nd.var, focus,
-                nd.color, nd.size, ed.color, ed.width, lbl.size)
-      graphics::mtext(tit, side = 1, line = -1, outer = TRUE,
-                      cex = 0.6 * scale_factor())
-      if (!is.null(img.format)) grDevices::dev.off()
+      plot_pair(img.format, out.list[out.i],
+                g, dir, nd.var, focus,
+                nd.color, nd.size, ed.color, ed.width, lbl.size,
+                tit, res)
     }
   }
   if (!is.null(img.format)) return(out.list)
 }
+
+plot_pair <- function(img.format, img.filename,
+                      g, dir, nd.var, focus,
+                      nd.color, nd.size, ed.color, ed.width, lbl.size,
+                      title, res)
+{
+  if (!is.null(img.format)) {
+    curdev <- grDevices::dev.cur()
+    on.exit({if(grDevices::dev.cur() != curdev) {
+               grDevices::dev.off()
+               if(curdev > 1) grDevices::dev.set(curdev)
+             } })
+    grDeviceOpen(img.filename, width = 14, height = 7, res = res)
+  }
+
+  # Set the plotting area into a 1*2 array
+  oldpar <- graphics::par(no.readonly = TRUE)
+  on.exit(graphics::par(oldpar), add = TRUE, after = FALSE)
+  graphics::par(mfrow = c(1, 2), mar = c(0, 0, 0, 0))
+  side_plot(g[[1]], dir, nd.var, focus,
+            nd.color, nd.size, ed.color, ed.width, lbl.size)
+  side_plot(g[[2]], dir, nd.var, focus,
+            nd.color, nd.size, ed.color, ed.width, lbl.size)
+  graphics::mtext(title, side = 1, line = -1, outer = TRUE,
+                  cex = 0.6 * scale_factor())
+}
+
 
 grDeviceOpen <- function(img.file.name, width, height, res = 300)
 {
