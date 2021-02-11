@@ -94,8 +94,10 @@ g.compar <- list_compar(lgrph, nd.var="type")
 # Generate the image showing the comparison on common nodes of graphs
 # '1' and '4', save it in png format, and return its path.
 dataDir <- system.file("extdata", package = "iconr")
+outDir <- tempdir()
 plot_compar(g.compar, c(1,4), focus = "nodes",
             dir = dataDir,
+            dir.out = outDir,
             img.format = "png")
 
 # Generate the image showing the comparison on common edges of all pairwise
@@ -106,15 +108,17 @@ plot_compar(g.compar, c(1,4), focus = "nodes",
 plot_compar(g.compar, c(1, 3, 4), focus = "edges",
             dir = dataDir,
             nd.color = c("orange", "brown"),
+            dir.out = outDir,
             img.format = "pdf")
 
 # Save the png image showing the comparison on common nodes of graphs
 # '1' and '4'.
 # Then read and plot the image.
-p <- plot_compar(g.compar, c(1, 4), focus = "nodes",
-                 dir = dataDir,
-                 img.format = "png")
-plot(magick::image_read(p))
+img.filename <- plot_compar(g.compar, c(1, 4), focus = "nodes",
+                            dir = dataDir,
+                            dir.out = outDir,
+                            img.format = "png")
+plot(magick::image_read(img.filename))
 
 # Plot directly on the active device (default) the comparison on common nodes
 # of graphs '1' and '4'.
