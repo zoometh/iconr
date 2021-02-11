@@ -22,9 +22,8 @@
   }
 }
 \value{
-  Returns a list of two dataframes:
-  \item{df1}{contemporaneous nodes}
-  \item{df2}{contemporaneous edges}
+  A named list of two dataframes: \code{list(nodes, edges)}, collecting
+  the contemporaneous nodes and edges, respectivelly.
 }
 
 \examples{
@@ -42,7 +41,7 @@ eds.df <- read_eds(site = "Ibahernando",
 # Extract the subgraph contemporaneous to the node 2
 l_dec_df <- contemp_nds(nds.df, eds.df, selected.nd = 2)
 
+## It returns a list of two dataframes, one for nodes and one for edges:
 l_dec_df
-## Return two dataframes, one for nodes, one for edges
 }
 \keyword{ ~kwd1 graphs}
