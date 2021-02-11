@@ -33,7 +33,8 @@ read_nds(site,
   }
 }
 \value{
-  Create a dataframe of node with, at a minimum, "site", "decor", "id", "x", "y" values for each node.
+  Dataframe of graph nodes, including at least the columns
+  "site", "decor", "id", "x", "y", with values for each node (row).
 }
 
 \examples{
