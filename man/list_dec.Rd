@@ -29,7 +29,7 @@
 }
 }
 \value{
-  A list of \code{\link[igraph]{igraph}} graphs.
+  A list of \code{igraph} graphs.
 }
 \seealso{
   \code{\link[igraph]{graph_from_data_frame}}

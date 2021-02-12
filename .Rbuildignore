@@ -11,6 +11,7 @@
 ^pkgdown$
 ^CRAN-RELEASE$
 ^doc$
+^man/figures/
 ^vignettes/gis.Rmd$
 ^vignettes/next.Rmd$
 ^vignettes/examples.Rmd$
