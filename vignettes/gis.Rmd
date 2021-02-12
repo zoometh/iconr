@@ -52,7 +52,7 @@ The ***iconr*** R package grounds concepts and provides normalized tools to mana
 
 <center>
 
-![GIS view. A Late Bronze Age stelae (Solana de Cabañas, Cáceres, Spain).Stelae photograph (photograph credits: Museo Arqueológico Nacional, Madrid); Georeferencing of the steale drawing over its photograph (dawing credits: Diaz-Guardamino 2010); Binarization and polygonization/vectorization of the graphical content (graphical units, GUs) of the stelae (now `POLYGONS`); Calcul of their centroid (red points); Calcul of their Voronoi cells; Binary topological relationships (*birel*) for each pairwise of Voronoi cells: the ones that share a border (*touches* = TRUE) will share a link (ie, edge, in red) between their centroids (ie, nodes); Identification of the different types (nodes' column `type`)](`r solanas.vor.path`)
+![GIS view. A Late Bronze Age stelae (Solana de Cabañas, Cáceres, Spain).Stelae photograph (photograph credits: Museo Arqueológico Nacional, Madrid); Georeferencing of the steale drawing over its photograph (drawing credits: Diaz-Guardamino 2010); Binarization and polygonization/vectorization of the graphical content (graphical units, GUs) of the stelae (now `POLYGONS`); Calcul of their centroid (red points); Calcul of their Voronoi cells; Binary topological relationships (*birel*) for each pairwise of Voronoi cells: the ones that share a border (*touches* = TRUE) will share a link (ie, edge, in red) between their centroids (ie, nodes); Identification of the different types (nodes' column `type`)](`r solanas.vor.path`)
 
 </center>
 
