@@ -13,7 +13,7 @@ output:
 ```{r, echo=FALSE}
 # print(getwd())
 # print(file.path("../logo", "iconr_logo.png"))
-htmltools::img(src = knitr::image_uri(file.path("../doc/tutorial/img", "iconr_logo.png")),
+htmltools::img(src = knitr::image_uri(file.path("../man/figures", "iconr_logo.png")),
 # htmltools::img(src = knitr::image_uri(file.path("img", "iconr_logo.png")), 
 # htmltools::img(src = knitr::image_uri(file.path(R.home("doc"), "html", "logo.jpg")), 
                alt = 'logo', 
@@ -44,7 +44,7 @@ solanas.vor.path <- "../doc/tutorial/img/all_process.gif"
 ```
   
 
-Any iconographic contents can be modeled with a geometric graph where nodes, also called **graphical units (GUs)**, linked together with edges and then analyzed with the **Graph Theory** and spatial analysis at the support scale. T
+Any iconographic contents can be modeled with a geometric graph where nodes, also called **graphical units (GUs)**, linked together with edges and then analyzed with the **Graph Theory** and spatial analysis at the support scale.
 
 # Forewords
 
@@ -52,7 +52,7 @@ The ***iconr*** R package grounds concepts and provides normalized tools to mana
 
 <center>
 
-![GIS view. A Late Bronze Age stelae (Solana de Cabañas, Cáceres, Spain).Stelae photograph (photograph credits: Museo Arqueológico Nacional, Madrid); Georeferencing of the steale drawing over its photograph (dawing credits: Diaz-Guardamino 2010); Binarization and polygonization/vectorization of the graphical content (graphical units, GUs) of the stelae (now `POLYGONS`); Calcul of their centroid; Calcul of their Voronoi cells; Binary topological relationships (*birel*) for each pairwise of Voronoi cells: the ones that share a border (*touches* = TRUE) will share a link (ie, edge) between their centroids (ie, nodes); Identification of the different types (nodes' column `type`)](`r solanas.vor.path`)
+![GIS view. A Late Bronze Age stelae (Solana de Cabañas, Cáceres, Spain).Stelae photograph (photograph credits: Museo Arqueológico Nacional, Madrid); Georeferencing of the steale drawing over its photograph (dawing credits: Diaz-Guardamino 2010); Binarization and polygonization/vectorization of the graphical content (graphical units, GUs) of the stelae (now `POLYGONS`); Calcul of their centroid (red points); Calcul of their Voronoi cells; Binary topological relationships (*birel*) for each pairwise of Voronoi cells: the ones that share a border (*touches* = TRUE) will share a link (ie, edge, in red) between their centroids (ie, nodes); Identification of the different types (nodes' column `type`)](`r solanas.vor.path`)
 
 </center>
 
@@ -63,9 +63,12 @@ The *tenet* of the ***iconr*** is to always keep the user connected with the ico
 
 The other most important GIS facilities for the recording process are:
 
-* the snapping tools
-* the measurement line
-* the georeferencing tools (see [Absolute scale](#scale.abs))
+* edition tools
+  + snapping tools  
+  
+* scale tools (see [Absolute scale](#scale.abs))
+  + measurement tools
+  + georeferencing tools
 
 From far, our software preference goes to [QGIS](https://www.qgis.org/fr/site/), because it is open source, offers a large rank of database connections facilities (with PostGRES/GIS for example), has a large user community, but also because the source file is a XML (.qgs, .qgz) structure that can be parsed, modified, copied and moved with scripting languages like R and Python
 
