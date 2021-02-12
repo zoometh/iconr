@@ -41,18 +41,20 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL, imgs,
     if (!is.null(img.format)) {
         img.ratio <- magick::image_info(dec.img)$width /
                         magick::image_info(dec.img)$height
+        curdev <- grDevices::dev.cur()
+        on.exit({if(grDevices::dev.cur() != curdev) {
+                   grDevices::dev.off()
+                   if(curdev > 1) grDevices::dev.set(curdev)
+                 } })
         grDeviceOpen(out.file.name, width = 7*img.ratio, height = 7, res = res)
     }
     oldpar <- graphics::par(no.readonly = TRUE)
-    on.exit(graphics::par(oldpar))
+    on.exit(graphics::par(oldpar), add = TRUE, after = FALSE)
     graphics::par(mar = c(0, 0, 0, 0))
 
     draw_graph(nodes, edges, TRUE,
                nd.var, dec.img,
                paste0(idf, "\n", site, "\n", decor))
 
-    if (!is.null(img.format)) {
-        grDevices::dev.off()
-        return(out.file.name)
-    }
+    if (!is.null(img.format)) return(out.file.name)
 }

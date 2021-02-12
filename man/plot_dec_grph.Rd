@@ -88,32 +88,34 @@ plot_dec_grph(nodes = NULL,
 }
 
 \examples{
-# Set data folder
+## Set data folder
 dataDir <- system.file("extdata", package = "iconr")
-# Decoration to be plotted
+## Decoration to be plotted
 site <- "Brozas"
 decor <- "Brozas"
-# Read nodes, edges, and decorations
+## Read nodes, edges, and decorations
 nds.df <- read_nds(site, decor, dataDir)
 eds.df <- read_eds(site, decor, dataDir)
 imgs <- read.table(paste0(dataDir, "/imgs.tsv"),
                    sep="\t", stringsAsFactors = FALSE)
 
-# Plot 'Brozas' nodes and edges on the active device
-# with node variable "type" as labels
+## Plot 'Brozas' nodes and edges on the active device
+## with node variable "type" as labels
 plot_dec_grph(nds.df, eds.df, imgs,
-              lbl.size = 0.4,
               site, decor,
               dir = dataDir,
+              lbl.size = 0.4,
               nd.var = "type")
 
-# Save only edges of 'Brozas' with bigger widths and in image format jpg.
-# Then read and plot the image.
+## Save only edges of 'Brozas' with bigger widths and in image format jpg.
+outDir <- tempdir()
 img.filename <- plot_dec_grph(nodes = NULL, eds.df, imgs,
                               site, decor,
                               dir = dataDir,
                               ed.lwd = 2,
+                              dir.out = outDir,
                               img.format = "jpg")
+## Then read and plot the image.
 a.dec <- magick::image_read(img.filename)
 
 ## Inspect the output image
