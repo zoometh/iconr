@@ -17,7 +17,7 @@ Done
     `oldpar <- par(no.readonly = TRUE)`  
     `on.exit(par(oldpar))`
 
-... have been added before all calls of the `par()` function. The current package version does not contains any changes of user's working directory (`setwd()`)
+Done. These changes have been added before all calls of the `par()` function. The current package version does not contains any changes of user's working directory (`setwd()`)
 
 
 ## Resubmission 2
