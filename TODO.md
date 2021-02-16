@@ -1,10 +1,10 @@
-* _iconr_ next developments
+# _iconr_ next developments
 
   - [ ] [Shape analysis](https://zoometh.github.io/iconr/articles/next.html#shape-analysis-1)
   - [ ] [Typology](https://zoometh.github.io/iconr/articles/next.html#typology-1)
   - [ ] [Harris Matrix](https://zoometh.github.io/iconr/articles/next.html#harris-matrix-1)
 
-* Publishing
+# Publishing
 
   + Briefing notes
     - [ ] [INORA newsletter](https://www.icomos.org/en/resources/publicationall/165-articles-en-francais/centre-de-documentation/557-inora-international-newsletter-on-rock-art)
@@ -13,7 +13,7 @@
     - [ ] [JSS article](https://raw.githubusercontent.com/zoometh/jss_iconr/main/article_rvTH17.pdf) 
     - [ ] [JAMT article](https://www.springer.com/journal/10816) 
 
-* Collaborations
+# Collaborations
 
   + By families (ordered chronologically)
     - [ ] Palaeolithic cave rock-art: France ([Julien Monney](http://theses.fr/184904846)), Spain: ([Aitor Ruiz-Redondo](https://southampton.academia.edu/AitorRuizRedondo)) 
