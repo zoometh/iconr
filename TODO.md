@@ -1,4 +1,10 @@
-# _iconr_ next developments
+# _iconr_ 
+
+## documentation
+
+  - [ ] Order articles, renames articles, spell checking, etc., of the [vignettes](https://zoometh.github.io/iconr)
+
+## next developments
 
   - [ ] [Shape analysis](https://zoometh.github.io/iconr/articles/next.html#shape-analysis-1)
   - [ ] [Typology](https://zoometh.github.io/iconr/articles/next.html#typology-1)
@@ -6,16 +12,16 @@
 
 # Publishing
 
-  + Briefing notes
+## Briefing notes
     - [ ] [INORA newsletter](https://www.icomos.org/en/resources/publicationall/165-articles-en-francais/centre-de-documentation/557-inora-international-newsletter-on-rock-art)
 
-  + Scientific papers
+## Scientific papers
     - [ ] [JSS article](https://raw.githubusercontent.com/zoometh/jss_iconr/main/article_rvTH17.pdf) 
     - [ ] [JAMT article](https://www.springer.com/journal/10816) 
 
 # Collaborations
 
-  + By families (ordered chronologically)
+## By families (ordered chronologically)
     - [ ] Palaeolithic cave rock-art: France ([Julien Monney](http://theses.fr/184904846)), Spain: ([Aitor Ruiz-Redondo](https://southampton.academia.edu/AitorRuizRedondo)) 
     - [ ] Palaeolithic portable art: ...
     - [ ] Azilian painted peebles: ...
@@ -31,12 +37,12 @@
     - [ ] First Iron Age potteries with figurative decorations (Sopron, Darslup, etc.): ... 
     - [ ] Second Iron Age "bas aragon" stelae: ...
     
-  + By sites (ordered chronologically)
+## By sites (ordered chronologically)
     - [ ] Mount Bego: Nicoletta Bianchi
     - [ ] Valcamonica: ...
     - [ ] Morro du Chapéu: ...
     
-  + By geographical areas
+ ## By geographical areas
     - [ ] Australian arborigen rock-art: ...
     - [ ] South African San rock-art: Aron Mazel
     - [ ] Australian churingas: ...
