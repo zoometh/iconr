@@ -11,5 +11,5 @@
 * Collaborations
 
   + By areas/sites
-    - [ ] *cups-and-rings*: Bretagne (Serge Cassen) ; Galicia () ; Great Britain ()  
+    - [ ] _cups-and-rings_: Bretagne (Serge Cassen) ; Galicia () ; Great Britain ()  
     - [ ]
