@@ -1,3 +1,9 @@
-- [x] Finish my changes
-- [ ] Push my commits to GitHub
+
+* Publishing
+
+  + Briefing notes
+- [ ] [INORA newsletter](https://www.icomos.org/en/resources/publicationall/165-articles-en-francais/centre-de-documentation/557-inora-international-newsletter-on-rock-art)
+
+ + Scientific papers
+- [ ] [JSS article](https://raw.githubusercontent.com/zoometh/jss_iconr.github.io/main/article_rvTH17.pdf) 
 - [ ] Open a pull request
