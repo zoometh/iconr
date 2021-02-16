@@ -1,6 +1,8 @@
 * _iconr_ next developments
 
-- [ ] Shape analysis
+  - [ ] [Shape analysis](https://zoometh.github.io/iconr/articles/next.html#shape-analysis-1)
+  - [ ] [Typology](https://zoometh.github.io/iconr/articles/next.html#typology-1)
+  - [ ] [Harris Matrix](https://zoometh.github.io/iconr/articles/next.html#harris-matrix-1)
 
 * Publishing
 
@@ -40,3 +42,4 @@
     - [ ] Australian churingas: ...
     - [ ] Tihuanacu potteries with figurative decorations: ...
     - [ ] Aztec codex: ...
+    - [ ] Native Americans sustaining memory paintings (e.g. Dakota Bible): ...
