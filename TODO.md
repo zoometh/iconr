@@ -9,6 +9,12 @@
   - [ ] [Shape analysis](https://zoometh.github.io/iconr/articles/next.html#shape-analysis-1)
   - [ ] [Typology](https://zoometh.github.io/iconr/articles/next.html#typology-1)
   - [ ] [Harris Matrix](https://zoometh.github.io/iconr/articles/next.html#harris-matrix-1)
+  
+### work groups
+
+* [Shape analysis](https://zoometh.github.io/iconr/articles/next.html#shape-analysis-1). Objectives: perform shape analysis on GUs
+* [Typology](https://zoometh.github.io/iconr/articles/next.html#typology-1). Objectives: create a hierachical _thesaurus_ creation of GUs' typologies
+* [Harris Matrix](https://zoometh.github.io/iconr/articles/next.html#harris-matrix-1). Objectives: perform Harris matices of GUs
 
 # Publishing
 
