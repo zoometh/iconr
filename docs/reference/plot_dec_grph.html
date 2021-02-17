@@ -94,20 +94,26 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+    <li class="divider"></li>
+    <li class="dropdown-header">Get Started</li>
     <li>
-      <a href="../articles/examples.html">***iconr***, training datasets</a>
+      <a href="../articles/index.html">Analysis of Prehistoric Iconography with R</a>
     </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Tutorials</li>
     <li>
       <a href="../articles/gis.html">GIS interface entry</a>
     </li>
     <li>
-      <a href="../articles/index.html">***iconr*** package &lt;br&gt; Analysis of Prehistoric Iconography with R</a>
+      <a href="../articles/shiny.html">Interactive examples on training datasets</a>
     </li>
+    <li>
+      <a href="../articles/examples.html">Training datasets</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">What's next</li>
     <li>
       <a href="../articles/next.html">Next developments</a>
-    </li>
-    <li>
-      <a href="../articles/shiny.html">***iconr***, examples on training datasets</a>
     </li>
   </ul>
 </li>
@@ -237,32 +243,34 @@
 <p>If <code>img.format=</code> <code>"png"</code> or <code>"bmp"</code> or <code>"tiff"</code>/<code>"tif"</code> or <code>"jpeg"</code>/<code>"jpg"</code> or <code>"pdf"</code>, the return value is a character vector with the dir/name of the saved image in the indicated format.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Set data folder</span>
+    <pre class="examples"><div class='input'><span class='co'>## Set data folder</span>
 <span class='va'>dataDir</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, package <span class='op'>=</span> <span class='st'>"iconr"</span><span class='op'>)</span>
-<span class='co'># Decoration to be plotted</span>
+<span class='co'>## Decoration to be plotted</span>
 <span class='va'>site</span> <span class='op'>&lt;-</span> <span class='st'>"Brozas"</span>
 <span class='va'>decor</span> <span class='op'>&lt;-</span> <span class='st'>"Brozas"</span>
-<span class='co'># Read nodes, edges, and decorations</span>
+<span class='co'>## Read nodes, edges, and decorations</span>
 <span class='va'>nds.df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='read_nds.html'>read_nds</a></span><span class='op'>(</span><span class='va'>site</span>, <span class='va'>decor</span>, <span class='va'>dataDir</span><span class='op'>)</span>
 <span class='va'>eds.df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='read_eds.html'>read_eds</a></span><span class='op'>(</span><span class='va'>site</span>, <span class='va'>decor</span>, <span class='va'>dataDir</span><span class='op'>)</span>
 <span class='va'>imgs</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.table</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='va'>dataDir</span>, <span class='st'>"/imgs.tsv"</span><span class='op'>)</span>,
                    sep<span class='op'>=</span><span class='st'>"\t"</span>, stringsAsFactors <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
-<span class='co'># Plot 'Brozas' nodes and edges on the active device</span>
-<span class='co'># with node variable "type" as labels</span>
+<span class='co'>## Plot 'Brozas' nodes and edges on the active device</span>
+<span class='co'>## with node variable "type" as labels</span>
 <span class='fu'>plot_dec_grph</span><span class='op'>(</span><span class='va'>nds.df</span>, <span class='va'>eds.df</span>, <span class='va'>imgs</span>,
-              lbl.size <span class='op'>=</span> <span class='fl'>0.4</span>,
               <span class='va'>site</span>, <span class='va'>decor</span>,
               dir <span class='op'>=</span> <span class='va'>dataDir</span>,
+              lbl.size <span class='op'>=</span> <span class='fl'>0.4</span>,
               nd.var <span class='op'>=</span> <span class='st'>"type"</span><span class='op'>)</span>
 </div><div class='img'><img src='plot_dec_grph-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># Save only edges of 'Brozas' with bigger widths and in image format jpg.</span>
-<span class='co'># Then read and plot the image.</span>
+<span class='co'>## Save only edges of 'Brozas' with bigger widths and in image format jpg.</span>
+<span class='va'>outDir</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='va'>img.filename</span> <span class='op'>&lt;-</span> <span class='fu'>plot_dec_grph</span><span class='op'>(</span>nodes <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>eds.df</span>, <span class='va'>imgs</span>,
                               <span class='va'>site</span>, <span class='va'>decor</span>,
                               dir <span class='op'>=</span> <span class='va'>dataDir</span>,
                               ed.lwd <span class='op'>=</span> <span class='fl'>2</span>,
+                              dir.out <span class='op'>=</span> <span class='va'>outDir</span>,
                               img.format <span class='op'>=</span> <span class='st'>"jpg"</span><span class='op'>)</span>
+<span class='co'>## Then read and plot the image.</span>
 <span class='va'>a.dec</span> <span class='op'>&lt;-</span> <span class='fu'>magick</span><span class='fu'>::</span><span class='fu'><a href='https://docs.ropensci.org/magick/reference/editing.html'>image_read</a></span><span class='op'>(</span><span class='va'>img.filename</span><span class='op'>)</span>
 
 <span class='co'>## Inspect the output image</span>
@@ -270,7 +278,7 @@
 </div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1 x 7</span><span>
 #&gt;   format width height colorspace matte filesize density
 #&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;lgl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>  
-#&gt; </span><span style='color: #555555;'>1</span><span> JPEG     734    826 sRGB       FALSE    </span><span style='text-decoration: underline;'>70</span><span>973 300x300</div><div class='input'>
+#&gt; </span><span style='color: #555555;'>1</span><span> JPEG     734    826 sRGB       FALSE    </span><span style='text-decoration: underline;'>70</span><span>993 300x300</div><div class='input'>
 <span class='co'>## Plot the output image</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>a.dec</span><span class='op'>)</span>
 </div><div class='img'><img src='plot_dec_grph-2.png' alt='' width='700' height='433' /></div><div class='input'>
@@ -286,7 +294,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Thomas Huet, Jose Pozo.</p>
+  <p>Developed by <a href='https://github.com/zoometh/thomashuet#thomas-huet-dr'>Thomas Huet</a>, Jose Pozo.</p>
 </div>
 
 <div class="pkgdown">

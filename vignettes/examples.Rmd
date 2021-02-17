@@ -1,5 +1,5 @@
 ---
-title: "***iconr***, training datasets"
+title: "Training datasets"
 ---
 
 ```{r, echo=FALSE}

@@ -1,5 +1,5 @@
 ---
-title: "***iconr***, examples on training datasets"
+title: "Interactive examples on training datasets"
 ---
 
 ```{r, echo=FALSE}
@@ -17,22 +17,23 @@ htmltools::img(src = knitr::image_uri(file.path("../man/figures", "iconr_logo.pn
 .shiny-app-frame {
   position: fixed;
   left: 0;
-  top: 50px;
-  bottom: 0;
+  top: 250px;
+  bottom: 200px;
   right: 0;
 }
 .shiny-app-frame iframe {
-  width: 100%;
+  width: 80%;
   height: 100%;
   border: none;
 }
 </style>
 
+<div>
+  <p>This RShiny app show examples on how to record the GUs and their proximity links with the <b>iconr</b> package 
+<a href="https://zoometh.github.io/iconr/reference/plot_dec_grph.html">plot_dec()</a> function</p>
+</div>
   
 <div class="shiny-app-frame"> 
 <iframe src="https://epispat.shinyapps.io/decoration_graph">
 </iframe>
 </div>
-
-
-This RShiny app show examples on how to record the GUs and their proximity links with the ***iconr*** package ([`plot_dec()`](https://zoometh.github.io/iconr/reference/plot_dec_grph.html) function)

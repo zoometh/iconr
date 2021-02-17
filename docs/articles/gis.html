@@ -53,20 +53,26 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-<li>
-      <a href="../articles/examples.html">***iconr***, training datasets</a>
+<li class="divider">
+    <li class="dropdown-header">Get Started</li>
+    <li>
+      <a href="../articles/index.html">Analysis of Prehistoric Iconography with R</a>
     </li>
+    <li class="divider">
+    <li class="dropdown-header">Tutorials</li>
     <li>
       <a href="../articles/gis.html">GIS interface entry</a>
     </li>
     <li>
-      <a href="../articles/index.html">***iconr*** package &lt;br&gt; Analysis of Prehistoric Iconography with R</a>
+      <a href="../articles/shiny.html">Interactive examples on training datasets</a>
     </li>
+    <li>
+      <a href="../articles/examples.html">Training datasets</a>
+    </li>
+    <li class="divider">
+    <li class="dropdown-header">What's next</li>
     <li>
       <a href="../articles/next.html">Next developments</a>
-    </li>
-    <li>
-      <a href="../articles/shiny.html">***iconr***, examples on training datasets</a>
     </li>
   </ul>
 </li>
@@ -116,14 +122,14 @@ table {
     margin-bottom: 24px;
 }
 </style>
-<p>Any iconographic contents can be modeled with a geometric graph where nodes, also called <strong>graphical units (GUs)</strong>, linked together with edges and then analyzed with the <strong>Graph Theory</strong> and spatial analysis at the support scale. T</p>
+<p>Any iconographic contents can be modeled with a geometric graph where nodes, also called <strong>graphical units (GUs)</strong>, linked together with edges and then analyzed with the <strong>Graph Theory</strong> and spatial analysis at the support scale.</p>
 <div id="forewords" class="section level1">
 <h1 class="hasAnchor">
 <a href="#forewords" class="anchor"></a>Forewords</h1>
 <p>The <strong><em>iconr</em></strong> R package grounds concepts and provides normalized tools to manage iconographic contents. This modeling is particularly interesting for compositions coming from Paleolithic, Neolithic and Protohistoric times <span class="citation">(Alexander 2008; Huet and Alexander 2015; Huet 2018)</span>. To record large series of iconographic contents, the <a href="#gis">GIS interface</a> appears to be the most appropriate one for users. This demo explains how to construct the graph <em>before</em> using the package, offering also tipping points to facilitate the recording process.</p>
 <center>
 <div class="figure">
-<img src="../doc/tutorial/img/all_process.gif" alt=""><p class="caption">GIS view. A Late Bronze Age stelae (Solana de Cabañas, Cáceres, Spain).Stelae photograph (photograph credits: Museo Arqueológico Nacional, Madrid); Georeferencing of the steale drawing over its photograph (dawing credits: Diaz-Guardamino 2010); Binarization and polygonization/vectorization of the graphical content (graphical units, GUs) of the stelae (now <code>POLYGONS</code>); Calcul of their centroid; Calcul of their Voronoi cells; Binary topological relationships (<em>birel</em>) for each pairwise of Voronoi cells: the ones that share a border (<em>touches</em> = TRUE) will share a link (ie, edge) between their centroids (ie, nodes); Identification of the different types (nodes’ column <code>type</code>)</p>
+<img src="../doc/tutorial/img/all_process.gif" alt=""><p class="caption">GIS view. A Late Bronze Age stelae (Solana de Cabañas, Cáceres, Spain).Stelae photograph (photograph credits: Museo Arqueológico Nacional, Madrid); Georeferencing of the steale drawing over its photograph (drawing credits: Diaz-Guardamino 2010); Binarization and polygonization/vectorization of the graphical content (graphical units, GUs) of the stelae (now <code>POLYGONS</code>); Calcul of their centroid (red points); Calcul of their Voronoi cells; Binary topological relationships (<em>birel</em>) for each pairwise of Voronoi cells: the ones that share a border (<em>touches</em> = TRUE) will share a link (ie, edge, in red) between their centroids (ie, nodes); Identification of the different types (nodes’ column <code>type</code>)</p>
 </div>
 </center>
 </div>
@@ -133,9 +139,17 @@ table {
 <p>The <em>tenet</em> of the <strong><em>iconr</em></strong> is to always keep the user connected with the iconographic content – his primary data source – and emphasize the significance of the spatial dimension for any graphical content. Geographical Information Systems (GIS) offer multiple tools and options to facilitate the data entry. Use of GIS offers a graphic interface and ensures the correctness of spatial relationships between GUs. It forms a permanent interface between the image of he decoration and the database. Obviously, the main GIS facility is the presence of <strong>attributes tables</strong> which allow to record, filter and sort GUs on many information: types, techniques, orientations, lengths, etc.</p>
 <p>The other most important GIS facilities for the recording process are:</p>
 <ul>
-<li>the snapping tools</li>
-<li>the measurement line</li>
-<li>the georeferencing tools (see <a href="#scale.abs">Absolute scale</a>)</li>
+<li>edition tools
+<ul>
+<li>snapping tools</li>
+</ul>
+</li>
+<li>scale tools (see <a href="#scale.abs">Absolute scale</a>)
+<ul>
+<li>measurement tools</li>
+<li>georeferencing tools</li>
+</ul>
+</li>
 </ul>
 <p>From far, our software preference goes to <a href="https://www.qgis.org/fr/site/">QGIS</a>, because it is open source, offers a large rank of database connections facilities (with PostGRES/GIS for example), has a large user community, but also because the source file is a XML (.qgs, .qgz) structure that can be parsed, modified, copied and moved with scripting languages like R and Python</p>
 </div>
@@ -299,7 +313,7 @@ Huet, Thomas, and Craig Alexander. 2015. <span>“Méthodes Informatiques Pour l
 
 
       <footer><div class="copyright">
-  <p>Developed by Thomas Huet, Jose Pozo.</p>
+  <p>Developed by <a href="https://github.com/zoometh/thomashuet#thomas-huet-dr">Thomas Huet</a>, Jose Pozo.</p>
 </div>
 
 <div class="pkgdown">

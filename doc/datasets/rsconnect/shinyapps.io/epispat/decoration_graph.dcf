@@ -5,8 +5,8 @@ account: epispat
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3600519
-bundleId: 4205152
+bundleId: 4236655
 url: https://epispat.shinyapps.io/decoration_graph/
-when: 1612952800.2458
+when: 1613583082.65697
 asMultiple: FALSE
 asStatic: FALSE

@@ -94,20 +94,26 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
+    <li class="divider"></li>
+    <li class="dropdown-header">Get Started</li>
     <li>
-      <a href="../articles/examples.html">***iconr***, training datasets</a>
+      <a href="../articles/index.html">Analysis of Prehistoric Iconography with R</a>
     </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Tutorials</li>
     <li>
       <a href="../articles/gis.html">GIS interface entry</a>
     </li>
     <li>
-      <a href="../articles/index.html">***iconr*** package &lt;br&gt; Analysis of Prehistoric Iconography with R</a>
+      <a href="../articles/shiny.html">Interactive examples on training datasets</a>
     </li>
+    <li>
+      <a href="../articles/examples.html">Training datasets</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">What's next</li>
     <li>
       <a href="../articles/next.html">Next developments</a>
-    </li>
-    <li>
-      <a href="../articles/shiny.html">***iconr***, examples on training datasets</a>
     </li>
   </ul>
 </li>
@@ -239,10 +245,12 @@
 <span class='co'># Generate the image showing the comparison on common nodes of graphs</span>
 <span class='co'># '1' and '4', save it in png format, and return its path.</span>
 <span class='va'>dataDir</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>"extdata"</span>, package <span class='op'>=</span> <span class='st'>"iconr"</span><span class='op'>)</span>
+<span class='va'>outDir</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='fu'>plot_compar</span><span class='op'>(</span><span class='va'>g.compar</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>4</span><span class='op'>)</span>, focus <span class='op'>=</span> <span class='st'>"nodes"</span>,
             dir <span class='op'>=</span> <span class='va'>dataDir</span>,
+            dir.out <span class='op'>=</span> <span class='va'>outDir</span>,
             img.format <span class='op'>=</span> <span class='st'>"png"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "C:/Users/supernova/Dropbox/My PC (supernova-pc)/Documents/R/win-library/4.0/iconr/extdata/_compar_nds_1_4.png"</div><div class='input'>
+</div><div class='output co'>#&gt; [1] "C:\\Users\\SUPERN~1\\AppData\\Local\\Temp\\RtmpW6gboi/_compar_nds_1_4.png"</div><div class='input'>
 <span class='co'># Generate the image showing the comparison on common edges of all pairwise</span>
 <span class='co'># combinations of graphs '1','3', and '4', save them in pdf format, and return</span>
 <span class='co'># their path.</span>
@@ -251,17 +259,19 @@
 <span class='fu'>plot_compar</span><span class='op'>(</span><span class='va'>g.compar</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>3</span>, <span class='fl'>4</span><span class='op'>)</span>, focus <span class='op'>=</span> <span class='st'>"edges"</span>,
             dir <span class='op'>=</span> <span class='va'>dataDir</span>,
             nd.color <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"orange"</span>, <span class='st'>"brown"</span><span class='op'>)</span>,
+            dir.out <span class='op'>=</span> <span class='va'>outDir</span>,
             img.format <span class='op'>=</span> <span class='st'>"pdf"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "C:/Users/supernova/Dropbox/My PC (supernova-pc)/Documents/R/win-library/4.0/iconr/extdata/_compar_eds_1_3.pdf"
-#&gt; [2] "C:/Users/supernova/Dropbox/My PC (supernova-pc)/Documents/R/win-library/4.0/iconr/extdata/_compar_eds_1_4.pdf"
-#&gt; [3] "C:/Users/supernova/Dropbox/My PC (supernova-pc)/Documents/R/win-library/4.0/iconr/extdata/_compar_eds_3_4.pdf"</div><div class='input'>
+</div><div class='output co'>#&gt; [1] "C:\\Users\\SUPERN~1\\AppData\\Local\\Temp\\RtmpW6gboi/_compar_eds_1_3.pdf"
+#&gt; [2] "C:\\Users\\SUPERN~1\\AppData\\Local\\Temp\\RtmpW6gboi/_compar_eds_1_4.pdf"
+#&gt; [3] "C:\\Users\\SUPERN~1\\AppData\\Local\\Temp\\RtmpW6gboi/_compar_eds_3_4.pdf"</div><div class='input'>
 <span class='co'># Save the png image showing the comparison on common nodes of graphs</span>
 <span class='co'># '1' and '4'.</span>
 <span class='co'># Then read and plot the image.</span>
-<span class='va'>p</span> <span class='op'>&lt;-</span> <span class='fu'>plot_compar</span><span class='op'>(</span><span class='va'>g.compar</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>4</span><span class='op'>)</span>, focus <span class='op'>=</span> <span class='st'>"nodes"</span>,
-                 dir <span class='op'>=</span> <span class='va'>dataDir</span>,
-                 img.format <span class='op'>=</span> <span class='st'>"png"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='fu'>magick</span><span class='fu'>::</span><span class='fu'><a href='https://docs.ropensci.org/magick/reference/editing.html'>image_read</a></span><span class='op'>(</span><span class='va'>p</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>img.filename</span> <span class='op'>&lt;-</span> <span class='fu'>plot_compar</span><span class='op'>(</span><span class='va'>g.compar</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>4</span><span class='op'>)</span>, focus <span class='op'>=</span> <span class='st'>"nodes"</span>,
+                            dir <span class='op'>=</span> <span class='va'>dataDir</span>,
+                            dir.out <span class='op'>=</span> <span class='va'>outDir</span>,
+                            img.format <span class='op'>=</span> <span class='st'>"png"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='fu'>magick</span><span class='fu'>::</span><span class='fu'><a href='https://docs.ropensci.org/magick/reference/editing.html'>image_read</a></span><span class='op'>(</span><span class='va'>img.filename</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='img'><img src='plot_compar-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Plot directly on the active device (default) the comparison on common nodes</span>
 <span class='co'># of graphs '1' and '4'.</span>
@@ -279,7 +289,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Thomas Huet, Jose Pozo.</p>
+  <p>Developed by <a href='https://github.com/zoometh/thomashuet#thomas-huet-dr'>Thomas Huet</a>, Jose Pozo.</p>
 </div>
 
 <div class="pkgdown">
