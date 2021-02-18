@@ -12,6 +12,7 @@
 ^pkgdown$
 ^CRAN-RELEASE$
 ^doc$
+^inst/CITATION$
 ^vignettes/gis.Rmd$
 ^vignettes/next.Rmd$
 ^vignettes/examples.Rmd$
