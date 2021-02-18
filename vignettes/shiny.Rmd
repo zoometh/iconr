@@ -22,7 +22,7 @@ htmltools::img(src = knitr::image_uri(file.path("../man/figures", "iconr_logo.pn
   right: 0;
 }
 .shiny-app-frame iframe {
-  width: 80%;
+  width: 100%;
   height: 100%;
   border: none;
 }
