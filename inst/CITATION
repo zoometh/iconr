@@ -1,4 +1,4 @@
-citHeader("To cite the R package 'iconr' in publications, use `citation("iconr")` in R, or:")
+citHeader("To cite the R package 'iconr' in publications, use:")
 
 citEntry(entry = "Manual",
          title = "iconr: Graphical and Spatial Analysis for Prehistoric Iconography",
