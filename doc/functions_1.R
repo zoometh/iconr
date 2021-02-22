@@ -8,6 +8,7 @@ library(igraph)
 library(jpeg)
 library(magick)
 
+path.iconr <- "C:/Users/supernova/Dropbox/My PC (supernova-pc)/Documents/iconr/"
 
 grp.family.thm <- F
 grp.thm.ths <- T
@@ -58,12 +59,14 @@ if (grp.thm.ths){
   # readJPEG(urls[1])
   img <- list()
   # img <- list(rep(as.raster(readJPEG(paste0(signes.path, "zz_img.jpg"))), length(urls)))
-  ct <- 0
+  # ct <- 0
+  # as.raster(image_scale(image_read(urls[i]), "100"))
+  sz.out <- 100 # to resize
   for(i in 1:length(urls)) {
     # i <- 217
     # by default
-    img[[length(img)+1]] <- as.raster(readJPEG(paste0(signes.path, "zz_img.jpg")))
-    tryCatch(img[[length(img)]] <- as.raster(readJPEG(urls[i])),
+    img[[length(img)+1]] <- as.raster(image_scale(image_read(paste0(signes.path, "zz_img.jpg")), sz.out))
+    tryCatch(img[[length(img)]] <- as.raster(image_scale(image_read(urls[i]), sz.out)),
              # warning = function(w) {print(paste("WARNING image", basename(url)));
              #   NaN},
              error = function(e) {
@@ -80,14 +83,25 @@ if (grp.thm.ths){
   set.seed(1)
   l <- layout.norm(layout.fruchterman.reingold(g),
                    xmin=-1, xmax=1, ymin=-1, ymax=1)
-
+  png(paste0(path.iconr, 'doc/img/typology_gu.png'),
+      height=40, width=40, units = "cm",
+      res = 300)
   par(mar=rep(0,4))
-  plot(g, layout=l, vertex.size=10, vertex.shape="square",
-       vertex.color="#00000000", vertex.frame.color="#00000000", vertex.label="")
-  # and finally plotting of the images
+  plot.igraph(g, layout=l,
+              vertex.size=0, vertex.shape="square", # vertex.color="#00000000",
+              vertex.frame.color="#00000000", vertex.label=V(g)$name,
+              vertex.label.cex= 0.2, vertex.label.color = "black",
+              vertex.label.family="Helvetica",
+              vertex.label.dist = 0.3, # label.degree=pi/2,
+              edge.arrow.size = 0.2, width = 0.5)
+  # plotting of the images
+  # 1:nrow(l)
   for(i in 1:nrow(l)) {
-    rasterImage(img[[i]], l[i, 1]-0.2, l[i, 2]-0.2, l[i, 1]+0.2, l[i, 2]+0.2)
+    # rasterImage(img[[i]], l[i, 1], l[i, 2], l[i, 1], l[i, 2])
+    rasterImage(img[[i]], l[i, 1]-0.01, l[i, 2]-0.01, l[i, 1]+0.01, l[i, 2]+0.01)
   }
+  dev.off()
+
   V(g)$raster <- rasters[V(g)$img]
 
   plot(gg2, layout=layout.star, vertex.shape="raster",
