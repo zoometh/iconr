@@ -1,5 +1,5 @@
 ---
-title: 'iconr: Analysis of Prehistoric Iconography with R'
+title: 'Analysis of Prehistoric Iconography with the R package iconr'
 tags:
   - Iconography
   - Prehistory
@@ -26,7 +26,7 @@ bibliography: paper.bib
 
 # Background
 
-By definition, Prehistorical societies are characterized by the absence of a writing system. During, the largest part of human history, and everywhere in the world, symbolic expressions belong to illiterate societies which express themselves with rock-art paintings, pottery decorations, figurines and statuary, etc., and a lot of now disappeared carved woods, textile design, etc. These graphical expressions are the most significant part of the humankind's symbolism remaining. At the composition level, recognition of meaningful associations of signs and recurrent patterns indicate clearly the existence of social conventions in the way to display and to read these graphical syntax. Well-established and shared methods would necessarily facilitate a precise recording of the graphical content and open to possible cross-cultural comparisons at a large scale and over the long-term.
+By definition, Prehistorical societies are characterized by the absence of a writing system. During, the largest part of human history, and everywhere in the world, symbolic expressions belong mostly to illiterate societies which express themselves with rock-art paintings, pottery decorations, figurines and statuary, etc., and a lot of now disappeared carved woods, textile design, etc. These graphical expressions are the most significant part of the humankind's symbolism remaining. At the composition level, recognition of meaningful associations of signs and recurrent patterns (i.e., graphical syntax) indicate clearly the existence of social conventions in the way to display and to read these expressions. Well-established and shared methods to record and study these graphical contents would open to possible cross-cultural comparisons at a large scale and over the long-term.
 
 # Statement of need
 
@@ -37,7 +37,7 @@ Because of the inherent variability of ancient iconography, its study has led to
  + studies develop proper descriptive vocabularies, singular relationships of grouping, idosyncratic methods at site-dependent or period-dependent scales
 \end{itemize}
 
-`iconr` is a R package designed to offer a greater normalization of quantitative indexes for iconography studies [@Alexander08; @HuetAlexander15; @Huet18a]. It is grounded in graph theory and spatial analysis to offer concepts and functions for modeling Prehistoric iconographic compositions and preparing for further analysis (clustering, typology tree, Harris diagram, etc.). The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units. This geometric graph is also known as a planar graph or spatialized graph. Graphical units are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). When these graphical units are main nodes, and not attribute nodes, they share edges (`LINES`) with one another when their Voronoi cells share a border (*birel*: touches). Finally, 
+`iconr` is a R package designed to offer a greater normalization of quantitative indexes for iconography studies [@Alexander08; @HuetAlexander15; @Huet18a]. It is grounded in graph theory and spatial analysis to offer concepts and functions for modeling Prehistoric iconographic compositions and preparing for further analysis (clustering, typology tree, Harris diagram, etc.). The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units. This geometric graph is also known as a planar graph or spatialized graph. Graphical units are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). When these graphical units are main nodes, and not attribute nodes, they share edges (`LINES`) with one another when their Voronoi cells share a border (*birel*: touches). 
  
  
 <center>
@@ -54,7 +54,6 @@ The `iconr` package only takes in charge the management of the geometric graphs 
 ```r
 library(iconr)
 par(mfrow=c(1, 2))
-# Read imgs, nodes and edges dataframes
 imgs <- read.table(system.file("extdata", "imgs.csv", package = "iconr"),
           sep=";", stringsAsFactors = FALSE)
 nodes <- read.table(system.file("extdata", "nodes.csv", package = "iconr"),
