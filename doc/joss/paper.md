@@ -1,25 +1,25 @@
 ---
 title: 'iconr: Analysis of Prehistoric Iconography with R'
 tags:
- - Iconography
- - Prehistory
- - Graph Theory
- - GIS
+  - Iconography
+  - Prehistory
+  - Graph Theory
+  - GIS
 authors:
- - name: Thomas Huet^[Custom footnotes for e.g. denoting who the corresponding author is can be included like this.]
-  orcid: 0000-0002-1112-6122
-  affiliation: "1, 2" # (Multiple affiliations must be quoted)
- - name: Jose M Pozo
-  orcid: https://orcid.org/0000-0002-0759-3510
-  affiliation: 2
- - name: Craig Alexander
-  orcid: 0000-0001-7539-6415
-  affiliation: 2
+  - name: Thomas Huet^[Custom footnotes for e.g. denoting who the corresponding author is can be included like this.]
+    orcid: 0000-0002-1112-6122
+    affiliation: 1
+  - name: Jose M Pozo
+    orcid: 0000-0002-0759-3510
+    affiliation: 2
+  - name: Craig Alexander
+    orcid: 0000-0001-7539-6415
+    affiliation: 2
 affiliations:
- - name: LabEx ARCHIMEDE, ANR-11-LABX-0032-01
-  index: 1
- - name: Independent Researcher
-  index: 2
+  - name: LabEx ARCHIMEDE, ANR-11-LABX-0032-01
+    index: 1
+  - name: Independent Researcher
+    index: 2
 date: 01 April 2021
 bibliography: paper.bib
 ---
