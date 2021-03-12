@@ -26,35 +26,35 @@ bibliography: paper.bib
 
 # Background
 
-By definition, prehistorical societies are characterized by the absence of a writing system. During, the largest part of human history, and everywhere in the world, symbolic expressions belong mostly to illiterate societies which express themselves with rock-art paintings, pottery decorations, figurines and statuary, etc., and a lot of now disappeared carved woods, textile design, etc. These graphical expressions are the most significant remaining part of the humankind's symbolism. At the composition level, the presence of meaningful associations of signs and recurrent patterns (i.e., graphical syntax) clearly indicates the existence of social conventions in the way to display and to read these expressions. Well-established and shared methods to record and study these graphical contents would open the possibility of cross-cultural comparisons at a large scale and over the long-term.
+By definition, prehistorical societies are characterized by the absence of a writing system. During, the largest part of human history, and everywhere in the world, symbolic expressions belong mostly to illiterate societies which express themselves with rock-art paintings, pottery decorations, figurines, statuary, etc., and a lot of now disappeared carved woods, textile design, etc. These graphical expressions are the most significant remaining part of humankind's symbolism. At the composition level, the presence of meaningful associations of signs and recurrent patterns (i.e., graphical syntax) indicates the existence of social conventions in the way to display and to read these expressions. Well-established and shared methods to record and study these graphical contents would open the possibility of cross-cultural comparisons at a large scale and over the long-term.
 
 # Statement of need
 
 The inherent variability of ancient iconography has led to considerable problems in its study, drastically limiting the possibility to draw a synthesis of humankind's symbolism at a large scale and over the long-term:
 
  + Proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support (e.g. upper part of a rock, neck of a pottery, centre of a stele).
- + Unexplicit spatial groupings of graphical units -- like graphical units grouped into *figures*, *figures* grouped into *patterns*, *patterns* grouped into *motives*, etc. -- introduce tedious number of groups and hinder their sistematic analysis.
- + Consistency, proximities and relationships between these groups are often implicit and not quantified.
- + Studies develop their own descriptive vocabularies, singular relationships of grouping, and idosyncratic methods at site-dependent or period-dependent scales.
+ + Unexplicit spatial groupings of graphical units -- like graphical units grouped into *figures*, *figures* grouped into *patterns*, *patterns* grouped into *motives*, etc. -- introduce a tedious number of groups and hinder their systematic analysis.
+ + Consistency, proximities, and relationships between these groups are often implicit and not quantified.
+ + Studies develop their own descriptive vocabularies, singular relationships of grouping, and idiosyncratic methods at site-dependent or period-dependent scales.
 
-`iconr` is an R package designed to offer a greater normalization of quantitative indexes for iconography studies [@Alexander08; @Huet18a]. It is grounded in graph theory and spatial analysis to offer concepts and functions for modeling prehistoric iconographic compositions and preparing them for further analysis (clustering, typology tree, Harris diagram, etc.). The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units. Geometric graphs are also known as *planar graph* or *spatialized graphs*. Graphical units are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). Separable graphical units showing a main graphical content (e.g. an anthropomorph) are considered as *main* nodes. Graphical units showing a specification of a *main* node (e.g. a sword handed by this anthropomorph) are considered as *attribute* nodes. Each pair of *main* nodes that one thinks contemporary that share a border (*birel*: touches) of their Voronoi cells, are connected by an undirected edge (`LINES`).
+`iconr` is an R package designed to offer a greater normalization of quantitative indexes for iconography studies [@Alexander08; @Huet18a]. It is grounded in graph theory and spatial analysis to offer concepts and functions for modeling prehistoric iconographic compositions and preparing them for further analysis (clustering, typology tree, Harris diagram, etc.). The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units. Geometric graphs are also known as *planar graphs* or *spatialized graphs*. Graphical units are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). Separable graphical units showing a main graphical content (e.g. an anthropomorphic figure) are considered as *main* nodes. Graphical units showing a specification of a *main* node (e.g. a sword handed by this anthropomorphic figure) are considered as *attribute* nodes. Each pair of *main* nodes that one thinks contemporary that share a border (*birel*: touches) of their Voronoi cells, are connected by an undirected edge (`LINES`).
   
   
 <center>
 
-![GIS view. The Late Bronze Age stelae from Solana de Cabañas (Exteremadura, Spain). 1. Original photograph (credits: Museo Arqueológico Nacional, Madrid); 2. Archaeological drawing of engraved parts (credits: @DiazGuardamino10); 3. Digitalisation/Polygonization of engraved parts (i.e., graphical units) and calcul of their their centroids (red points); 4. Voronoi diagram of each graphical units (*seeds*) and dual graph of the Voronoi diagram (i.e., Delaunay triangulation); 5. Identification of graphical units' types](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/solana_voronoi.png)
+![GIS view. The Late Bronze Age stelae from Solana de Cabañas (Exteremadura, Spain). 1. Original photograph (credits: Museo Arqueológico Nacional, Madrid); 2. Archaeological drawing of engraved parts (credits: @DiazGuardamino10); 3. Digitalization/Polygonization of engraved parts (i.e., graphical units) and calculation of their their centroids (red points); 4. Voronoi diagram of each graphical unit (*seed*) and dual graph of the Voronoi diagram (i.e., Delaunay triangulation); 5. Identification of graphical units' types](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/solana_voronoi.png)
 
 </center> 
 
 # Overview
 
-The `iconr` package takes in charge the management of the geometric graphs (step 5 in the previous figure). Steps 1 to 4 do not need to be included in the package since efficient implementations already exist: graph elements can be drawn directly on the decorated support drawing or photograph, preferably inside a GIS to make easier the calculation of nodes and edges coordinates. The `iconr` package allows the user to i) read data structures of nodes and edges (.tsv, .csv, .shp) and images (.jpg, .png, .tif, .gif, etc.), ii) plot nodes and edges separately, or together (geometric graph), over the decoration picture, iii) compare different decorations depending on common nodes or common edges. The package stable version is on the CRAN [@iconr]; the latest development version is available from GitHub (https://github.com/zoometh/iconr); the package documentation is available at https://zoometh.github.io/iconr/.
+The `iconr` package takes in charge of the geometric graphs management (step 5 in the previous figure). Steps 1 to 4 do not need to be included in the package since efficient implementations already exist: graph elements can be drawn directly on the decorated support drawing or photograph, preferably inside a GIS to make easier the calculation of nodes and edges coordinates. The `iconr` package allows the user to i) read data structures of nodes and edges (.tsv, .csv, .shp) and images (.jpg, .png, .tif, .gif, etc.), ii) plot nodes and edges separately, or together (geometric graph), over the decoration picture, iii) compare different decorations depending on common nodes or common edges. The package stable version is on the CRAN [@iconr]; the latest development version is available from GitHub (https://github.com/zoometh/iconr); the package documentation is available at https://zoometh.github.io/iconr/.
 
 # Examples
 
 ## Read
 
-Read the nodes of the Cerro Muriano 1 stelae (Andalusia, Spain)
+Read the nodes of the Cerro Muriano 1 stele (Andalusia, Spain).
 
 ```r
 library(iconr)
@@ -76,7 +76,7 @@ read_nds(site, decor, dataDir)
 
 ## Plot
 
-Plot the Cerro Muriano 1 stelae decoration graph
+Plot the Cerro Muriano 1 stele decoration graph.
 
 ```r
 plot_dec_grph(nds.df, eds.df, imgs,
@@ -85,7 +85,7 @@ plot_dec_grph(nds.df, eds.df, imgs,
 
 <center>
 
-![R view. Cerro Muriano 1 decoration graph. Between two *main* nodes, *normal* edges are shown as plain lines. Between a *main* node and an *attribute* node, *attribute* edges are shown as dotted lines (drawing credits: @DiazGuardamino10)](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/cm1.png){width=250px}
+![R view. Cerro Muriano 1 decoration graph. Between two *main* nodes, *normal* edges are shown as plain lines. Between a *main* node and an *attribute* node, *attribute* edges are shown as dotted lines (drawing credits: @DiazGuardamino10)](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/cm1.png){width=350px}
 
 </center> 
 
