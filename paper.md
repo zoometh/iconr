@@ -6,7 +6,7 @@ tags:
   - Graph Theory
   - GIS
 authors:
-  - name: Thomas Huet^[Custom footnotes for e.g. denoting who the corresponding author is can be included like this.]
+  - name: Thomas Huet
     orcid: 0000-0002-1112-6122
     affiliation: 1
   - name: Jose M Pozo
@@ -32,17 +32,16 @@ By definition, prehistorical societies are characterized by the absence of a wri
 
 The inherent variability of ancient iconography has led to considerable problems in its study, drastically limiting the possibility to draw a synthesis of humankind's symbolism at a large scale and over the long-term:
 
+ + Proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the supports (e.g. top of the rock, neck of the pottery, centre of the stelae).
  + Unexplicit spatial groupings of graphical units -- like graphical units grouped into *figures*, *figures* grouped into *patterns*, *patterns* grouped into *motives*, etc. -- introduce tedious number of groups and hinder their sistematic analysis.
- + Consistency, proximities and relationships between these groups are often implicit and not quantified. This is especially problematic for spatial proximities between graphical units, which are in general not quantified.
+ + Consistency, proximities and relationships between these groups are often implicit and not quantified.
  + Studies develop their own descriptive vocabularies, singular relationships of grouping, and idosyncratic methods at site-dependent or period-dependent scales.
-\end{itemize}
 
-`iconr` is an R package designed to offer a greater normalization of quantitative indexes for iconography studies [@Alexander08; @HuetAlexander15; @Huet18a]. It is grounded in graph theory and spatial analysis to offer concepts and functions for modeling prehistoric iconographic compositions and preparing them for further analysis (clustering, typology tree, Harris diagram, etc.). The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units. Geometric graphs are also known as *planar graph* or *spatialized graphs*. Graphical units are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). Graphical units representing attributes of a compound graphical unit are joined by directed edges to the corresponding compound's main node. Each pair of adjacent main nodes, sharing a border (*birel*: touches) of their Voronoi cells, are connected by an undirected edge (`LINES`). 
- 
+`iconr` is an R package designed to offer a greater normalization of quantitative indexes for iconography studies [@Alexander08; @HuetAlexander15; @Huet18a]. It is grounded in graph theory and spatial analysis to offer concepts and functions for modeling prehistoric iconographic compositions and preparing them for further analysis (clustering, typology tree, Harris diagram, etc.). The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units. Geometric graphs are also known as *planar graph* or *spatialized graphs*. Graphical units are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). Separable graphical units showing a main graphical content (e.g. an anthropomorph) are considered as *main* nodes. Graphical units showing a specification of a *main* node (e.g. a sword handed by this anthropomorph) are considered as *attribute* nodes. Each pair of *main* nodes, that one thinks contemporary, sharing a border (*birel*: touches) of their Voronoi cells, are connected by an undirected edge (`LINES`).
  
 <center>
 
-![GIS view. The Late Bronze Age stelae from Solana de Cabañas (Exteremadura, Spain). 1. Original photograph (credits: Museo Arqueológico Nacional, Madrid); 2. Archaeological drawing of engraved parts (credits: @DiazGuardamino10); 3. Digitalisation/Polygonization of engraved parts (i.e., graphical units) and calcul of their their centroids (red points); 4. Voronoi diagram of each graphical units (*seeds*) and dula graph of Voronoi diagram (i.e., Delaunay triangulation); 5. Identification of graphical units' types](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/solana_voronoi.png)
+![GIS view. The Late Bronze Age stelae from Solana de Cabañas (Exteremadura, Spain). 1. Original photograph (credits: Museo Arqueológico Nacional, Madrid); 2. Archaeological drawing of engraved parts (credits: @DiazGuardamino10); 3. Digitalisation/Polygonization of engraved parts (i.e., graphical units) and calcul of their their centroids (red points); 4. Voronoi diagram of each graphical units (*seeds*) and dual graph of the Voronoi diagram (i.e., Delaunay triangulation); 5. Identification of graphical units' types](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/solana_voronoi.png)
 
 </center> 
 
@@ -50,10 +49,50 @@ The `iconr` package takes in charge the management of the geometric graphs (step
 
 # Example
 
+## Read
+
+Read nodes of the Cerro Muriano 1 stelae 
 
 ```r
 library(iconr)
 dataDir <- system.file("extdata", package = "iconr")
+site <- "Cerro Muriano"
+decor <- "Cerro Muriano 1"
+read_nds(site, decor, dataDir)
+```
+```
+##            site           decor id          type        x         y
+## 1 Cerro Muriano Cerro Muriano 1  1    personnage 349.8148 -298.3244
+## 2 Cerro Muriano Cerro Muriano 1  2        casque 349.8148 -243.9851
+## 3 Cerro Muriano Cerro Muriano 1  3         lance 238.4637 -298.3244
+## 4 Cerro Muriano Cerro Muriano 1  4      bouclier 446.0222 -381.1697
+## 5 Cerro Muriano Cerro Muriano 1  5        peigne 283.0041 -358.0086
+## 6 Cerro Muriano Cerro Muriano 1  7 sexe_masculin 342.6884 -427.4917
+## 7 Cerro Muriano Cerro Muriano 1  8    lingot_pdb 451.1489 -237.4782
+```
+
+## Plot
+
+Plot Cerro Muriano 1 decoration graph
+
+```r
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir,
+              nd.var = 'type',
+              lbl.size = 0.55)
+```
+
+<center>
+
+![R view. Cerro Muriano 1 decoration graph](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/cm1.png)
+
+</center> 
+
+## Compare
+
+Compare and classify the `iconr` decoration training dataset according to pairwise common nodes and/or pairwise common edges
+
+```r
 imgs <- read.table(file.path(dataDir, "imgs.csv"), sep=";")
 nodes <- read.table(file.path(dataDir, "nodes.csv"), sep=";")
 edges <- read.table(file.path(dataDir, "edges.csv"), sep=";")

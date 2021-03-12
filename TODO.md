@@ -21,15 +21,20 @@
   
 ### communications in congress
 
-  - [ ] 2021 [CAA congress](https://2021.caaconference.org/sessions/)
-    - [ ] [S17. Tools for the Revolution: developing packages for scientific programming in archaeology (Standard)](https://2021.caaconference.org/sessions/#17)
-  - [ ] 2022 [WAC congress](https://www.wac-9.org/sessions/)
+  - [x] 2021 [CAA congress](https://2021.caaconference.org/sessions/)
+    - [x] [S17. Tools for the Revolution: developing packages for scientific programming in archaeology (Standard)](https://2021.caaconference.org/sessions/#17)
+  - [x] 2021 [EAA congress](https://eaa.klinkhamergroup.com/eaa2021/)
+    - [x] Between Variability and Singularity: Crossing Theoretical, Qualitative and Computer-based Approaches to Types and Typologies in Archaeology [PaM]
+    - [x] Human Visual Archives, Globally. Materials, Forms and Meanings of Human Representations in Ancient Times
+  - [ ] 2022 [WAC congress](https://www.wac-9.org/sessions/) (TO EXPENSIVE FEES)
+  - [ ] 2023 [AURA Congress](http://www.ifrao.com/the-aura-congress/)
 
 
 ### Papers in scientific reviews
 
 #### IT and Methods
 
+  - [ ] [JOSS](https://github.com/zoometh/iconr/blob/master/paper.md) 
   - [ ] [JSS](https://raw.githubusercontent.com/zoometh/jss_iconr/main/article_rvTH17.pdf) 
   
 #### Prehistorical issues
@@ -76,9 +81,6 @@ ex: [ex1](https://zoometh.github.io/iconr/articles/next.html#harris-matrix-1)
 
   - [ ] [Joe Roe](https://joeroe.io/): [DAGs](https://stratigraphr.joeroe.io/articles/stratigraph.html) for GUs stratigraphy
 
-## Papers in scientific reviews
-
-  - [ ] [JOSS](https://joss.theoj.org/)
 
 # 3. Collaborations {#col}
 
@@ -90,10 +92,9 @@ c. propose different [training(s)](#col.mc)
 d. propose a [congress session/round-table](#col.rt)
 e. work to get a [publication](#pub.col).
 
-## a. information {#info}
+## A. Information {#info}
 
-* contact mail and schedule a [master class](#col.mc)
-
+contact mail and schedule a [master class](#col.mc)
 
 ***
 **mail subject**:  
@@ -104,9 +105,7 @@ A new opensource computer-based method to study ancient iconography - R package
 
 Dear Colleague,  
 
-We would like to inform you that the [_iconr_ R package](https://zoometh.github.io/iconr/), dedicated to ancient iconography analysis, has been recently uploaded to the CRAN.  
-
-This package is grounded in graph theory and spatial analysis to offer concepts and functions for modeling Prehistoric iconographic compositions and preparing for further analysis (clustering, typology tree, Harris diagram, etc.). The package purpose is to contribute to cross-cultural comparison through a greater normalization of quantitative analysis.
+We would like to inform you that the first version of the R package  [iconr](https://cran.r-project.org/web/packages/iconr/index.html) has been recently uploaded to the CRAN. This package is dedicated to Prehistoric iconography modeling and analysis. Grounded on graph theory and spatial analysis, it aims to offer concepts and functions for a greater normalization of quantitative analysis, to facilitate cross-cultural comparisons.
 
 <p align="center">
   <img alt="img-name" src="man/figures/solana_256colours.png" width="700">
@@ -114,8 +113,14 @@ This package is grounded in graph theory and spatial analysis to offer concepts 
     <em>families x themes</em>
 </p>
   
+Online documentation is already available:
+
+  + [package description](https://zoometh.github.io/iconr/articles/index.html)
+  + [data entry though a GIS](https://zoometh.github.io/iconr/articles/gis.html)
+  + [interactive examples](https://zoometh.github.io/iconr/articles/shiny.html) and [training datasets](https://zoometh.github.io/iconr/articles/examples.html)
+
   
-In order to let people know how the package works, we will schedule a first ZOOM **master class** (duration: 45 minutes), the xx/xx/xx at 16:00 UTC. Please conserve the following informations
+To promote the package utilization, we have schedule a first presentation on ZOOM (duration: ca. 45 minutes), the xx/xx/xx at 16:00 UTC. During the presentation, We will explain how it works and what are the expected outcomes (40 minutes) and respond to the audience questions (5 minutes). We will be very happy to meet you at this moment. If you are interested to participate, please conserve the following information
 
 ```
 Topic: iconr R package - masterclass
@@ -128,17 +133,17 @@ Meeting ID: 796 7543 8246
 Passcode: FHW6fN
 ```
   
-We will be very happy to meet you at the master class. If you cannot be present, but you are interested by the method, the master class will be recorded and available on a video platform. We will let you know.  
+If you cannot be present, but you are interested by the package or the presentation, thank you for letting us know. The presentation will be recorded and available on a video platform.  
 
 Best regards,
 
-Thomas Huet
-Jose M Pozo
-Craig Alexander
+Thomas Huet  
+Jose M Pozo  
+Craig Alexander  
 
 ***
 
-## b. masterclass {#col.mc}
+## B. Masterclass {#col.mc}
 
 Online masterclass to present the _iconr_ package and schedule [training(s)](#col.mc) (open dates with Doodle)
 
@@ -148,28 +153,37 @@ Online masterclass to present the _iconr_ package and schedule [training(s)](#co
 
 3. Case studies
 
-## c. training {#col.tr}
+## C. Training {#col.tr}
 
-### c1. R and RStudio basic knowledge
+### C.1. R and RStudio basic knowledge
 
 Tutorial on R and RStudio install and basic functions
 
-### c2. _iconr_ package
-
-Datasets presentations/Training to use the _iconr_ package:
+### C.2. Data entry through a GIS
 
 1. Create graph decorations on GIS
 
-2. Plot and compare graph decorations
+### C.3. _iconr_ package
 
-3. Further analysis
+Datasets presentations/Training to use the _iconr_ package:
+
+1. Read, plot and compare graph decorations
+
+2. Further analysis
 
 * schedule [congress session/round-table](#col.rt) (open dates with Doodle)
+
 * open a GitHub forum for FAQs and scientific exchanges
 
-## d. congress session/round-table {#col.rt}
+## D. round-table {#col.rt}
 
-Results presentations. Ask scholars and specialists to draw graphs on a selection of decoration. Decorative contents will be addressed and compare by periods, families, themes and techniques
+After the [training](#col.tr), people are supposed to have used *iconr* on their favorite dataset (i.e. a selection of decorations). We will propose them to present their results in an oral communication in the frame of a round-table. Depending on the size of the decoration they have proceed, each used could choose between:
+
+1. **3 + decorations**: qualitative analysis
+2. **7 +decorations**: semi-quantitative analysis (ie. rank-based, non-parametric tests: Mann-Withney, Spearman, etc.)
+3. **30 + decorations**: quantitative analysis (ie. mean-based, parametric tests: Shapiro-Wilk, Student, etc.)
+
+The aim of the round-table is to find the appropriate way to compare heterogeneous decorative contents (by periods, families, themes, techniques, etc.)
 
 <p align="center">
   <img alt="img-name" src="doc/img/famille_thm.png" width="500">
@@ -179,26 +193,15 @@ Results presentations. Ask scholars and specialists to draw graphs on a selectio
 
 see: [families examples](https://zoometh.github.io/iconr/articles/shiny.html)
 
-### datasets
 
-Each collaborator could choose between
-
-1. **3 or more decorations**: qualitative analysis
-
-2. **7 or more decorations**: semi-quantitative analysis (ie. rank-based, non-parametric tests: Mann-Withney, Spearman, etc.)
-
-3. **30 or more decorations**: quantitative analysis (ie. mean-based, parametric tests: Shapiro-Wilk, Student, etc.)
-
-### congresses
-
-2023 [AURA Congress](http://www.ifrao.com/the-aura-congress/)
-
-## e. publication {#pub.col}
+## E. publication {#pub.col}
 
   - [ ] [JAMT](https://www.springer.com/journal/10816) 
+  - [ ] [Adoranten](https://www.rockartscandinavia.com/adoranten-vv4.php)
 
 # Collaborators {#collab}
 
+Identify who will be our next collaborators
 
 ## By families {#fam}
 
