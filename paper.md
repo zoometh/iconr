@@ -32,12 +32,12 @@ By definition, prehistorical societies are characterized by the absence of a wri
 
 The inherent variability of ancient iconography has led to considerable problems in its study, drastically limiting the possibility to draw a synthesis of humankind's symbolism at a large scale and over the long-term:
 
- + Proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the supports (e.g. top of the rock, neck of the pottery, centre of the stelae).
+ + Proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support (e.g. upper part of the rock, neck of the pottery, centre of the stelae).
  + Unexplicit spatial groupings of graphical units -- like graphical units grouped into *figures*, *figures* grouped into *patterns*, *patterns* grouped into *motives*, etc. -- introduce tedious number of groups and hinder their sistematic analysis.
  + Consistency, proximities and relationships between these groups are often implicit and not quantified.
  + Studies develop their own descriptive vocabularies, singular relationships of grouping, and idosyncratic methods at site-dependent or period-dependent scales.
 
-`iconr` is an R package designed to offer a greater normalization of quantitative indexes for iconography studies [@Alexander08; @HuetAlexander15; @Huet18a]. It is grounded in graph theory and spatial analysis to offer concepts and functions for modeling prehistoric iconographic compositions and preparing them for further analysis (clustering, typology tree, Harris diagram, etc.). The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units. Geometric graphs are also known as *planar graph* or *spatialized graphs*. Graphical units are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). Separable graphical units showing a main graphical content (e.g. an anthropomorph) are considered as *main* nodes. Graphical units showing a specification of a *main* node (e.g. a sword handed by this anthropomorph) are considered as *attribute* nodes. Each pair of *main* nodes, that one thinks contemporary, sharing a border (*birel*: touches) of their Voronoi cells, are connected by an undirected edge (`LINES`).
+`iconr` is an R package designed to offer a greater normalization of quantitative indexes for iconography studies [@Alexander08; @HuetAlexander15; @Huet18a]. It is grounded in graph theory and spatial analysis to offer concepts and functions for modeling prehistoric iconographic compositions and preparing them for further analysis (clustering, typology tree, Harris diagram, etc.). The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units. Geometric graphs are also known as *planar graph* or *spatialized graphs*. Graphical units are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). Separable graphical units showing a main graphical content (e.g. an anthropomorph) are considered as *main* nodes. Graphical units showing a specification of a *main* node (e.g. a sword handed by this anthropomorph) are considered as *attribute* nodes. Each pair of *main* nodes that one thinks contemporary that share a border (*birel*: touches) of their Voronoi cells, are connected by an undirected edge (`LINES`).
  
 <center>
 
@@ -51,7 +51,7 @@ The `iconr` package takes in charge the management of the geometric graphs (step
 
 ## Read
 
-Read nodes of the Cerro Muriano 1 stelae 
+Read the nodes of the Cerro Muriano 1 stelae (Andalusia, Spain)
 
 ```r
 library(iconr)
@@ -73,24 +73,22 @@ read_nds(site, decor, dataDir)
 
 ## Plot
 
-Plot Cerro Muriano 1 decoration graph
+Plot the Cerro Muriano 1 stelae decoration graph
 
 ```r
 plot_dec_grph(nds.df, eds.df, imgs,
-              site, decor, dataDir,
-              nd.var = 'type',
-              lbl.size = 0.55)
+              site, decor, dataDir)
 ```
 
 <center>
 
-![R view. Cerro Muriano 1 decoration graph](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/cm1.png)
+![R view. Cerro Muriano 1 decoration graph. Between two *main* nodes, *normal* edges are shown as plain lines. Between a *main* node and an *attribute* node, *attribute* edges are shown as dotted lines (drawing credits: @DiazGuardamino10)](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/cm1.png){width=400px}
 
 </center> 
 
 ## Compare
 
-Compare and classify the `iconr` decoration training dataset according to pairwise common nodes and/or pairwise common edges
+Compare and classify the `iconr` decoration training dataset according to decoration pairwise comparisons based on common nodes and common edges.
 
 ```r
 imgs <- read.table(file.path(dataDir, "imgs.csv"), sep=";")
