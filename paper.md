@@ -26,18 +26,18 @@ bibliography: paper.bib
 
 # Background
 
-By definition, Prehistorical societies are characterized by the absence of a writing system. During, the largest part of human history, and everywhere in the world, symbolic expressions belong mostly to illiterate societies which express themselves with rock-art paintings, pottery decorations, figurines and statuary, etc., and a lot of now disappeared carved woods, textile design, etc. These graphical expressions are the most significant part of the humankind's symbolism remaining. At the composition level, recognition of meaningful associations of signs and recurrent patterns (i.e., graphical syntax) indicate clearly the existence of social conventions in the way to display and to read these expressions. Well-established and shared methods to record and study these graphical contents would open to possible cross-cultural comparisons at a large scale and over the long-term.
+By definition, prehistorical societies are characterized by the absence of a writing system. During, the largest part of human history, and everywhere in the world, symbolic expressions belong mostly to illiterate societies which express themselves with rock-art paintings, pottery decorations, figurines and statuary, etc., and a lot of now disappeared carved woods, textile design, etc. These graphical expressions are the most significant remaining part of the humankind's symbolism. At the composition level, the presence of meaningful associations of signs and recurrent patterns (i.e., graphical syntax) clearly indicates the existence of social conventions in the way to display and to read these expressions. Well-established and shared methods to record and study these graphical contents would open the possibility of cross-cultural comparisons at a large scale and over the long-term.
 
 # Statement of need
 
-Because of the inherent variability of ancient iconography, its study has led to considerable problems limiting drastically the possibility to draw a synthesis of humankind's symbolism at a large scale and over the long-term:
+The inherent variability of ancient iconography has led to considerable problems in its study, drastically limiting the possibility to draw a synthesis of humankind's symbolism at a large scale and over the long-term:
 
- + unexplicit spatial groupings of graphical units -- like graphical units grouped into *figures*, *figures* grouped into *patterns*, *patterns* grouped into *motives*, etc. -- with tedious number of groups
- + consistency, proximities and relationships between these groups are often implicit and not quantified. It is in particular graphical and spatial proximities between graphical units that are generally not quantified
- + studies develop proper descriptive vocabularies, singular relationships of grouping, idosyncratic methods at site-dependent or period-dependent scales
+ + Unexplicit spatial groupings of graphical units -- like graphical units grouped into *figures*, *figures* grouped into *patterns*, *patterns* grouped into *motives*, etc. -- introduce tedious number of groups and hinder their sistematic analysis.
+ + Consistency, proximities and relationships between these groups are often implicit and not quantified. This is especially problematic for spatial proximities between graphical units, which are in general not quantified.
+ + Studies develop their own descriptive vocabularies, singular relationships of grouping, and idosyncratic methods at site-dependent or period-dependent scales.
 \end{itemize}
 
-`iconr` is a R package designed to offer a greater normalization of quantitative indexes for iconography studies [@Alexander08; @HuetAlexander15; @Huet18a]. It is grounded in graph theory and spatial analysis to offer concepts and functions for modeling Prehistoric iconographic compositions and preparing for further analysis (clustering, typology tree, Harris diagram, etc.). The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units. This geometric graph is also known as a planar graph or spatialized graph. Graphical units are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). When these graphical units are main nodes, and not attribute nodes, they share edges (`LINES`) with one another when their Voronoi cells share a border (*birel*: touches). 
+`iconr` is an R package designed to offer a greater normalization of quantitative indexes for iconography studies [@Alexander08; @HuetAlexander15; @Huet18a]. It is grounded in graph theory and spatial analysis to offer concepts and functions for modeling prehistoric iconographic compositions and preparing them for further analysis (clustering, typology tree, Harris diagram, etc.). The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units. Geometric graphs are also known as *planar graph* or *spatialized graphs*. Graphical units are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). Graphical units representing attributes of a compound graphical unit are joined by directed edges to the corresponding compound's main node. Each pair of adjacent main nodes, sharing a border (*birel*: touches) of their Voronoi cells, are connected by an undirected edge (`LINES`). 
  
  
 <center>
@@ -46,27 +46,25 @@ Because of the inherent variability of ancient iconography, its study has led to
 
 </center> 
 
-The `iconr` package only takes in charge the management of the geometric graphs (step 5 in the previous figure). Steps 1 to 4, for reasons of implementation, are not necessary: graph elements can be drawn directly on the decorated support drawing or photograph, preferably inside a GIS to make easier the calculation of nodes and edges coordinates. The `iconr` package allows to i) read data structures of nodes and edges (.tsv, .csv, .shp) and images (.jpg, .png, .tif, .gif, etc.), ii) plot nodes and edges separately, or together (geometric graph), over the decoration picture, iii) compare different decorations depending on common nodes or common edges. The package stable version is on the CRAN [@iconr], the latest development version is available from GitHub (https://github.com/zoometh/iconr), the package documentation is available at https://zoometh.github.io/iconr/.
+The `iconr` package takes in charge the management of the geometric graphs (step 5 in the previous figure). Steps 1 to 4 do not need to be included in the package since efficient implementations already exist: graph elements can be drawn directly on the decorated support drawing or photograph, preferably inside a GIS to make easier the calculation of nodes and edges coordinates. The `iconr` package allows the user to i) read data structures of nodes and edges (.tsv, .csv, .shp) and images (.jpg, .png, .tif, .gif, etc.), ii) plot nodes and edges separately, or together (geometric graph), over the decoration picture, iii) compare different decorations depending on common nodes or common edges. The package stable version is on the CRAN [@iconr]; the latest development version is available from GitHub (https://github.com/zoometh/iconr); the package documentation is available at https://zoometh.github.io/iconr/.
 
 # Example
 
 
 ```r
 library(iconr)
-par(mfrow=c(1, 2))
-imgs <- read.table(system.file("extdata", "imgs.csv", package = "iconr"),
-          sep=";", stringsAsFactors = FALSE)
-nodes <- read.table(system.file("extdata", "nodes.csv", package = "iconr"),
-          sep=";", stringsAsFactors = FALSE)
-edges <- read.table(system.file("extdata", "edges.csv", package = "iconr"),
-          sep=";", stringsAsFactors = FALSE)
+dataDir <- system.file("extdata", package = "iconr")
+imgs <- read.table(file.path(dataDir, "imgs.csv"), sep=";")
+nodes <- read.table(file.path(dataDir, "nodes.csv"), sep=";")
+edges <- read.table(file.path(dataDir, "edges.csv"), sep=";")
 lgrph <- list_dec(imgs, nodes, edges)
 df.same_edges <- same_elements(lgrph, "type", "edges")
 df.same_nodes<- same_elements(lgrph, "type", "nodes")
-dist.nodes <- dist(as.matrix(df.same_nodes), method = "euclidean")
-dist.edges <- dist(as.matrix(df.same_edges), method = "euclidean")
+dist.nodes <- dist(df.same_nodes, method = "euclidean")
+dist.edges <- dist(df.same_edges, method = "euclidean")
 hc.nds <- hclust(dist.nodes, method = "ward.D")
 hc.eds <- hclust(dist.edges, method = "ward.D") 
+par(mfrow=c(1, 2))
 plot(hc.nds, main = "Common nodes", cex = .8)
 plot(hc.eds, main = "Common edges", cex = .8)
 ```
