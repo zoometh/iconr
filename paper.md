@@ -32,10 +32,10 @@ By definition, prehistorical societies are characterized by the absence of a wri
 
 The inherent variability of ancient iconography has led to considerable problems in its study, drastically limiting the possibility to draw a synthesis of humankind's symbolism at a large scale and over the long-term:
 
- + Proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support (e.g. upper part of a rock, neck of a pottery, centre of a stele).
- + Unexplicit spatial groupings of graphical units -- like graphical units grouped into *figures*, *figures* grouped into *patterns*, *patterns* grouped into *motives*, etc. -- introduce a tedious number of groups and hinder their systematic analysis.
- + Consistency, proximities, and relationships between these groups are often implicit and not quantified.
- + Studies develop their own descriptive vocabularies, singular relationships of grouping, and idiosyncratic methods at site-dependent or period-dependent scales.
+ + Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support (e.g. upper part of a rock, neck of a pottery, centre of a stele).
+ + Groupings of graphical units -- like graphical units grouped into *figures*, *figures* grouped into *patterns*, *patterns* grouped into *motives*, etc. -- are unexplicit and introduce a tedious number of groups and hinder their systematic analysis.
+ + Relationships and similarities between these groups are often implicit and not quantified.
+ + Special descriptive vocabularies, singular relationships of grouping, and idiosyncratic methods are developed at site-dependent or period-dependent scales.
 
 `iconr` is an R package designed to offer a greater normalization of quantitative indexes for iconography studies [@Alexander08; @Huet18a]. It is grounded in graph theory and spatial analysis to offer concepts and functions for modeling prehistoric iconographic compositions and preparing them for further analysis (clustering, typology tree, Harris diagram, etc.). The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units. Geometric graphs are also known as *planar graphs* or *spatialized graphs*. Graphical units are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). Separable graphical units showing a main graphical content (e.g. an anthropomorphic figure) are considered as *main* nodes. Graphical units showing a specification of a *main* node (e.g. a sword handed by this anthropomorphic figure) are considered as *attribute* nodes. Each pair of *main* nodes that one thinks contemporary that share a border (*birel*: touches) of their Voronoi cells, are connected by an undirected edge (`LINES`).
   
@@ -54,7 +54,7 @@ The `iconr` package takes in charge of the geometric graphs management (step 5 i
 
 ## Read
 
-Read the nodes of the Cerro Muriano 1 stele (Andalusia, Spain).
+Read the nodes of the Cerro Muriano 1 stele (Andalusia, Spain) with the function [`read_nds()`](https://zoometh.github.io/iconr/reference/read_nds.html).
 
 ```r
 library(iconr)
@@ -76,7 +76,7 @@ read_nds(site, decor, dataDir)
 
 ## Plot
 
-Plot the Cerro Muriano 1 stele decoration graph.
+Plot the Cerro Muriano 1 stele decoration graph with the function [`plot_dec_grph()`](https://zoometh.github.io/iconr/reference/plot_dec_grph.html).
 
 ```r
 plot_dec_grph(nds.df, eds.df, imgs,
@@ -91,7 +91,7 @@ plot_dec_grph(nds.df, eds.df, imgs,
 
 ## Compare
 
-Compare and classify the `iconr` decoration training dataset according to decoration pairwise comparisons based on common nodes and common edges.
+Compare and classify the `iconr` decoration training dataset according to pairwise comparisons between decorations based on their common nodes and common edges; functions [`list_dec()`](https://zoometh.github.io/iconr/reference/list_dec.html) and [`same_elements()`](https://zoometh.github.io/iconr/reference/same_elements.html).
 
 ```r
 imgs <- read.table(file.path(dataDir, "imgs.csv"), sep=";")
