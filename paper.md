@@ -42,7 +42,7 @@ The inherent variability of ancient iconography has led to considerable problems
   
 <center>
 
-![GIS view. The Late Bronze Age stelae from Solana de Cabañas (Exteremadura, Spain). 1. Original photograph (credits: Museo Arqueológico Nacional, Madrid); 2. Archaeological drawing of engraved parts (credits: -@DiazGuardamino10); 3. Digitalization/Polygonization of engraved parts (i.e., graphical units) and calculation of their their centroids (red points); 4. Voronoi diagram of each graphical unit (*seed*) and dual graph of the Voronoi diagram (i.e., Delaunay triangulation); 5. Identification of graphical units' types](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/solana_voronoi.png)
+![GIS view. The Late Bronze Age stele from Solana de Cabañas (Extremadura, Spain). 1. Original photograph (credits: Museo Arqueológico Nacional, Madrid); 2. Archaeological drawing of engraved parts [credits: @DiazGuardamino10]; 3. Digitalization/Polygonization of engraved parts (i.e., graphical units) and calculation of their their centroids (red points); 4. Voronoi diagram of each graphical unit (*seed*) and dual graph of the Voronoi diagram (i.e., Delaunay triangulation); 5. Identification of graphical units' types](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/solana_voronoi.png)
 
 </center> 
 
@@ -85,7 +85,7 @@ plot_dec_grph(nds.df, eds.df, imgs,
 
 <center>
 
-![R view. Cerro Muriano 1 decoration graph. Between two *main* nodes, *normal* edges are shown as plain lines. Between a *main* node and an *attribute* node, *attribute* edges are shown as dotted lines (drawing credits: -@DiazGuardamino10)](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/cm1.png){width=350px}
+![R view. Cerro Muriano 1 decoration graph. Between two *main* nodes, *normal* edges are shown as plain lines. Between a *main* node and an *attribute* node, *attribute* edges are shown as dotted lines drawing [credits: @DiazGuardamino10]](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/cm1.png){width=350px}
 
 </center> 
 
