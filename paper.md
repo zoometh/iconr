@@ -35,14 +35,14 @@ The inherent variability of ancient iconography has led to considerable problems
  + Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support (e.g. upper part of a rock, neck of a pottery, centre of a stele).
  + Groupings -- like graphical units grouped into *figures*, *figures* grouped into *patterns*, *patterns* grouped into *motives*, etc. -- are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis.
  + Relationships and similarities between these groups are often not self-explanatory and unquantified.
- + Special descriptive vocabularies, singular relationships of grouping, and idiosyncratic methods are developed at site-dependent or period-dependent scales.
+ + Descriptive vocabularies and methods of analysis are site-dependent or period-dependent.
 
 `iconr` is an R package designed to offer a greater normalization of quantitative indexes for iconography studies [@Alexander08; @Huet18a]. It is grounded in graph theory and spatial analysis to offer concepts and functions for modeling prehistoric iconographic compositions and preparing them for further analysis (clustering, typology tree, Harris diagram, etc.). The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units. Geometric graphs are also known as *planar graphs* or *spatialized graphs*. Graphical units are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). Separable graphical units showing a main graphical content (e.g. an anthropomorphic figure) are considered as *main* nodes. Graphical units showing a specification of a *main* node (e.g. a sword handed by this anthropomorphic figure) are considered as *attribute* nodes. Each pair of *main* nodes that one thinks contemporary that share a border (*birel*: touches) of their Voronoi cells, are connected by an undirected edge (`LINES`).
   
   
 <center>
 
-![GIS view. The Late Bronze Age stelae from Solana de Cabañas (Exteremadura, Spain). 1. Original photograph (credits: Museo Arqueológico Nacional, Madrid); 2. Archaeological drawing of engraved parts (credits: @DiazGuardamino10); 3. Digitalization/Polygonization of engraved parts (i.e., graphical units) and calculation of their their centroids (red points); 4. Voronoi diagram of each graphical unit (*seed*) and dual graph of the Voronoi diagram (i.e., Delaunay triangulation); 5. Identification of graphical units' types](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/solana_voronoi.png)
+![GIS view. The Late Bronze Age stelae from Solana de Cabañas (Exteremadura, Spain). 1. Original photograph (credits: Museo Arqueológico Nacional, Madrid); 2. Archaeological drawing of engraved parts (credits: -@DiazGuardamino10); 3. Digitalization/Polygonization of engraved parts (i.e., graphical units) and calculation of their their centroids (red points); 4. Voronoi diagram of each graphical unit (*seed*) and dual graph of the Voronoi diagram (i.e., Delaunay triangulation); 5. Identification of graphical units' types](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/solana_voronoi.png)
 
 </center> 
 
@@ -85,7 +85,7 @@ plot_dec_grph(nds.df, eds.df, imgs,
 
 <center>
 
-![R view. Cerro Muriano 1 decoration graph. Between two *main* nodes, *normal* edges are shown as plain lines. Between a *main* node and an *attribute* node, *attribute* edges are shown as dotted lines (drawing credits: @DiazGuardamino10)](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/cm1.png){width=350px}
+![R view. Cerro Muriano 1 decoration graph. Between two *main* nodes, *normal* edges are shown as plain lines. Between a *main* node and an *attribute* node, *attribute* edges are shown as dotted lines (drawing credits: -@DiazGuardamino10)](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/cm1.png){width=350px}
 
 </center> 
 
