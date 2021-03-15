@@ -85,7 +85,7 @@ plot_dec_grph(nds.df, eds.df, imgs,
 
 <center>
 
-![R view. Cerro Muriano 1 decoration graph. Between two *main* nodes, *normal* edges are shown as plain lines. Between a *main* node and an *attribute* node, *attribute* edges are shown as dotted lines drawing [credits: @DiazGuardamino10]](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/cm1.png){width=350px}
+![R view. Cerro Muriano 1 decoration graph. Between two *main* nodes, *normal* edges are shown as plain lines. Between *main* nodes and *attribute* nodes, *attribute* edges are shown as dotted lines drawing [credits: @DiazGuardamino10]](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/cm1.png){width=350px}
 
 </center> 
 
@@ -116,6 +116,6 @@ plot(hc.eds, main = "Common edges", cex = .8)
 
 # Acknowledgements
 
-This  project was partly  supported  by  LabEx  ARCHIMEDE  from  “Investissement  d’Avenir”  program  ANR-11-LABX-0032-01.
+This  project was partly  supported  by  the LabEx  ARCHIMEDE  from  “Investissement  d’Avenir”  program  ANR-11-LABX-0032-01.
 
 # References
