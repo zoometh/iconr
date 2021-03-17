@@ -9,7 +9,7 @@ library(iconr)
 # see 'data.create' <- T and '!incor.data'
 # - - - - - - - - - - - - - - - - - - - #
 
-famille <- c("stele bas aragon","Valcamonica","Pena Tu")
+famille <- c("stele bas aragon","Valcamonica","Pena Tu","stele bouclier","Scandinavie")
 # famille <- c("stele bas aragon", "Valcamonica", "Pena Tu")
 # setwd("..")
 df <- read.csv(paste0(getwd(), "/", famille[1], "/imgs.csv"), sep=";")

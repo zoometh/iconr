@@ -34,7 +34,7 @@
 
 #### IT and Methods
 
-  - [ ] [JOSS](https://github.com/zoometh/iconr/blob/master/paper.md) 
+  - [x] 2021 [JOSS](https://github.com/zoometh/iconr/blob/master/paper.md) 
   - [ ] [JSS](https://raw.githubusercontent.com/zoometh/jss_iconr/main/article_rvTH17.pdf) 
   
 #### Prehistorical issues
@@ -44,7 +44,6 @@
   
 # 2. next developments (_iconr_ 0.2.0) {#v2}
 
-    
 ## Work groups {#v2.wg}
 
 Define work groups
@@ -80,7 +79,12 @@ ex: [ex1](https://zoometh.github.io/iconr/articles/next.html#harris-matrix-1)
 #### Collaborators
 
   - [ ] [Joe Roe](https://joeroe.io/): [DAGs](https://stratigraphr.joeroe.io/articles/stratigraph.html) for GUs stratigraphy
+  
+## Papers in scientific reviews
 
+### IT and Methods
+
+  - [ ] 2022 [JSS](https://raw.githubusercontent.com/zoometh/jss_iconr/main/article_rvTH17.pdf) 
 
 # 3. Collaborations {#col}
 
@@ -124,22 +128,22 @@ To promote the package utilization, we have schedule a first presentation on ZOO
 
 ```
 Topic: iconr R package - masterclass
-Time: Mar 9, 2021 12:00 PM Paris
+Time: xxx
 
 Join Zoom Meeting
-https://us04web.zoom.us/j/79675438246?pwd=VjdFbUozN0ZrcExKaWIyTXhiczhJUT09
+https://xxx
 
-Meeting ID: 796 7543 8246
-Passcode: FHW6fN
+Meeting ID: xxx
+Passcode: xxx
 ```
   
 If you cannot be present, but you are interested by the package or the presentation, thank you for letting us know. The presentation will be recorded and available on a video platform.  
 
 Best regards,
 
-Thomas Huet  
-Jose M Pozo  
-Craig Alexander  
+Thomas Huet, LabEx ARCHIMEDE ANR-11-LABX-0032-01   
+Jose M Pozo, Independant researcher
+Craig Alexander, Independant researcher  
 
 ***
 

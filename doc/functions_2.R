@@ -105,7 +105,7 @@ if (grp.thm.ths){
 }
 
 if (grp.family.thm){
-  # graph of shared GUs between families
+  # graph of shared GUs between families, return a graph image of connected themes
   setwd("C:/Users/supernova/Dropbox/My PC (supernova-pc)/Documents/iconr")
   sqll <- "select distinct table_noeuds.type, objets.famille
 from table_noeuds, objets
