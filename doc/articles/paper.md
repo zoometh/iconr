@@ -39,7 +39,7 @@ Ancient iconography is often perceived as different from other '*current*' archa
  + Relationships and similarities between these groups are often not self-explanatory and unquantified.
  + Descriptive vocabularies and methods of analysis are site-dependent or period-dependent.
 
-Even the reevaluation of semiotics paradigms following the scientific trends  -- *structuralist turn* during the *Processual archaeology* period (1960-80) [@Saussure89; @Binford62], *iconic turn* during the *Post-processual archaeology* period (1980-2010) [@Gell98; @Hodder82] did not led to the development of efficient tools for ancient iconography studies, such as common descriptive variables, or common interpretation grids.
+Even the reevaluation of semiotics paradigms following the scientific trends  -- *structuralist turn* during the *Processual archaeology* period (ca 1960-80) [@Saussure89; @Binford62], *iconic turn* during the *Post-processual archaeology* period (ca 1980-2010) [@Gell98; @Hodder82] did not led to the development of efficient tools for ancient iconography studies, such as common descriptive variables, or common interpretation grids.
 
 # Core functionality
 
