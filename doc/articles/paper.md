@@ -2,7 +2,9 @@
 title: 'Analysis of Prehistoric Iconography with the R package iconr'
 tags:
   - Iconography
+  - Semiotic
   - Prehistory
+  - Archaeology
   - Graph Theory
   - GIS
 authors:
@@ -30,14 +32,18 @@ By definition, prehistorical societies are characterized by the absence of a wri
 
 # Statement of need
 
-The inherent variability of ancient iconography has led to considerable problems in its study, drastically limiting the possibility to draw a synthesis of graphic expressions at a large scale and over the long-term:
+Ancient iconography is often perceived as different from other '*current*' archaeological remains (lithics, pottery, settlements, etc.) [@Chenorkian95]. Indeed, the inherent variability of ancient iconography has led to considerable problems in its study, drastically limiting the possibility to draw a synthesis of graphic expressions at a large scale and over the long-term:
 
  + Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support (e.g. upper part of a rock, neck of a pottery, centre of a stele).
  + Groupings -- like graphical units grouped into *figures*, *figures* grouped into *patterns*, *patterns* grouped into *motives*, etc. -- are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis.
  + Relationships and similarities between these groups are often not self-explanatory and unquantified.
  + Descriptive vocabularies and methods of analysis are site-dependent or period-dependent.
 
-`iconr` is an R package designed to offer a greater normalization of quantitative indexes for iconography studies [@Alexander08; @Huet18a]. It is grounded in graph theory and spatial analysis to offer concepts and functions for modeling prehistoric iconographic compositions and preparing them for further analysis (clustering, typology tree, Harris diagram, etc.). The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units. Geometric graphs are also known as *planar graphs* or *spatialized graphs*. Graphical units are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`). Separable graphical units showing a main graphical content (e.g. an anthropomorphic figure) are considered as *main* nodes. Graphical units showing a specification of a *main* node (e.g. a sword handed by this anthropomorphic figure) are considered as *attribute* nodes. Each pair of *main* nodes that one thinks contemporary that share a border (*birel*: touches) of their Voronoi cells, are connected by an undirected edge (`LINES`).
+Even the reevaluation of semiotics paradigms following the scientific trends  -- *structuralist turn* during the *Processual archaeology* period (1960-80) [@Saussure89; @Binford62], *iconic turn* during the *Post-processual archaeology* period (1980-2010) [@Gell98; @Hodder82] did not led to the development of efficient tools for ancient iconography studies, such as common descriptive variables, or common interpretation grids.
+
+# Core functionality
+
+The R package `iconr` is designed to offer a greater normalization of quantitative indexes for iconography studies [@Alexander08; @Huet18a]. It is grounded in graph theory and spatial analysis to offer concepts and functions for modeling prehistoric iconographic compositions and preparing them for further analysis (clustering, typology tree, Harris diagram, etc.). The main principle of the `iconr` package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units. Geometric graphs, also known as *planar graphs* or *spatialized graphs*, allow to model the neighborhood of these graphical unit which are the fundamental relationships of visual semiotics [@SaintMartin11]. Graphical units are decorated surfaces (`POLYGONS`) modeled as nodes (`POINTS`) and tagged with semantic content (type, color, orientation, etc.). Separable graphical units showing a main graphical content (e.g., type = anthropomorphic figure) are considered as *main* nodes. Graphical units showing a specification of a *main* node (e.g. a sword handed by this anthropomorphic figure) are considered as *attribute* nodes. Each pair of *main* nodes that one thinks contemporary that share a border (*birel*: touches) of their Voronoi cells, are connected by an undirected edge (`LINES`).
   
   
 <center>
@@ -79,6 +85,10 @@ read_nds(site, decor, dataDir)
 Plot the Cerro Muriano 1 stele decoration graph with the function [`plot_dec_grph()`](https://zoometh.github.io/iconr/reference/plot_dec_grph.html).
 
 ```r
+nds.df <- read_nds(site, decor, dataDir)
+eds.df <- read_eds(site, decor, dataDir)
+imgs <- read.table(paste0(dataDir, "/imgs.tsv"),
+                   sep="\t", stringsAsFactors = FALSE)
 plot_dec_grph(nds.df, eds.df, imgs,
               site, decor, dataDir)
 ```
