@@ -24,4 +24,4 @@ To get and install the latest development version from GitHub:
 devtools::install_github("zoometh/iconr", build_vignettes=TRUE)
 ```
 
-Check the ***iconr*** web site [**here**](https://zoometh.github.io/iconr/articles/index.html)
+Check the ***iconr*** web site [**here**](https://zoometh.github.io/iconr/articles/index.html). See also, how to [contribute](.github/CONTRIBUTING.md) to the next package release, and how to [report an issue](https://github.com/zoometh/iconr/issues) using the [issue template](.github/ISSUE_TEMPLATE.md).
