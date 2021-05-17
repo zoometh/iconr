@@ -28,14 +28,14 @@ bibliography: paper.bib
 
 # Background
 
-By definition, prehistorical societies are characterized by the absence of a writing system. During, the largest part of human history, and everywhere in the world, symbolic expressions belong mostly to illiterate societies which express themselves with rock-art paintings, pottery decorations, figurines, statuary, etc., and a lot of now disappeared carved woods, textile design, etc. These graphical expressions are the most significant remaining part of humankind's symbolism. At the composition level, the presence of recurrent patterns of signs (i.e., graphical syntax) in meaningful associations indicates the existence of social conventions in the way to display and to read these expressions. Well-established and shared methods to record and study these graphical contents would open the possibility of cross-cultural comparisons at a large scale and over the long-term.
+By definition, prehistorical societies are characterized by the absence of a writing system. During the largest part of human history, and everywhere in the world, symbolic expressions belonged mostly to illiterate societies which expressed themselves with rock-art paintings, pottery decorations, figurines, statuary, etc., and a lot of now disappeared carved woods, textile design, etc. These graphical expressions are the most significant remaining part of humankind's symbolism. At the composition level, the presence of recurrent patterns of signs (i.e., graphical syntax) in meaningful associations indicates the existence of social conventions in the way to display and to read these expressions. Well-established and shared methods to record and study these graphical contents would open the possibility of cross-cultural comparisons at a large scale and over the long-term.
 
 # Statement of need
 
 Ancient iconography is often perceived as different from other '*current*' archaeological remains (lithics, pottery, settlements, etc.) [@Chenorkian95]. Indeed, the inherent variability of ancient iconography has led to considerable problems in its study, drastically limiting the possibility to draw a synthesis of graphic expressions at a large scale and over the long-term:
 
  + Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support (e.g. upper part of a rock, neck of a pottery, centre of a stele).
- + Groupings -- like graphical units grouped into *figures*, *figures* grouped into *patterns*, *patterns* grouped into *motives*, etc. -- are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis.
+ + Groupings --- like graphical units grouped into *figures*, *figures* grouped into *patterns*, *patterns* grouped into *motives*, etc. --- are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis.
  + Relationships and similarities between these groups are often not self-explanatory and unquantified.
  + Descriptive vocabularies and methods of analysis are site-dependent or period-dependent.
 
@@ -54,7 +54,7 @@ The R package `iconr` is designed to offer a greater normalization of quantitati
 
 # Overview
 
-The `iconr` package takes in charge of the geometric graphs management (step 5 in the previous figure). Steps 1 to 4 do not need to be included in the package since efficient implementations already exist: graph elements can be drawn directly on the decorated support drawing or photograph, preferably inside a GIS to make easier the calculation of nodes and edges coordinates. The `iconr` package allows the user to i) read data structures of nodes and edges (.tsv, .csv, .shp) and images (.jpg, .png, .tif, .gif, etc.), ii) plot nodes and edges separately, or together (geometric graph), over the decoration picture, iii) compare different decorations depending on common nodes or common edges. The package stable version is on the CRAN [@iconr]; the latest development version is available from GitHub (https://github.com/zoometh/iconr); the package documentation is available at https://zoometh.github.io/iconr/.
+The `iconr` package takes in charge the management of the geometric graphs (step 5 in the previous figure). Steps 1 to 4 do not need to be included in the package since efficient implementations already exist: graph elements can be drawn directly on the decorated support drawing or photograph, preferably inside a GIS to make easier the calculation of nodes and edges coordinates. The `iconr` package allows the user to i) read data structures of nodes and edges (.tsv, .csv, .shp) and images (.jpg, .png, .tif, .gif, etc.), ii) plot nodes and edges separately, or together (geometric graph), over the decoration picture, iii) compare different decorations depending on common nodes or common edges. The package stable version is on the CRAN [@iconr]; the latest development version is available from GitHub (https://github.com/zoometh/iconr); the package documentation is available at https://zoometh.github.io/iconr/.
 
 # Examples
 
