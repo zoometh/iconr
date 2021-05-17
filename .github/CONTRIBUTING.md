@@ -30,7 +30,7 @@ If you want to make a bigger change, it's a good idea to first file an issue and
     The title of your PR should briefly describe the change.
     The body of your PR should contain `Fixes #issue-number`.
 
-*  For user-facing changes, add a bullet to the top of [`NEWS.md`](NEWS.md).
+*  For user-facing changes, add a bullet to the top of [`NEWS.md`](https://github.com/zoometh/iconr/blob/master/NEWS.md).
 
 
 ## Code of Conduct
