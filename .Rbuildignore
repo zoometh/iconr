@@ -5,10 +5,10 @@
 ^TODO\.md$
 ^cran-comments\.md$
 ^logo/
+^docs$
 ^docs/
 ^\.github$
 ^_pkgdown\.yml$
-^docs$
 ^pkgdown$
 ^CRAN-RELEASE$
 ^doc$
@@ -17,3 +17,5 @@
 ^vignettes/next.Rmd$
 ^vignettes/examples.Rmd$
 ^vignettes/shiny.Rmd$
+^R/shape_elements.R$
+^man/shape_elements.Rd$
