@@ -30,5 +30,16 @@ Check the ***iconr*** web site [**here**](https://zoometh.github.io/iconr/articl
 To cite the package, please use this reference:
 
 ```
-
+@article{Huet2021,
+  doi = {10.21105/joss.03191},
+  url = {https://doi.org/10.21105/joss.03191},
+  year = {2021},
+  publisher = {The Open Journal},
+  volume = {6},
+  number = {61},
+  pages = {3191},
+  author = {Thomas Huet and Jose M. Pozo and Craig Alexander},
+  title = {Analysis of Prehistoric Iconography with the R package iconr},
+  journal = {Journal of Open Source Software}
+}
 ```
