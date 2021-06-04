@@ -26,3 +26,20 @@ devtools::install_github("zoometh/iconr", build_vignettes=TRUE)
 ```
 
 Check the ***iconr*** web site [**here**](https://zoometh.github.io/iconr/articles/index.html). See also, how to [contribute](.github/CONTRIBUTING.md) to the next package release, and how to [report an issue](https://github.com/zoometh/iconr/issues) using the [issue template](.github/ISSUE_TEMPLATE.md).
+
+To cite the package, please use this reference:
+
+```
+@article{Huet2021,
+  doi = {10.21105/joss.03191},
+  url = {https://doi.org/10.21105/joss.03191},
+  year = {2021},
+  publisher = {The Open Journal},
+  volume = {6},
+  number = {61},
+  pages = {3191},
+  author = {Thomas Huet and Jose M. Pozo and Craig Alexander},
+  title = {Analysis of Prehistoric Iconography with the R package iconr},
+  journal = {Journal of Open Source Software}
+}
+```
