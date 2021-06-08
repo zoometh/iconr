@@ -43,3 +43,18 @@ To cite the package, please use this [article](https://joss.theoj.org/papers/10.
   journal = {Journal of Open Source Software}
 }
 ```
+## Next release
+
+### Shape Analysis
+
+Shape analysis with R package Momocs
+
+### Tree-like typology
+
+v. https://zoometh.github.io/iconr/articles/img/typology_gu.html
+
+### DAGs
+
+Directed Acyclic Graphs (for stratigraphy)
+
+
