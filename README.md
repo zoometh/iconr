@@ -25,9 +25,7 @@ To get and install the latest development version from GitHub:
 devtools::install_github("zoometh/iconr", build_vignettes=TRUE)
 ```
 
-Check the ***iconr*** web site [**here**](https://zoometh.github.io/iconr/articles/index.html). See also, how to [contribute](.github/CONTRIBUTING.md) to the next package release, and how to [report an issue](https://github.com/zoometh/iconr/issues) using the [issue template](.github/ISSUE_TEMPLATE.md).
-
-To cite the package, please use this [article](https://joss.theoj.org/papers/10.21105/joss.03191) as the most recent reference:
+Check the ***iconr*** web site [**here**](https://zoometh.github.io/iconr/articles/index.html). To cite the package, please use this [article](https://joss.theoj.org/papers/10.21105/joss.03191) as the most recent reference:
 
 ```
 @article{Huet2021,
@@ -43,6 +41,8 @@ To cite the package, please use this [article](https://joss.theoj.org/papers/10.
   journal = {Journal of Open Source Software}
 }
 ```
+See also, how to [contribute](.github/CONTRIBUTING.md) to the next package release, and how to [report an issue](https://github.com/zoometh/iconr/issues) using the [issue template](.github/ISSUE_TEMPLATE.md).
+
 ## Next release
 
 The next release of the R package ***iconr*** package will be focused on:
