@@ -45,16 +45,31 @@ To cite the package, please use this [article](https://joss.theoj.org/papers/10.
 ```
 ## Next release
 
+The next release of the R package ***iconr*** package will be focused on:
+
 ### Shape Analysis
 
-Shape analysis with R package Momocs
+Perform shape analysis on graphical units (GUs) with the R package [Momocs](https://momx.github.io/Momocs/articles/Momocs_intro.html)
 
-### Tree-like typology
+ex: [ex1](https://zoometh.github.io/iconr/articles/next.html#shape-analysis-1)  
 
-v. https://zoometh.github.io/iconr/articles/img/typology_gu.html
+### Tree-like structures
+
+Create hierarchical _thesaurus_ for:
+
+* GUs' typologies
+* GUs' techniques
+* etc.
+
+ex: [ex1](https://zoometh.github.io/iconr/articles/img/typology_gu.html)  
+ex: [ex2](https://github.com/zoometh/iconr/blob/master/doc/img/typology_gu.png)  
+ex: [ex3](https://zoometh.github.io/iconr/articles/next.html#typology-1)  
+
 
 ### DAGs
 
-Directed Acyclic Graphs (for stratigraphy)
+Directed Acyclic Graphs (DAGs) for stratigraphy, to perform on-the-fly Harris matrices of the objects' graphical contents
+
+ex: [ex1](https://zoometh.github.io/iconr/articles/next.html#harris-matrix-1)   
 
 

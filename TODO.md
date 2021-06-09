@@ -1,17 +1,12 @@
 # Table of Contents
 1. [_iconr_ 0.1.0](#v1)
-2. [Next developments](#v2)
 3. [Collaborations](#col)
 4. [Collaborators](#collab)
 
 
-# 1. _iconr_ 0.1.0 {#v1}
+# 1. _iconr_ 0.1.0
 
-## documentation
-
-  - [ ] Spell checking, remove glitches, etc., of the [vignettes](https://zoometh.github.io/iconr)
-  
-## publishing {#pub}
+## publishing
 
 ### briefing notes
 
@@ -26,7 +21,7 @@
   - [x] 2021 [EAA congress](https://eaa.klinkhamergroup.com/eaa2021/)
     - [x] Between Variability and Singularity: Crossing Theoretical, Qualitative and Computer-based Approaches to Types and Typologies in Archaeology [PaM]
     - [x] Human Visual Archives, Globally. Materials, Forms and Meanings of Human Representations in Ancient Times
-  - [ ] 2022 [WAC congress](https://www.wac-9.org/sessions/) (TO EXPENSIVE FEES)
+  - [ ] 2022 [WAC congress](https://www.wac-9.org/sessions/) (TOO EXPENSIVE FEES)
   - [ ] 2023 [AURA Congress](http://www.ifrao.com/the-aura-congress/)
 
 
@@ -35,66 +30,23 @@
 #### IT and Methods
 
   - [x] 2021 [JOSS](https://github.com/zoometh/iconr/blob/master/paper.md) 
-  - [ ] [JSS](https://raw.githubusercontent.com/zoometh/jss_iconr/main/article_rvTH17.pdf) 
+  - [ ] [JSS](https://raw.githubusercontent.com/zoometh/jss_iconr/main/article_rvTH17.pdf)
+    - [draft](https://raw.githubusercontent.com/zoometh/jss_iconr/main/article_rvTH17.pdf) 
   
 #### Prehistorical issues
 
   - [ ] [JAMT](https://www.springer.com/journal/10816) 
 
   
-# 2. next developments (_iconr_ 0.2.0) {#v2}
-
-## Work groups {#v2.wg}
-
-Define work groups
-
-  - [ ] [Shape analysis](#v2.wg)  
-
-  - [ ] [Typology](#v2.wg.th)  
-
-  - [ ] [Harris Matrix](#v2.wg.hm) 
-
-### Shape analysis {#v2.wg.sa}
-
-Perform shape analysis on GUs
-
-ex: [ex1](https://zoometh.github.io/iconr/articles/next.html#shape-analysis-1)  
-
-### Thesaurus {#v2.wg.th}
-
-Create hierarchical _thesaurus_ for:
-
-* GUs' typologies
-* GUs' techniques
-* etc.
-
-ex: [ex1](https://zoometh.github.io/iconr/articles/next.html#typology-1),  [ex2](https://github.com/zoometh/iconr/blob/master/doc/img/typology_gu.png)
-
-### Harris Matrix {#v2.wg.hm}
-
-Perform Harris matrices for GUs
-
-ex: [ex1](https://zoometh.github.io/iconr/articles/next.html#harris-matrix-1)  
-
-#### Collaborators
-
-  - [ ] [Joe Roe](https://joeroe.io/): [DAGs](https://stratigraphr.joeroe.io/articles/stratigraph.html) for GUs stratigraphy
-  
-## Papers in scientific reviews
-
-### IT and Methods
-
-  - [ ] 2022 [JSS](https://raw.githubusercontent.com/zoometh/jss_iconr/main/article_rvTH17.pdf) 
-
-# 3. Collaborations {#col}
+# 2. Collaborations
 
 [Users/collaborators](#collab) should be specialists on any consensual group of decorations (Paleolithic rock-art, Iron Age stelae, etc.). We will: 
 
-a. [inform](#info) them 
-b. propose a [master class](#col.mc)
-c. propose different [training(s)](#col.mc)
-d. propose a [congress session/round-table](#col.rt)
-e. work to get a [publication](#pub.col).
+a. [inform](#info) them  
+b. propose a [master class](#col.mc)  
+c. propose different [training(s)](#col.mc)  
+d. propose a [congress session/round-table](#col.rt)  
+e. work to get a [publication](#pub.col)  
 
 ## A. Information {#info}
 
@@ -103,28 +55,33 @@ contact mail and schedule a [master class](#col.mc)
 ***
 **mail subject**:  
 
-A new opensource computer-based method to study ancient iconography - R package
+R package _iconr_ - An open source computer-based method to study ancient iconography 
 
 **mail body**:  
 
 Dear Colleague,  
 
-We would like to inform you that the first version of the R package  [iconr](https://cran.r-project.org/web/packages/iconr/index.html) has been recently uploaded to the CRAN. This package is dedicated to Prehistoric iconography modeling and analysis. Grounded on graph theory and spatial analysis, it aims to offer concepts and functions for a greater normalization of quantitative analysis, to facilitate cross-cultural comparisons.
+We have the pleasure to introduce you the first version of the R package  [***iconr***](https://github.com/zoometh/iconr#readme). 
+
+The ***iconr*** package is dedicated to Prehistoric iconography modeling and analysis. Grounded on graph theory and spatial analysis, it aims to offer concepts and functions for a greater normalization of quantitative analysis, to facilitate cross-cultural comparisons. The main principle of the package is to consider any iconographic composition (here, 'decoration') as a geometric graph of graphical units. Geometric graphs -- also known as planar graphs or spatialized graphs -- allow to model the neighborhood of these graphical units which are the fundamental relationships of visual semiotics.
 
 <p align="center">
-  <img alt="img-name" src="man/figures/solana_256colours.png" width="700">
+  <img alt="img-name" src="docs/man/figures/edges_compar.png" width="600">
   <br>
-    <em>families x themes</em>
+    <em>same edges identification</em>
 </p>
-  
-Online documentation is already available:
+
+
+The first version of the package has been recently uploaded to the [CRAN]((https://cran.r-project.org/web/packages/iconr/index.html)). A brief description of the package has been published on the [_Journal of Open Statistical Software_](https://joss.theoj.org/papers/10.21105/joss.03191) (attached here), and online documentation is already available:
 
   + [package description](https://zoometh.github.io/iconr/articles/index.html)
-  + [data entry though a GIS](https://zoometh.github.io/iconr/articles/gis.html)
-  + [interactive examples](https://zoometh.github.io/iconr/articles/shiny.html) and [training datasets](https://zoometh.github.io/iconr/articles/examples.html)
+  + [GIS use for data entry](https://zoometh.github.io/iconr/articles/gis.html)
+  + [interactive examples](https://zoometh.github.io/iconr/articles/shiny.html)
+  + [training datasets](https://zoometh.github.io/iconr/articles/examples.html)
 
+The next ***iconr*** release will integrate shape analysis of graphical units, tree-like structures for graphical units thesaurus (multi-linguism & shared vocabularies), use of directed acyclic graphs (DAG) to model the graphical units' superimpositions (ie, Harris matrix).
   
-To promote the package utilization, we have schedule a first presentation on ZOOM (duration: ca. 45 minutes), the xx/xx/xx at 16:00 UTC. During the presentation, We will explain how it works and what are the expected outcomes (40 minutes) and respond to the audience questions (5 minutes). We will be very happy to meet you at this moment. If you are interested to participate, please conserve the following information
+To promote the package utilization, we have schedule a first presentation on ZOOM (duration: ca. 45 minutes), the **xx/xx/xx at 16:00 UTC**. During the presentation, We will explain how it works and what are the expected outcomes (40 minutes) and respond to the audience questions (5 minutes). We will be very happy to meet you at this moment. If you are interested to participate, please conserve the following information
 
 ```
 Topic: iconr R package - masterclass
@@ -142,12 +99,12 @@ If you cannot be present, but you are interested by the package or the presentat
 Best regards,
 
 Thomas Huet, LabEx ARCHIMEDE ANR-11-LABX-0032-01   
-Jose M Pozo, Independant researcher
+Jose M Pozo, Independant researcher  
 Craig Alexander, Independant researcher  
 
 ***
 
-## B. Masterclass {#col.mc}
+## B. Masterclass
 
 Online masterclass to present the _iconr_ package and schedule [training(s)](#col.mc) (open dates with Doodle)
 
@@ -157,7 +114,7 @@ Online masterclass to present the _iconr_ package and schedule [training(s)](#co
 
 3. Case studies
 
-## C. Training {#col.tr}
+## C. Training
 
 ### C.1. R and RStudio basic knowledge
 
@@ -179,7 +136,7 @@ Datasets presentations/Training to use the _iconr_ package:
 
 * open a GitHub forum for FAQs and scientific exchanges
 
-## D. round-table {#col.rt}
+## D. round-table
 
 After the [training](#col.tr), people are supposed to have used *iconr* on their favorite dataset (i.e. a selection of decorations). We will propose them to present their results in an oral communication in the frame of a round-table. Depending on the size of the decoration they have proceed, each used could choose between:
 
