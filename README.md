@@ -45,25 +45,28 @@ See also, how to [contribute](.github/CONTRIBUTING.md) to the next package relea
 
 ## Next release
 
-The next release of the R package ***iconr*** package will be focused on:
+The next release of the R package ***iconr*** package will be focused on management of graphical units (GUs)
 
 ### Shape Analysis
 
-Perform shape analysis on graphical units (GUs) with the R package [Momocs](https://momx.github.io/Momocs/articles/Momocs_intro.html)
+Perform shape analysis on GUs with the R package [Momocs](https://momx.github.io/Momocs/articles/Momocs_intro.html)
 
 ex: [ex1](https://zoometh.github.io/iconr/articles/next.html#shape-analysis-1)  
 
 ### Tree-like structures
 
-Create hierarchical _thesaurus_ for:
+Create hierarchical _thesaurus_ (tree-like) for GUs' typology, technique, etc.
 
-* GUs' typologies
-* GUs' techniques
-* etc.
+ex1:
 
-ex: [ex1](https://zoometh.github.io/iconr/articles/img/typology_gu.html)  
-ex: [ex2](https://github.com/zoometh/iconr/blob/master/doc/img/typology_gu.png)  
-ex: [ex3](https://zoometh.github.io/iconr/articles/next.html#typology-1)  
+.[GUs](https://zoometh.github.io/iconr/articles/img/typo_gu_ug.html)  
+  +--geometric  
+  +--[figurative](https://zoometh.github.io/iconr/articles/img/typo_gu_figuratif.html)  
+  |  +-- zoomorph  
+  |  +-- technomorph  
+  |  +-- [anthropomorphs](https://zoometh.github.io/iconr/articles/img/typo_gu_anthropomorphe.html)  
+
+[ex2](https://zoometh.github.io/iconr/articles/next.html#typology-1)  
 
 
 ### DAGs
