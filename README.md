@@ -55,18 +55,14 @@ ex: [ex1](https://zoometh.github.io/iconr/articles/next.html#shape-analysis-1)
 
 ### Tree-like structures
 
-Create hierarchical _thesaurus_ (tree-like) for GUs' typology, technique, etc.
+Create hierarchical _thesaurus_ (tree-like) for GUs' typology (also needed for other variable like 'technique'). Identity between GU name and value must be unique (URL). For example:
 
-ex1:
-
-.[GUs](https://zoometh.github.io/iconr/articles/img/typo_gu_ug.html)  
-  +--geometric  
-  +--[figurative](https://zoometh.github.io/iconr/articles/img/typo_gu_figuratif.html)  
-  |  +-- zoomorph  
-  |  +-- technomorph  
-  |  +-- [anthropomorphs](https://zoometh.github.io/iconr/articles/img/typo_gu_anthropomorphe.html)  
-
-[ex2](https://zoometh.github.io/iconr/articles/next.html#typology-1)  
+.[GUs](https://zoometh.github.io/iconr/articles/img/typo_gu_ug.html)   
+   |-- [geometric](https://zoometh.github.io/iconr/articles/img/typo_gu_geometrique.html)  
+   |-- [figurative](https://zoometh.github.io/iconr/articles/img/typo_gu_figuratif.html)    
+   |   |-- [zoomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_zoomorphe.html)
+   |   |-- [technomorphic](https://zoometh.github.io/iconr/articles/img/technomorphe.html)  
+   |   |-- [anthropomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_anthropomorphe.html)  
 
 
 ### DAGs
