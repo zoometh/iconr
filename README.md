@@ -61,7 +61,7 @@ Create hierarchical _thesaurus_ (tree-like) for GUs' typology (also needed for o
    |-- [geometric](https://zoometh.github.io/iconr/articles/img/typo_gu_geometrique.html)  
    |-- [figurative](https://zoometh.github.io/iconr/articles/img/typo_gu_figuratif.html)    
    |   |-- [zoomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_zoomorphe.html)  
-   |   |-- [technomorphic](https://zoometh.github.io/iconr/articles/img/technomorphe.html)  
+   |   |-- [technomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_technomorphe.html)  
    |   |-- [anthropomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_anthropomorphe.html)  
 
 
