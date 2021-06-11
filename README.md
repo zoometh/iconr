@@ -64,6 +64,7 @@ Create hierarchical _thesaurus_ (tree-like) for GUs' typology (also needed for o
    |   |-- [technomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_technomorphe.html)  
    |   |-- [anthropomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_anthropomorphe.html)  
 
+> Multi-linguism and standardization (Dublin Core, CIDOC-CRM) will also be needed
 
 ### DAGs
 
