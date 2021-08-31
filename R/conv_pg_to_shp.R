@@ -54,6 +54,7 @@
 #' ##                sqll.obj = sqll.obj.,
 #' ##                sqll.ug.polyg = sqll.ug.polyg.)
 #'
+#' @export
 
 # TODO: no projections
 conv_pg_to_shp <- function(dataDir = tempdir(),

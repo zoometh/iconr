@@ -35,6 +35,4 @@ head(read.csv2(nd.df.path), 1)
 ##         site  decor id type technlg incmplt geometry
 ## 1 Ain Ghazal stat_2  1 oeil       -       0 POLYGON ((266.9252 -167.608,...
 
-
-
 }

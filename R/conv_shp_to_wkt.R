@@ -26,8 +26,8 @@
 #' ##         site  decor id type technlg incmplt geometry
 #' ## 1 Ain Ghazal stat_2  1 oeil       -       0 POLYGON ((266.9252 -167.608,...
 #'
-#'
-#'
+#' @export
+
 options(warn=-1)
 
 conv_shp_to_wkt <- function(dataDir,

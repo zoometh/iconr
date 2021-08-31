@@ -23,8 +23,8 @@
 #' ## [ 1 / 10 ]  Ain Ghazal.stat_2.1.jpg
 #' ## ...
 #' ## [ 10 / 10 ]  Qarassa.figurine__wx.14.jpg
-
-# library(Momocs)
+#'
+#' @export
 
 morph_nds_group <- function(nodes,
                             focus = c("clust", "kmeans"),

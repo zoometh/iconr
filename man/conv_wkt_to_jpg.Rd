@@ -2,7 +2,7 @@
 % Please edit documentation in R/conv_wkt_to_jpg.R
 \name{conv_wkt_to_jpg}
 \alias{conv_wkt_to_jpg}
-\title{Convert WKT geometries to JPG}
+\title{Convert WKT to JPG}
 \usage{
 conv_wkt_to_jpg(nodes, out.dir = "_out")
 }

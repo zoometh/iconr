@@ -1,4 +1,4 @@
-#' Convert WKT geometries to JPG
+#' Convert WKT to JPG
 #' @name conv_wkt_to_jpg
 #'
 #' @description Convert Well-Known Text geometries of graphical units (GUs) to JPG files
@@ -15,6 +15,7 @@
 #' ## Saving 4.33 x 3.94 in image
 #' ## Saving 4.33 x 3.94 in image
 #' ## ...
+#' @export
 
 conv_wkt_to_jpg <- function(nodes,
                             out.dir = "_out"){

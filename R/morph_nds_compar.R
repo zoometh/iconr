@@ -18,6 +18,8 @@
 #' ## [ 1 / 10 ]  Ain Ghazal.stat_2.1.jpg
 #' ## ...
 #' ## [ 10 / 10 ]  Qarassa.figurine__wx.14.jpg
+#'
+#' @export
 
 morph_nds_compar <- function(nodes,
                              focus = c("panel", "stack", "PCA"),
