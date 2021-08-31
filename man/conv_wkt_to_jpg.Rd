@@ -12,10 +12,12 @@ conv_wkt_to_jpg(nodes, out.dir = "_out")
 \item{out.dir}{path of the output folder. By default "_out/" in the "dataDir" folder}
 }
 \value{
-JPGs files exported into as many folders as different on GUs' type (eg. 'oeil', 'visage', etc.)
+JPGs files exported into as many folders as different GUs' types (eg., 'bouche', oeil', 'visage', etc.)
+The names of the JPGs is the concatenate of their site name, dot, decoration name, dot, GU identifier (eg, "Ain Ghazal.stat_2.1.jpg")
 }
 \description{
-Convert Well-Known Text geometries of graphical unites (GUs) to JPG files in order to perform contour analysis with Momocs
+Convert Well-Known Text geometries of graphical units (GUs) to JPG files
+ in order to perform contour analysis with the Momocs package
 }
 \examples{
 conv_wkt_to_jpg(nodes = nodes)

@@ -1,40 +1,68 @@
-#' Convert Pg geometries to shapefiles geometries
-#' @name convert_pg_to_shp
+#' Convert Pg geometries to SHP geometries
+#' @name conv_pg_to_shp
 #'
-#' @description Convert the graphical units (GUs) geometries stored in PostgreSQL into shapefiles geometries.
+#' @description Convert the graphical units (GUs) geometries stored in PostgreSQL into shapefiles (SHP) geometries.
 #'
 #' @param dataDir working directory: sites' folders (copied data) and 'out' folder (outputs)
-#' @param Pg.param list of arguments to connect the PostgreSQL database. Like: list(driver, name_of_db, host, port, user, password)
-#' @param sqll.obj SQL on objects
-#' @param sqll.ug.pts SQL on GUs with geometries of type POINTS
-#' @param sqll.ug.lines SQL on GUs with geometries of type LINES
-#' @param sqll.ug.polyg SQL on GUs with geometries of type POLYGONS
+#' @param Pg.param list of arguments to connect the PostgreSQL database.
+#' Like: list(driver, name_of_db, host, port, user, password). By default NA
+#' @param sqll.obj SQL on objects to get images of decorations. By default NA
+#' @param sqll.ug.pts SQL on GUs with geometries of type POINTS to get shapes. By default NA
+#' @param sqll.ug.lines SQL on GUs with geometries of type LINES to get shapes. By default NA
+#' @param sqll.ug.polyg SQL on GUs with geometries of type POLYGONS to get shapes. By default NA
 #' @param exp.edges Export also edges as shapefiles. By default: FALSE
 #' @return Decoration's images and shapefiles
 #'
 #' @examples
-#' convert_pg_to_shp(dataDir = dataDir,
-#                    'Pg.param = Pg.param.,
-#                    'sqll.obj = sqll.obj.,
-#                    'sqll.ug.polyg = sqll.ug.polyg.) # only Polygon
+#' Pg.param. <- list("PostgreSQL",
+#'                   "postgres",
+#'                   "localhost",
+#'                   5432,
+#'                   "postgres",
+#'                   "postgres")
+#' dataPath <- "D:/decorations/"
+#' dataDir <- paste0(dataPath, "analyse")
+#'
+#' ### SQL on Pg
+#' ## Objects
+#' ## sqll.obj. <-  "SELECT
+#' ## site, numero, img
+#' ## FROM objets
+#' ## WHERE (objets.site LIKE 'Ain Ghazal' AND objets.numero LIKE 'stat_2') OR
+#' ## (objets.site LIKE 'Ain Ghazal' AND objets.numero LIKE 'stat_5_xd') OR
+#' ## (objets.site LIKE 'Qarassa' and objets.numero LIKE 'figurine__wx') OR
+#' ## (objets.site LIKE 'Jericho' and objets.numero LIKE 'tete_afe')"
+#'
+#' ## Polygons
+#' ## sqll.ug.polyg. <-  "SELECT
+#' ## objets.site,
+#' ## objets.numero,
+#' ## table_noeuds.id,
+#' ## table_noeuds.type,
+#' ## table_noeuds.technologie as technlg,
+#' ## table_noeuds.incomplet as incmplt,
+#' ## ST_AsText(table_noeuds.geom_shape) as wkt FROM objets LEFT JOIN table_noeuds
+#' ## ON table_noeuds.site = objets.site AND table_noeuds.decor = objets.numero
+#' ## WHERE (objets.site like 'Ain Ghazal' AND objets.numero like 'stat_2')
+#' ##  OR (objets.site like 'Ain Ghazal' AND objets.numero like 'stat_5_xd')
+#' ##  OR (objets.site like 'Qarassa' AND objets.numero like 'figurine__wx')
+#' ##  OR (objets.site like 'Jericho' AND objets.numero like 'tete_afe')"
+#'
+#' ## Run function
+#' ## conv_pg_to_shp(dataDir = dataDir,
+#' ##                Pg.param = Pg.param.,
+#' ##                sqll.obj = sqll.obj.,
+#' ##                sqll.ug.polyg = sqll.ug.polyg.)
 #'
 
-# library(RPostgreSQL)
-# library(stringr)
-# library(sf)
-
-# lDir <- list.dirs(path = dataDir, full.names = F, recursive = F)
-# lDir <- lDir[!grepl("^_", lDir)] # not 'out', '_archives', etc.
 # TODO: no projections
-
 conv_pg_to_shp <- function(dataDir = tempdir(),
-                              Pg.param = NA,
-                              sqll.obj = NA,
-                              sqll.ug.pts = NA,
-                              sqll.ug.lines = NA,
-                              sqll.ug.polyg = NA,
-                              # con = NA,
-                              exp.edges = FALSE){
+                           Pg.param = NA,
+                           sqll.obj = NA,
+                           sqll.ug.pts = NA,
+                           sqll.ug.lines = NA,
+                           sqll.ug.polyg = NA,
+                           exp.edges = FALSE){
   # convert Pg geometries to shapefiles, like this:
   # img: "site"."decor".ext
   # NODES
@@ -46,7 +74,7 @@ conv_pg_to_shp <- function(dataDir = tempdir(),
   dir.create(dataDir, showWarnings = FALSE) # create 'dataDir' folder if not exist
   dir.create(file.path(dataDir, "/_out"), showWarnings = FALSE) # create 'out' folder if not exist
   # read Pg
-  library("RPostgreSQL") # necessary ??
+  # library("RPostgreSQL") # necessary ??
   drv <- DBI::dbDriver(Pg.param[[1]])
   con <- RPostgreSQL::dbConnect(drv,
                                 dbname = Pg.param[[2]],
@@ -74,21 +102,10 @@ conv_pg_to_shp <- function(dataDir = tempdir(),
     a.img <- gsub("%20", " ", a.img)
     f.copied <- file.copy(from = a.img,
                           to = paste0(dataDir, "/",
-                                        a.site, "/",
-                                        paste0(a.site, ".", a.img.short)))
-    # to   = paste0(dataDir, "/toCompare/", paste0(a.site, ".", a.img.short)))
-    # setwd(file.path(mainDir, subDir))
+                                      a.site, "/",
+                                      paste0(a.site, ".", a.img.short)))
   }
   ## UGs & EDGES
-  # drv <- dbDriver("PostgreSQL")
-  # con <- dbConnect(drv,
-  #                  dbname="mailhac_9",
-  #                  host="localhost",
-  #                  port=5432,
-  #                  user="postgres",
-  #                  password="postgres")
-  # - - - - - - - - - - - - - - -
-  # get a datatframe structure from any sqll
   sqlls <- c(sqll.ug.pts, sqll.ug.lines, sqll.ug.lines, sqll.ug.polyg)
   sqlls <- sqlls[!is.na(sqlls)]
   ugs <- dbGetQuery(con, sqlls[1])
@@ -153,7 +170,7 @@ conv_pg_to_shp <- function(dataDir = tempdir(),
   df.ugs <- df.ugs[!is.na(df.ugs$wkt), ]
   # write.csv2(df.ugs, paste0(dataDir, "toCompare/nodes.csv"), row.names = FALSE)
   # TODO: when ugs are Line or Polygons, there's a need to get their centroid to pass this value to Edges
-  # filter on geometries to compare Polygon // POlygon & Lines // Lines & etc.
+  # filter on geometries to compare Polygon // Polygon & Lines // Lines & etc.
   df.ugs.point <- df.ugs[grep("POINT", df.ugs$wkt, value = F), ]
   df.ugs.lines <- df.ugs[grep("LINE", df.ugs$wkt, value = F), ]
   df.ugs.polyg <- df.ugs[grep("POLYGON", df.ugs$wkt, value = F), ]
@@ -169,12 +186,12 @@ conv_pg_to_shp <- function(dataDir = tempdir(),
       noeuds.polyg.sf <- sf::st_as_sf(df.ugs.polyg.select.dec, wkt = "wkt")
       out.shp <- paste0(dataDir, "/", a.site, "/", paste0(a.site, ".", a.decor, "_nd_pl.shp"))
       sf::st_write(noeuds.polyg.sf,
-               out.shp,
-               delete_layer = T,
-               quiet = T)
+                   out.shp,
+                   delete_layer = T,
+                   quiet = T)
       # TODO: export other geometries to shapefile
     }
-    print(paste0("Geometries of '", a.site,"' has been exported"))
+    print(paste0("Geometries of '", a.site, "' has been exported"))
   }
   if(exp.edges){
     ## EDGES

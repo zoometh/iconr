@@ -25,7 +25,7 @@ Depending on the focus, return 'panel', 'stack' or 'PCA' plots with their comple
 }
 \description{
 Momocs package morphometrics comparisons between different graphical units (GUs).
- Read jpg files from each different folder. Useful before grouping (see, morph_nds_group)
+ Read JPG files from each different folder. Useful before grouping (see, 'morph_nds_group' function)
  to determine the number of clusters
 }
 \examples{

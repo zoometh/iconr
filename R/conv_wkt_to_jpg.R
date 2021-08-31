@@ -1,11 +1,13 @@
 #' Convert WKT geometries to JPG
 #' @name conv_wkt_to_jpg
 #'
-#' @description Convert Well-Known Text geometries of graphical unites (GUs) to JPG files in order to perform contour analysis with Momocs
+#' @description Convert Well-Known Text geometries of graphical units (GUs) to JPG files
+#'  in order to perform contour analysis with the Momocs package
 #'
 #' @param nodes nodes dataframe coming from the 'conv_shp_to_wkt.R' function
 #' @param out.dir path of the output folder. By default "_out/" in the "dataDir" folder
-#' @return JPGs files exported into as many folders as different on GUs' type (eg. 'oeil', 'visage', etc.)
+#' @return JPGs files exported into as many folders as different GUs' types (eg., 'bouche', oeil', 'visage', etc.)
+#' The names of the JPGs is the concatenate of their site name, dot, decoration name, dot, GU identifier (eg, "Ain Ghazal.stat_2.1.jpg")
 #'
 #' @examples
 #' conv_wkt_to_jpg(nodes = nodes)

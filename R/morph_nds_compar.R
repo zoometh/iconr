@@ -2,7 +2,7 @@
 #' @name morph_nds_compar
 #'
 #' @description Momocs package morphometrics comparisons between different graphical units (GUs).
-#'  Read jpg files from each different folder. Useful before grouping (see, morph_nds_group)
+#'  Read JPG files from each different folder. Useful before grouping (see, 'morph_nds_group' function)
 #'  to determine the number of clusters
 #'
 #' @param nodes Dataframe of nodes

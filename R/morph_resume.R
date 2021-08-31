@@ -1,22 +1,26 @@
-#' Resume geometry classes (POINTS, LINES, POLYGON) of all graphical units for each different object.
+#' Resume geometry classes (POINTS, LINES, POLYGON) of GUs for each object
 #' @name morph_resume
-#' @description Create a contactsheet of decoration with information on graphical units (GUs) geometries:
+#' @description Create a contact sheet of decoration with information on graphical units (GUs) geometries:
 #' eg., number of Polygons by types, number of Lines by types, etc.
 #'
-#' @param dataDir path of the folder storing folders of all decorations
-#' @param nodes nodes dataframe coming from the 'conv_shp_to_wkt.R' function
-#' @param out.dir path of the output folder. By default "_out/" in the "dataDir" folder
-#' @param imgs.format accepted picture formats (see magick image_read)
+#' @param dataDir Path of the folder storing folders of all decorations
+#' @param nodes Nodes dataframe coming from the 'conv_shp_to_wkt.R' function
+#' @param out.dir Path of the output folder. By default "_out/" in the "dataDir" folder
+#' @param imgs.format Accepted picture formats (see 'magick' package, 'image_read' function)
+#' @return Create a contact sheet of decoration with information on graphical units (GUs) geometries:
+#' eg., number of Polygons by types, number of Lines by types, etc.
+#' @examples
+#' > morph_resume(dataDir = dataDir,
+#' +              nodes = nodes)
+#' [1] "Ain Ghazal"
+#' [1] "Jericho"
+#' [1] "Qarassa"
 #'
-#'
-
-# library(ggplot2)
 
 morph_resume <- function(dataDir,
                          nodes = NA,
                          out.dir = "_out",
                          imgs.format = c(".jpg", ".png", ".gif", ".tiff", "tif")){
-  # nodes <- read.csv2(nd.df.path)
   out.dirPath <- paste0(dataDir, "/", out.dir)
   mytheme <- gridExtra::ttheme_default(base_size = 10,
                                        padding = grid::unit(c(1, 1), "mm"))

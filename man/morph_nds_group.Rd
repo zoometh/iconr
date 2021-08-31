@@ -19,12 +19,12 @@ morph_nds_group(
 \item{focus}{Type of grouping, hierachical clustering ("clust") or Kmeans ("kmeans").
 By default, c("clust", "kmeans")}
 
-\item{gu.types}{classes of nodes that will be clustered, a vector of characters or a character.
+\item{gu.types}{Classes of nodes that will be clustered, a vector of characters or a character.
 By default "all"}
 
-\item{nb.centers}{number of clusters, uniquely for Kmeans. By default 1 (unique cluster)}
+\item{nb.centers}{Number of clusters, uniquely for Kmeans. By default 1 (unique cluster)}
 
-\item{out.dir}{name of output folder}
+\item{out.dir}{Name of output folder}
 
 \item{out.data}{Type of data returned.
 If "mbrshp" return a dataframe of nodes with their clustering and image path.
@@ -35,7 +35,7 @@ Depending on the focus, return hierachical clustering ("clust") or Kmeans ("kmea
 }
 \description{
 Morphometrics classification (groups) between different graphical units (GUs).
- Read jpg files from each different folder. Useful after comparisons (see, morph_nds_compar)
+ Read JPG files from each different folder. Useful after comparisons (see, m'orph_nds_compar' function)
 }
 \examples{
 morph_nds_group(nodes)

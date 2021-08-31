@@ -2,7 +2,7 @@
 % Please edit documentation in R/morph_resume.R
 \name{morph_resume}
 \alias{morph_resume}
-\title{Resume geometry classes (POINTS, LINES, POLYGON) of all graphical units for each different object.}
+\title{Resume geometry classes (POINTS, LINES, POLYGON) of GUs for each object}
 \usage{
 morph_resume(
   dataDir,
@@ -12,15 +12,27 @@ morph_resume(
 )
 }
 \arguments{
-\item{dataDir}{path of the folder storing folders of all decorations}
+\item{dataDir}{Path of the folder storing folders of all decorations}
 
-\item{nodes}{nodes dataframe coming from the 'conv_shp_to_wkt.R' function}
+\item{nodes}{Nodes dataframe coming from the 'conv_shp_to_wkt.R' function}
 
-\item{out.dir}{path of the output folder. By default "_out/" in the "dataDir" folder}
+\item{out.dir}{Path of the output folder. By default "_out/" in the "dataDir" folder}
 
-\item{imgs.format}{accepted picture formats (see magick image_read)}
+\item{imgs.format}{Accepted picture formats (see 'magick' package, 'image_read' function)}
+}
+\value{
+Create a contact sheet of decoration with information on graphical units (GUs) geometries:
+eg., number of Polygons by types, number of Lines by types, etc.
 }
 \description{
-Create a contactsheet of decoration with information on graphical units (GUs) geometries:
+Create a contact sheet of decoration with information on graphical units (GUs) geometries:
 eg., number of Polygons by types, number of Lines by types, etc.
+}
+\examples{
+> morph_resume(dataDir = dataDir,
++              nodes = nodes)
+[1] "Ain Ghazal"
+[1] "Jericho"
+[1] "Qarassa"
+
 }

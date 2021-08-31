@@ -2,15 +2,15 @@
 #' @name morph_nds_group
 #'
 #' @description Morphometrics classification (groups) between different graphical units (GUs).
-#'  Read jpg files from each different folder. Useful after comparisons (see, morph_nds_compar)
+#'  Read JPG files from each different folder. Useful after comparisons (see, m'orph_nds_compar' function)
 #'
 #' @param nodes Dataframe of nodes
 #' @param focus Type of grouping, hierachical clustering ("clust") or Kmeans ("kmeans").
 #' By default, c("clust", "kmeans")
-#' @param gu.types classes of nodes that will be clustered, a vector of characters or a character.
+#' @param gu.types Classes of nodes that will be clustered, a vector of characters or a character.
 #' By default "all"
-#' @param nb.centers number of clusters, uniquely for Kmeans. By default 1 (unique cluster)
-#' @param out.dir name of output folder
+#' @param nb.centers Number of clusters, uniquely for Kmeans. By default 1 (unique cluster)
+#' @param out.dir Name of output folder
 #' @param out.data Type of data returned.
 #' If "mbrshp" return a dataframe of nodes with their clustering and image path.
 #' If "plot" return a "kmeans" or create a plot. By default c("mbrshp", "plot")
