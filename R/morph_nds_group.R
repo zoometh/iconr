@@ -14,19 +14,29 @@
 #' @param out.data Type of data returned.
 #' If "mbrshp" return a dataframe of nodes with their clustering and image path.
 #' If "plot" return a "kmeans" or create a plot. By default c("mbrshp", "plot")
+#' @return Depending on the focus, return hierachical clustering ("clust") or Kmeans ("kmeans") plots with their complete path
+#' @examples
+#' morph_nds_group(nodes)
+#'
+#' ## [1] "* read 'oeil' typo"
+#' ## Extracting 10.jpg outlines...
+#' ## [ 1 / 10 ]  Ain Ghazal.stat_2.1.jpg
+#' ## ...
+#' ## [ 10 / 10 ]  Qarassa.figurine__wx.14.jpg
 
 # library(Momocs)
 
 morph_nds_group <- function(nodes,
-                              focus = c("clust", "kmeans"),
-                              gu.types = "all",
-                              nb.centers = 1,
-                              out.dir = getwd(),
-                              out.data = c("mbrshp", "plot")){
+                            focus = c("clust", "kmeans"),
+                            gu.types = "all",
+                            nb.centers = 1,
+                            out.dir = "_out",
+                            out.data = c("mbrshp", "plot")){
+  out.dirPath <- paste0(dataDir, "/", out.dir)
   # TODO: not escape when different GUs (return)
   # TODO: include LINES
-  # focus  = "clust" ; out.dir ; gu.types = "bouche"
-  # nodes, gu.types = "oeil", focus  = "clust", out.dir = out.dir
+  # focus  = "clust" ; out.dirPath ; gu.types = "bouche"
+  # nodes, gu.types = "oeil", focus  = "clust", out.dirPath = out.dirPath
   nodes$idf <- paste0(nodes$site, ".", nodes$decor, ".", nodes$id)
   # nodes$abb <- paste0(abbreviate(nodes$site), ".", abbreviate(nodes$decor))
   nodes.sel <- nodes[grep("POLYGON", nodes$geometry, value=F), ] # filter
@@ -34,7 +44,8 @@ morph_nds_group <- function(nodes,
   # fac$idf <- paste0(fac$site, ".", fac$decor)
   # colors
   nb.cols <- length(unique(fac$idf))
-  Wi <- nb.cols ; He <- ceiling(nb.cols/1.5)
+  Wi <- nb.cols
+  He <- ceiling(nb.cols/1.5)
   dec.cols <- RColorBrewer::brewer.pal(nb.cols, "Spectral")
   dec.cols <- grDevices::colorRampPalette(dec.cols)(nb.cols) # extend if needed
   fac.colors <- data.frame(idf = unique(fac$idf),
@@ -47,8 +58,7 @@ morph_nds_group <- function(nodes,
     # gu.type <- "nez" ; gu.type <- "oeil"
     # read JPG
     print(paste0("* read '", gu.type,"' typo"))
-    print(paste0(out.dir, "/", gu.type))
-    jpgs <- list.files(paste0(out.dir, "/", gu.type), full.names=TRUE)
+    jpgs <- list.files(paste0(out.dirPath, "/", gu.type), full.names=TRUE)
     coo <- Momocs::import_jpg(jpgs)
     min.len <- min(lengths(coo))/2
     # reduce nb of points to the lower value for outlines analysis
@@ -70,9 +80,9 @@ morph_nds_group <- function(nodes,
     if("clust" %in% focus){
       # panel
       print(paste0("Clust..."))
-      out.d <- paste0(out.dir, "/", gu.type, "_group_clust.png")
+      out.d <- paste0(out.dirPath, "/", gu.type, "_group_clust.png")
       grDevices::png(out.d,
-          width = Wi+10, height = He, units = "cm", res = 300)
+                     width = Wi+10, height = He, units = "cm", res = 300)
       print(
         clust <- Momocs::CLUST(PCA.type, ~idf)
       ) # + theme(plot.margin = unit(c(0,3,0,0), "cm"))
@@ -84,9 +94,9 @@ morph_nds_group <- function(nodes,
       # nb.centers = 3
       print(paste0("kmeans..."))
       if("plot" %in% out.data){
-        out.d <- paste0(out.dir, "/", gu.type, "_group_kmeans.png")
+        out.d <- paste0(out.dirPath, "/", gu.type, "_group_kmeans.png")
         grDevices::png(out.d,
-            width = Wi, height = He, units = "cm", res = 300)
+                       width = Wi, height = He, units = "cm", res = 300)
         print(
           kmean <- Momocs::KMEANS(PCA.type, centers = nb.centers)
         )
@@ -105,7 +115,7 @@ morph_nds_group <- function(nodes,
                                 gu.type = gu.type,
                                 cluster = as.character(mbrshps),
                                 # TODO: adapt to different device (.png, ...)
-                                image = paste0(out.dir, "/", gu.type, "/", names(mbrshps), ".jpg"))
+                                image = paste0(out.dirPath, "/", gu.type, "/", names(mbrshps), ".jpg"))
         lout[[length(lout)+1]] <- df.mbrshp
         # return(df.mbrshp)
       }

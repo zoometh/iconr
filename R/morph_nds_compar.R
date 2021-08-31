@@ -1,22 +1,31 @@
 #' Morphometrics comparisons between GUs
 #' @name morph_nds_compar
 #'
-#' @description Morphometrics comparisons between different graphical units (GUs).
+#' @description Momocs package morphometrics comparisons between different graphical units (GUs).
 #'  Read jpg files from each different folder. Useful before grouping (see, morph_nds_group)
+#'  to determine the number of clusters
 #'
 #' @param nodes Dataframe of nodes
-#' @param focus Type of analsisi: 'panel', 'stack' or 'PCA'. By default c("panel", "stack", "PCA")
-#' @param nb.h number of harmonics, uniquely for PCA. By default = 15
-#' @param out.dir name of output folder
-
-# library(Momocs)
+#' @param focus Type of analysis: 'panel', 'stack' or 'PCA'. By default c("panel", "stack", "PCA")
+#' @param nb.h number of Fourier harmonics, uniquely for PCA. By default = 15
+#' @param out.dir path of the output folder. By default "_out/" in the "dataDir" folder
+#' @return Depending on the focus, return 'panel', 'stack' or 'PCA' plots with their complete path
+#' @examples
+#' morph_nds_compar(nodes)
+#'
+#' ## [1] "* read 'oeil' type of UGs"
+#' ## Extracting 10.jpg outlines...
+#' ## [ 1 / 10 ]  Ain Ghazal.stat_2.1.jpg
+#' ## ...
+#' ## [ 10 / 10 ]  Qarassa.figurine__wx.14.jpg
 
 morph_nds_compar <- function(nodes,
                              focus = c("panel", "stack", "PCA"),
                              nb.h = 15,
-                             out.dir = getwd()){
+                             out.dir = "_out"){
+  out.dirPath <- paste0(dataDir, "/", out.dir)
   # TODO: include LINES
-  # focus  = "panel"; out.dir ; merge.by = "type"
+  # focus  = "panel"; out.dirPath ; merge.by = "type"
   nodes$idf <- paste0(nodes$site, ".", nodes$decor) # useful ?
   nodes$abb <- paste0(abbreviate(nodes$site, 3), ".",
                       abbreviate(nodes$decor, 3), ".",
@@ -38,7 +47,7 @@ morph_nds_compar <- function(nodes,
     # a.gu.type.name <- "sourcil" ; a.gu.type.name <- "oeil"
     # read JPG
     print(paste0("* read '", a.gu.type.name,"' type of UGs"))
-    jpgs <- list.files(paste0(out.dir, "/", a.gu.type.name), full.names = TRUE)
+    jpgs <- list.files(paste0(out.dirPath, "/", a.gu.type.name), full.names = TRUE)
     coo <- Momocs::import_jpg(jpgs)
     fac.type <- fac[fac$type == a.gu.type.name, ]
     fac.type$idf <- as.factor(fac.type$idf)
@@ -47,7 +56,7 @@ morph_nds_compar <- function(nodes,
     ## export
     if("panel" %in% focus){
       print(paste0("Panel..."))
-      out.d <- paste0(out.dir, "/", a.gu.type.name, "_compar_panel.png")
+      out.d <- paste0(out.dirPath, "/", a.gu.type.name, "_compar_panel.png")
       grDevices::png(out.d,
                      width = Wi+2, height = He+2, units = "cm", res = 300)
       # panel(a.gu.type, fac="idf", names=TRUE, palette = col_spring)
@@ -71,7 +80,7 @@ morph_nds_compar <- function(nodes,
     if("stack" %in% focus){
       # export
       print(paste0("Stack..."))
-      out.d <- paste0(out.dir, "/", a.gu.type.name, "_compar_stack.png")
+      out.d <- paste0(out.dirPath, "/", a.gu.type.name, "_compar_stack.png")
       grDevices::png(out.d,
                      width = Wi, height = He, units = "cm", res = 300)
       stack(a.gu.type,
@@ -86,7 +95,7 @@ morph_nds_compar <- function(nodes,
       if(length(jpgs) > 1){
         # need 2 features at least for PCA
         print(paste0("PCA..."))
-        out.d <- paste0(out.dir, "/", a.gu.type.name, "_compar_PCA.png")
+        out.d <- paste0(out.dirPath, "/", a.gu.type.name, "_compar_PCA.png")
         grDevices::png(out.d,
                        width = Wi, height = He, units = "cm", res = 300)
         ef.type <- Momocs::efourier(a.gu.type, nb.h=10)

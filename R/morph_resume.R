@@ -1,23 +1,23 @@
 #' Resume geometry classes (POINTS, LINES, POLYGON) of all graphical units for each different object.
-#' @name resume_geom
+#' @name morph_resume
 #' @description Create a contactsheet of decoration with information on graphical units (GUs) geometries:
 #' eg., number of Polygons by types, number of Lines by types, etc.
 #'
 #' @param dataDir path of the folder storing folders of all decorations
-#' @param nodes the 'nodes.csv' dataframe. By default dataDir/_out/nodes.csv
-#' @param out.dir path of the output folder, also the name of the 'nodes.csv' folder. By default dataDir/_out
+#' @param nodes nodes dataframe coming from the 'conv_shp_to_wkt.R' function
+#' @param out.dir path of the output folder. By default "_out/" in the "dataDir" folder
 #' @param imgs.format accepted picture formats (see magick image_read)
 #'
 #'
 
 # library(ggplot2)
 
-resume_geom <- function(dataDir,
-                        nodes = NA,
-                        # nd.df.path = paste0(dataDir, "/_out/nodes.csv"),
-                        out.dir = NA,
-                        imgs.format = c(".jpg", ".png", ".gif", ".tiff", "tif")){
+morph_resume <- function(dataDir,
+                         nodes = NA,
+                         out.dir = "_out",
+                         imgs.format = c(".jpg", ".png", ".gif", ".tiff", "tif")){
   # nodes <- read.csv2(nd.df.path)
+  out.dirPath <- paste0(dataDir, "/", out.dir)
   mytheme <- gridExtra::ttheme_default(base_size = 10,
                                        padding = grid::unit(c(1, 1), "mm"))
   linfo <- list()
@@ -74,7 +74,7 @@ resume_geom <- function(dataDir,
   }
   library(gridExtra) # necessary ? see: https://stackoverflow.com/questions/38983179/do-call-a-function-in-r-without-loading-the-package
   g.all <- do.call("grid.arrange", c(linfo, ncol = 4)) # 8
-  g.out <- paste0(out.dir, "/1_resume.png")
+  g.out <- paste0(out.dirPath, "/1_resume.png")
   ggplot2::ggsave(file = g.out,
                   g.all,
                   width = 15,
