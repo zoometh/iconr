@@ -21,3 +21,4 @@
 ^man/shape_elements.Rd$
 ^R/_*\..R$
 ^man/_*\..Rd$
+^R/(archives)$

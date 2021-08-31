@@ -11,6 +11,7 @@ LazyData: true
 Imports:
     igraph,
     magick,
+    Momocs,
     rgdal,
     grDevices,
     graphics,
