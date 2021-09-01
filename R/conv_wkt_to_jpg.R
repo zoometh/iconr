@@ -15,8 +15,8 @@
 #' ## Saving 4.33 x 3.94 in image
 #' ## Saving 4.33 x 3.94 in image
 #' ## ...
+#'
 #' @export
-
 conv_wkt_to_jpg <- function(nodes,
                             out.dir = "_out"){
   # TODO: add "LINES"

@@ -55,8 +55,6 @@
 #' ##                sqll.ug.polyg = sqll.ug.polyg.)
 #'
 #' @export
-
-# TODO: no projections
 conv_pg_to_shp <- function(dataDir = tempdir(),
                            Pg.param = NA,
                            sqll.obj = NA,
@@ -64,6 +62,7 @@ conv_pg_to_shp <- function(dataDir = tempdir(),
                            sqll.ug.lines = NA,
                            sqll.ug.polyg = NA,
                            exp.edges = FALSE){
+  # TODO: no projections
   # convert Pg geometries to shapefiles, like this:
   # img: "site"."decor".ext
   # NODES

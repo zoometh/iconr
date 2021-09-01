@@ -15,8 +15,8 @@
 #' [1] "Ain Ghazal"
 #' [1] "Jericho"
 #' [1] "Qarassa"
+#'
 #' @export
-
 morph_resume <- function(dataDir,
                          nodes = NA,
                          out.dir = "_out",

@@ -25,7 +25,6 @@
 #' ## [ 10 / 10 ]  Qarassa.figurine__wx.14.jpg
 #'
 #' @export
-
 morph_nds_group <- function(nodes,
                             focus = c("clust", "kmeans"),
                             gu.types = "all",

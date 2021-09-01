@@ -20,7 +20,6 @@
 #' ## [ 10 / 10 ]  Qarassa.figurine__wx.14.jpg
 #'
 #' @export
-
 morph_nds_compar <- function(nodes,
                              focus = c("panel", "stack", "PCA"),
                              nb.h = 15,
