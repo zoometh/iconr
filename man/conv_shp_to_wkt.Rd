@@ -3,6 +3,9 @@
 \name{conv_shp_to_wkt}
 \alias{conv_shp_to_wkt}
 \title{Convert SHP to WKT}
+\usage{
+conv_shp_to_wkt(dataDir, complete.only = TRUE, out.dir = "_out")
+}
 \arguments{
 \item{dataDir}{Path of the folder storing folders of all decorations.
 Each of these folders as a site name (eg, Ain Ghazal) and contains at least
@@ -16,9 +19,9 @@ The image is named conventionally with the name of the site,
  a dot,
  and the name of the decoration (eg, Ain Ghazal.stat_2.tif)}
 
-\item{out.dir}{Path of the output folder. By default "_out/" in the "dataDir" folder}
-
 \item{complete.only}{Boolean, if TRUE discard incomplete (incmplt == 1), by default = TRUE}
+
+\item{out.dir}{Path of the output folder. By default "_out/" in the "dataDir" folder}
 }
 \value{
 Create the 'nodes.csv' file into the out folder, return the complete path of the 'nodes.csv' file

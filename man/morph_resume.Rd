@@ -34,4 +34,5 @@ eg., number of Polygons by types, number of Lines by types, etc.
 [1] "Ain Ghazal"
 [1] "Jericho"
 [1] "Qarassa"
+
 }
