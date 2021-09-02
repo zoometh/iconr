@@ -76,12 +76,12 @@ conv_pg_to_shp <- function(dataDir = tempdir(),
   # read Pg
   # library("RPostgreSQL") # necessary ??
   drv <- DBI::dbDriver(Pg.param[[1]])
-  con <- RPostgreSQL::dbConnect(drv,
-                                dbname = Pg.param[[2]],
-                                host = Pg.param[[3]],
-                                port = Pg.param[[4]],
-                                user = Pg.param[[5]],
-                                password = Pg.param[[6]])
+  con <- PostgreSQL::dbConnect(drv,
+                               dbname = Pg.param[[2]],
+                               host = Pg.param[[3]],
+                               port = Pg.param[[4]],
+                               user = Pg.param[[5]],
+                               password = Pg.param[[6]])
   objets <- DBI::dbGetQuery(con, sqll.obj.)
   # rm objets without imgs
   objets <- objets[objets$img != '', ]
