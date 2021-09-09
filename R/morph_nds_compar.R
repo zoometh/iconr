@@ -6,7 +6,8 @@
 #'  to determine the number of clusters
 #'
 #' @param nodes Dataframe of nodes
-#' @param focus Type of analysis: 'panel', 'stack' or 'PCA'. By default c("panel", "stack", "PCA")
+#' @param focus Type of analysis: 'panel', 'stack', 'PCA' or 'dist'.
+#' By default c("panel", "stack", "PCA", "dist")
 #' @param nb.h number of Fourier harmonics, uniquely for PCA. By default = 15
 #' @param out.dir path of the output folder. By default "_out/" in the "dataDir" folder
 #' @return Depending on the focus, return 'panel', 'stack' or 'PCA' plots with their complete path
@@ -20,30 +21,32 @@
 #' ## [ 10 / 10 ]  Qarassa.figurine__wx.14.jpg
 #'
 #' @export
-morph_nds_compar <- function(nodes,
-                             focus = c("panel", "stack", "PCA"),
+morph_nds_compar <- function(nodes = NA,
+                             focus = c("panel", "stack", "PCA", "dist"),
                              nb.h = 15,
                              out.dir = "_out"){
   out.dirPath <- paste0(dataDir, "/", out.dir)
   # TODO: include LINES
   # focus  = "panel"; out.dirPath ; merge.by = "type"
   nodes$idf <- paste0(nodes$site, ".", nodes$decor) # useful ?
-  nodes$abb <- paste0(abbreviate(nodes$site, 3), ".",
-                      abbreviate(nodes$decor, 3), ".",
-                      nodes$id)
+  # nodes$abb <- paste0(abbreviate(nodes$site, 3), ".",
+  #                     abbreviate(nodes$decor, 3), ".",
+  #                     nodes$id)
+  # nodes$idf <- nodes$abb
   nodes <- nodes[grep("POLYGON", nodes$geometry, value = F), ] # filter on Polygons
   fac <- tibble::as_tibble(nodes[, c("site", "decor", "type", "idf")]) # attributes
   # fac$idf <- paste0(fac$site, ".", fac$decor)
   # colors
   nb.cols <- length(unique(fac$idf)) # color on objects
-  Wi <- nb.cols + 5
-  He <- ceiling(nb.cols/1.5) + 5
-  dec.cols <- RColorBrewer::brewer.pal(nb.cols, "Spectral")
+  Wi <- nb.cols + 4
+  He <- ceiling(nb.cols/1.5) + 4
+  dec.cols <- RColorBrewer::brewer.pal(nb.cols, "Set1")
   dec.cols <- grDevices::colorRampPalette(dec.cols)(nb.cols) # extend if needed
   fac.colors <- data.frame(idf = unique(fac$idf),
                            cols = dec.cols)
   fac <- merge(fac, fac.colors, by = "idf", all.x = TRUE)
   types.folders <- unique(nodes$type)
+  ldist <- list() # if "dist"
   for(a.gu.type.name in types.folders){
     # a.gu.type.name <- "sourcil" ; a.gu.type.name <- "oeil"
     # read JPG
@@ -66,14 +69,14 @@ morph_nds_compar <- function(nodes,
                     # fac = "abb",
                     main = a.gu.type.name,
                     names = TRUE,
-                    abbreviate.labelspoints = TRUE,
+                    abbreviate.labelspoints = FALSE,
                     # cex.names = 1,
                     borders = a.gu.type$fac$cols,
                     cols = a.gu.type$fac$cols,
                     # points = TRUE,
                     labelspoints = TRUE,
                     col.labelspoints = a.gu.type$fac$cols,
-                    cex.labelspoints = .6)
+                    cex.labelspoints = 1)
       grDevices::dev.off()
       print(paste0("panel ", out.d))
     }
@@ -83,7 +86,8 @@ morph_nds_compar <- function(nodes,
       print(paste0("Stack..."))
       out.d <- paste0(out.dirPath, "/", a.gu.type.name, "_compar_stack.png")
       grDevices::png(out.d,
-                     width = Wi, height = He, units = "cm", res = 300)
+                     width = Wi, height = He,
+                     units = "cm", res = 300)
       stack(a.gu.type,
             title = a.gu.type.name,
             borders = a.gu.type$fac$cols
@@ -107,10 +111,12 @@ morph_nds_compar <- function(nodes,
              # fac = "abb",
              title = a.gu.type.name,
              col = PCA.type$fac$cols,
-             cex = 2,
              labelspoints = TRUE,
-             abbreviate.labelspoints = TRUE,
-             zoom = .9, # to avoid marginal cuts
+             points = TRUE,
+             cex = 0.7,
+             # cex.points = .3,
+             # abbreviate.labelspoints = TRUE,
+             # zoom = .9, # to avoid marginal cuts
              # col.labelspoints = PCA.type$fac$cols,
              cex.labelspoints = 1
         )
@@ -118,5 +124,22 @@ morph_nds_compar <- function(nodes,
         print(paste0("PCA ", out.d))
       }
     }
+    if("dist" %in% focus){
+      # export
+      if(length(jpgs) > 1){
+        # need 2 features at least for PCA
+        print(paste0("dist..."))
+        library(dplyr) # TODO: %>% -> dplyr
+        res.MDS <- Momocs::efourier(a.gu.type, nb.h = 10) %>%
+          Momocs::MDS()
+        a.dist <- dist(res.MDS$x,
+                       diag = T,
+                       upper = T)
+        ldist[[length(ldist) + 1]] <- a.dist
+        print(paste0("dist "))
+      }
+    }
   }
+  if("dist" %in% focus){
+    return(ldist)}
 }

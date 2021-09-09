@@ -1,8 +1,6 @@
 #' Convert SHP to WKT
 #' @name conv_shp_to_wkt
-#' @description Read GUs (ie, nodes) shapefiles (POINTS, LINES, POLYGONS) from the different sites' folders,
-#' store nodes in the 'nodes.csv' dataframe with geometries as Well-Known Text (WKT) representations,
-#' return path of the node dataframe
+#' @description Convert the graphical units (GUs) geometries stored as shapefiles of POINTS, LINES, or POLYGONS into Well-Known Text (WKT) representations. Store the results in the 'nodes.csv' dataframe and return path of this dataframe
 #'
 #' @param dataDir Path of the folder storing folders of all decorations.
 #' Each of these folders as a site name (eg, Ain Ghazal) and contains at least
@@ -91,7 +89,7 @@ conv_shp_to_wkt <- function(dataDir,
       }
     }
   }
-  write.csv2(df.ugs, paste0(out.dirPath, "/nodes.csv"), sep = ";", row.names = F)
+  write.csv2(df.ugs, paste0(out.dirPath, "/nodes.csv"), row.names = FALSE)
   print(paste0("nodes dataframe (n = ", nrow(df.ugs), ") exported to: '", out.dirPath, "/nodes.csv'"))
   return(paste0(out.dirPath, "/nodes.csv"))
 }

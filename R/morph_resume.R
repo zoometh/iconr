@@ -1,7 +1,7 @@
 #' Resume geometry classes (POINTS, LINES, POLYGON) of GUs for each object
 #' @name morph_resume
-#' @description Create a contact sheet of decoration with information on graphical units (GUs) geometries:
-#' eg., number of Polygons by types, number of Lines by types, etc.
+#' @description Create a contact sheet of decoration's and and graphical units (GUs) main informations:
+#' eg., number of POLYGONS by types, number of LINES by types, etc.
 #'
 #' @param dataDir Path of the folder storing folders of all decorations
 #' @param nodes Nodes dataframe coming from the 'conv_shp_to_wkt.R' function
@@ -28,22 +28,26 @@ morph_resume <- function(dataDir,
   lDir <- list.dirs(path = dataDir, full.names = F, recursive = F)
   lDir <- lDir[!grepl("^_", lDir)] # not folder starting with '_*' (_out, _archives, etc.)
   for (site in lDir){
+    # the decoration folders
     # site <- "Pozzo delle Capre" ; site <- "Ain Ghazal"
     print (site)
     in.Dir <- paste0(dataDir, "/", site)
     in.Dir.img <- list.files(in.Dir)
-    imgs <- unique(grep(paste(imgs.format, collapse="|"),
+    imgs <- unique(grep(paste(imgs.format, collapse = "|"),
                         in.Dir.img, value=TRUE))
     if(length(imgs) > 0){
+      # the images
       for(j in 1:length(imgs)){
         # j <- 1
         a.img <- imgs[j]
         img <- unlist(strsplit(a.img, split = "\\.")) # split on "."
         # like "site" "decor" "image format"
         # img.site <- i # img[1]
+        # temp
         img.decor <- img[2]
         tit <- paste0(site, ".", img.decor)
         # abbrev
+        # TODO: manage abb
         tit.abb <- paste0(abbreviate(site, 2), ".",
                           abbreviate(img.decor, 3))
         # filter on nodes df to get basic statistics

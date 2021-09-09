@@ -1,7 +1,7 @@
 #' Convert Pg geometries to SHP geometries
 #' @name conv_pg_to_shp
 #'
-#' @description Convert the graphical units (GUs) geometries stored in PostgreSQL into shapefiles (SHP) geometries.
+#' @description Convert the graphical units (GUs) geometries stored in Postgres into shapefiles representations
 #'
 #' @param dataDir working directory: sites' folders (copied data) and 'out' folder (outputs)
 #' @param Pg.param list of arguments to connect the PostgreSQL database.
@@ -76,13 +76,13 @@ conv_pg_to_shp <- function(dataDir = tempdir(),
   # read Pg
   # library("RPostgreSQL") # necessary ??
   drv <- DBI::dbDriver(Pg.param[[1]])
-  con <- PostgreSQL::dbConnect(drv,
+  con <- RPostgres::dbConnect(drv,
                                dbname = Pg.param[[2]],
                                host = Pg.param[[3]],
                                port = Pg.param[[4]],
                                user = Pg.param[[5]],
                                password = Pg.param[[6]])
-  objets <- DBI::dbGetQuery(con, sqll.obj.)
+  objets <- RPostgreSQL::dbGetQuery(con, sqll.obj.)
   # rm objets without imgs
   objets <- objets[objets$img != '', ]
   row.names(objets) <- 1:nrow(objets)
@@ -108,7 +108,7 @@ conv_pg_to_shp <- function(dataDir = tempdir(),
   ## UGs & EDGES
   sqlls <- c(sqll.ug.pts, sqll.ug.lines, sqll.ug.lines, sqll.ug.polyg)
   sqlls <- sqlls[!is.na(sqlls)]
-  ugs <- dbGetQuery(con, sqlls[1])
+  ugs <- DBI::dbGetQuery(con, sqlls[1])
   df.ugs <- ugs[0, ]
   if(!is.na(sqll.ug.pts)){
     ## Points

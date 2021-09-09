@@ -1,7 +1,7 @@
 #' Morphometrics classification between GUs
 #' @name morph_nds_group
 #'
-#' @description Morphometrics classification (groups) between different graphical units (GUs).
+#' @description Momocs package morphometrics classification (groups) between different graphical units (GUs).
 #'  Read JPG files from each different folder. Useful after comparisons (see, m'orph_nds_compar' function)
 #'
 #' @param nodes Dataframe of nodes
@@ -14,7 +14,8 @@
 #' @param out.data Type of data returned.
 #' If "mbrshp" return a dataframe of nodes with their clustering and image path.
 #' If "plot" return a "kmeans" or create a plot. By default c("mbrshp", "plot")
-#' @return Depending on the focus, return hierachical clustering ("clust") or Kmeans ("kmeans") plots with their complete path
+#' @return Depending on the focus, create hierachical clustering ("clust") or Kmeans ("kmeans") plots,
+#' print their complete paths, return a list of statistics
 #' @examples
 #' morph_nds_group(nodes)
 #'
@@ -74,6 +75,7 @@ morph_nds_group <- function(nodes,
     a.ug.type <- Momocs::Out(coo, fac.type)
     ef.type <- Momocs::efourier(a.ug.type, nb.h=10)
     PCA.type <- Momocs::PCA(ef.type)
+    lout[[length(lout)+1]] <- PCA.type
     # plot_PCA(PCA.type, labelgroups  = T)
     ## export
     if("clust" %in% focus){
@@ -86,7 +88,6 @@ morph_nds_group <- function(nodes,
         clust <- Momocs::CLUST(PCA.type, ~idf)
       ) # + theme(plot.margin = unit(c(0,3,0,0), "cm"))
       grDevices::dev.off()
-      lout[[length(lout)+1]] <- clust
       # return(clust)
     }
     if("kmeans" %in% focus){
@@ -100,8 +101,6 @@ morph_nds_group <- function(nodes,
           kmean <- Momocs::KMEANS(PCA.type, centers = nb.centers)
         )
         grDevices::dev.off()
-        lout[[length(lout)+1]] <- Momocs::KMEANS(PCA.type,
-                                                 centers = nb.centers)
         # return(Momocs::KMEANS(PCA.type,
         #                       centers = nb.centers)
         #        )
@@ -114,10 +113,9 @@ morph_nds_group <- function(nodes,
                                 gu.type = gu.type,
                                 cluster = as.character(mbrshps),
                                 # TODO: adapt to different device (.png, ...)
-                                image = paste0(out.dirPath, "/", gu.type, "/", names(mbrshps), ".jpg"))
-        lout[[length(lout)+1]] <- df.mbrshp
-        # return(df.mbrshp)
+                                image = paste0(out.dirPath, "/", gu.type, "/", names(mbrshps), ".jpg"))        # return(df.mbrshp)
       }
     }
   }
+  return(lout)
 }

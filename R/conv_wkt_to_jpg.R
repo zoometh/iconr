@@ -1,7 +1,7 @@
 #' Convert WKT to JPG
 #' @name conv_wkt_to_jpg
-#'
-#' @description Convert Well-Known Text geometries of graphical units (GUs) to JPG files
+#'Convert the graphical units (GUs) stored as Postgres geometries into shapefiles representations
+#' @description Convert the graphical units (GUs) geometries stored as Well-Known Text geometries (WKT) into JPG files
 #'  in order to perform contour analysis with the Momocs package
 #'
 #' @param nodes nodes dataframe coming from the 'conv_shp_to_wkt.R' function
