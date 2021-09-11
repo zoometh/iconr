@@ -3,7 +3,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4767529.svg)](https://doi.org/10.5281/zenodo.4767529)
 [![R-CMD-check](https://github.com/zoometh/iconr/workflows/R-CMD-check/badge.svg)](https://github.com/zoometh/iconr/actions) [![Build Status](https://travis-ci.org/zoometh/iconr.svg?branch=master)](https://travis-ci.org/zoometh/iconr)
           
-# ***iconr*** package <br> modeling Prehistoric iconography <img src="logo/iconr_logo.png" width='110px' align="right"/>
+# ***iconr*** package <br> modeling Prehistoric iconography <img src="logo/iconr_logo.png" width='100px' align="right"/>
 > Created by [Thomas Huet](mailto:thomashuet7@gmail.com), [Jose M Pozo](mailto:josmpozo@gmail.com), [Craig Alexander](mailto:craiga304@gmail.com)
   
   
@@ -35,7 +35,10 @@ devtools::install_github("zoometh/iconr")
 ```
 
 Functions and examples, for the ***iconr*** v. 0.1.0 (analysis of compositions) are on this [website](https://zoometh.github.io/iconr/articles/index.html). 
-The ***iconr*** v. 0.1.1 functions (Geometric Morphometry), are nammed `morph_*` (morphology) and `conv_*` (conversions). Find their documentation directly on R (eg, `?morph_nds_compar`)
+The ***iconr*** v. 0.1.1 functions (Geometric Morphometry), are named `morph_*` (morphology) and `conv_*` (conversions). Find their documentation directly on R (eg, `?morph_nds_compar`).  
+  
+See also, how to [contribute](.github/CONTRIBUTING.md) to the next package release, and how to [report an issue](https://github.com/zoometh/iconr/issues) using the [issue template](.github/ISSUE_TEMPLATE.md).
+
 
 ### Plot a decoration
 
@@ -84,7 +87,7 @@ plot_compar(g.compar, c(1, 2, 3),
 
 ### Compare GUs' shapes
 
-The last version of ***iconr*** (v. 0.1.1) imports the [Momocs](https://momx.github.io/Momocs/articles/Momocs_intro.html) package to perform Geometric Morphometry analysis (GMM). The [sample dataset](https://github.com/zoometh/iconr/tree/master/doc/datasets/PPN) is composed on 5 decorated objects from the Near-East Pre-Pottery Neolithic:
+The last version of ***iconr*** (v. 0.1.1) imports the [Momocs](https://momx.github.io/Momocs/articles/Momocs_intro.html) package to perform Geometric Morphometry analysis (GMM). The [sample dataset](https://github.com/zoometh/iconr/tree/master/doc/datasets/PPN) is composed on 5 decorated objects, belonging from 4 sites of the Near-East Pre-Pottery Neolithic:
 
 
 <font size="2" align="left">
@@ -137,13 +140,15 @@ morph_resume(dataDir = "*my_path*/PPN",
              nodes = nodes)
 ```
 
-<center>
-  
-![face](doc/img/visage_compar_stack.png){width=400px}
-![eyes](doc/img/oeil_compar_stack.png){width=400px}
-![mouths](doc/img/bouche_compar_stack.png){width=400px}
+<p align="center">
+  <img alt="img-name" src="doc/img/visage_compar_stack.png" width="400">
+  <br>
+  <img alt="img-name" src="doc/img/oeil_compar_stack.png" width="400">
+  <br>
+  <img alt="img-name" src="doc/img/bouche_compar_stack.png" width="400">
+  <br>
+</p>
 
-</center>
 
 ## Citation
 
@@ -176,8 +181,6 @@ The ***iconr*** package has also been published in the [Journal of Open Source S
 ```
 
 
-See also, how to [contribute](.github/CONTRIBUTING.md) to the next package release, and how to [report an issue](https://github.com/zoometh/iconr/issues) using the [issue template](.github/ISSUE_TEMPLATE.md).
-
 ## Next release
 
 ### Typology of GUs
@@ -190,17 +193,15 @@ See also, how to [contribute](.github/CONTRIBUTING.md) to the next package relea
   
 </center>
   
-
-Or these different subtrees: [geometric](https://zoometh.github.io/iconr/articles/img/typo_gu_geometrique.html), [figurative](https://zoometh.github.io/iconr/articles/img/typo_gu_figuratif.html), [zoomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_zoomorphe.html),  
+  
+Or these different subtrees: [geometric](https://zoometh.github.io/iconr/articles/img/typo_gu_geometrique.html), [figurative](https://zoometh.github.io/iconr/articles/img/typo_gu_figuratif.html), [zoomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_zoomorphe.html), 
 [technomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_technomorphe.html), or [anthropomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_anthropomorphe.html). Such a structure should also be used for other fields than the GU type (eg, 'technique'). Multi-linguism equivalences -- starting with English --, metadata insertion (EXIF) and standardization of the vocabulary (Dublin Core, CIDOC-CRM) is needed
 
 ### Superimpostions
 
-The *diachronic* edge `->-` allows to register the superimposition. The next ***iconr*** will integrate an on-the-fly function allowing to create Harris matrices of GUs when such an edge exists. For example here, a Latin writing overlaps a spear and a shield representations
+The *diachronic* edge `->-` allows to register the superimposition. The next ***iconr*** will integrate an on-the-fly function allowing to create Harris matrices of GUs when such an edge exists. For example here, the Ibahernando stele shows a Latin writing overlaping a spear and a shield representations
 
-<center>
-   
-![](doc/img/ibahernando.png){width=600px}
-
-<\center>
+<p align="center">
+  <img alt="img-name" src="doc/img/ibahernando.png" width="500">
+</p>
 
