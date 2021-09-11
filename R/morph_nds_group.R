@@ -85,7 +85,10 @@ morph_nds_group <- function(nodes,
       grDevices::png(out.d,
                      width = Wi+10, height = He, units = "cm", res = 300)
       print(
-        clust <- Momocs::CLUST(PCA.type, ~idf)
+        clust <- Momocs::CLUST(PCA.type,
+                               ~idf,
+                               lwd = 1.5,
+                               cex = 4)
       ) # + theme(plot.margin = unit(c(0,3,0,0), "cm"))
       grDevices::dev.off()
       # return(clust)

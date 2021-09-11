@@ -12,6 +12,7 @@ read_eds <- function(site, decor, dir = getwd(),
             # choice: tsv or csv read nodes to get coordinates
             nds.df <- read_nds(dir = dir, site = site, decor = decor,
                                nodes = nodes, format = format)
+            print(nrow(nds.df))
             sep <- c(tsv = "\t", csv = ";")
             eds.df <- utils::read.table(file = eds.file, sep = sep[format],
                                         header = TRUE, stringsAsFactors = FALSE)

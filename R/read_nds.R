@@ -1,6 +1,7 @@
 #' @export
 read_nds <- function(site, decor,
                      dir = getwd(), nodes = "nodes", format = "tsv") {
+    # TODO: read WKT (POLYGONS, etc.)
     mandatory.columns <- c("site", "decor", "id", "x", "y")
     nds.file <- paste0(dir, "/", nodes, ".", format)
     if (file.exists(nds.file)) {

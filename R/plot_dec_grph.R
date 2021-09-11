@@ -24,13 +24,16 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL, imgs,
         img.format <- file_extension(out.file.name)
     }
 
-    if (!is.null(edges) && nrow(edges)>0) {
+    if (!is.null(edges) && nrow(edges) > 0) {
         edges <- edges[edges$site  == site & edges$decor == decor, ]
+        if(is.na(edges$type)){
+
+        }
         edges$lty <- ifelse(edges$type == "+", "33", "solid")
         edges$col <- ed.color[ifelse(edges$type == ">", 2, 1)]
         edges$lwd <- ed.lwd
     }
-    if (!is.null(nodes) && nrow(nodes)>0) {
+    if (!is.null(nodes) && nrow(nodes) > 0) {
         nodes <- nodes[nodes$site  == site & nodes$decor == decor, ]
         nodes$cex <- nd.size
         nodes$col <- nd.color
