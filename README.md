@@ -116,10 +116,9 @@ The last version of ***iconr*** (v. 0.1.1) imports the [Momocs](https://momx.git
 
 #### Resume the GUs geometries
 
-After downloading the [PPNB dataset](https://github.com/zoometh/iconr/tree/master/doc/datasets/PPN), set 'PPN' as the current working directory (`setwd("*my_path*/PPN"")`), convert the 'nodes.csv' Well-Known Text geometries to JPG, and resume information
+After downloading the [PPNB dataset](https://github.com/zoometh/iconr/tree/master/doc/datasets/PPN), set 'PPN' as the current working directory (`setwd("*my_path*/PPN"")`), read and convert the 'nodes.csv' Well-Known Text geometries to JPG, and resume information
 
 ```
-conv_wkt_to_jpg(nodes = nodes)
 nodes <- read.csv2("*my_path*/PPN/_out/nodes.csv")
 conv_wkt_to_jpg(nodes = nodes)
 morph_resume(dataDir = "*my_path*/PPN",
