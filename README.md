@@ -162,7 +162,7 @@ Use the canonical form to cite the package (`citation("iconr")`):
 }
 ```
 
-The ***iconr*** package has also been published in the [Journal of Open Source Software](https://joss.theoj.org/papers/10.21105/joss.03191) under this BibTex reference:
+The ***iconr*** v. 0.1.0 package has also been published in the [Journal of Open Source Software](https://joss.theoj.org/papers/10.21105/joss.03191) under this BibTex reference:
 
 ```
 @article{Huet21joss,
