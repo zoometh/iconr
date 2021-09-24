@@ -18,8 +18,9 @@
 ^vignettes/examples.Rmd$
 ^vignettes/shiny.Rmd$
 ^R/shape_elements.R$
-^man/shape_elements.Rd$
 ^R/_*\..R$
 ^R/(archives)$
 ^man/_*\..Rd$
+^man/shape_elements.Rd$
+
 

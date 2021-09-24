@@ -6,9 +6,21 @@
 # ***iconr*** package <br> modeling Prehistoric iconography <img src="logo/iconr_logo.png" width='100px' align="right"/>
 > Created by [Thomas Huet](mailto:thomashuet7@gmail.com), [Jose M Pozo](mailto:josmpozo@gmail.com), [Craig Alexander](mailto:craiga304@gmail.com)
   
+The R package ***iconr*** is grounded in graph theory, spatial analysis (composition analysis), and geometric morphometric (shape analysis) to offer concepts and functions for modeling Prehistoric iconographic compositions and preparing for further analysis (clustering, typology tree, Harris diagram, etc.). The package purpose is to contribute to cross-cultural comparison through a greater normalization of quantitative analysis.
+
+The theoretical background is as follows: some objects can have a decoration, and a decoration is composed of graphical units (GUs). The whole decoration is considered as a graph and can be analyzed with Graph Theory and compared to other graphs (ie, decorations). As favored [GIS entry](https://zoometh.github.io/iconr/articles/gis.html), GIS indexes can also be used. 
+
+See: how to [contribute](.github/CONTRIBUTING.md) to the next package release, and how to [report an issue](https://github.com/zoometh/iconr/issues) using the [issue template](.github/ISSUE_TEMPLATE.md).
   
-The R package ***iconr*** is grounded in graph theory and spatial analysis to offer concepts and functions for modeling Prehistoric iconographic compositions and preparing for further analysis (clustering, typology tree, Harris diagram, etc.). The package purpose is to contribute to cross-cultural comparison through a greater normalization of quantitative analysis.   
-  
+## ***iconr*** stable version: the analysis of compositions
+
+The ***iconr*** v. 0.1.0 stable version can be installed from the CRAN
+
+```
+install.packages("iconr")
+```
+
+The v. 0.1.0 allows the analysis of compositions
 
 <center>
   
@@ -17,32 +29,15 @@ The R package ***iconr*** is grounded in graph theory and spatial analysis to of
 </center>
   
 
-The theoretical background is as follows: some objects can have a decoration [**1**]. A decoration is composed of graphical units (GUs)[**2**]. Each GU is recorded with a vertex[**3**], and each contiguous vertex (Voronoi cell) is linked with an edge [**4**, **5**]. The whole decoration is considered as a graph and can be analyzed with Graph Theory. As we also favored [GIS entry](https://zoometh.github.io/iconr/articles/gis.html), GIS indexes can also be used. The last version of ***iconr*** (v. 0.1.1) handle POLYGON geometries to perform Geometric Morphometry with the R pakage Momocs
-  
- 
-## How to use
+The theoretical background is as follows: some objects can have a decoration [**1**]. A decoration is composed of graphical units (GUs)[**2**]. Each GU is recorded with a vertex[**3**], and each contiguous vertex (Voronoi cell) is linked with an edge [**4**, **5**]. The whole decoration is considered as a graph and can be analyzed with Graph Theory. As we also favored [GIS entry](https://zoometh.github.io/iconr/articles/gis.html), GIS indexes can also be used. 
 
-Install ***iconr*** v. 0.1.0 from the CRAN (stable)
+### Composition's functions overview
 
-```
-install.packages("iconr")
-```
+Functions and examples, for the ***iconr*** v. 0.1.0 are on this [website](https://zoometh.github.io/iconr/articles/index.html). 
 
-Or from GitHub (latest developments)
+#### Plot a decoration
 
-```
-devtools::install_github("zoometh/iconr")
-```
-
-Functions and examples, for the ***iconr*** v. 0.1.0 (analysis of compositions) are on this [website](https://zoometh.github.io/iconr/articles/index.html). 
-The ***iconr*** v. 0.1.1 functions (Geometric Morphometry), are named `morph_*` (morphology) and `conv_*` (conversions). Find their documentation directly on R (eg, `?morph_nds_compar`).  
-  
-See also, how to [contribute](.github/CONTRIBUTING.md) to the next package release, and how to [report an issue](https://github.com/zoometh/iconr/issues) using the [issue template](.github/ISSUE_TEMPLATE.md).
-
-
-### Plot a decoration
-
-Set data folder, select the ecoration to be plotted, read files of nodes, edges, and images and plot a decoration
+Set data folder, select the decoration to be plotted, read files of nodes, edges, and images and plot a decoration
 
 ```
 dataDir <- system.file("extdata", package = "iconr")
@@ -61,7 +56,10 @@ plot_dec_grph(nds.df, eds.df, imgs,
   
 <img src="doc/img/plot_dec_graph.png" align="center"/>
   
-### Plot common edges shared by the three first decorations
+#### Plot common edges shared by the three first decorations
+
+Common edges between between pairs of decorations allow to measure the similarities in their composition
+For example, we plot common edges shared by the three first decorations of the training dataset with the [plot_compar()](https://zoometh.github.io/iconr/reference/plot_compar.html) function 
 
 ```
 imgs <- read.table(system.file("extdata", "imgs.tsv", package = "iconr"),
@@ -85,9 +83,23 @@ plot_compar(g.compar, c(1, 2, 3),
 <img src="doc/img/_compar_eds_1_3.png" align="center"/>
 <img src="doc/img/_compar_eds_2_3.png" align="center"/>
 
-### Compare GUs' shapes
+The same result, but in the form of a coincidence matrix, can be obtained with the function [same_elements()](https://zoometh.github.io/iconr/reference/same_elements.html)
 
-The last version of ***iconr*** (v. 0.1.1) imports the [Momocs](https://momx.github.io/Momocs/articles/Momocs_intro.html) package to perform Geometric Morphometry analysis (GMM). The [sample dataset](https://github.com/zoometh/iconr/tree/master/doc/datasets/PPN) is composed on 5 decorated objects, belonging from 4 sites of the Near-East Pre-Pottery Neolithic:
+## ***iconr*** development version: the analysis of compositions + geometric morphometry
+
+The ***iconr*** last version, or development version v. 0.1.1, handle graphical units with POLYGON geometries to perform Geometric Morphometry measurements (GMM). This development version can be downloaded from GitHub
+
+```
+devtools::install_github("zoometh/iconr")
+```
+
+### Geometric Morphometry measurements' functions overview
+
+The ***iconr*** v. 0.1.1 functions are named `morph_*` (morphology) and `conv_*` (conversions). Find their documentation directly on R (eg, `?morph_nds_compar`). They are performed with the [R package Momocs](https://momx.github.io/Momocs/)
+
+#### Compare GUs' shapes
+
+The [sample dataset](https://github.com/zoometh/iconr/tree/master/doc/datasets/PPN) is composed on 5 decorated objects, belonging from 4 sites of the Near-East Pre-Pottery Neolithic:
 
 
 <font size="2" align="left">
@@ -114,9 +126,13 @@ The last version of ***iconr*** (v. 0.1.1) imports the [Momocs](https://momx.git
 	</table>
 </font>
 
+The graphical units 'faces' ('*visages*'), 'eyes' ('*oeils*'), and 'mouths' ('*bouches*') have been drawn in a GIS
+
+<img src="doc/img/gis_gmm.png" align="center" width='350px'/>
+
 #### Resume the GUs geometries
 
-After downloading the [PPNB dataset](https://github.com/zoometh/iconr/tree/master/doc/datasets/PPN), set 'PPN' as the current working directory (`setwd("*my_path*/PPN"")`), read and convert the 'nodes.csv' Well-Known Text geometries to JPG, and resume information
+After downloading the PPNB dataset, set 'PPN' as the current working directory (`setwd("*my_path*/PPN"")`), read and convert the 'nodes.csv' Well-Known Text geometries to JPG, and resume information
 
 ```
 nodes <- read.csv2("*my_path*/PPN/_out/nodes.csv")
@@ -129,7 +145,7 @@ morph_resume(dataDir = "*my_path*/PPN",
 
 #### Compare the different types of GUs
 
-Stack the countours of visage (faces), oeil (eyes), bouche (mouths)
+Stack the countours of 'faces' ('*visages*'), 'eyes' ('*oeils*'), and 'mouths' ('*bouches*')
 
 ```
 conv_wkt_to_jpg(nodes = nodes)
@@ -184,11 +200,11 @@ The ***iconr*** v. 0.1.0 package has also been published in the [Journal of Open
 
 ### Typology of GUs
 
-***iconr*** aims to use a hierarchical _thesaurus_ (tree-like) with controlled vocabularies for GUs' typology . Identity between GU name and value must be unique (URL). See for example the whole typological tree:
+***iconr*** aims to use a hierarchical _thesaurus_ (tree-like) with controlled vocabularies for GUs' typology . Identity between GU name and value must be unique (URL). See for example the [whole typological tree](https://zoometh.github.io/iconr/articles/img/typo_gu_ug.html):
 
 <center>
    
-[![](doc/img/typology_gu.png)](https://zoometh.github.io/iconr/articles/img/typo_gu_geometrique.html)
+[![](doc/img/typology_gu.png)](https://zoometh.github.io/iconr/articles/img/typo_gu_ug.html)
   
 </center>
   
@@ -204,3 +220,10 @@ The *diachronic* edge `->-` allows to register the superimposition. The next ***
   <img alt="img-name" src="doc/img/ibahernando.png" width="500">
 </p>
 
+### Magic wand
+
+The selection of a colored continuous range can be done from a POINT coordinates (x, y) overlapping this colored range (ie. a GU displayed in black on white background). The next ***iconr*** will integrate a function allowing to extract automatically the shape *behind* the POINTS.
+
+<p align="center">
+  <img alt="img-name" src="doc/img/solana_magic_wand.png" width="500">
+</p>
