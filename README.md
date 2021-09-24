@@ -12,7 +12,7 @@ The theoretical background is as follows: some objects can have a decoration, an
 
 See: how to [contribute](.github/CONTRIBUTING.md) to the next package release, and how to [report an issue](https://github.com/zoometh/iconr/issues) using the [issue template](.github/ISSUE_TEMPLATE.md).
   
-## ***iconr*** stable version: the analysis of compositions
+## ***iconr*** stable version: the Analysis of Compositions
 
 The ***iconr*** v. 0.1.0 stable version can be installed from the CRAN
 
@@ -29,11 +29,11 @@ The v. 0.1.0 allows the analysis of compositions
 </center>
   
 
-The theoretical background is as follows: some objects can have a decoration [**1**]. A decoration is composed of graphical units (GUs)[**2**]. Each GU is recorded with a vertex[**3**], and each contiguous vertex (Voronoi cell) is linked with an edge [**4**, **5**]. The whole decoration is considered as a graph and can be analyzed with Graph Theory. As we also favored [GIS entry](https://zoometh.github.io/iconr/articles/gis.html), GIS indexes can also be used. 
+Photograph of Solana de Cabañas (Extremadura, Spain) Late Bronze Age stele[^1] [**1**]. Graphical units (GUs) drawing [**2**]. Each GU is recorded with a vertex (POINT) [**3**], and each contiguous vertex (Voronoi cell) is linked with an edge [**4**, **5**]. 
 
-### Composition's functions overview
+### Overview of the functions for the analysis of compositions
 
-Functions and examples, for the ***iconr*** v. 0.1.0 are on this [website](https://zoometh.github.io/iconr/articles/index.html). 
+The ***iconr*** v. 0.1.0 functions' descriptions and examples are available on this [website](https://zoometh.github.io/iconr/articles/index.html). 
 
 #### Plot a decoration
 
@@ -56,9 +56,9 @@ plot_dec_grph(nds.df, eds.df, imgs,
   
 <img src="doc/img/plot_dec_graph.png" align="center"/>
   
-#### Plot common edges shared by the three first decorations
+#### Common edges
 
-Common edges between between pairs of decorations allow to measure the similarities in their composition
+Common edges between pairs of decorations allow to measure the similarities in their composition. Common edges are more accurate than common nodes (see also, [nds_compar()](https://zoometh.github.io/iconr/reference/list_compar.html) and [eds_compar()](https://zoometh.github.io/iconr/reference/list_compar.html))
 For example, we plot common edges shared by the three first decorations of the training dataset with the [plot_compar()](https://zoometh.github.io/iconr/reference/plot_compar.html) function 
 
 ```
@@ -85,9 +85,9 @@ plot_compar(g.compar, c(1, 2, 3),
 
 The same result, but in the form of a coincidence matrix, can be obtained with the function [same_elements()](https://zoometh.github.io/iconr/reference/same_elements.html)
 
-## ***iconr*** development version: the analysis of compositions + geometric morphometry
+## ***iconr*** development version: the Analysis of Compositions and Geometric Morphometry
 
-The ***iconr*** last version, or development version v. 0.1.1, handle graphical units with POLYGON geometries to perform Geometric Morphometry measurements (GMM). This development version can be downloaded from GitHub
+The ***iconr*** latest version, or development version v. 0.1.1, handle graphical units with POLYGON geometries to perform Geometric Morphometry measurements (GMM). This development version can be downloaded from GitHub
 
 ```
 devtools::install_github("zoometh/iconr")
@@ -126,9 +126,12 @@ The [sample dataset](https://github.com/zoometh/iconr/tree/master/doc/datasets/P
 	</table>
 </font>
 
-The graphical units 'faces' ('*visages*'), 'eyes' ('*oeils*'), and 'mouths' ('*bouches*') have been drawn in a GIS
+The graphical units 'faces' ('*visages*'), 'eyes' ('*oeils*'), and 'mouths' ('*bouches*') are drawn in a GIS
 
-<img src="doc/img/gis_gmm.png" align="center" width='350px'/>
+<p align="center">
+  <img alt="img-name" src="doc/img/gis_gmm.png" width="700">
+</p>
+
 
 #### Resume the GUs geometries
 
@@ -156,11 +159,11 @@ morph_resume(dataDir = "*my_path*/PPN",
 ```
 
 <p align="center">
-  <img alt="img-name" src="doc/img/visage_compar_stack.png" width="400">
+  <img alt="img-name" src="doc/img/visage_compar_stack.png" width="350">
   <br>
-  <img alt="img-name" src="doc/img/oeil_compar_stack.png" width="400">
+  <img alt="img-name" src="doc/img/oeil_compar_stack.png" width="350">
   <br>
-  <img alt="img-name" src="doc/img/bouche_compar_stack.png" width="400">
+  <img alt="img-name" src="doc/img/bouche_compar_stack.png" width="350">
   <br>
 </p>
 
@@ -212,7 +215,7 @@ The ***iconr*** v. 0.1.0 package has also been published in the [Journal of Open
 Or these different subtrees: [geometric](https://zoometh.github.io/iconr/articles/img/typo_gu_geometrique.html), [figurative](https://zoometh.github.io/iconr/articles/img/typo_gu_figuratif.html), [zoomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_zoomorphe.html), 
 [technomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_technomorphe.html), or [anthropomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_anthropomorphe.html). Such a structure should also be used for other fields than the GU type (eg, 'technique'). Multi-linguism equivalences -- starting with English --, metadata insertion (EXIF) and standardization of the vocabulary (Dublin Core, CIDOC-CRM) is needed
 
-### Superimpostions
+### Superimpositions
 
 The *diachronic* edge `->-` allows to register the superimposition. The next ***iconr*** will integrate an on-the-fly function allowing to create Harris matrices of GUs when such an edge exists. For example here, the Ibahernando stele shows a Latin writing overlaping a spear and a shield representations
 
@@ -222,8 +225,10 @@ The *diachronic* edge `->-` allows to register the superimposition. The next ***
 
 ### Magic wand
 
-The selection of a colored continuous range can be done from a POINT coordinates (x, y) overlapping this colored range (ie. a GU displayed in black on white background). The next ***iconr*** will integrate a function allowing to extract automatically the shape *behind* the POINTS.
+The selection of a colored continuous range can be done from a POINT coordinates (x, y) overlapping this colored range (ie. a GU displayed in black on white background). The next ***iconr*** will integrate a function allowing to extract automatically the shape *behind* the POINTS
 
 <p align="center">
-  <img alt="img-name" src="doc/img/solana_magic_wand.png" width="500">
+  <img alt="img-name" src="doc/img/solana_magic_wand.png" width="250">
 </p>
+
+[^1]: credits Museo Arqueologico de Madrid
