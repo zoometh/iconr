@@ -6,7 +6,7 @@
 # ***iconr*** R package <br> modeling Prehistoric iconography <img src="logo/iconr_logo.png" width='100px' align="right"/>
 > Created by [Thomas Huet](mailto:thomashuet7@gmail.com), [Jose M Pozo](mailto:josmpozo@gmail.com), [Craig Alexander](mailto:craiga304@gmail.com)
   
-The package purpose is to contribute to cross-cultural comparison of iconography through a greater normalization of quantitative analysis. The R package ***iconr*** v. 0.1.0 [stable version](https://github.com/zoometh/iconr/#iconr-stable-version-the-analysis-of-compositions) deals with composition analysis[^1], the ***iconr*** [development version](https://github.com/zoometh/iconr/#iconr-development-version-the-analysis-of-compositions-and-geometric-morphometry) deals with both composition and geometric morphometric.
+The ***iconr*** R package purpose is to contribute to cross-cultural comparison of iconography through a greater normalization of quantitative analysis. The package [stable version](https://github.com/zoometh/iconr/#iconr-stable-version-the-analysis-of-compositions) deals with composition analysis[^1], the package [development version](https://github.com/zoometh/iconr/#iconr-development-version-the-analysis-of-compositions-and-geometric-morphometry) deals with both composition and geometric morphometric.
 
 ### Theoretical background
 
