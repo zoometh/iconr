@@ -27,7 +27,6 @@ As favored [GIS entry](https://zoometh.github.io/iconr/articles/gis.html), GIS i
 ---
 See how to [contribute](.github/CONTRIBUTING.md) to the next package release; how to [report an issue](https://github.com/zoometh/iconr/issues) using the [issue template](.github/ISSUE_TEMPLATE.md).
 
----
 ## ***iconr*** stable version: the Analysis of Compositions
 
 The ***iconr*** v. 0.1.0 stable version can be installed from the [CRAN](https://cran.r-project.org/web/packages/iconr/index.html). It allows GUs [composition analysis](#iconr-stable-version-the-analysis-of-compositions))
