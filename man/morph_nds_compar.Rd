@@ -5,8 +5,8 @@
 \title{Morphometrics comparisons between GUs}
 \usage{
 morph_nds_compar(
-  nodes,
-  focus = c("panel", "stack", "PCA"),
+  nodes = NA,
+  focus = c("panel", "stack", "PCA", "dist"),
   nb.h = 15,
   out.dir = "_out"
 )
@@ -14,7 +14,8 @@ morph_nds_compar(
 \arguments{
 \item{nodes}{Dataframe of nodes}
 
-\item{focus}{Type of analysis: 'panel', 'stack' or 'PCA'. By default c("panel", "stack", "PCA")}
+\item{focus}{Type of analysis: 'panel', 'stack', 'PCA' or 'dist'.
+By default c("panel", "stack", "PCA", "dist")}
 
 \item{nb.h}{number of Fourier harmonics, uniquely for PCA. By default = 15}
 

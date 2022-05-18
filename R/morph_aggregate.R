@@ -17,7 +17,7 @@ morph_aggregate <- function(nodes = NULL,
                             aggr = c("type", "decoration"),
                             out.dir = "_out"){
   out.dirPath <- paste0(dataDir, "/", out.dir)
-  library(dplyr)
+  # library(dplyr)
   ldist.type <- list()
   # TODO: improve title by counting number of GUs grouped
   for (a.type in 1:length(ldist)){
@@ -36,7 +36,7 @@ morph_aggregate <- function(nodes = NULL,
     df <- as.data.frame(as.matrix(a.dist))
     ldecors <- sapply(strsplit(rownames(df), "\\."), "[[", 2)
     df$dec <- ldecors
-    df.agg <- aggregate(df[, 1:ncol(df)-1], list(df$dec), mean)
+    df.agg <- stats::aggregate(df[, 1:ncol(df)-1], list(df$dec), mean)
     tdf.agg <- as.data.frame(t(df.agg))
     colnames(tdf.agg) <- tdf.agg[1, ] # colnames = decorations
     tdf.agg <- tdf.agg[-1, ]
@@ -44,7 +44,7 @@ morph_aggregate <- function(nodes = NULL,
     # sapply(tdf.agg, class)
     ldecors <- sapply(strsplit(rownames(tdf.agg), "\\."), "[[", 2)
     tdf.agg$dec <- ldecors
-    tdf.agg <- aggregate(tdf.agg[, 1:ncol(tdf.agg)-1], list(tdf.agg$dec), mean)
+    tdf.agg <- stats::aggregate(tdf.agg[, 1:ncol(tdf.agg)-1], list(tdf.agg$dec), mean)
     rownames(tdf.agg) <- tdf.agg[, 1] # rownames = decorations
     tdf.agg <- tdf.agg[ , -1]
     diag(tdf.agg) <- 0
@@ -62,7 +62,7 @@ morph_aggregate <- function(nodes = NULL,
     # ldist.type[[1]]
     # ldist.type[[2]]
     # ldist.type[[3]]
-    a.dist <- as.dist(ldist.type[[i]])
+    a.dist <- stats::as.dist(ldist.type[[i]])
     a.mds <- MASS::isoMDS(a.dist) # MDS
     # get the extend (min, max) of the plot
     min.x <- min(a.mds$points[ , 1])
@@ -78,7 +78,7 @@ morph_aggregate <- function(nodes = NULL,
     a.type.dist <- ldist.type[[i]]
     tit.main <- unique(nodes$type)[i] # TODO: improve type identification
     print(paste0(tit.main))
-    a.dist <- as.dist(ldist.type[[i]])
+    a.dist <-  stats::as.dist(ldist.type[[i]])
     a.mds <- MASS::isoMDS(a.dist) # MDS
     # temp
     row.names(a.mds$points) <- ifelse(row.names(a.mds$points) == 'stat_2_gref',
@@ -96,7 +96,7 @@ morph_aggregate <- function(nodes = NULL,
       out.d <- paste0(dataDir, "/", out.dir, "/__", tit.main, "_grouped_by_type_and_dec.png")
       # TODO: get ratio to set W and H
       df.coords <- as.data.frame(a.mds$points)
-      g.MDS <- ggplot2::ggplot(df.coords, aes(V1, V2)) +
+      g.MDS <- ggplot2::ggplot(df.coords, ggplot2::aes(df.coords[, 1], df.coords[, 2])) +
         ggplot2::geom_point() +
         ggrepel::geom_text_repel(label = row.names(df.coords)) +
         ggplot2::coord_fixed() +
@@ -115,7 +115,7 @@ morph_aggregate <- function(nodes = NULL,
   if("decoration" %in% aggr){
     # add all matrices and divide to get the mean
     ldist.dec <- (Reduce(`+`, ldist.type))/length(ldist.type)
-    a.dist <- as.dist(ldist.dec)
+    a.dist <- stats::as.dist(ldist.dec)
     a.mds <- MASS::isoMDS(a.dist) # MDS
     # min.x <- min(a.mds$points[ , 1])
     # max.x <- max(a.mds$points[ , 1])
@@ -135,7 +135,7 @@ morph_aggregate <- function(nodes = NULL,
     out.d <- paste0(dataDir, "/", out.dir, "/2_grouped_by_dec.png")
     # TODO: get ratio to set W and H
     df.coords <- as.data.frame(a.mds$points)
-    g.MDS <- ggplot2::ggplot(df.coords, aes(V1, V2)) +
+    g.MDS <- ggplot2::ggplot(df.coords, ggplot2::aes(df.coords[, 1], df.coords[, 2])) +
       ggplot2::geom_point() +
       ggrepel::geom_text_repel(label = row.names(df.coords)) +
       ggplot2::coord_fixed() +

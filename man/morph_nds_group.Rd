@@ -31,10 +31,11 @@ If "mbrshp" return a dataframe of nodes with their clustering and image path.
 If "plot" return a "kmeans" or create a plot. By default c("mbrshp", "plot")}
 }
 \value{
-Depending on the focus, return hierachical clustering ("clust") or Kmeans ("kmeans") plots with their complete path
+Depending on the focus, create hierachical clustering ("clust") or Kmeans ("kmeans") plots,
+print their complete paths, return a list of statistics
 }
 \description{
-Morphometrics classification (groups) between different graphical units (GUs).
+Momocs package morphometrics classification (groups) between different graphical units (GUs).
  Read JPG files from each different folder. Useful after comparisons (see, m'orph_nds_compar' function)
 }
 \examples{

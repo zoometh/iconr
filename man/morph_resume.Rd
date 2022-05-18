@@ -25,8 +25,8 @@ Create a contact sheet of decoration with information on graphical units (GUs) g
 eg., number of Polygons by types, number of Lines by types, etc.
 }
 \description{
-Create a contact sheet of decoration with information on graphical units (GUs) geometries:
-eg., number of Polygons by types, number of Lines by types, etc.
+Create a contact sheet of decoration's and and graphical units (GUs) main informations:
+eg., number of POLYGONS by types, number of LINES by types, etc.
 }
 \examples{
 > morph_resume(dataDir = dataDir,

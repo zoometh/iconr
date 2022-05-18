@@ -18,6 +18,7 @@
 #' @return Create the 'nodes.csv' file into the out folder, return the complete path of the 'nodes.csv' file
 #'
 #' @examples
+#' dataDir <- system.file("extdata", package = "iconr")
 #' nd.df.path <- conv_shp_to_wkt(dataDir = dataDir)
 #' head(read.csv2(nd.df.path), 1)
 #'
@@ -89,7 +90,7 @@ conv_shp_to_wkt <- function(dataDir,
       }
     }
   }
-  write.csv2(df.ugs, paste0(out.dirPath, "/nodes.csv"), row.names = FALSE)
+  utils::write.csv2(df.ugs, paste0(out.dirPath, "/nodes.csv"), row.names = FALSE)
   print(paste0("nodes dataframe (n = ", nrow(df.ugs), ") exported to: '", out.dirPath, "/nodes.csv'"))
   return(paste0(out.dirPath, "/nodes.csv"))
 }

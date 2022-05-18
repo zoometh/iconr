@@ -23,7 +23,7 @@ table {
 </style>
 
 ```{r, include = FALSE}
-library(iconr)
+# library(iconr)
 library(igraph)
 library(dplyr)
 library(knitr)
@@ -344,8 +344,8 @@ When a node is an attribute of another, edges are identified with a `+` and disp
 ```{r graph.attribute.plot.type, out.width="60%", fig.width=6, fig.asp=750/666, fig.align="center", warning=FALSE, fig.cap="Zarza De Montanchez stelae (decoration 4) showing *normal* and *attribute*  edges"}
 site <- "Zarza de Montanchez" 
 decor <- "Zarza De Montanchez"
-nds.df <- read_nds(site, decor, dataDir)
-eds.df <- read_eds(site, decor, dataDir)
+nds.df <- read_nds(site = site, decor = decor, dir = dataDir)
+eds.df <- read_eds(site = site, decor = decor, dir = dataDir)
 plot_dec_grph(nds.df, eds.df, imgs,
               site, decor, dataDir,
               ed.lwd = 1, ed.color = c("darkorange"),

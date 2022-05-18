@@ -11,6 +11,7 @@ conv_pg_to_shp(
   sqll.ug.pts = NA,
   sqll.ug.lines = NA,
   sqll.ug.polyg = NA,
+  sqll.edges = NA,
   exp.edges = FALSE
 )
 }
@@ -28,13 +29,15 @@ Like: list(driver, name_of_db, host, port, user, password). By default NA}
 
 \item{sqll.ug.polyg}{SQL on GUs with geometries of type POLYGONS to get shapes. By default NA}
 
+\item{sqll.edges}{SQL on edges}
+
 \item{exp.edges}{Export also edges as shapefiles. By default: FALSE}
 }
 \value{
 Decoration's images and shapefiles
 }
 \description{
-Convert the graphical units (GUs) geometries stored in PostgreSQL into shapefiles (SHP) geometries.
+Convert the graphical units (GUs) geometries stored in Postgres into shapefiles representations
 }
 \examples{
 Pg.param. <- list("PostgreSQL",

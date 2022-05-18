@@ -6,15 +6,22 @@
 # ***iconr*** package <br> modeling Prehistoric iconography <img src="logo/iconr_logo.png" width='100px' align="right"/>
 > Created by [Thomas Huet](mailto:thomashuet7@gmail.com), [Jose M Pozo](mailto:josmpozo@gmail.com), [Craig Alexander](mailto:craiga304@gmail.com)
   
-The R package ***iconr*** is grounded in graph theory, spatial analysis ([composition analysis](#iconr-stable-version-the-analysis-of-compositions)), and shape analysis ([geometric morphometric](#iconr-development-version-the-analysis-of-compositions-and-geometric-morphometry)) to offer concepts and functions for modeling Prehistoric iconographic compositions and preparing for further analysis (clustering, typology tree, Harris diagram, etc.). The package purpose is to contribute to cross-cultural comparison through a greater normalization of quantitative analysis.
+The R package ***iconr*** is grounded in graph theory, spatial analysis (composition analysis), and shape analysis (geometric morphometric) to offer concepts, measurments and functions for modeling Prehistoric iconographic compositions and preparing for further analysis (clustering, typology tree, Harris diagram, etc.). The package purpose is to contribute to cross-cultural comparison through a greater normalization of quantitative analysis.
 
-The theoretical background is as follows: some objects can have a decoration, and a decoration is composed of graphical units (GUs). The whole decoration is considered as a graph and can be analyzed with Graph Theory and compared to other graphs (ie, decorations). As favored [GIS entry](https://zoometh.github.io/iconr/articles/gis.html), GIS indexes can also be used. 
+The ***iconr*** v. 0.1.0 stable version deals with composition analysis[^1], the ***iconr*** development version deals with both composition and geometric morphometric.
 
-See: how to [contribute](.github/CONTRIBUTING.md) to the next package release, and how to [report an issue](https://github.com/zoometh/iconr/issues) using the [issue template](.github/ISSUE_TEMPLATE.md).
-  
+---
+See how to [contribute](.github/CONTRIBUTING.md) to the next package release; how to [report an issue](https://github.com/zoometh/iconr/issues) using the [issue template](.github/ISSUE_TEMPLATE.md).
+
+---
+
+### Theoretical background
+
+The theoretical background is as follows: some objects can have a decoration, and a decoration is composed of graphical units (GUs) wich have neighbourhood relations depending on their spatial proximities. A decoration is considered as a graph and can be analyzed with Graph Theory. GU considiered as nodes and local indexes can be calculated for every nodes (eg. degree centrality). Each decoration (i.e. graph) can be pairwised compared with another decoration based on local indexes or global indexes (eg. degree distribution). As favored [GIS entry](https://zoometh.github.io/iconr/articles/gis.html), GIS indexes (*x* and *y* dimensions) can also be used. 
+
 ## ***iconr*** stable version: the Analysis of Compositions
 
-The ***iconr*** v. 0.1.0 stable version can be installed from the CRAN
+The ***iconr*** v. 0.1.0 stable version can be installed from the [CRAN](https://cran.r-project.org/web/packages/iconr/index.html). It allows GUs [composition analysis](#iconr-stable-version-the-analysis-of-compositions))
 
 ```
 install.packages("iconr")
@@ -24,12 +31,12 @@ The v. 0.1.0 allows the analysis of compositions
 
 <center>
   
-![](doc/img/solana_voronoi.png){width=800px}
+![](doc/img/solana_voronoi.png)
   
 </center>
   
 
-Photograph of Solana de Cabañas (Extremadura, Spain) Late Bronze Age stele[^1] [**1**]. Graphical units (GUs) drawing [**2**]. Each GU is recorded with a vertex (POINT) [**3**], and each contiguous vertex (Voronoi cell) is linked with an edge [**4**, **5**]. 
+Photograph of Solana de Cabañas (Extremadura, Spain) Late Bronze Age stele[^2] [**1**]. Graphical units (GUs) drawing [**2**]. Each GU is recorded with a vertex (POINT) [**3**], and each contiguous vertex (Voronoi cell) is linked with an edge [**4**, **5**]. 
 
 ### Overview of the functions for the analysis of compositions
 
@@ -84,14 +91,6 @@ plot_compar(g.compar, c(1, 2, 3),
 <img src="doc/img/_compar_eds_2_3.png" align="center"/>
 
 The same result, but in the form of a coincidence matrix, can be obtained with the function [same_elements()](https://zoometh.github.io/iconr/reference/same_elements.html)
-
-## ***iconr*** development version: the Analysis of Compositions and Geometric Morphometry
-
-The ***iconr*** latest version, or development version v. 0.1.1, handle graphical units with POLYGON geometries to perform Geometric Morphometry measurements (GMM). This development version can be downloaded from GitHub
-
-```
-devtools::install_github("zoometh/iconr")
-```
 
 ### Geometric Morphometry measurements' functions overview
 
@@ -197,7 +196,13 @@ The ***iconr*** v. 0.1.0 package has also been published in the [Journal of Open
   journal = {Journal of Open Source Software}
 }
 ```
+## ***iconr*** development version: the Analysis of Compositions and Geometric Morphometry
 
+The ***iconr*** latest version, or development version v. 0.1.1, deals with both GUs composition and GUs shapes ([geometric morphometric](#iconr-development-version-the-analysis-of-compositions-and-geometric-morphometry)). Currently it takes in charge POLYGON geometries to perform Geometric Morphometry measurements (GMM). This development version can be downloaded from GitHub
+
+```
+devtools::install_github("zoometh/iconr")
+```
 
 ## Next release
 
@@ -231,4 +236,5 @@ The selection of a colored continuous range can be done from a POINT coordinates
   <img alt="img-name" src="doc/img/solana_magic_wand.png" width="250">
 </p>
 
-[^1]: credits Museo Arqueologico de Madrid
+[^1]: Huet et al., (2021). *Analysis of Prehistoric Iconography with the R package iconr*. Journal of Open Source Software, 6(61), 3191, https://doi.org/10.21105/joss.03191
+[^2]: credits Museo Arqueologico de Madrid

@@ -88,9 +88,9 @@ morph_nds_compar <- function(nodes = NA,
       grDevices::png(out.d,
                      width = Wi, height = He,
                      units = "cm", res = 300)
-      stack(a.gu.type,
-            title = a.gu.type.name,
-            borders = a.gu.type$fac$cols
+      Momocs::stack(a.gu.type,
+                    title = a.gu.type.name,
+                    borders = a.gu.type$fac$cols
       )
       grDevices::dev.off()
       print(paste0("stack ", out.d))
@@ -130,11 +130,11 @@ morph_nds_compar <- function(nodes = NA,
         # need 2 features at least for PCA
         print(paste0("dist..."))
         library(dplyr) # TODO: %>% -> dplyr
-        res.MDS <- Momocs::efourier(a.gu.type, nb.h = 10) %>%
-          Momocs::MDS()
-        a.dist <- dist(res.MDS$x,
-                       diag = T,
-                       upper = T)
+        res.f <- Momocs::efourier(a.gu.type, nb.h = 10)
+        res.MDS <- Momocs::MDS(res.f)
+        a.dist <- stats::dist(res.MDS$x,
+                              diag = T,
+                              upper = T)
         ldist[[length(ldist) + 1]] <- a.dist
         print(paste0("dist "))
       }

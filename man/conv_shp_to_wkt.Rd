@@ -27,11 +27,10 @@ The image is named conventionally with the name of the site,
 Create the 'nodes.csv' file into the out folder, return the complete path of the 'nodes.csv' file
 }
 \description{
-Read GUs (ie, nodes) shapefiles (POINTS, LINES, POLYGONS) from the different sites' folders,
-store nodes in the 'nodes.csv' dataframe with geometries as Well-Known Text (WKT) representations,
-return path of the node dataframe
+Convert the graphical units (GUs) geometries stored as shapefiles of POINTS, LINES, or POLYGONS into Well-Known Text (WKT) representations. Store the results in the 'nodes.csv' dataframe and return path of this dataframe
 }
 \examples{
+dataDir <- system.file("extdata", package = "iconr")
 nd.df.path <- conv_shp_to_wkt(dataDir = dataDir)
 head(read.csv2(nd.df.path), 1)
 

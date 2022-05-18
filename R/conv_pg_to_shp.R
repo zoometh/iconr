@@ -10,6 +10,7 @@
 #' @param sqll.ug.pts SQL on GUs with geometries of type POINTS to get shapes. By default NA
 #' @param sqll.ug.lines SQL on GUs with geometries of type LINES to get shapes. By default NA
 #' @param sqll.ug.polyg SQL on GUs with geometries of type POLYGONS to get shapes. By default NA
+#' @param sqll.edges SQL on edges
 #' @param exp.edges Export also edges as shapefiles. By default: FALSE
 #' @return Decoration's images and shapefiles
 #'
@@ -61,6 +62,7 @@ conv_pg_to_shp <- function(dataDir = tempdir(),
                            sqll.ug.pts = NA,
                            sqll.ug.lines = NA,
                            sqll.ug.polyg = NA,
+                           sqll.edges = NA,
                            exp.edges = FALSE){
   # TODO: no projections
   # convert Pg geometries to shapefiles, like this:
@@ -77,12 +79,12 @@ conv_pg_to_shp <- function(dataDir = tempdir(),
   # library("RPostgreSQL") # necessary ??
   drv <- DBI::dbDriver(Pg.param[[1]])
   con <- RPostgres::dbConnect(drv,
-                               dbname = Pg.param[[2]],
-                               host = Pg.param[[3]],
-                               port = Pg.param[[4]],
-                               user = Pg.param[[5]],
-                               password = Pg.param[[6]])
-  objets <- RPostgreSQL::dbGetQuery(con, sqll.obj.)
+                              dbname = Pg.param[[2]],
+                              host = Pg.param[[3]],
+                              port = Pg.param[[4]],
+                              user = Pg.param[[5]],
+                              password = Pg.param[[6]])
+  objets <- RPostgreSQL::dbGetQuery(con, sqll.obj)
   # rm objets without imgs
   objets <- objets[objets$img != '', ]
   row.names(objets) <- 1:nrow(objets)
@@ -191,7 +193,7 @@ conv_pg_to_shp <- function(dataDir = tempdir(),
                    quiet = T)
       # TODO: export other geometries to shapefile
     }
-    print(paste0("Geometries of '", a.site, "' has been exported"))
+    print(paste0("Geometries of '", a.site, "' have been exported"))
   }
   if(exp.edges){
     ## EDGES
@@ -215,7 +217,7 @@ conv_pg_to_shp <- function(dataDir = tempdir(),
         expr = {
           liens.sel.sf <- sf::st_as_sf(liens.sel, wkt = "wkt")
           sf::st_write(liens.sel.sf, out.shp, delete_layer = T, quiet = T)
-          print(paste0("shapefile créé: ", out.shp))
+          print(paste0("Created shapefile: ", out.shp))
         },
         error = function(e){
           print(paste0("ERROR with shapefile: ", out.shp))

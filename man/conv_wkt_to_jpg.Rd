@@ -16,7 +16,7 @@ JPGs files exported into as many folders as different GUs' types (eg., 'bouche',
 The names of the JPGs is the concatenate of their site name, dot, decoration name, dot, GU identifier (eg, "Ain Ghazal.stat_2.1.jpg")
 }
 \description{
-Convert Well-Known Text geometries of graphical units (GUs) to JPG files
+Convert the graphical units (GUs) geometries stored as Well-Known Text geometries (WKT) into JPG files
  in order to perform contour analysis with the Momocs package
 }
 \examples{

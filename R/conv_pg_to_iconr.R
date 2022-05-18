@@ -3,11 +3,16 @@
 #'
 #' @description Convert the graphical units (GUs) geometries stored in PostgreSQL into iconr format.
 #'
-#' @param Pg.param
-#' @param Pg.param
+#' @param dataDir working directory: sites' folders (copied data) and 'out' folder (outputs)
+#' @param Pg.param list of arguments to connect the PostgreSQL database.
+#' Like: list(driver, name_of_db, host, port, user, password). By default NA
+#' @param sqll.obj SQL on objects to get images of decorations. By default NA
+#' @param sqll.ug.pts SQL on GUs with geometries of type POINTS to get shapes. By default NA
+#' @param sqll.edges SQL on edges
 #' @return Decoration's images and dataframe
 #'
 #' @examples
+#'
 #' @export
 conv_pg_to_iconr <- function(dataDir = tempdir(),
                              Pg.param = NA,
@@ -25,7 +30,7 @@ conv_pg_to_iconr <- function(dataDir = tempdir(),
                               port = Pg.param[[4]],
                               user = Pg.param[[5]],
                               password = Pg.param[[6]])
-  objets <- RPostgreSQL::dbGetQuery(con, sqll.obj.)
+  objets <- RPostgreSQL::dbGetQuery(con, sqll.obj)
   # rm objets without imgs
   objets <- objets[objets$img != '', ]
   row.names(objets) <- 1:nrow(objets)
@@ -79,14 +84,14 @@ conv_pg_to_iconr <- function(dataDir = tempdir(),
     }
   }
   colnames(imgs) <- c("idf", "site", "decor", "img")
-  write.csv2(imgs,
+  utils::write.csv2(imgs,
              paste0(dataDir, "/", a.site, "/imgs.csv"),
              row.names = FALSE, dec = ".")
-  write.table(nodes,
+  utils::write.table(nodes,
               paste0(dataDir, "/", a.site, "/nodes.csv"),
               row.names = FALSE, sep = ";", dec = ".")
   edges$type[is.na(edges$type)] <- "="
-  write.table(edges,
+  utils::write.table(edges,
               paste0(dataDir, "/", a.site, "/edges.csv"),
               row.names = FALSE, sep = ";", dec = ".")
   DBI::dbDisconnect(con)
