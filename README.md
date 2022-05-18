@@ -8,17 +8,16 @@
   
 The R package ***iconr*** is grounded in graph theory, spatial analysis (composition analysis), and shape analysis (geometric morphometric) to offer concepts, measurments and functions for modeling Prehistoric iconographic compositions and preparing for further analysis (clustering, typology tree, Harris diagram, etc.). The package purpose is to contribute to cross-cultural comparison through a greater normalization of quantitative analysis.
 
-The ***iconr*** v. 0.1.0 stable version deals with composition analysis[^1], the ***iconr*** development version deals with both composition and geometric morphometric.
-
----
-See how to [contribute](.github/CONTRIBUTING.md) to the next package release; how to [report an issue](https://github.com/zoometh/iconr/issues) using the [issue template](.github/ISSUE_TEMPLATE.md).
-
----
+The ***iconr*** v. 0.1.0 [stable version](https://github.com/zoometh/iconr/#iconr-stable-version-the-analysis-of-compositions) deals with composition analysis[^1], the ***iconr*** [development version](https://github.com/zoometh/iconr/#iconr-development-version-the-analysis-of-compositions-and-geometric-morphometry) deals with both composition and geometric morphometric.
 
 ### Theoretical background
 
 The theoretical background is as follows: some objects can have a decoration, and a decoration is composed of graphical units (GUs) wich have neighbourhood relations depending on their spatial proximities. A decoration is considered as a graph and can be analyzed with Graph Theory. GU considiered as nodes and local indexes can be calculated for every nodes (eg. degree centrality). Each decoration (i.e. graph) can be pairwised compared with another decoration based on local indexes or global indexes (eg. degree distribution). As favored [GIS entry](https://zoometh.github.io/iconr/articles/gis.html), GIS indexes (*x* and *y* dimensions) can also be used. 
 
+---
+See how to [contribute](.github/CONTRIBUTING.md) to the next package release; how to [report an issue](https://github.com/zoometh/iconr/issues) using the [issue template](.github/ISSUE_TEMPLATE.md).
+
+---
 ## ***iconr*** stable version: the Analysis of Compositions
 
 The ***iconr*** v. 0.1.0 stable version can be installed from the [CRAN](https://cran.r-project.org/web/packages/iconr/index.html). It allows GUs [composition analysis](#iconr-stable-version-the-analysis-of-compositions))
@@ -91,6 +90,43 @@ plot_compar(g.compar, c(1, 2, 3),
 <img src="doc/img/_compar_eds_2_3.png" align="center"/>
 
 The same result, but in the form of a coincidence matrix, can be obtained with the function [same_elements()](https://zoometh.github.io/iconr/reference/same_elements.html)
+## Citation
+
+Use the canonical form to cite the package (`citation("iconr")`):
+```
+@Manual{Huet21pckg,
+  title = {iconr: Graphical and Spatial Analysis for Prehistoric Iconography},
+  author = {Thomas Huet and Jose Pozo},
+  year = {2021},
+  note = {R package version 0.1.0},
+  url = {https://CRAN.R-project.org/package=iconr},
+}
+```
+
+The ***iconr*** v. 0.1.0 package has also been published in the [Journal of Open Source Software](https://joss.theoj.org/papers/10.21105/joss.03191) under this BibTex reference:
+
+```
+@article{Huet21joss,
+  doi = {10.21105/joss.03191},
+  url = {https://doi.org/10.21105/joss.03191},
+  year = {2021},
+  publisher = {The Open Journal},
+  volume = {6},
+  number = {61},
+  pages = {3191},
+  author = {Thomas Huet and Jose M. Pozo and Craig Alexander},
+  title = {Analysis of Prehistoric Iconography with the R package iconr},
+  journal = {Journal of Open Source Software}
+}
+```
+## ***iconr*** development version: the Analysis of Compositions and Geometric Morphometry
+
+The ***iconr*** latest version, or development version v. 0.1.1, deals with both GUs composition and GUs shapes ([geometric morphometric](#iconr-development-version-the-analysis-of-compositions-and-geometric-morphometry)). Currently it takes in charge POLYGON geometries to perform Geometric Morphometry measurements (GMM). This development version can be downloaded from GitHub
+
+```
+devtools::install_github("zoometh/iconr")
+```
+
 
 ### Geometric Morphometry measurements' functions overview
 
@@ -167,42 +203,6 @@ morph_resume(dataDir = "*my_path*/PPN",
 </p>
 
 
-## Citation
-
-Use the canonical form to cite the package (`citation("iconr")`):
-```
-@Manual{Huet21pckg,
-  title = {iconr: Graphical and Spatial Analysis for Prehistoric Iconography},
-  author = {Thomas Huet and Jose Pozo},
-  year = {2021},
-  note = {R package version 0.1.0},
-  url = {https://CRAN.R-project.org/package=iconr},
-}
-```
-
-The ***iconr*** v. 0.1.0 package has also been published in the [Journal of Open Source Software](https://joss.theoj.org/papers/10.21105/joss.03191) under this BibTex reference:
-
-```
-@article{Huet21joss,
-  doi = {10.21105/joss.03191},
-  url = {https://doi.org/10.21105/joss.03191},
-  year = {2021},
-  publisher = {The Open Journal},
-  volume = {6},
-  number = {61},
-  pages = {3191},
-  author = {Thomas Huet and Jose M. Pozo and Craig Alexander},
-  title = {Analysis of Prehistoric Iconography with the R package iconr},
-  journal = {Journal of Open Source Software}
-}
-```
-## ***iconr*** development version: the Analysis of Compositions and Geometric Morphometry
-
-The ***iconr*** latest version, or development version v. 0.1.1, deals with both GUs composition and GUs shapes ([geometric morphometric](#iconr-development-version-the-analysis-of-compositions-and-geometric-morphometry)). Currently it takes in charge POLYGON geometries to perform Geometric Morphometry measurements (GMM). This development version can be downloaded from GitHub
-
-```
-devtools::install_github("zoometh/iconr")
-```
 
 ## Next release
 
