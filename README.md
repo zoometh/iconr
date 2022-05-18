@@ -6,13 +6,25 @@
 # ***iconr*** package <br> modeling Prehistoric iconography <img src="logo/iconr_logo.png" width='100px' align="right"/>
 > Created by [Thomas Huet](mailto:thomashuet7@gmail.com), [Jose M Pozo](mailto:josmpozo@gmail.com), [Craig Alexander](mailto:craiga304@gmail.com)
   
-The R package ***iconr*** is grounded in graph theory, spatial analysis (composition analysis), and shape analysis (geometric morphometric) to offer concepts, measurments and functions for modeling Prehistoric iconographic compositions and preparing for further analysis (clustering, typology tree, Harris diagram, etc.). The package purpose is to contribute to cross-cultural comparison through a greater normalization of quantitative analysis.
+The package purpose is to contribute to cross-cultural comparison through a greater normalization of quantitative analysis.
 
 The ***iconr*** v. 0.1.0 [stable version](https://github.com/zoometh/iconr/#iconr-stable-version-the-analysis-of-compositions) deals with composition analysis[^1], the ***iconr*** [development version](https://github.com/zoometh/iconr/#iconr-development-version-the-analysis-of-compositions-and-geometric-morphometry) deals with both composition and geometric morphometric.
 
 ### Theoretical background
 
-The theoretical background is as follows: some objects can have a decoration, and a decoration is composed of graphical units (GUs) wich have neighbourhood relations depending on their spatial proximities. A decoration is considered as a graph and can be analyzed with Graph Theory. GU considiered as nodes and local indexes can be calculated for every nodes (eg. degree centrality). Each decoration (i.e. graph) can be pairwised compared with another decoration based on local indexes or global indexes (eg. degree distribution). As favored [GIS entry](https://zoometh.github.io/iconr/articles/gis.html), GIS indexes (*x* and *y* dimensions) can also be used. 
+The R package ***iconr*** is grounded in graph theory, spatial analysis (composition analysis), and shape analysis (geometric morphometric) to offer concepts, measurments and functions for modeling Prehistoric iconographic compositions and preparing for further analysis (clustering, typology tree, Harris diagram, etc.). The theoretical background is as follows:  
+  * Some objects (eg, pottery, rock panels) can have a decoration;
+  * A decoration is composed of graphical units (GUs);
+  * GUs can be drawn as LINES or POLYGONS;
+  * Shape analysis can measures the similarities between two GUs (eg. Procrustes distance)
+  * GUs are considered as nodes;
+  * Nodes have neighbourhood relations one with another depending on their spatial proximities;
+  * A decoration is considered as a graph and can be analyzed with Graph Theory.
+  * Local indices can be calculated for every nodes (eg. degree centrality);
+  * In terms of composition: each decoration (i.e. graph) can be compared to another decoration on the basis of local or global indices (e.g. degree distribution);
+  * In terms of shapes: each decoration can be compared to another decoration on the basis of their shape indices;
+  
+As favored [GIS entry](https://zoometh.github.io/iconr/articles/gis.html), GIS indices (*x* and *y* dimensions) can also be used. 
 
 ---
 See how to [contribute](.github/CONTRIBUTING.md) to the next package release; how to [report an issue](https://github.com/zoometh/iconr/issues) using the [issue template](.github/ISSUE_TEMPLATE.md).
