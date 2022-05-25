@@ -10,7 +10,7 @@ The ***iconr*** R package purpose is to contribute to cross-cultural comparison 
 
 ### Theoretical background
 
-The R package ***iconr*** is grounded in graph theory, spatial analysis (composition analysis), and shape analysis (geometric morphometric) to offer concepts, measurments and functions for modeling Prehistoric iconographic compositions and preparing for further analysis (clustering, typology tree, Harris diagram, etc.). The theoretical background is as follows:  
+The R package ***iconr*** is grounded in graph theory, spatial analysis (composition analysis), and shape analysis (geometric morphometric) to offer concepts, measurments and functions for modeling Prehistoric iconography and preparing for further analysis (clustering, typology tree, Harris diagram, etc.). The theoretical background is as follows:  
   * Some objects (eg, pottery, rock panels) can have a decoration;
   * A decoration is composed of graphical units (GUs);
   * GUs can be drawn as LINES or POLYGONS (2D);
