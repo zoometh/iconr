@@ -1,3 +1,37 @@
+#' Read Edges of a Decoration
+#' @name read_eds
+#'
+#' @description Read edges' information from a file including all edges and extract edges of one decoration. Accepted formats are tab separated values ('tsv'), semicolon separated values ('csv'), or shapefile ('shp').
+#'
+#' @param site name of the site.
+#' @param decor name of the decoration.
+#' @param dir path to the working folder, by default it is the working directory.
+#' @param edges name of the edges file (a dataframe or a shapefile).
+#' @param nodes name of the nodes file (a dataframe or a shapefile).
+#' @param format file extension indicating a file format from 'tsv' (tab separated values), 'csv' (semicolon separated values) or 'shp' (shapefile). For 'tsv' and 'csv', the files must include node coordinates (\code{nodes$x}, \code{nodes$y}).
+#'
+#' @details subset the dataframe of edges depending on 'site' and 'decor'.
+#'
+#' @return Dataframe of graph edges, including at least the columns "site", "decor", "a", "b", "xa", "ya", "xb", "yb", with values for each edge (row).
+#'
+#'
+#' @examples
+#'
+#' ## Set data folder
+#' dataDir <- system.file("extdata", package = "iconr")
+#'
+#' # Read .tsv file
+#' eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1",
+#'                    dir = dataDir, edges = "edges", format = "tsv")
+#' eds.df
+#' ## Dataframe of edges
+#'
+#' # Read shapefile
+#' eds.df <- read_eds(site = "Cerro Muriano", decor = "Cerro Muriano 1",
+#'                    dir = dataDir, edges = "edges", format = "shp")
+#' eds.df
+#' ## Dataframe of edges
+#'
 #' @export
 read_eds <- function(site, decor, dir = getwd(),
                      edges = "edges", nodes = "nodes",
@@ -12,7 +46,6 @@ read_eds <- function(site, decor, dir = getwd(),
             # choice: tsv or csv read nodes to get coordinates
             nds.df <- read_nds(dir = dir, site = site, decor = decor,
                                nodes = nodes, format = format)
-            print(nrow(nds.df))
             sep <- c(tsv = "\t", csv = ";")
             eds.df <- utils::read.table(file = eds.file, sep = sep[format],
                                         header = TRUE, stringsAsFactors = FALSE)

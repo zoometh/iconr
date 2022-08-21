@@ -9,6 +9,7 @@ morph_nds_group(
   focus = c("clust", "kmeans"),
   gu.types = "all",
   nb.centers = 1,
+  dataDir = system.file("extdata", package = "iconr"),
   out.dir = "_out",
   out.data = c("mbrshp", "plot")
 )
@@ -23,6 +24,8 @@ By default, c("clust", "kmeans")}
 By default "all"}
 
 \item{nb.centers}{Number of clusters, uniquely for Kmeans. By default 1 (unique cluster)}
+
+\item{dataDir}{path to the folder.}
 
 \item{out.dir}{Name of output folder}
 
@@ -39,6 +42,7 @@ Momocs package morphometrics classification (groups) between different graphical
  Read JPG files from each different folder. Useful after comparisons (see, m'orph_nds_compar' function)
 }
 \examples{
+
 morph_nds_group(nodes)
 
 ## [1] "* read 'oeil' typo"

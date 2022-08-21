@@ -1,18 +1,8 @@
 #' Convert SHP to WKT
 #' @name conv_shp_to_wkt
-#' @description Convert the graphical units (GUs) geometries stored as shapefiles of POINTS, LINES, or POLYGONS into Well-Known Text (WKT) representations. Store the results in the 'nodes.csv' dataframe and return path of this dataframe
+#' @description Convert the graphical units (GUs) geometries stored as shapefiles of POINTS, LINES, or POLYGONS into Well-Known Text (WKT) representations. Store the results in the 'nodes.csv' dataframe and return the path to this dataframe
 #'
-#' @param dataDir Path of the folder storing folders of all decorations.
-#' Each of these folders as a site name (eg, Ain Ghazal) and contains at least
-#' one shapefile (.shp and .dbf and .shx) and one image (.jpg or .tif or .png, etc.).
-#' The shapefile is named conventionally with the name of the site,
-#'  a dot,
-#'  the name of the decoration,
-#'  "nd_pl" for nodes POLYGONS
-#'   (eg, Ain Ghazal.stat_2_nd_pl.shp)
-#' The image is named conventionally with the name of the site,
-#'  a dot,
-#'  and the name of the decoration (eg, Ain Ghazal.stat_2.tif)
+#' @param dataDir Path of the folder storing folders of all decorations. Each of these folders as a site name (eg, Ain Ghazal) and contains at least one shapefile (.shp and .dbf and .shx) and one image (.jpg or .tif or .png, etc.). The shapefile is named conventionally with the name of the site, a dot,the name of the decoration, "nd_pl" for nodes POLYGONS (eg, Ain Ghazal.stat_2_nd_pl.shp). The image is named conventionally with the name of the site, a dot, and the name of the decoration (eg, Ain Ghazal.stat_2.tif)
 #' @param out.dir Path of the output folder. By default "_out/" in the "dataDir" folder
 #' @param complete.only Boolean, if TRUE discard incomplete (incmplt == 1), by default = TRUE
 #' @return Create the 'nodes.csv' file into the out folder, return the complete path of the 'nodes.csv' file
@@ -26,7 +16,7 @@
 #' ## 1 Ain Ghazal stat_2  1 oeil       -       0 POLYGON ((266.9252 -167.608,...
 #'
 #' @export
-conv_shp_to_wkt <- function(dataDir,
+conv_shp_to_wkt <- function(dataDir = system.file("extdata", package = "iconr"),
                             complete.only = TRUE,
                             out.dir = "_out"){
   # print(dataDir)

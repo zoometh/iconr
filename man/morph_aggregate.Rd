@@ -8,6 +8,7 @@ morph_aggregate(
   nodes = NULL,
   ldist = NULL,
   aggr = c("type", "decoration"),
+  dataDir = system.file("extdata", package = "iconr"),
   out.dir = "_out"
 )
 }
@@ -19,14 +20,15 @@ morph_aggregate(
 \item{aggr}{Aggregate on GUs' types by decorations ("type") or
 aggregate by decorations ("decoration").}
 
+\item{dataDir}{path to the folder.}
+
 \item{out.dir}{Path of the output folder. By default "_out/" in the "dataDir" folder}
 }
 \value{
-Create plots dependingList of matrices
+Create plots dependingList of matrices.
 }
 \description{
-Aggregate matrices of distances by types calculating mean distances for each single types (eg., two eyes on a single face decoration)
-or for the whole decoration (faces, eyes, mouths, ...)
+Aggregate matrices of distances by types calculating mean distances for each single types (eg., two eyes on a single face decoration) or for the whole decoration (faces, eyes, mouths, ...)
 }
 \examples{
 

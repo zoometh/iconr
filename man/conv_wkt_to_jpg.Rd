@@ -4,10 +4,16 @@
 \alias{conv_wkt_to_jpg}
 \title{Convert WKT to JPG}
 \usage{
-conv_wkt_to_jpg(nodes, out.dir = "_out")
+conv_wkt_to_jpg(
+  nodes,
+  dataDir = system.file("extdata", package = "iconr"),
+  out.dir = "_out"
+)
 }
 \arguments{
 \item{nodes}{nodes dataframe coming from the 'conv_shp_to_wkt.R' function}
+
+\item{dataDir}{path to the folder.}
 
 \item{out.dir}{path of the output folder. By default "_out/" in the "dataDir" folder}
 }
@@ -20,6 +26,10 @@ Convert the graphical units (GUs) geometries stored as Well-Known Text geometrie
  in order to perform contour analysis with the Momocs package
 }
 \examples{
+
+dataDir <- system.file("extdata", package = "iconr")
+nd.df.path <- conv_shp_to_wkt(dataDir = dataDir)
+nodes <- read.csv(nd.df.path, sep = ";")
 conv_wkt_to_jpg(nodes = nodes)
 
 ## Saving 4.33 x 3.94 in image

@@ -10,6 +10,7 @@
 #' @param gu.types Classes of nodes that will be clustered, a vector of characters or a character.
 #' By default "all"
 #' @param nb.centers Number of clusters, uniquely for Kmeans. By default 1 (unique cluster)
+#' @param dataDir path to the folder.
 #' @param out.dir Name of output folder
 #' @param out.data Type of data returned.
 #' If "mbrshp" return a dataframe of nodes with their clustering and image path.
@@ -17,6 +18,7 @@
 #' @return Depending on the focus, create hierachical clustering ("clust") or Kmeans ("kmeans") plots,
 #' print their complete paths, return a list of statistics
 #' @examples
+#'
 #' morph_nds_group(nodes)
 #'
 #' ## [1] "* read 'oeil' typo"
@@ -30,6 +32,7 @@ morph_nds_group <- function(nodes,
                             focus = c("clust", "kmeans"),
                             gu.types = "all",
                             nb.centers = 1,
+                            dataDir = system.file("extdata", package = "iconr"),
                             out.dir = "_out",
                             out.data = c("mbrshp", "plot")){
   out.dirPath <- paste0(dataDir, "/", out.dir)

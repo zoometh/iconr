@@ -2,23 +2,35 @@
 #' @name morph_nds_compar
 #'
 #' @description Momocs package morphometrics comparisons between different graphical units (GUs).
-#'  Read JPG files from each different folder. Useful before grouping (see, 'morph_nds_group' function)
+#'  Read JPG files from each different folder. This function is used after converting the geometries to JPG using 'conv_wkt_to_jpg()'. This function is useful before grouping (see, 'morph_nds_group' function)
 #'  to determine the number of clusters
 #'
 #' @param nodes Dataframe of nodes
-#' @param focus Type of analysis: 'panel', 'stack', 'PCA' or 'dist'.
+#' @param focus Type of analysis: 'panel', 'stack', 'PCA' or 'dist'. The option 'dist' allows the calculation of the distance matrix which can be used in 'morph_aggregate()'
 #' By default c("panel", "stack", "PCA", "dist")
 #' @param nb.h number of Fourier harmonics, uniquely for PCA. By default = 15
 #' @param out.dir path of the output folder. By default "_out/" in the "dataDir" folder
+#'
 #' @return Depending on the focus, return 'panel', 'stack' or 'PCA' plots with their complete path
+#'
 #' @examples
-#' morph_nds_compar(nodes)
+#'
+#' dataDir <- system.file("extdata", package = "iconr")
+#' nd.df.path <- conv_shp_to_wkt(dataDir = dataDir)
+#' nodes <- read.csv(nd.df.path, sep = ";")
+#' conv_wkt_to_jpg(nodes = nodes)
+#'
+#' # create PNG with panels
+#' morph_nds_compar(nodes, focus = c("panel"))
 #'
 #' ## [1] "* read 'oeil' type of UGs"
 #' ## Extracting 10.jpg outlines...
 #' ## [ 1 / 10 ]  Ain Ghazal.stat_2.1.jpg
 #' ## ...
 #' ## [ 10 / 10 ]  Qarassa.figurine__wx.14.jpg
+#'
+#' # Distance matrices
+#' ldist <- morph_nds_compar(nodes, focus = c("dist"))
 #'
 #' @export
 morph_nds_compar <- function(nodes = NA,

@@ -4,11 +4,16 @@
 #'  in order to perform contour analysis with the Momocs package
 #'
 #' @param nodes nodes dataframe coming from the 'conv_shp_to_wkt.R' function
+#' @param dataDir path to the folder.
 #' @param out.dir path of the output folder. By default "_out/" in the "dataDir" folder
 #' @return JPGs files exported into as many folders as different GUs' types (eg., 'bouche', oeil', 'visage', etc.)
 #' The names of the JPGs is the concatenate of their site name, dot, decoration name, dot, GU identifier (eg, "Ain Ghazal.stat_2.1.jpg")
 #'
 #' @examples
+#'
+#' dataDir <- system.file("extdata", package = "iconr")
+#' nd.df.path <- conv_shp_to_wkt(dataDir = dataDir)
+#' nodes <- read.csv(nd.df.path, sep = ";")
 #' conv_wkt_to_jpg(nodes = nodes)
 #'
 #' ## Saving 4.33 x 3.94 in image
@@ -17,6 +22,7 @@
 #'
 #' @export
 conv_wkt_to_jpg <- function(nodes,
+                            dataDir = system.file("extdata", package = "iconr"),
                             out.dir = "_out"){
   # TODO: add "LINES"
   # TODO: for Lines ; When ugs are Line or Polygons, there's a need to get their centroid to pass this value to Edges
@@ -55,5 +61,8 @@ conv_wkt_to_jpg <- function(nodes,
         ggplot2::ggsave(out.g, g.ug)
       }
     }
+  }
+  if(verbose){
+    print(paste0("the JPGs images of the WKT geometries have been saved into: '", out.dirPath,"'"))
   }
 }

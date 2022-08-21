@@ -1,20 +1,23 @@
 #' Resume geometry classes (POINTS, LINES, POLYGON) of GUs for each object
 #' @name morph_aggregate
-#' @description Aggregate matrices of distances by types calculating mean distances for each single types (eg., two eyes on a single face decoration)
-#' or for the whole decoration (faces, eyes, mouths, ...)
+#' @description Aggregate matrices of distances by types calculating mean distances for each single types (eg., two eyes on a single face decoration) or for the whole decoration (faces, eyes, mouths, ...)
 #'
 #' @param nodes Nodes dataframe coming from the 'conv_shp_to_wkt.R' function
 #' @param ldist A list of distance matrices coming from 'morph_nds_compar(nodes, focus = "dist")'
 #' @param aggr Aggregate on GUs' types by decorations ("type") or
 #' aggregate by decorations ("decoration").
+#' @param dataDir path to the folder.
 #' @param out.dir Path of the output folder. By default "_out/" in the "dataDir" folder
-#' @return Create plots dependingList of matrices
+#'
+#' @return Create plots dependingList of matrices.
+#'
 #' @examples
 #'
 #' @export
 morph_aggregate <- function(nodes = NULL,
                             ldist = NULL,
                             aggr = c("type", "decoration"),
+                            dataDir = system.file("extdata", package = "iconr"),
                             out.dir = "_out"){
   out.dirPath <- paste0(dataDir, "/", out.dir)
   # library(dplyr)
