@@ -35,6 +35,7 @@
 #' df.same_edges
 #' ## a symmetric matrix of edges comparisons
 #'
+#' @export
 same_elements <- function (lgrph, nd.var = "type", focus = "nodes") {
   extract_elements <- list(nodes = function(x) iconr::named_elements(x, focus = "nodes", nd.var),
                            edges = function(x) iconr::named_elements(x, focus = "edges", nd.var))
