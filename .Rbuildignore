@@ -23,5 +23,6 @@ doc/
 ^R/(archives)$
 ^man/_*\..Rd$
 ^man/shape_elements.Rd$
+dev/
 
 
