@@ -161,6 +161,7 @@ flowchart TD
     classDef iconRpkg fill:#add8e6;
 ```
 
+
 #### Compare GUs' shapes
 
 The [sample dataset](https://github.com/zoometh/iconr/tree/master/doc/datasets/PPN) is composed on 5 decorated objects, belonging from 4 sites of the Near-East Pre-Pottery Neolithic:
