@@ -149,14 +149,14 @@ flowchart TD
     D ---> E((WKT));
     E ---> F{{"conv_wkt_to_jpg()"}}:::iconRpkg;
     F ---> G((JPG));
-    G ---> H{{"morph_nds_group()"}}:::iconRpkg
-    H ---> I[elemental<br>classification]
-    G ---> J{{"morph_nds_compar()"}}:::iconRpkg
-    J ---> K[elemental<br>comparison]
-    E ---> L{{"morph_resume()"}}:::iconRpkg
+    G ---> H{{"morph_nds_group()"}}:::iconRpkg;
+    H ---> I[elemental<br>classification];
+    G ---> J{{"morph_nds_compar()"}}:::iconRpkg;
+    J ---> K[elemental<br>comparison];
+    E ---> L{{"morph_resume()"}}:::iconRpkg;
     L ---> [dataset<br>description];
-    I & K ---> M[[elemental<br>distance<br>matrices]]
-    M ---> N{{"morph_aggregate()"}}:::iconRpkg
+    I & K ---> M[[elemental<br>distance<br>matrices]];
+    M ---> N{{"morph_aggregate()"}}:::iconRpkg;
     N ---> O[decor<br>classification];
     classDef iconRpkg fill:#add8e6;
 ```
