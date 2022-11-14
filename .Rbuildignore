@@ -7,12 +7,12 @@
 ^logo/
 ^docs$
 ^docs/
+^doc$
+doc/
 ^\.github$
 ^_pkgdown\.yml$
 ^pkgdown$
 ^CRAN-RELEASE$
-^doc$
-doc/
 ^inst/CITATION$
 ^vignettes/gis.Rmd$
 ^vignettes/next.Rmd$

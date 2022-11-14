@@ -145,6 +145,7 @@ The ***iconr*** v. 0.1.1 functions are named `morph_*` (morphology) and `conv_*`
 flowchart TD
     A[(Postgres<br>DB)] ---> B{{"conv_pg_to_shp()"}}:::iconRpkg;
     B ---> C((SHP));
+    Q[[GIS]] ---> C;
     C ---> D{{"conv_shp_to_wkt()"}}:::iconRpkg;
     D ---> E((WKT));
     E ---> F{{"conv_wkt_to_jpg()"}}:::iconRpkg;
