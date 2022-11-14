@@ -154,6 +154,7 @@ flowchart TD
     G ---> J{{"morph_nds_compar()"}}:::iconRpkg
     J ---> K[elemental<br>comparison]
     E ---> L{{"morph_resume()"}}:::iconRpkg
+    L ---> [dataset<br>description]
     I & K ---> M[[elemental<br>distance<br>matrices]]
     M ---> N{{"morph_aggregate()"}}:::iconRpkg
     N ---> [decor<br>classification]
