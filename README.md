@@ -142,20 +142,21 @@ devtools::install_github("zoometh/iconr")
 The ***iconr*** v. 0.1.1 functions are named `morph_*` (morphology) and `conv_*` (conversions). Find their documentation directly on R (eg, `?morph_nds_compar`). They are performed with the [R package Momocs](https://momx.github.io/Momocs/)
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[(Postgres<br>DB)] ---> B{{"conv_pg_to_shp()"}}:::iconRpkg;
-    C((SHP)) ---> D{{"conv_shp_to_wkt()"}}:::iconRpkg;
+    B ---> C((SHP));
+    C ---> D{{"conv_shp_to_wkt()"}}:::iconRpkg;
     D ---> E((WKT));
     E ---> F{{"conv_wkt_to_jpg()"}}:::iconRpkg;
     F ---> G((JPG));
     G ---> H{{"morph_nds_group()"}}:::iconRpkg
-    H ---> I[Classify]
+    H ---> I[elemental<br>classification]
     G ---> J{{"morph_nds_compar()"}}:::iconRpkg
-    J ---> K[Compare]
+    J ---> K[elemental<br>comparison]
     E ---> L{{"morph_resume()"}}:::iconRpkg
     I & K ---> M[[elemental<br>distance<br>matrices]]
     M ---> N{{"morph_aggregate()"}}:::iconRpkg
-    N ---> P
+    N ---> [decor<br>classification]
     classDef iconRpkg fill:#add8e6;
 ```
 
