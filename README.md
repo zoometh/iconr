@@ -101,7 +101,7 @@ plot_compar(g.compar, c(1, 2, 3),
 The same result, but in the form of a coincidence matrix, can be obtained with the function [same_elements()](https://zoometh.github.io/iconr/reference/same_elements.html)
 ## Citation
 
-Use the canonical form to cite the package (`citation("iconr")`):
+Use the canonical form to cite the package in R (`citation("iconr")`):
 ```
 @Manual{Huet21pckg,
   title = {iconr: Graphical and Spatial Analysis for Prehistoric Iconography},
@@ -150,10 +150,10 @@ flowchart TD
     D ---> E((WKT));
     E ---> F{{"conv_wkt_to_jpg()"}}:::iconRpkg;
     F ---> G((JPG));
-    G ---> H{{"morph_nds_group()"}}:::iconRpkg;
-    H ---> I[elemental<br>classification];
     G ---> J{{"morph_nds_compar()"}}:::iconRpkg;
     J ---> K[elemental<br>comparison];
+    J ---> H{{"morph_nds_group()"}}:::iconRpkg;
+    H ---> I[elemental<br>classification];
     E ---> L{{"morph_resume()"}}:::iconRpkg;
     L ---> P[dataset<br>description];
     I & K ---> M[[elemental<br>distance<br>matrices]];

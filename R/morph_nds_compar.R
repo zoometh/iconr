@@ -8,7 +8,7 @@
 #' @param nodes Dataframe of nodes
 #' @param focus Type of analysis: 'panel', 'stack', 'PCA' or 'dist'. The option 'dist' allows the calculation of the distance matrix which can be used in 'morph_aggregate()'
 #' By default c("panel", "stack", "PCA", "dist")
-#' @param nb.h number of Fourier harmonics, uniquely for PCA. By default = 15
+#' @param nb.h number of Fourier harmonics, uniquely for PCA. By default = 15.
 #' @param out.dir path of the output folder. By default "_out/" in the "dataDir" folder
 #'
 #' @return Depending on the focus, return 'panel', 'stack' or 'PCA' plots with their complete path

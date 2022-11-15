@@ -1,22 +1,23 @@
 #' Morphometrics classification between GUs
+#'
 #' @name morph_nds_group
 #'
-#' @description Momocs package morphometrics classification (groups) between different graphical units (GUs).
-#'  Read JPG files from each different folder. Useful after comparisons (see, m'orph_nds_compar' function)
+#' @description Momocs package morphometrics classification (groups) between different graphical units (GUs). Read JPG files from each different folder. Useful after comparisons (see, 'morph_nds_compar' function)
 #'
-#' @param nodes Dataframe of nodes
-#' @param focus Type of grouping, hierachical clustering ("clust") or Kmeans ("kmeans").
-#' By default, c("clust", "kmeans")
-#' @param gu.types Classes of nodes that will be clustered, a vector of characters or a character.
-#' By default "all"
-#' @param nb.centers Number of clusters, uniquely for Kmeans. By default 1 (unique cluster)
+#' @param nodes Dataframe of nodes.
+#' @param gu.types Classes of nodes that will be clustered, a vector of characters or a character. By default "all".
+#' @param nb.h Number of Fourier harmonics, uniquely for PCA. By default = 15.
+#' @param focus Type of grouping, hierachical clustering ("clust") or Kmeans ("kmeans"). By default, c("clust", "kmeans").
+#' @param nb.centers Number of clusters, uniquely for Kmeans. By default 1 (unique cluster).
+#' @param cex Size of the text, by default 4.
+#' @param lwd Width of the dendrogram branches, by defaul 1.5.
 #' @param dataDir path to the folder.
-#' @param out.dir Name of output folder
-#' @param out.data Type of data returned.
-#' If "mbrshp" return a dataframe of nodes with their clustering and image path.
-#' If "plot" return a "kmeans" or create a plot. By default c("mbrshp", "plot")
-#' @return Depending on the focus, create hierachical clustering ("clust") or Kmeans ("kmeans") plots,
-#' print their complete paths, return a list of statistics
+#' @param out.dir Name of output folder.
+#' @param out.data Type of data returned. If "mbrshp" return a dataframe of nodes with their clustering and image path. If "plot" return a "kmeans" or create a plot. By default c("mbrshp", "plot").
+#' @param verbose if TRUE (by default), verbose.
+#'
+#' @return Depending on the focus, creates hierachical clustering ("clust") or Kmeans ("kmeans") plots, print their complete paths, return a list of statistics.
+#'
 #' @examples
 #'
 #' morph_nds_group(nodes)
@@ -29,21 +30,27 @@
 #'
 #' @export
 morph_nds_group <- function(nodes,
-                            focus = c("clust", "kmeans"),
                             gu.types = "all",
+                            focus = c("clust", "kmeans"),
+                            nb.h = 15,
                             nb.centers = 1,
+                            cex = 4,
+                            lwd = 1.5,
                             dataDir = system.file("extdata", package = "iconr"),
                             out.dir = "_out",
-                            out.data = c("mbrshp", "plot")){
+                            out.data = c("mbrshp", "plot"),
+                            verbose = TRUE){
   out.dirPath <- paste0(dataDir, "/", out.dir)
   # TODO: not escape when different GUs (return)
   # TODO: include LINES
   # focus  = "clust" ; out.dirPath ; gu.types = "bouche"
   # nodes, gu.types = "oeil", focus  = "clust", out.dirPath = out.dirPath
+  # if(!("idf" %in% colnames(nodes))){
   nodes$idf <- paste0(nodes$site, ".", nodes$decor, ".", nodes$id)
+  # }
   # nodes$abb <- paste0(abbreviate(nodes$site), ".", abbreviate(nodes$decor))
   nodes.sel <- nodes[grep("POLYGON", nodes$geometry, value=F), ] # filter
-  fac <- tibble::as_tibble(nodes.sel[, c("site", "decor", "type", "idf")]) # attributes
+  fac <- tibble::as_tibble(nodes.sel[ , c("site", "decor", "type", "idf")]) # attributes
   # fac$idf <- paste0(fac$site, ".", fac$decor)
   # colors
   nb.cols <- length(unique(fac$idf))
@@ -58,9 +65,9 @@ morph_nds_group <- function(nodes,
   # TODO: store as tibble
   lout <- list() # stoe results
   for(gu.type in gu.types){
-    # gu.type <- "nez" ; gu.type <- "oeil"
+    # gu.type <- "nez" ; gu.type <- "oeil" ; gu.type <- "caravanserail"
     # read JPG
-    print(paste0("* read '", gu.type,"' typo"))
+    if(verbose){print(paste0("* read '", gu.type,"' typo"))}
     jpgs <- list.files(paste0(out.dirPath, "/", gu.type), full.names=TRUE)
     coo <- Momocs::import_jpg(jpgs)
     min.len <- min(lengths(coo))/2
@@ -76,22 +83,26 @@ morph_nds_group <- function(nodes,
     fac.type$idf <- as.factor(fac.type$idf)
     # fac.type$idf <- as.factor(fac.type$abb)
     a.ug.type <- Momocs::Out(coo, fac.type)
-    ef.type <- Momocs::efourier(a.ug.type, nb.h=10)
+    ef.type <- Momocs::efourier(a.ug.type, nb.h = nb.h)
     PCA.type <- Momocs::PCA(ef.type)
-    lout[[length(lout)+1]] <- PCA.type
+    lout[[length(lout) + 1]] <- PCA.type
     # plot_PCA(PCA.type, labelgroups  = T)
     ## export
     if("clust" %in% focus){
       # panel
-      print(paste0("Clust..."))
+      if(verbose){print(paste0("Clust..."))}
       out.d <- paste0(out.dirPath, "/", gu.type, "_group_clust.png")
       grDevices::png(out.d,
-                     width = Wi+10, height = He, units = "cm", res = 300)
+                     width = Wi + 10,
+                     height = He + 2,
+                     units = "cm",
+                     res = 300)
+      # par(omi = c(0, 0, 0, 10), mar=c(10, 0, 0, 10))
       print(
         clust <- Momocs::CLUST(PCA.type,
                                ~idf,
-                               lwd = 1.5,
-                               cex = 4)
+                               lwd = lwd,
+                               cex = cex)
       ) # + theme(plot.margin = unit(c(0,3,0,0), "cm"))
       grDevices::dev.off()
       # return(clust)
