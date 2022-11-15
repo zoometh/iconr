@@ -6,12 +6,16 @@
 \usage{
 conv_wkt_to_jpg(
   nodes,
+  ids = c("site", "decor", "id"),
   dataDir = system.file("extdata", package = "iconr"),
-  out.dir = "_out"
+  out.dir = "_out",
+  verbose = TRUE
 )
 }
 \arguments{
 \item{nodes}{nodes dataframe coming from the 'conv_shp_to_wkt.R' function}
+
+\item{ids}{the field names that constitute the unique key of the GU. By default: c("site", "decor", "id").}
 
 \item{dataDir}{path to the folder.}
 

@@ -11,19 +11,20 @@ conv_shp_to_wkt(
 )
 }
 \arguments{
-\item{dataDir}{Path of the folder storing folders of all decorations. Each of these folders as a site name (eg, Ain Ghazal) and contains at least one shapefile (.shp and .dbf and .shx) and one image (.jpg or .tif or .png, etc.). The shapefile is named conventionally with the name of the site, a dot,the name of the decoration, "nd_pl" for nodes POLYGONS (eg, Ain Ghazal.stat_2_nd_pl.shp). The image is named conventionally with the name of the site, a dot, and the name of the decoration (eg, Ain Ghazal.stat_2.tif)}
+\item{dataDir}{Path of the folder storing folders of all decorations. Each of these folders as a site name (eg, Ain Ghazal) and contains at least one shapefile (.shp and .dbf and .shx) and one image (.jpg or .tif or .png, etc.). The shapefile is named conventionally with the name of the site, a dot,the name of the decoration, "nd_pl" for nodes POLYGONS (eg, Ain Ghazal.stat_2_nd_pl.shp). The image is named conventionally with the name of the site, a dot, and the name of the decoration (eg, Ain Ghazal.stat_2.tif).}
 
-\item{complete.only}{Boolean, if TRUE discard incomplete (incmplt == 1), by default = TRUE}
+\item{complete.only}{Boolean, if TRUE discard incomplete (incmplt == 1), by default = TRUE.}
 
-\item{out.dir}{Path of the output folder. By default "_out/" in the "dataDir" folder}
+\item{out.dir}{Path of the output folder. By default "_out/" in the "dataDir" folder.}
 }
 \value{
-Create the 'nodes.csv' file into the out folder, return the complete path of the 'nodes.csv' file
+Create the 'nodes.csv' file into the out folder, return the complete path of the 'nodes.csv' file.
 }
 \description{
-Convert the graphical units (GUs) geometries stored as shapefiles of POINTS, LINES, or POLYGONS into Well-Known Text (WKT) representations. Store the results in the 'nodes.csv' dataframe and return the path to this dataframe
+Convert the graphical units (GUs) geometries stored as shapefiles of POINTS, LINES, or POLYGONS into Well-Known Text (WKT) representations. Store the results in the 'nodes.csv' dataframe and return the path to this dataframe.
 }
 \examples{
+
 dataDir <- system.file("extdata", package = "iconr")
 nd.df.path <- conv_shp_to_wkt(dataDir = dataDir)
 head(read.csv2(nd.df.path), 1)

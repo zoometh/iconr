@@ -7,16 +7,16 @@
 #' @param nodes Dataframe of nodes.
 #' @param gu.types Classes of nodes that will be clustered, a vector of characters or a character. By default "all".
 #' @param nb.h Number of Fourier harmonics, uniquely for PCA. By default = 15.
-#' @param focus Type of grouping, hierachical clustering ("clust") or Kmeans ("kmeans"). By default, c("clust", "kmeans").
+#' @param focus Type of grouping, Kmeans ("kmeans"). By default, c("kmeans").
 #' @param nb.centers Number of clusters, uniquely for Kmeans. By default 1 (unique cluster).
-#' @param cex Size of the text, by default 4.
-#' @param lwd Width of the dendrogram branches, by defaul 1.5.
-#' @param dataDir path to the folder.
+#' @param cex Size of the text, by default 1.
+#' @param lwd Width of the dendrogram branches, by defaul 1.
+#' @param dataDir Path to the folder.
 #' @param out.dir Name of output folder.
 #' @param out.data Type of data returned. If "mbrshp" return a dataframe of nodes with their clustering and image path. If "plot" return a "kmeans" or create a plot. By default c("mbrshp", "plot").
 #' @param verbose if TRUE (by default), verbose.
 #'
-#' @return Depending on the focus, creates hierachical clustering ("clust") or Kmeans ("kmeans") plots, print their complete paths, return a list of statistics.
+#' @return Depending on the focus, creates plots (ex: Kmeans ("kmeans")), print their complete paths, return the Kmeans membership in a dataframe.
 #'
 #' @examples
 #'
@@ -29,9 +29,9 @@
 #' ## [ 10 / 10 ]  Qarassa.figurine__wx.14.jpg
 #'
 #' @export
-morph_nds_group <- function(nodes,
+morph_nds_group <- function(nodes = NA,
                             gu.types = "all",
-                            focus = c("clust", "kmeans"),
+                            focus = c("kmeans"),
                             nb.h = 15,
                             nb.centers = 1,
                             cex = 4,
@@ -63,7 +63,7 @@ morph_nds_group <- function(nodes,
   fac <- merge(fac, fac.colors, by = "idf", all.x = TRUE)
   if(gu.types == "all"){gu.types <- unique(nodes$type)}
   # TODO: store as tibble
-  lout <- list() # stoe results
+  lout <- list() # store results
   for(gu.type in gu.types){
     # gu.type <- "nez" ; gu.type <- "oeil" ; gu.type <- "caravanserail"
     # read JPG
@@ -82,31 +82,36 @@ morph_nds_group <- function(nodes,
     fac.type <- fac[fac$type == gu.type, ]
     fac.type$idf <- as.factor(fac.type$idf)
     # fac.type$idf <- as.factor(fac.type$abb)
-    a.ug.type <- Momocs::Out(coo, fac.type)
-    ef.type <- Momocs::efourier(a.ug.type, nb.h = nb.h)
-    PCA.type <- Momocs::PCA(ef.type)
+    a.gu.type <- Momocs::Out(coo, fac.type)
+    # ef.type <- Momocs::efourier(a.gu.type, nb.h = nb.h)
+    # PCA.type <- Momocs::PCA(ef.type)
+    PCA.type <- a.gu.type %>%
+      efourier(nb.h,
+               norm = TRUE) %>%
+      PCA
+    # TODO: return this PCA list?
     lout[[length(lout) + 1]] <- PCA.type
     # plot_PCA(PCA.type, labelgroups  = T)
     ## export
-    if("clust" %in% focus){
-      # panel
-      if(verbose){print(paste0("Clust..."))}
-      out.d <- paste0(out.dirPath, "/", gu.type, "_group_clust.png")
-      grDevices::png(out.d,
-                     width = Wi + 10,
-                     height = He + 2,
-                     units = "cm",
-                     res = 300)
-      # par(omi = c(0, 0, 0, 10), mar=c(10, 0, 0, 10))
-      print(
-        clust <- Momocs::CLUST(PCA.type,
-                               ~idf,
-                               lwd = lwd,
-                               cex = cex)
-      ) # + theme(plot.margin = unit(c(0,3,0,0), "cm"))
-      grDevices::dev.off()
-      # return(clust)
-    }
+    # if("clust" %in% focus){
+    #   # panel
+    #   if(verbose){print(paste0("Clust..."))}
+    #   out.d <- paste0(out.dirPath, "/", gu.type, "_group_clust.png")
+    #   grDevices::png(out.d,
+    #                  width = Wi + 10,
+    #                  height = He + 2,
+    #                  units = "cm",
+    #                  res = 300)
+    #   # par(omi = c(0, 0, 0, 10), mar=c(10, 0, 0, 10))
+    #   print(
+    #     clust <- Momocs::CLUST(PCA.type,
+    #                            ~idf,
+    #                            lwd = lwd,
+    #                            cex = cex)
+    #   ) # + theme(plot.margin = unit(c(0,3,0,0), "cm"))
+    #   grDevices::dev.off()
+    #   # return(clust)
+    # }
     if("kmeans" %in% focus){
       # nb.centers = 3
       print(paste0("kmeans..."))
@@ -115,7 +120,8 @@ morph_nds_group <- function(nodes,
         grDevices::png(out.d,
                        width = Wi, height = He, units = "cm", res = 300)
         print(
-          kmean <- Momocs::KMEANS(PCA.type, centers = nb.centers)
+          kmean <- Momocs::KMEANS(PCA.type,
+                                  centers = nb.centers)
         )
         grDevices::dev.off()
         # return(Momocs::KMEANS(PCA.type,
@@ -134,5 +140,5 @@ morph_nds_group <- function(nodes,
       }
     }
   }
-  return(lout)
+  return(df.mbrshp)
 }

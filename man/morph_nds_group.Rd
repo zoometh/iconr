@@ -5,41 +5,47 @@
 \title{Morphometrics classification between GUs}
 \usage{
 morph_nds_group(
-  nodes,
-  focus = c("clust", "kmeans"),
+  nodes = NA,
   gu.types = "all",
+  focus = c("kmeans"),
+  nb.h = 15,
   nb.centers = 1,
+  cex = 4,
+  lwd = 1.5,
   dataDir = system.file("extdata", package = "iconr"),
   out.dir = "_out",
-  out.data = c("mbrshp", "plot")
+  out.data = c("mbrshp", "plot"),
+  verbose = TRUE
 )
 }
 \arguments{
-\item{nodes}{Dataframe of nodes}
+\item{nodes}{Dataframe of nodes.}
 
-\item{focus}{Type of grouping, hierachical clustering ("clust") or Kmeans ("kmeans").
-By default, c("clust", "kmeans")}
+\item{gu.types}{Classes of nodes that will be clustered, a vector of characters or a character. By default "all".}
 
-\item{gu.types}{Classes of nodes that will be clustered, a vector of characters or a character.
-By default "all"}
+\item{focus}{Type of grouping, Kmeans ("kmeans"). By default, c("kmeans").}
 
-\item{nb.centers}{Number of clusters, uniquely for Kmeans. By default 1 (unique cluster)}
+\item{nb.h}{Number of Fourier harmonics, uniquely for PCA. By default = 15.}
 
-\item{dataDir}{path to the folder.}
+\item{nb.centers}{Number of clusters, uniquely for Kmeans. By default 1 (unique cluster).}
 
-\item{out.dir}{Name of output folder}
+\item{cex}{Size of the text, by default 1.}
 
-\item{out.data}{Type of data returned.
-If "mbrshp" return a dataframe of nodes with their clustering and image path.
-If "plot" return a "kmeans" or create a plot. By default c("mbrshp", "plot")}
+\item{lwd}{Width of the dendrogram branches, by defaul 1.}
+
+\item{dataDir}{Path to the folder.}
+
+\item{out.dir}{Name of output folder.}
+
+\item{out.data}{Type of data returned. If "mbrshp" return a dataframe of nodes with their clustering and image path. If "plot" return a "kmeans" or create a plot. By default c("mbrshp", "plot").}
+
+\item{verbose}{if TRUE (by default), verbose.}
 }
 \value{
-Depending on the focus, create hierachical clustering ("clust") or Kmeans ("kmeans") plots,
-print their complete paths, return a list of statistics
+Depending on the focus, creates plots (ex: Kmeans ("kmeans")), print their complete paths, return the Kmeans membership in a dataframe.
 }
 \description{
-Momocs package morphometrics classification (groups) between different graphical units (GUs).
- Read JPG files from each different folder. Useful after comparisons (see, m'orph_nds_compar' function)
+Momocs package morphometrics classification (groups) between different graphical units (GUs). Read JPG files from each different folder. Useful after comparisons (see, 'morph_nds_compar' function)
 }
 \examples{
 

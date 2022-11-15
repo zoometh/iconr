@@ -6,28 +6,46 @@
 \usage{
 morph_nds_compar(
   nodes = NA,
-  focus = c("panel", "stack", "PCA", "dist"),
+  ids = c("site", "decor", "id"),
+  focus = c("all"),
   nb.h = 15,
-  out.dir = "_out"
+  stack.norm = "normalized",
+  colored = TRUE,
+  cex = 1,
+  lwd = 1,
+  dataDir = system.file("extdata", package = "iconr"),
+  out.dir = "_out",
+  verbose = TRUE
 )
 }
 \arguments{
-\item{nodes}{Dataframe of nodes}
+\item{nodes}{Dataframe of nodes.}
 
-\item{focus}{Type of analysis: 'panel', 'stack', 'PCA' or 'dist'. The option 'dist' allows the calculation of the distance matrix which can be used in 'morph_aggregate()'
-By default c("panel", "stack", "PCA", "dist")}
+\item{ids}{the field names that constitute the unique key of the GU. By default: c("site", "decor", "id").}
 
-\item{nb.h}{number of Fourier harmonics, uniquely for PCA. By default = 15}
+\item{focus}{Type of analysis: 'panel', 'stack', 'PCA' (Pricnipal Component Analysis), 'clust' (hierachical clustering, 'dist' (distance matrix) or 'all'. The option 'dist' allows the calculation of the distance matrix which can be used in 'morph_aggregate()'. By default 'all'.}
 
-\item{out.dir}{path of the output folder. By default "_out/" in the "dataDir" folder}
+\item{nb.h}{Number of Fourier harmonics, uniquely for PCA. By default = 15.}
+
+\item{stack.norm}{For the Momocs stack, whether if the GU have to be "normalized" (i.e. centered and scaled), "centered", "scaled", "not centered nor scaled". By default "normalized".}
+
+\item{colored}{if TRUE (by default), will color on 'ids' (unique identifiants/keys).}
+
+\item{cex}{Size of the text, by default 1.}
+
+\item{lwd}{Width of the dendrogram branches, by defaul 1.}
+
+\item{dataDir}{Path to the folder.}
+
+\item{out.dir}{Name of output folder.}
+
+\item{verbose}{if TRUE (by default), verbose.}
 }
 \value{
 Depending on the focus, return 'panel', 'stack' or 'PCA' plots with their complete path
 }
 \description{
-Momocs package morphometrics comparisons between different graphical units (GUs).
- Read JPG files from each different folder. This function is used after converting the geometries to JPG using 'conv_wkt_to_jpg()'. This function is useful before grouping (see, 'morph_nds_group' function)
- to determine the number of clusters
+Momocs package morphometrics comparisons between different graphical units (GUs). Read JPG files from each different folder. This function is used after converting the geometries to JPG using 'conv_wkt_to_jpg()'. This function is useful before grouping (see, 'morph_nds_group' function) to determine the number of clusters.
 }
 \examples{
 
