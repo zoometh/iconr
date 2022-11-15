@@ -146,8 +146,10 @@ flowchart TD
     A[(Postgres<br>DB)] ---> B{{"conv_pg_to_shp()"}}:::iconRpkg;
     B ---> C((SHP));
     Q[[GIS]] ---> C;
+    R((GeoJSON)) ---> S{{"conv_geojson_to_wkt()"}}:::iconRpkg;
+    S ---> E((WKT));
     C ---> D{{"conv_shp_to_wkt()"}}:::iconRpkg;
-    D ---> E((WKT));
+    D ---> E;
     E ---> F{{"conv_wkt_to_jpg()"}}:::iconRpkg;
     F ---> G((JPG));
     G ---> J{{"morph_nds_compar()"}}:::iconRpkg;
