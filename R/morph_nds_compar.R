@@ -232,7 +232,7 @@ morph_nds_compar <- function(nodes = NA,
     if("clust" %in% focus | "all" %in% focus){
       # panel
       if(verbose){print(paste0("clust..."))}
-      out.d <- paste0(out.dirPath, "/", gu.type, "_group_clust.png")
+      out.d <- paste0(out.dirPath, "/", gu.type, "_compar_clust.png")
       grDevices::png(out.d,
                      width = Wi + 10,
                      height = He + 2,

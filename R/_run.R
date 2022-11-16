@@ -32,7 +32,6 @@ nodes <- conv_geojson_to_wkt(dataDir = dataDir)
 ########### wkt to jpg ##############################
 
 # nodes <- read.csv(nd.df.path, sep = ";")
-nodes <- nodes[!duplicated(nodes[ , c("site")]),]
 conv_wkt_to_jpg(nodes = nodes,
                 ids = "site",
                 dataDir = dataDir,

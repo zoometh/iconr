@@ -3,7 +3,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4767529.svg)](https://doi.org/10.5281/zenodo.4767529)
 [![R-CMD-check](https://github.com/zoometh/iconr/workflows/R-CMD-check/badge.svg)](https://github.com/zoometh/iconr/actions) [![Build Status](https://travis-ci.org/zoometh/iconr.svg?branch=master)](https://travis-ci.org/zoometh/iconr)
           
-# ***iconr*** R package <br> modeling Prehistoric iconography <img src="logo/iconr_logo.png" width='100px' align="right"/>
+# ***iconr*** R package <br> modeling Prehistoric iconography <img src="doc/img/iconr_logo.png" width='100px' align="right"/>
 > Created by [Thomas Huet](mailto:thomashuet7@gmail.com), [Jose M Pozo](mailto:josmpozo@gmail.com), [Craig Alexander](mailto:craiga304@gmail.com)
   
 The ***iconr*** R package purpose is to contribute to cross-cultural comparison of iconography through a greater normalization of quantitative analysis. The package [stable version](https://github.com/zoometh/iconr/#iconr-stable-version-the-analysis-of-compositions) deals with composition analysis[^1], the package [development version](https://github.com/zoometh/iconr/#iconr-development-version-the-analysis-of-compositions-and-geometric-morphometry) deals with both composition and geometric morphometric.
@@ -45,6 +45,8 @@ The v. 0.1.0 allows the analysis of compositions
   
 
 Photograph of Solana de Cabañas (Extremadura, Spain) Late Bronze Age stele[^2] [**1**]. Graphical units (GUs) drawing [**2**]. Each GU is recorded with a vertex (POINT) [**3**], and each contiguous vertex (Voronoi cell) is linked with an edge [**4**, **5**]. 
+
+See the [package vignette](https://zoometh.github.io/iconr/)
 
 ### Overview of the functions for the analysis of compositions
 
