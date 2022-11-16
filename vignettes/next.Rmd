@@ -48,9 +48,9 @@ library(grid)
 library(gridExtra)
 library(stratigraphr)
 
-ibahernando.path <- "../man/figures/ibahernando_256colours.png"
-brozas.path <- "../man/figures/brozas_256colours.png"
-dummies.path <- "../man/figures/dummies.png"
+ibahernando.path <- "../doc/img/ibahernando_256colours.png"
+brozas.path <- "../doc/img/brozas_256colours.png"
+dummies.path <- "../doc/img/dummies.png"
 ibahernando <-  rasterGrob(as.raster(readPNG(ibahernando.path)), interpolate = FALSE)
 ```
 

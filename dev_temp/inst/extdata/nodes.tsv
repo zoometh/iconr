@@ -1,0 +1,42 @@
+site	decor	id	type	x	y
+1	Cerro Muriano	Cerro Muriano 1	1	personnage	349.814824824793	-298.324408661478
+2	Cerro Muriano	Cerro Muriano 1	2	casque	349.814824824793	-243.98505280916
+3	Cerro Muriano	Cerro Muriano 1	3	lance	238.463685783159	-298.324408661478
+4	Cerro Muriano	Cerro Muriano 1	4	bouclier	446.022208956765	-381.169656108454
+5	Cerro Muriano	Cerro Muriano 1	5	peigne	283.004141399813	-358.008619187794
+6	Cerro Muriano	Cerro Muriano 1	7	sexe_masculin	342.688351926128	-427.491729949773
+7	Cerro Muriano	Cerro Muriano 1	8	lingot_pdb	451.148926746119	-237.478157148203
+8	Torrejon Rubio	Torrejon Rubio 1	1	chariot_char	306.30331763811	-177.121741202188
+9	Torrejon Rubio	Torrejon Rubio 1	2	bouclier	374.577912232704	-347.808227688675
+10	Torrejon Rubio	Torrejon Rubio 1	3	arc	221.616560881353	-303.82363309408
+11	Torrejon Rubio	Torrejon Rubio 1	4	miroir	211.769263584056	-458.097957418405
+12	Torrejon Rubio	Torrejon Rubio 1	5	fibule	490.119533854326	-513.242822283269
+13	Torrejon Rubio	Torrejon Rubio 1	6	epee	366.700074394866	-563.135795256242
+14	Torrejon Rubio	Torrejon Rubio 1	7	lance	298.425479800272	-607.776876337324
+15	Torrejon Rubio	Torrejon Rubio 1	8	cheval	251.158452773245	-141.671470931918
+16	Torrejon Rubio	Torrejon Rubio 1	9	cheval	256.410344665137	-209.946065526513
+17	Torrejon Rubio	Torrejon Rubio 1	10	roue	364.514139104738	-138.760812208679
+18	Torrejon Rubio	Torrejon Rubio 1	11	roue	363.643529785741	-209.280167047388
+19	Torrejon Rubio	Torrejon Rubio 1	12	fleche	185.587453063858	-312.459136339261
+20	Brozas	Brozas	1	lance	354.111392142454	-123.362144447352
+21	Brozas	Brozas	2	peigne	346.345495161992	-151.837100042378
+22	Brozas	Brozas	3	fibule	279.041054664657	-162.191629349661
+23	Brozas	Brozas	4	miroir	211.736614167321	-206.198378905611
+24	Brozas	Brozas	5	bouclier	392.940877044763	-343.395892227103
+25	Brozas	Brozas	6	epee	387.763612391122	-564.723956170265
+26	Zarza de Montanchez	Zarza De Montanchez	1	casque	350.727922888521	-141.327933200638
+27	Zarza de Montanchez	Zarza De Montanchez	2	miroir	428.212152279202	-172.669868684509
+28	Zarza de Montanchez	Zarza De Montanchez	3	epee	289.785270558772	-183.117180512466
+29	Zarza de Montanchez	Zarza De Montanchez	4	lance	285.43222396379	-207.494241444366
+30	Zarza de Montanchez	Zarza De Montanchez	5	bouclier	290.655879877768	-310.226141085943
+31	Zarza de Montanchez	Zarza De Montanchez	6	personnage	418.635449770241	-305.002485171965
+32	Zarza de Montanchez	Zarza De Montanchez	7	chariot_char	343.76304833655	-466.935818505298
+33	Zarza de Montanchez	Zarza De Montanchez	8	cheval	261.925772350887	-433.852664383434
+34	Zarza de Montanchez	Zarza De Montanchez	9	cheval	258.443335074901	-486.089223523219
+35	Zarza de Montanchez	Zarza De Montanchez	10	roue	342.952688797415	-434.161444505223
+36	Zarza de Montanchez	Zarza De Montanchez	11	roue	344.213415441013	-510.225285335673
+37	Zarza de Montanchez	Zarza De Montanchez	12	rivet	377.141426379734	-163.517927123571
+38	Ibahernando	Ibahernando	1	ecriture	284.105632740452	-131.234421837913
+39	Ibahernando	Ibahernando	2	lance	351.600885205677	-191.564443904891
+40	Ibahernando	Ibahernando	3	bouclier	345.036020340812	-296.602281742729
+41	Ibahernando	Ibahernando	4	epee	367.356560881353	-420.678227688675

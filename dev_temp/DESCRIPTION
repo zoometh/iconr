@@ -1,0 +1,30 @@
+Package: iconr
+Title: Graphical and Spatial Analysis for Prehistoric Iconography
+Version: 0.1.1
+Authors@R: c(person("Thomas","Huet", role = c("aut","cre"), email = c("thomashuet7@gmail.com"), comment=c(ORCID="0000-0002-1112-6122")),
+	     person("Jose","Pozo", role = c("aut"), email = c("josmpozo@gmail.com"), comment = c(ORCID="0000-0002-0759-3510")),
+	     person("Craig","Alexander", role = c("ctb"), email = c("craiga304@gmail.com"), comment = c(ORCID="0000-0001-7539-6415")))
+Description: Set of formal methods for studying archaeological iconographic datasets (rock-art, pottery decoration, stelae, etc.) using network and spatial analysis (Alexander 2008 <doi:10.11588/propylaeumdok.00000512>; Huet 2018 <https://hal.archives-ouvertes.fr/hal-02913656>).
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports:
+    igraph,
+    magick,
+    Momocs,
+    rgdal,
+    grDevices,
+    graphics,
+    utils
+Suggests: 
+    ggplot2,
+    knitr,
+    rmarkdown,
+    dplyr,
+    kableExtra,
+    data.tree,
+    dendextend
+VignetteBuilder: knitr
+RoxygenNote: 7.1.1
+URL: https://zoometh.github.io/iconr/
+BugReports: https://github.com/zoometh/iconr/issues

@@ -1,0 +1,14 @@
+pandoc: 2.11.2
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles:
+  examples: examples.html
+  gis: gis.html
+  index: index.html
+  next: next.html
+  shiny: shiny.html
+last_built: 2021-02-18T09:47Z
+urls:
+  reference: https://zoometh.github.io/iconr//reference
+  article: https://zoometh.github.io/iconr//articles
+

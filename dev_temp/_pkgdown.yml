@@ -1,0 +1,24 @@
+url: https://zoometh.github.io/iconr/
+
+home:
+  title: Modeling Prehistoric Iconography
+
+authors:
+  Thomas Huet:
+    href: https://github.com/zoometh/thomashuet#thomas-huet-dr
+
+articles:
+- title: Get Started
+  navbar: Get Started
+  contents:
+  - index
+- title: Tutorials
+  navbar: Tutorials
+  contents:
+  - gis
+  - shiny
+  - examples
+- title: What's next
+  navbar: What's next
+  contents:
+  - next

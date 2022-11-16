@@ -41,10 +41,10 @@ knitr::opts_chunk$set(
 # brozas.path <- "img/brozas_256colours.png"
 # solanas.path <- "img/solana_detail_256colours.png"
 # solanas.vor.path <- "img/solana_voronoi_256colours.png"
-ibahernando.path <- "../man/figures/ibahernando_256colours.png"
-brozas.path <- "../man/figures/brozas_256colours.png"
-solanas.path <- "../man/figures/solana_detail_256colours.png"
-solanas.vor.path <- "../man/figures/solana_voronoi_256colours.png"
+ibahernando.path <- "../doc/img/ibahernando_256colours.png"
+brozas.path <- "../doc/img/brozas_256colours.png"
+solanas.path <- "../doc/img/solana_detail_256colours.png"
+solanas.vor.path <- "../doc/img/solana_voronoi_256colours.png"
 ```
   
 The R package `iconr` is grounded in graph theory and spatial analysis. It offers concepts and functions for modeling Prehistoric iconographic compositions and for their preparation for further analysis (clustering, Harris diagram, etc.) in order to contribute to cross-cultural iconography comparison studies through a greater normalization of quantitative analysis [@Alexander08; @HuetAlexander15; @Huet18a; @Huet21].  

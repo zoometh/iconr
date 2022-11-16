@@ -13,7 +13,7 @@ output:
 ```{r, echo=FALSE}
 # print(getwd())
 # print(file.path("../logo", "iconr_logo.png"))
-htmltools::img(src = knitr::image_uri(file.path("../man/figures", "iconr_logo.png")),
+htmltools::img(src = knitr::image_uri(file.path("../doc/img", "iconr_logo.png")),
 # htmltools::img(src = knitr::image_uri(file.path("img", "iconr_logo.png")), 
 # htmltools::img(src = knitr::image_uri(file.path(R.home("doc"), "html", "logo.jpg")), 
                alt = 'logo', 
@@ -40,7 +40,7 @@ library(knitr)
 library(kableExtra)
 library(dplyr)
 
-solanas.vor.path <- "../doc/tutorial/img/all_process.gif"
+solanas.vor.path <- "../doc/img/all_process.gif"
 ```
   
 
@@ -79,7 +79,7 @@ The image will be the reference space of the graph. So, before anything, start b
 
 <center>
   
-![Drag and drop the decoration image before anything](../doc/tutorial/img/openImageGIS.gif){width=70%}
+![Drag and drop the decoration image before anything](../doc/img/gis_openImageGIS.gif){width=70%}
 </center>
   
 
@@ -94,7 +94,7 @@ The image extent is measured in pixels with a top-left corner origin (0,0). The 
 
 <center>
 
-![Coordinates system in pixels](../doc/tutorial/img/coordsQGIS.gif){width=70%}
+![Coordinates system in pixels](../doc/img/gis_coordsQGIS.gif){width=70%}
 </center>
 
 ### Absolute scale {#scale.abs}
@@ -103,7 +103,7 @@ To retrieve to true scale of the decoration, one can create a scale bar and appl
 
 <center>
 
-![Importing information on the scale and creation of a scale bar](../doc/tutorial/img/scaleAll.gif){width=70%}
+![Importing information on the scale and creation of a scale bar](../doc/img/gis_scaleAll.gif){width=70%}
 
 </center>
 
@@ -111,7 +111,7 @@ Parallely, the dimensions of each GU can be measured with the QGIS **Measure Lin
 
 <center>
 
-![Measure and record the dimensions of each GUs in pixels](../doc/tutorial/img/scaleRuleOfThree.gif){width=70%}
+![Measure and record the dimensions of each GUs in pixels](../doc/img/gis_scaleRuleOfThree.gif){width=70%}
 
 </center>
 
@@ -129,7 +129,7 @@ To retrieve the real dimensions of each GUs, first get the pixel sizes with the 
 
 <center>
   
-![Create the **nodes** shapefile with its attribute table](../doc/tutorial/img/createNodes.gif){width=70%}
+![Create the **nodes** shapefile with its attribute table](../doc/img/gis_createNodes.gif){width=70%}
   
 </center>
 
@@ -148,7 +148,7 @@ The nodes are created near the centroids of each different graphical units (GUs)
 
 <center>
   
-![Adding **nodes** for each GU](../doc/tutorial/img/addNodes.gif){width=70%}
+![Adding **nodes** for each GU](../doc/img/gis_addNodes.gif){width=70%}
   
 </center>
 
@@ -168,7 +168,7 @@ Theoretically, between two *main* nodes, edges exist when their Voronoi cells ar
 
 <center>
   
-![Adding edges between contiguous GU](../doc/tutorial/img/addEdges.gif){width=70%}
+![Adding edges between contiguous GU](../doc/img/gis_addEdges.gif){width=70%}
   
 </center>
 
@@ -179,7 +179,7 @@ For the Abela decoration, we have created three (3) nodes (`1`,`2`,`3`) and two 
 
 <center>
   
-![](../doc/tutorial/img/inputSummary.gif){width=70%}
+![](../doc/img/gis_inputSummary.gif){width=70%}
   
 </center>
 
@@ -189,7 +189,7 @@ The **table of decorations** is a correspondence table which records joins betwe
 
 <center>
   
-![](../doc/tutorial/img/createTableOfDecorations.gif){width=70%}
+![](../doc/img/gis_createTableOfDecorations.gif){width=70%}
   
 </center>
 

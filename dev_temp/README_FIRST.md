@@ -1,0 +1,1 @@
+> This is the copy of my Asus ***iconr*** folder `C:\Documents\iconr`. Most of these files are now outdated, but there should be some still useful

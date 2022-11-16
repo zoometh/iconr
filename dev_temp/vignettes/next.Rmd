@@ -1,0 +1,255 @@
+---
+title: "Next developments"
+author: "Thomas Huet, Jose M Pozo, Craig Alexander"
+bibliography: references.bib
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+---
+
+```{r, echo=FALSE}
+# print(getwd())
+# print(file.path("../logo", "iconr_logo.png"))
+htmltools::img(src = knitr::image_uri(file.path("../man/figures", "iconr_logo.png")),
+# htmltools::img(src = knitr::image_uri(file.path("img", "iconr_logo.png")), 
+# htmltools::img(src = knitr::image_uri(file.path(R.home("doc"), "html", "logo.jpg")), 
+               alt = 'logo', 
+               style = 'position:absolute; top:0; right:0; padding:10px;')
+```
+
+
+<style>
+.figure {
+   margin-top: 0px;
+   margin-bottom: 40px;
+}
+table {
+    margin-top: 0px;
+    margin-bottom: 24px;
+}
+</style>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(kableExtra)
+library(dplyr)
+library(igraph)
+library(iconr)
+# library(ggdag)
+library(tidygraph)
+library(ggraph)
+library(png)
+library(grid)
+library(gridExtra)
+library(stratigraphr)
+
+ibahernando.path <- "../man/figures/ibahernando_256colours.png"
+brozas.path <- "../man/figures/brozas_256colours.png"
+dummies.path <- "../man/figures/dummies.png"
+ibahernando <-  rasterGrob(as.raster(readPNG(ibahernando.path)), interpolate = FALSE)
+```
+
+***iconr*** package is hope to lay the foundation of further developments
+
+# Multifactorial analysis
+
+In those examples, the study and comparisons have been made on the basis of different types of GUs with the variable `type` (`nd.var = "type"`). However, if a new column is added to the node dataframe or shapefile, the study can also incorporate other variables. Fox example, one of these new variable could be the technique by which the GU was created (`nd.var = "technique"`): 
+
+<center>
+
+![GIS view. The Brozas stelae (decoration 1) with the different engraving techniques: `g_piq` (peckings) for the spear, the shield and the sword; `g_inc` (incisions) for the the fibula and the comb](`r brozas.path`){width=400px}
+
+</center>  
+
+# Shape analysis
+
+When the decoration iconographical content is composed by GUs separated one with another with neutral background, is could be easy to binarize and polygonize them (black GUs on white background). GUs can also be binarized/polygonized separately and reintegrated to the GIS interface
+
+<center>
+
+![GIS view. Graph decoration with shape analysis indexes (ConveHull, Minimum Bound Rectangle, Minimum Bound Circle)](`r dummies.path`){width=500px}
+
+</center>
+
+> Shape analysis allows to calculate numerous indexes (e.g., convexhull, MBR, MBC, Feret diameter) and/or contour comparisons (e.g., Procrustes analysis) that can be used in multivariate analysis to quantify the (dis)similarities between GUs 
+
+# Typology
+
+Graph theory and structured vocabularies allows one to construct tree structures for categorical variables (e.g., the different types of GUs). These structures allow generalization processes (upward to the parent level) and specification processes (downward to the child level). For example, a `sword` and a `spear` belong both to the `weapons` group (sub-group `offensive weapons`), a `shield` belongs to the `weapons` group (sub-group `defensive weapons`), etc.: 
+
+```{r hierac, warning=FALSE, fig.width=7, fig.height=4, asp=0}
+oldpar <- par(no.readonly = TRUE)
+on.exit(par(oldpar))
+par(mar=c(0, 0, 0, 0))
+g <- graph_from_literal(objects-+weapons,
+                        objects-+personnal_item,
+                        weapons-+offensive_weapons,
+                        weapons-+defensive_weapons,
+                        offensive_weapons-+spear,
+                        offensive_weapons-+sword,
+                        defensive_weapons-+shield,
+                        defensive_weapons-+helmet,
+                        personnal_item-+miror,
+                        personnal_item-+comb)
+layout <- layout.reingold.tilford(g)
+plot(g,
+     layout = layout,
+     vertex.color = "white",
+     vertex.frame.color = "white",
+     vertex.size = 20,
+     vertex.label.cex = 0.7,
+     vertex.label.color = "black",
+     vertex.label.family = "sans",
+     edge.arrow.size = 0.5
+     )
+```
+  
+Such a formalism can be used to weight the differences between nodes, to conduct analysis with different levels of precision or to overcome issues of idiosyncratic typologies.
+
+> A major issue will be to manage multi-linguism shared vocabularies to describe the iconographic content, the techniques used, etc.
+
+# Harris matrix
+
+Using the *diachronic* edge notation, layered directed acyclic graphs (DAG) -- like the Harris matrix relative chronology diagrams -- can also be used to construct. For example, with the Ibahernando stelae (decoration 5)
+
+```{r overlap, echo=FALSE, warning=FALSE, out.width="100%"}
+# library(data.tree)
+# 
+# imgs <- read.table(system.file("extdata", "imgs.csv", package = "iconr"),
+#                    sep=";", stringsAsFactors = FALSE)
+# nodes <- read.table(system.file("extdata", "nodes.csv", package = "iconr"),
+#                     sep=";", stringsAsFactors = FALSE)
+# edges <- read.table(system.file("extdata", "edges.csv", package = "iconr"),
+#                     sep=";", stringsAsFactors = FALSE)
+# lgrph <- list_dec(imgs, nodes, edges)
+# edges.iba <- igraph::as_data_frame(lgrph[[5]], what="edges")
+# overlap.nodes <- unique(edges.iba[edges.iba$type == ">", "from"])
+# contemp.nodes <- unique(unlist(edges.iba[edges.iba$type == "=", c("from", "to")]))
+# df.stratig <- data.frame(over = rep(overlap.nodes, length(contemp.nodes)),
+#                          under = contemp.nodes)
+# df.stratig$pathString <- paste(lgrph[[5]]$decor,
+#                                df.stratig$over, 
+#                                df.stratig$under, 
+#                                sep = "/")
+# # superpo <- as.Node(df.stratig)
+# # print(superpo)
+# gd <- graph_from_data_frame(df.stratig, directed = TRUE, vertices = NULL)
+# gd.ed <- as_data_frame(gd, what="edges")
+# gd.nd <- as_data_frame(gd, what="vertices")
+# rstat_nodes <- data.frame(name = gd.nd)
+# rstat_edges <- data.frame(from = gd.ed$from,
+#                           to = gd.ed$to)
+# # rstat_nodes <- data.frame(name = c("Hadley", "David", "Romain", "Julia"))
+# # rstat_edges <- data.frame(from = c(1, 1, 1, 2, 3, 3, 4, 4, 4),
+# #                           to = c(2, 3, 4, 1, 1, 2, 1, 2, 3))
+# gd.all <- tbl_graph(nodes = rstat_nodes, edges = rstat_edges)
+# gd.all <- set.vertex.attribute(gd.all, "context", value=as.character(V(gd.all)))
+imgs <- read.table(system.file("extdata", "imgs.csv", package = "iconr"),
+                   sep=";", stringsAsFactors = FALSE)
+nodes <- read.table(system.file("extdata", "nodes.csv", package = "iconr"),
+                    sep=";", stringsAsFactors = FALSE)
+edges <- read.table(system.file("extdata", "edges.csv", package = "iconr"),
+                    sep=";", stringsAsFactors = FALSE)
+lgrph <- list_dec(imgs, nodes, edges)
+# edges
+edges.iba <- igraph::as_data_frame(lgrph[[5]], what="edges")
+over.edges <- edges.iba[edges.iba[, "type"] == ">", ]
+contemp.edges <- edges.iba[edges.iba[, "type"] == "=", ]
+# nodes
+nodes.iba <- igraph::as_data_frame(lgrph[[5]], what="vertices")
+tib.gd.nd <- as_tibble(nodes.iba) # convert nodes df to tibble
+tib.gd.nd$context <- tib.gd.nd$name # the "context"
+# prepare the df
+tib.gd.nd$above <- tib.gd.nd$below <- tib.gd.nd$equal <- NA
+class(tib.gd.nd$above) <- class(tib.gd.nd$below) <- class(tib.gd.nd$equal) <- "list" # change class
+tib.gd.nd$name <- tib.gd.nd$x <- tib.gd.nd$y <- tib.gd.nd$type <- NULL
+# OVER
+for(n in tib.gd.nd$context){
+  # filter for each nodes
+  n.is.above <- over.edges[over.edges[, "from"] == n, ]
+  if (nrow(n.is.above) > 0){
+    tib.gd.nd[n , "below"][[1]] <- list(n.is.above[, "to"])
+  }
+  n.is.below <- over.edges[over.edges[, "to"] == n, ]
+  if (nrow(n.is.below) > 0){
+    tib.gd.nd[n , "above"][[1]] <- list(n.is.below[, "from"])
+  }
+  n.is.contemp <- contemp.edges[contemp.edges[, "from"] == n, ]
+  if (nrow(n.is.contemp) > 0){
+    tib.gd.nd[n , "equal"][[1]] <- list(n.is.contemp[, "to"])
+  }
+}
+
+## see equal nodes
+# equals are listed in "equals" and "context"
+eqs <-  tib.gd.nd[as.vector(!is.na(tib.gd.nd[, "equal"])), ]
+# /!\ what if different layers ?
+nds.equals <- unlist(unique(c(eqs$context, eqs$equal)))
+get.eq <- get.bl <- get.ab <- list()
+# df <- tib.gd.nd
+for (n in nds.equals){
+  # n <- 2
+  # get 
+  other.equal <- nds.equals[nds.equals != n]
+  tib.gd.nd[n, "equal"][[1]] <- list(other.equal)
+}
+## merge values for equal nodes
+# see above for equal nodes
+ab <- unique(as.vector(unlist(tib.gd.nd[nds.equals, "above"])))
+ab <- ab[!is.na(ab)]
+if(is.logical(ab)) ab <- NA
+tib.gd.nd[nds.equals, "above"][[1]] <- list(ab)
+# see below for equal nodes
+bl <- unique(as.vector(unlist(tib.gd.nd[nds.equals, "below"])))
+bl <- bl[!is.na(bl)]
+# avoid logical(0)
+if(is.logical(bl)) bl <- NA
+tib.gd.nd[nds.equals, "below"][[1]] <- list(bl)
+## merge for overlap nodes (non equal)
+for(i in nrow(tib.gd.nd)){
+  # i <- 1
+  ov <- unique(as.vector(unlist(tib.gd.nd[i, "below"])))
+  node.to.add <- setdiff(nds.equals, ov)
+  is.above <- unique(as.vector(unlist(tib.gd.nd[node.to.add, "above"])))
+}
+#
+all.above <- as.vector(unlist(tib.gd.nd[, "above"]))
+for(i in 1:length(all.above)){
+  # i <- 2
+  # ctx <- all.above[i]
+  context <- as.vector(unlist(tib.gd.nd[i, "context"]))
+  # find the nodes where the context is above
+  abv <- as.character(which(all.above %in% context))
+  # avoid character(0)
+  abv[length(abv) == 0] <- NA
+  tib.gd.nd[i, "below"][[1]] <- list(abv)
+}
+# add "natural" at the bottom
+tib.gd.nd[nrow(tib.gd.nd)+1, "context"] <- "natural"
+# select nodes without any nodes below them
+down.nodes <- as.vector(unlist(tib.gd.nd[is.na(tib.gd.nd[, "below"]), "context"]))
+# the down.nodes are upper the "natural"
+tib.gd.nd[nrow(tib.gd.nd), "above"][[1]] <- list(down.nodes)
+# add "natural" below the down.nodes
+tib.gd.nd[down.nodes, "below"][[1]] <- list("natural")
+# - - - - - - - - - - - - - -
+# gd.all <- tbl_graph(nodes = tib.gd.nd, edges = edges.iba)
+h12_graph <- stratigraph(tib.gd.nd, "context", "above") # works harris12, ~ with 'gd.all'
+# ggraph(h12_graph, layout = "sugiyama") +
+#   geom_edge_elbow() +
+#   geom_node_label(aes(label = context), label.r = unit(0, "mm")) +
+#   theme_graph()
+a.g <- ggraph(h12_graph, layout = "sugiyama") +
+  geom_edge_elbow() +
+  geom_node_label(aes(label = context), label.r = unit(0, "mm")) +
+  theme_graph()
+# knitr::include_graphics(c("path/to/img1","path/to/img1"))
+grid.arrange(ibahernando, a.g, ncol = 2)
+```
+  
+> DAG is a common graphical formalism to represent chronological ordering such as Bayesian, radiocarbon and age-depth models (e.g., [RChronoModel](https://cran.r-project.org/web/packages/RChronoModel/index.html), [stratigraphr](https://stratigraphr.joeroe.io/articles/stratigraph.html)). DAGs can also be used for cultural period sequences like GUs chrono-cultural attribution (e.g., "Late Bronze Age", "Iron Age", "Roman Times")    
