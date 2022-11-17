@@ -12,12 +12,6 @@
 #'
 #' @examples
 #'
-#' dataDir <- system.file("extdata", package = "iconr")
-#' nd.df.path <- conv_shp_to_wkt(dataDir = dataDir)
-#' head(read.csv2(nd.df.path), 1)
-#'
-#' ##         site  decor id type technlg incmplt geometry
-#' ## 1 Ain Ghazal stat_2  1 oeil       -       0 POLYGON ((266.9252 -167.608,...
 #'
 #' @export
 conv_geojson_to_wkt <- function(geojson.path = paste0(system.file(package = "eamenaR"),
@@ -41,7 +35,7 @@ conv_geojson_to_wkt <- function(geojson.path = paste0(system.file(package = "eam
                    incmplt = rep(0, nrow(ea.geojson.polygon)),
                    geometry = sf::st_as_text(ea.geojson.polygon$geometry))
   # limit and remove duplicates geometries
-  df <- head(df, 50)
+  # df <- head(df, 50)
   df <- df[!duplicated(df[ , c("site")]),]
   nd.df.path <- paste0(out.dirPath, "/nodes.csv")
   utils::write.csv2(df, nd.df.path, row.names = FALSE)

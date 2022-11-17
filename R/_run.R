@@ -2,11 +2,14 @@
 library(Momocs)
 library(iconr)
 
-########## geojson to wkt ##########################
+########## shape analysis ##########################
 
 dataDir <- "C:/Rprojects/eamena-arches-dev/projects/caravanserail"
-
 nodes <- conv_geojson_to_wkt(dataDir = dataDir)
+conv_wkt_to_jpg(nodes = nodes,
+                ids = "site",
+                dataDir = dataDir,
+                out.dir = "_out")
 
 # dataDir <- "C:/Rprojects/eamena-arches-dev/projects/caravanserail"
 # out.dirPath <- paste0(dataDir, "/_out")
