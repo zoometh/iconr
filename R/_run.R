@@ -2,6 +2,14 @@
 library(Momocs)
 library(iconr)
 
+
+
+########### metadata ##############################
+
+# cf. Python file
+
+
+
 ########## shape analysis ##########################
 
 dataDir <- "C:/Rprojects/eamena-arches-dev/projects/caravanserail"

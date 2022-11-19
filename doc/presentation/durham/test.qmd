@@ -1,0 +1,67 @@
+---
+title: "TEST"
+# subtitle: "Create beautiful interactive slide decks with Reveal.js"
+author: "zoometh"
+# margin-left: 5.4mm
+# margin-right: 5.4mm
+format:
+  revealjs: 
+    slide-number: true
+    chalkboard: true
+    scrollable: true
+    preview-links: auto
+    logo: images/inst-uni-oxford_.png
+    css: styles.css
+    footer: <https://tinyurl.com/goa-oxford>
+    margin: 0
+    width: 1400
+---
+
+```{r, echo=FALSE}
+library(shiny)
+library(rmarkdown)
+library(plotly)
+library(archdata)
+
+data(OxfordPots)
+```
+
+
+## Case of study
+
+
+
+
+
+ 
+## {}
+
+No title here
+
+## A classer
+
+For I. Herzog, there is a difference between validation and verification: validation of the model is when it is consistent with the facts (BIB I. Herzog, S28-09, CAA 2016). 
+
+
+"In short, identifying the existence of discrete cultural groups is not trivial." 
+(Shennan et al. 2015)
+
+chefferie simple
+chefferie complexe: sites principiers: En moyenne une distance d’une centaine de kilomètres entre chacune de ces résidences
+
+Test under the hypothesis H<sub>0</sub>. The *p-value* is the probability that H<sub>0</sub> is true, so the lower the *p-value*, the more likely H<sub>1</sub> is to exist<br>
+
+## 💡
+
+<div class="row">
+<div class="column"><em><center>"people think closer things are more similar"</em><br><small> Montello and Fabrikant, 2006</small></center></div>
+<div class="column">An archaeological culture is a polythetic assemblage of features more frequently associated with each other within a given area than outside it</div>
+</div>
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```

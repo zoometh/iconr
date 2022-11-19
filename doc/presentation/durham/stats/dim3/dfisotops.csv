@@ -1,0 +1,676 @@
+"";"num";"object";"Pb206_Pb204";"Pb207_Pb204";"Pb208_Pb204";"color.object";"symbol";"Pb206_Pb204.perc";"Pb207_Pb204.perc";"Pb208_Pb204.perc"
+"1";" Alenc Beyrac";"France";18,587;15,68;38,786;"#FF0000";"triangle";25,44;21,46;53,09
+"2";" Alenc Beyrac";"France";18,563;15,677;38,69;"#FF0000";"triangle";25,45;21,5;53,05
+"3";" Alenc Beyrac";"France";18,617;15,775;38,999;"#FF0000";"triangle";25,37;21,49;53,14
+"4";"Ramponeche/Col du Sapet";"France";18,373;15,684;38,639;"#FF0000";"triangle";25,27;21,57;53,15
+"5";"Ramponeche/Col du Sapet";"France";18,518;15,678;38,76;"#FF0000";"triangle";25,38;21,49;53,13
+"6";"Ramponeche/Col du Sapet";"France";18,377;15,679;38,623;"#FF0000";"triangle";25,29;21,57;53,14
+"7";"Ramponeche/Col du Sapet";"France";18,481;15,68;38,609;"#FF0000";"triangle";25,4;21,55;53,06
+"8";"Le Tournel";"France";18,562;15,681;38,718;"#FF0000";"triangle";25,44;21,49;53,07
+"9";"Le Tournel";"France";18,571;15,679;38,698;"#FF0000";"triangle";25,46;21,49;53,05
+"10";"Le Tournel";"France";18,577;15,689;38,713;"#FF0000";"triangle";25,46;21,5;53,05
+"11";"Bedoues-Cocures";"France";18,441;15,669;38,695;"#FF0000";"triangle";25,33;21,52;53,15
+"12";"Bedoues-Cocures";"France";18,506;15,678;38,753;"#FF0000";"triangle";25,37;21,5;53,13
+"13";"Bedoues-Cocures";"France";18,479;15,681;38,727;"#FF0000";"triangle";25,35;21,51;53,13
+"14";"Vialas";"France";18,372;15,672;38,536;"#FF0000";"triangle";25,31;21,59;53,09
+"15";"Vialas";"France";18,359;15,672;38,545;"#FF0000";"triangle";25,3;21,59;53,11
+"16";"Vialas";"France";18,369;15,671;38,524;"#FF0000";"triangle";25,31;21,6;53,09
+"17";"Le Bleymard";"France";18,572;15,678;38,683;"#FF0000";"triangle";25,46;21,5;53,04
+"18";"Le Bleymard";"France";18,636;15,683;38,747;"#FF0000";"triangle";25,51;21,46;53,03
+"19";"Le Bleymard";"France";18,606;15,685;38,693;"#FF0000";"triangle";25,49;21,49;53,02
+"20";"Le Bleymard";"France";18,554;15,676;38,677;"#FF0000";"triangle";25,45;21,5;53,05
+"21";"Le Bleymard";"France";18,596;15,674;38,715;"#FF0000";"triangle";25,48;21,48;53,05
+"22";"Les Bondons";"France";18,437;15,673;38,704;"#FF0000";"triangle";25,32;21,52;53,15
+"23";"Les Bondons";"France";18,44;15,67;38,684;"#FF0000";"triangle";25,33;21,53;53,14
+"24";"Les Bondons";"France";18,457;15,673;38,678;"#FF0000";"triangle";25,35;21,53;53,12
+"25";"Les Bondons";"France";18,435;15,67;38,686;"#FF0000";"triangle";25,33;21,53;53,15
+"26";"Les Bondons";"France";18,489;15,667;38,679;"#FF0000";"triangle";25,38;21,51;53,1
+"27";"Les Bondons";"France";18,531;15,678;38,715;"#FF0000";"triangle";25,41;21,5;53,09
+"28";"Montmirat";"France";18,481;15,668;38,683;"#FF0000";"triangle";25,37;21,51;53,11
+"29";"Montmirat";"France";18,412;15,664;38,661;"#FF0000";"triangle";25,31;21,54;53,15
+"30";"Montmirat";"France";18,531;15,677;38,706;"#FF0000";"triangle";25,41;21,5;53,08
+"31";"Montmirat";"France";18,551;15,68;38,712;"#FF0000";"triangle";25,43;21,5;53,07
+"32";"Montmirat";"France";18,472;15,677;38,708;"#FF0000";"triangle";25,35;21,52;53,13
+"33";"Montmirat";"France";18,497;15,671;38,683;"#FF0000";"triangle";25,39;21,51;53,1
+"34";"Montmirat";"France";18,603;15,686;38,715;"#FF0000";"triangle";25,48;21,49;53,03
+"35";"Montmirat";"France";18,556;15,671;38,692;"#FF0000";"triangle";25,45;21,49;53,06
+"36";"Les Malines";"France";18,365;15,666;38,503;"#FF0000";"triangle";25,32;21,6;53,08
+"37";"Les Malines";"France";18,38;15,648;38,381;"#FF0000";"triangle";25,38;21,61;53,01
+"38";"Les Malines";"France";18,386;15,648;38,399;"#FF0000";"triangle";25,38;21,6;53,01
+"39";"Les Malines";"France";18,387;15,683;38,535;"#FF0000";"triangle";25,32;21,6;53,07
+"40";"Les Malines";"France";18,391;15,664;38,429;"#FF0000";"triangle";25,37;21,61;53,02
+"41";"Les Malines";"France";18,392;15,65;38,404;"#FF0000";"triangle";25,39;21,6;53,01
+"42";"Les Malines";"France";18,392;15,652;38,42;"#FF0000";"triangle";25,38;21,6;53,02
+"43";"Les Malines";"France";18,393;15,65;38,414;"#FF0000";"triangle";25,38;21,6;53,02
+"44";"Les Malines";"France";18,396;15,671;38,494;"#FF0000";"triangle";25,35;21,6;53,05
+"45";"Les Malines";"France";18,399;15,626;38,382;"#FF0000";"triangle";25,41;21,58;53,01
+"46";"Les Malines";"France";18,399;15,658;38,442;"#FF0000";"triangle";25,38;21,6;53,02
+"47";"Les Malines";"France";18,399;15,643;38,429;"#FF0000";"triangle";25,39;21,59;53,03
+"48";"Les Malines";"France";18,401;15,66;38,421;"#FF0000";"triangle";25,39;21,61;53,01
+"49";"Les Malines";"France";18,403;15,67;38,464;"#FF0000";"triangle";25,37;21,6;53,03
+"50";"Les Malines";"France";18,404;15,664;38,413;"#FF0000";"triangle";25,39;21,61;53
+"51";"Les Malines";"France";18,404;15,653;38,45;"#FF0000";"triangle";25,38;21,59;53,03
+"52";"Les Malines";"France";18,406;15,668;38,479;"#FF0000";"triangle";25,37;21,6;53,04
+"53";"Les Malines";"France";18,405;15,65;38,426;"#FF0000";"triangle";25,39;21,59;53,02
+"54";"Les Malines";"France";18,406;15,665;38,45;"#FF0000";"triangle";25,38;21,6;53,02
+"55";"Les Malines";"France";18,408;15,65;38,456;"#FF0000";"triangle";25,39;21,58;53,03
+"56";"Les Malines";"France";18,408;15,652;38,451;"#FF0000";"triangle";25,39;21,59;53,03
+"57";"Les Malines";"France";18,408;15,668;38,47;"#FF0000";"triangle";25,37;21,6;53,03
+"58";"Les Malines";"France";18,41;15,662;38,488;"#FF0000";"triangle";25,37;21,58;53,04
+"59";"Les Malines";"France";18,412;15,659;38,478;"#FF0000";"triangle";25,38;21,58;53,04
+"60";"Les Malines";"France";18,413;15,668;38,473;"#FF0000";"triangle";25,38;21,59;53,03
+"61";"Les Malines";"France";18,414;15,663;38,442;"#FF0000";"triangle";25,39;21,6;53,01
+"62";"Les Malines";"France";18,414;15,659;38,447;"#FF0000";"triangle";25,39;21,59;53,02
+"63";"Les Malines";"France";18,417;15,654;38,436;"#FF0000";"triangle";25,4;21,59;53,01
+"64";"Les Malines";"France";18,417;15,683;38,529;"#FF0000";"triangle";25,36;21,59;53,05
+"65";"Les Malines";"France";18,417;15,678;38,502;"#FF0000";"triangle";25,37;21,6;53,04
+"66";"Les Malines";"France";18,41;15,67;38,48;"#FF0000";"triangle";25,37;21,6;53,03
+"67";"Les Malines";"France";18,418;15,67;38,455;"#FF0000";"triangle";25,39;21,6;53,01
+"68";"Les Malines";"France";18,42;15,687;38,521;"#FF0000";"triangle";25,36;21,6;53,04
+"69";"Les Malines";"France";18,423;15,693;38,537;"#FF0000";"triangle";25,36;21,6;53,04
+"70";"Les Malines";"France";18,424;15,655;38,442;"#FF0000";"triangle";25,41;21,59;53,01
+"71";"Les Malines";"France";18,424;15,676;38,469;"#FF0000";"triangle";25,39;21,6;53,01
+"72";"Les Malines";"France";18,424;15,676;38,515;"#FF0000";"triangle";25,37;21,59;53,04
+"73";"Les Malines";"France";18,424;15,664;38,464;"#FF0000";"triangle";25,39;21,59;53,02
+"74";"Les Malines";"France";18,425;15,679;38,505;"#FF0000";"triangle";25,38;21,59;53,03
+"75";"Les Malines";"France";18,423;15,672;38,488;"#FF0000";"triangle";25,38;21,59;53,03
+"76";"Les Malines";"France";18,426;15,669;38,488;"#FF0000";"triangle";25,39;21,59;53,03
+"77";"Les Malines";"France";18,426;15,678;38,509;"#FF0000";"triangle";25,38;21,59;53,03
+"78";"Les Malines";"France";18,426;15,661;38,473;"#FF0000";"triangle";25,39;21,58;53,02
+"79";"Les Malines";"France";18,429;15,682;38,407;"#FF0000";"triangle";25,41;21,62;52,96
+"80";"Les Malines";"France";18,429;15,677;38,494;"#FF0000";"triangle";25,38;21,59;53,02
+"81";"Les Malines";"France";18,434;15,677;38,506;"#FF0000";"triangle";25,39;21,59;53,03
+"82";"Les Malines";"France";18,434;15,686;38,586;"#FF0000";"triangle";25,35;21,57;53,07
+"83";"Les Malines";"France";18,434;15,694;38,571;"#FF0000";"triangle";25,36;21,59;53,06
+"84";"Les Malines";"France";18,435;15,691;38,565;"#FF0000";"triangle";25,36;21,59;53,05
+"85";"Les Malines";"France";18,444;15,686;38,546;"#FF0000";"triangle";25,38;21,58;53,04
+"86";"Les Malines";"France";18,435;15,683;38,582;"#FF0000";"triangle";25,36;21,57;53,07
+"87";"Les Malines";"France";18,437;15,695;38,542;"#FF0000";"triangle";25,37;21,6;53,03
+"88";"Les Malines";"France";18,442;15,69;38,573;"#FF0000";"triangle";25,37;21,58;53,05
+"89";"Les Malines";"France";18,445;15,699;38,576;"#FF0000";"triangle";25,36;21,59;53,05
+"90";"Les Malines";"France";18,446;15,708;38,605;"#FF0000";"triangle";25,35;21,59;53,06
+"91";"Les Malines";"France";18,451;15,719;38,636;"#FF0000";"triangle";25,34;21,59;53,07
+"92";"Les Malines";"France";18,456;15,684;38,523;"#FF0000";"triangle";25,4;21,58;53,02
+"93";"Les Malines";"France";18,467;15,702;38,509;"#FF0000";"triangle";25,41;21,6;52,99
+"94";"Les Malines";"France";18,477;15,68;38,591;"#FF0000";"triangle";25,4;21,55;53,05
+"95";"Les Malines";"France";18,482;15,712;38,631;"#FF0000";"triangle";25,38;21,58;53,05
+"96";"Les Malines";"France";18,396;15,66;38,276;"#FF0000";"triangle";25,43;21,65;52,92
+"97";"Les Malines";"France";18,311;15,685;38,282;"#FF0000";"triangle";25,33;21,7;52,96
+"98";"Les Malines";"France";18,595;15,682;38,568;"#FF0000";"triangle";25,53;21,53;52,95
+"99";"4643_14";"golasecca";18,3947;15,6654;38,5434;"#0000FF";"circle";25,34;21,58;53,09
+"100";"4644_14";"golasecca";18,6278;15,6719;38,7683;"#0000FF";"circle";25,49;21,45;53,06
+"101";"4645_14";"golasecca";18,2467;15,6618;38,4075;"#0000FF";"circle";25,23;21,66;53,11
+"102";"4646_14";"golasecca";18,3086;15,652;38,488;"#0000FF";"circle";25,27;21,6;53,12
+"103";"4647_14";"golasecca";18,3199;15,6615;38,5409;"#0000FF";"circle";25,26;21,6;53,14
+"104";"4649_14";"golasecca";18,3047;15,6585;38,5095;"#0000FF";"circle";25,26;21,61;53,14
+"105";"4650_14";"golasecca";18,4166;15,6664;38,5654;"#0000FF";"circle";25,35;21,56;53,08
+"106";"4651_14";"golasecca";18,5333;15,6719;38,6984;"#0000FF";"circle";25,42;21,5;53,08
+"107";"4652_14";"golasecca";18,7579;15,6865;38,9679;"#0000FF";"circle";25,55;21,37;53,08
+"108";"4653_14";"golasecca";18,422;15,6543;38,4936;"#0000FF";"circle";25,39;21,57;53,04
+"109";"4654_14";"golasecca";18,3882;15,6691;38,5349;"#0000FF";"circle";25,33;21,59;53,08
+"110";"4655_14";"golasecca";18,4201;15,6884;38,633;"#0000FF";"circle";25,32;21,57;53,11
+"111";"4217_08";"hochdorf";18,4842;15,7006;38,7103;"#00FFFF";"circle";25,36;21,54;53,1
+"112";"4218_08";"hochdorf";18,3996;15,6362;38,4156;"#00FFFF";"circle";25,4;21,58;53,02
+"113";"4220_08";"hochdorf";18,4705;15,6584;38,6103;"#00FFFF";"circle";25,39;21,53;53,08
+"114";"4221_08";"hochdorf";18,3876;15,6443;38,4833;"#00FFFF";"circle";25,36;21,57;53,07
+"115";"4222_08";"hochdorf";18,4062;15,6654;38,5459;"#00FFFF";"circle";25,35;21,57;53,08
+"116";"4223_08";"hochdorf";18,3135;15,6226;38,4219;"#00FFFF";"circle";25,31;21,59;53,1
+"117";"4224_08";"hochdorf";18,3988;15,6579;38,5862;"#00FFFF";"circle";25,33;21,55;53,12
+"118";"4225_08";"hochdorf";18,4146;15,6806;38,6053;"#00FFFF";"circle";25,33;21,57;53,1
+"119";"4226_08";"hochdorf";18,3543;15,6781;38,5205;"#00FFFF";"circle";25,3;21,61;53,09
+"120";"4227_08";"hochdorf";18,3882;15,6644;38,5944;"#00FFFF";"circle";25,31;21,56;53,13
+"121";"4228_08";"hochdorf";18,3226;15,6663;38,5194;"#00FFFF";"circle";25,27;21,61;53,12
+"122";"4229_08";"hochdorf";18,3178;15,6726;38,4705;"#00FFFF";"circle";25,28;21,63;53,09
+"123";"4230_08";"hochdorf";18,4515;15,656;38,5904;"#00FFFF";"circle";25,38;21,54;53,08
+"124";"4231_08";"hochdorf";18,3386;15,6679;38,5063;"#00FFFF";"circle";25,29;21,61;53,1
+"125";"4232_08";"hochdorf";18,3738;15,6632;38,5361;"#00FFFF";"circle";25,32;21,58;53,1
+"126";"4233_08";"hochdorf";18,2948;15,7661;38,5598;"#00FFFF";"circle";25,19;21,71;53,1
+"127";"4235_08";"hochdorf";18,3382;15,6645;38,4494;"#00FFFF";"circle";25,31;21,62;53,07
+"128";"4237_08";"hochdorf";18,3058;15,7883;38,7619;"#00FFFF";"circle";25,13;21,67;53,2
+"129";"4238_08";"hochdorf";18,355;15,789;38,7932;"#00FFFF";"circle";25,17;21,65;53,19
+"130";"4240_08";"hochdorf";18,2513;15,6573;38,3435;"#00FFFF";"circle";25,26;21,67;53,07
+"131";"4353_09";"hochdorf";18,3547;15,6524;38,4521;"#00FFFF";"circle";25,33;21,6;53,07
+"132";"4354_09";"hochdorf";18,5003;15,6798;38,6604;"#00FFFF";"circle";25,4;21,53;53,08
+"133";"4355_09";"hochdorf";18,4959;15,6622;38,5538;"#00FFFF";"circle";25,44;21,54;53,02
+"134";"4356_09";"hochdorf";18,3643;15,6723;38,4847;"#00FFFF";"circle";25,32;21,61;53,07
+"135";"4357_09";"hochdorf";18,6038;15,7524;38,9458;"#00FFFF";"circle";25,38;21,49;53,13
+"136";"4358_09";"hochdorf";18,5548;15,6831;38,6614;"#00FFFF";"circle";25,45;21,51;53,03
+"137";"4654_12";"hochdorf";18,492;15,6775;38,6636;"#00FFFF";"circle";25,39;21,53;53,09
+"138";"4655_12";"hochdorf";18,6694;15,6895;38,8779;"#00FFFF";"circle";25,49;21,42;53,09
+"139";"4656_12";"hochdorf";18,4931;15,68;38,6688;"#00FFFF";"circle";25,39;21,53;53,09
+"140";"4657_12";"hochdorf";18,4863;15,6715;38,6476;"#00FFFF";"circle";25,39;21,53;53,08
+"141";"4658_12";"hochdorf";18,5086;15,679;38,6785;"#00FFFF";"circle";25,4;21,52;53,08
+"142";"4659_12";"hochdorf";18,6667;15,6907;38,876;"#00FFFF";"circle";25,49;21,43;53,09
+"143";"4660_12";"hochdorf";18,5033;15,6821;38,6844;"#00FFFF";"circle";25,39;21,52;53,09
+"144";"4661_12";"hochdorf";18,6712;15,6908;38,8798;"#00FFFF";"circle";25,49;21,42;53,08
+"145";"4662_12";"hochdorf";18,673;15,6926;38,8857;"#00FFFF";"circle";25,49;21,42;53,09
+"146";"4663_12";"hochdorf";18,6676;15,6894;38,8761;"#00FFFF";"circle";25,49;21,42;53,09
+"147";"4664_12";"hochdorf";18,6752;15,6928;38,8859;"#00FFFF";"circle";25,49;21,42;53,08
+"148";"4665_12";"hochdorf";18,2799;15,6409;38,3836;"#00FFFF";"circle";25,28;21,63;53,09
+"149";"4666_12";"hochdorf";18,3486;15,6499;38,482;"#00FFFF";"circle";25,32;21,59;53,09
+"150";"4667_12";"hochdorf";18,2048;15,6287;38,2467;"#00FFFF";"circle";25,26;21,68;53,06
+"151";"4668_12";"hochdorf";18,346;15,6467;38,4711;"#00FFFF";"circle";25,32;21,59;53,09
+"152";"4669_12";"hochdorf";18,6697;15,6894;38,8749;"#00FFFF";"circle";25,49;21,42;53,08
+"153";"4670_12";"hochdorf";18,3442;15,6468;38,4694;"#00FFFF";"circle";25,32;21,59;53,09
+"154";"4671_12";"hochdorf";18,3465;15,6491;38,4779;"#00FFFF";"circle";25,31;21,59;53,09
+"155";"4672_12";"hochdorf";18,6721;15,6917;38,8869;"#00FFFF";"circle";25,49;21,42;53,09
+"156";"4673_12";"hochdorf";18,3428;15,6442;38,4635;"#00FFFF";"circle";25,32;21,59;53,09
+"157";"4674_12";"hochdorf";18,1473;15,6023;38,1397;"#00FFFF";"circle";25,24;21,7;53,05
+"158";"4675_12";"hochdorf";18,3146;15,645;38,4329;"#00FFFF";"circle";25,3;21,61;53,09
+"159";"4676_12";"hochdorf";18,5702;15,6625;38,6213;"#00FFFF";"circle";25,49;21,5;53,01
+"160";"4677_12";"hochdorf";18,2332;15,6372;38,2991;"#00FFFF";"circle";25,26;21,67;53,07
+"161";"4678_12";"hochdorf";18,1994;15,632;38,2497;"#00FFFF";"circle";25,25;21,69;53,06
+"162";"4679_12";"hochdorf";18,7293;15,683;38,8142;"#00FFFF";"circle";25,58;21,42;53,01
+"163";"4681_12";"hochdorf";18,2883;15,6638;38,5191;"#00FFFF";"circle";25,24;21,61;53,15
+"164";"4682_12";"hochdorf";18,1839;15,6263;38,2204;"#00FFFF";"circle";25,24;21,69;53,06
+"165";"4683_12";"hochdorf";18,3526;15,6693;38,5601;"#00FFFF";"circle";25,29;21,59;53,13
+"166";"4684_12";"hochdorf";18,3518;15,6691;38,5572;"#00FFFF";"circle";25,29;21,59;53,13
+"167";"4685_12";"hochdorf";18,2065;15,6358;38,256;"#00FFFF";"circle";25,25;21,69;53,06
+"168";"4686_12";"hochdorf";18,6615;15,6924;38,8696;"#00FFFF";"circle";25,49;21,43;53,08
+"169";"4687_12";"hochdorf";18,1832;15,6253;38,2164;"#00FFFF";"circle";25,25;21,69;53,06
+"170";"4688_12";"hochdorf";18,1807;15,6242;38,2131;"#00FFFF";"circle";25,24;21,69;53,06
+"171";"4689_12";"hochdorf";18,2252;15,6359;38,2843;"#00FFFF";"circle";25,26;21,67;53,07
+"172";"4690_12";"hochdorf";18,2058;15,6352;38,2522;"#00FFFF";"circle";25,25;21,69;53,06
+"173";"4691_12";"hochdorf";18,1884;15,6228;38,2171;"#00FFFF";"circle";25,25;21,69;53,06
+"174";"4808_13";"hochdorf";18,674;15,6676;38,7599;"#00FFFF";"circle";25,55;21,43;53,02
+"175";"4809_13";"hochdorf";18,6941;15,6699;38,7857;"#00FFFF";"circle";25,56;21,42;53,02
+"176";"4810_13";"hochdorf";18,6968;15,6634;38,7266;"#00FFFF";"circle";25,58;21,43;52,99
+"177";"4811_13";"hochdorf";18,7033;15,6608;38,7223;"#00FFFF";"circle";25,59;21,43;52,98
+"178";"4812_13";"hochdorf";18,6848;15,664;38,7194;"#00FFFF";"circle";25,57;21,44;52,99
+"179";"Les Ferreres";"Iberian Peninsula";18,5839;15,7114;38,8241;"#FFA500";"triangle";25,42;21,49;53,1
+"180";"Les Ferreres";"Iberian Peninsula";18,5807;15,7103;38,8173;"#FFA500";"triangle";25,42;21,49;53,1
+"181";"Les Ferreres";"Iberian Peninsula";18,55473;15,70804;38,78196;"#FFA500";"triangle";25,4;21,5;53,09
+"182";"Les Ferreres";"Iberian Peninsula";18,55585;15,70868;38,782;"#FFA500";"triangle";25,4;21,51;53,09
+"183";"S'Argentera";"Iberian Peninsula";18,67;15,681;38,923;"#FFA500";"triangle";25,48;21,4;53,12
+"184";"S'Argentera";"Iberian Peninsula";18,701;15,686;38,941;"#FFA500";"triangle";25,5;21,39;53,11
+"185";"S'Argentera";"Iberian Peninsula";18,729;15,691;38,938;"#FFA500";"triangle";25,53;21,39;53,08
+"186";"S'Argentera";"Iberian Peninsula";18,671;15,68;38,922;"#FFA500";"triangle";25,48;21,4;53,12
+"187";"S'Argentera";"Iberian Peninsula";18,651;15,677;38,901;"#FFA500";"triangle";25,47;21,41;53,12
+"188";"S'Argentera";"Iberian Peninsula";18,651;15,686;38,825;"#FFA500";"triangle";25,49;21,44;53,07
+"189";"S'Argentera";"Iberian Peninsula";18,696;15,685;38,939;"#FFA500";"triangle";25,5;21,39;53,11
+"190";"S'Argentera";"Iberian Peninsula";18,665;15,675;38,906;"#FFA500";"triangle";25,48;21,4;53,12
+"191";"S'Argentera";"Iberian Peninsula";18,662;15,679;38,917;"#FFA500";"triangle";25,47;21,4;53,12
+"192";"S'Argentera";"Iberian Peninsula";18,652;15,678;38,911;"#FFA500";"triangle";25,47;21,41;53,13
+"193";"S'Argentera";"Iberian Peninsula";18,727;15,689;38,931;"#FFA500";"triangle";25,53;21,39;53,08
+"194";"S'Argentera";"Iberian Peninsula";18,713;15,69;38,94;"#FFA500";"triangle";25,51;21,39;53,09
+"195";"S'Argentera";"Iberian Peninsula";18,655;15,678;38,915;"#FFA500";"triangle";25,47;21,4;53,13
+"196";"S'Argentera";"Iberian Peninsula";18,739;15,7209;39,0659;"#FFA500";"triangle";25,49;21,38;53,13
+"197";"S'Argentera";"Iberian Peninsula";18,7412;15,7569;39,1838;"#FFA500";"triangle";25,44;21,39;53,18
+"198";"S'Argentera";"Iberian Peninsula";18,7122;15,6783;38,9099;"#FFA500";"triangle";25,53;21,39;53,08
+"199";"S'Argentera";"Iberian Peninsula";18,7062;15,6859;38,9465;"#FFA500";"triangle";25,51;21,39;53,11
+"200";"Escombrera";"Iberian Peninsula";18,724;15,688;38,935;"#FFA500";"triangle";25,53;21,39;53,08
+"201";"Escombrera";"Iberian Peninsula";18,729;15,687;38,929;"#FFA500";"triangle";25,54;21,39;53,08
+"202";"Can Vicent";"Iberian Peninsula";18,54;15,689;38,764;"#FFA500";"triangle";25,4;21,49;53,11
+"203";"Can Vicent";"Iberian Peninsula";18,483;15,697;38,814;"#FFA500";"triangle";25,32;21,5;53,17
+"204";"Sa Mitja Lluna";"Iberian Peninsula";18,442;15,610396878;38,48218372;"#FFA500";"triangle";25,43;21,52;53,05
+"205";"Sa Mitja Lluna";"Iberian Peninsula";18,262;15,63190676;38,19095536;"#FFA500";"triangle";25,33;21,69;52,98
+"206";"Sa Mitja Lluna";"Iberian Peninsula";18,4435;15,66572;38,65204;"#FFA500";"triangle";25,35;21,53;53,12
+"207";"Sa Mitja Lluna";"Iberian Peninsula";18,3814;15,65617;38,56932;"#FFA500";"triangle";25,32;21,56;53,12
+"208";"Sa Mitja Lluna";"Iberian Peninsula";18,428;15,67136;38,65107;"#FFA500";"triangle";25,33;21,54;53,13
+"209";"Sa Mitja Lluna";"Iberian Peninsula";18,3628;15,64456;38,54517;"#FFA500";"triangle";25,31;21,56;53,13
+"210";"Sa Mitja Lluna";"Iberian Peninsula";18,528;15,6708;38,73816;"#FFA500";"triangle";25,4;21,49;53,11
+"211";"Sa Mitja Lluna";"Iberian Peninsula";18,491;15,67501;38,63343;"#FFA500";"triangle";25,4;21,53;53,07
+"212";"Binifabini";"Iberian Peninsula";18,3237;15,6722;38,4919;"#FFA500";"triangle";25,28;21,62;53,1
+"213";"Binifabini";"Iberian Peninsula";18,4324;15,6841;38,6343;"#FFA500";"triangle";25,34;21,56;53,1
+"214";"Binifabini";"Iberian Peninsula";18,4391;15,6817;38,62715;"#FFA500";"triangle";25,35;21,56;53,1
+"215";"Sant Julia";"Iberian Peninsula";18,3293;15,6712;38,4977;"#FFA500";"triangle";25,28;21,62;53,1
+"216";"Sant Julia";"Iberian Peninsula";18,3355;15,6781;38,5249;"#FFA500";"triangle";25,28;21,61;53,11
+"217";"Mina Leonor";"Iberian Peninsula";18,5388;15,6854;38,8948;"#FFA500";"triangle";25,35;21,45;53,19
+"218";"Mina Leonor";"Iberian Peninsula";18,4436;15,68;38,6938;"#FFA500";"triangle";25,33;21,53;53,14
+"219";"Mina Leonor";"Iberian Peninsula";18,5402;15,6854;38,8917;"#FFA500";"triangle";25,36;21,45;53,19
+"220";"Mina Pepito";"Iberian Peninsula";18,4879;15,6797;38,7388;"#FFA500";"triangle";25,36;21,51;53,13
+"221";"Mina Pepito";"Iberian Peninsula";18,4819;15,6922;38,7648;"#FFA500";"triangle";25,34;21,51;53,15
+"222";"Mina Pepito";"Iberian Peninsula";18,478;15,6824;38,7354;"#FFA500";"triangle";25,35;21,51;53,14
+"223";"Puig Perals ";"Iberian Peninsula";18,5167;15,6822;38,8336;"#FFA500";"triangle";25,35;21,47;53,17
+"224";"Mina Castell";"Iberian Peninsula";18,5155;15,6865;38,851;"#FFA500";"triangle";25,35;21,47;53,18
+"225";"Mina Castell";"Iberian Peninsula";18,5208;15,6853;38,8296;"#FFA500";"triangle";25,36;21,48;53,17
+"226";"Puig Perals ";"Iberian Peninsula";18,5188;15,6863;38,8432;"#FFA500";"triangle";25,35;21,47;53,17
+"227";"Pideval Este";"Iberian Peninsula";18,5361;15,6783;38,8729;"#FFA500";"triangle";25,36;21,45;53,19
+"228";"Mina W";"Iberian Peninsula";18,483;15,6923;38,7693;"#FFA500";"triangle";25,34;21,51;53,15
+"229";"Rigros";"Iberian Peninsula";18,678;15,723;39,1;"#FFA500";"triangle";25,41;21,39;53,2
+"230";"Rigros";"Iberian Peninsula";18,628;15,768;39,19;"#FFA500";"triangle";25,31;21,43;53,26
+"231";"Berta";"Iberian Peninsula";18,51;15,725;38,951;"#FFA500";"triangle";25,29;21,49;53,22
+"232";"Berta";"Iberian Peninsula";18,511;15,727;38,942;"#FFA500";"triangle";25,3;21,49;53,21
+"233";"Berta";"Iberian Peninsula";18,509;15,714;38,888;"#FFA500";"triangle";25,32;21,49;53,19
+"234";"Berta";"Iberian Peninsula";18,495;15,703;38,861;"#FFA500";"triangle";25,32;21,49;53,19
+"235";"Berta";"Iberian Peninsula";18,45;15,702;38,863;"#FFA500";"triangle";25,27;21,51;53,23
+"236";"Martorell";"Iberian Peninsula";18,318;15,678;38,534;"#FFA500";"triangle";25,26;21,62;53,13
+"237";"Martorell";"Iberian Peninsula";18,366;15,708;38,629;"#FFA500";"triangle";25,26;21,61;53,13
+"238";"Martorell";"Iberian Peninsula";18,335;15,704;38,622;"#FFA500";"triangle";25,23;21,61;53,15
+"239";"Martorell";"Iberian Peninsula";18,366;15,707;38,609;"#FFA500";"triangle";25,27;21,61;53,12
+"240";"Martorell";"Iberian Peninsula";18,325;15,698;38,588;"#FFA500";"triangle";25,24;21,62;53,14
+"241";"Can franquesa";"Iberian Peninsula";18,4592;15,6952;38,7398;"#FFA500";"triangle";25,32;21,53;53,15
+"242";"Mina Torrent Bosc";"Iberian Peninsula";18,46;15,696;38,747;"#FFA500";"triangle";25,32;21,53;53,15
+"243";"Mina Torrent des Bruix";"Iberian Peninsula";18,4532;15,6987;38,7512;"#FFA500";"triangle";25,31;21,53;53,15
+"244";"Atrevida";"Iberian Peninsula";18,43;15,71;38,633;"#FFA500";"triangle";25,33;21,59;53,09
+"245";"Atrevida";"Iberian Peninsula";18,441;15,688;38,633;"#FFA500";"triangle";25,34;21,56;53,1
+"246";"Atrevida";"Iberian Peninsula";18,462;15,709;38,703;"#FFA500";"triangle";25,33;21,56;53,11
+"247";"Atrevida";"Iberian Peninsula";18,501;15,708;38,841;"#FFA500";"triangle";25,33;21,5;53,17
+"248";"Atrevida";"Iberian Peninsula";18,516;15,727;38,905;"#FFA500";"triangle";25,31;21,5;53,19
+"249";"Atrevida";"Iberian Peninsula";18,496;15,682;38,771;"#FFA500";"triangle";25,35;21,5;53,15
+"250";"Argentera";"Iberian Peninsula";18,525;15,723;38,833;"#FFA500";"triangle";25,35;21,51;53,14
+"251";"Argentera";"Iberian Peninsula";18,542;15,72;38,833;"#FFA500";"triangle";25,37;21,51;53,13
+"252";"Escornalbou";"Iberian Peninsula";18,483;15,714;38,769;"#FFA500";"triangle";25,33;21,54;53,13
+"253";"Bellmunt";"Iberian Peninsula";18,453;15,704;38,6;"#FFA500";"triangle";25,36;21,58;53,05
+"254";"Bellmunt";"Iberian Peninsula";18,337;15,717;38,62;"#FFA500";"triangle";25,23;21,63;53,14
+"255";"Bellmunt";"Iberian Peninsula";18,351;15,729;38,649;"#FFA500";"triangle";25,23;21,63;53,14
+"256";"Balcoll (Falset)";"Iberian Peninsula";18,3582;15,6696;38,4994;"#FFA500";"triangle";25,31;21,61;53,08
+"257";"Balcoll (Falset)";"Iberian Peninsula";18,3584;15,6789;38,5289;"#FFA500";"triangle";25,3;21,61;53,09
+"258";"Cueva del Paraguas";"Iberian Peninsula";18,299;15,667;38,448;"#FFA500";"triangle";25,27;21,64;53,09
+"259";"Linda Mariquita";"Iberian Peninsula";18,3571;15,6859;38,5557;"#FFA500";"triangle";25,29;21,61;53,11
+"260";"Linda Mariquita";"Iberian Peninsula";18,316;15,664;38,451;"#FFA500";"triangle";25,29;21,63;53,09
+"261";"Linda Mariquita";"Iberian Peninsula";18,308;15,661;38,446;"#FFA500";"triangle";25,28;21,63;53,09
+"262";"Linda Mariquita";"Iberian Peninsula";18,3534;15,6953;38,5896;"#FFA500";"triangle";25,27;21,61;53,13
+"263";"Linda Mariquita";"Iberian Peninsula";18,338;15,675;38,502;"#FFA500";"triangle";25,29;21,62;53,1
+"264";"Linda Mariquita";"Iberian Peninsula";18,323;15,68;38,503;"#FFA500";"triangle";25,27;21,63;53,1
+"265";"Linda Mariquita";"Iberian Peninsula";18,322;15,677;38,495;"#FFA500";"triangle";25,27;21,63;53,1
+"266";"Linda Mariquita";"Iberian Peninsula";18,368;15,658;38,506;"#FFA500";"triangle";25,32;21,59;53,09
+"267";"Linda Mariquita";"Iberian Peninsula";18,431;15,688;38,655;"#FFA500";"triangle";25,33;21,56;53,12
+"268";"Linda Mariquita";"Iberian Peninsula";18,433;15,69;38,665;"#FFA500";"triangle";25,32;21,56;53,12
+"269";"Linda Mariquita";"Iberian Peninsula";18,322;15,688;38,524;"#FFA500";"triangle";25,26;21,63;53,11
+"270";"Linda Mariquita";"Iberian Peninsula";18,316;15,68;38,498;"#FFA500";"triangle";25,27;21,63;53,11
+"271";"Jalapa";"Iberian Peninsula";18,311;15,68;38,493;"#FFA500";"triangle";25,26;21,63;53,11
+"272";"Jalapa";"Iberian Peninsula";18,336;15,672;38,499;"#FFA500";"triangle";25,29;21,61;53,1
+"273";"Mineralogia";"Iberian Peninsula";18,408;15,8;38,928;"#FFA500";"triangle";25,17;21,6;53,23
+"274";"Mineralogia";"Iberian Peninsula";18,32;15,692;38,533;"#FFA500";"triangle";25,25;21,63;53,12
+"275";"Mineralogia";"Iberian Peninsula";18,317;15,689;38,521;"#FFA500";"triangle";25,26;21,63;53,11
+"276";"Mineralogia";"Iberian Peninsula";18,309;15,676;38,483;"#FFA500";"triangle";25,26;21,63;53,1
+"277";"Mineralogia";"Iberian Peninsula";18,318;15,688;38,52;"#FFA500";"triangle";25,26;21,63;53,11
+"278";"Mineralogia";"Iberian Peninsula";18,301;15,667;38,453;"#FFA500";"triangle";25,27;21,63;53,1
+"279";"Mina Regia";"Iberian Peninsula";18,301;15,671;38,46;"#FFA500";"triangle";25,27;21,64;53,1
+"280";"Mina Regia";"Iberian Peninsula";18,314;15,686;38,511;"#FFA500";"triangle";25,26;21,63;53,11
+"281";"Raimunda";"Iberian Peninsula";18,333;15,691;38,545;"#FFA500";"triangle";25,26;21,62;53,11
+"282";"Raimunda";"Iberian Peninsula";18,333;15,692;38,545;"#FFA500";"triangle";25,26;21,62;53,11
+"283";"Raimunda";"Iberian Peninsula";18,317;15,672;38,483;"#FFA500";"triangle";25,27;21,62;53,1
+"284";"Barranco Hondo";"Iberian Peninsula";18,31;15,681;38,494;"#FFA500";"triangle";25,26;21,63;53,11
+"285";"Barranco Hondo";"Iberian Peninsula";18,301;15,662;38,44;"#FFA500";"triangle";25,28;21,63;53,09
+"286";"Barranco Hondo";"Iberian Peninsula";18,313;15,677;38,487;"#FFA500";"triangle";25,27;21,63;53,1
+"287";"Barranc Fondo";"Iberian Peninsula";18,41656;15,68882;38,61425;"#FFA500";"triangle";25,33;21,57;53,1
+"288";"Barranc Fondo";"Iberian Peninsula";18,4802;15,6891;38,6879;"#FFA500";"triangle";25,36;21,53;53,1
+"289";"Barranc Fondo";"Iberian Peninsula";18,37826;15,6887;38,54988;"#FFA500";"triangle";25,31;21,6;53,09
+"290";"Mina dels Crossos Cantera";"Iberian Peninsula";18,36819;15,69379;38,52708;"#FFA500";"triangle";25,3;21,62;53,08
+"291";"Mina dels Crossos Cantera";"Iberian Peninsula";18,371;15,6928;38,5296;"#FFA500";"triangle";25,31;21,62;53,08
+"292";"Mina dels Crossos Cantera";"Iberian Peninsula";18,3646;15,693;38,5196;"#FFA500";"triangle";25,3;21,62;53,07
+"293";"Barranc Sant Joan";"Iberian Peninsula";18,3745;15,6949;38,5239;"#FFA500";"triangle";25,31;21,62;53,07
+"294";"Barranc Sant Joan";"Iberian Peninsula";18,2777;15,4136;37,5044;"#FFA500";"triangle";25,67;21,65;52,68
+"295";"Minas des Closos";"Iberian Peninsula";18,4816;15,6894;38,7559;"#FFA500";"triangle";25,34;21,51;53,14
+"296";"Minas des Closos";"Iberian Peninsula";18,4774;15,6867;38,7443;"#FFA500";"triangle";25,34;21,52;53,14
+"297";"Mina Turquesa";"Iberian Peninsula";18,5229;15,6841;38,6786;"#FFA500";"triangle";25,41;21,52;53,07
+"298";"Mina Turquesa";"Iberian Peninsula";19,307;15,7136;38,8001;"#FFA500";"triangle";26,15;21,29;52,56
+"299";"Mina Turquesa";"Iberian Peninsula";19,2025;15,7117;38,7135;"#FFA500";"triangle";26,08;21,34;52,58
+"300";"Mina Turquesa";"Iberian Peninsula";18,5463;15,6956;38,6571;"#FFA500";"triangle";25,44;21,53;53,03
+"301";"Mina Turquesa";"Iberian Peninsula";20,57939;15,79675;38,79364;"#FFA500";"triangle";27,38;21,01;51,61
+"302";"Mina Turquesa";"Iberian Peninsula";18,84577;15,69526;38,52231;"#FFA500";"triangle";25,79;21,48;52,72
+"303";"Mina Turquesa";"Iberian Peninsula";20,43123;15,77691;38,81762;"#FFA500";"triangle";27,23;21,03;51,74
+"304";"Mina Turquesa";"Iberian Peninsula";20,34535;15,78866;38,84083;"#FFA500";"triangle";27,14;21,06;51,81
+"305";"Mina Turquesa";"Iberian Peninsula";20,94499;15,80881;38,84239;"#FFA500";"triangle";27,71;20,91;51,38
+"306";"Mina Turquesa";"Iberian Peninsula";20,40993;15,77957;38,85867;"#FFA500";"triangle";27,2;21,03;51,78
+"307";"Solana del Bepo";"Iberian Peninsula";18,5066;15,6928;38,7527;"#FFA500";"triangle";25,37;21,51;53,12
+"308";"Solana del Bepo";"Iberian Peninsula";18,4883;15,6901;38,7451;"#FFA500";"triangle";25,35;21,52;53,13
+"309";"Solana del Bepo";"Iberian Peninsula";18,487;15,68;38,677;"#FFA500";"triangle";25,38;21,53;53,1
+"310";"Mina Besso";"Iberian Peninsula";18,341;15,676;38,47;"#FFA500";"triangle";25,3;21,63;53,07
+"311";"Mina Besso";"Iberian Peninsula";18,352;15,675;38,484;"#FFA500";"triangle";25,31;21,62;53,07
+"312";"Mina Besso";"Iberian Peninsula";18,3639;15,6883;38,5072;"#FFA500";"triangle";25,31;21,62;53,07
+"313";"Mina de Campello";"Iberian Peninsula";18,68;15,735;39,072;"#FFA500";"triangle";25,42;21,41;53,17
+"314";"Mina de Campello";"Iberian Peninsula";18,65;15,698;38,969;"#FFA500";"triangle";25,44;21,41;53,15
+"315";"Mina de Campello";"Iberian Peninsula";18,684;15,74;39,065;"#FFA500";"triangle";25,42;21,42;53,16
+"316";"Badenas";"Iberian Peninsula";18,413;15,702;38,752;"#FFA500";"triangle";25,27;21,55;53,18
+"317";"Badenas";"Iberian Peninsula";18,478;15,769;38,991;"#FFA500";"triangle";25,23;21,53;53,24
+"318";"Calcena";"Iberian Peninsula";18,414;15,757;38,908;"#FFA500";"triangle";25,2;21,56;53,24
+"319";"Calcena";"Iberian Peninsula";18,403;15,679;38,705;"#FFA500";"triangle";25,28;21,54;53,18
+"320";"Calcena";"Iberian Peninsula";18,391;15,724;38,802;"#FFA500";"triangle";25,22;21,56;53,21
+"321";"Calcena";"Iberian Peninsula";18,397;15,723;38,79;"#FFA500";"triangle";25,23;21,56;53,2
+"322";"Cuca-Alta";"Iberian Peninsula";18,377;15,7;38,76;"#FFA500";"triangle";25,23;21,55;53,21
+"323";"Cuca-Alta";"Iberian Peninsula";18,322;15,699;38,681;"#FFA500";"triangle";25,2;21,59;53,2
+"324";"Cuca-Alta";"Iberian Peninsula";18,321;15,702;38,608;"#FFA500";"triangle";25,22;21,62;53,16
+"325";"Nogueras";"Iberian Peninsula";18,267;15,708;38,529;"#FFA500";"triangle";25,19;21,67;53,14
+"326";"Nogueras";"Iberian Peninsula";18,317;15,702;38,749;"#FFA500";"triangle";25,17;21,58;53,25
+"327";"Nogueras";"Iberian Peninsula";18,277;15,7;38,757;"#FFA500";"triangle";25,13;21,59;53,29
+"328";"Segura de Banos";"Iberian Peninsula";18,45;15,71;38,846;"#FFA500";"triangle";25,27;21,52;53,21
+"329";"Segura de Banos";"Iberian Peninsula";18,351;15,736;38,806;"#FFA500";"triangle";25,18;21,59;53,24
+"330";"Segura de Banos";"Iberian Peninsula";18,489;15,705;38,858;"#FFA500";"triangle";25,31;21,5;53,19
+"331";"Segura de Banos";"Iberian Peninsula";18,547;15,768;39,076;"#FFA500";"triangle";25,27;21,48;53,24
+"332";"Santa Cruz";"Iberian Peninsula";18,291;15,717;38,548;"#FFA500";"triangle";25,21;21,66;53,13
+"333";"Santa Cruz";"Iberian Peninsula";18,303;15,737;38,611;"#FFA500";"triangle";25,19;21,66;53,15
+"334";"Santa Cruz";"Iberian Peninsula";18,295;15,724;38,567;"#FFA500";"triangle";25,2;21,66;53,13
+"335";"Minas de Hembrar";"Iberian Peninsula";18,1688;15,6223;38,1047;"#FFA500";"triangle";25,27;21,73;53
+"336";"Mina Amorosa";"Iberian Peninsula";18,8825;15,7108;39,1308;"#FFA500";"triangle";25,61;21,31;53,08
+"337";"Mina Amorosa";"Iberian Peninsula";18,8832;15,7129;39,131;"#FFA500";"triangle";25,61;21,31;53,08
+"338";"Mina de la Bartola";"Iberian Peninsula";20,3909;15,8044;39,2364;"#FFA500";"triangle";27,03;20,95;52,02
+"339";"Mina de la Bartola";"Iberian Peninsula";20,0565;15,7645;39,1096;"#FFA500";"triangle";26,77;21,04;52,19
+"340";"Minas del Misteri";"Iberian Peninsula";18,3228;15,6881;38,5623;"#FFA500";"triangle";25,25;21,62;53,14
+"341";"Minas del Misteri";"Iberian Peninsula";18,3395;15,6881;38,5853;"#FFA500";"triangle";25,26;21,61;53,14
+"342";"Minas del Misteri";"Iberian Peninsula";18,3224;15,6863;38,5559;"#FFA500";"triangle";25,25;21,62;53,13
+"343";"Minas del Misteri";"Iberian Peninsula";18,3629;15,6851;38,5899;"#FFA500";"triangle";25,28;21,59;53,13
+"344";"Mina Campoy";"Iberian Peninsula";18,6322;15,6986;38,9407;"#FFA500";"triangle";25,43;21,43;53,15
+"345";"Mina Campoy";"Iberian Peninsula";18,6334;15,6997;38,9437;"#FFA500";"triangle";25,43;21,43;53,15
+"346";"Mina de la Murta";"Iberian Peninsula";18,9768;15,7146;38,8326;"#FFA500";"triangle";25,81;21,37;52,82
+"347";"Mina Solaig";"Iberian Peninsula";18,8887;15,705;38,7552;"#FFA500";"triangle";25,75;21,41;52,84
+"348";"Mina Solaig";"Iberian Peninsula";18,913;15,7083;38,7916;"#FFA500";"triangle";25,76;21,4;52,84
+"349";"Mina de Miravet";"Iberian Peninsula";18,4205;15,6666;38,6178;"#FFA500";"triangle";25,34;21,55;53,12
+"350";"Mina de Miravet";"Iberian Peninsula";18,4192;15,6657;38,615;"#FFA500";"triangle";25,34;21,55;53,12
+"351";"Mina de Miravet";"Iberian Peninsula";18,4163;15,6731;38,6302;"#FFA500";"triangle";25,33;21,55;53,12
+"352";"Mina Sta Agueda";"Iberian Peninsula";18,5963;15,686;38,7705;"#FFA500";"triangle";25,46;21,47;53,07
+"353";"Mina Sta Agueda";"Iberian Peninsula";18,5961;15,6835;38,7795;"#FFA500";"triangle";25,45;21,47;53,08
+"354";"Aljustrel";"Iberian Peninsula";18,18;15,6075;38,138;"#FFA500";"triangle";25,28;21,7;53,02
+"355";"Aljustrel";"Iberian Peninsula";18,188;15,6108;38,133;"#FFA500";"triangle";25,29;21,7;53,01
+"356";"Aljustrel";"Iberian Peninsula";18,27637;15,62711;38,30711;"#FFA500";"triangle";25,31;21,64;53,05
+"357";"Aljustrel (Algares level -250 m)";"Iberian Peninsula";18,201;15,629;38,204;"#FFA500";"triangle";25,27;21,7;53,04
+"358";"Aljustrel (Algares level -250 m)";"Iberian Peninsula";18,18;15,638;38,251;"#FFA500";"triangle";25,23;21,7;53,08
+"359";"Aljustrel (Algares level -250 m)";"Iberian Peninsula";18,172;15,63;38,249;"#FFA500";"triangle";25,22;21,69;53,09
+"360";"Aljustrel (Algares level -250 m)";"Iberian Peninsula";18,17;15,624;38,193;"#FFA500";"triangle";25,24;21,7;53,06
+"361";"Aljustrel (Algares level -250 m)";"Iberian Peninsula";18,173;15,627;38,211;"#FFA500";"triangle";25,24;21,7;53,06
+"362";"Aljustrel (Algares level -250 m)";"Iberian Peninsula";18,175;15,627;38,228;"#FFA500";"triangle";25,23;21,7;53,07
+"363";"Aljustrel (Moinho level -155 m)";"Iberian Peninsula";18,188;15,633;38,222;"#FFA500";"triangle";25,25;21,7;53,05
+"364";"Aljustrel (Moinho level -155 m)";"Iberian Peninsula";18,184;15,63;38,198;"#FFA500";"triangle";25,25;21,7;53,04
+"365";"Aljustrel (Moinho level -155 m)";"Iberian Peninsula";18,214;15,638;38,229;"#FFA500";"triangle";25,27;21,7;53,04
+"366";"Aljustrel (Moinho level -155 m)";"Iberian Peninsula";18,195;15,631;38,202;"#FFA500";"triangle";25,26;21,7;53,04
+"367";"Aljustrel (Moinho level -155 m)";"Iberian Peninsula";18,206;15,628;38,206;"#FFA500";"triangle";25,27;21,69;53,03
+"368";"Aljustrel (gossan)";"Iberian Peninsula";18,184;15,626;38,212;"#FFA500";"triangle";25,25;21,7;53,06
+"369";"Aljustrel (gossan)";"Iberian Peninsula";18,2;15,636;38,231;"#FFA500";"triangle";25,25;21,7;53,05
+"370";"Aljustrel (gossan)";"Iberian Peninsula";18,197;15,635;38,223;"#FFA500";"triangle";25,25;21,7;53,05
+"371";"Aljustrel (gossan)";"Iberian Peninsula";18,185;15,628;38,214;"#FFA500";"triangle";25,25;21,7;53,06
+"372";"Aljustrel (gossan)";"Iberian Peninsula";18,211;15,647;38,293;"#FFA500";"triangle";25,24;21,69;53,07
+"373";"Aljustrel (gossan)";"Iberian Peninsula";18,209;15,645;38,27;"#FFA500";"triangle";25,25;21,69;53,06
+"374";"Aljustrel (gossan)";"Iberian Peninsula";18,214;15,649;38,294;"#FFA500";"triangle";25,24;21,69;53,07
+"375";"Aljustrel (gossan)";"Iberian Peninsula";18,213;15,647;38,272;"#FFA500";"triangle";25,25;21,69;53,06
+"376";"Aljustrel (gossan)";"Iberian Peninsula";18,194;15,644;38,265;"#FFA500";"triangle";25,23;21,7;53,07
+"377";"Aljustrel (gossan)";"Iberian Peninsula";18,191;15,629;38,275;"#FFA500";"triangle";25,23;21,68;53,09
+"378";"Almagrera";"Iberian Peninsula";18,197;15,646;38,289;"#FFA500";"triangle";25,23;21,69;53,08
+"379";"Aznalcollar";"Iberian Peninsula";18,161;15,622;39,16;"#FFA500";"triangle";24,9;21,42;53,69
+"380";"Aznalcollar";"Iberian Peninsula";18,176;15,61;38,11;"#FFA500";"triangle";25,28;21,71;53,01
+"381";"Aznalcollar";"Iberian Peninsula";18,199;15,646;38,223;"#FFA500";"triangle";25,25;21,71;53,04
+"382";"Aznalcollar";"Iberian Peninsula";18,176;15,608;38,113;"#FFA500";"triangle";25,28;21,71;53,01
+"383";"Aznalcóllar";"Iberian Peninsula";18,157;15,6072;38,1197;"#FFA500";"triangle";25,26;21,71;53,03
+"384";"Aznalcóllar";"Iberian Peninsula";18,173;15,6233;38,1713;"#FFA500";"triangle";25,25;21,71;53,04
+"385";"Aznalcóllar";"Iberian Peninsula";18,188;15,6362;38,2183;"#FFA500";"triangle";25,25;21,7;53,05
+"386";"Aznalcóllar";"Iberian Peninsula";18,177;15,6204;38,091;"#FFA500";"triangle";25,29;21,73;52,99
+"387";"Aznalcóllar";"Iberian Peninsula";18,25;15,6665;38,3383;"#FFA500";"triangle";25,26;21,68;53,06
+"388";"Aznalcóllar";"Iberian Peninsula";18,153;15,5983;38,0912;"#FFA500";"triangle";25,27;21,71;53,02
+"389";"Aznalcóllar";"Iberian Peninsula";18,148;15,618;38,1776;"#FFA500";"triangle";25,23;21,71;53,07
+"390";"Aznalcóllar";"Iberian Peninsula";18,158;15,6019;38,1024;"#FFA500";"triangle";25,27;21,71;53,02
+"391";"Aznalcóllar";"Iberian Peninsula";18,191;15,635;38,2187;"#FFA500";"triangle";25,25;21,7;53,05
+"392";"Aznalcóllar";"Iberian Peninsula";18,179;15,627;38,1903;"#FFA500";"triangle";25,25;21,71;53,04
+"393";"Aznalcóllar";"Iberian Peninsula";18,173;15,6242;38,1824;"#FFA500";"triangle";25,25;21,71;53,05
+"394";"Filon Aznalcollar";"Iberian Peninsula";18,179;15,62703198;38,19026141;"#FFA500";"triangle";25,25;21,71;53,04
+"395";"Filon Aznalcollar";"Iberian Peninsula";18,173;15,62423675;38,18238165;"#FFA500";"triangle";25,25;21,71;53,05
+"396";"Filon Aznalcollar";"Iberian Peninsula";18,1732;15,62350004;38,171716208;"#FFA500";"triangle";25,25;21,71;53,04
+"397";"Filon Aznalcollar";"Iberian Peninsula";18,1885;15,63665345;38,219313165;"#FFA500";"triangle";25,25;21,7;53,05
+"398";"Filon Aznalcollar";"Iberian Peninsula";18,1772;15,62057682;38,091413232;"#FFA500";"triangle";25,29;21,73;52,99
+"399";"Filon Aznalcollar";"Iberian Peninsula";18,2501;15,666615844;38,338532573;"#FFA500";"triangle";25,26;21,68;53,06
+"400";"Filon Aznalcollar (roof)";"Iberian Peninsula";18,1574;15,607556318;38,12055343;"#FFA500";"triangle";25,26;21,71;53,03
+"401";"Mina Aznalcollar (Stockwork)";"Iberian Peninsula";18,1529;15,598242383;38,090956186;"#FFA500";"triangle";25,27;21,71;53,02
+"402";"Buitron";"Iberian Peninsula";18,159;15,61;38,17;"#FFA500";"triangle";25,24;21,7;53,06
+"403";"Campanario";"Iberian Peninsula";17,149;15,628;38,22;"#FFA500";"triangle";24,15;22,01;53,83
+"404";"Chaparrita";"Iberian Peninsula";18,166;15,594;38,107;"#FFA500";"triangle";25,28;21,7;53,02
+"405";"Conception";"Iberian Peninsula";18,176;15,608;38,176;"#FFA500";"triangle";25,26;21,69;53,05
+"406";"Corvo orebody level 717";"Iberian Peninsula";18,291;15,623;38,252;"#FFA500";"triangle";25,35;21,65;53,01
+"407";"Corvo";"Iberian Peninsula";18,291;15,623;38,252;"#FFA500";"triangle";25,35;21,65;53,01
+"408";"Corvo";"Iberian Peninsula";18,26;15,634;38,252;"#FFA500";"triangle";25,31;21,67;53,02
+"409";"Corvo";"Iberian Peninsula";18,237;15,624;38,228;"#FFA500";"triangle";25,3;21,67;53,03
+"410";"El Carmen";"Iberian Peninsula";18,189;15,624;38,195;"#FFA500";"triangle";25,26;21,7;53,04
+"411";"Caridad A-95/133-133.7";"Iberian Peninsula";18,1479;15,617901261;38,177374272;"#FFA500";"triangle";25,23;21,71;53,07
+"412";"Graca orebody level 804";"Iberian Peninsula";18,216;15,641;38,277;"#FFA500";"triangle";25,25;21,68;53,06
+"413";"Graca orebody level 804";"Iberian Peninsula";18,216;15,639;38,274;"#FFA500";"triangle";25,25;21,68;53,06
+"414";"Graca orebody level 804";"Iberian Peninsula";18,226;15,639;38,281;"#FFA500";"triangle";25,26;21,68;53,06
+"415";"Herrerias";"Iberian Peninsula";18,225;15,633;38,223;"#FFA500";"triangle";25,28;21,69;53,03
+"416";"La Joya";"Iberian Peninsula";18,198;15,605;38,136;"#FFA500";"triangle";25,3;21,69;53,01
+"417";"La Joya";"Iberian Peninsula";18,168;15,601;38,128;"#FFA500";"triangle";25,27;21,7;53,03
+"418";"La Zarza";"Iberian Peninsula";18,201;15,639;38,228;"#FFA500";"triangle";25,26;21,7;53,04
+"419";"La Zarza";"Iberian Peninsula";18,183;15,629;38,201;"#FFA500";"triangle";25,25;21,7;53,05
+"420";"La Zarza";"Iberian Peninsula";18,187;15,623;38,181;"#FFA500";"triangle";25,26;21,7;53,04
+"421";"La Zarza";"Iberian Peninsula";18,192;15,637;38,229;"#FFA500";"triangle";25,25;21,7;53,05
+"422";"Lagoa Salgada";"Iberian Peninsula";18,19;15,622;38,193;"#FFA500";"triangle";25,26;21,7;53,04
+"423";"Lagoa Salgada";"Iberian Peninsula";18,181;15,619;38,178;"#FFA500";"triangle";25,26;21,7;53,04
+"424";"Lagoa Salgada";"Iberian Peninsula";18,203;15,651;38,262;"#FFA500";"triangle";25,24;21,7;53,06
+"425";"Lomero Poyatos";"Iberian Peninsula";18,217;15,646;38,272;"#FFA500";"triangle";25,25;21,69;53,06
+"426";"Los Frailes A-127/28.6-29";"Iberian Peninsula";18,158;15,60189834;38,10238404;"#FFA500";"triangle";25,27;21,71;53,02
+"427";"Los Frailes A-128/39.6-40";"Iberian Peninsula";18,1908;15,634810692;38,218325076;"#FFA500";"triangle";25,25;21,7;53,05
+"428";"Los Frailes";"Iberian Peninsula";18,171;15,621;38,164;"#FFA500";"triangle";25,25;21,71;53,04
+"429";"Lousal (Josè level 400)";"Iberian Peninsula";18,172;15,632;38,235;"#FFA500";"triangle";25,23;21,7;53,08
+"430";"Lousal (Josè level 460)";"Iberian Peninsula";18,181;15,636;38,248;"#FFA500";"triangle";25,23;21,7;53,07
+"431";"Lousal (Josè level 460)";"Iberian Peninsula";18,169;15,637;38,234;"#FFA500";"triangle";25,22;21,71;53,07
+"432";"Lousal (Josè level 500)";"Iberian Peninsula";18,185;15,623;38,212;"#FFA500";"triangle";25,25;21,69;53,06
+"433";"Lousal (gossan)";"Iberian Peninsula";18,198;15,643;38,274;"#FFA500";"triangle";25,23;21,69;53,07
+"434";"Lousal (gossan)";"Iberian Peninsula";18,22;15,658;38,329;"#FFA500";"triangle";25,23;21,68;53,08
+"435";"Lousal (gossan)";"Iberian Peninsula";18,175;15,619;38,234;"#FFA500";"triangle";25,23;21,68;53,08
+"436";"Lousal (gossan)";"Iberian Peninsula";18,172;15,621;38,214;"#FFA500";"triangle";25,24;21,69;53,07
+"437";"Lousal (gossan)";"Iberian Peninsula";18,217;15,666;38,334;"#FFA500";"triangle";25,23;21,69;53,08
+"438";"Montinho";"Iberian Peninsula";18,19;15,61;38,136;"#FFA500";"triangle";25,29;21,7;53,01
+"439";"Neves Orebody (312m)";"Iberian Peninsula";18,248;15,66;38,322;"#FFA500";"triangle";25,26;21,68;53,06
+"440";"Neves Orebody (312m)";"Iberian Peninsula";18,246;15,651;38,357;"#FFA500";"triangle";25,25;21,66;53,09
+"441";"Neves Orebody (320m)";"Iberian Peninsula";18,232;15,656;38,34;"#FFA500";"triangle";25,24;21,68;53,08
+"442";"Neves Orebody (328m)";"Iberian Peninsula";18,222;15,659;38,347;"#FFA500";"triangle";25,23;21,68;53,09
+"443";"Neves Orebody (334m)";"Iberian Peninsula";18,233;15,664;38,354;"#FFA500";"triangle";25,24;21,68;53,08
+"444";"Neves Orebody (336m)";"Iberian Peninsula";18,219;15,648;38,294;"#FFA500";"triangle";25,25;21,68;53,07
+"445";"Neves Orebody (348m)";"Iberian Peninsula";18,232;15,66;38,34;"#FFA500";"triangle";25,24;21,68;53,08
+"446";"Neves Orebody (348m)";"Iberian Peninsula";18,218;15,651;38,32;"#FFA500";"triangle";25,24;21,68;53,08
+"447";"Neves Orebody (349m)";"Iberian Peninsula";18,205;15,635;38,259;"#FFA500";"triangle";25,25;21,69;53,06
+"448";"Neves Orebody (354m)";"Iberian Peninsula";18,201;15,631;38,256;"#FFA500";"triangle";25,25;21,68;53,07
+"449";"Pena de Hierro";"Iberian Peninsula";18,18;15,605;38,079;"#FFA500";"triangle";25,3;21,71;52,99
+"450";"Rio Tinto";"Iberian Peninsula";18,2542;15,65206379;38,35116149;"#FFA500";"triangle";25,26;21,66;53,08
+"451";"Rio Tinto";"Iberian Peninsula";18,2151;15,647499504;38,305080243;"#FFA500";"triangle";25,24;21,68;53,08
+"452";"Rio Tinto";"Iberian Peninsula";18,1723;15,625088709;38,201445614;"#FFA500";"triangle";25,24;21,7;53,06
+"453";"Rio Tinto";"Iberian Peninsula";18,2051;15,646919348;38,2671202;"#FFA500";"triangle";25,24;21,7;53,06
+"454";"Rio Tinto";"Iberian Peninsula";18,1971;15,654601188;38,291429646;"#FFA500";"triangle";25,22;21,7;53,08
+"455";"Rio Tinto";"Iberian Peninsula";18,1958;15,634377234;38,22300727;"#FFA500";"triangle";25,25;21,7;53,05
+"456";"Rio Tinto";"Iberian Peninsula";18,1857;15,639702;38,254711092;"#FFA500";"triangle";25,23;21,7;53,07
+"457";"Rio Tinto";"Iberian Peninsula";18,1977;15,640559196;38,246470044;"#FFA500";"triangle";25,24;21,7;53,06
+"458";"Rio Tinto";"Iberian Peninsula";18,1971;15,640043508;38,245572954;"#FFA500";"triangle";25,24;21,7;53,06
+"459";"Rio Tinto";"Iberian Peninsula";18,1883;15,629024307;38,20634298;"#FFA500";"triangle";25,25;21,7;53,05
+"460";"Rio Tinto, Corta Lago";"Iberian Peninsula";18,317;15,62495051;38,38712007;"#FFA500";"triangle";25,32;21,6;53,07
+"461";"Rio Tinto corta Dehesa";"Iberian Peninsula";18,193;15,607;38,175;"#FFA500";"triangle";25,28;21,68;53,04
+"462";"Rio Tinto corta Dehesa";"Iberian Peninsula";18,207;15,629;38,207;"#FFA500";"triangle";25,27;21,69;53,03
+"463";"Rio Tinto San Dionisio open pit ";"Iberian Peninsula";18,188;15,636;38,211;"#FFA500";"triangle";25,25;21,71;53,05
+"464";"Rio Tinto San Dionisio open pit ";"Iberian Peninsula";18,191;15,627;38,207;"#FFA500";"triangle";25,26;21,7;53,05
+"465";"Rio Tinto San Dionisio open pit ";"Iberian Peninsula";18,198;15,644;38,275;"#FFA500";"triangle";25,23;21,69;53,07
+"466";"Rio Tinto San Dionisio open pit ";"Iberian Peninsula";18,169;15,611;38,153;"#FFA500";"triangle";25,26;21,7;53,04
+"467";"Rio Tinto San Dionisio open pit ";"Iberian Peninsula";18,182;15,624;38,195;"#FFA500";"triangle";25,25;21,7;53,05
+"468";"Rio Tinto San Dionisio open pit ";"Iberian Peninsula";18,198;15,645;38,268;"#FFA500";"triangle";25,24;21,7;53,07
+"469";"Rio Tinto San Dionisio open pit ";"Iberian Peninsula";18,186;15,631;38,216;"#FFA500";"triangle";25,25;21,7;53,05
+"470";"Rio Tinto San Dionisio open pit ";"Iberian Peninsula";18,198;15,645;38,26;"#FFA500";"triangle";25,24;21,7;53,06
+"471";"Rio Tinto San Dionisio open pit ";"Iberian Peninsula";18,192;15,639;38,242;"#FFA500";"triangle";25,24;21,7;53,06
+"472";"Rio Tinto San Dionisio open pit ";"Iberian Peninsula";18,186;15,626;38,205;"#FFA500";"triangle";25,25;21,7;53,05
+"473";"Rio Tinto San Dionisio level 30";"Iberian Peninsula";18,192;15,64;38,257;"#FFA500";"triangle";25,24;21,7;53,07
+"474";"Rio Tinto San Dionisio level 30";"Iberian Peninsula";18,18;15,615;38,162;"#FFA500";"triangle";25,27;21,7;53,03
+"475";"Granada de Rio Tinto";"Iberian Peninsula";17,741;15,524;37,729;"#FFA500";"triangle";24,99;21,87;53,14
+"476";"San Telmo";"Iberian Peninsula";18,188;15,609;38,158;"#FFA500";"triangle";25,28;21,69;53,03
+"477";"San Telmo";"Iberian Peninsula";18,192;15,594;38,106;"#FFA500";"triangle";25,3;21,69;53
+"478";"San Telmo";"Iberian Peninsula";18,183;15,604;38,135;"#FFA500";"triangle";25,28;21,7;53,02
+"479";"Santa Ana";"Iberian Peninsula";18,188;15,627;38,19;"#FFA500";"triangle";25,26;21,7;53,04
+"480";"Sao Domingos";"Iberian Peninsula";18,163;15,63;38,228;"#FFA500";"triangle";25,22;21,7;53,08
+"481";"Sao Domingos";"Iberian Peninsula";18,175;15,62;38,205;"#FFA500";"triangle";25,24;21,69;53,06
+"482";"Sao Domingos";"Iberian Peninsula";18,188;15,637;38,213;"#FFA500";"triangle";25,25;21,71;53,05
+"483";"Sao Domingos (gossan)";"Iberian Peninsula";18,192;15,627;38,217;"#FFA500";"triangle";25,25;21,69;53,05
+"484";"Sao Domingos (gossan)";"Iberian Peninsula";18,201;15,653;38,304;"#FFA500";"triangle";25,22;21,69;53,08
+"485";"Sao Domingos (gossan)";"Iberian Peninsula";18,193;15,641;38,283;"#FFA500";"triangle";25,23;21,69;53,08
+"486";"Sao Domingos (gossan)";"Iberian Peninsula";18,199;15,655;38,298;"#FFA500";"triangle";25,22;21,7;53,08
+"487";"Sao Domingos (gossan)";"Iberian Peninsula";18,182;15,628;38,231;"#FFA500";"triangle";25,24;21,69;53,07
+"488";"Sao Domingos (gossan)";"Iberian Peninsula";18,176;15,627;38,232;"#FFA500";"triangle";25,23;21,69;53,07
+"489";"Sierrecilla";"Iberian Peninsula";18,233;15,624;38,181;"#FFA500";"triangle";25,31;21,69;53
+"490";"Sierrecilla";"Iberian Peninsula";18,215;15,638;38,256;"#FFA500";"triangle";25,26;21,69;53,05
+"491";"Sotiel";"Iberian Peninsula";18,166;15,629;38,208;"#FFA500";"triangle";25,23;21,71;53,06
+"492";"Sotiel-Migollas";"Iberian Peninsula";18,147;15,633;38,236;"#FFA500";"triangle";25,2;21,71;53,09
+"493";"Tharsis";"Iberian Peninsula";18,135;15,597;38,15;"#FFA500";"triangle";25,23;21,7;53,07
+"494";"Tharsis";"Iberian Peninsula";18,137;15,602;38,162;"#FFA500";"triangle";25,22;21,7;53,08
+"495";"Torerera";"Iberian Peninsula";18,175;15,634;38,225;"#FFA500";"triangle";25,23;21,7;53,07
+"496";"Los Molar, Terragonaes";"Iberian Peninsula";18,173709;15,6097893948435;37,9946302800039;"#FFA500";"triangle";25,32;21,75;52,93
+"497";"Los Molar, Terragonaes";"Iberian Peninsula";18,384457;15,6505724220209;38,505546577134;"#FFA500";"triangle";25,34;21,57;53,08
+"498";"Los Molar, Terragonaes";"Iberian Peninsula";18,239836;15,6640282478832;38,3070719212828;"#FFA500";"triangle";25,26;21,69;53,05
+"499";"Los Molar, Terragonaes";"Iberian Peninsula";18,184712;15,6895585709408;38,2101405581896;"#FFA500";"triangle";25,23;21,77;53,01
+"500";"Minas de Cala";"Iberian Peninsula";18,700776;15,6906317722464;38,9301964420248;"#FFA500";"triangle";25,51;21,4;53,1
+"501";"Minas de Cala";"Iberian Peninsula";18,437913;15,678642443724;38,4403585134933;"#FFA500";"triangle";25,41;21,61;52,98
+"502";"Monte da Angerinha";"Iberian Peninsula";18,558;15,6054;38,4113;"#FFA500";"triangle";25,57;21,5;52,93
+"503";"Cufenos II";"Iberian Peninsula";18,332;15,6134;38,3872;"#FFA500";"triangle";25,34;21,59;53,07
+"504";"Mostardeira";"Iberian Peninsula";18,038;15,5758;38,0385;"#FFA500";"triangle";25,17;21,74;53,09
+"505";"Mostardeira";"Iberian Peninsula";18,211;15,6086;38,2158;"#FFA500";"triangle";25,28;21,67;53,05
+"506";"Mostardeira";"Iberian Peninsula";18,155;15,5951;38,1201;"#FFA500";"triangle";25,26;21,7;53,04
+"507";"Zambujera";"Iberian Peninsula";18,228;15,6214;38,359;"#FFA500";"triangle";25,24;21,63;53,12
+"508";"Minas da Tinoca";"Iberian Peninsula";17,437;15,4963;37,5366;"#FFA500";"triangle";24,74;21,99;53,27
+"509";"Entre Aguas";"Iberian Peninsula";18,548;15,6285;38,4222;"#FFA500";"triangle";25,55;21,53;52,92
+"510";"Entre Aguas";"Iberian Peninsula";18,281;15,6796;38,5309;"#FFA500";"triangle";25,22;21,63;53,15
+"511";"Zambujeira";"Iberian Peninsula";18,282;15,6238;38,3776;"#FFA500";"triangle";25,29;21,61;53,09
+"512";"Zambujeira";"Iberian Peninsula";18,274;15,6151;38,3516;"#FFA500";"triangle";25,3;21,62;53,09
+"513";"Monte dos Arneiros";"Iberian Peninsula";18,196;15,5885;38,0733;"#FFA500";"triangle";25,32;21,69;52,98
+"514";"Souseis (Evora)";"Iberian Peninsula";18,287;15,6061;38,3296;"#FFA500";"triangle";25,32;21,61;53,07
+"515";"Souseis (Evora)";"Iberian Peninsula";18,271;15,5998;38,3179;"#FFA500";"triangle";25,31;21,61;53,08
+"516";"Brancane";"Iberian Peninsula";18,466;15,6333;38,5385;"#FFA500";"triangle";25,42;21,52;53,06
+"517";"Chanca";"Iberian Peninsula";18,219;15,6428;38,2745;"#FFA500";"triangle";25,26;21,69;53,06
+"518";"Chanca";"Iberian Peninsula";18,201;15,6237;38,2075;"#FFA500";"triangle";25,27;21,69;53,04
+"519";"Sao Domingos";"Iberian Peninsula";18,159;15,624;38,2211;"#FFA500";"triangle";25,22;21,7;53,08
+"520";"Sao Domingos";"Iberian Peninsula";18,168;15,6354;38,2618;"#FFA500";"triangle";25,21;21,7;53,09
+"521";"Mina do Lousal";"Iberian Peninsula";18,17;15,628;38,2333;"#FFA500";"triangle";25,23;21,7;53,08
+"522";"Minas do Montinho";"Iberian Peninsula";18,226;15,6452;38,2637;"#FFA500";"triangle";25,27;21,69;53,04
+"523";"Lagoa Salgada";"Iberian Peninsula";18,197;15,633;38,2355;"#FFA500";"triangle";25,25;21,69;53,06
+"524";"Lagoa Salgada";"Iberian Peninsula";18,184;15,6182;38,1755;"#FFA500";"triangle";25,26;21,7;53,04
+"525";"Villa Velha do Rodao I";"Iberian Peninsula";18,209;15,5978;38,1988;"#FFA500";"triangle";25,29;21,66;53,05
+"526";"Minas dos Urmos";"Iberian Peninsula";18,377;15,6094;38,4061;"#FFA500";"triangle";25,39;21,56;53,05
+"527";"Louredo";"Iberian Peninsula";18,248;15,6221;38,339;"#FFA500";"triangle";25,27;21,63;53,09
+"528";"Alcaria Queimada I";"Iberian Peninsula";18,518;15,631;38,5082;"#FFA500";"triangle";25,49;21,51;53
+"529";"Defesa";"Iberian Peninsula";18,402;15,6288;38,3884;"#FFA500";"triangle";25,41;21,58;53,01
+"530";"Baicolliou";"Switzerland";18,588;15,662;38,666;"#964B00";"triangle";25,49;21,48;53,03
+"531";"Baicolliou";"Switzerland";18,819;15,68;38,911;"#964B00";"triangle";25,64;21,36;53,01
+"532";"Baicolliou";"Switzerland";18,959;15,693;39,083;"#964B00";"triangle";25,71;21,28;53
+"533";"Baicolliou";"Switzerland";19,074;15,697;39,012;"#964B00";"triangle";25,85;21,27;52,87
+"534";"La Barma";"Switzerland";18,533;15,667;38,621;"#964B00";"triangle";25,45;21,51;53,04
+"535";"La Barma";"Switzerland";18,632;15,663;38,665;"#964B00";"triangle";25,54;21,47;52,99
+"536";"La Barma";"Switzerland";18,449;15,667;38,549;"#964B00";"triangle";25,39;21,56;53,05
+"537";"La Barma";"Switzerland";18,429;15,653;38,504;"#964B00";"triangle";25,39;21,56;53,05
+"538";"La Barma";"Switzerland";18,432;15,657;38,517;"#964B00";"triangle";25,39;21,56;53,05
+"539";"La Barma";"Switzerland";18,431;15,662;38,533;"#964B00";"triangle";25,38;21,57;53,06
+"540";"La Barma";"Switzerland";18,432;15,658;38,625;"#964B00";"triangle";25,35;21,53;53,12
+"541";"La Barma";"Switzerland";18,418;15,643;38,49;"#964B00";"triangle";25,39;21,56;53,05
+"542";"La Barma";"Switzerland";18,442;15,664;38,543;"#964B00";"triangle";25,39;21,56;53,05
+"543";"La Barma";"Switzerland";18,435;15,659;38,524;"#964B00";"triangle";25,39;21,56;53,05
+"544";"La Barma";"Switzerland";18,421;15,644;38,507;"#964B00";"triangle";25,38;21,56;53,06
+"545";"Fusette";"Switzerland";18,498;15,67;38,639;"#964B00";"triangle";25,41;21,52;53,07
+"546";"Collioux supérieur";"Switzerland";18,4687;15,6732;38,6332;"#964B00";"triangle";25,38;21,54;53,09
+"547";"Garboulaz";"Switzerland";18,606;15,666;38,668;"#964B00";"triangle";25,51;21,48;53,01
+"548";"Garboulaz, in till north of the mine";"Switzerland";18,176;15,616;38,159;"#964B00";"triangle";25,26;21,7;53,03
+"549";"Termino (or Le Termenno)";"Switzerland";18,5;15,672;38,627;"#964B00";"triangle";25,41;21,53;53,06
+"550";"Termino (or Le Termenno)";"Switzerland";18,919;15,683;39,045;"#964B00";"triangle";25,69;21,29;53,02
+"551";"Tignousa supérieur";"Switzerland";18,47;15,665;38,605;"#964B00";"triangle";25,39;21,54;53,07
+"552";"Tignousa supérieur";"Switzerland";18,986;15,668;38,993;"#964B00";"triangle";25,78;21,27;52,95
+"553";"Tsampetroz";"Switzerland";18,994;15,69;38,833;"#964B00";"triangle";25,84;21,34;52,82
+"554";"Tsampetroz";"Switzerland";19,164;15,7;38,842;"#964B00";"triangle";26;21,3;52,7
+"555";"Chippis, La Baraque";"Switzerland";18,278;15,6434;38,3929;"#964B00";"triangle";25,28;21,63;53,09
+"556";"Chippis, La Baraque";"Switzerland";18,4184;15,6567;38,523;"#964B00";"triangle";25,37;21,57;53,06
+"557";"Blesec-La Baraque";"Switzerland";18,354;15,649;38,444;"#964B00";"triangle";25,33;21,6;53,06
+"558";"Blesec-La Baraque";"Switzerland";18,287;15,643;38,404;"#964B00";"triangle";25,28;21,63;53,09
+"559";"Blesec-La Baraque";"Switzerland";18,29;15,645;38,409;"#964B00";"triangle";25,28;21,63;53,09
+"560";"Gosan";"Switzerland";18,482;15,667;38,612;"#964B00";"triangle";25,4;21,53;53,07
+"561";"Gosan";"Switzerland";18,489;15,668;38,612;"#964B00";"triangle";25,41;21,53;53,06
+"562";"Waschsee (or mine de Chandolin)";"Switzerland";18,581;15,667;38,642;"#964B00";"triangle";25,49;21,49;53,01
+"563";"Waschsee (or mine de Chandolin)";"Switzerland";18,604;15,673;38,636;"#964B00";"triangle";25,52;21,5;52,99
+"564";"Schonec (or Les Virons or Nava)";"Switzerland";16,777;15,463;36,486;"#964B00";"triangle";24,41;22,5;53,09
+"565";"Schonec (or Les Virons or Nava)";"Switzerland";16,352;15,423;36,025;"#964B00";"triangle";24,12;22,75;53,13
+"566";"Biolec";"Switzerland";18,584;15,665;38,609;"#964B00";"triangle";25,51;21,5;52,99
+"567";"Biolec";"Switzerland";18,646;15,679;38,695;"#964B00";"triangle";25,54;21,47;52,99
+"568";"Bourrimonts";"Switzerland";18,336;15,626;38,339;"#964B00";"triangle";25,36;21,61;53,03
+"569";"Bourrimonts";"Switzerland";19,372;15,713;38,849;"#964B00";"triangle";26,2;21,25;52,55
+"570";"Lapine Rousse";"Switzerland";18,592;15,66;38,606;"#964B00";"triangle";25,52;21,49;52,99
+"571";"Lapine Rousse";"Switzerland";19,426;15,712;39,038;"#964B00";"triangle";26,19;21,18;52,63
+"572";"Le Marais (or Le Maret)";"Switzerland";18,584;15,655;38,698;"#964B00";"triangle";25,48;21,46;53,06
+"573";"Le Marais (or Le Maret)";"Switzerland";18,553;15,662;38,704;"#964B00";"triangle";25,44;21,48;53,08
+"574";"Pétolliou";"Switzerland";18,58;15,684;38,659;"#964B00";"triangle";25,48;21,51;53,01
+"575";"Pétolliou";"Switzerland";20,012;15,729;39,354;"#964B00";"triangle";26,65;20,95;52,41
+"576";"La Lé (or Alp de la Lex or L’Allée)";"Switzerland";18,706;15,669;38,641;"#964B00";"triangle";25,62;21,46;52,92
+"577";"La Lé (or Alp de la Lex or L’Allée)";"Switzerland";18,743;15,687;38,721;"#964B00";"triangle";25,62;21,44;52,93
+"578";"Pont-du-Bois";"Switzerland";18,527;15,664;38,636;"#964B00";"triangle";25,44;21,51;53,05
+"579";"Tsirouc";"Switzerland";18,617;15,682;38,714;"#964B00";"triangle";25,5;21,48;53,02
+"580";"Tsirouc";"Switzerland";18,715;15,678;38,749;"#964B00";"triangle";25,59;21,44;52,98
+"581";"Blüomatt";"Switzerland";18,796;15,673;38,913;"#964B00";"triangle";25,61;21,36;53,03
+"582";"Bragetta (or La Braillette)";"Switzerland";18,946;15,677;38,668;"#964B00";"triangle";25,85;21,39;52,76
+"583";"Bragetta (or La Braillette)";"Switzerland";18,623;15,666;38,589;"#964B00";"triangle";25,55;21,5;52,95
+"584";"Col des mines";"Switzerland";22,978;15,891;39,346;"#964B00";"triangle";29,38;20,32;50,3
+"585";"Col des mines";"Switzerland";22,888;15,888;39,382;"#964B00";"triangle";29,28;20,33;50,39
+"586";"Siviez";"Switzerland";18,432;15,656;38,482;"#964B00";"triangle";25,4;21,57;53,03
+"587";"Ginalstal";"Switzerland";19,299;15,67;38,891;"#964B00";"triangle";26,13;21,22;52,66
+"588";"Grand Alou";"Switzerland";18,47;15,663;38,539;"#964B00";"triangle";25,42;21,55;53,03
+"589";"Grand Alou";"Switzerland";18,425;15,663;38,494;"#964B00";"triangle";25,39;21,58;53,04
+"590";"Grand Alou - Plan du Fou";"Switzerland";19,961;15,741;38,902;"#964B00";"triangle";26,76;21,1;52,14
+"591";"Grand Alou - Plan du Fou";"Switzerland";18,57;15,656;38,445;"#964B00";"triangle";25,55;21,54;52,9
+"592";"Les Moulins de Luc (or Torrent des Moulins)";"Switzerland";18,4879;15,6633;38,5817;"#964B00";"triangle";25,42;21,54;53,05
+"593";"Les Moulins de Luc (or Torrent des Moulins)";"Switzerland";18,533;15,641;38,552;"#964B00";"triangle";25,48;21,51;53,01
+"594";"Les Moulins de Luc (or Torrent des Moulins)";"Switzerland";17,475;15,558;37,926;"#964B00";"triangle";24,63;21,93;53,45
+"595";"Suen";"Switzerland";19,209;15,691;39,073;"#964B00";"triangle";25,97;21,21;52,82
+"596";"Suen";"Switzerland";19,169;15,684;39,038;"#964B00";"triangle";25,94;21,23;52,83
+"597";"Suen";"Switzerland";19,104;15,685;38,989;"#964B00";"triangle";25,89;21,26;52,85
+"598";"Vacheret (or Vatzeret)";"Switzerland";18,432;15,656;38,486;"#964B00";"triangle";25,4;21,57;53,03
+"599";"Vacheret (or Vatzeret)";"Switzerland";18,422;15,665;38,499;"#964B00";"triangle";25,38;21,58;53,04
+"600";"Le Tseppiet (or Zappelet)";"Switzerland";18,674;15,664;38,909;"#964B00";"triangle";25,49;21,39;53,12
+"601";"Laulosses";"Switzerland";18,251;15,572;38,112;"#964B00";"triangle";25,37;21,65;52,98
+"602";"Satarma";"Switzerland";18,401;15,63;38,334;"#964B00";"triangle";25,43;21,6;52,97
+"603";"Satarma";"Switzerland";18,531;15,641;38,458;"#964B00";"triangle";25,51;21,54;52,95
+"604";"Six-Blanc";"Switzerland";18,887;15,663;38,764;"#964B00";"triangle";25,76;21,36;52,87
+"605";"Sion-Sous-le-Scex";"Switzerland";18,938;15,634;38,646;"#964B00";"triangle";25,87;21,35;52,78
+"606";"La Creusaz/Les Marécottes";"Switzerland";24,873;16,031;38,504;"#964B00";"triangle";31,32;20,19;48,49
+"607";"Ausserberg";"Switzerland";19,028;15,673;38,75;"#964B00";"triangle";25,91;21,34;52,76
+"608";"Massaschlucht «Massagrube»";"Switzerland";18,742;15,655;38,558;"#964B00";"triangle";25,69;21,46;52,85
+"609";"Massaschlucht «Massagrube»";"Switzerland";18,735;15,655;38,559;"#964B00";"triangle";25,68;21,46;52,86
+"610";"Massaschlucht «Massagrube»";"Switzerland";18,733;15,646;38,528;"#964B00";"triangle";25,69;21,46;52,85
+"611";"Massaschlucht «Massagrube»";"Switzerland";18,734;15,657;38,575;"#964B00";"triangle";25,67;21,46;52,87
+"612";"Goppenstein, Tiebelstollen";"Switzerland";18,834;15,666;38,784;"#964B00";"triangle";25,7;21,38;52,92
+"613";"Goppenstein, Tiebelstollen";"Switzerland";18,437;15,627;38,383;"#964B00";"triangle";25,45;21,57;52,98
+"614";"Goppenstein, Halde";"Switzerland";18,512;15,635;38,478;"#964B00";"triangle";25,49;21,53;52,98
+"615";"Goppenstein, Halde";"Switzerland";18,299;15,634;38,315;"#964B00";"triangle";25,33;21,64;53,03
+"616";"Goppenstein, Halde";"Switzerland";18,45;15,619;38,374;"#964B00";"triangle";25,47;21,56;52,97
+"617";"Goppenstein, Mine 1860";"Switzerland";18,451;15,642;38,437;"#964B00";"triangle";25,44;21,57;52,99
+"618";"Goppenstein, Mine 1860";"Switzerland";18,445;15,635;38,41;"#964B00";"triangle";25,44;21,57;52,99
+"619";"Goppenstein, Mine 1860";"Switzerland";18,452;15,639;38,425;"#964B00";"triangle";25,45;21,57;52,99
+"620";"Goppenstein, Wilerbach";"Switzerland";18,488;15,634;38,467;"#964B00";"triangle";25,47;21,54;52,99
+"621";"Goppenstein, Wilerbach";"Switzerland";18,474;15,626;38,438;"#964B00";"triangle";25,47;21,54;52,99
+"622";"Goppenstein, Schonbiel";"Switzerland";18,517;15,644;38,506;"#964B00";"triangle";25,48;21,53;52,99
+"623";"Peiloz";"Switzerland";18,317;15,637;38,347;"#964B00";"triangle";25,33;21,63;53,04
+"624";"Peiloz";"Switzerland";18,295;15,62;38,287;"#964B00";"triangle";25,34;21,63;53,03
+"625";"Peiloz";"Switzerland";18,313;15,659;38,392;"#964B00";"triangle";25,31;21,64;53,05
+"626";"Peiloz";"Switzerland";18,311;15,655;38,382;"#964B00";"triangle";25,31;21,64;53,05
+"627";"Tete de la Payanne";"Switzerland";18,367;15,638;38,365;"#964B00";"triangle";25,38;21,61;53,01
+"628";"Tete de la Payanne";"Switzerland";18,351;15,629;38,333;"#964B00";"triangle";25,38;21,61;53,01
+"629";"Tete de la Payanne";"Switzerland";18,363;15,637;38,364;"#964B00";"triangle";25,38;21,61;53,02
+"630";"Plan Verney";"Switzerland";18,608;15,661;38,599;"#964B00";"triangle";25,54;21,49;52,97
+"631";"Cocorier Salantin";"Switzerland";18,627;15,673;38,631;"#964B00";"triangle";25,54;21,49;52,97
+"632";"Cocorier Salantin";"Switzerland";18,634;15,667;38,642;"#964B00";"triangle";25,55;21,48;52,98
+"633";"Cocorier Chalet";"Switzerland";18,622;15,622;38,597;"#964B00";"triangle";25,57;21,45;52,99
+"634";"Cocorier Chalet";"Switzerland";18,707;15,678;38,697;"#964B00";"triangle";25,6;21,45;52,95
+"635";"Mine des Gorges d'Alesses";"Switzerland";18,333;15,675;38,45;"#964B00";"triangle";25,3;21,63;53,07
+"636";"Mines et carrieres de la Molare";"Switzerland";18,346;15,642;38,397;"#964B00";"triangle";25,35;21,61;53,05
+"637";"Mines et carrieres de la Molare";"Switzerland";18,372;15,687;38,518;"#964B00";"triangle";25,31;21,61;53,07
+"638";"Blanches de Buitonne";"Switzerland";17,924;15,644;38,001;"#964B00";"triangle";25,04;21,86;53,1
+"639";"Mine de Randonne-Fully";"Switzerland";18,417;15,651;38,415;"#964B00";"triangle";25,41;21,59;53
+"640";"Mines des Argèntieres, La Sourde, Pormenaz";"Switzerland";18,686;15,637;38,703;"#964B00";"triangle";25,59;21,41;53
+"641";"Mines des Argèntieres, La Sourde, Pormenaz";"Switzerland";18,69;15,642;38,718;"#964B00";"triangle";25,59;21,41;53
+"642";"Mines de Bex";"Switzerland";18,868;15,648;38,806;"#964B00";"triangle";25,73;21,34;52,93
+"643";"Mines de Bex";"Switzerland";18,872;15,652;38,823;"#964B00";"triangle";25,73;21,34;52,93
+"644";"Mines de Bex";"Switzerland";18,888;15,675;38,892;"#964B00";"triangle";25,71;21,34;52,95
+"645";"Glutières sur Ollon";"Switzerland";18,894;15,673;38,811;"#964B00";"triangle";25,75;21,36;52,89
+"646";"Moraine du Glacier de Miage";"Switzerland";18,501;15,658;38,617;"#964B00";"triangle";25,42;21,52;53,06
+"647";"Mines de Ste Marie au Faully";"Switzerland";18,514;15,639;38,566;"#964B00";"triangle";25,46;21,51;53,03
+"648";"Mines de Notre Dame de Gorges";"Switzerland";18,424;15,668;38,618;"#964B00";"triangle";25,34;21,55;53,11
+"649";"Filon du Catogne, Couloir de la Monnaie";"Switzerland";19,041;15,697;39,036;"#964B00";"triangle";25,81;21,28;52,91
+"650";"Mines des Trappistes";"Switzerland";19,059;15,672;38,98;"#964B00";"triangle";25,86;21,26;52,88
+"651";"Mines des Trappistes";"Switzerland";19,06;15,679;39,009;"#964B00";"triangle";25,84;21,26;52,89
+"652";"Mine de la Tete des Econduits, Les Creattaz";"Switzerland";18,909;15,661;38,829;"#964B00";"triangle";25,76;21,34;52,9
+"653";"Mine du Trou des Romaines";"Switzerland";18,648;15,657;38,632;"#964B00";"triangle";25,57;21,47;52,97
+"654";"Mines de Tranchsellauenen, rive gauche";"Switzerland";18,373;15,661;38,482;"#964B00";"triangle";25,34;21,6;53,07
+"655";"Tranchsellauenen";"Switzerland";18,381;15,671;38,513;"#964B00";"triangle";25,33;21,6;53,07
+"656";"Tranchsellauenen";"Switzerland";18,375;15,666;38,493;"#964B00";"triangle";25,33;21,6;53,07
+"657";"Tranchsellauenen";"Switzerland";18,385;15,673;38,521;"#964B00";"triangle";25,33;21,59;53,07
+"658";"Tranchsellauenen";"Switzerland";18,374;15,667;38,489;"#964B00";"triangle";25,33;21,6;53,07
+"659";"Tranchsellauenen";"Switzerland";18,373;15,661;38,478;"#964B00";"triangle";25,34;21,6;53,06
+"660";"Goppestein: Mines 1820";"Switzerland";18,464;15,64;38,432;"#964B00";"triangle";25,45;21,56;52,98
+"661";"Goppestein: Mines 1820";"Switzerland";18,2293;15,6338;38,3151;"#964B00";"triangle";25,26;21,66;53,08
+"662";"Goppenstein, Schonbiel";"Switzerland";18,512;15,635;38,478;"#964B00";"triangle";25,49;21,53;52,98
+"663";"Goppenstein, Wielerbach";"Switzerland";18,488;15,634;38,467;"#964B00";"triangle";25,47;21,54;52,99
+"664";"Goppenstein, Wielerbach";"Switzerland";18,474;15,626;38,438;"#964B00";"triangle";25,47;21,54;52,99
+"665";"Mines du Natischer Berg, Bruchji";"Switzerland";18,662;15,65;38,669;"#964B00";"triangle";25,57;21,44;52,99
+"666";"Mines du Natischer Berg, Bruchji";"Switzerland";18,639;15,644;38,672;"#964B00";"triangle";25,55;21,44;53,01
+"667";"Indice de Six Blanc";"Switzerland";18,88;15,662;38,747;"#964B00";"triangle";25,76;21,37;52,87
+"668";"Alburunpass";"Switzerland";18,448;15,663;38,544;"#964B00";"triangle";25,39;21,56;53,05
+"669";"Mines de Gondo";"Switzerland";18,733;15,64;38,495;"#964B00";"triangle";25,71;21,46;52,83
+"670";"Mines de Gondo";"Switzerland";18,655;15,669;38,748;"#964B00";"triangle";25,53;21,44;53,03
+"671";"Mines de Serrayer";"Switzerland";18,523;15,663;38,543;"#964B00";"triangle";25,47;21,54;53
+"672";"Col des Mines, Vacheret";"Switzerland";18,441;15,673;38,534;"#964B00";"triangle";25,38;21,57;53,04
+"673";"Mine de Praz Jean-Comtesse";"Switzerland";18,415;15,658;38,513;"#964B00";"triangle";25,37;21,57;53,06
+"674";"Mine de Praz Jean-Comtesse";"Switzerland";18,417;15,666;38,536;"#964B00";"triangle";25,36;21,57;53,07
+"675";"Moulins de Luc";"Switzerland";18,488;15,663;38,582;"#964B00";"triangle";25,42;21,53;53,05

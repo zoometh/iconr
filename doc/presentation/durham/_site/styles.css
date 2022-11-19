@@ -1,0 +1,69 @@
+.border {
+  border: 1px solid #dee2e6;
+}
+
+.border-thick {
+  border-width: 3px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.column33 {
+  float: left;
+  width: 33%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.column66 {
+  float: left;
+  width: 66%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+  align-items: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.table, table, th, td {
+  border: 1px solid;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.smalltext {
+  font-size: 25px;
+}
+
+/* IDE */
+.it-ide{
+  color: #e31a1c;
+}
+
+/* layouts */
+.it-layouts{
+  color: #fd8d3c;
+}
+
+/* libraries and packges */
+.it-libraries{
+  color: #fecc5c;
+}
+
+/* outside links */
+.it-resources{
+  color: #ffffb2;
+}

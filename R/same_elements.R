@@ -1,4 +1,5 @@
 #' Number of Equal Elements Between Each Decoration Pair
+#'
 #' @name same_elements
 #'
 #' @description   Create the (symmetric) dataframe with the count of \strong{common nodes} or \strong{common edges} (see \code{\link[iconr]{list_compar}} for comparison criteria) for each pair of decorations (graphs) from a list. The diagonal of the symmetric dataframe is filled with counts of nodes/edges for each decoration.

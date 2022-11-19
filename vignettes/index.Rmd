@@ -66,7 +66,7 @@ Graph theory offers a conceptual framework and indices (global at the entire gra
   
 The latest development version of the `iconr` package and its vignette can be downloaded from GitHub
 
-```{r down,eval=FALSE, echo=TRUE}
+```{r down, eval=FALSE, echo=TRUE}
 devtools::install_github("zoometh/iconr", build_vignettes=TRUE)
 ```
 
