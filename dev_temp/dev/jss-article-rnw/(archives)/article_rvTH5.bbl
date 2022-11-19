@@ -1,0 +1,61 @@
+\begin{thebibliography}{8}
+\newcommand{\enquote}[1]{``#1''}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{Calandra \emph{et~al.}(2019)Calandra, Schunk, Rodriguez, Gneisinger,
+  Pedergnana, Paixão, Pereira, Iovita, and Marreiros}]{Calandra19}
+Calandra I, Schunk L, Rodriguez A, Gneisinger W, Pedergnana A, Paixão E,
+  Pereira T, Iovita R, Marreiros J (2019).
+\newblock \enquote{Back to the edge: relative coordinate system for use-wear
+  analysis.}
+\newblock \emph{Archaeological and Anthropological Sciences}.
+\newblock \doi{10.1007/s12520-019-00801-y}.
+
+\bibitem[{De~Saussure(1989)}]{Saussure89}
+De~Saussure F (1989).
+\newblock \emph{Cours de linguistique g{\'e}n{\'e}rale}, volume~1.
+\newblock Otto Harrassowitz Verlag.
+
+\bibitem[{d'Errico and Nowell(2000)}]{dErrico00}
+d'Errico F, Nowell A (2000).
+\newblock \enquote{A new look at the Berekhat Ram figurine: implications for
+  the origins of symbolism.}
+\newblock \emph{Cambridge Archaeological Journal}, \textbf{10}(1), 123--167.
+
+\bibitem[{et~al.(2020)}]{Ibanez20}
+et~al I (2020).
+\newblock \enquote{Flint 'figurines' from the Early Neolithic site of
+  Kharaysin, Jordan.}
+\newblock \emph{Antiquity}.
+
+\bibitem[{Huet(2018)}]{Huet18a}
+Huet T (2018).
+\newblock \enquote{Geometric graphs to study ceramic decoration.}
+\newblock In M~Matsumoto, E~Uleberg (eds.), \emph{Exploring Oceans of Data,
+  proceedings of the 44th Conference on Computer Applications and Quantitative
+  Methods in Archaeology, CAA 2016}, pp. 311--324. Archaeopress.
+
+\bibitem[{Leroi-Gourhan(1992)}]{LeroiGourhan92}
+Leroi-Gourhan A (1992).
+\newblock \emph{L'art pari{\'e}tal: langage de la pr{\'e}histoire}.
+\newblock Editions J{\'e}r{\^o}me Millon.
+
+\bibitem[{Pettitt and Bahn(2003)}]{Pettitt03}
+Pettitt P, Bahn P (2003).
+\newblock \enquote{Current problems in dating Palaeolithic cave art: Candamo
+  and Chauvet.}
+\newblock \emph{ANTIQUITY-OXFORD-}, \textbf{77}(295), 134--141.
+
+\bibitem[{Renfrew and Bahn(1991)}]{Renfrew91}
+Renfrew C, Bahn PG (1991).
+\newblock \emph{Archaeology: theories, methods and practice}, volume~2.
+\newblock Thames and Hudson London.
+
+\end{thebibliography}

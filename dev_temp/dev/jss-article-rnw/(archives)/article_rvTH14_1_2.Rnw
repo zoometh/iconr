@@ -1,0 +1,100 @@
+\documentclass[article]{jss}
+
+%% -- LaTeX packages and custom commands ---------------------------------------
+
+%% recommended packages
+\usepackage{thumbpdf,lmodern}
+\usepackage{float,tikz}
+%% another package (only for this demo article)
+\usepackage{framed}
+%% author pakckage
+\usepackage{xcolor,caption, float}
+
+\graphicspath{ {./imgs/} }
+
+%% new custom commands
+\newcommand{\class}[1]{`\code{#1}'}
+\newcommand{\fct}[1]{\code{#1()}}
+
+% <<preliminaries, echo=FALSE, results=hide>>=
+<<preliminaries, echo=FALSE>>=
+options(prompt = "R> ", continue = "+  ", width = 70, useFancyQuotes = FALSE)
+library("MASS")
+opts_chunk$set(prompt=TRUE)
+options(replace.assign=TRUE, width=90, prompt="R> ")
+knitr::opts_chunk$set(fig.pos = 'H')
+@
+
+%% -- Article metainformation (author, title, ...) -----------------------------
+
+%% - \author{} with primary affiliation
+%% - \Plainauthor{} without affiliations
+%% - Separate authors by \And or \AND (in \author) or by comma (in \Plainauthor).
+%% - \AND starts a new line, \And does not.
+\author{Thomas Huet\\UMR 5140}
+%   \And Second Author\\Plus Affiliation}
+\Plainauthor{Thomas Huet}
+
+%% - \title{} in title case
+%% - \Plaintitle{} without LaTeX markup (if any)
+%% - \Shorttitle{} with LaTeX markup (if any), used as running title
+\title{Modelling Prehistorical Iconographic Compositions. The \proglang{R} package \pkg{decorr}}
+\Plaintitle{Modelling Prehistorical Iconographic Compositions. The R package 'decorr'}
+\Shorttitle{Modelling Prehistorical Iconographic Compositions}
+
+%% - \Abstract{} almost as usual
+\Abstract{
+  By definition, Prehistorical societies are characterised by the absence of a writing system. Prehistorical times cover more than 99\% of the human living. Even if it is being discussed, first symbolic manifestations start around 200,000 BC \citep{dErrico00}. The duration from first symbolic expressions to start of writing represents 97\% of the human living. In illiterate societies, testimonies of symbolic systems mostly come from iconography (ceramic decorations, rock-art, statuary, etc.) and signs are displayed mostlty a discontinuous figures which can have different relationships one with another. An graphical composition can be "read" as a spatial distribution of features having intrinsic values possibily having meaningful relationships one with another depending on their pairwise spatial proximities. 
+}
+
+\Keywords{Iconography, Prehistory, Graph Theory, Graph Drawing, Spatial Analysis, \proglang{R}}
+\Plainkeywords{Iconography, Prehistory, Graph Theory, Graph Drawing, Spatial Analysis, R}
+
+\Address{
+  Thomas Huet\\
+  CNRS-UMR 5140 \\
+  Archeologie des Societes Mediterraneennes\\
+  Universite Paul Valery\\
+  route de Mende\\
+  Montpellier 34199, France\\
+  E-mail: \email{thomashuet7@gmail.com}\\
+%  URL: \url{https://eeecon.uibk.ac.at/~zeileis/}
+}
+
+\begin{document}
+% \Sweave2knitr("article_rvTH14_1.Rnw")
+\SweaveOpts{concordance=TRUE}
+
+\section[Introduction]{Introduction} \label{sec:intro}
+
+Until our days, formal methods to study ancient iconography Semantics, has been mostlty been grounded (explicitly or not) on the prime principle of Saussurian linguistic: the 'linearity of the signifier' \citep{Saussure89}.  
+Writing is one of the most rational semiographical system. With a clear distinction between signified and signifier -- specially in alphabetic and binary writings -- and the development of the signified on a horizontal, vertical or boustrophedon axis. 
+Let us take the example of the word "\code{art}" which contains three vertices (\code{a}, \code{r}, \code{t}) and two edges (one between \code{a} and \code{r}, the other between \code{r} and \code{t}). In \proglang{R}, these features, concatenated in this order with a \code{paste0()}, is \code{art}, and not \code{rat}
+
+% \SweaveOpts{width=3,height=1}
+\begin{figure}[H]
+<<echo=TRUE, message=FALSE, warning=FALSE, fig=TRUE, fig.pos = 'H', fig.width=10, fig.height=3>>=
+library(igraph);library(extrafont)
+par(mar=c(0.1,0.1,0.1,0.1) )
+# loadfonts(device = "win")
+# ugs <- data.frame(name=c("a","r","t"))
+# lks <- data.frame(from=c("a", "r"),to=c("r", "t"),type=c("=","="))
+# g <- graph_from_data_frame(lks, directed=FALSE, vertices= ugs)
+g <- graph_from_literal(a-+r, r-+t)
+# lo <- cbind(seq(-1,1,length.out = gorder(g)), 0)
+plot(g,
+     layout = cbind(seq(-1,1,length.out = gorder(g)), 0),
+     vertex.color="white",
+     vertex.frame.color="white",
+     vertex.size=60,
+     vertex.label.cex=1.5,
+     vertex.label.color="black",
+     vertex.label.family="Courier New",
+     edge.arrow.size=.5)
+@
+\captionof{figure}[directional links]{concatenate of \code{a}, \code{r} and \code{t} graphical units (GUs) is \code{art}.}
+\end{figure}
+
+But, as stated, in Prehistorical the writing system does not exists. Spatial relationships between graphical features, or graphical units (GUs) are not necessarly linear and directed but could most probably be more multi-directional and undirected: the direction of the interactions of pairwise GUs can be in any order.  
+
+\end{document}

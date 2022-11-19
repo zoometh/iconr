@@ -1,0 +1,143 @@
+\documentclass[article]{jss}\usepackage[]{graphicx}\usepackage[]{color}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+%% -- LaTeX packages and custom commands ---------------------------------------
+
+%% recommended packages
+\usepackage{thumbpdf,lmodern}
+\usepackage{float,tikz}
+%% another package (only for this demo article)
+\usepackage{framed}
+%% author pakckage
+\usepackage{xcolor,caption, float}
+
+\graphicspath{ {./imgs/} }
+
+%% new custom commands
+\newcommand{\class}[1]{`\code{#1}'}
+\newcommand{\fct}[1]{\code{#1()}}
+
+% <<preliminaries, echo=FALSE, results=hide>>=
+
+
+%% -- Article metainformation (author, title, ...) -----------------------------
+
+%% - \author{} with primary affiliation
+%% - \Plainauthor{} without affiliations
+%% - Separate authors by \And or \AND (in \author) or by comma (in \Plainauthor).
+%% - \AND starts a new line, \And does not.
+\author{Thomas Huet\\UMR 5140}
+%   \And Second Author\\Plus Affiliation}
+\Plainauthor{Thomas Huet}
+
+%% - \title{} in title case
+%% - \Plaintitle{} without LaTeX markup (if any)
+%% - \Shorttitle{} with LaTeX markup (if any), used as running title
+\title{Modelling Prehistorical Iconographic Compositions. The \proglang{R} package \pkg{decorr}}
+\Plaintitle{Modelling Prehistorical Iconographic Compositions. The R package 'decorr'}
+\Shorttitle{Modelling Prehistorical Iconographic Compositions}
+
+%% - \Abstract{} almost as usual
+\Abstract{
+  By definition, Prehistorical societies are characterised by the absence of a writing system. Prehistorical times cover more than 99\% of the human living. Even if it is being discussed, first symbolic manifestations start around 200,000 BC \citep{dErrico00}. The duration from first symbolic expressions to start of writing represents 97\% of the human living. In illiterate societies, testimonies of symbolic systems mostly come from iconography (ceramic decorations, rock-art, statuary, etc.) and signs are displayed mostlty a discontinuous figures which can have different relationships one with another. An graphical composition can be "read" as a spatial distribution of features having intrinsic values possibily having meaningful relationships one with another depending on their pairwise spatial proximities. 
+
+  To understand meaningful associations of signs, geometric tools, graph analysis and statistical analysis offer great tools to recognize iconographical patterns and to infer collective conventions. We present the \pkg{decorr} \proglang{R} package which ground concepts, methods and tools to analyse ancient graphical systems.
+}
+
+\Keywords{Iconography, Prehistory, Graph Theory, Graph Drawing, Spatial Analysis, \proglang{R}}
+\Plainkeywords{Iconography, Prehistory, Graph Theory, Graph Drawing, Spatial Analysis, R}
+
+\Address{
+  Thomas Huet\\
+  CNRS-UMR 5140 \\
+  Archeologie des Societes Mediterraneennes\\
+  Universite Paul Valery\\
+  route de Mende\\
+  Montpellier 34199, France\\
+  E-mail: \email{thomashuet7@gmail.com}\\
+%  URL: \url{https://eeecon.uibk.ac.at/~zeileis/}
+}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+% \Sweave2knitr("article_rvTH14_1.Rnw")
+\SweaveOpts{concordance=TRUE}
+
+\section[Introduction]{Introduction} \label{sec:intro}
+
+For decades, study of ancient iconography was linked to history of religion because closely linked to symbolism, believes and religions. Since the \textit{New Archaeology} developpement during the 60's \citep{Clarke14}, symbolic expressions start to be studied with the same formal methods (statistics, seriations, distribution maps, etc.) as any another aspect of social organisation: settlement patterns, tools \emph{chaine opératoire}, susbsitence strategies, etc. \citep{Renfrew91}, \citep{LeroiGourhan92}. But unlike many aspects of the material culture -- a flint blade for cutting, a pottery for containing, a house for living --, the function of an iconographic composition cannot be drawn directly from itself. Whether study of ancient iconography had  undergone significative improvements at the site scale -- with GIS, database, paleoclimatic restitutions, etc. -- and at the sign scale with the development of archaeological sciences -- radiocarbon dating, use-wear analysis, elemental analysis, etc. --, these improvement do not necessarly help to understand the semantic content of the iconography.
+Semantics or semiotics can be defined as a system of conventional signs organised also in conventional manners.  
+Until our days, formal methods to study ancient iconography Semantics, has been mostlty been grounded (explicitly or not) on the prime principle of Saussurian linguistic: the 'linearity of the signifier' \citep{Saussure89}.  
+Writing is one of the most rational semiographical system. With a clear distinction between signified and signifier -- specially in alphabetic and binary writings -- and the development of the signified on a horizontal, vertical or boustrophedon axis. 
+Let us take the example of the word "\code{art}" which contains three vertices (\code{a}, \code{r}, \code{t}) and two edges (one between \code{a} and \code{r}, the other between \code{r} and \code{t}). In \proglang{R}, these features, concatenated in this order with a \code{paste0()}, is \code{art}, and not \code{rat}
+
+% \SweaveOpts{width=3,height=1}
+\begin{figure}[H]
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-1-1} 
+
+\end{knitrout}
+\captionof{figure}[directional links]{concatenate of \code{a}, \code{r} and \code{t} graphical units (GUs) is \code{art}.}
+\end{figure}
+
+But, as stated, in Prehistorical the writing system does not exists. Spatial relationships between graphical features, or graphical units (GUs) are not necessarly linear and directed but could most probably be more multi-directional and undirected: the direction of the interactions of pairwise GUs can be in any order.  
+
+\begin{figure}[H]
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-2-1} 
+
+\end{knitrout}
+\captionof{figure}[multidirectional links]{Potential spatial relations between \code{a}, \code{r} and \code{t} GUs.}
+\end{figure}
+
+\end{document}

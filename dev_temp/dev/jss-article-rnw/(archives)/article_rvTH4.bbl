@@ -1,0 +1,28 @@
+\begin{thebibliography}{3}
+\newcommand{\enquote}[1]{``#1''}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{De~Saussure(1989)}]{Saussure89}
+De~Saussure F (1989).
+\newblock \emph{Cours de linguistique g{\'e}n{\'e}rale}, volume~1.
+\newblock Otto Harrassowitz Verlag.
+
+\bibitem[{d'Errico and Nowell(2000)}]{dErrico00}
+d'Errico F, Nowell A (2000).
+\newblock \enquote{A new look at the Berekhat Ram figurine: implications for
+  the origins of symbolism.}
+\newblock \emph{Cambridge Archaeological Journal}, \textbf{10}(1), 123--167.
+
+\bibitem[{Leroi-Gourhan(1992)}]{LeroiGourhan92}
+Leroi-Gourhan A (1992).
+\newblock \emph{L'art pari{\'e}tal: langage de la pr{\'e}histoire}.
+\newblock Editions J{\'e}r{\^o}me Millon.
+
+\end{thebibliography}

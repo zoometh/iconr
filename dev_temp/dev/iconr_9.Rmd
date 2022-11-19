@@ -1,0 +1,127 @@
+---
+title: "Graph and Spatial Analysis of Iconography for Archaeology"
+author: "Thomas Huet"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Graph and Spatial Analysis of Iconography for Archaeology}
+  %\VignetteEngine{rmarkdown::render}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+library(knitr)
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.pos = 'H'
+)
+```
+
+# Introduction
+
+`decorr` package is used to study iconography with spatial and network analysis indexes (see, [Huet 2017](https://www.researchgate.net/publication/343514122_Geometric_graphs_to_study_ceramic_decoration))
+
+# Install
+
+Install the `decorr` package from GitHub and load it
+
+```{r load_decorr}
+devtools::install_github("zoometh/iconr")
+library(decorr)
+```
+
+## Contents
+
+**functions**
+
+```{r ls_decorr}
+print(ls("package:decorr"))
+```
+
+**external data**
+
+```{r ushape.profile, fig.align="center",fig.cap="\\label{fig:figs}U-shape profile"}
+doss <- system.file("extdata", package = "decorr")
+print(list.files(doss))
+```
+
+... you change change `doss` to the path of your working directory
+
+* 'drawing': load an image with the `magick` package
+
+```{r drawing,out.width = "100%", fig.align="center"}
+drawing <- magick::image_read(system.file("extdata", "Cerro_Muriano.Cerro_Muriano_1.jpg", package = "decorr"))
+plot(drawing)
+```
+
+* 'nodes': a dataframe or a shapefile of the nodes
+
+```{r nodes.df}
+doss <- system.file("extdata", package = "decorr")
+site <- "Cerro Muriano"
+decor <- "Cerro Muriano 1"
+nds.df <- read_nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".shp") 
+kable(nds.df)
+```
+
+  + column names  
+  
+    - `id`: id of the edge (a unique number) 
+    - `type`: type of the node    
+    - `x,y`: coordinates of node  
+
+* 'edges': a dataframe or a shapefile of the nodes  
+
+```{r edges.df}
+doss <- system.file("extdata", package = "decorr")
+site <- "Cerro Muriano"
+decor <- "Cerro Muriano 1"
+eds.df <- read_eds(doss = doss,site = site,decor = decor,edges = "edges",dev = ".shp")
+kable(eds.df)
+```
+  
+  + column names 
+  
+    - `id`: id of the edge (a unique number) 
+    - `type`: type of the edge (`NA`: normal edge, `+`: node `b` is an attribute of node `a`)  
+    - `a`: *id* of the first node  
+    - `b`: *id* of the second node  
+    - `xa, ya`: coordinates of the first node  
+    - `xb, yb`: coordinates of the second node 
+    
+
+## Example
+
+load nodes, edges and create graph for "type" field
+
+```{r read_img}
+site <- "Cerro Muriano"
+decor <- "Cerro Muriano 1"
+nds.df <- read_nds(doss = doss,site = site,decor = decor,nodes = "nodes",dev = ".shp")
+eds.df <- read_eds(doss = doss,site = site,decor = decor,edges = "edges",dev = ".shp")
+img.graph <- plot_dec_grph(nds.df = nds.df,
+                           eds.df = eds.df,
+                           doss = doss,
+                           site = "Cerro Muriano",
+                           decor = "Cerro Muriano 1",
+                           lbl.txt = "type",
+                           shw = c("nodes","edges"))
+```
+
+`img.graph` is a magick-image
+
+```{r img.graph}
+class(img.graph)
+```
+
+Plot the geometric graph showing the "type" of the nodes
+
+```{r img.graph.plot, out.width = "100%",fig.align="center"}
+plot(img.graph)
+```
+
+## References
+
+Thomas Huet, thomashuet7[at]gmail.com
+
+  + Huet, Thomas. "Geometric graphs to study ceramic decoration" Edited by Mieko Matsumoto and Espen Uleberg. *Exploring Oceans of Data, proceedings of the 44th Conference on Computer Applications and Quantitative Methods in Archaeology, CAA 2016*, Archaeopress, 2018, pp 311-324.
