@@ -72,19 +72,19 @@ The package as a sample of 5 decorations[^3]:
    <td style="text-align:left;"> Cerro Muriano 1 </td>
    <td style="text-align:left;"> Cerro_Muriano.Cerro_Muriano_1.jpg </td>
   </tr>
-  <tr>
+    <tr>
    <td style="text-align:right;"> 2 </td>
    <td style="text-align:left;"> Torrejon Rubio </td>
    <td style="text-align:left;"> Torrejon Rubio 1 </td>
    <td style="text-align:left;"> Torrejon_Rubio.Torrejon_Rubio_1.jpg </td>
   </tr>
-  <tr>
+    <tr>
    <td style="text-align:right;"> 3 </td>
    <td style="text-align:left;"> Brozas </td>
    <td style="text-align:left;"> Brozas </td>
    <td style="text-align:left;"> Brozas.Brozas.jpg </td>
   </tr>
-  <tr>
+    <tr>
    <td style="text-align:right;"> 4 </td>
    <td style="text-align:left;"> Zarza de Montanchez </td>
    <td style="text-align:left;"> Zarza De Montanchez </td>
@@ -101,24 +101,31 @@ The package as a sample of 5 decorations[^3]:
 
 <font size="2" align="left">
 <table style="width:100%">
+	</tr><tr>
+  		  <th style="padding:5px">1</th>
+        <th style="padding:5px">2</th>
+			  <th style="padding:5px">3</th>
+		    <th style="padding:5px">4</th>
+        <th style="padding:5px">5</th>
+	</tr>
 	<tr align="center">
 		<td>
+    		<img src="inst/extdata/Cerro_Muriano.Cerro_Muriano_1.jpg" width='150px' />
+		</td><td>
+    			<img src="inst/extdata/Torrejon_Rubio.Torrejon_Rubio_1.jpg" width='150px' />
+		</td><td>
 				<img src="inst/extdata/Brozas.Brozas.jpg" width='150px' />
 		</td><td>
-				<img src="inst/extdata/Cerro_Muriano.Cerro_Muriano_1.jpg" width='150px' />
-		</td><td>
-				<img src="inst/extdata/Ibahernando.Ibahernando.jpg" width='150px' />
-		</td><td>
-				<img src="inst/extdata/Torrejon_Rubio.Torrejon_Rubio_1.jpg" width='150px' />
-		</td><td>
 				<img src="inst/extdata/Zarza_de_Montanchez.Zarza_De_Montanchez.jpg" width='150px' />
+		</td><td>
+    		<img src="inst/extdata/Ibahernando.Ibahernando.jpg" width='150px' />
 		</td>
 	</tr><tr>
+  		  <th style="padding:5px">Cerro Muriano, stele 1</th>
+        <th style="padding:5px">Torrejon Rubio, stele 1</th>
 			  <th style="padding:5px">Brozas stele</th>
-		    <th style="padding:5px">Cerro Muriano, stele 1</th>
-		    <th style="padding:5px">Ibahernando stele</th>
-		    <th style="padding:5px">Torrejon Rubio, stele 1</th>
 		    <th style="padding:5px">Zarza de Montanchez, stele</th>
+        <th style="padding:5px">Ibahernando stele</th>
 	</tr>
 	</table>
 </font>
