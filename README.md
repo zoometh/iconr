@@ -99,9 +99,8 @@ The package as a sample of 5 decorations[^3]:
 </tbody>
 </table>
 
-<font size="2" align="left">
-<table style="width:100%">
-	</tr><tr>
+<table style="width:80%">
+	<tr align="center">
   		  <th style="padding:5px">1</th>
         <th style="padding:5px">2</th>
 			  <th style="padding:5px">3</th>
