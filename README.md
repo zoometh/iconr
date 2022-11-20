@@ -237,13 +237,9 @@ morph_resume(dataDir = "*my_path*/PPN",
   <br>
 </p>
 
-
-
-## Next release
-
 ### Typology of GUs
 
-***iconr*** aims to use a hierarchical _thesaurus_ (tree-like) with controlled vocabularies for GUs' typology . Identity between GU name and value must be unique (URL). See for example the [whole typological tree](https://zoometh.github.io/iconr/articles/img/typo_gu_ug.html):
+***iconr*** uses a [hierarchical _thesaurus_](https://github.com/zoometh/iconr/blob/master/inst/extdata/_typology.tsv) (a tree-like structure) for GUs' typology. See for example the [whole typological tree](https://zoometh.github.io/iconr/articles/img/typo_gu_ug.html):
 
 <center>
    
@@ -253,7 +249,8 @@ morph_resume(dataDir = "*my_path*/PPN",
   
   
 Or these different subtrees: [geometric](https://zoometh.github.io/iconr/articles/img/typo_gu_geometrique.html), [figurative](https://zoometh.github.io/iconr/articles/img/typo_gu_figuratif.html), [zoomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_zoomorphe.html), 
-[technomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_technomorphe.html), or [anthropomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_anthropomorphe.html). Such a structure should also be used for other fields than the GU type (eg, 'technique'). Multi-linguism equivalences -- starting with English --, metadata insertion (EXIF) and standardization of the vocabulary (Dublin Core, CIDOC-CRM) is needed
+[technomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_technomorphe.html), or [anthropomorphic](https://zoometh.github.io/iconr/articles/img/typo_gu_anthropomorphe.html). Such a structure is known as a with controlled vocabulary with an identity between GU name and value must be unique (URL), such a structure should also be used for other fields than the GU type (eg, 'technique'). Multi-linguism equivalences -- starting with English --, metadata insertion (IPTC) and standardization of the vocabulary (Dublin Core, CIDOC-CRM) is needed.
+ 
 
 ### Superimpositions
 

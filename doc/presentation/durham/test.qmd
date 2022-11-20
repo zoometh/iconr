@@ -21,47 +21,79 @@ format:
 library(shiny)
 library(rmarkdown)
 library(plotly)
-library(archdata)
-
-data(OxfordPots)
 ```
 
+## {auto-animate=true}
 
-## Case of study
+::: {style="margin-top: 100px;"}
+Animating content
+:::
+
+## {auto-animate=true}
+
+::: {style="margin-top: 200px; font-size: 3em; color: red;"}
+Animating content
+:::
+
+## {auto-animate=true}
+
+iconr
+
+## {auto-animate=true}
+
+igraph
+
+iconr
+
+## {auto-animate=true}
+
+magick
+
+igraph
+
+iconr
 
 
 
+## Birth of statistics
+
+::: {.panel-tabset}
 
 
- 
-## {}
-
-No title here
-
-## A classer
-
-For I. Herzog, there is a difference between validation and verification: validation of the model is when it is consistent with the facts (BIB I. Herzog, S28-09, CAA 2016). 
-
-
-"In short, identifying the existence of discrete cultural groups is not trivial." 
-(Shennan et al. 2015)
-
-chefferie simple
-chefferie complexe: sites principiers: En moyenne une distance d’une centaine de kilomètres entre chacune de ces résidences
-
-Test under the hypothesis H<sub>0</sub>. The *p-value* is the probability that H<sub>0</sub> is true, so the lower the *p-value*, the more likely H<sub>1</sub> is to exist<br>
-
-## 💡
+### Mean
 
 <div class="row">
-<div class="column"><em><center>"people think closer things are more similar"</em><br><small> Montello and Fabrikant, 2006</small></center></div>
-<div class="column">An archaeological culture is a polythetic assemblage of features more frequently associated with each other within a given area than outside it</div>
+<div class="column">![Parthenon, Greece, 5<sup>th</sup> BC](images/The_Parthenon_in_Athens.jpg){height=350px}</div>
+<div class="column">![The 4 Pythagorean means: quadratic, arithmetic, geometric, and harmonic (HM)](images/hist-stat-mean-pythagore.png){height=350px}</div>
 </div>
 
-## Code
+### Median
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+<div class="row">
+<div class="column">![Title page of E. Wright, 1599, '*Certaine Errors in Navigation*'*](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/EdwardWright-CertaineErrorsinNavigation-1599.png/800px-EdwardWright-CertaineErrorsinNavigation-1599.png){height=350px}</div>
+<div class="column">![](images/hist-stat-median-compass-map.png){height=350px}</div>
+</div>
 
-```{r}
-1 + 1
-```
+### Significance test
+
+<div class="row">
+<div class="column">![J. Arbuthnot, 1629-1710 census. Published in 1711, '*Philosophical transactions, 27*' with this statement: '*From whence it follows, that it is Art, not Chance, that governs*'](images/aut-arbuthnot-1629-1710.png){height=350px}</div>
+<div class="column">![*p-value* and *Z-score*, two normalised test thresholds to estimate the significance of an observed distribution *vs* a random distribution](images/stat-pvalue.png){height=350px}</div>
+</div>
+
+
+### Normal law
+
+<div class="row">
+<div class="column">![A. Quetelet, 1821-1833 census](images/aut-quetelet_1821-33_census.png){height=350px}</div>
+<div class="column">![A selection of Normal Distribution Probability Density Functions (PDFs). Both the mean, μ, and variance, σ², are varied](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/1280px-Normal_Distribution_PDF.svg.png){height=350px}</div>
+</div>
+
+:::
+
+
+::: {.notes}
+Statistik (description of a state, a country): collecting population data through census, surveys 
+!= probability. Based on social data (!= mathematics). Statistics need to analyse large amount of data (dataset), Statistics are manded by institutions, to be interesting they need to be realised over the long term to allow comparisons.
+*p-value* is a test value, 95% = > .05
+:::
