@@ -54,6 +54,51 @@ The ***iconr*** v. 0.1.0 functions' descriptions and examples are available on t
 
 #### Description
 
+The package as a sample of 5 decorations:
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> idf </th>
+   <th style="text-align:left;"> site </th>
+   <th style="text-align:left;"> decor </th>
+   <th style="text-align:left;"> img </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> Cerro Muriano </td>
+   <td style="text-align:left;"> Cerro Muriano 1 </td>
+   <td style="text-align:left;"> Cerro_Muriano.Cerro_Muriano_1.jpg </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:left;"> Torrejon_Rubio.Torrejon_Rubio_1.jpg </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas.Brozas.jpg </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:left;"> Zarza_de_Montanchez.Zarza_De_Montanchez.jpg </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:left;"> Ibahernando.Ibahernando.jpg </td>
+  </tr>
+</tbody>
+</table>
+
 ##### Plot
 
 Set data folder, select the decoration to be plotted, read files of nodes, edges, and images and plot a decoration
