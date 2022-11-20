@@ -54,7 +54,7 @@ The ***iconr*** v. 0.1.0 functions' descriptions and examples are available on t
 
 #### Description
 
-The package as a sample of 5 decorations:
+The package as a sample of 5 decorations[^3]:
 
 <table>
  <thead>
@@ -99,11 +99,29 @@ The package as a sample of 5 decorations:
 </tbody>
 </table>
 
-<img src="inst/extdata/Brozas.Brozas.jpg" width="150"/>
-<img src="inst/extdata/Cerro_Muriano.Cerro_Muriano_1.jpg" width="150"/>
-<img src="inst/extdata/Ibahernando.Ibahernando.jpg" width="150"/>
-<img src="inst/extdata/Torrejon_Rubio.Torrejon_Rubio_1.jpg" width="150"/>
-<img src="inst/extdata/Zarza_de_Montanchez.Zarza_De_Montanchez.jpg" width="150"/>
+<font size="2" align="left">
+<table style="width:100%">
+	<tr align="center">
+		<td>
+				<img src="inst/extdata/Brozas.Brozas.jpg" width='150px' />
+		</td><td>
+				<img src="inst/extdata/Cerro_Muriano.Cerro_Muriano_1.jpg" width='150px' />
+		</td><td>
+				<img src="inst/extdata/Ibahernando.Ibahernando.jpg" width='150px' />
+		</td><td>
+				<img src="inst/extdata/Torrejon_Rubio.Torrejon_Rubio_1.jpg" width='150px' />
+		</td><td>
+				<img src="inst/extdata/Zarza_de_Montanchez.Zarza_De_Montanchez.jpg" width='150px' />
+		</td>
+	</tr><tr>
+			  <th style="padding:5px">Brozas stele</th>
+		    <th style="padding:5px">Cerro Muriano, stele 1</th>
+		    <th style="padding:5px">Ibahernando stele</th>
+		    <th style="padding:5px">Torrejon Rubio, stele 1</th>
+		    <th style="padding:5px">Zarza de Montanchez, stele</th>
+	</tr>
+	</table>
+</font>
 
 ##### Plot
 
@@ -329,3 +347,4 @@ The selection of a colored continuous range can be done from a POINT coordinates
 
 [^1]: Huet et al., (2021). *Analysis of Prehistoric Iconography with the R package iconr*. Journal of Open Source Software, 6(61), 3191, https://doi.org/10.21105/joss.03191
 [^2]: credits Museo Arqueologico de Madrid
+[^3]: unless otherwise stated, the drawings of the steles are all from: Díaz-Guardamino Uribe, M. (2010). *Las estelas decoradas en la prehistoria de la penı́nsula ibérica* [PhD thesis, Universidad Complutense de Madrid, Servicio de Publicaciones]. https://eprints.ucm.es/11070/1/T32200.pdf
