@@ -99,6 +99,12 @@ The package as a sample of 5 decorations:
 </tbody>
 </table>
 
+<img src="inst/extdata/Brozas.Brozas.jpg" width="200"/>
+<img src="Cerro_Muriano.Cerro_Muriano_1.jpg" width="200"/>
+<img src="Ibahernando.Ibahernando.jpg" width="200"/>
+<img src="Torrejon_Rubio.Torrejon_Rubio_1.jpg" width="200"/>
+<img src="Zarza_de_Montanchez.Zarza_De_Montanchez.jpg" width="200"/>
+
 ##### Plot
 
 Set data folder, select the decoration to be plotted, read files of nodes, edges, and images and plot a decoration
