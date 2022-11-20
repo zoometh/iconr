@@ -7,9 +7,9 @@
 > Created by [Thomas Huet](mailto:thomashuet7@gmail.com), [Jose M Pozo](mailto:josmpozo@gmail.com), [Craig Alexander](mailto:craiga304@gmail.com)
   
 The ***iconr*** R package purpose is to contribute to cross-cultural comparison of iconography through a greater normalization of quantitative analysis. The package [stable version](https://github.com/zoometh/iconr/#iconr-stable-version-the-analysis-of-compositions) deals with composition analysis[^1], the package [development version](https://github.com/zoometh/iconr/#iconr-development-version-the-analysis-of-compositions-and-geometric-morphometry) deals with both composition and geometric morphometric.
-
-### Theoretical background
-
+  
+---  
+  
 The R package ***iconr*** is grounded in graph theory, spatial analysis (composition analysis), and shape analysis (geometric morphometric) to offer concepts, measurments and functions for modeling Prehistoric iconography and preparing for further analysis (clustering, typology tree, Harris diagram, etc.). The theoretical background is as follows:  
   * Some objects (eg, pottery, rock panels) can have a decoration;
   * A decoration is composed of graphical units (GUs);
@@ -27,7 +27,7 @@ As favored [GIS entry](https://zoometh.github.io/iconr/articles/gis.html), GIS i
 ---
 See how to [contribute](.github/CONTRIBUTING.md) to the next package release; how to [report an issue](https://github.com/zoometh/iconr/issues) using the [issue template](.github/ISSUE_TEMPLATE.md).
 
-## ***iconr*** stable version: the Analysis of Compositions
+## Stable version: the Analysis of Compositions
 
 The ***iconr*** v. 0.1.0 stable version can be installed from the [CRAN](https://cran.r-project.org/web/packages/iconr/index.html). It allows GUs [composition analysis](#iconr-stable-version-the-analysis-of-compositions))
 
@@ -52,7 +52,9 @@ See the [package vignette](https://zoometh.github.io/iconr/)
 
 The ***iconr*** v. 0.1.0 functions' descriptions and examples are available on this [website](https://zoometh.github.io/iconr/articles/index.html). 
 
-#### Plot a decoration
+#### Description
+
+##### Plot
 
 Set data folder, select the decoration to be plotted, read files of nodes, edges, and images and plot a decoration
 
@@ -70,10 +72,9 @@ plot_dec_grph(nds.df, eds.df, imgs,
               nd.var = "type")
 ```
   
-  
 <img src="doc/img/plot_dec_graph.png" align="center"/>
-  
-#### Common edges
+
+#### Comparisons
 
 Common edges between pairs of decorations allow to measure the similarities in their composition. Common edges are more accurate than common nodes (see also, [nds_compar()](https://zoometh.github.io/iconr/reference/list_compar.html) and [eds_compar()](https://zoometh.github.io/iconr/reference/list_compar.html))
 For example, we plot common edges shared by the three first decorations of the training dataset with the [plot_compar()](https://zoometh.github.io/iconr/reference/plot_compar.html) function 
@@ -101,6 +102,13 @@ plot_compar(g.compar, c(1, 2, 3),
 <img src="doc/img/_compar_eds_2_3.png" align="center"/>
 
 The same result, but in the form of a coincidence matrix, can be obtained with the function [same_elements()](https://zoometh.github.io/iconr/reference/same_elements.html)
+
+
+Comparisons between decoration can be based on commom edges and common nodes. 
+
+<img src="doc/img/hc.png" align="center"/>
+<img src="doc/img/hc_compar.png" align="center"/>
+
 ## Citation
 
 Use the canonical form to cite the package in R (`citation("iconr")`):
@@ -130,7 +138,7 @@ The ***iconr*** v. 0.1.0 package has also been published in the [Journal of Open
   journal = {Journal of Open Source Software}
 }
 ```
-## ***iconr*** development version: the Analysis of Compositions and Geometric Morphometry
+## Development version: the Analysis of Compositions and Geometric Morphometry
 
 The ***iconr*** latest version, or development version v. 0.1.1, deals with both GUs composition and GUs shapes ([geometric morphometric](#iconr-development-version-the-analysis-of-compositions-and-geometric-morphometry)). Currently it takes in charge POLYGON geometries to perform Geometric Morphometry measurements (GMM). This development version can be downloaded from GitHub
 
