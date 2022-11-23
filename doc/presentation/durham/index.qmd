@@ -1,5 +1,5 @@
 ---
-title: "Statistics and Computer Scripts in Archaeology"
+title: "Analysis of Prehistoric Iconography with the R package ***iconr***"
 # subtitle: "Create beautiful interactive slide decks with Reveal.js"
 author: "Thomas Huet (University of Oxford, EAMENA project)"
 format:
@@ -10,7 +10,7 @@ format:
     preview-links: true
     logo: images/inst-uni-oxford_.png
     css: styles.css
-    footer: "Statistics and Computer Scripts in Archaeology, Oxford MT2 2022 - T. Huet - <https://tinyurl.com/goa-oxford>"
+    footer: "Digital Archaeology seminar, 28th Nov 2022, University of Durham - T. Huet - <https://github.com/zoometh/iconr>"
     # margin: -0.5
 resources:
   - demo.pdf
@@ -968,16 +968,97 @@ Seriation = Guttman effect = horse shoe = arc
 Current dataset: [Schneider A., 2020, *Multivariate Statistical Analysis of Archaeological Contexts: The case study of the Early La Tène Cemetery of Szentlőrinc, Hungary*](https://ojs.elte.hu/dissarch/article/view/2262/2082)
 :::
 
-## Computers in Archaeology
+## {}
+
+<th><a href="https://www.r-project.org/">
+<img src="https://www.r-project.org/logo/Rlogo.svg" alt="" style="height: 100px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+</a></th>
 
 ::: {.panel-tabset}
 
-### Human *vs* Machine
+### Users
 
-<div class="row">
-<div class="column">![Garry Kasparov *vs* Deep Blue, 1996-1997](images/hist-computer-science-expert.jpg){height=300px}</div>
-<div class="column">![Prompted image with Midjourney AI, 2022](images/hist-computer-science-ai.png){height=300px}</div>
-</div>
+<a href="https://www.r-project.org/">
+<img src="https://www.r-project.org/logo/Rlogo.svg" alt="" style="height: 100px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+</a>
+<p>
+R is a scripting language for data science. It is the 1️⃣<sup>st</sup> used by archaeologists, and the 18<sup>th</sup> worldwide</p><small>- [Tiobe index 2022](https://www.tiobe.com/tiobe-index/) + [Batist and Roe, 2022](https://youtu.be/tUhHhzGSgbk?t=7499)</small>
+
+
+### IDE
+
+[RStudio](https://www.rstudio.com/) is THE graphical interface for R, Rstudio is also in the cloud ([RStudio.cloud](https://rstudio.cloud/)), [VS Code](https://code.visualstudio.com/) is a standalone source code editor multi-platforms and multi-languages
+
+### Layouts
+
+[R markdown](https://rmarkdown.rstudio.com/) is a notebook interface for report generation, [Shiny](https://shiny.rstudio.com/) allows the development of web interactive applications, [Quarto](https://quarto.org/) to create Powerpoint-like web interactive documents
+
+### Packages
+
+The CRAN package repository features 18890 available packages [[ref](https://cran.r-project.org/web/packages/)]. The package ***iconr*** uses 18 packages. The most distinctives are:
+
+<table class="table">
+<thead>
+<tr>
+<th>package</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="it-ide">igraph</td>
+<td> blabla </td>
+</tr>
+<tr>
+<td class="it-ide">magick</td>
+<td> blabla </td>
+</tr>
+<tr>
+<td class="it-ide">Momocs</td>
+<td> blabla </td>
+</tr>
+</tbody>
+</table>
+
+
+### GitHub
+
+<a href="https://github.com">
+<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 100px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+</a>
+The 🔝 popular web-platform for source code management and software development (with over 128 million public repositories)
+
+### R
+
+
+
+<table class="table">
+<thead>
+<tr>
+<th>R</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="it-ide">IDE</td>
+<td></td>
+</tr>
+<tr>
+<td class="it-layouts">layouts</td>
+<td></td>
+</tr>
+<tr>
+<td class="it-libraries">libraries</td>
+<td>[openxlsx](https://cran.r-project.org/web/packages/openxlsx/index.html) to read/write Excel files, [ggplot2](https://ggplot2.tidyverse.org/) to create plots, [sf](https://cran.r-project.org/web/packages/sf/index.html) makes R a GIS, [igraph](https://igraph.org/r/) for network analysis, [ODBC](https://cran.r-project.org/web/packages/odbc/index.html) to connect SQL databases, [rcarbon](https://cran.r-project.org/web/packages/rcarbon/index.html) for radiocarbon dates calibration, [Momocs](https://cran.r-project.org/web/packages/Momocs/index.html) for geometric morphometric methods, [leaflet](https://cran.r-project.org/web/packages/leaflet/index.html) creates interactive maps, [plotly](https://plotly.com/r/) creates interactive plots, etc.</td>
+</tr>
+<tr>
+<td class="it-resources">resources</td>
+<td>[sthda.com](http://www.sthda.com/english/wiki/ggplot2-line-plot-quick-start-guide-r-software-and-data-visualization) has good tutorials, [stackoverflow](https://stackoverflow.com/) is probably the place where you will find the answer you need, if you need some open software for archaeology go to [open-archaeo](https://open-archaeo.info/)
+</td>
+</tr>
+</tbody>
+</table>
 
 ### Stack
 
@@ -999,87 +1080,6 @@ Current dataset: [Schneider A., 2020, *Multivariate Statistical Analysis of Arch
 <td colspan="2"><a href="https://github.com">
 <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 100px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
 </a></td>
-</tr>
-</tbody>
-</table>
-
-
-### GitHub
-
-<a href="https://github.com">
-<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 100px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
-</a>
-The 🔝 popular web-platform for source code management and software development (with over 128 million public repositories)
-
-### R
-
-<a href="https://www.r-project.org/">
-<img src="https://www.r-project.org/logo/Rlogo.svg" alt="" style="height: 100px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
-</a>
-<p>
-R is a scripting language for data science. It is the 1️⃣<sup>st</sup> used by archaeologists, and the 18<sup>th</sup> worldwide</p><small>- [Tiobe index 2022](https://www.tiobe.com/tiobe-index/) + [Batist and Roe, 2022](https://youtu.be/tUhHhzGSgbk?t=7499)</small>
-
-<table class="table">
-<thead>
-<tr>
-<th>R</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="it-ide">IDE</td>
-<td>[RStudio](https://www.rstudio.com/) is THE graphical interface for R, Rstudio is also in the cloud ([RStudio.cloud](https://rstudio.cloud/)), [VS Code](https://code.visualstudio.com/) is a standalone source code editor multi-platforms and multi-languages</td>
-</tr>
-<tr>
-<td class="it-layouts">layouts</td>
-<td>[R markdown](https://rmarkdown.rstudio.com/) is a notebook interface for report generation, [Shiny](https://shiny.rstudio.com/) allows the development of web interactive applications, [Quarto](https://quarto.org/) to create Powerpoint-like web interactive documents</td>
-</tr>
-<tr>
-<td class="it-libraries">libraries</td>
-<td>[openxlsx](https://cran.r-project.org/web/packages/openxlsx/index.html) to read/write Excel files, [ggplot2](https://ggplot2.tidyverse.org/) to create plots, [sf](https://cran.r-project.org/web/packages/sf/index.html) makes R a GIS, [igraph](https://igraph.org/r/) for network analysis, [ODBC](https://cran.r-project.org/web/packages/odbc/index.html) to connect SQL databases, [rcarbon](https://cran.r-project.org/web/packages/rcarbon/index.html) for radiocarbon dates calibration, [Momocs](https://cran.r-project.org/web/packages/Momocs/index.html) for geometric morphometric methods, [leaflet](https://cran.r-project.org/web/packages/leaflet/index.html) creates interactive maps, [plotly](https://plotly.com/r/) creates interactive plots, etc.</td>
-</tr>
-<tr>
-<td class="it-resources">resources</td>
-<td>[sthda.com](http://www.sthda.com/english/wiki/ggplot2-line-plot-quick-start-guide-r-software-and-data-visualization) has good tutorials, [stackoverflow](https://stackoverflow.com/) is probably the place where you will find the answer you need, if you need some open software for archaeology go to [open-archaeo](https://open-archaeo.info/)
-</td>
-</tr>
-</tbody>
-</table>
-
-### Python
-
-<a href="https://www.python.org/">
-<img src="https://www.python.org/static/img/python-logo@2x.png" alt="" style="height: 100px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
-</a>
-<p>
-Python is a high-level programming language. It is the 2️⃣<sup>st</sup> programming language used by archaeologists, and the 1️⃣<sup>st</sup> worldwide
-</p><small>- [Tiobe index 2022](https://www.tiobe.com/tiobe-index/) + [Batist and Roe, 2022](https://youtu.be/tUhHhzGSgbk?t=7499)</small>
-
-<table class="table">
-<thead>
-<tr>
-<th>Python</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="it-ide">IDE</td>
-<td>[VS Code](https://code.visualstudio.com/) is THE best standalone source code editor multi-platforms and multi-languages. The Google colab.research.google.com online platform</td>
-</tr>
-<tr>
-<td class="it-layouts">layouts</td>
-<td>[Jupyter](https://jupyter.org/) is a notebook interface for report generation. [Dash](https://plotly.com/python/getting-started/) allows the development of web interactive applications, [Quarto](https://quarto.org/) to create Powerpoint-like web interactive documents</td>
-</tr>
-<tr>
-<td class="it-libraries">libraries</td>
-<td>[openpyxl](https://openpyxl.readthedocs.io/en/stable/) to read/write Excel files, [matplotlib](https://matplotlib.org/) to create plots, [Geopandas](https://geopandas.org/en/stable/) makes PythonR a GIS, [networkx](https://networkx.org/) for network analysis, [pyodbc](https://pypi.org/project/pyodbc/) to connect SQL databases, [iosacal](https://pypi.org/project/iosacal/) for radiocarbon dates calibration, [folium](https://pypi.org/project/folium/) creates interactive leaflet maps, [plotly](https://plotly.com/python/) creates interactive plots, etc.</td>
-</tr>
-<tr>
-<td class="it-resources">resources</td>
-<td>[stackoverflow](https://stackoverflow.com/) is probably the place where you will find the answer you need, if you need some open software for archaeology go to [open-archaeo](https://open-archaeo.info/)
-</td>
 </tr>
 </tbody>
 </table>

@@ -179,9 +179,12 @@ plot_compar(g.compar, c(1, 2, 3),
 The same result, but in the form of a coincidence matrix, can be obtained with the function [same_elements()](https://zoometh.github.io/iconr/reference/same_elements.html)
 
 
-Comparisons between decoration can be based on commom edges and common nodes. 
+Comparisons between sets can be based on **common edges**, which take into account the common combination of two nodes with their edge type, and **common nodes**, which take into account only the presence of common nodes.
 
 <img src="doc/img/hc.png" align="center"/>
+
+In this example, in both groupings, the Brozas stela (decoration 3) and the Ibahernando stela (decoration 5) have the highest proximities (i.e. the lowest Euclidean distance).
+
 <img src="doc/img/hc_compar.png" align="center"/>
 
 ## Citation

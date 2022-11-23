@@ -3,12 +3,86 @@ library(Momocs)
 library(iconr)
 
 
+########### list decor ###########################
+
+library(RPostgreSQL)
+library(stringr)
+drv <- dbDriver("PostgreSQL")
+con <- dbConnect(drv,
+                 dbname="mailhac_9",
+                 host="localhost",
+                 port=5432,
+                 user="postgres",
+                 password="postgres")
+sqll <- "SELECT site, numero, img FROM objets where famille LIKE 'stele bouclier'"
+df.objects <- dbGetQuery(con,sqll)
+dbDisconnect(con)
+
+mycsv <- data.frame(site = character(),
+                    decor = character())
+
+# df.objects <- head(df.objects)
+df <- str_split(df.objects$img, pattern = "\\\\")
+for(i in seq(1, length(df))){
+  a.site <- str_replace_all(df[[i]][3], "%20", " ")
+  a.decor <- str_replace_all(df[[i]][4], "%20", " ")
+  mycsv1 <- data.frame(site = a.site,
+                      decor = a.decor)
+  mycsv <- rbind(mycsv, mycsv1)
+}
+
+write.table(mycsv, "C:/Rprojects/iconr/doc/dev/temp_list.csv", row.names = F, sep = ";")
+
+
+########### hc #####################################
+
+dataDir <- system.file("extdata", package = "iconr")
+
+imgs_path <- paste0(dataDir, "/imgs.tsv")
+nodes_path <- paste0(dataDir, "/nodes.tsv")
+edges_path <- paste0(dataDir, "/edges.tsv")
+imgs <- read.table(imgs_path, sep="\t", stringsAsFactors = FALSE)
+nodes <- read.table(nodes_path, sep="\t", stringsAsFactors = FALSE)
+edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
+lgrph <- list_dec(imgs, nodes, edges)
+
+par(mfrow=c(1, 2))
+df.same_edges <- same_elements(lgrph, "type", "edges")
+df.same_nodes<- same_elements(lgrph, "type", "nodes")
+dist.nodes <- dist(as.matrix(df.same_nodes), method = "euclidean")
+dist.edges <- dist(as.matrix(df.same_edges), method = "euclidean")
+hc.nds <- hclust(dist.nodes, method = "ward.D")
+hc.eds <- hclust(dist.edges, method = "ward.D")
+
+plot(hc.nds, main = "Common nodes", cex = .8)
+plot(hc.eds, main = "Common edges", cex = .8)
+
+library(dendextend)
+oldpar <- par(no.readonly = TRUE)
+on.exit(par(oldpar))
+par(mfrow=c(1, 2))
+dend.nds <- as.dendrogram(hc.nds)
+dend.eds <- as.dendrogram(hc.eds)
+png("C:/Rprojects/iconr/doc/img/hc_compar.png", width = 700, units = "px")
+dendlist(dend.nds, dend.eds) %>%
+  untangle(method = "step1side") %>%
+  tanglegram(columns_width = c(6, 1, 6),
+             main_left = "Common nodes",
+             main_right = "Common edges",
+             lab.cex = 1.3,
+             cex_main = 1.5,
+             highlight_branches_lwd = F)
+dev.off()
+
+imgs_path <- paste0(dataDir, "/imgs.tsv")
+imgs <- read.table(imgs_path, sep="\t", stringsAsFactors = FALSE)
+knitr::kable(imgs) %>%
+  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size=12)
+
 
 ########### metadata ##############################
 
 # cf. Python file
-
-
 
 ########## shape analysis ##########################
 

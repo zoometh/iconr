@@ -1,8 +1,3530 @@
-<html xmlns="http://www.w3.org/1999/xhtml">    
-  <head>      
-    <title>Redirect to main.html</title>      
-    <meta http-equiv="refresh" content="0;URL='main.html'" />    
-  </head>    
-  <body> 
-  </body>  
-</html>     
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.1.251">
+
+  <meta name="author" content="Thomas Huet (University of Oxford, EAMENA project)">
+  <title>iconR - Analysis of Prehistoric Iconography with the R package iconr</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="styles.css">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-captioned.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-captioned) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-captioned.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-captioned .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-captioned .callout-caption  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-captioned.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-captioned.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-caption {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-caption {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-caption {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-captioned .callout-body > .callout-content > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .callout.callout-captioned .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-captioned) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-caption {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-caption {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-caption {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-caption {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-caption {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+  <script src="site_libs/plotly-binding-4.10.0/plotly.js"></script>
+  <script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+  <script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+  <link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+  <script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+  <link href="site_libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+  <script src="site_libs/plotly-main-2.5.1/plotly-latest.min.js"></script>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="center">
+  <h1 class="title">Analysis of Prehistoric Iconography with the R package <strong><em>iconr</em></strong></h1>
+  <p class="author">Thomas Huet (University of Oxford, EAMENA project)</p>
+</section>
+
+<section id="introduction" class="slide level2">
+<h2>Introduction</h2>
+<div class="cell">
+
+</div>
+<p>This presentation will show you examples of <strong>statistical reasoning</strong> in archaeology and how <strong>computational archaeology</strong> helps to manage archaeological datasets</p>
+<p><br></p>
+
+<table>
+<thead>
+<tr>
+<th rowspan="2">
+software 💿
+</th>
+<th>
+semantic 🖼 📜 🔢 🐫
+</th>
+</tr>
+<tr>
+<th>
+logic <span style="background-color:black; color:white;">&gt;_ print(‘hello’)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2">
+hardware 💻
+</td>
+</tr>
+</tbody>
+
+</table>
+</section>
+<section id="historiography-of-archaeology" class="slide level2">
+<h2>Historiography of Archaeology</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1"><em>Timetable</em></a></li><li><a href="#tabset-1-2">Prehistory</a></li><li><a href="#tabset-1-3">Culture-Historical</a></li><li><a href="#tabset-1-4">New Archaeology</a></li><li><a href="#tabset-1-5">Post-Processual</a></li><li><a href="#tabset-1-6">Tool-driven</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<table>
+<colgroup>
+<col style="width: 15%">
+<col style="width: 35%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Start</th>
+<th style="text-align: left;">Method</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1850s</td>
+<td style="text-align: left;">Prehistory</td>
+<td style="text-align: left;">evolution, geology, anthropology</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1950s</td>
+<td style="text-align: left;">Culture-Historical</td>
+<td style="text-align: left;"><span style="color:red;">similarities</span>, typology, <span style="color:blue;">chronology</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1960s</td>
+<td style="text-align: left;">New archaeology</td>
+<td style="text-align: left;">chain operative, statistics, <span style="color:blue;">chronology (C14) </span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1980s</td>
+<td style="text-align: left;">Post-processual</td>
+<td style="text-align: left;"><span style="color:red;">dissimilarities</span>, cultural relativism</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">2020s</td>
+<td style="text-align: left;">Tool-driven</td>
+<td style="text-align: left;">Big data, ML / DL, aDNA</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-1-2">
+<div class="row">
+<div class="column33">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/hist-archaeo-prehistoire-perthes.jpg" class="margin-caption" height="350"></p>
+<p></p><figcaption>Boucher de Perthes, 1847, <em>Antiquités celtiques et antédiluviennes</em></figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column66">
+With the development of <em>Prehistory</em>, archaeology seeks to unite the history of Nature with that of Man by focusing on the most ancient past. With C. Darwin (biol.) and C. Lyell (geol.), and O. Montelius (archaeo.), there is a concomitance between biological “species” and archaeological “types”.
+</div>
+</div>
+</div>
+<div id="tabset-1-3">
+<div class="row">
+<div class="column33">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/hist-archaeo-romantic.png" class="margin-caption" height="350"></p>
+<p></p><figcaption>‘Monument druidique près de Gisors’: Baron Taylor, 1824, <em>Voyage pittoresque et romantique dans l’ancienne France</em></figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column66">
+<em>Culture-Historical</em> is focused on chronology. Its is rooted in academic/national traditions and develops in parallel with History as a ‘scientific’ discipline taught in universities.
+</div>
+</div>
+</div>
+<div id="tabset-1-4">
+<div class="row">
+<div class="column33">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/hist-archaeo-newarchaeo-binford.png" class="margin-caption" height="350"></p>
+<p></p><figcaption>R. &amp; S. Binford, 1968, <em>New Perspectives in Archaeology</em></figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+<em>New archaeology</em>, or Processual archaeology, see the advent of statistics and promotes demonstrations based on observations, hypotheses, models and tests. With the development of anthropology, archaeology focuses on the recent past. Chronologies have an anthropological and explanatory purpose.
+</div>
+</div>
+</div>
+<div id="tabset-1-5">
+<div class="row">
+<div class="column33">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/hist-archaeo-postprocess-sombreabime.png" class="margin-caption" height="350"></p>
+<p></p><figcaption>Laurent Olivier, 2008, <em>Le sombre abîme du temps</em></figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column66">
+<em>Post-processualism</em>, or Post-positivism, archaeology adopts a qualitative point of view and insists on the importance of context and the variability of possible interpretations (relativism, multivocity)
+</div>
+</div>
+</div>
+<div id="tabset-1-6">
+<div class="row">
+<div class="column33">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/hist-archaeo-ai-ml-angkor.jpg" class="margin-caption" height="350"></p>
+<p></p><figcaption>Automatic detection of water basins in Angkor Bath with ML/AI, by Jürgen Landauer</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column66">
+<p>With the development of computational archaeology (eg. AI/ML) and data oceans, the archaeologist becomes a research software engineer. A single project probably cannot exploit the full potential of the data at hand. Data is managed (DMP) and made FAIR to produce serendipity over the long term.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Learn more: <a href="https://ebookcentral.proquest.com/lib/oxford/reader.action?docID=6178544&amp;ppg=39">Renfrew and Bahn, 2020, <em>Archaeology : Theories, Methods and Practice</em>, p.&nbsp;39 ff.&nbsp;</a></p>
+</div>
+</section>
+<section id="birth-of-statistics" class="slide level2">
+<h2>Birth of statistics</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Mean</a></li><li><a href="#tabset-2-2">Median</a></li><li><a href="#tabset-2-3">Significance test</a></li><li><a href="#tabset-2-4">Normal law</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/The_Parthenon_in_Athens.jpg" class="margin-caption" height="350"></p>
+<p></p><figcaption>Parthenon, Greece, 5<sup>th</sup> BC</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/hist-stat-mean-pythagore.png" class="margin-caption" height="350"></p>
+<p></p><figcaption>The 4 Pythagorean means: quadratic, arithmetic, geometric, and harmonic (HM)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/EdwardWright-CertaineErrorsinNavigation-1599.png/800px-EdwardWright-CertaineErrorsinNavigation-1599.png" class="margin-caption" height="350"></p>
+<p></p><figcaption>Title page of E. Wright, 1599, ‘<em>Certaine Errors in Navigation</em>’*</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+<img data-src="images/hist-stat-median-compass-map.png" height="350">
+</div>
+</div>
+</div>
+<div id="tabset-2-3">
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/aut-arbuthnot-1629-1710.png" class="margin-caption" height="350"></p>
+<p></p><figcaption>J. Arbuthnot, 1629-1710 census. Published in 1711, ‘<em>Philosophical transactions, 27</em>’ with this statement: ‘<em>From whence it follows, that it is Art, not Chance, that governs</em>’</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/stat-pvalue.png" class="margin-caption" height="350"></p>
+<p></p><figcaption><em>p-value</em> and <em>Z-score</em>, two normalised test thresholds to estimate the significance of an observed distribution <em>vs</em> a random distribution</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-4">
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/aut-quetelet_1821-33_census.png" class="margin-caption" height="350"></p>
+<p></p><figcaption>A. Quetelet, 1821-1833 census</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/1280px-Normal_Distribution_PDF.svg.png" class="margin-caption" height="350"></p>
+<p></p><figcaption>A selection of Normal Distribution Probability Density Functions (PDFs). Both the mean, μ, and variance, σ², are varied</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>Statistik (description of a state, a country): collecting population data through census, surveys != probability. Based on social data (!= mathematics). Statistics need to analyse large amount of data (dataset), Statistics are manded by institutions, to be interesting they need to be realised over the long term to allow comparisons. <em>p-value</em> is a test value, 95% = &gt; .05</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="glossary-of-statistics" class="slide level2" data-background-image="images/blackboard.png">
+<h2><span style="color:white;">Glossary of statistics</span></h2>
+</section>
+<section id="type-of-statistics" class="slide level2">
+<h2>Type of statistics</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1"><em>Families</em></a></li><li><a href="#tabset-3-2">Descriptive</a></li><li><a href="#tabset-3-3">Exploratory</a></li><li><a href="#tabset-3-4">Confirmatory</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/stat-histogram.png" class="margin-caption" height="350"></p>
+<p></p><figcaption>Descriptive</figcaption><p></p>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/stat-fa.png" class="margin-caption" height="350"></p>
+<p></p><figcaption>Explanatory</figcaption><p></p>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/stat-pvalue-1.png" class="margin-caption" height="350"></p>
+<p></p><figcaption>Confirmatory</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-2">
+<p><strong>Describe</strong> the population with the mean (μ), the median (M) and standard deviation (σ)</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/stat-scatterplot.png" class="margin-caption"></p>
+<p></p><figcaption>Scatterplot</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/stat-histogram.png" class="margin-caption"></p>
+<p></p><figcaption>Histogram</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/stat-boxplot.png" class="margin-caption"></p>
+<p></p><figcaption>Boxplot</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/stat-linechart.png" class="margin-caption"></p>
+<p></p><figcaption>Line chart</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/stat-piechart.png" class="margin-caption"></p>
+<p></p><figcaption>Pie Chart</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/stat-radar.png" class="margin-caption"></p>
+<p></p><figcaption>Radar chart</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-3">
+<div class="row">
+<div class="column">
+<img data-src="images/stat-fa.png" height="350">
+</div>
+<div class="column">
+<strong>Clustering</strong> method, we move from a description to a modelling identifying central tendencies
+</div>
+</div>
+</div>
+<div id="tabset-3-4">
+<div class="row">
+<div class="column">
+<img data-src="images/stat-pvalue-1.png" height="350">
+</div>
+<div class="column">
+<strong>Test</strong> of
+<ul>
+<li>
+<strong><em>conformity</em></strong> (goodness-of-fit) between the observed population and a theoritical distribution (eg. normal law)
+</li>
+<li>
+<strong><em>homogeneity</em></strong> between different populations
+</li>
+<li>
+<strong><em>relation</em></strong> between several variables from the same population
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>Explanatory -&gt; New Archaeology</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="middle-range-theories" class="slide level2">
+<h2>Middle Range Theories</h2>
+<p>Archaeology establishes facts and proposes <strong>models</strong> to connect these facts</p>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">MRT</a></li><li><a href="#tabset-4-2">Example</a></li><li><a href="#tabset-4-3">Singularity</a></li><li><a href="#tabset-4-4">Conformity</a></li><li><a href="#tabset-4-5">Identity</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<div class="row">
+<div class="column33">
+<center>
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/theo-archaeo-renfrewbahn.jpg" class="margin-caption" height="300"></p>
+<p></p><figcaption>Model of archaeological reasoning by Renfrew and Bahn, 2020</figcaption><p></p>
+</figure>
+</div>
+</center>
+</div>
+<div class="column66">
+<em>
+</em><center><em>
+“Sociological theory, if it is to advance significantly, must proceed on these interconnected planes: (1) by developing special theories from which to derive hypotheses that can be empirically investigated and (2) by evolving a progressively more general conceptual scheme that is adequate to consolidate groups of special theories”</em><br><small> Robert K. Merton, 1968</small>
+</center>
+</div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div class="row">
+<div class="column">
+<center>
+<img data-src="images/conformity-example.png" height="350">
+</center>
+</div>
+<div class="column">
+We want to compare groups of settlement of 3 different cultures (or sites): A, B and C
+</div>
+</div>
+</div>
+<div id="tabset-4-3">
+<div class="row">
+<div class="column">
+<center>
+<img data-src="images/conformity.png" height="350">
+</center>
+</div>
+<div class="column">
+All comparisons give different results. <br>
+<div class="smalltext">
+⚠️ In practice, over-valuing a specific element by giving it a marker character is dangerous, as its originality makes its management uncontrollable.
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-4">
+<div class="row">
+<div class="column">
+<center>
+<img data-src="images/conformity.png" height="350">
+</center>
+</div>
+<div class="column">
+Most comparisons give identical results. <br> ️
+<div class="smalltext">
+💡 Increase the matching success of the model by decreasing its precision, or decrease the matching success of the model by increasing its precision.
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-5">
+<div class="row">
+<div class="column">
+<center>
+<img data-src="images/conformity.png" height="350">
+</center>
+</div>
+<div class="column">
+All the comparison give the same result. <br> ️
+<div class="smalltext">
+⚠️️In practice, a common element in 3 or more different data sets is usually rare.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>middle range theories = comparisons</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="conformity-1" class="slide level2">
+<h2>Conformity</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1"><em>1<sup>st</sup> law</em></a></li><li><a href="#tabset-5-2">Where</a></li><li><a href="#tabset-5-3">When</a></li><li><a href="#tabset-5-4">What</a></li><li><a href="#tabset-5-5">How</a></li><li><a href="#tabset-5-6">Who</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<div class="row">
+<div class="column">
+<center>
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/aut-tobler.jpg" class="margin-caption" height="250"></p>
+<p></p><figcaption>Waldo Tobler</figcaption><p></p>
+</figure>
+</div>
+</center>
+</div>
+<div class="column">
+<em>
+</em><center><em>
+“everything is related to everything else, but near things are more related than distant things”</em><br><small> Tobler, 1970</small>
+</center>
+</div>
+</div>
+</div>
+<div id="tabset-5-2">
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/where-bruegel.jpg" class="margin-caption" height="350"></p>
+<p></p><figcaption>Pieter Bruegel the Elder, <em>The Harversters</em>, 1565</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/where-macedonia.png" class="margin-caption" height="350"></p>
+<p></p><figcaption>Kingdom of Macedon at the death of Philip II, 336 BC</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-3">
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/when-geology.png" class="margin-caption" height="350"></p>
+<p></p><figcaption>Spiral of geological times</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/when-strati.jpg" class="margin-caption" height="350"></p>
+<p></p><figcaption>Startigraphic log and corresponding Harris matrix</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-4">
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/what-1950.jpg" class="margin-caption" height="350"></p>
+<p></p><figcaption>An American suburb in the 1950s</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/what-pottery.jpg" class="margin-caption" height="350"></p>
+<p></p><figcaption>Seriation effect of Chassean potteries in the Southern France</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-5">
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/how-fordism.jpg" class="margin-caption" height="350"></p>
+<p></p><figcaption>Assembly line work in a Ford factory</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/how-co.jpg" class="margin-caption" height="350"></p>
+<p></p><figcaption><em>Chaine opératoire</em> of flint lamellas knapping</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-6">
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/who-family.jpg" class="margin-caption" height="350"></p>
+<p></p><figcaption>The British Royal Family</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/who-haak_afo.jpg" class="margin-caption" height="350"></p>
+<p></p><figcaption>Estimate DNA mixture proportions of Modern Europeans</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="comparisons" class="slide level2">
+<h2>Comparisons</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Comformity</a></li><li><a href="#tabset-6-2">Regression</a></li><li><a href="#tabset-6-3">Coefficient</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>  where when what
+A    20   10   70
+B    60   30   10
+C    60   20   20</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" class="margin-caption" width="960"></p>
+</div>
+</div>
+</div>
+<div id="tabset-6-2">
+<div class="cell">
+<div class="cell-output-display">
+<div id="htmlwidget-9253b8d241e1636a2825" style="width:960px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9253b8d241e1636a2825">{"x":{"visdat":{"51b471a914d7":["function () ","plotlyVisDat"]},"cur_data":"51b471a914d7","attrs":{"51b471a914d7":{"x":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"name":"Oxford Pottery","y":{},"marker":{"color":"black"},"text":["Bath<br>21.25","Gatcombe<br>21","Silchester<br>19.5","Caerwent<br>19","Gloucester<br>21","Cirencester<br>22.5","London<br>18.25","Richborough<br>17.5","Canterbury<br>17.5","Dorchester-on-Thames<br>22.5","Alchester<br>22.5"],"hoverinfo":"text","inherit":true},"51b471a914d7.1":{"x":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"name":"Predicted value","y":{},"opacity":0.5,"marker":{"color":"grey","line":{"color":"grey","width":1}},"text":["Bath<br>20.19","Gatcombe<br>19.72","Silchester<br>21.45","Caerwent<br>19.3","Gloucester<br>20.61","Cirencester<br>21.22","London<br>20.19","Richborough<br>17.38","Canterbury<br>17.85","Dorchester-on-Thames<br>22.34","Alchester<br>22.25"],"hoverinfo":"text","inherit":true},"51b471a914d7.2":{"x":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"name":"Regression line","y":[20.1889438943894,19.7204803813715,21.453795379538,19.2988632196553,20.6105610561056,21.219563623029,20.1889438943894,17.3781628162816,17.8466263292996,22.3438760542721,22.2501833516685],"mode":"lines","line":{"color":"black","width":2},"text":0.68,"hoverinfo":"text","inherit":true},"51b471a914d7.3":{"x":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"y":{},"xend":{},"yend":{},"type":"scatter","mode":"lines","name":"Residuals","line":{"color":"grey","width":1,"dash":"dash"},"text":{},"hoverinfo":"text","inherit":true}},"layout":{"margin":{"b":100,"l":50,"t":50,"r":50,"pad":20},"title":"Oxford pottery with a probable water transportation <br> (R<sup>2<\/sup> = 0.68)","xaxis":{"domain":[0,1],"automargin":true,"title":"Distance (miles)"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Percentage of Oxford Pottery"},"legend":{"orientation":"h","xanchor":"center","y":-0.1,"x":0.5},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[55,65,28,74,46,33,55,115,105,9,11],"name":"Oxford Pottery","y":[21.25,21,19.5,19,21,22.5,18.25,17.5,17.5,22.5,22.5],"marker":{"color":"black","line":{"color":"rgba(31,119,180,1)"}},"text":["Bath<br>21.25","Gatcombe<br>21","Silchester<br>19.5","Caerwent<br>19","Gloucester<br>21","Cirencester<br>22.5","London<br>18.25","Richborough<br>17.5","Canterbury<br>17.5","Dorchester-on-Thames<br>22.5","Alchester<br>22.5"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text"],"type":"scatter","mode":"markers","error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[55,65,28,74,46,33,55,115,105,9,11],"name":"Predicted value","y":[20.1889438943894,19.7204803813715,21.453795379538,19.2988632196553,20.6105610561056,21.219563623029,20.1889438943894,17.3781628162816,17.8466263292996,22.3438760542721,22.2501833516685],"opacity":0.5,"marker":{"color":"grey","line":{"color":"grey","width":1}},"text":["Bath<br>20.19","Gatcombe<br>19.72","Silchester<br>21.45","Caerwent<br>19.3","Gloucester<br>20.61","Cirencester<br>21.22","London<br>20.19","Richborough<br>17.38","Canterbury<br>17.85","Dorchester-on-Thames<br>22.34","Alchester<br>22.25"],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text"],"type":"scatter","mode":"markers","error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"line":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[55,65,28,74,46,33,55,115,105,9,11],"name":"Regression line","y":[20.1889438943894,19.7204803813715,21.453795379538,19.2988632196553,20.6105610561056,21.219563623029,20.1889438943894,17.3781628162816,17.8466263292996,22.3438760542721,22.2501833516685],"mode":"lines","line":{"color":"black","width":2},"text":[0.68,0.68,0.68,0.68,0.68,0.68,0.68,0.68,0.68,0.68,0.68],"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text"],"type":"scatter","marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[55,55,null,65,65,null,28,28,null,74,74,null,46,46,null,33,33,null,55,55,null,115,115,null,105,105,null,9,9,null,11,11],"y":[21.25,20.1889438943894,null,21,19.7204803813715,null,19.5,21.453795379538,null,19,19.2988632196553,null,21,20.6105610561056,null,22.5,21.219563623029,null,18.25,20.1889438943894,null,17.5,17.3781628162816,null,17.5,17.8466263292996,null,22.5,22.3438760542721,null,22.5,22.2501833516685],"type":"scatter","mode":"lines","name":"Residuals","line":{"color":"grey","width":1,"dash":"dash"},"text":[1.06105610561056,1.06105610561056,null,1.27951961862853,1.27951961862853,null,-1.95379537953795,-1.95379537953795,null,-0.298863219655299,-0.298863219655299,null,0.389438943894389,0.389438943894389,null,1.28043637697103,1.28043637697103,null,-1.93894389438944,-1.93894389438944,null,0.121837183718371,0.121837183718371,null,-0.346626329299597,-0.346626329299597,null,0.156123945727906,0.156123945727906,null,0.2498166483315,0.2498166483315],"hoverinfo":["text","text",null,"text","text",null,"text","text",null,"text","text",null,"text","text",null,"text","text",null,"text","text",null,"text","text",null,"text","text",null,"text","text",null,"text","text"],"marker":{"color":"rgba(214,39,40,1)","line":{"color":"rgba(214,39,40,1)"}},"error_y":{"color":"rgba(214,39,40,1)"},"error_x":{"color":"rgba(214,39,40,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<div id="tabset-6-3">
+<div class="row">
+<div class="column">
+
+<table class="table">
+<thead>
+<tr>
+<th>
+cor
+</th>
+<th>
+interpretation
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+…
+</td>
+</tr>
+<tr>
+<td>
+0.9
+</td>
+<td>
+oustanding
+</td>
+</tr>
+<tr>
+<td>
+0.8
+</td>
+<td>
+excellent
+</td>
+</tr>
+<tr>
+<td>
+0.7
+</td>
+<td>
+acceptable
+</td>
+</tr>
+<tr>
+<td>
+0.6
+</td>
+<td>
+weak
+</td>
+</tr>
+<tr>
+<td>
+…
+</td>
+<td>
+…
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+<div class="column">
+Coefficient of correlation (Spearman’s ρ, Pearson’s r, etc.) and coefficient of determination (R<sup>2</sup>), between <code>[-1:1]</code>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+
+</div>
+</section>
+<section id="models" class="slide level2">
+<h2>Models</h2>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Statement</a></li><li><a href="#tabset-7-2">Examples</a></li><li><a href="#tabset-7-3">Proprieties</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<div class="row">
+<div class="column">
+<center>
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/aut-box.jpg" class="margin-caption" height="250"></p>
+<p></p><figcaption>George E. P. Box</figcaption><p></p>
+</figure>
+</div>
+</center>
+</div>
+<div class="column">
+<em>
+</em><center><em>
+“All models are wrong, but some are useful”</em><br><small> Box, 1976</small>
+</center>
+</div>
+</div>
+</div>
+<div id="tabset-7-2">
+<center>
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/mod-know-thyself.jpg" class="margin-caption" height="250"></p>
+<p></p><figcaption>A <em>memento mori</em> mosaic (‘know thyself’), Convent of San Gregorio, Rome</figcaption><p></p>
+</figure>
+</div>
+</center>
+<div class="row">
+<div class="column">
+<center>
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/mod-tree-kroeber.png" class="margin-caption" height="250"></p>
+<p></p><figcaption>Kroeber, A. L., 1923, <em>Anthropology; culture patterns &amp; processes</em></figcaption><p></p>
+</figure>
+</div>
+</center>
+</div>
+<div class="column">
+<center>
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/mod-tree-splitgraph.jpg" class="margin-caption" height="250"></p>
+<p></p><figcaption>Gray, R. D., Bryant, D., &amp; Greenhill, S. J., 2010, On the shape and fabric of human history. <em>Philosophical Transactions of the Royal Society B: Biological Sciences</em>, 365(1559), 3923-3933</figcaption><p></p>
+</figure>
+</div>
+</center>
+</div>
+</div>
+</div>
+<div id="tabset-7-3">
+
+<table class="table">
+<thead>
+<tr>
+<th>
+propriety
+</th>
+<th>
+description
+</th>
+<th>
+example
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Explanatory
+</td>
+<td>
+not over- or under-fitting
+</td>
+<td>
+<img data-src="images/mod-overfitting.png" height="200">
+</td>
+</tr>
+<tr>
+<td>
+Regularity
+</td>
+<td>
+central tendencies: reproducing data regularity
+</td>
+<td>
+<img data-src="images/mod-regularity-christaller.jpg" height="200">
+</td>
+</tr>
+<tr>
+<td>
+Robust
+</td>
+<td>
+replicable: not sensitive to small changes in data
+</td>
+<td>
+<img data-src="images/mod-robust.jpg" height="200">
+</td>
+</tr>
+<tr>
+<td>
+Parsimonious
+</td>
+<td>
+all things being equal, the simplest possible explanation for a phenomenon is also the most probable
+</td>
+<td>
+<img data-src="images/mod-parsimony-laplace.jpg" height="200">
+</td>
+</tr>
+<tr>
+<td>
+Versioning
+</td>
+<td>
+carry its own story: abandoned assumptions, alternative versions, etc.
+</td>
+<td>
+<img data-src="images/mod-versioning.jpg" height="200">
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>(abandoned hypotheses, alternative versions, etc.) controlled vocabulary -&gt; scale</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data" class="slide level2">
+<h2>Data</h2>
+<div class="panel-tabset">
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1"><em>Types</em></a></li><li><a href="#tabset-8-2">Raw</a></li><li><a href="#tabset-8-3">Processed</a></li><li><a href="#tabset-8-4">Aggregated</a></li><li><a href="#tabset-8-5">Meta</a></li><li><a href="#tabset-8-6">Missing</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1">
+
+<table class="table">
+<thead>
+<tr>
+<th>
+type
+</th>
+<th>
+description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Raw data
+</td>
+<td>
+Primary data acquired via a device (hardware) and not processed
+</td>
+</tr>
+<tr>
+<td>
+Processed data
+</td>
+<td>
+Working data processed but not definitive
+</td>
+</tr>
+<tr>
+<td>
+Aggregated data
+</td>
+<td>
+Data is gathered and expressed in a summary form
+</td>
+</tr>
+<tr>
+<td>
+Metadata
+</td>
+<td>
+Data about data
+</td>
+</tr>
+<tr>
+<td>
+Missing data
+</td>
+<td>
+Lack of knowledge, eg. <code>NA</code> (Not Available)
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+<div id="tabset-8-2">
+<p>Raw data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Radiocarbon probability densities</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(rcarbon)</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a>dirIn <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/zoometh/neonet/main/inst/extdata/"</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>fileIn <span class="ot">&lt;-</span> <span class="st">"140_140_id00140_doc_elencoc14.tsv"</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>dataIn <span class="ot">&lt;-</span> <span class="fu">paste0</span>(dirIn, fileIn)</span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a>C14 <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(dataIn, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>)</span>
+<span id="cb2-9"><a href="#cb2-9"></a>C14cal <span class="ot">&lt;-</span> <span class="fu">calibrate</span>(<span class="at">x =</span> C14[<span class="dv">1</span>, <span class="st">"C14Age"</span>], </span>
+<span id="cb2-10"><a href="#cb2-10"></a>                    <span class="at">errors =</span> C14[<span class="dv">1</span>, <span class="st">"C14SD"</span>],</span>
+<span id="cb2-11"><a href="#cb2-11"></a>                    <span class="at">calCurves=</span><span class="st">'intcal20'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Calibrating radiocarbon ages..."
+
+  |                                                                            
+  |                                                                      |   0%
+  |                                                                            
+  |======================================================================| 100%[1] "Done."</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>C14cal<span class="sc">$</span>grids  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$`1`
+    calBP       PrDens
+1    6281 1.028478e-05
+2    6280 1.147756e-05
+3    6279 1.276630e-05
+4    6278 1.418626e-05
+5    6277 1.574913e-05
+6    6276 1.746748e-05
+7    6275 1.935473e-05
+8    6274 2.120499e-05
+9    6273 2.321429e-05
+10   6272 2.539438e-05
+11   6271 2.775771e-05
+12   6270 3.031744e-05
+13   6269 3.266051e-05
+14   6268 3.516310e-05
+15   6267 3.783427e-05
+16   6266 4.068343e-05
+17   6265 4.372034e-05
+18   6264 4.593214e-05
+19   6263 4.824143e-05
+20   6262 5.065168e-05
+21   6261 5.316644e-05
+22   6260 5.578933e-05
+23   6259 5.640350e-05
+24   6258 5.702426e-05
+25   6257 5.765166e-05
+26   6256 5.828576e-05
+27   6255 5.892661e-05
+28   6254 5.722164e-05
+29   6253 5.555994e-05
+30   6252 5.394062e-05
+31   6251 5.236281e-05
+32   6250 5.082566e-05
+33   6249 4.795295e-05
+34   6248 4.522323e-05
+35   6247 4.263064e-05
+36   6246 4.016950e-05
+37   6245 3.783427e-05
+38   6244 3.492808e-05
+39   6243 3.222096e-05
+40   6242 2.970139e-05
+41   6241 2.735834e-05
+42   6240 2.518126e-05
+43   6239 2.348750e-05
+44   6238 2.189782e-05
+45   6237 2.040659e-05
+46   6236 1.900843e-05
+47   6235 1.769821e-05
+48   6234 1.678750e-05
+49   6233 1.591932e-05
+50   6232 1.509193e-05
+51   6231 1.430365e-05
+52   6230 1.355285e-05
+53   6229 1.340705e-05
+54   6228 1.326267e-05
+55   6227 1.311971e-05
+56   6226 1.297814e-05
+57   6225 1.283796e-05
+58   6224 1.316134e-05
+59   6223 1.349260e-05
+60   6222 1.383194e-05
+61   6221 1.417953e-05
+62   6220 1.453556e-05
+63   6219 1.525454e-05
+64   6218 1.600555e-05
+65   6217 1.678982e-05
+66   6216 1.760862e-05
+67   6215 1.846327e-05
+68   6214 1.969977e-05
+69   6213 2.101012e-05
+70   6212 2.239809e-05
+71   6211 2.386758e-05
+72   6210 2.542261e-05
+73   6209 2.734166e-05
+74   6208 2.938855e-05
+75   6207 3.157039e-05
+76   6206 3.389456e-05
+77   6205 3.636874e-05
+78   6204 3.885590e-05
+79   6203 4.149454e-05
+80   6202 4.429243e-05
+81   6201 4.725762e-05
+82   6200 5.039846e-05
+83   6199 5.347367e-05
+84   6198 5.671454e-05
+85   6197 6.012845e-05
+86   6196 6.372297e-05
+87   6195 6.750591e-05
+88   6194 7.158474e-05
+89   6193 7.587501e-05
+90   6192 8.038533e-05
+91   6191 8.512448e-05
+92   6190 9.010147e-05
+93   6189 9.586029e-05
+94   6188 1.019287e-04
+95   6187 1.083192e-04
+96   6186 1.150442e-04
+97   6185 1.221166e-04
+98   6184 1.300832e-04
+99   6183 1.384784e-04
+100  6182 1.473185e-04
+101  6181 1.566200e-04
+102  6180 1.663993e-04
+103  6179 1.757868e-04
+104  6178 1.856051e-04
+105  6177 1.958675e-04
+106  6176 2.065872e-04
+107  6175 2.177777e-04
+108  6174 2.292251e-04
+109  6173 2.411602e-04
+110  6172 2.535966e-04
+111  6171 2.665475e-04
+112  6170 2.800262e-04
+113  6169 2.901564e-04
+114  6168 3.005712e-04
+115  6167 3.112750e-04
+116  6166 3.222722e-04
+117  6165 3.335671e-04
+118  6164 3.395873e-04
+119  6163 3.456900e-04
+120  6162 3.518754e-04
+121  6161 3.581443e-04
+122  6160 3.644969e-04
+123  6159 3.596302e-04
+124  6158 3.548129e-04
+125  6157 3.500450e-04
+126  6156 3.453262e-04
+127  6155 3.406561e-04
+128  6154 3.269362e-04
+129  6153 3.136462e-04
+130  6152 3.007787e-04
+131  6151 2.883263e-04
+132  6150 2.762813e-04
+133  6149 2.587197e-04
+134  6148 2.420481e-04
+135  6147 2.262393e-04
+136  6146 2.112654e-04
+137  6145 1.970982e-04
+138  6144 1.840935e-04
+139  6143 1.718084e-04
+140  6142 1.602143e-04
+141  6141 1.492831e-04
+142  6140 1.389867e-04
+143  6139 1.314369e-04
+144  6138 1.242396e-04
+145  6137 1.173824e-04
+146  6136 1.108526e-04
+147  6135 1.046382e-04
+148  6134 1.024393e-04
+149  6133 1.002798e-04
+150  6132 9.815916e-05
+151  6131 9.607687e-05
+152  6130 9.403238e-05
+153  6129 9.649029e-05
+154  6128 9.900278e-05
+155  6127 1.015708e-04
+156  6126 1.041952e-04
+157  6125 1.068771e-04
+158  6124 1.141566e-04
+159  6123 1.218573e-04
+160  6122 1.299975e-04
+161  6121 1.385960e-04
+162  6120 1.476720e-04
+163  6119 1.601387e-04
+164  6118 1.734578e-04
+165  6117 1.876683e-04
+166  6116 2.028092e-04
+167  6115 2.189195e-04
+168  6114 2.362850e-04
+169  6113 2.547224e-04
+170  6112 2.742691e-04
+171  6111 2.949613e-04
+172  6110 3.168337e-04
+173  6109 3.361553e-04
+174  6108 3.563569e-04
+175  6107 3.774568e-04
+176  6106 3.994718e-04
+177  6105 4.224179e-04
+178  6104 4.344023e-04
+179  6103 4.466473e-04
+180  6102 4.591555e-04
+181  6101 4.719293e-04
+182  6100 4.849712e-04
+183  6099 4.842735e-04
+184  6098 4.835884e-04
+185  6097 4.829160e-04
+186  6096 4.822562e-04
+187  6095 4.816091e-04
+188  6094 4.690795e-04
+189  6093 4.567849e-04
+190  6092 4.447246e-04
+191  6091 4.328977e-04
+192  6090 4.213030e-04
+193  6089 4.054318e-04
+194  6088 3.900229e-04
+195  6087 3.750694e-04
+196  6086 3.605646e-04
+197  6085 3.465013e-04
+198  6084 3.311927e-04
+199  6083 3.164040e-04
+200  6082 3.021263e-04
+201  6081 2.883503e-04
+202  6080 2.750665e-04
+203  6079 2.641682e-04
+204  6078 2.536112e-04
+205  6077 2.433894e-04
+206  6076 2.334964e-04
+207  6075 2.239257e-04
+208  6074 2.201749e-04
+209  6073 2.164885e-04
+210  6072 2.128654e-04
+211  6071 2.093049e-04
+212  6070 2.058061e-04
+213  6069 2.065872e-04
+214  6068 2.073708e-04
+215  6067 2.081567e-04
+216  6066 2.089451e-04
+217  6065 2.097359e-04
+218  6064 2.159296e-04
+219  6063 2.222763e-04
+220  6062 2.287785e-04
+221  6061 2.354390e-04
+222  6060 2.422604e-04
+223  6059 2.478772e-04
+224  6058 2.535966e-04
+225  6057 2.594196e-04
+226  6056 2.653474e-04
+227  6055 2.713810e-04
+228  6054 2.682287e-04
+229  6053 2.651062e-04
+230  6052 2.620134e-04
+231  6051 2.589501e-04
+232  6050 2.559162e-04
+233  6049 2.467462e-04
+234  6048 2.378399e-04
+235  6047 2.291928e-04
+236  6046 2.207998e-04
+237  6045 2.126563e-04
+238  6044 2.059496e-04
+239  6043 1.994317e-04
+240  6042 1.930987e-04
+241  6041 1.869465e-04
+242  6040 1.809711e-04
+243  6039 1.795730e-04
+244  6038 1.781838e-04
+245  6037 1.768034e-04
+246  6036 1.754318e-04
+247  6035 1.740689e-04
+248  6034 1.758520e-04
+249  6033 1.776563e-04
+250  6032 1.794821e-04
+251  6031 1.813294e-04
+252  6030 1.831985e-04
+253  6029 1.853268e-04
+254  6028 1.874752e-04
+255  6027 1.896440e-04
+256  6026 1.918332e-04
+257  6025 1.940430e-04
+258  6024 1.970216e-04
+259  6023 2.000372e-04
+260  6022 2.030903e-04
+261  6021 2.061811e-04
+262  6020 2.093099e-04
+263  6019 2.137875e-04
+264  6018 2.183453e-04
+265  6017 2.229841e-04
+266  6016 2.277046e-04
+267  6015 2.325077e-04
+268  6014 2.385437e-04
+269  6013 2.447043e-04
+270  6012 2.509911e-04
+271  6011 2.574056e-04
+272  6010 2.639493e-04
+273  6009 2.726002e-04
+274  6008 2.815166e-04
+275  6007 2.907045e-04
+276  6006 3.001701e-04
+277  6005 3.099195e-04
+278  6004 3.322853e-04
+279  6003 3.559463e-04
+280  6002 3.809452e-04
+281  6001 4.073233e-04
+282  6000 4.351198e-04
+283  5999 4.752895e-04
+284  5998 5.181050e-04
+285  5997 5.636191e-04
+286  5996 6.118713e-04
+287  5995 6.628865e-04
+288  5994 7.012234e-04
+289  5993 7.409680e-04
+290  5992 7.821111e-04
+291  5991 8.246379e-04
+292  5990 8.685284e-04
+293  5989 9.160528e-04
+294  5988 9.650155e-04
+295  5987 1.015372e-03
+296  5986 1.067072e-03
+297  5985 1.120055e-03
+298  5984 1.137990e-03
+299  5983 1.156057e-03
+300  5982 1.174254e-03
+301  5981 1.192579e-03
+302  5980 1.211027e-03
+303  5979 1.192782e-03
+304  5978 1.174674e-03
+305  5977 1.156704e-03
+306  5976 1.138875e-03
+307  5975 1.121190e-03
+308  5974 1.093556e-03
+309  5973 1.066280e-03
+310  5972 1.039369e-03
+311  5971 1.012832e-03
+312  5970 9.866756e-04
+313  5969 9.579901e-04
+314  5968 9.297507e-04
+315  5967 9.019676e-04
+316  5966 8.746497e-04
+317  5965 8.478053e-04
+318  5964 8.282028e-04
+319  5963 8.088750e-04
+320  5962 7.898241e-04
+321  5961 7.710518e-04
+322  5960 7.525596e-04
+323  5959 7.427055e-04
+324  5958 7.329429e-04
+325  5957 7.232719e-04
+326  5956 7.136925e-04
+327  5955 7.042045e-04
+328  5954 7.081142e-04
+329  5953 7.120378e-04
+330  5952 7.159754e-04
+331  5951 7.199270e-04
+332  5950 7.238925e-04
+333  5949 7.436181e-04
+334  5948 7.636969e-04
+335  5947 7.841279e-04
+336  5946 8.049100e-04
+337  5945 8.260416e-04
+338  5944 8.563218e-04
+339  5943 8.872705e-04
+340  5942 9.188794e-04
+341  5941 9.511387e-04
+342  5940 9.840373e-04
+343  5939 1.022921e-03
+344  5938 1.062565e-03
+345  5937 1.102942e-03
+346  5936 1.144019e-03
+347  5935 1.185761e-03
+348  5934 1.225274e-03
+349  5933 1.265328e-03
+350  5932 1.305891e-03
+351  5931 1.346929e-03
+352  5930 1.388406e-03
+353  5929 1.421738e-03
+354  5928 1.455333e-03
+355  5927 1.489170e-03
+356  5926 1.523228e-03
+357  5925 1.557484e-03
+358  5924 1.586227e-03
+359  5923 1.615058e-03
+360  5922 1.643965e-03
+361  5921 1.672933e-03
+362  5920 1.701947e-03
+363  5919 1.733908e-03
+364  5918 1.765857e-03
+365  5917 1.797772e-03
+366  5916 1.829631e-03
+367  5915 1.861411e-03
+368  5914 1.901795e-03
+369  5913 1.942019e-03
+370  5912 1.982036e-03
+371  5911 2.021797e-03
+372  5910 2.061256e-03
+373  5909 2.111466e-03
+374  5908 2.160992e-03
+375  5907 2.209729e-03
+376  5906 2.257572e-03
+377  5905 2.304417e-03
+378  5904 2.352023e-03
+379  5903 2.398150e-03
+380  5902 2.442676e-03
+381  5901 2.485484e-03
+382  5900 2.526461e-03
+383  5899 2.564453e-03
+384  5898 2.600733e-03
+385  5897 2.635210e-03
+386  5896 2.667802e-03
+387  5895 2.698426e-03
+388  5894 2.723610e-03
+389  5893 2.747374e-03
+390  5892 2.769671e-03
+391  5891 2.790454e-03
+392  5890 2.809682e-03
+393  5889 2.820618e-03
+394  5888 2.830615e-03
+395  5887 2.839664e-03
+396  5886 2.847758e-03
+397  5885 2.854890e-03
+398  5884 2.858440e-03
+399  5883 2.861704e-03
+400  5882 2.864681e-03
+401  5881 2.867371e-03
+402  5880 2.869773e-03
+403  5879 2.871793e-03
+404  5878 2.873779e-03
+405  5877 2.875731e-03
+406  5876 2.877647e-03
+407  5875 2.879528e-03
+408  5874 2.879055e-03
+409  5873 2.878574e-03
+410  5872 2.878085e-03
+411  5871 2.877589e-03
+412  5870 2.877085e-03
+413  5869 2.877085e-03
+414  5868 2.877085e-03
+415  5867 2.877085e-03
+416  5866 2.877085e-03
+417  5865 2.877085e-03
+418  5864 2.878778e-03
+419  5863 2.880434e-03
+420  5862 2.882054e-03
+421  5861 2.883636e-03
+422  5860 2.885181e-03
+423  5859 2.887904e-03
+424  5858 2.890428e-03
+425  5857 2.892750e-03
+426  5856 2.894871e-03
+427  5855 2.896789e-03
+428  5854 2.897876e-03
+429  5853 2.898766e-03
+430  5852 2.899458e-03
+431  5851 2.899953e-03
+432  5850 2.900250e-03
+433  5849 2.900333e-03
+434  5848 2.900345e-03
+435  5847 2.900285e-03
+436  5846 2.900155e-03
+437  5845 2.899953e-03
+438  5844 2.899205e-03
+439  5843 2.898070e-03
+440  5842 2.896548e-03
+441  5841 2.894639e-03
+442  5840 2.892345e-03
+443  5839 2.890861e-03
+444  5838 2.889252e-03
+445  5837 2.887518e-03
+446  5836 2.885659e-03
+447  5835 2.883675e-03
+448  5834 2.887518e-03
+449  5833 2.890861e-03
+450  5832 2.893703e-03
+451  5831 2.896042e-03
+452  5830 2.897876e-03
+453  5829 2.900206e-03
+454  5828 2.899680e-03
+455  5827 2.896299e-03
+456  5826 2.890073e-03
+457  5825 2.881020e-03
+458  5824 2.874470e-03
+459  5823 2.866793e-03
+460  5822 2.857998e-03
+461  5821 2.848093e-03
+462  5820 2.837089e-03
+463  5819 2.832995e-03
+464  5818 2.828783e-03
+465  5817 2.824454e-03
+466  5816 2.820008e-03
+467  5815 2.815445e-03
+468  5814 2.809580e-03
+469  5813 2.803535e-03
+470  5812 2.797312e-03
+471  5811 2.790912e-03
+472  5810 2.784336e-03
+473  5809 2.776215e-03
+474  5808 2.767844e-03
+475  5807 2.759228e-03
+476  5806 2.750367e-03
+477  5805 2.741265e-03
+478  5804 2.736126e-03
+479  5803 2.730928e-03
+480  5802 2.725669e-03
+481  5801 2.720352e-03
+482  5800 2.714976e-03
+483  5799 2.718223e-03
+484  5798 2.721445e-03
+485  5797 2.724640e-03
+486  5796 2.727810e-03
+487  5795 2.730954e-03
+488  5794 2.733541e-03
+489  5793 2.736093e-03
+490  5792 2.738607e-03
+491  5791 2.741085e-03
+492  5790 2.743526e-03
+493  5789 2.742590e-03
+494  5788 2.741639e-03
+495  5787 2.740674e-03
+496  5786 2.739693e-03
+497  5785 2.738698e-03
+498  5784 2.735089e-03
+499  5783 2.731452e-03
+500  5782 2.727787e-03
+501  5781 2.724093e-03
+502  5780 2.720371e-03
+503  5779 2.719321e-03
+504  5778 2.718257e-03
+505  5777 2.717178e-03
+506  5776 2.716084e-03
+507  5775 2.714976e-03
+508  5774 2.714458e-03
+509  5773 2.713934e-03
+510  5772 2.713405e-03
+511  5771 2.712869e-03
+512  5770 2.712327e-03
+513  5769 2.720371e-03
+514  5768 2.728253e-03
+515  5767 2.735972e-03
+516  5766 2.743526e-03
+517  5765 2.750913e-03
+518  5764 2.761548e-03
+519  5763 2.771856e-03
+520  5762 2.781833e-03
+521  5761 2.791474e-03
+522  5760 2.800776e-03
+523  5759 2.815489e-03
+524  5758 2.828955e-03
+525  5757 2.841157e-03
+526  5756 2.852078e-03
+527  5755 2.861707e-03
+528  5754 2.873225e-03
+529  5753 2.882780e-03
+530  5752 2.890349e-03
+531  5751 2.895913e-03
+532  5750 2.899458e-03
+533  5749 2.899708e-03
+534  5748 2.897925e-03
+535  5747 2.894117e-03
+536  5746 2.888294e-03
+537  5745 2.880471e-03
+538  5744 2.875046e-03
+539  5743 2.868672e-03
+540  5742 2.861353e-03
+541  5741 2.853098e-03
+542  5740 2.843911e-03
+543  5739 2.836222e-03
+544  5738 2.828060e-03
+545  5737 2.819428e-03
+546  5736 2.810332e-03
+547  5735 2.800776e-03
+548  5734 2.791474e-03
+549  5733 2.781833e-03
+550  5732 2.771856e-03
+551  5731 2.761548e-03
+552  5730 2.750913e-03
+553  5729 2.741085e-03
+554  5728 2.730911e-03
+555  5727 2.720395e-03
+556  5726 2.709542e-03
+557  5725 2.698354e-03
+558  5724 2.684603e-03
+559  5723 2.670456e-03
+560  5722 2.655919e-03
+561  5721 2.640999e-03
+562  5720 2.625705e-03
+563  5719 2.613993e-03
+564  5718 2.602078e-03
+565  5717 2.589962e-03
+566  5716 2.577650e-03
+567  5715 2.565143e-03
+568  5714 2.552447e-03
+569  5713 2.539564e-03
+570  5712 2.526498e-03
+571  5711 2.513252e-03
+572  5710 2.499830e-03
+573  5709 2.488888e-03
+574  5708 2.477810e-03
+575  5707 2.466599e-03
+576  5706 2.455256e-03
+577  5705 2.443784e-03
+578  5704 2.441409e-03
+579  5703 2.439030e-03
+580  5702 2.436646e-03
+581  5701 2.434258e-03
+582  5700 2.431866e-03
+583  5699 2.433933e-03
+584  5698 2.435989e-03
+585  5697 2.438033e-03
+586  5696 2.440067e-03
+587  5695 2.442089e-03
+588  5694 2.451871e-03
+589  5693 2.461589e-03
+590  5692 2.471241e-03
+591  5691 2.480825e-03
+592  5690 2.490341e-03
+593  5689 2.499069e-03
+594  5688 2.507705e-03
+595  5687 2.516249e-03
+596  5686 2.524699e-03
+597  5685 2.533054e-03
+598  5684 2.535631e-03
+599  5683 2.538201e-03
+600  5682 2.540764e-03
+601  5681 2.543319e-03
+602  5680 2.545866e-03
+603  5679 2.547633e-03
+604  5678 2.549388e-03
+605  5677 2.551130e-03
+606  5676 2.552860e-03
+607  5675 2.554576e-03
+608  5674 2.560932e-03
+609  5673 2.567241e-03
+610  5672 2.573502e-03
+611  5671 2.579715e-03
+612  5670 2.585880e-03
+613  5669 2.587924e-03
+614  5668 2.589962e-03
+615  5667 2.591995e-03
+616  5666 2.594023e-03
+617  5665 2.596045e-03
+618  5664 2.567662e-03
+619  5663 2.538201e-03
+620  5662 2.507705e-03
+621  5661 2.476217e-03
+622  5660 2.443784e-03
+623  5659 2.387787e-03
+624  5658 2.329743e-03
+625  5657 2.269871e-03
+626  5656 2.208392e-03
+627  5655 2.145525e-03
+628  5654 2.095627e-03
+629  5653 2.045080e-03
+630  5652 1.993988e-03
+631  5651 1.942454e-03
+632  5650 1.890580e-03
+633  5649 1.864546e-03
+634  5648 1.838464e-03
+635  5647 1.812346e-03
+636  5646 1.786205e-03
+637  5645 1.760051e-03
+638  5644 1.760051e-03
+639  5643 1.760051e-03
+640  5642 1.760050e-03
+641  5641 1.760049e-03
+642  5640 1.760047e-03
+643  5639 1.774642e-03
+644  5638 1.789247e-03
+645  5637 1.803858e-03
+646  5636 1.818475e-03
+647  5635 1.833094e-03
+648  5634 1.853517e-03
+649  5633 1.873916e-03
+650  5632 1.894284e-03
+651  5631 1.914616e-03
+652  5630 1.934906e-03
+653  5629 1.952259e-03
+654  5628 1.969573e-03
+655  5627 1.986844e-03
+656  5626 2.004069e-03
+657  5625 2.021243e-03
+658  5624 2.049745e-03
+659  5623 2.078077e-03
+660  5622 2.106223e-03
+661  5621 2.134164e-03
+662  5620 2.161882e-03
+663  5619 2.192092e-03
+664  5618 2.221987e-03
+665  5617 2.251540e-03
+666  5616 2.280730e-03
+667  5615 2.309530e-03
+668  5614 2.296271e-03
+669  5613 2.282938e-03
+670  5612 2.269532e-03
+671  5611 2.256058e-03
+672  5610 2.242517e-03
+673  5609 2.188483e-03
+674  5608 2.133411e-03
+675  5607 2.077446e-03
+676  5606 2.020734e-03
+677  5605 1.963416e-03
+678  5604 1.888229e-03
+679  5603 1.812560e-03
+680  5602 1.736704e-03
+681  5601 1.660942e-03
+682  5600 1.585545e-03
+683  5599 1.513543e-03
+684  5598 1.442287e-03
+685  5597 1.371983e-03
+686  5596 1.302822e-03
+687  5595 1.234983e-03
+688  5594 1.166182e-03
+689  5593 1.099173e-03
+690  5592 1.034092e-03
+691  5591 9.710614e-04
+692  5590 9.101815e-04
+693  5589 8.405207e-04
+694  5588 7.741461e-04
+695  5587 7.111342e-04
+696  5586 6.515299e-04
+697  5585 5.953484e-04
+698  5584 5.428081e-04
+699  5583 4.936376e-04
+700  5582 4.477740e-04
+701  5581 4.051353e-04
+702  5580 3.656234e-04
+703  5579 3.415998e-04
+704  5578 3.188051e-04
+705  5577 2.972055e-04
+706  5576 2.767657e-04
+707  5575 2.574493e-04
+708  5574 2.454782e-04
+709  5573 2.339554e-04
+710  5572 2.228703e-04
+711  5571 2.122121e-04
+712  5570 2.019700e-04
+713  5569 1.973803e-04
+714  5568 1.928758e-04
+715  5567 1.884555e-04
+716  5566 1.841184e-04
+717  5565 1.798633e-04
+718  5564 1.804101e-04
+719  5563 1.809607e-04
+720  5562 1.815152e-04
+721  5561 1.820736e-04
+722  5560 1.826358e-04
+723  5559 1.829360e-04
+724  5558 1.832454e-04
+725  5557 1.835639e-04
+726  5556 1.838915e-04
+727  5555 1.842281e-04
+728  5554 1.822625e-04
+729  5553 1.803172e-04
+730  5552 1.783922e-04
+731  5551 1.764871e-04
+732  5550 1.746019e-04
+733  5549 1.725603e-04
+734  5548 1.705384e-04
+735  5547 1.685360e-04
+736  5546 1.665531e-04
+737  5545 1.645894e-04
+738  5544 1.650723e-04
+739  5543 1.655586e-04
+740  5542 1.660485e-04
+741  5541 1.665419e-04
+742  5540 1.670388e-04
+743  5539 1.712034e-04
+744  5538 1.754532e-04
+745  5537 1.797893e-04
+746  5536 1.842130e-04
+747  5535 1.887253e-04
+748  5534 1.951922e-04
+749  5533 2.018444e-04
+750  5532 2.086854e-04
+751  5531 2.157192e-04
+752  5530 2.229492e-04
+753  5529 2.290519e-04
+754  5528 2.352874e-04
+755  5527 2.416574e-04
+756  5526 2.481638e-04
+757  5525 2.548081e-04
+758  5524 2.548081e-04
+759  5523 2.548081e-04
+760  5522 2.548081e-04
+761  5521 2.548081e-04
+762  5520 2.548081e-04
+763  5519 2.520349e-04
+764  5518 2.492858e-04
+765  5517 2.465607e-04
+766  5516 2.438593e-04
+767  5515 2.411816e-04
+768  5514 2.440710e-04
+769  5513 2.469890e-04
+770  5512 2.499358e-04
+771  5511 2.529115e-04
+772  5510 2.559162e-04
+773  5509 2.680073e-04
+774  5508 2.805552e-04
+775  5507 2.935702e-04
+776  5506 3.070629e-04
+777  5505 3.210434e-04
+778  5504 3.357631e-04
+779  5503 3.509957e-04
+780  5502 3.667502e-04
+781  5501 3.830351e-04
+782  5500 3.998587e-04
+783  5499 4.048865e-04
+784  5498 4.099673e-04
+785  5497 4.151014e-04
+786  5496 4.202892e-04
+787  5495 4.255308e-04
+788  5494 4.162054e-04
+789  5493 4.070405e-04
+790  5492 3.980347e-04
+791  5491 3.891867e-04
+792  5490 3.804949e-04
+793  5489 3.640432e-04
+794  5488 3.481317e-04
+795  5487 3.327522e-04
+796  5486 3.178960e-04
+797  5485 3.035540e-04
+798  5484 2.840196e-04
+799  5483 2.654976e-04
+800  5482 2.479554e-04
+801  5481 2.313601e-04
+802  5480 2.156781e-04
+803  5479 1.997306e-04
+804  5478 1.847503e-04
+805  5477 1.706975e-04
+806  5476 1.575327e-04
+807  5475 1.452166e-04
+808  5474 1.334442e-04
+809  5473 1.224888e-04
+810  5472 1.123072e-04
+811  5471 1.028571e-04
+812  5470 9.409752e-05
+813  5469 8.727761e-05
+814  5468 8.088418e-05
+815  5467 7.489631e-05
+816  5466 6.929366e-05
+817  5465 6.405644e-05
+818  5464 6.071241e-05
+819  5463 5.752393e-05
+820  5462 5.448495e-05
+821  5461 5.158959e-05
+822  5460 4.883214e-05
+823  5459 4.739143e-05
+824  5458 4.598842e-05
+825  5457 4.462230e-05
+826  5456 4.329227e-05
+827  5455 4.199753e-05
+828  5454 4.119571e-05
+829  5453 4.040744e-05
+830  5452 3.963251e-05
+831  5451 3.887074e-05
+832  5450 3.812195e-05
+833  5449 3.612816e-05
+834  5448 3.422732e-05
+835  5447 3.241576e-05
+836  5446 3.068992e-05
+837  5445 2.904635e-05
+838  5444 2.625798e-05
+839  5443 2.371132e-05
+840  5442 2.138825e-05
+841  5441 1.927168e-05
+842  5440 1.734557e-05
+843  5439 1.584688e-05
+844  5438 1.446624e-05
+845  5437 1.319546e-05
+846  5436 1.202679e-05
+847  5435 1.095297e-05
+848  5434 1.047849e-05
+849  5433 1.002282e-05
+850  5423 1.024835e-05
+851  5422 1.077280e-05
+852  5421 1.132158e-05
+853  5420 1.189568e-05
+854  5419 1.267679e-05
+855  5418 1.350492e-05
+856  5417 1.438260e-05
+857  5416 1.531243e-05
+858  5415 1.629717e-05
+859  5414 1.712677e-05
+860  5413 1.799438e-05
+861  5412 1.890148e-05
+862  5411 1.984962e-05
+863  5410 2.084039e-05
+864  5409 2.172314e-05
+865  5408 2.263932e-05
+866  5407 2.359000e-05
+867  5406 2.457631e-05
+868  5405 2.559938e-05
+869  5404 2.612506e-05
+870  5403 2.666036e-05
+871  5402 2.720545e-05
+872  5401 2.776046e-05
+873  5400 2.832556e-05
+874  5399 2.832556e-05
+875  5398 2.832556e-05
+876  5397 2.832556e-05
+877  5396 2.832556e-05
+878  5395 2.832556e-05
+879  5394 2.804174e-05
+880  5393 2.776046e-05
+881  5392 2.748171e-05
+882  5391 2.720545e-05
+883  5390 2.693168e-05
+884  5389 2.762077e-05
+885  5388 2.832556e-05
+886  5387 2.904635e-05
+887  5386 2.978344e-05
+888  5385 3.053715e-05
+889  5384 3.209569e-05
+890  5383 3.372455e-05
+891  5382 3.542639e-05
+892  5381 3.720392e-05
+893  5380 3.905996e-05
+894  5379 4.139489e-05
+895  5378 4.385212e-05
+896  5377 4.643692e-05
+897  5376 4.915472e-05
+898  5375 5.201109e-05
+899  5374 5.399515e-05
+900  5373 5.604508e-05
+901  5372 5.816266e-05
+902  5371 6.034969e-05
+903  5370 6.260799e-05
+904  5369 6.289538e-05
+905  5368 6.318392e-05
+906  5367 6.347360e-05
+907  5366 6.376445e-05
+908  5365 6.405644e-05
+909  5364 6.269428e-05
+910  5363 6.135911e-05
+911  5362 6.005045e-05
+912  5361 5.876785e-05
+913  5360 5.751085e-05
+914  5359 5.559120e-05
+915  5358 5.372787e-05
+916  5357 5.191952e-05
+917  5356 5.016483e-05
+918  5355 4.846250e-05
+919  5354 4.785005e-05
+920  5353 4.724560e-05
+921  5352 4.664906e-05
+922  5351 4.606033e-05
+923  5350 4.547931e-05
+924  5349 4.694402e-05
+925  5348 4.845171e-05
+926  5347 5.000344e-05
+927  5346 5.160033e-05
+928  5345 5.324350e-05
+929  5344 5.526853e-05
+930  5343 5.736053e-05
+931  5342 5.952130e-05
+932  5341 6.175265e-05
+933  5340 6.405644e-05
+934  5339 6.405644e-05
+935  5338 6.405644e-05
+936  5337 6.405644e-05
+937  5336 6.405644e-05
+938  5335 6.405644e-05
+939  5334 5.952130e-05
+940  5333 5.526853e-05
+941  5332 5.128369e-05
+942  5331 4.755286e-05
+943  5330 4.406258e-05
+944  5329 3.849474e-05
+945  5328 3.355843e-05
+946  5327 2.919245e-05
+947  5326 2.534010e-05
+948  5325 2.194901e-05
+949  5324 1.847924e-05
+950  5323 1.551172e-05
+951  5322 1.298202e-05
+952  5321 1.083255e-05</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-8-3">
+<p>Raw data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Radiocarbon probability densities for 1 date</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">plot</span>(C14cal) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" class="margin-caption" width="960"></p>
+</div>
+</div>
+</div>
+<div id="tabset-8-4">
+<p>Aggregated data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>bins <span class="ot">&lt;-</span> <span class="fu">binPrep</span>(C14[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="st">"SiteName"</span>],</span>
+<span id="cb7-2"><a href="#cb7-2"></a>                C14[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="st">"C14Age"</span>],</span>
+<span id="cb7-3"><a href="#cb7-3"></a>                <span class="at">h =</span> <span class="dv">50</span>)</span>
+<span id="cb7-4"><a href="#cb7-4"></a>x <span class="ot">&lt;-</span> <span class="fu">calibrate</span>(C14[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="st">"C14Age"</span>],</span>
+<span id="cb7-5"><a href="#cb7-5"></a>               C14[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="st">"C14SD"</span>],</span>
+<span id="cb7-6"><a href="#cb7-6"></a>               <span class="at">normalised =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Calibrating radiocarbon ages..."
+
+  |                                                                            
+  |                                                                      |   0%
+  |                                                                            
+  |===================================                                   |  50%
+  |                                                                            
+  |======================================================================| 100%
+[1] "Done."</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>spd.levant <span class="ot">&lt;-</span> <span class="fu">spd</span>(x,</span>
+<span id="cb9-2"><a href="#cb9-2"></a>                  <span class="at">bins=</span>bins,</span>
+<span id="cb9-3"><a href="#cb9-3"></a>                  <span class="at">timeRange =</span> <span class="fu">c</span>(<span class="dv">7000</span>, <span class="dv">4000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Extracting and aggregating..."
+
+  |                                                                            
+  |                                                                      |   0%
+  |                                                                            
+  |======================================================================| 100%
+[1] "Done."</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">plot</span>(spd.levant,</span>
+<span id="cb11-2"><a href="#cb11-2"></a>     <span class="at">runm =</span> <span class="dv">50</span>, </span>
+<span id="cb11-3"><a href="#cb11-3"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">6500</span>, <span class="dv">5000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" class="margin-caption" width="960"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">library</span>(archdata)</span>
+<span id="cb12-2"><a href="#cb12-2"></a></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">data</span>(<span class="st">"OxfordPots"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4"></a></span>
+<span id="cb12-5"><a href="#cb12-5"></a>place <span class="ot">&lt;-</span> OxfordPots[<span class="dv">1</span>, <span class="st">"Place"</span>]</span>
+<span id="cb12-6"><a href="#cb12-6"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(OxfordPots[<span class="dv">1</span>, <span class="st">"OxfordPct"</span>], OxfordPots[<span class="dv">1</span>, <span class="st">"NewForestPct"</span>])</span>
+<span id="cb12-7"><a href="#cb12-7"></a>labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"OxfordPct"</span>, <span class="st">"NewForestPct"</span>)</span>
+<span id="cb12-8"><a href="#cb12-8"></a><span class="fu">pie</span>(x, labels, <span class="at">main =</span> place)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-7-1.png" class="margin-caption" width="960"></p>
+</div>
+</div>
+</div>
+<div id="tabset-8-5">
+<p>Metadata</p>
+<p><img data-src="images/data-meta-photo.png" class="margin-caption" height="400"></p>
+</div>
+<div id="tabset-8-6">
+<p>Missing data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb13-2"><a href="#cb13-2"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">row.names =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>),</span>
+<span id="cb13-3"><a href="#cb13-3"></a>                 <span class="at">pots1 =</span>  <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">2</span>),</span>
+<span id="cb13-4"><a href="#cb13-4"></a>                 <span class="at">pots2 =</span>  <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">6</span>, <span class="dv">10</span>, <span class="dv">5</span>),</span>
+<span id="cb13-5"><a href="#cb13-5"></a>                 <span class="at">pots3 =</span>  <span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="cn">NA</span>))</span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="fu">kable</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">pots1</th>
+<th style="text-align: right;">pots2</th>
+<th style="text-align: right;">pots3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">D</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># remove NA</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">colSums</span>(df, <span class="at">na.rm =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>pots1 pots2 pots3 
+   17    28    24 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># without removing NA</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">colSums</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>pots1 pots2 pots3 
+   NA    28    NA </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="dim-data" class="slide level2" data-background-iframe="http://shinyserver.cfs.unipi.it:3838/teach/stats/dim1/">
+<h2>1-dim data</h2>
+<aside class="notes">
+<p>univariate Data with 1 dimension = 1 measure Histogram = discretization = bins = change of scale</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="footer">
+<p>Dataset: <a href="https://rdrr.io/cran/archdata/man/archdata-package.html"><code>archdata</code> R package - <code>Mesolithic</code> dataset</a></p>
+</div>
+</section>
+<section id="scales" class="slide level2">
+<h2>Scales</h2>
+<div class="panel-tabset">
+<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Quantitative</a></li><li><a href="#tabset-9-2">Ordinal</a></li><li><a href="#tabset-9-3">Nominal</a></li><li><a href="#tabset-9-4">Change of scale</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1">
+<div class="row">
+<div class="column">
+<img data-src="images/stat-scale-quant.png" height="350">
+</div>
+<div class="column">
+<strong>Units of length</strong> (cm, m, km, kg, years, etc.). The statistical unit is quantified by a measure with continuous measurable intervals.
+</div>
+</div>
+</div>
+<div id="tabset-9-2">
+<div class="row">
+<div class="column">
+<img data-src="images/stat-scale-ord.png" height="350">
+</div>
+<div class="column">
+<strong>Ranks</strong> (discrete). Ordered sequence of values (e.g.&nbsp;‘low’, ‘medium’, ‘high’) without establishing the distance between consecutive values.
+</div>
+</div>
+</div>
+<div id="tabset-9-3">
+<div class="row">
+<div class="column">
+<img data-src="images/stat-scale-nom.png" height="350">
+</div>
+<div class="column">
+<strong>Qualitative</strong> categories that cannot be ordered (eg. “Green”, “Yellow”, “Red”).
+</div>
+</div>
+</div>
+<div id="tabset-9-4">
+
+<table class="table">
+<thead>
+<tr>
+<th>
+from
+</th>
+<th>
+to
+</th>
+<th>
+transformation
+</th>
+<th>
+example
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Quantitative
+</td>
+<td>
+Ordinal
+</td>
+<td>
+discretization
+</td>
+<td>
+<code>[1:10], [11:20], etc.</code>
+</td>
+</tr>
+<tr>
+<td>
+Ordinal
+</td>
+<td>
+Quantitative
+</td>
+<td>
+<code>as.numeric()</code>
+</td>
+<td>
+<code>"low" = 1, "medium" = 2</code>
+</td>
+</tr>
+<tr>
+<td>
+Ordinal
+</td>
+<td>
+Nominal
+</td>
+<td>
+<code>as.factor()</code>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="dim-data-1" class="slide level2" data-background-iframe="http://shinyserver.cfs.unipi.it:3838/teach/stats/dim2/">
+<h2>2-dim data</h2>
+<aside class="notes">
+<p>TODO: show coeff value bi-variate utiliser la regression de Renfrew, C., &amp; Bahn, P. (2012). Archaeology: theories, methods and practice. Thames and Hudson regression = parcimonious = RMS SD, standardize residuals: standard deviation. The SD represents the “distance” between the mean value and the value under consideration, expressed as a number of standard deviations. In the context of a regression, the SD gives an idea of the “distance” of an individual (described by one or more variables) from the value estimated if the model were perfect (R2=1, i.e.&nbsp;all points aligned on the least squares line) (SS BIB). The standard deviation between the value that the variable characterising an individual takes and its expected value (normal distribution). The standard deviation (or standardised residuals) makes it possible to avoid the size effect. The latter would not allow working with individuals with extremely different numbers (BIB 1526). If the series studied is normal, the standard deviations of the values of this series follow a normal distribution of mean 0 and standard deviation 1, i.e.&nbsp;a centred-reduced normal distribution (internet)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="footer">
+<p>Dataset: <a href="https://rdrr.io/cran/archdata/man/archdata-package.html"><code>archdata</code> R package - <code>OxfordPots</code> dataset</a></p>
+</div>
+</section>
+<section id="dim-data-spatial" class="slide level2" data-background-iframe="http://shinyserver.cfs.unipi.it:3838/teach/stats/pointbasic/">
+<h2>2-dim data spatial</h2>
+<aside class="notes">
+<p>spatial dataset “everything is related to everything else, but near things are more related than distant things” Tobler, 1970</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="dim-data-spatial-1" class="slide level2" data-background-iframe="http://shinyserver.cfs.unipi.it:3838/teach/stats/pointpattern/">
+<h2>2-dim data spatial</h2>
+<aside class="notes">
+
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<p>Random and clustered patterns</p>
+<div class="panel-tabset">
+<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">Rock art sites</a></li><li><a href="#tabset-10-2">Rock art surfaces</a></li><li><a href="#tabset-10-3">Bronze hoards</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1">
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/dist-rand-ra-millestone.png" class="margin-caption" height="350"></p>
+<p></p><figcaption>Cups-and-rings rock art concentration (⬤) in Millestone Burn, Northumberland, England (Bradley 1996)</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+Engraved rock sites (⬤) are concentrated on Millstone Grits (sandstone) with a statistical significance in comparison to a theoretical <strong>random distribution</strong> (○).
+</div>
+</div>
+</div>
+<div id="tabset-10-2">
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/dist-rand-ra-bego.png" class="margin-caption" height="350"></p>
+<p></p><figcaption>Neolithic/Early Bronze Age engraved rock, Mont Bego, France (Chippindale 1988)</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+On the observed rock surface (A), engravings are arranged in a more orderly manner in a <strong>random process</strong> (B and C), but the former remains far from an orderly arrangement without overlapping engravings.
+</div>
+</div>
+</div>
+<div id="tabset-10-3">
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/lba-hoards-random.jpg" class="margin-caption" height="350"></p>
+<p></p><figcaption>Distribution of the Late Bronze Age Ewart Park hoards, Atlantic Europe (Wiseman 2018)</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+Hoards from the Ewart Park phase show a <strong>normal distribution</strong> when considering size, fragmentation and number of pieces. The hoards would result from a random accumulation and breaking
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>random = clustered =</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p>Regular pattern</p>
+<div class="panel-tabset">
+<ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1">Tumulus</a></li><li><a href="#tabset-11-2">Princely sites</a></li><li><a href="#tabset-11-3">Emporions</a></li><li><a href="#tabset-11-4">Caravanserails</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1">
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/dist-reg-tumulus.jpg" class="margin-caption" height="350"></p>
+<p></p><figcaption>Early Bronze Age tumuli in Brittany (Brun 2011)</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+The ‘princely’ tombs are <strong>evenly distributed</strong> in space, separated from each other by a distance of 12.5 km, i.e.&nbsp;less than three hours’ walk round trip
+</div>
+</div>
+</div>
+<div id="tabset-11-2">
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/dist-reg-centralplace.jpg" class="margin-caption" height="350"></p>
+<p></p><figcaption>Early Iron Age princely sites at the North of the Alps (Brun 2011)</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+In the 6<sup>th</sup> century BC, the ‘princely sites’ are separated from each other by an <strong>average distance</strong> of about 50 km. This distance can be covered in a day on horseback.
+</div>
+</div>
+</div>
+<div id="tabset-11-3">
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/dist-reg-emporions.jpg" class="margin-caption" height="350"></p>
+<p></p><figcaption>Main <em>emporions</em> in the Golfe du Lion, Northwestern Mediterranea (Gailledrat 2005)</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+During the same period (6<sup>th</sup> c.&nbsp;BC) coastal trading posts installed almost systematically at the mouth of river valleys and approximately 40 km from each other (1 day’s cabotage)
+</div>
+</div>
+</div>
+<div id="tabset-11-4">
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/dist-reg-caravanserails.png" class="margin-caption" height="350"></p>
+<p></p><figcaption>Caravanserails in the Khorasan region, Iran (EAMENA DB)</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+During the Late Islamic period (15<sup>th</sup>-18<sup>th</sup> c.&nbsp;AD) trade posts (caravanserails) have been build along trading roads. They are close to water sources and separated from each other by about 20-30 km (1 camel day).
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>regular = competition</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<p>Gradient pattern</p>
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/dist-gradient-spread-neo.jpg" class="margin-caption" height="300"></p>
+<p></p><figcaption>Ammerman and Cavalli-Sforza, 1971, <em>Measuring the rate of spread of early farming in Europe</em></figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+<strong>Diffusion</strong> (spatial and temporal). In the case of a linear gradient, the calculation of the centroid of a group of points is a good indicator of its evolution..
+</div>
+</div>
+</section>
+<section id="dim-data-shape" class="slide level2" data-background-iframe="http://shinyserver.cfs.unipi.it:3838/teach/stats/gmm/">
+<h2>2-dim data shape</h2>
+<div class="footer">
+<p>Current dataset: <a href="https://doi.org/10.1007/s41982-021-00097-2">Matzig, D.N., Hussain, S.T. and Riede, F. <em>Design Space Constraints and the Cultural Taxonomy of European Final Palaeolithic Large Tanged Points (…)</em></a></p>
+</div>
+</section>
+<section id="dim-data-2" class="slide level2" data-background-iframe="http://shinyserver.cfs.unipi.it:3838/teach/stats/dim3/">
+<h2>3-dim data</h2>
+<div class="footer">
+<p>Current dataset: <a href="https://github.com/zoometh/itineRis/blob/main/inst/extdata/dfisotops.csv">ANR Itineris</a></p>
+</div>
+<aside class="notes">
+<p>Useful when data are complete (chemical composition, genetics, etc.)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="dim-or-more-data" class="slide level2">
+<h2>3-dim or more data</h2>
+<div class="panel-tabset">
+<ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1">Dataset</a></li><li><a href="#tabset-12-2">FA</a></li><li><a href="#tabset-12-3">CA</a></li><li><a href="#tabset-12-4">PCA</a></li><li><a href="#tabset-12-5">HCA</a></li><li><a href="#tabset-12-6">LDA</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1">
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/stat-plosone-carto-zona.png" class="margin-caption" height="300"></p>
+<p></p><figcaption>Map of NE Iberia with locations of the studied sites</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/stat-seriat-plosone.png" class="margin-caption" height="300"></p>
+<p></p><figcaption>Chrono-typology seriation of the 127 studied assemblages from Late Bronze Age to Late Antiquity</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-12-2">
+<center>
+Factorial Analysis (FA)
+</center>
+<br>
+<div class="row">
+<div class="column" style="width: 25%">
+<img data-src="images/stat-fa-camel-1.png" height="300">
+</div>
+<div class="column33" style="width: 5%; vertical-align: middle;">
+➡️
+</div>
+<div class="column" style="width: 25%">
+<img data-src="images/stat-fa-camel-2.png" height="300">
+</div>
+<div class="column" style="width: 45%">
+Factorial Analysis is the generic term for multivariate (or multifactorial) analysis
+</div>
+</div>
+</div>
+<div id="tabset-12-3">
+<center>
+Correspondence Analysis (CA)
+</center>
+<br>
+<div class="row">
+<div class="column33">
+<span class="math inline">\(\ge\)</span> 2 rows, <span class="math inline">\(\ge\)</span> 2 columns, <span class="math inline">\(\emptyset\)</span> missing data, <span class="math inline">\(\emptyset\)</span> negative values, <span class="math inline">\(\forall\)</span> data with the same scale
+</div>
+<div class="column66">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/stat-fa-ca-plosone-lba-zona.png" class="margin-caption" height="300"></p>
+<p></p><figcaption>CA of sites’ NISP profiles during the LBA</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-12-4">
+<center>
+Principal Component Analysis (PCA)
+</center>
+<br>
+<div class="row">
+<div class="column33">
+quantitative data, <span class="math inline">\(\ge\)</span> 3 rows, <span class="math inline">\(\ge\)</span> 3 columns, nb rows <span class="math inline">\(\ge\)</span> 10x nb of columns
+</div>
+<div class="column66">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/stat-fa-pca-plosone-xxx.jpg" class="margin-caption" height="300"></p>
+<p></p><figcaption>PCA of sites’ NISP profiles during the MIA2</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-12-5">
+<center>
+Hierachical Clustering Analysis (HCA)
+</center>
+<br>
+<div class="row">
+<div class="column33">
+related to CA, PCA or MFA
+</div>
+<div class="column66">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/stat-fa-hc-plosone-lba-zona.png" class="margin-caption" height="300"></p>
+<p></p><figcaption>HCA of sites’ NISP profiles during the LBA</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-12-6">
+<center>
+Linear Discriminant Analysis (LDA)
+</center>
+<br>
+<div class="row">
+<div class="column33">
+sensitive to outliers and the size of the smallest group must be larger than the number of predictor variables
+</div>
+<div class="column66">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/stat-fa-lda-plosone-lba-zona.png" class="margin-caption" height="300"></p>
+<p></p><figcaption>LDA of sites’ NISP profiles during the LBA</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>Multivariate</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="seriation" class="slide level2" data-background-iframe="http://shinyserver.cfs.unipi.it:3838/teach/stats/seriation/">
+<h2>Seriation</h2>
+<aside class="notes">
+<p>Seriation = Guttman effect = horse shoe = arc = relation directe sur la sphere</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="footer">
+<p>Current dataset: <a href="https://ojs.elte.hu/dissarch/article/view/2262/2082">Schneider A., 2020, <em>Multivariate Statistical Analysis of Archaeological Contexts: The case study of the Early La Tène Cemetery of Szentlőrinc, Hungary</em></a></p>
+</div>
+</section>
+<section id="computers-in-archaeology" class="slide level2">
+<h2>Computers in Archaeology</h2>
+<div class="panel-tabset">
+<ul id="tabset-13" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-13-1">Human <em>vs</em> Machine</a></li><li><a href="#tabset-13-2">Stack</a></li><li><a href="#tabset-13-3">GitHub</a></li><li><a href="#tabset-13-4">R</a></li><li><a href="#tabset-13-5">Python</a></li></ul>
+<div class="tab-content">
+<div id="tabset-13-1">
+<div class="row">
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/hist-computer-science-expert.jpg" class="margin-caption" height="300"></p>
+<p></p><figcaption>Garry Kasparov <em>vs</em> Deep Blue, 1996-1997</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="column">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure>
+<p><img data-src="images/hist-computer-science-ai.png" class="margin-caption" height="300"></p>
+<p></p><figcaption>Prompted image with Midjourney AI, 2022</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-13-2">
+<p><br></p>
+
+<table class="table">
+<thead>
+<tr>
+<th>
+<a href="https://www.r-project.org/"> <img src="https://www.r-project.org/logo/Rlogo.svg" alt="" style="height: 100px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo"> </a>
+</th>
+<th>
+<a href="https://www.python.org/"> <img src="https://www.python.org/static/img/python-logo@2x.png" alt="" style="height: 100px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo"> </a>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2">
+<a href="https://github.com"> <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 100px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo"> </a>
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+<div id="tabset-13-3">
+<p><a href="https://github.com"> <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 100px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo"> </a> The 🔝 popular web-platform for source code management and software development (with over 128 million public repositories)</p>
+</div>
+<div id="tabset-13-4">
+<a href="https://www.r-project.org/"> <img src="https://www.r-project.org/logo/Rlogo.svg" alt="" style="height: 100px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo"> </a>
+<p>
+R is a scripting language for data science. It is the 1️⃣<sup>st</sup> used by archaeologists, and the 18<sup>th</sup> worldwide
+</p>
+<p><small>- <a href="https://www.tiobe.com/tiobe-index/">Tiobe index 2022</a> + <a href="https://youtu.be/tUhHhzGSgbk?t=7499">Batist and Roe, 2022</a></small></p>
+
+<table class="table">
+<thead>
+<tr>
+<th>
+R
+</th>
+<th>
+description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="it-ide">
+IDE
+</td>
+<td>
+<a href="https://www.rstudio.com/">RStudio</a> is THE graphical interface for R, Rstudio is also in the cloud (<a href="https://rstudio.cloud/">RStudio.cloud</a>), <a href="https://code.visualstudio.com/">VS Code</a> is a standalone source code editor multi-platforms and multi-languages
+</td>
+</tr>
+<tr>
+<td class="it-layouts">
+layouts
+</td>
+<td>
+<a href="https://rmarkdown.rstudio.com/">R markdown</a> is a notebook interface for report generation, <a href="https://shiny.rstudio.com/">Shiny</a> allows the development of web interactive applications, <a href="https://quarto.org/">Quarto</a> to create Powerpoint-like web interactive documents
+</td>
+</tr>
+<tr>
+<td class="it-libraries">
+libraries
+</td>
+<td>
+<a href="https://cran.r-project.org/web/packages/openxlsx/index.html">openxlsx</a> to read/write Excel files, <a href="https://ggplot2.tidyverse.org/">ggplot2</a> to create plots, <a href="https://cran.r-project.org/web/packages/sf/index.html">sf</a> makes R a GIS, <a href="https://igraph.org/r/">igraph</a> for network analysis, <a href="https://cran.r-project.org/web/packages/odbc/index.html">ODBC</a> to connect SQL databases, <a href="https://cran.r-project.org/web/packages/rcarbon/index.html">rcarbon</a> for radiocarbon dates calibration, <a href="https://cran.r-project.org/web/packages/Momocs/index.html">Momocs</a> for geometric morphometric methods, <a href="https://cran.r-project.org/web/packages/leaflet/index.html">leaflet</a> creates interactive maps, <a href="https://plotly.com/r/">plotly</a> creates interactive plots, etc.
+</td>
+</tr>
+<tr>
+<td class="it-resources">
+resources
+</td>
+<td>
+<a href="http://www.sthda.com/english/wiki/ggplot2-line-plot-quick-start-guide-r-software-and-data-visualization">sthda.com</a> has good tutorials, <a href="https://stackoverflow.com/">stackoverflow</a> is probably the place where you will find the answer you need, if you need some open software for archaeology go to <a href="https://open-archaeo.info/">open-archaeo</a>
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+<div id="tabset-13-5">
+<a href="https://www.python.org/"> <img src="https://www.python.org/static/img/python-logo@2x.png" alt="" style="height: 100px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo"> </a>
+<p>
+Python is a high-level programming language. It is the 2️⃣<sup>st</sup> programming language used by archaeologists, and the 1️⃣<sup>st</sup> worldwide
+</p>
+<p><small>- <a href="https://www.tiobe.com/tiobe-index/">Tiobe index 2022</a> + <a href="https://youtu.be/tUhHhzGSgbk?t=7499">Batist and Roe, 2022</a></small></p>
+
+<table class="table">
+<thead>
+<tr>
+<th>
+Python
+</th>
+<th>
+description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="it-ide">
+IDE
+</td>
+<td>
+<a href="https://code.visualstudio.com/">VS Code</a> is THE best standalone source code editor multi-platforms and multi-languages. The Google colab.research.google.com online platform
+</td>
+</tr>
+<tr>
+<td class="it-layouts">
+layouts
+</td>
+<td>
+<a href="https://jupyter.org/">Jupyter</a> is a notebook interface for report generation. <a href="https://plotly.com/python/getting-started/">Dash</a> allows the development of web interactive applications, <a href="https://quarto.org/">Quarto</a> to create Powerpoint-like web interactive documents
+</td>
+</tr>
+<tr>
+<td class="it-libraries">
+libraries
+</td>
+<td>
+<a href="https://openpyxl.readthedocs.io/en/stable/">openpyxl</a> to read/write Excel files, <a href="https://matplotlib.org/">matplotlib</a> to create plots, <a href="https://geopandas.org/en/stable/">Geopandas</a> makes PythonR a GIS, <a href="https://networkx.org/">networkx</a> for network analysis, <a href="https://pypi.org/project/pyodbc/">pyodbc</a> to connect SQL databases, <a href="https://pypi.org/project/iosacal/">iosacal</a> for radiocarbon dates calibration, <a href="https://pypi.org/project/folium/">folium</a> creates interactive leaflet maps, <a href="https://plotly.com/python/">plotly</a> creates interactive plots, etc.
+</td>
+</tr>
+<tr>
+<td class="it-resources">
+resources
+</td>
+<td>
+<a href="https://stackoverflow.com/">stackoverflow</a> is probably the place where you will find the answer you need, if you need some open software for archaeology go to <a href="https://open-archaeo.info/">open-archaeo</a>
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="an-example-using-r-and-github" class="slide level2">
+<h2>An example using R and GitHub</h2>
+<p><span class="smalltext"> see the rendered dataset: <a href="https://github.com/keltoskytoi/Multivariate_Statistics_Szentloerinc/blob/master/DATA/fibulae.csv">https://github.com/keltoskytoi/Multivariate_Statistics_Szentloerinc/blob/master/DATA/fibulae.csv</a></span></p>
+<div class="sourceCode" id="cb18" data-code-line-numbers="1|2|3|4|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># install.packages("ca")</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="fu">library</span>(ca)</span>
+<span id="cb18-3"><a href="#cb18-3"></a>seriat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/keltoskytoi/Multivariate_Statistics_Szentloerinc/master/DATA/fibulae.csv"</span>, <span class="at">row.name =</span> <span class="dv">1</span>)</span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="fu">print</span>(<span class="fu">head</span>(seriat))</span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="fu">plot</span>(<span class="fu">ca</span>(seriat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>    Certosa_XIIIc Certosa_XIIIh Certosa_FE EAZ_BR EAZ_FE ELT_BR
+G02             0             1          0      0      0      0
+G03             1             1          0      0      0      0
+G09             1             0          0      0      0      0
+G15             1             1          1      0      0      0
+G19             0             0          1      0      0      0
+G24             0             1          0      0      0      0</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-9-1.png" class="margin-caption" style="width:50.0%;height:50.0%"></p>
+</div>
+</div>
+</section>
+<section id="thank-you" class="title-slide slide level1 center">
+<h1>Thank you</h1>
+
+
+<img src="images/inst-uni-oxford_.png" class="slide-logo r-stretch"><div class="footer footer-default">
+<p>Digital Archaeology seminar, 28th Nov 2022, University of Durham - T. Huet - <a href="https://github.com/zoometh/iconr" class="uri">https://github.com/zoometh/iconr</a></p>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'smaller': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: true,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        target: function(trigger) {
+          return trigger.previousElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        setTimeout(function() {
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto-reveal',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+        tippyHover(ref, function() {
+          var popup = window.document.createElement('div');
+          cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    });
+    </script>
+    
+
+</body></html>
