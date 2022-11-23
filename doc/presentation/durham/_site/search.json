@@ -165,7 +165,7 @@
     "href": "index.html#section",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "",
-    "text": "Random and clustered patterns\n\nRock art sitesRock art surfacesBronze hoards\n\n\n\n\n\n\n\nCups-and-rings rock art concentration (⬤) in Millestone Burn, Northumberland, England (Bradley 1996)\n\n\n\n\nEngraved rock sites (⬤) are concentrated on Millstone Grits (sandstone) with a statistical significance in comparison to a theoretical random distribution (○).\n\n\n\n\n\n\n\n\n\nNeolithic/Early Bronze Age engraved rock, Mont Bego, France (Chippindale 1988)\n\n\n\n\nOn the observed rock surface (A), engravings are arranged in a more orderly manner in a random process (B and C), but the former remains far from an orderly arrangement without overlapping engravings.\n\n\n\n\n\n\n\n\n\nDistribution of the Late Bronze Age Ewart Park hoards, Atlantic Europe (Wiseman 2018)\n\n\n\n\nHoards from the Ewart Park phase show a normal distribution when considering size, fragmentation and number of pieces. The hoards would result from a random accumulation and breaking\n\n\n\n\n\n\nrandom = clustered ="
+    "text": "UsersIDELayoutsPackagesResources\n\n\nR is a scripting language for data science. It is the 1️⃣st used by archaeologists, and the 18th worldwide\n\n- Tiobe index 2022 + Batist and Roe, 2022\n\n\nRStudio is THE graphical interface for R, Rstudio is also in the cloud (RStudio.cloud), VS Code is a standalone source code editor multi-platforms and multi-languages\n\n\nR markdown is a notebook interface for report generation, Shiny allows the development of web interactive applications, Quarto to create Powerpoint-like web interactive documents\n\n\nThe CRAN1 features 18,890 available packages [ref]. The package iconr uses 18 packages. The most distinctives are:\n\n\n\n\n\npackage\n\n\ndescription\n\n\n\n\n\n\n\n\n\nmagick for image manipulation\n\n\n\n\n\n\n\nigraph for graph theory and network analysis\n\n\n\n\n\n\n\nsf makes R a GIS\n\n\n\n\n\n\n\nMomocs for geometric morphometric methods\n\n\n\n\n\nOther useful R packages: openxlsx to read/write Excel files, ggplot2 to create plots; plotly and leaflet to create interactive plots and maps; etc.\n\n\nsthda.com has good tutorials, stackoverflow is probably the place where you will find the answer you need, if you need some open software for archaeology go to open-archaeo\n\n\n\nThe CRAN (Comprehensive R Archive Network) is the official package repository of R, see: https://cran.r-project.org/"
   },
   {
     "objectID": "index.html#section-1",
@@ -222,5 +222,12 @@
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "An example using R and GitHub",
     "text": "An example using R and GitHub\n see the rendered dataset: https://github.com/keltoskytoi/Multivariate_Statistics_Szentloerinc/blob/master/DATA/fibulae.csv\n# install.packages(\"ca\")\nlibrary(ca)\nseriat <- read.csv(\"https://raw.githubusercontent.com/keltoskytoi/Multivariate_Statistics_Szentloerinc/master/DATA/fibulae.csv\", row.name = 1)\nprint(head(seriat))\nplot(ca(seriat))\n\n\n    Certosa_XIIIc Certosa_XIIIh Certosa_FE EAZ_BR EAZ_FE ELT_BR\nG02             0             1          0      0      0      0\nG03             1             1          0      0      0      0\nG09             1             0          0      0      0      0\nG15             1             1          1      0      0      0\nG19             0             0          1      0      0      0\nG24             0             1          0      0      0      0"
+  },
+  {
+    "objectID": "index.html#computer-stack",
+    "href": "index.html#computer-stack",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Computer stack",
+    "text": "Computer stack\n   The 🔝 popular web-platform for source code management and software development (with over 128 million public repositories)"
   }
 ]
