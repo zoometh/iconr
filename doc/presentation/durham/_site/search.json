@@ -60,7 +60,7 @@
     "href": "index.html#introduction",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Introduction",
-    "text": "Introduction\n\n\n\nThis presentation will show you examples of statistical reasoning in archaeology and how computational archaeology helps to manage archaeological datasets\n\n\n\n\n\n\nsoftware 💿\n\n\nsemantic 🖼 📜 🔢 🐫\n\n\n\n\nlogic >_ print(‘hello’)\n\n\n\n\n\n\nhardware 💻"
+    "text": "Introduction\n\n\n\nThis presentation will show you one example of computational archaeology\n\n\n\n\n\n\nsoftware 💿\n\n\nsemantic 🖼 📜 🔢 🐫\n\n\n\n\nlogic >_ print(‘hello’)\n\n\n\n\n\n\nhardware 💻"
   },
   {
     "objectID": "index.html#historiography-of-archaeology",
@@ -165,7 +165,7 @@
     "href": "index.html#section",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "",
-    "text": "UsersIDELayoutsPackagesResources\n\n\nR is a scripting language for data science. It is the 1️⃣st used by archaeologists, and the 18th worldwide\n\n- Tiobe index 2022 + Batist and Roe, 2022\n\n\nRStudio is THE graphical interface for R, Rstudio is also in the cloud (RStudio.cloud), VS Code is a standalone source code editor multi-platforms and multi-languages\n\n\nR markdown is a notebook interface for report generation, Shiny allows the development of web interactive applications, Quarto to create Powerpoint-like web interactive documents\n\n\nThe CRAN ?@fig-elephant features 18,890 available packages [ref]. The package iconr uses 18 packages. The most distinctives are:\n\n\n\n\n\npackage\n\n\ndescription\n\n\n\n\n\n\n\n\n\nmagick for image manipulation\n\n\n\n\n\n\n\nigraph for graph theory and network analysis\n\n\n\n\n\n\n\nsf makes R a GIS\n\n\n\n\n\n\n\nMomocs for geometric morphometric methods\n\n\n\n\n\nOther useful R packages: openxlsx to read/write Excel files, ggplot2 to create plots; plotly and leaflet to create interactive plots and maps; etc.\n\n\nsthda.com has good tutorials, stackoverflow is probably the place where you will find the answer you need, if you need some open software for archaeology go to open-archaeo"
+    "text": "UsersIDELayoutsPackagesResources\n\n\nR is a scripting language for data science. It is the 1️⃣st used by archaeologists, and the 18th worldwide\n\n- Tiobe index 2022 + Batist and Roe, 2022\n\n\nRStudio is THE graphical interface for R, Rstudio is also in the cloud (RStudio.cloud), VS Code is a standalone source code editor multi-platforms and multi-languages\n\n\nR markdown is a notebook interface for report generation, Shiny allows the development of web interactive applications, Quarto to create Powerpoint-like web interactive documents\n\n\nThe CRAN ?@fig-elephant features 18,890 available packages [ref]. The package iconr uses 18 packages. The most distinctives are:\n\n\n\n\n\npackage\n\n\ndescription\n\n\n\n\n\n\n\n\n\nmagick for image manipulation\n\n\n\n\n\n\n\nigraph for graph theory and network analysis\n\n\n\n\n\n\n\nsf makes R a GIS\n\n\n\n\n\n\n\nMomocs for geometric morphometric methods\n\n\n\n\n\nOther useful R packages: dplyr …., knitr and kableExtra for HTML/LaTex/PDF/etc. layouts openxlsx to read/write Excel files, ggplot2 to create plots; plotly and leaflet to create interactive plots and maps; etc.\n\n\nsthda.com has good tutorials, stackoverflow is probably the place where you will find the answer you need, if you need some open software for archaeology go to open-archaeo"
   },
   {
     "objectID": "index.html#section-1",
@@ -235,6 +235,55 @@
     "href": "index.html#gis-entry",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "GIS entry",
-    "text": "GIS entry"
+    "text": "GIS entry\n\nOpenReferenceScaleMeasuresNodesEdges\n\n\n\n\n\n\n\n\n\nQGIS plugin: Freehand raster georeferencer"
+  },
+  {
+    "objectID": "index.html#nature-of-iconographic-data",
+    "href": "index.html#nature-of-iconographic-data",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Nature of iconographic data",
+    "text": "Nature of iconographic data"
+  },
+  {
+    "objectID": "index.html#statement-of-need",
+    "href": "index.html#statement-of-need",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Statement of need",
+    "text": "Statement of need"
+  },
+  {
+    "objectID": "index.html#iconr-conceptual-model",
+    "href": "index.html#iconr-conceptual-model",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "iconr conceptual model",
+    "text": "iconr conceptual model"
+  },
+  {
+    "objectID": "index.html#project-qgis-1-decoration",
+    "href": "index.html#project-qgis-1-decoration",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "1 project QGIS = 1 decoration",
+    "text": "1 project QGIS = 1 decoration"
+  },
+  {
+    "objectID": "index.html#run-r",
+    "href": "index.html#run-r",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Run R",
+    "text": "Run R\n\n# install.packages(\"iconr\")\n# install.packages(\"dplyr\")\n# install.packages(\"knitr\")\n# install.packages(\"kableExtra\")\n\nlibrary(iconr)\nlibrary(dplyr)\nlibrary(knitr)\nlibrary(kableExtra)"
+  },
+  {
+    "objectID": "index.html#iconr-default-data",
+    "href": "index.html#iconr-default-data",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "iconr default data",
+    "text": "iconr default data\n\ndatafrom R\n\n\n\ndede \n\n\n\ndataDir <- system.file(\"extdata\", package = \"iconr\")\nimgs_path <- paste0(dataDir, \"/imgs.csv\")\nimgs <- read.table(imgs_path, sep = \";\", stringsAsFactors = FALSE)\nkable(imgs, \"html\") %>% \n  kable_styling(full_width = FALSE, position = \"center\", font_size = 24)\n\n\n\n \n  \n    idf \n    site \n    decor \n    img \n  \n \n\n  \n    1 \n    Cerro Muriano \n    Cerro Muriano 1 \n    Cerro_Muriano.Cerro_Muriano_1.jpg \n  \n  \n    2 \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    Torrejon_Rubio.Torrejon_Rubio_1.jpg \n  \n  \n    3 \n    Brozas \n    Brozas \n    Brozas.Brozas.jpg \n  \n  \n    4 \n    Zarza de Montanchez \n    Zarza De Montanchez \n    Zarza_de_Montanchez.Zarza_De_Montanchez.jpg \n  \n  \n    5 \n    Ibahernando \n    Ibahernando \n    Ibahernando.Ibahernando.jpg"
+  },
+  {
+    "objectID": "index.html#iconr-functions",
+    "href": "index.html#iconr-functions",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "iconr functions",
+    "text": "iconr functions\n\n## works with SHP, CSV and TSV files\nnodes_path <- paste0(dataDir, \"/nodes.shp\")\nnodes.shp <- rgdal::readOGR(dsn = nodes_path, verbose = FALSE)\nnodes <- as.data.frame(nodes.shp)\nedges_path <- paste0(dataDir, \"/edges.shp\")\nedges.shp <- rgdal::readOGR(dsn = edges_path, verbose = FALSE)\nedges <- as.data.frame(edges.shp)\n\n## iconr FUNCTIONS \nlgrph <- list_dec(imgs, nodes, edges)\ng <- lgrph[[1]]"
   }
 ]

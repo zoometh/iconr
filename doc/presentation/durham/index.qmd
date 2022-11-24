@@ -69,11 +69,11 @@ This presentation will show you one example of **computational archaeology**
 
 ::: {.panel-tabset}
 
-### An image..
+### Open
 
 ![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_openImageGIS.gif){width=70%}
 
-### Reference picture
+### Reference
 
 ![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_coordsQGIS.gif){width=70%}
 
@@ -84,16 +84,16 @@ This presentation will show you one example of **computational archaeology**
 
 QGIS plugin: [Freehand raster georeferencer](https://gvellut.github.io/FreehandRasterGeoreferencer/)
 
-### Measurements
+### Measures
 
 ![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_scaleRuleOfThree.gif){width=70%}
 
-### Add Nodes
+### Nodes
 
 
 ![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_createNodes.gif){width=70%}
 
-### Add Edges
+### Edges
 
 
 ![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_addEdges.gif){width=70%}
@@ -111,11 +111,13 @@ QGIS plugin: [Freehand raster georeferencer](https://gvellut.github.io/FreehandR
 #| echo: true
 
 # install.packages("iconr")
+# install.packages("sf")
 # install.packages("dplyr")
 # install.packages("knitr")
 # install.packages("kableExtra")
 
 library(iconr)
+library(sf)
 library(dplyr)
 library(knitr)
 library(kableExtra)
@@ -123,7 +125,38 @@ library(kableExtra)
 
 
 
-## ***iconr*** default data
+## ***iconr*** default data - images
+
+::: {.panel-tabset}
+
+### data
+
+<p>
+<a href="https://github.com">
+<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 100px;margin: 0 0 0 0; background: transparent;" class="demo-logo">
+</a>
+https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv
+</p>
+
+
+<script src="https://gist.github.com/zoometh/d00ed1575e69087efd7e006cc9cf00e5.js"></script>
+
+
+### from R
+
+```{r}
+#| echo: true
+
+dataDir <- system.file("extdata", package = "iconr")
+imgs_path <- paste0(dataDir, "/imgs.csv")
+imgs <- read.table(imgs_path, sep = ";", stringsAsFactors = FALSE)
+kable(imgs, "html") %>% 
+  kable_styling(full_width = FALSE, position = "center", font_size = 24)
+```
+
+:::
+
+## ***iconr*** default data - nodes
 
 ::: {.panel-tabset}
 
@@ -136,42 +169,40 @@ library(kableExtra)
 ```{r}
 #| echo: true
 
-dataDir <- system.file("extdata", package = "iconr")
-imgs_path <- paste0(dataDir, "/imgs.csv")
-imgs <- read.table(imgs_path, sep = ";", stringsAsFactors = FALSE)
-kable(imgs, "html") %>% 
-  kable_styling(full_width = FALSE, position = "center", font_size = 12)
+nodes_path <- paste0(dataDir, "/nodes.shp")
+nodes.shp <- st_read(nodes_path, quiet = T)
+nodes <- as.data.frame(nodes.shp)
+kable(nodes, "html") %>% 
+  kable_styling(full_width = FALSE, position = "center", font_size = 24)
 ```
 
-:::
+## ***iconr*** default data - edges
+
+::: {.panel-tabset}
+
+### data
 
 
-## ***iconr*** functions
+
+### from R
 
 ```{r}
 #| echo: true
 
-library(iconr)
-library(dplyr)
-library(knitr)
-library(kableExtra)
-
-## DATA
-dataDir <- system.file("extdata", package = "iconr")
-imgs_path <- paste0(dataDir, "/imgs.csv")
-imgs <- read.table(imgs_path, sep = ";", stringsAsFactors = FALSE)
-kable(imgs, "html") %>% 
-  kable_styling(full_width = FALSE, position = "center", font_size = 12)
-
-## works with SHP, CSV and TSV files
-nodes_path <- paste0(dataDir, "/nodes.shp")
-nodes.shp <- rgdal::readOGR(dsn = nodes_path, verbose = FALSE)
-nodes <- as.data.frame(nodes.shp)
 edges_path <- paste0(dataDir, "/edges.shp")
-edges.shp <- rgdal::readOGR(dsn = edges_path, verbose = FALSE)
+edges.shp <- st_read(edges_path, quiet = T)
 edges <- as.data.frame(edges.shp)
+kable(edges, "html") %>% 
+  kable_styling(full_width = FALSE, position = "center", font_size = 24)
+```
 
-## iconr FUNCTIONS 
+
+## ***iconr*** functions
+
+
+```{r}
+#| echo: true
+
 lgrph <- list_dec(imgs, nodes, edges)
 g <- lgrph[[1]]
 ```
