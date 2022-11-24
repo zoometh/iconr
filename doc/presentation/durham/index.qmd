@@ -1,18 +1,22 @@
 ---
 title: "Analysis of Prehistoric Iconography with the R package ***iconr***"
-# subtitle: "Create beautiful interactive slide decks with Reveal.js"
+subtitle: "*Digital Archaeology* seminar, 28th Nov 2022, University of Durham"
 author: "Thomas Huet (University of Oxford, EAMENA project)"
 format:
   revealjs: 
+    # toc: true
+    # toc-location: right
+    # page-layout: full
     slide-number: true
     chalkboard: true
     scrollable: true
     preview-links: true
     citations-hover: true
     footnotes-hover: false
-    logo: img/iconr_logo.png
+    reference-location: margin
+    logo: images/inst-uni-oxford_.png
     css: styles.css
-    footer: "Digital Archaeology seminar, 28th Nov 2022, University of Durham - T. Huet - <https://github.com/zoometh/iconr>"
+    footer: "*Digital Archaeology* seminar, 28th Nov 2022, University of Durham - T. Huet - <https://github.com/zoometh/iconr>"
     # margin: -0.5
 resources:
   - demo.pdf
@@ -31,7 +35,7 @@ library(ggtern)
 data(OxfordPots)
 ```
 
-This presentation will show you examples of **statistical reasoning** in archaeology and how **computational archaeology** helps to manage archaeological datasets 
+This presentation will show you one example of **computational archaeology** 
 
 <br>
 
@@ -52,7 +56,126 @@ This presentation will show you examples of **statistical reasoning** in archaeo
 </tbody>
 </table>
 
-![](https://raw.githubusercontent.com/zoometh/thomashuet/master/img/r-pkg-igraph.png)
+## Nature of iconographic data
+
+
+## Statement of need
+
+
+## ***iconr*** conceptual model
+
+
+## GIS entry
+
+::: {.panel-tabset}
+
+### An image..
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_openImageGIS.gif){width=70%}
+
+### Reference picture
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_coordsQGIS.gif){width=70%}
+
+### Scale
+
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_scaleAll.gif){width=70%}
+
+QGIS plugin: [Freehand raster georeferencer](https://gvellut.github.io/FreehandRasterGeoreferencer/)
+
+### Measurements
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_scaleRuleOfThree.gif){width=70%}
+
+### Add Nodes
+
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_createNodes.gif){width=70%}
+
+### Add Edges
+
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_addEdges.gif){width=70%}
+
+:::
+
+## 1 project QGIS = 1 decoration
+
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_inputSummary.gif){width=70%}
+
+## Run R
+
+```{r}
+#| echo: true
+
+# install.packages("iconr")
+# install.packages("dplyr")
+# install.packages("knitr")
+# install.packages("kableExtra")
+
+library(iconr)
+library(dplyr)
+library(knitr)
+library(kableExtra)
+```
+
+
+
+## ***iconr*** default data
+
+::: {.panel-tabset}
+
+### data
+
+
+
+### from R
+
+```{r}
+#| echo: true
+
+dataDir <- system.file("extdata", package = "iconr")
+imgs_path <- paste0(dataDir, "/imgs.csv")
+imgs <- read.table(imgs_path, sep = ";", stringsAsFactors = FALSE)
+kable(imgs, "html") %>% 
+  kable_styling(full_width = FALSE, position = "center", font_size = 12)
+```
+
+:::
+
+
+## ***iconr*** functions
+
+```{r}
+#| echo: true
+
+library(iconr)
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+## DATA
+dataDir <- system.file("extdata", package = "iconr")
+imgs_path <- paste0(dataDir, "/imgs.csv")
+imgs <- read.table(imgs_path, sep = ";", stringsAsFactors = FALSE)
+kable(imgs, "html") %>% 
+  kable_styling(full_width = FALSE, position = "center", font_size = 12)
+
+## works with SHP, CSV and TSV files
+nodes_path <- paste0(dataDir, "/nodes.shp")
+nodes.shp <- rgdal::readOGR(dsn = nodes_path, verbose = FALSE)
+nodes <- as.data.frame(nodes.shp)
+edges_path <- paste0(dataDir, "/edges.shp")
+edges.shp <- rgdal::readOGR(dsn = edges_path, verbose = FALSE)
+edges <- as.data.frame(edges.shp)
+
+## iconr FUNCTIONS 
+lgrph <- list_dec(imgs, nodes, edges)
+g <- lgrph[[1]]
+```
+
 
 
 ## 2-dim data shape {background-iframe="http://shinyserver.cfs.unipi.it:3838/teach/stats/gmm/"}
@@ -84,7 +207,7 @@ R is a scripting language for data science. It is the 1️⃣<sup>st</sup> used 
 
 ### Packages
 
-The CRAN[^1] features 18,890 available packages [[ref](https://cran.r-project.org/web/packages/)]. The package ***iconr*** uses 18 packages. The most distinctives are:
+The [CRAN]() @fig-elephant features 18,890 available packages [[ref](https://cran.r-project.org/web/packages/)]. The package ***iconr*** uses 18 packages. The most distinctives are:
 
 <table>
 <thead>
@@ -113,7 +236,7 @@ The CRAN[^1] features 18,890 available packages [[ref](https://cran.r-project.or
 </tbody>
 </table>
 
-Other useful R packages: [openxlsx](https://cran.r-project.org/web/packages/openxlsx/index.html) to read/write Excel files, [ggplot2](https://ggplot2.tidyverse.org/) to create plots; [plotly](https://plotly.com/r/)  and [leaflet](https://cran.r-project.org/web/packages/leaflet/index.html) to create interactive plots and maps; etc.
+Other useful R packages: [dplyr]() ...., [knitr]() and [kableExtra]() for HTML/LaTex/PDF/etc. layouts [openxlsx](https://cran.r-project.org/web/packages/openxlsx/index.html) to read/write Excel files, [ggplot2](https://ggplot2.tidyverse.org/) to create plots; [plotly](https://plotly.com/r/)  and [leaflet](https://cran.r-project.org/web/packages/leaflet/index.html) to create interactive plots and maps; etc.
 
 ### Resources
 
@@ -124,7 +247,7 @@ Other useful R packages: [openxlsx](https://cran.r-project.org/web/packages/open
 ## Computer stack
 
 <a href="https://github.com">
-<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 100px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 100px;margin: 0 0 0 0; background: transparent;" class="demo-logo">
 </a>
 The 🔝 popular web-platform for source code management and software development (with over 128 million public repositories)
 
@@ -132,11 +255,11 @@ The 🔝 popular web-platform for source code management and software developmen
 <tbody>
   <tr>
     <td><a href="https://www.r-project.org/">
-<img src="https://www.r-project.org/logo/Rlogo.svg" alt="" style="height: 100px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo"></a></td>
+<img src="https://www.r-project.org/logo/Rlogo.svg" alt="" style="height: 100px; margin: 0 0 0 0; background: transparent;" class="demo-logo"></a></td>
   </tr>
   <tr>
     <td><a href="https://github.com">
-<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 100px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 100px; margin: 0 0 0 0; background: transparent;" class="demo-logo">
 </a></td>
   </tr>
 </tbody>
@@ -166,7 +289,7 @@ plot(ca(seriat))
 
 # References
 
-[^1]: The CRAN (Comprehensive R Archive Network) is the official package repository of R, see: https://cran.r-project.org/
+{#fig-elephant}: The CRAN (Comprehensive R Archive Network) is the official package repository of R, see: https://cran.r-project.org/
 
 https://quarto.org/docs/output-formats/html-basics.html#ref-xie2015
 

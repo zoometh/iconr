@@ -3,6 +3,12 @@ project:
 
 website:
   title: "iconR"
+  favicon: images/iconr_logo.png
+  repo-url: https://github.com/quarto-dev/quarto-web
+  page-footer:
+    right:
+      - icon: github
+        href: https://github.com/quarto-dev/quarto-cli
   navbar:
     left:
       - href: index.qmd
@@ -11,6 +17,8 @@ website:
 
 format:
   html:
+    # page-layout: full
+    anchor-sections: true
     theme: cosmo
     css: styles.css
     toc: true

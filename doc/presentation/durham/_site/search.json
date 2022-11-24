@@ -165,7 +165,7 @@
     "href": "index.html#section",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "",
-    "text": "UsersIDELayoutsPackagesResources\n\n\nR is a scripting language for data science. It is the 1️⃣st used by archaeologists, and the 18th worldwide\n\n- Tiobe index 2022 + Batist and Roe, 2022\n\n\nRStudio is THE graphical interface for R, Rstudio is also in the cloud (RStudio.cloud), VS Code is a standalone source code editor multi-platforms and multi-languages\n\n\nR markdown is a notebook interface for report generation, Shiny allows the development of web interactive applications, Quarto to create Powerpoint-like web interactive documents\n\n\nThe CRAN1 features 18,890 available packages [ref]. The package iconr uses 18 packages. The most distinctives are:\n\n\n\n\n\npackage\n\n\ndescription\n\n\n\n\n\n\n\n\n\nmagick for image manipulation\n\n\n\n\n\n\n\nigraph for graph theory and network analysis\n\n\n\n\n\n\n\nsf makes R a GIS\n\n\n\n\n\n\n\nMomocs for geometric morphometric methods\n\n\n\n\n\nOther useful R packages: openxlsx to read/write Excel files, ggplot2 to create plots; plotly and leaflet to create interactive plots and maps; etc.\n\n\nsthda.com has good tutorials, stackoverflow is probably the place where you will find the answer you need, if you need some open software for archaeology go to open-archaeo\n\n\n\nThe CRAN (Comprehensive R Archive Network) is the official package repository of R, see: https://cran.r-project.org/"
+    "text": "UsersIDELayoutsPackagesResources\n\n\nR is a scripting language for data science. It is the 1️⃣st used by archaeologists, and the 18th worldwide\n\n- Tiobe index 2022 + Batist and Roe, 2022\n\n\nRStudio is THE graphical interface for R, Rstudio is also in the cloud (RStudio.cloud), VS Code is a standalone source code editor multi-platforms and multi-languages\n\n\nR markdown is a notebook interface for report generation, Shiny allows the development of web interactive applications, Quarto to create Powerpoint-like web interactive documents\n\n\nThe CRAN ?@fig-elephant features 18,890 available packages [ref]. The package iconr uses 18 packages. The most distinctives are:\n\n\n\n\n\npackage\n\n\ndescription\n\n\n\n\n\n\n\n\n\nmagick for image manipulation\n\n\n\n\n\n\n\nigraph for graph theory and network analysis\n\n\n\n\n\n\n\nsf makes R a GIS\n\n\n\n\n\n\n\nMomocs for geometric morphometric methods\n\n\n\n\n\nOther useful R packages: openxlsx to read/write Excel files, ggplot2 to create plots; plotly and leaflet to create interactive plots and maps; etc.\n\n\nsthda.com has good tutorials, stackoverflow is probably the place where you will find the answer you need, if you need some open software for archaeology go to open-archaeo"
   },
   {
     "objectID": "index.html#section-1",
@@ -229,5 +229,12 @@
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Computer stack",
     "text": "Computer stack\n   The 🔝 popular web-platform for source code management and software development (with over 128 million public repositories)"
+  },
+  {
+    "objectID": "index.html#gis-entry",
+    "href": "index.html#gis-entry",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "GIS entry",
+    "text": "GIS entry"
   }
 ]
