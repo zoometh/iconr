@@ -704,13 +704,83 @@
     "href": "test.html#variable",
     "title": "TEST2",
     "section": "Variable",
-    "text": "Variable\n\n\n\n\nblbla"
+    "text": "Variable\n\n\n\n\nThe spatialized graph"
   },
   {
     "objectID": "test.html#variable-1",
     "href": "test.html#variable-1",
     "title": "TEST2",
     "section": "Variable",
-    "text": "Variable\n\n\n\n\nblbla"
+    "text": "Variable\n\n\n\n\nTypes of GUs"
+  },
+  {
+    "objectID": "test.html#variable-2",
+    "href": "test.html#variable-2",
+    "title": "TEST2",
+    "section": "Variable",
+    "text": "Variable\n\n\n\n\nMaximum length of GUs (cm)"
+  },
+  {
+    "objectID": "test.html#variable-3",
+    "href": "test.html#variable-3",
+    "title": "TEST2",
+    "section": "Variable",
+    "text": "Variable\n\n\n\n\nOrientation (see the thesaurus, clockwise rotation)"
+  },
+  {
+    "objectID": "test.html#variable-4",
+    "href": "test.html#variable-4",
+    "title": "TEST2",
+    "section": "Variable",
+    "text": "Variable\n\n\n\n\nTechnology (pecked, incised, painted, etc.)"
+  },
+  {
+    "objectID": "test.html#variable-5",
+    "href": "test.html#variable-5",
+    "title": "TEST2",
+    "section": "Variable",
+    "text": "Variable\n\n\n\n\nCompletness of GUs"
+  },
+  {
+    "objectID": "test.html#variable-6",
+    "href": "test.html#variable-6",
+    "title": "TEST2",
+    "section": "Variable",
+    "text": "Variable\n\n\n\n\nbetweenness"
+  },
+  {
+    "objectID": "test.html#variable-7",
+    "href": "test.html#variable-7",
+    "title": "TEST2",
+    "section": "Variable",
+    "text": "Variable\n\n\n\n\ncloseness"
+  },
+  {
+    "objectID": "test.html#variable-8",
+    "href": "test.html#variable-8",
+    "title": "TEST2",
+    "section": "Variable",
+    "text": "Variable\n\n\n\n\ncloseness"
+  },
+  {
+    "objectID": "test.html#variable-9",
+    "href": "test.html#variable-9",
+    "title": "TEST2",
+    "section": "Variable",
+    "text": "Variable\n\n\n\n\nDomination"
+  },
+  {
+    "objectID": "test.html#variable-10",
+    "href": "test.html#variable-10",
+    "title": "TEST2",
+    "section": "Variable",
+    "text": "Variable\n\n\n\n\nCultural attribution"
+  },
+  {
+    "objectID": "test.html#variable-11",
+    "href": "test.html#variable-11",
+    "title": "TEST2",
+    "section": "Variable",
+    "text": "Variable\n\n\n\n\nChronological attribution"
   }
 ]

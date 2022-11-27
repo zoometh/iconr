@@ -44,17 +44,33 @@ lgrph <- list_dec(imgs, nodes, edges)
 ## Study
 
 
-## Sources
+## Dataset
 
-* Catalog
+::: {.panel-tabset}
+
+### Sources
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/sources-catalog-diazguardamino.png" width='350px' />
+
+:::
+
+::: {.column width="40%"}
 
 Díaz-Guardamino Uribe, M. (2010). *Las estelas decoradas en la Prehistoria de la Península Ibérica* (Universidad Complutense de Madrid, Servicio de Publicaciones). url: [https://eprints.ucm.es/11070/1/T32200.pdf](https://eprints.ucm.es/11070/1/T32200.pdf)
 
+:::
 
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/sources-catalog-diazguardamino.jpg" width='350px' />
+### Corpus
 
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/spat_stele bouclier.png" width='500px' />
 
-## Variable {auto-animate=true}
+:::
+
+## Variables {auto-animate=true}
 
 :::: {.columns}
 
@@ -66,13 +82,104 @@ Díaz-Guardamino Uribe, M. (2010). *Las estelas decoradas en la Prehistoria de l
 
 ::: {.column width="40%"}
 
-blbla
+Spatialized graph
 
 :::
 
 ::::
 
-## Variable {auto-animate=true}
+## Variables {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/typo.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Types
+
+:::
+
+::::
+
+## Variables {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/long_cm.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Maximum length (cm)
+
+:::
+
+::::
+
+## Variables {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/orient.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Orientation (see the thesaurus, clockwise rotation)
+
+:::
+
+::::
+
+## Variables {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/techno.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Technology (pecked, incised, painted, etc.)
+
+:::
+
+::::
+
+
+## Variables {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/complet.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Completness
+
+:::
+
+::::
+
+## Variables {auto-animate=true}
 
 :::: {.columns}
 
@@ -84,7 +191,80 @@ blbla
 
 ::: {.column width="40%"}
 
-blbla
+Betweenness centrality
+
+:::
+
+::::
+
+## Variables {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/closeness.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Closeness centrality
+
+:::
+
+::::
+
+
+## Variables {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/domition.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Domination
+
+:::
+
+::::
+
+## Variables {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/chr_1.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Cultural attribution
+
+:::
+
+::::
+
+## Variables {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/ug_tq.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Chronological attribution
 
 :::
 
