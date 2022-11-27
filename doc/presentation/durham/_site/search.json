@@ -32,14 +32,14 @@
     "href": "test.html#section-2",
     "title": "TEST2",
     "section": "",
-    "text": "iconr\n\n\n\nhttps://tinyurl.com/goa-oxford"
+    "text": "Animating content"
   },
   {
     "objectID": "test.html#section-3",
     "href": "test.html#section-3",
     "title": "TEST2",
     "section": "",
-    "text": "igraph\niconr"
+    "text": "iconr\n\n\n\nhttps://tinyurl.com/goa-oxford"
   },
   {
     "objectID": "test.html#section-4",
@@ -164,8 +164,8 @@
     "objectID": "index.html#section",
     "href": "index.html#section",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
-    "section": "{}",
-    "text": "{}"
+    "section": "",
+    "text": "UsersIDELayoutsPackagesResources\n\n\nR is a scripting language for data science. It is the 1️⃣st used by archaeologists, and the 18th worldwide\n\n- Tiobe index 2022 + Batist and Roe, 2022\n\n\nRStudio is THE graphical interface for R, Rstudio is also in the cloud (RStudio.cloud), VS Code is a standalone source code editor multi-platforms and multi-languages\n\n\nR markdown is a notebook interface for report generation, Shiny allows the development of web interactive applications, Quarto to create Powerpoint-like web interactive documents\n\n\nThe CRAN features 18,890 available packages. The package iconr uses 18 packages. The most distinctives are:\n\n\n\n\n\npackage\n\n\ndescription\n\n\n\n\n\n\n\n\n\nmagick for image manipulation\n\n\n\n\n\n\n\nigraph for graph theory and network analysis\n\n\n\n\n\n\n\nsf makes R a GIS\n\n\n\n\n\n\n\nMomocs for geometric morphometric methods\n\n\n\n\n\nOther useful R packages: dplyr …., knitr and kableExtra for HTML/LaTex/PDF/etc. layouts openxlsx to read/write Excel files, ggplot2 to create plots; plotly and leaflet to create interactive plots and maps; etc.\n\n\nsthda.com has good tutorials, stackoverflow is probably the place where you will find the answer you need, if you need some open software for archaeology go to open-archaeo"
   },
   {
     "objectID": "index.html#section-1",
@@ -319,7 +319,7 @@
     "href": "index.html#edges",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Edges",
-    "text": "Edges\n\nNormalAttributeDiachronic\n\n\n —— + ——  normal edges (undirected) between contiguous and contemporaneous main nodes, for example node a and node b\n\n\n\n\n \n  \n      \n    site \n    decor \n    a \n    b \n    type \n    xa \n    ya \n    xb \n    yb \n  \n \n\n  \n    24 \n    Brozas \n    Brozas \n    1 \n    2 \n    = \n    354.1114 \n    -123.3621 \n    346.3455 \n    -151.8371 \n  \n  \n    25 \n    Brozas \n    Brozas \n    3 \n    1 \n    = \n    279.0411 \n    -162.1916 \n    354.1114 \n    -123.3621 \n  \n  \n    26 \n    Brozas \n    Brozas \n    3 \n    2 \n    = \n    279.0411 \n    -162.1916 \n    346.3455 \n    -151.8371 \n  \n  \n    27 \n    Brozas \n    Brozas \n    4 \n    1 \n    = \n    211.7366 \n    -206.1984 \n    354.1114 \n    -123.3621 \n  \n  \n    28 \n    Brozas \n    Brozas \n    4 \n    3 \n    = \n    211.7366 \n    -206.1984 \n    279.0411 \n    -162.1916 \n  \n  \n    29 \n    Brozas \n    Brozas \n    1 \n    5 \n    = \n    354.1114 \n    -123.3621 \n    392.9409 \n    -343.3959 \n  \n  \n    30 \n    Brozas \n    Brozas \n    2 \n    5 \n    = \n    346.3455 \n    -151.8371 \n    392.9409 \n    -343.3959 \n  \n  \n    31 \n    Brozas \n    Brozas \n    3 \n    5 \n    = \n    279.0411 \n    -162.1916 \n    392.9409 \n    -343.3959 \n  \n  \n    32 \n    Brozas \n    Brozas \n    4 \n    5 \n    = \n    211.7366 \n    -206.1984 \n    392.9409 \n    -343.3959 \n  \n  \n    33 \n    Brozas \n    Brozas \n    5 \n    6 \n    = \n    392.9409 \n    -343.3959 \n    387.7636 \n    -564.7240 \n  \n\n\n\n\n\n\n\n\n [1] \"bouclier-=-epee\"   \"bouclier-=-fibule\" \"bouclier-=-lance\" \n [4] \"bouclier-=-miroir\" \"bouclier-=-peigne\" \"fibule-=-lance\"   \n [7] \"fibule-=-miroir\"   \"fibule-=-peigne\"   \"lance-=-miroir\"   \n[10] \"lance-=-peigne\"   \n\n\n\n\n - - + - -  attribute edges (directed) between contemporaneous nodes where the attribute node b is an attribute of main node a\n\n\n\n\n \n  \n    site \n    decor \n    a \n    b \n    type \n    xa \n    ya \n    xb \n    yb \n  \n \n\n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    3 \n    = \n    350.7279 \n    -141.3279 \n    289.7853 \n    -183.1172 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    2 \n    = \n    350.7279 \n    -141.3279 \n    428.2122 \n    -172.6699 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    4 \n    = \n    289.7853 \n    -183.1172 \n    285.4322 \n    -207.4942 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    2 \n    = \n    289.7853 \n    -183.1172 \n    428.2122 \n    -172.6699 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    4 \n    5 \n    = \n    285.4322 \n    -207.4942 \n    290.6559 \n    -310.2261 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    4 \n    = \n    418.6354 \n    -305.0025 \n    285.4322 \n    -207.4942 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    6 \n    = \n    290.6559 \n    -310.2261 \n    418.6354 \n    -305.0025 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    8 \n    + \n    343.7630 \n    -466.9358 \n    261.9258 \n    -433.8527 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    9 \n    + \n    343.7630 \n    -466.9358 \n    258.4433 \n    -486.0892 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    10 \n    + \n    343.7630 \n    -466.9358 \n    342.9527 \n    -434.1614 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    11 \n    + \n    343.7630 \n    -466.9358 \n    344.2134 \n    -510.2253 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    7 \n    = \n    290.6559 \n    -310.2261 \n    343.7630 \n    -466.9358 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    7 \n    = \n    418.6354 \n    -305.0025 \n    343.7630 \n    -466.9358 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    12 \n    + \n    350.7279 \n    -141.3279 \n    377.1414 \n    -163.5179 \n  \n\n\n\n\n\n\n\n\n [1] \"bouclier-=-chariot_char\"   \"bouclier-=-lance\"         \n [3] \"bouclier-=-personnage\"     \"casque-+-rivet\"           \n [5] \"casque-=-epee\"             \"casque-=-miroir\"          \n [7] \"chariot_char-+-cheval\"     \"chariot_char-+-cheval#\"   \n [9] \"chariot_char-+-roue\"       \"chariot_char-+-roue#\"     \n[11] \"chariot_char-=-personnage\" \"epee-=-lance\"             \n[13] \"epee-=-miroir\"             \"lance-=-personnage\"       \n\n\n\n\n —— > ——  diachronic edges (directed) between non-contemporaneous nodes where the node a overlaps node b, or node a is more ancient than node b\n\n\n\n\n \n  \n    site \n    decor \n    a \n    b \n    type \n    xa \n    ya \n    xb \n    yb \n  \n \n\n  \n    Ibahernando \n    Ibahernando \n    1 \n    2 \n    > \n    284.1056 \n    -131.2344 \n    351.6009 \n    -191.5644 \n  \n  \n    Ibahernando \n    Ibahernando \n    1 \n    3 \n    > \n    284.1056 \n    -131.2344 \n    345.0360 \n    -296.6023 \n  \n  \n    Ibahernando \n    Ibahernando \n    2 \n    3 \n    = \n    351.6009 \n    -191.5644 \n    345.0360 \n    -296.6023 \n  \n  \n    Ibahernando \n    Ibahernando \n    3 \n    4 \n    = \n    345.0360 \n    -296.6023 \n    367.3566 \n    -420.6782 \n  \n\n\n\n\n\n\n\n\n[1] \"bouclier-=-epee\"     \"bouclier-=-lance\"    \"ecriture->-bouclier\"\n[4] \"ecriture->-lance\""
+    "text": "Edges\n\nNormalAttributeDiachronic\n\n\n —— + ——  normal edges (undirected) between contiguous and contemporaneous main nodes (nodes a and b)\n\n\n\n\n \n  \n      \n    site \n    decor \n    a \n    b \n    type \n    xa \n    ya \n    xb \n    yb \n  \n \n\n  \n    24 \n    Brozas \n    Brozas \n    1 \n    2 \n    = \n    354.1114 \n    -123.3621 \n    346.3455 \n    -151.8371 \n  \n  \n    25 \n    Brozas \n    Brozas \n    3 \n    1 \n    = \n    279.0411 \n    -162.1916 \n    354.1114 \n    -123.3621 \n  \n  \n    26 \n    Brozas \n    Brozas \n    3 \n    2 \n    = \n    279.0411 \n    -162.1916 \n    346.3455 \n    -151.8371 \n  \n  \n    27 \n    Brozas \n    Brozas \n    4 \n    1 \n    = \n    211.7366 \n    -206.1984 \n    354.1114 \n    -123.3621 \n  \n  \n    28 \n    Brozas \n    Brozas \n    4 \n    3 \n    = \n    211.7366 \n    -206.1984 \n    279.0411 \n    -162.1916 \n  \n  \n    29 \n    Brozas \n    Brozas \n    1 \n    5 \n    = \n    354.1114 \n    -123.3621 \n    392.9409 \n    -343.3959 \n  \n  \n    30 \n    Brozas \n    Brozas \n    2 \n    5 \n    = \n    346.3455 \n    -151.8371 \n    392.9409 \n    -343.3959 \n  \n  \n    31 \n    Brozas \n    Brozas \n    3 \n    5 \n    = \n    279.0411 \n    -162.1916 \n    392.9409 \n    -343.3959 \n  \n  \n    32 \n    Brozas \n    Brozas \n    4 \n    5 \n    = \n    211.7366 \n    -206.1984 \n    392.9409 \n    -343.3959 \n  \n  \n    33 \n    Brozas \n    Brozas \n    5 \n    6 \n    = \n    392.9409 \n    -343.3959 \n    387.7636 \n    -564.7240 \n  \n\n\n\n\n\n\n\n\n [1] \"bouclier-=-epee\"   \"bouclier-=-fibule\" \"bouclier-=-lance\" \n [4] \"bouclier-=-miroir\" \"bouclier-=-peigne\" \"fibule-=-lance\"   \n [7] \"fibule-=-miroir\"   \"fibule-=-peigne\"   \"lance-=-miroir\"   \n[10] \"lance-=-peigne\"   \n\n\n\n\n - - + - -  attribute edges (directed) between contemporaneous nodes where the attribute node b is an attribute of main node a\n\n\n\n\n \n  \n    site \n    decor \n    a \n    b \n    type \n    xa \n    ya \n    xb \n    yb \n  \n \n\n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    3 \n    = \n    350.7279 \n    -141.3279 \n    289.7853 \n    -183.1172 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    2 \n    = \n    350.7279 \n    -141.3279 \n    428.2122 \n    -172.6699 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    4 \n    = \n    289.7853 \n    -183.1172 \n    285.4322 \n    -207.4942 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    2 \n    = \n    289.7853 \n    -183.1172 \n    428.2122 \n    -172.6699 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    4 \n    5 \n    = \n    285.4322 \n    -207.4942 \n    290.6559 \n    -310.2261 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    4 \n    = \n    418.6354 \n    -305.0025 \n    285.4322 \n    -207.4942 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    6 \n    = \n    290.6559 \n    -310.2261 \n    418.6354 \n    -305.0025 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    8 \n    + \n    343.7630 \n    -466.9358 \n    261.9258 \n    -433.8527 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    9 \n    + \n    343.7630 \n    -466.9358 \n    258.4433 \n    -486.0892 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    10 \n    + \n    343.7630 \n    -466.9358 \n    342.9527 \n    -434.1614 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    11 \n    + \n    343.7630 \n    -466.9358 \n    344.2134 \n    -510.2253 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    7 \n    = \n    290.6559 \n    -310.2261 \n    343.7630 \n    -466.9358 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    7 \n    = \n    418.6354 \n    -305.0025 \n    343.7630 \n    -466.9358 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    12 \n    + \n    350.7279 \n    -141.3279 \n    377.1414 \n    -163.5179 \n  \n\n\n\n\n\n\n\n\n [1] \"bouclier-=-chariot_char\"   \"bouclier-=-lance\"         \n [3] \"bouclier-=-personnage\"     \"casque-+-rivet\"           \n [5] \"casque-=-epee\"             \"casque-=-miroir\"          \n [7] \"chariot_char-+-cheval\"     \"chariot_char-+-cheval#\"   \n [9] \"chariot_char-+-roue\"       \"chariot_char-+-roue#\"     \n[11] \"chariot_char-=-personnage\" \"epee-=-lance\"             \n[13] \"epee-=-miroir\"             \"lance-=-personnage\"       \n\n\n\n\n —— > ——  diachronic edges (directed) between non-contemporaneous nodes where the node a overlaps node b, or node a is more ancient than node b\n\n\n\n\n \n  \n    site \n    decor \n    a \n    b \n    type \n    xa \n    ya \n    xb \n    yb \n  \n \n\n  \n    Ibahernando \n    Ibahernando \n    1 \n    2 \n    > \n    284.1056 \n    -131.2344 \n    351.6009 \n    -191.5644 \n  \n  \n    Ibahernando \n    Ibahernando \n    1 \n    3 \n    > \n    284.1056 \n    -131.2344 \n    345.0360 \n    -296.6023 \n  \n  \n    Ibahernando \n    Ibahernando \n    2 \n    3 \n    = \n    351.6009 \n    -191.5644 \n    345.0360 \n    -296.6023 \n  \n  \n    Ibahernando \n    Ibahernando \n    3 \n    4 \n    = \n    345.0360 \n    -296.6023 \n    367.3566 \n    -420.6782 \n  \n\n\n\n\n\n\n\n\n[1] \"bouclier-=-epee\"     \"bouclier-=-lance\"    \"ecriture->-bouclier\"\n[4] \"ecriture->-lance\""
   },
   {
     "objectID": "index.html#tree",
@@ -508,7 +508,7 @@
     "href": "test.html#nodes",
     "title": "TEST2",
     "section": "Nodes",
-    "text": "Nodes\n\n\n\n\nMain nodes: separated GUs showing different graphical contents (anthropomorphic figure, spear, shield, comb and ingot)"
+    "text": "Nodes\nMain nodes\n\n\n\n\n\nHierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)\n\n\n\nhttps://tinyurl.com/goa-oxford"
   },
   {
     "objectID": "test.html#nodes-1",
@@ -522,14 +522,14 @@
     "href": "index.html#nodes-1",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Nodes",
-    "text": "Nodes\n\n\n\n\n\n\n\n\nMain nodes: separated GUs showing different graphical contents (anthropomorphic figure, spear, shield, comb and ingot) Hierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)"
+    "text": "Nodes\nMain nodes\n\nHierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)"
   },
   {
     "objectID": "index.html#default-data---images",
     "href": "index.html#default-data---images",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Default data - images",
-    "text": "Default data - images\n\nfrom Rdata\n\n\n\ndataDir <- system.file(\"extdata\", package = \"iconr\")\nimgs_path <- paste0(dataDir, \"/imgs.csv\")\nimgs <- read.table(imgs_path, sep = \";\", stringsAsFactors = FALSE)\nkable(imgs, \"html\") %>% \n  kable_styling(full_width = FALSE, position = \"center\", font_size = 24)\n\n\n\n \n  \n    idf \n    site \n    decor \n    img \n  \n \n\n  \n    1 \n    Cerro Muriano \n    Cerro Muriano 1 \n    Cerro_Muriano.Cerro_Muriano_1.jpg \n  \n  \n    2 \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    Torrejon_Rubio.Torrejon_Rubio_1.jpg \n  \n  \n    3 \n    Brozas \n    Brozas \n    Brozas.Brozas.jpg \n  \n  \n    4 \n    Zarza de Montanchez \n    Zarza De Montanchez \n    Zarza_de_Montanchez.Zarza_De_Montanchez.jpg \n  \n  \n    5 \n    Ibahernando \n    Ibahernando \n    Ibahernando.Ibahernando.jpg \n  \n\n\n\n\n\n\n\n\n\n  https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv"
+    "text": "Default data - images\n\nfrom Rdata\n\n\n\ndataDir <- system.file(\"extdata\", package = \"iconr\")\nimgs_path <- paste0(dataDir, \"/imgs.csv\")\nimgs <- read.table(imgs_path, sep = \";\", stringsAsFactors = FALSE)\nkable(imgs, \"html\") %>% \n  kable_styling(full_width = FALSE, position = \"center\", font_size = 24)\n\n\n\n \n  \n    idf \n    site \n    decor \n    img \n  \n \n\n  \n    1 \n    Cerro Muriano \n    Cerro Muriano 1 \n    Cerro_Muriano.Cerro_Muriano_1.jpg \n  \n  \n    2 \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    Torrejon_Rubio.Torrejon_Rubio_1.jpg \n  \n  \n    3 \n    Brozas \n    Brozas \n    Brozas.Brozas.jpg \n  \n  \n    4 \n    Zarza de Montanchez \n    Zarza De Montanchez \n    Zarza_de_Montanchez.Zarza_De_Montanchez.jpg \n  \n  \n    5 \n    Ibahernando \n    Ibahernando \n    Ibahernando.Ibahernando.jpg \n  \n\n\n\n\n\n    \n\n\n\n  https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv"
   },
   {
     "objectID": "index.html#default-data---nodes",
@@ -648,21 +648,21 @@
     "href": "index.html#conceptual-model-2",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Conceptual model",
-    "text": "Conceptual model\n\n\n\n\n\nSome objects have a decoration"
+    "text": "Conceptual model\n\n\n  \n\n\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)\nA decoration is composed of graphical units (GUs)\nSome objects have a decoration"
   },
   {
     "objectID": "index.html#conceptual-model-3",
     "href": "index.html#conceptual-model-3",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Conceptual model",
-    "text": "Conceptual model\n\n\n  \n\n\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)\nA decoration is composed of graphical units (GUs)\nSome objects have a decoration"
+    "text": "Conceptual model\n\n\n   \n\n\nNodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);\nGUs are considered as nodes;\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)\nA decoration is composed of graphical units (GUs)\nSome objects have a decoration"
   },
   {
     "objectID": "index.html#conceptual-model-4",
     "href": "index.html#conceptual-model-4",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Conceptual model",
-    "text": "Conceptual model\n\n\n   \n\n\nNodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);\nGUs are considered as nodes;\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)\nA decoration is composed of graphical units (GUs)\nSome objects have a decoration"
+    "text": "Conceptual model\n\n\n    \n\n\nShape analysis and hierachical thesaurus can measure the similarities between two GUs (eg. Procrustes distance);\nA decoration is considered as a spatial graph, modeled with graph theory and analysed with network and spatial analysis;\nNodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);\nGUs are considered as nodes;\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)\nA decoration is composed of graphical units (GUs)\nSome objects have a decoration"
   },
   {
     "objectID": "index.html#conceptual-model-5",
@@ -676,14 +676,14 @@
     "href": "index.html#nodes-2",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Nodes",
-    "text": "Nodes\n\n\n \n\nMain nodes: separated GUs showing different graphical contents (anthropomorphic figure, spear, shield, comb and ingot) Shape analysis allows to compare and classify GUs having a given type"
+    "text": "Nodes"
   },
   {
     "objectID": "index.html#nodes-3",
     "href": "index.html#nodes-3",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Nodes",
-    "text": "Nodes\n\n\n\n\nAttribute nodes: additional GUs characterising the main node (helmet, phalus)\nMain nodes: separated GUs showing different graphical contents (anthropomorphic figure, spear, shield, comb and ingot)"
+    "text": "Nodes\nMain nodes\n{width = “50%”} {width = “50%”}\nShape analysis allows to compare and classify GUs having a given type"
   },
   {
     "objectID": "test.html#study",
@@ -782,5 +782,250 @@
     "title": "TEST2",
     "section": "Variable",
     "text": "Variable\n\n\n\n\nChronological attribution"
+  },
+  {
+    "objectID": "test.html#dataset",
+    "href": "test.html#dataset",
+    "title": "TEST2",
+    "section": "Dataset",
+    "text": "Dataset\n\nSourcesCorpus\n\n\n\n\n\n\nDíaz-Guardamino Uribe, M. (2010). Las estelas decoradas en la Prehistoria de la Península Ibérica (Universidad Complutense de Madrid, Servicio de Publicaciones). url: https://eprints.ucm.es/11070/1/T32200.pdf"
+  },
+  {
+    "objectID": "test.html#variables-global",
+    "href": "test.html#variables-global",
+    "title": "TEST2",
+    "section": "Variables (global)",
+    "text": "Variables (global)"
+  },
+  {
+    "objectID": "test.html#variables-global-1",
+    "href": "test.html#variables-global-1",
+    "title": "TEST2",
+    "section": "Variables (global)",
+    "text": "Variables (global)"
+  },
+  {
+    "objectID": "test.html#variables-global-2",
+    "href": "test.html#variables-global-2",
+    "title": "TEST2",
+    "section": "Variables (global)",
+    "text": "Variables (global)"
+  },
+  {
+    "objectID": "test.html#variables-local",
+    "href": "test.html#variables-local",
+    "title": "TEST2",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nSpatialized graph"
+  },
+  {
+    "objectID": "test.html#variables-local-1",
+    "href": "test.html#variables-local-1",
+    "title": "TEST2",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nTypes"
+  },
+  {
+    "objectID": "test.html#variables-local-2",
+    "href": "test.html#variables-local-2",
+    "title": "TEST2",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nMaximum length (cm)"
+  },
+  {
+    "objectID": "test.html#variables-local-3",
+    "href": "test.html#variables-local-3",
+    "title": "TEST2",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nOrientation (see the thesaurus, clockwise rotation)"
+  },
+  {
+    "objectID": "test.html#variables-local-4",
+    "href": "test.html#variables-local-4",
+    "title": "TEST2",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nTechnology (pecked, incised, painted, etc.)"
+  },
+  {
+    "objectID": "test.html#variables-local-5",
+    "href": "test.html#variables-local-5",
+    "title": "TEST2",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nCompletness"
+  },
+  {
+    "objectID": "test.html#variables-local-6",
+    "href": "test.html#variables-local-6",
+    "title": "TEST2",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nBetweenness centrality"
+  },
+  {
+    "objectID": "test.html#variables-local-7",
+    "href": "test.html#variables-local-7",
+    "title": "TEST2",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nCloseness centrality"
+  },
+  {
+    "objectID": "test.html#variables-local-8",
+    "href": "test.html#variables-local-8",
+    "title": "TEST2",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nDomination"
+  },
+  {
+    "objectID": "test.html#variables-local-9",
+    "href": "test.html#variables-local-9",
+    "title": "TEST2",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nCultural attribution"
+  },
+  {
+    "objectID": "test.html#variables-local-10",
+    "href": "test.html#variables-local-10",
+    "title": "TEST2",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nChronological attribution"
+  },
+  {
+    "objectID": "index.html#nodes-4",
+    "href": "index.html#nodes-4",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Nodes",
+    "text": "Nodes\n\n\n\n\nAttribute nodes: additional GUs characterising the main node (helmet, phalus)"
+  },
+  {
+    "objectID": "index.html#dataset",
+    "href": "index.html#dataset",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Dataset",
+    "text": "Dataset\n\nSourcesCorpus\n\n\n\n\n\n\nDíaz-Guardamino Uribe, M. (2010). Las estelas decoradas en la Prehistoria de la Península Ibérica (Universidad Complutense de Madrid, Servicio de Publicaciones). url: https://eprints.ucm.es/11070/1/T32200.pdf"
+  },
+  {
+    "objectID": "index.html#variables-global",
+    "href": "index.html#variables-global",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Variables (global)",
+    "text": "Variables (global)"
+  },
+  {
+    "objectID": "index.html#variables-global-1",
+    "href": "index.html#variables-global-1",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Variables (global)",
+    "text": "Variables (global)"
+  },
+  {
+    "objectID": "index.html#variables-global-2",
+    "href": "index.html#variables-global-2",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Variables (global)",
+    "text": "Variables (global)"
+  },
+  {
+    "objectID": "index.html#variables-local",
+    "href": "index.html#variables-local",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nSpatialized graph"
+  },
+  {
+    "objectID": "index.html#variables-local-1",
+    "href": "index.html#variables-local-1",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nTypes"
+  },
+  {
+    "objectID": "index.html#variables-local-2",
+    "href": "index.html#variables-local-2",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nMaximum length (cm)"
+  },
+  {
+    "objectID": "index.html#variables-local-3",
+    "href": "index.html#variables-local-3",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nOrientation (see thesaurus, clockwise rotation)"
+  },
+  {
+    "objectID": "index.html#variables-local-4",
+    "href": "index.html#variables-local-4",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nTechnology (pecked, incised, painted, etc.)"
+  },
+  {
+    "objectID": "index.html#variables-local-5",
+    "href": "index.html#variables-local-5",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nCompletness"
+  },
+  {
+    "objectID": "index.html#variables-local-6",
+    "href": "index.html#variables-local-6",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nBetweenness centrality"
+  },
+  {
+    "objectID": "index.html#variables-local-7",
+    "href": "index.html#variables-local-7",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nCloseness centrality"
+  },
+  {
+    "objectID": "index.html#variables-local-8",
+    "href": "index.html#variables-local-8",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nDomination"
+  },
+  {
+    "objectID": "index.html#variables-local-9",
+    "href": "index.html#variables-local-9",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nCultural attribution"
+  },
+  {
+    "objectID": "index.html#variables-local-10",
+    "href": "index.html#variables-local-10",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Variables (local)",
+    "text": "Variables (local)\n\n\n\n\nChronological attribution"
+  },
+  {
+    "objectID": "test.html#descriptive-statistics---domination",
+    "href": "test.html#descriptive-statistics---domination",
+    "title": "TEST2",
+    "section": "Descriptive statistics - domination",
+    "text": "Descriptive statistics - domination"
+  },
+  {
+    "objectID": "test.html#descriptive-statistics---lengths",
+    "href": "test.html#descriptive-statistics---lengths",
+    "title": "TEST2",
+    "section": "Descriptive statistics - lengths",
+    "text": "Descriptive statistics - lengths"
+  },
+  {
+    "objectID": "test.html#descriptive-statistics---orientations",
+    "href": "test.html#descriptive-statistics---orientations",
+    "title": "TEST2",
+    "section": "Descriptive statistics - orientations",
+    "text": "Descriptive statistics - orientations\n\nBy stelae (selected types)By type (selected types)"
+  },
+  {
+    "objectID": "test.html#exploratory-statistics",
+    "href": "test.html#exploratory-statistics",
+    "title": "TEST2",
+    "section": "Exploratory statistics",
+    "text": "Exploratory statistics\n\nDistance matrixClutering"
   }
 ]

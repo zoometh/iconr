@@ -80,11 +80,90 @@ It introduces the R package ***iconr*** <a href="https://github.com/zoometh/icon
 It gives an example of study with this package
 </div>
 
+## {}
+
+<th><a href="https://www.r-project.org/">
+<img src="https://www.r-project.org/logo/Rlogo.svg" alt="" style="height: 100px; margin: 0 0 0 0; background: transparent;" class="demo-logo">
+</a></th>
+
+::: {.panel-tabset}
+
+### Users
+
+R is a scripting language for data science. It is the 1️⃣<sup>st</sup> used by archaeologists, and the 18<sup>th</sup> worldwide</p><small>- [Tiobe index 2022](https://www.tiobe.com/tiobe-index/) + [Batist and Roe, 2022](https://youtu.be/tUhHhzGSgbk?t=7499)</small>
+
+
+### IDE
+
+[RStudio](https://www.rstudio.com/) is THE graphical interface for R, Rstudio is also in the cloud ([RStudio.cloud](https://rstudio.cloud/)), [VS Code](https://code.visualstudio.com/) is a standalone source code editor multi-platforms and multi-languages
+
+### Layouts
+
+[R markdown](https://rmarkdown.rstudio.com/) is a notebook interface for report generation, [Shiny](https://shiny.rstudio.com/) allows the development of web interactive applications, [Quarto](https://quarto.org/) to create Powerpoint-like web interactive documents
+
+### Packages
+
+The [CRAN](https://cran.r-project.org/web/packages/) features 18,890 available packages. The package ***iconr*** uses 18 packages. The most distinctives are:
+
+<table>
+<thead>
+<tr>
+<th>package</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="https://raw.githubusercontent.com/zoometh/thomashuet/master/img/r-pkg-magick.png" width='150px' /></td>
+<td>[magick](https://github.com/ropensci/magick) for image manipulation </td>
+</tr>
+<tr>
+<td><img src="https://raw.githubusercontent.com/zoometh/thomashuet/master/img/r-pkg-igraph.png" width='150px' /></td>
+<td>[igraph](https://igraph.org/r/) for graph theory and network analysis </td>
+</tr>
+<tr>
+<td><img src="https://raw.githubusercontent.com/zoometh/thomashuet/master/img/r-pkg-sf.png" width='150px' /></td>
+<td>[sf](https://cran.r-project.org/web/packages/sf/index.html) makes R a GIS </td>
+</tr>
+<tr>
+<td><img src="https://raw.githubusercontent.com/zoometh/thomashuet/master/img/r-pkg-momocs.png" width='150px' /></td>
+<td>[Momocs](https://cran.r-project.org/web/packages/Momocs/index.html) for geometric morphometric methods</td>
+</tr>
+</tbody>
+</table>
+
+[Other useful R packages: [dplyr]() ...., [knitr]() and [kableExtra]() for HTML/LaTex/PDF/etc. layouts [openxlsx](https://cran.r-project.org/web/packages/openxlsx/index.html) to read/write Excel files, [ggplot2](https://ggplot2.tidyverse.org/) to create plots; [plotly](https://plotly.com/r/)  and [leaflet](https://cran.r-project.org/web/packages/leaflet/index.html) to create interactive plots and maps; etc.]{.aside}
+
+
+### Resources
+
+[sthda.com](http://www.sthda.com/english/wiki/ggplot2-line-plot-quick-start-guide-r-software-and-data-visualization) has good tutorials, [stackoverflow](https://stackoverflow.com/) is probably the place where you will find the answer you need, if you need some open software for archaeology go to [open-archaeo](https://open-archaeo.info/)
+
+:::
+
+## Computer stack
+
+<a href="https://github.com">
+<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 100px;margin: 0 0 0 0; background: transparent;" class="demo-logo">
+</a>
+The 🔝 popular web-platform for source code management and software development (with over 128 million public repositories)
+
+<table>
+<tbody>
+  <tr>
+    <td><a href="https://www.r-project.org/">
+<img src="https://www.r-project.org/logo/Rlogo.svg" alt="" style="height: 100px; margin: 0 0 0 0; background: transparent;" class="demo-logo"></a></td>
+  </tr>
+  <tr>
+    <td><a href="https://github.com">
+<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 100px; margin: 0 0 0 0; background: transparent;" class="demo-logo">
+</a></td>
+  </tr>
+</tbody>
+</table>
 
 
 ## Nature of iconographic data
-
-
 
 
 ## Statement of need {auto-animate=true}
@@ -296,6 +375,7 @@ It gives an example of study with this package
 
 ## Nodes {auto-animate=true}
 
+**Main nodes**
 
 :::: {.columns}
 
@@ -307,7 +387,7 @@ It gives an example of study with this package
 
 ::: {.column width="60%"}
 
-**Main nodes**: separated GUs showing different graphical contents (anthropomorphic figure, spear, shield, comb and ingot)
+Separated GUs showing different graphical contents (anthropomorphic figure, spear, shield, comb and ingot)
 
 :::
 
@@ -349,30 +429,34 @@ plot(g,
 
 Hierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)
 
+## Nodes {background-iframe="http://shinyserver.cfs.unipi.it:3838/teach/iconr/gu_thes/typo_gu_figuratif.html" background-interactive="true"}
+
 
 ## Nodes {auto-animate=true}
 
 **Main nodes**
 
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gmm-brandherm-epees-draw-panel.png){width = "50%"}
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gmm-brandherm-epees-draw-stack.png){width = "50%"}
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gmm-brandherm-epees-draw-panel.png){width=50%}
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gmm-brandherm-epees-draw-stack.png){width=50%}
 
 Shape analysis allows to compare and classify GUs having a given type
 
 
 ## Nodes {auto-animate=true}
 
+**Attribute nodes**
+
 :::: {.columns}
 
-::: {.column width="40%"}
+::: {.column width="60%"}
 
 ![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/cm1_type.png)
 
 :::
 
-::: {.column width="60%"}
+::: {.column width="40%"}
 
-**Attribute nodes**: additional GUs characterising the main node (helmet, phalus)  
+Additional GUs characterising the main node (helmet, phalus)  
 
 :::
 
@@ -500,8 +584,9 @@ QGIS plugin: [Freehand raster georeferencer](https://gvellut.github.io/FreehandR
 
 Install and load packages
 
+
 ```{r}
-#| echo: true
+#| echo: false
 
 # install.packages("iconr")
 # install.packages("sf")
@@ -516,8 +601,6 @@ library(dplyr)
 library(knitr)
 library(kableExtra)
 ```
-
-
 
 ## Default data - images
 
@@ -535,11 +618,11 @@ kable(imgs, "html") %>%
   kable_styling(full_width = FALSE, position = "center", font_size = 24)
 ```
 
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Cerro_Muriano.Cerro_Muriano_1.jpg" width='150px' />
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Torrejon_Rubio.Torrejon_Rubio_1.jpg" width='150px' />
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Brozas.Brozas.jpg" width='150px' />
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Zarza_de_Montanchez.Zarza_De_Montanchez.jpg" width='150px' />
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Ibahernando.Ibahernando.jpg" width='150px' />
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Cerro_Muriano.Cerro_Muriano_1.jpg" width='200px' />
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Torrejon_Rubio.Torrejon_Rubio_1.jpg" width='200px' />
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Brozas.Brozas.jpg" width='200px' />
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Zarza_de_Montanchez.Zarza_De_Montanchez.jpg" width='200px' />
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Ibahernando.Ibahernando.jpg" width='200px' />
 
 ### data
 
@@ -617,6 +700,18 @@ kable(edges, "html") %>%
 
 :::
 
+
+## Functions {auto-animate=true}
+
+```{.r code-line-numbers="1|2|3|4|5|6|7"}
+dataDir <- system.file("extdata", package = "iconr")
+imgs <- read.table(paste0(dataDir, "/imgs.csv"), sep = ";", stringsAsFactors = FALSE)
+nodes.shp <- st_read(paste0(dataDir, "/nodes.shp"), quiet = T)
+nodes <- as.data.frame(nodes.shp)
+edges.shp <- st_read(paste0(dataDir, "/edges.shp"), quiet = T)
+edges <- as.data.frame(edges.shp)
+lgrph <- list_dec(imgs, nodes, edges)
+```
 
 ## Functions {auto-animate=true}
 
@@ -782,125 +877,280 @@ plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
 ```
 ## Study
 
-## Corpus
 
-## {} {background-iframe="http://shinyserver.cfs.unipi.it:3838/teach/iconr/gu_thes/typo_gu_figuratif.html" background-interactive="true"}
-
-
-
-## 2-dim data shape {background-iframe="http://shinyserver.cfs.unipi.it:3838/teach/stats/gmm/"}
-
-::: footer
-Current dataset: [Matzig, D.N., Hussain, S.T. and Riede, F. *Design Space Constraints and the Cultural Taxonomy of European Final Palaeolithic Large Tanged Points (...)*](https://doi.org/10.1007/s41982-021-00097-2)
-:::
-
-## {}
-
-<th><a href="https://www.r-project.org/">
-<img src="https://www.r-project.org/logo/Rlogo.svg" alt="" style="height: 100px; margin: 0 0 0 0; background: transparent;" class="demo-logo">
-</a></th>
+## Dataset
 
 ::: {.panel-tabset}
 
-### Users
+### Sources
 
-R is a scripting language for data science. It is the 1️⃣<sup>st</sup> used by archaeologists, and the 18<sup>th</sup> worldwide</p><small>- [Tiobe index 2022](https://www.tiobe.com/tiobe-index/) + [Batist and Roe, 2022](https://youtu.be/tUhHhzGSgbk?t=7499)</small>
+:::: {.columns}
 
+::: {.column width="40%"}
 
-### IDE
-
-[RStudio](https://www.rstudio.com/) is THE graphical interface for R, Rstudio is also in the cloud ([RStudio.cloud](https://rstudio.cloud/)), [VS Code](https://code.visualstudio.com/) is a standalone source code editor multi-platforms and multi-languages
-
-### Layouts
-
-[R markdown](https://rmarkdown.rstudio.com/) is a notebook interface for report generation, [Shiny](https://shiny.rstudio.com/) allows the development of web interactive applications, [Quarto](https://quarto.org/) to create Powerpoint-like web interactive documents
-
-### Packages
-
-The [CRAN](https://cran.r-project.org/web/packages/) features 18,890 available packages. The package ***iconr*** uses 18 packages. The most distinctives are:
-
-<table>
-<thead>
-<tr>
-<th>package</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="https://raw.githubusercontent.com/zoometh/thomashuet/master/img/r-pkg-magick.png" width='150px' /></td>
-<td>[magick](https://github.com/ropensci/magick) for image manipulation </td>
-</tr>
-<tr>
-<td><img src="https://raw.githubusercontent.com/zoometh/thomashuet/master/img/r-pkg-igraph.png" width='150px' /></td>
-<td>[igraph](https://igraph.org/r/) for graph theory and network analysis </td>
-</tr>
-<tr>
-<td><img src="https://raw.githubusercontent.com/zoometh/thomashuet/master/img/r-pkg-sf.png" width='150px' /></td>
-<td>[sf](https://cran.r-project.org/web/packages/sf/index.html) makes R a GIS </td>
-</tr>
-<tr>
-<td><img src="https://raw.githubusercontent.com/zoometh/thomashuet/master/img/r-pkg-momocs.png" width='150px' /></td>
-<td>[Momocs](https://cran.r-project.org/web/packages/Momocs/index.html) for geometric morphometric methods</td>
-</tr>
-</tbody>
-</table>
-
-[Other useful R packages: [dplyr]() ...., [knitr]() and [kableExtra]() for HTML/LaTex/PDF/etc. layouts [openxlsx](https://cran.r-project.org/web/packages/openxlsx/index.html) to read/write Excel files, [ggplot2](https://ggplot2.tidyverse.org/) to create plots; [plotly](https://plotly.com/r/)  and [leaflet](https://cran.r-project.org/web/packages/leaflet/index.html) to create interactive plots and maps; etc.]{.aside}
-
-
-### Resources
-
-[sthda.com](http://www.sthda.com/english/wiki/ggplot2-line-plot-quick-start-guide-r-software-and-data-visualization) has good tutorials, [stackoverflow](https://stackoverflow.com/) is probably the place where you will find the answer you need, if you need some open software for archaeology go to [open-archaeo](https://open-archaeo.info/)
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/sources-catalog-diazguardamino.png" width='500px' />
 
 :::
 
-## Computer stack
+::: {.column width="60%"}
 
-<a href="https://github.com">
-<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 100px;margin: 0 0 0 0; background: transparent;" class="demo-logo">
-</a>
-The 🔝 popular web-platform for source code management and software development (with over 128 million public repositories)
+Díaz-Guardamino Uribe, M. (2010). *Las estelas decoradas en la Prehistoria de la Península Ibérica* (Universidad Complutense de Madrid, Servicio de Publicaciones). url: [https://eprints.ucm.es/11070/1/T32200.pdf](https://eprints.ucm.es/11070/1/T32200.pdf)
 
-<table>
-<tbody>
-  <tr>
-    <td><a href="https://www.r-project.org/">
-<img src="https://www.r-project.org/logo/Rlogo.svg" alt="" style="height: 100px; margin: 0 0 0 0; background: transparent;" class="demo-logo"></a></td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com">
-<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 100px; margin: 0 0 0 0; background: transparent;" class="demo-logo">
-</a></td>
-  </tr>
-</tbody>
-</table>
+:::
+
+::::
+
+### Corpus
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/spat_stele_bouclier.png" width='100%' />
+
+:::
+
+## Variables (global) {auto-animate=true}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/dec_histo/all_graphs_info.png" width='100%' />
+
+## Variables (global) {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/dec_histo/nodes_without_attributes_histo.png" width='500px' />
+
+:::
+
+::: {.column width="50%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/dec_histo/edges_normal_histo.png" width='500px' />
+
+:::
+
+::::
+
+## Variables (global) {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/dec_histo/nodes__attributes_histo.png" width='500px' />
+
+:::
+
+::: {.column width="50%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/dec_histo/edges_attributes_histo.png" width='500px' />
+
+:::
+
+::::
+
+## Variables (local) {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/graph.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Spatialized graph
+
+:::
+
+::::
+
+## Variables (local) {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/typo.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Types
+
+:::
+
+::::
+
+## Variables (local) {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/long_cm.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Maximum length (cm)
+
+:::
+
+::::
+
+## Variables (local) {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/orient.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Orientation (see [thesaurus](http://shinyserver.cfs.unipi.it:3838/teach/iconr/gu_thes/typo_gu_figuratif.html))
+
+:::
+
+::::
+
+## Variables (local) {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/techno.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Technology (pecked, incised, painted, etc.)
+
+:::
+
+::::
 
 
+## Variables (local) {auto-animate=true}
 
-## An example using R and GitHub
+:::: {.columns}
 
-<span class= smalltext> see the rendered dataset: [https://github.com/keltoskytoi/Multivariate_Statistics_Szentloerinc/blob/master/DATA/fibulae.csv](https://github.com/keltoskytoi/Multivariate_Statistics_Szentloerinc/blob/master/DATA/fibulae.csv)</span>
+::: {.column width="60%"}
 
-```{.r code-line-numbers="1|2|3|4|5"}
-# install.packages("ca")
-library(ca)
-seriat <- read.csv("https://raw.githubusercontent.com/keltoskytoi/Multivariate_Statistics_Szentloerinc/master/DATA/fibulae.csv", row.name = 1)
-print(head(seriat))
-plot(ca(seriat))
-```
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/complet.png" width='500px' />
 
-```{r out.height="50%", out.width="50%"}
-#| echo: false
-library(ca)
-seriat <- read.csv("https://raw.githubusercontent.com/keltoskytoi/Multivariate_Statistics_Szentloerinc/master/DATA/fibulae.csv", row.name = 1)
-print(head(seriat))
-plot(ca(seriat))
-```
+:::
+
+::: {.column width="40%"}
+
+Completness
+
+:::
+
+::::
+
+## Variables (local) {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/betweenness.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Betweenness centrality
+
+:::
+
+::::
+
+## Variables (local) {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/closeness.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Closeness centrality
+
+:::
+
+::::
+
+
+## Variables (local) {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/domition.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Domination
+
+:::
+
+::::
+
+## Variables (local) {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/chr_1.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Cultural attribution
+
+:::
+
+::::
+
+## Variables (local) {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/ug_tq.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+Chronological attribution
+
+:::
+
+::::
+
+
 
 # References
 
-{#fig-elephant}: The CRAN (Comprehensive R Archive Network) is the official package repository of R, see: https://cran.r-project.org/
+The CRAN (Comprehensive R Archive Network) is the official package repository of R, see: https://cran.r-project.org/
 
 https://quarto.org/docs/output-formats/html-basics.html#ref-xie2015
 

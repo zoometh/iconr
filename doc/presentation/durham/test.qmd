@@ -38,250 +38,86 @@ grph <- list_dec(imgs, nodes, edges)
 lgrph <- list_dec(imgs, nodes, edges)
 ```
 
+## Descriptive statistics - domination
 
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Cerro_Muriano.Cerro_Muriano_1.jpg" width='150px' />
+:::{.column-screen-inset}
 
-## Study
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/ug_n_centralities/ugs_rel_deepness_by_types.png)
+
+:::
+
+## Descriptive statistics - lengths
 
 
-## Dataset
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/ug_n_dimensions/ugs_abs_dim_by_types.png)
+
+
+## Descriptive statistics - orientations
 
 ::: {.panel-tabset}
 
-### Sources
+### By stelae (selected types)
 
-:::: {.columns}
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/ug_n_orientations/ugs_orient_by_decorations.png)
 
-::: {.column width="60%"}
+### By type (selected types)
 
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/sources-catalog-diazguardamino.png" width='350px' />
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/ug_n_orientations/ugs_orient_by_types_bouclier.png){width=50%}
 
-:::
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/ug_n_orientations/ugs_orient_by_types_epee.png){width=50%}
 
-::: {.column width="40%"}
-
-Díaz-Guardamino Uribe, M. (2010). *Las estelas decoradas en la Prehistoria de la Península Ibérica* (Universidad Complutense de Madrid, Servicio de Publicaciones). url: [https://eprints.ucm.es/11070/1/T32200.pdf](https://eprints.ucm.es/11070/1/T32200.pdf)
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/ug_n_orientations/ugs_orient_by_types_lance.png){width=50%}
 
 :::
 
-### Corpus
+## Exploratory statistics
 
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/spat_stele bouclier.png" width='500px' />
+::: {.panel-tabset}
+
+### Distance matrix
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis2D/hmap_common_e_all_decor_with_attributes.png)
+
+### Clutering
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis2D/clustering_attributes.png)
+
 
 :::
 
-## Variables {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="60%"}
-
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/graph.png" width='500px' />
-
-:::
-
-::: {.column width="40%"}
-
-Spatialized graph
-
-:::
-
-::::
-
-## Variables {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="60%"}
-
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/typo.png" width='500px' />
-
-:::
-
-::: {.column width="40%"}
-
-Types
-
-:::
-
-::::
-
-## Variables {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="60%"}
-
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/long_cm.png" width='500px' />
-
-:::
-
-::: {.column width="40%"}
-
-Maximum length (cm)
-
-:::
-
-::::
-
-## Variables {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="60%"}
-
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/orient.png" width='500px' />
-
-:::
-
-::: {.column width="40%"}
-
-Orientation (see the thesaurus, clockwise rotation)
-
-:::
-
-::::
-
-## Variables {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="60%"}
-
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/techno.png" width='500px' />
-
-:::
-
-::: {.column width="40%"}
-
-Technology (pecked, incised, painted, etc.)
-
-:::
-
-::::
-
-
-## Variables {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="60%"}
-
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/complet.png" width='500px' />
-
-:::
-
-::: {.column width="40%"}
-
-Completness
-
-:::
-
-::::
-
-## Variables {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="60%"}
-
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/betweenness.png" width='500px' />
-
-:::
-
-::: {.column width="40%"}
-
-Betweenness centrality
-
-:::
-
-::::
-
-## Variables {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="60%"}
-
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/closeness.png" width='500px' />
-
-:::
-
-::: {.column width="40%"}
-
-Closeness centrality
-
-:::
-
-::::
-
-
-## Variables {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="60%"}
-
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/domition.png" width='500px' />
-
-:::
-
-::: {.column width="40%"}
-
-Domination
-
-:::
-
-::::
-
-## Variables {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="60%"}
-
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/chr_1.png" width='500px' />
-
-:::
-
-::: {.column width="40%"}
-
-Cultural attribution
-
-:::
-
-::::
-
-## Variables {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="60%"}
-
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/ug_tq.png" width='500px' />
-
-:::
-
-::: {.column width="40%"}
-
-Chronological attribution
-
-:::
-
-::::
-
-## {auto-animate=true}
-
-::: {style="margin-top: 100px;"}
-Animating content
-:::
-
-## {auto-animate=true}
-
-::: {style="margin-top: 200px; font-size: 3em; color: red;"}
-Animating content
-:::
-
-## {auto-animate=true}
-
-iconr
+## Nodes {auto-animate=true}
+
+**Main nodes**
+
+```{r}
+#| echo: false
+#| fig-width: 500
+
+oldpar <- par(no.readonly = TRUE)
+on.exit(par(oldpar))
+par(mar=c(0, 0, 0, 0))
+g <- graph_from_literal(objects-+weapons,
+                        objects-+personnal_item,
+                        weapons-+offensive_weapons,
+                        weapons-+defensive_weapons,
+                        offensive_weapons-+spear,
+                        offensive_weapons-+sword,
+                        defensive_weapons-+shield,
+                        defensive_weapons-+helmet,
+                        personnal_item-+miror,
+                        personnal_item-+comb)
+layout <- layout.reingold.tilford(g)
+plot(g,
+     layout = layout,
+     vertex.color = "white",
+     vertex.frame.color = "white",
+     vertex.size = 20,
+     vertex.label.cex = 1.5,
+     vertex.label.color = "black",
+     vertex.label.family = "sans",
+     edge.arrow.size = 0.5
+     )
+```
+
+
+Hierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)
