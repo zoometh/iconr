@@ -54,15 +54,41 @@ Díaz-Guardamino Uribe, M. (2010). *Las estelas decoradas en la Prehistoria de l
 <img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/sources-catalog-diazguardamino.jpg" width='350px' />
 
 
+## Variable {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/graph.png" width='500px' />
+
+:::
+
+::: {.column width="40%"}
+
+blbla
+
+:::
+
+::::
 
 ## Variable {auto-animate=true}
 
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/1_Alamillo_Alamillo_graph.png" width='500px' />
+:::: {.columns}
 
-## Variable {auto-animate=true}
+::: {.column width="60%"}
 
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/1_Alamillo_Alamillo_ug_betweenness.png" width='500px' />
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/betweenness.png" width='500px' />
 
+:::
+
+::: {.column width="40%"}
+
+blbla
+
+:::
+
+::::
 
 ## {auto-animate=true}
 
