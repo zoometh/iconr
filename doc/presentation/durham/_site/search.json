@@ -32,7 +32,7 @@
     "href": "test.html#section-2",
     "title": "TEST2",
     "section": "",
-    "text": "iconr"
+    "text": "iconr\n\n\n\nhttps://tinyurl.com/goa-oxford"
   },
   {
     "objectID": "test.html#section-3",
@@ -684,5 +684,19 @@
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Nodes",
     "text": "Nodes\n\n\n\n\nAttribute nodes: additional GUs characterising the main node (helmet, phalus)\nMain nodes: separated GUs showing different graphical contents (anthropomorphic figure, spear, shield, comb and ingot)"
+  },
+  {
+    "objectID": "test.html#study",
+    "href": "test.html#study",
+    "title": "TEST2",
+    "section": "Study",
+    "text": "Study"
+  },
+  {
+    "objectID": "test.html#sources",
+    "href": "test.html#sources",
+    "title": "TEST2",
+    "section": "Sources",
+    "text": "Sources\n\nCatalog\n\nDíaz-Guardamino Uribe, M. (2010). Las estelas decoradas en la Prehistoria de la Península Ibérica (Universidad Complutense de Madrid, Servicio de Publicaciones). url: https://eprints.ucm.es/11070/1/T32200.pdf\n\nVariable\n\nVariable"
   }
 ]

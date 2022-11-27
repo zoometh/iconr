@@ -43,9 +43,8 @@ lgrph <- list_dec(imgs, nodes, edges)
 
 ## Study
 
-::: {.panel-tabset}
 
-### Sources
+## Sources
 
 * Catalog
 
@@ -56,17 +55,14 @@ Díaz-Guardamino Uribe, M. (2010). *Las estelas decoradas en la Prehistoria de l
 
 
 
-### Variable {auto-animate=true}
+## Variable {auto-animate=true}
 
-<div>
-<a href="https://github.com">
-<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
-<span class= smalltext><a href="https://github.com/zoometh/iconr/blob/master/inst/extdata/edges.tsv">https://github.com/zoometh/iconr/blob/master/inst/extdata/edges.tsv</a></span>
-</div>
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stele bouclier/var/12_Ana de Trujillo (Santa)_Santa Ana De Trujillo_graph.jpg" width='350px' />
 
-<script src="https://gist.github.com/zoometh/dfa9fb0305961710e28e6d0a05b69eb3.js"></script>
+## Variable {auto-animate=true}
 
-:::
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stele bouclier/var/12_Ana de Trujillo (Santa)_Santa Ana De Trujillo_ug_betweenness.jpg" width='350px' />
+
 
 ## {auto-animate=true}
 
