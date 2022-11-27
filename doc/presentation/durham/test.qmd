@@ -57,11 +57,11 @@ Díaz-Guardamino Uribe, M. (2010). *Las estelas decoradas en la Prehistoria de l
 
 ## Variable {auto-animate=true}
 
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stele bouclier/var/12_Ana de Trujillo (Santa)_Santa Ana De Trujillo_graph.jpg" width='350px' />
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/12_Ana de Trujillo (Santa)_Santa Ana De Trujillo_graph.jpg" width='350px' />
 
 ## Variable {auto-animate=true}
 
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stele bouclier/var/12_Ana de Trujillo (Santa)_Santa Ana De Trujillo_ug_betweenness.jpg" width='350px' />
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/12_Ana de Trujillo (Santa)_Santa Ana De Trujillo_ug_betweenness.jpg" width='350px' />
 
 
 ## {auto-animate=true}

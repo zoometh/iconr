@@ -697,6 +697,20 @@
     "href": "test.html#sources",
     "title": "TEST2",
     "section": "Sources",
-    "text": "Sources\n\nCatalog\n\nDíaz-Guardamino Uribe, M. (2010). Las estelas decoradas en la Prehistoria de la Península Ibérica (Universidad Complutense de Madrid, Servicio de Publicaciones). url: https://eprints.ucm.es/11070/1/T32200.pdf\n\nVariable\n\nVariable"
+    "text": "Sources\n\nCatalog\n\nDíaz-Guardamino Uribe, M. (2010). Las estelas decoradas en la Prehistoria de la Península Ibérica (Universidad Complutense de Madrid, Servicio de Publicaciones). url: https://eprints.ucm.es/11070/1/T32200.pdf"
+  },
+  {
+    "objectID": "test.html#variable",
+    "href": "test.html#variable",
+    "title": "TEST2",
+    "section": "Variable",
+    "text": "Variable"
+  },
+  {
+    "objectID": "test.html#variable-1",
+    "href": "test.html#variable-1",
+    "title": "TEST2",
+    "section": "Variable",
+    "text": "Variable"
   }
 ]
