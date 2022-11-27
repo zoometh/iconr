@@ -38,52 +38,41 @@ grph <- list_dec(imgs, nodes, edges)
 lgrph <- list_dec(imgs, nodes, edges)
 ```
 
-## Descriptive statistics - domination
 
-:::{.column-screen-inset}
+This presentation is an introduction to **computational archaeology** 
 
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/ug_n_centralities/ugs_rel_deepness_by_types.png)
+<br>
 
-:::
+<table>
+<thead>
+<tr>
+<th rowspan="2">software 💿</th>
+<th>semantic 🖼 📜 🔢</th>
+</tr>
+<tr>
+<th>logic <span style="background-color:black; color:white;">>_ print('hello')</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2">hardware 💻</td>
+</tr>
+</tbody>
+</table>
 
-## Descriptive statistics - lengths
+<div>
+It is also about ancient iconography
+![](https://commons.wikimedia.org/wiki/File:Tanumshede_2005_rock_carvings_5.jpg#/media/File:Tanumshede_2005_rock_carvings_5.jpg)
+<a href="https://en.wikipedia.org/wiki/Rock_Carvings_in_Tanum"><img src="https://en.wikipedia.org/wiki/Rock_Carvings_in_Tanum#/media/File:Tanumshede_2005_rock_carvings_5.jpg" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+</div>
 
+<div>
+It introduces the R package ***iconr*** <a href="https://github.com/zoometh/iconr"><img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/iconr_logo.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+</div>
 
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/ug_n_dimensions/ugs_abs_dim_by_types.png)
-
-
-## Descriptive statistics - orientations
-
-::: {.panel-tabset}
-
-### By stelae (selected types)
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/ug_n_orientations/ugs_orient_by_decorations.png)
-
-### By type (selected types)
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/ug_n_orientations/ugs_orient_by_types_bouclier.png){width=50%}
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/ug_n_orientations/ugs_orient_by_types_epee.png){width=50%}
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/ug_n_orientations/ugs_orient_by_types_lance.png){width=50%}
-
-:::
-
-## Exploratory statistics
-
-::: {.panel-tabset}
-
-### Distance matrix
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis2D/hmap_common_e_all_decor_with_attributes.png)
-
-### Clutering
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis2D/clustering_attributes.png)
-
-
-:::
+<div>
+It gives an example of study with this package<a href="https://en.wikipedia.org/wiki/Magacela_stele"><img src="https://en.wikipedia.org/wiki/Magacela_stele#/media/File:Estela_de_Magacela_(29350234441).jpg" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+</div>
 
 ## Nodes {auto-animate=true}
 

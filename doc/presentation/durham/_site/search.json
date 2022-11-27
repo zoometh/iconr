@@ -312,14 +312,14 @@
     "href": "index.html#nodes",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Nodes",
-    "text": "Nodes\n\n\n\n\nMain nodes: separated GUs showing different graphical contents (anthropomorphic figure, spear, shield, comb and ingot)"
+    "text": "Nodes\nMain nodes\n\n\n\n\nSeparated GUs showing different graphical contents (anthropomorphic figure, spear, shield, comb and ingot)"
   },
   {
     "objectID": "index.html#edges",
     "href": "index.html#edges",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Edges",
-    "text": "Edges\n\nNormalAttributeDiachronic\n\n\n —— + ——  normal edges (undirected) between contiguous and contemporaneous main nodes (nodes a and b)\n\n\n\n\n \n  \n      \n    site \n    decor \n    a \n    b \n    type \n    xa \n    ya \n    xb \n    yb \n  \n \n\n  \n    24 \n    Brozas \n    Brozas \n    1 \n    2 \n    = \n    354.1114 \n    -123.3621 \n    346.3455 \n    -151.8371 \n  \n  \n    25 \n    Brozas \n    Brozas \n    3 \n    1 \n    = \n    279.0411 \n    -162.1916 \n    354.1114 \n    -123.3621 \n  \n  \n    26 \n    Brozas \n    Brozas \n    3 \n    2 \n    = \n    279.0411 \n    -162.1916 \n    346.3455 \n    -151.8371 \n  \n  \n    27 \n    Brozas \n    Brozas \n    4 \n    1 \n    = \n    211.7366 \n    -206.1984 \n    354.1114 \n    -123.3621 \n  \n  \n    28 \n    Brozas \n    Brozas \n    4 \n    3 \n    = \n    211.7366 \n    -206.1984 \n    279.0411 \n    -162.1916 \n  \n  \n    29 \n    Brozas \n    Brozas \n    1 \n    5 \n    = \n    354.1114 \n    -123.3621 \n    392.9409 \n    -343.3959 \n  \n  \n    30 \n    Brozas \n    Brozas \n    2 \n    5 \n    = \n    346.3455 \n    -151.8371 \n    392.9409 \n    -343.3959 \n  \n  \n    31 \n    Brozas \n    Brozas \n    3 \n    5 \n    = \n    279.0411 \n    -162.1916 \n    392.9409 \n    -343.3959 \n  \n  \n    32 \n    Brozas \n    Brozas \n    4 \n    5 \n    = \n    211.7366 \n    -206.1984 \n    392.9409 \n    -343.3959 \n  \n  \n    33 \n    Brozas \n    Brozas \n    5 \n    6 \n    = \n    392.9409 \n    -343.3959 \n    387.7636 \n    -564.7240 \n  \n\n\n\n\n\n\n\n\n [1] \"bouclier-=-epee\"   \"bouclier-=-fibule\" \"bouclier-=-lance\" \n [4] \"bouclier-=-miroir\" \"bouclier-=-peigne\" \"fibule-=-lance\"   \n [7] \"fibule-=-miroir\"   \"fibule-=-peigne\"   \"lance-=-miroir\"   \n[10] \"lance-=-peigne\"   \n\n\n\n\n - - + - -  attribute edges (directed) between contemporaneous nodes where the attribute node b is an attribute of main node a\n\n\n\n\n \n  \n    site \n    decor \n    a \n    b \n    type \n    xa \n    ya \n    xb \n    yb \n  \n \n\n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    3 \n    = \n    350.7279 \n    -141.3279 \n    289.7853 \n    -183.1172 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    2 \n    = \n    350.7279 \n    -141.3279 \n    428.2122 \n    -172.6699 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    4 \n    = \n    289.7853 \n    -183.1172 \n    285.4322 \n    -207.4942 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    2 \n    = \n    289.7853 \n    -183.1172 \n    428.2122 \n    -172.6699 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    4 \n    5 \n    = \n    285.4322 \n    -207.4942 \n    290.6559 \n    -310.2261 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    4 \n    = \n    418.6354 \n    -305.0025 \n    285.4322 \n    -207.4942 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    6 \n    = \n    290.6559 \n    -310.2261 \n    418.6354 \n    -305.0025 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    8 \n    + \n    343.7630 \n    -466.9358 \n    261.9258 \n    -433.8527 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    9 \n    + \n    343.7630 \n    -466.9358 \n    258.4433 \n    -486.0892 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    10 \n    + \n    343.7630 \n    -466.9358 \n    342.9527 \n    -434.1614 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    11 \n    + \n    343.7630 \n    -466.9358 \n    344.2134 \n    -510.2253 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    7 \n    = \n    290.6559 \n    -310.2261 \n    343.7630 \n    -466.9358 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    7 \n    = \n    418.6354 \n    -305.0025 \n    343.7630 \n    -466.9358 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    12 \n    + \n    350.7279 \n    -141.3279 \n    377.1414 \n    -163.5179 \n  \n\n\n\n\n\n\n\n\n [1] \"bouclier-=-chariot_char\"   \"bouclier-=-lance\"         \n [3] \"bouclier-=-personnage\"     \"casque-+-rivet\"           \n [5] \"casque-=-epee\"             \"casque-=-miroir\"          \n [7] \"chariot_char-+-cheval\"     \"chariot_char-+-cheval#\"   \n [9] \"chariot_char-+-roue\"       \"chariot_char-+-roue#\"     \n[11] \"chariot_char-=-personnage\" \"epee-=-lance\"             \n[13] \"epee-=-miroir\"             \"lance-=-personnage\"       \n\n\n\n\n —— > ——  diachronic edges (directed) between non-contemporaneous nodes where the node a overlaps node b, or node a is more ancient than node b\n\n\n\n\n \n  \n    site \n    decor \n    a \n    b \n    type \n    xa \n    ya \n    xb \n    yb \n  \n \n\n  \n    Ibahernando \n    Ibahernando \n    1 \n    2 \n    > \n    284.1056 \n    -131.2344 \n    351.6009 \n    -191.5644 \n  \n  \n    Ibahernando \n    Ibahernando \n    1 \n    3 \n    > \n    284.1056 \n    -131.2344 \n    345.0360 \n    -296.6023 \n  \n  \n    Ibahernando \n    Ibahernando \n    2 \n    3 \n    = \n    351.6009 \n    -191.5644 \n    345.0360 \n    -296.6023 \n  \n  \n    Ibahernando \n    Ibahernando \n    3 \n    4 \n    = \n    345.0360 \n    -296.6023 \n    367.3566 \n    -420.6782 \n  \n\n\n\n\n\n\n\n\n[1] \"bouclier-=-epee\"     \"bouclier-=-lance\"    \"ecriture->-bouclier\"\n[4] \"ecriture->-lance\""
+    "text": "Edges\n\nNormalAttributeDiachronic\n\n\n —— = ——  normal edges (undirected) between contiguous and contemporaneous main nodes (nodes a and b)\n\n\n\n\n \n  \n      \n    site \n    decor \n    a \n    b \n    type \n    xa \n    ya \n    xb \n    yb \n  \n \n\n  \n    24 \n    Brozas \n    Brozas \n    1 \n    2 \n    = \n    354.1114 \n    -123.3621 \n    346.3455 \n    -151.8371 \n  \n  \n    25 \n    Brozas \n    Brozas \n    3 \n    1 \n    = \n    279.0411 \n    -162.1916 \n    354.1114 \n    -123.3621 \n  \n  \n    26 \n    Brozas \n    Brozas \n    3 \n    2 \n    = \n    279.0411 \n    -162.1916 \n    346.3455 \n    -151.8371 \n  \n  \n    27 \n    Brozas \n    Brozas \n    4 \n    1 \n    = \n    211.7366 \n    -206.1984 \n    354.1114 \n    -123.3621 \n  \n  \n    28 \n    Brozas \n    Brozas \n    4 \n    3 \n    = \n    211.7366 \n    -206.1984 \n    279.0411 \n    -162.1916 \n  \n  \n    29 \n    Brozas \n    Brozas \n    1 \n    5 \n    = \n    354.1114 \n    -123.3621 \n    392.9409 \n    -343.3959 \n  \n  \n    30 \n    Brozas \n    Brozas \n    2 \n    5 \n    = \n    346.3455 \n    -151.8371 \n    392.9409 \n    -343.3959 \n  \n  \n    31 \n    Brozas \n    Brozas \n    3 \n    5 \n    = \n    279.0411 \n    -162.1916 \n    392.9409 \n    -343.3959 \n  \n  \n    32 \n    Brozas \n    Brozas \n    4 \n    5 \n    = \n    211.7366 \n    -206.1984 \n    392.9409 \n    -343.3959 \n  \n  \n    33 \n    Brozas \n    Brozas \n    5 \n    6 \n    = \n    392.9409 \n    -343.3959 \n    387.7636 \n    -564.7240 \n  \n\n\n\n\n\n\n\n\n [1] \"bouclier-=-epee\"   \"bouclier-=-fibule\" \"bouclier-=-lance\" \n [4] \"bouclier-=-miroir\" \"bouclier-=-peigne\" \"fibule-=-lance\"   \n [7] \"fibule-=-miroir\"   \"fibule-=-peigne\"   \"lance-=-miroir\"   \n[10] \"lance-=-peigne\"   \n\n\n\n\n - - + - -  attribute edges (directed) between contemporaneous nodes where the attribute node b is an attribute of main node a\n\n\n\n\n \n  \n    site \n    decor \n    a \n    b \n    type \n    xa \n    ya \n    xb \n    yb \n  \n \n\n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    3 \n    = \n    350.7279 \n    -141.3279 \n    289.7853 \n    -183.1172 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    2 \n    = \n    350.7279 \n    -141.3279 \n    428.2122 \n    -172.6699 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    4 \n    = \n    289.7853 \n    -183.1172 \n    285.4322 \n    -207.4942 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    2 \n    = \n    289.7853 \n    -183.1172 \n    428.2122 \n    -172.6699 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    4 \n    5 \n    = \n    285.4322 \n    -207.4942 \n    290.6559 \n    -310.2261 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    4 \n    = \n    418.6354 \n    -305.0025 \n    285.4322 \n    -207.4942 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    6 \n    = \n    290.6559 \n    -310.2261 \n    418.6354 \n    -305.0025 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    8 \n    + \n    343.7630 \n    -466.9358 \n    261.9258 \n    -433.8527 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    9 \n    + \n    343.7630 \n    -466.9358 \n    258.4433 \n    -486.0892 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    10 \n    + \n    343.7630 \n    -466.9358 \n    342.9527 \n    -434.1614 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    11 \n    + \n    343.7630 \n    -466.9358 \n    344.2134 \n    -510.2253 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    7 \n    = \n    290.6559 \n    -310.2261 \n    343.7630 \n    -466.9358 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    7 \n    = \n    418.6354 \n    -305.0025 \n    343.7630 \n    -466.9358 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    12 \n    + \n    350.7279 \n    -141.3279 \n    377.1414 \n    -163.5179 \n  \n\n\n\n\n\n\n\n\n [1] \"bouclier-=-chariot_char\"   \"bouclier-=-lance\"         \n [3] \"bouclier-=-personnage\"     \"casque-+-rivet\"           \n [5] \"casque-=-epee\"             \"casque-=-miroir\"          \n [7] \"chariot_char-+-cheval\"     \"chariot_char-+-cheval#\"   \n [9] \"chariot_char-+-roue\"       \"chariot_char-+-roue#\"     \n[11] \"chariot_char-=-personnage\" \"epee-=-lance\"             \n[13] \"epee-=-miroir\"             \"lance-=-personnage\"       \n\n\n\n\n —— > ——  diachronic edges (directed) between non-contemporaneous nodes where the node a overlaps node b, or node a is more ancient than node b\n\n\n\n\n \n  \n    site \n    decor \n    a \n    b \n    type \n    xa \n    ya \n    xb \n    yb \n  \n \n\n  \n    Ibahernando \n    Ibahernando \n    1 \n    2 \n    > \n    284.1056 \n    -131.2344 \n    351.6009 \n    -191.5644 \n  \n  \n    Ibahernando \n    Ibahernando \n    1 \n    3 \n    > \n    284.1056 \n    -131.2344 \n    345.0360 \n    -296.6023 \n  \n  \n    Ibahernando \n    Ibahernando \n    2 \n    3 \n    = \n    351.6009 \n    -191.5644 \n    345.0360 \n    -296.6023 \n  \n  \n    Ibahernando \n    Ibahernando \n    3 \n    4 \n    = \n    345.0360 \n    -296.6023 \n    367.3566 \n    -420.6782 \n  \n\n\n\n\n\n\n\n\n[1] \"bouclier-=-epee\"     \"bouclier-=-lance\"    \"ecriture->-bouclier\"\n[4] \"ecriture->-lance\""
   },
   {
     "objectID": "index.html#tree",
@@ -550,84 +550,84 @@
     "href": "index.html#functions",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Functions",
-    "text": "Functions\n\ndataDir <- system.file(\"extdata\", package = \"iconr\")\nimgs <- read.table(paste0(dataDir, \"/imgs.csv\"), sep = \";\", stringsAsFactors = FALSE)\nnodes.shp <- st_read(paste0(dataDir, \"/nodes.shp\"), quiet = T)\nnodes <- as.data.frame(nodes.shp)\nedges.shp <- st_read(paste0(dataDir, \"/edges.shp\"), quiet = T)\nedges <- as.data.frame(edges.shp)\nlgrph <- list_dec(imgs, nodes, edges)"
+    "text": "Functions\ndataDir <- system.file(\"extdata\", package = \"iconr\")\nimgs <- read.table(paste0(dataDir, \"/imgs.csv\"), sep = \";\", stringsAsFactors = FALSE)\nnodes.shp <- st_read(paste0(dataDir, \"/nodes.shp\"), quiet = T)\nnodes <- as.data.frame(nodes.shp)\nedges.shp <- st_read(paste0(dataDir, \"/edges.shp\"), quiet = T)\nedges <- as.data.frame(edges.shp)\nlgrph <- list_dec(imgs, nodes, edges)\ng <- lgrph[[1]]\nplot(g)"
   },
   {
     "objectID": "index.html#functions-1",
     "href": "index.html#functions-1",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Functions",
-    "text": "Functions\n\ng <- lgrph[[1]]\nclass(g)\n\n[1] \"igraph\""
+    "text": "Functions\n\ndataDir <- system.file(\"extdata\", package = \"iconr\")\nimgs <- read.table(paste0(dataDir, \"/imgs.csv\"), sep = \";\", stringsAsFactors = FALSE)\nnodes.shp <- st_read(paste0(dataDir, \"/nodes.shp\"), quiet = T)\nnodes <- as.data.frame(nodes.shp)\nedges.shp <- st_read(paste0(dataDir, \"/edges.shp\"), quiet = T)\nedges <- as.data.frame(edges.shp)\nlgrph <- list_dec(imgs, nodes, edges)\ng <- lgrph[[1]]\nplot(g)"
   },
   {
     "objectID": "index.html#functions-2",
     "href": "index.html#functions-2",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Functions",
-    "text": "Functions\n\ng$site\n\n[1] \"Cerro Muriano\""
+    "text": "Functions\n\nclass(g)\n\n[1] \"igraph\""
   },
   {
     "objectID": "index.html#functions-3",
     "href": "index.html#functions-3",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Functions",
-    "text": "Functions\n\ng$decor\n\n[1] \"Cerro Muriano 1\""
+    "text": "Functions\n\ng$site\n\n[1] \"Cerro Muriano\""
   },
   {
     "objectID": "index.html#functions-4",
     "href": "index.html#functions-4",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Functions",
-    "text": "Functions\n\nnamed_elements(g, focus = \"edges\", nd.var = \"type\")\n\n[1] \"bouclier-=-personnage\"      \"peigne-=-personnage\"       \n[3] \"lance-=-peigne\"             \"personnage-+-casque\"       \n[5] \"personnage-+-sexe_masculin\" \"lance-=-personnage\"        \n[7] \"lingot_pdb-=-personnage\"    \"bouclier-=-lingot_pdb\""
+    "text": "Functions\n\ng$decor\n\n[1] \"Cerro Muriano 1\""
   },
   {
     "objectID": "index.html#functions-5",
     "href": "index.html#functions-5",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Functions",
-    "text": "Functions\n\nnodes <- read_nds(g$site, g$decor, dataDir)\nedges <- read_eds(g$site, g$decor, dataDir)\nplot_dec_grph(nodes = nodes,\n              edges = edges,\n              imgs = imgs,\n              site = g$site, \n              decor = g$decor, \n              dir = dataDir,\n              nd.var = \"type\")"
+    "text": "Functions\n\nnamed_elements(g, focus = \"edges\", nd.var = \"type\")\n\n[1] \"bouclier-=-personnage\"      \"peigne-=-personnage\"       \n[3] \"lance-=-peigne\"             \"personnage-+-casque\"       \n[5] \"personnage-+-sexe_masculin\" \"lance-=-personnage\"        \n[7] \"lingot_pdb-=-personnage\"    \"bouclier-=-lingot_pdb\""
   },
   {
     "objectID": "index.html#functions-6",
     "href": "index.html#functions-6",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Functions",
-    "text": "Functions\n\nnodes <- read_nds(g$site, g$decor, dataDir)\nedges <- read_eds(g$site, g$decor, dataDir)\nplot_dec_grph(nodes = nodes,\n              edges = edges,\n              imgs = imgs,\n              site = g$site, \n              decor = g$decor, \n              dir = dataDir,\n              nd.var = \"type\",\n              nd.size = degree(g)/2,\n              lbl.size = 0.1)"
+    "text": "Functions\n\nnodes <- read_nds(g$site, g$decor, dataDir)\nedges <- read_eds(g$site, g$decor, dataDir)\nplot_dec_grph(nodes = nodes,\n              edges = edges,\n              imgs = imgs,\n              site = g$site, \n              decor = g$decor, \n              dir = dataDir,\n              nd.var = \"type\")"
   },
   {
     "objectID": "index.html#functions-7",
     "href": "index.html#functions-7",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Functions",
-    "text": "Functions\n\ndec.to.compare <- c(3, 4)\ng.compar <- list_compar(lgrph, nd.var = \"type\")\nplot_compar(listg = g.compar, \n            dec2comp = dec.to.compare,\n            focus = \"nodes\",\n            nd.size = c(0.5, 1.5),\n            dir = dataDir)"
+    "text": "Functions\n\nnodes <- read_nds(g$site, g$decor, dataDir)\nedges <- read_eds(g$site, g$decor, dataDir)\nplot_dec_grph(nodes = nodes,\n              edges = edges,\n              imgs = imgs,\n              site = g$site, \n              decor = g$decor, \n              dir = dataDir,\n              nd.var = \"type\",\n              nd.size = degree(g)/2,\n              lbl.size = 0.1)"
   },
   {
     "objectID": "index.html#functions-8",
     "href": "index.html#functions-8",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Functions",
-    "text": "Functions\n\ndec.to.compare <- c(3, 4)\ng.compar <- list_compar(lgrph, nd.var = \"type\")\nplot_compar(listg = g.compar, \n            dec2comp = dec.to.compare,\n            focus = \"edges\",\n            nd.size = c(0.5, 1.5),\n            dir = dataDir)"
+    "text": "Functions\n\ndec.to.compare <- c(3, 4)\ng.compar <- list_compar(lgrph, nd.var = \"type\")\nplot_compar(listg = g.compar, \n            dec2comp = dec.to.compare,\n            focus = \"nodes\",\n            nd.size = c(0.5, 1.5),\n            dir = dataDir)"
   },
   {
     "objectID": "index.html#functions-9",
     "href": "index.html#functions-9",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Functions",
-    "text": "Functions\n\ndf.same_edges <- same_elements(lgrph, nd.var = \"type\", focus = \"edges\")\n# diag(df.same_edges) <- cell_spec(diag(df.same_edges), color = \"black\",\n#                                  background = \"lightgrey\")\nknitr::kable(df.same_edges, row.names = TRUE, escape = F, table.attr = \"style='width:40%;'\",\n             caption = \"Count of common edges between decorations\") %>%\n  column_spec(1, bold=TRUE) %>%\n  kableExtra::kable_styling(position = \"center\", font_size = 24)\n\n\n\nCount of common edges between decorations\n \n  \n      \n    1 \n    2 \n    3 \n    4 \n    5 \n  \n \n\n  \n    1 \n    8 \n    0 \n    1 \n    2 \n    0 \n  \n  \n    2 \n    0 \n    15 \n    3 \n    7 \n    1 \n  \n  \n    3 \n    1 \n    3 \n    10 \n    1 \n    2 \n  \n  \n    4 \n    2 \n    7 \n    1 \n    14 \n    1 \n  \n  \n    5 \n    0 \n    1 \n    2 \n    1 \n    4"
+    "text": "Functions\n\ndec.to.compare <- c(3, 4)\ng.compar <- list_compar(lgrph, nd.var = \"type\")\nplot_compar(listg = g.compar, \n            dec2comp = dec.to.compare,\n            focus = \"edges\",\n            nd.size = c(0.5, 1.5),\n            dir = dataDir)"
   },
   {
     "objectID": "index.html#functions-10",
     "href": "index.html#functions-10",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Functions",
-    "text": "Functions\n\nsite <- decor <- \"Ibahernando\"\nnds.df <- read_nds(site, decor, dataDir)\neds.df <- read_eds(site, decor, dataDir)\nplot_dec_grph(nds.df, eds.df, imgs,\n              site, decor, dataDir,\n              nd.var = \"type\")\n\n\n\nplot_dec_grph(nds.df, eds.df, imgs,\n              site, decor, dataDir)"
+    "text": "Functions\n\ndf.same_edges <- same_elements(lgrph, nd.var = \"type\", focus = \"edges\")\n# diag(df.same_edges) <- cell_spec(diag(df.same_edges), color = \"black\",\n#                                  background = \"lightgrey\")\nknitr::kable(df.same_edges, row.names = TRUE, escape = F, table.attr = \"style='width:40%;'\",\n             caption = \"Count of common edges between decorations\") %>%\n  column_spec(1, bold=TRUE) %>%\n  kableExtra::kable_styling(position = \"center\", font_size = 24)\n\n\n\nCount of common edges between decorations\n \n  \n      \n    1 \n    2 \n    3 \n    4 \n    5 \n  \n \n\n  \n    1 \n    8 \n    0 \n    1 \n    2 \n    0 \n  \n  \n    2 \n    0 \n    15 \n    3 \n    7 \n    1 \n  \n  \n    3 \n    1 \n    3 \n    10 \n    1 \n    2 \n  \n  \n    4 \n    2 \n    7 \n    1 \n    14 \n    1 \n  \n  \n    5 \n    0 \n    1 \n    2 \n    1 \n    4"
   },
   {
     "objectID": "index.html#functions-11",
     "href": "index.html#functions-11",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Functions",
-    "text": "Functions\n\nsite <- decor <- \"Ibahernando\"\nnds.df <- read_nds(site, decor, dataDir)\neds.df <- read_eds(site, decor, dataDir)\nselected.nd <- 4\nl_dec_df <- contemp_nds(nds.df, eds.df, selected.nd)\nplot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,\n              site, decor, dataDir,\n              nd.var = \"type\")"
+    "text": "Functions\n\nsite <- decor <- \"Ibahernando\"\nnds.df <- read_nds(site, decor, dataDir)\neds.df <- read_eds(site, decor, dataDir)\nplot_dec_grph(nds.df, eds.df, imgs,\n              site, decor, dataDir,\n              nd.var = \"type\")\n\n\n\nplot_dec_grph(nds.df, eds.df, imgs,\n              site, decor, dataDir)"
   },
   {
     "objectID": "index.html#conceptual-model",
@@ -683,7 +683,7 @@
     "href": "index.html#nodes-3",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Nodes",
-    "text": "Nodes\nMain nodes\n{width = “50%”} {width = “50%”}\nShape analysis allows to compare and classify GUs having a given type"
+    "text": "Nodes\nMain nodes\n \nShape analysis allows to compare and classify GUs having a given type"
   },
   {
     "objectID": "test.html#study",
@@ -893,7 +893,7 @@
     "href": "index.html#nodes-4",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Nodes",
-    "text": "Nodes\n\n\n\n\nAttribute nodes: additional GUs characterising the main node (helmet, phalus)"
+    "text": "Nodes\nAttribute nodes\n\n\n\n\nAdditional GUs characterising the main node (helmet, phalus)"
   },
   {
     "objectID": "index.html#dataset",
@@ -949,7 +949,7 @@
     "href": "index.html#variables-local-3",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Variables (local)",
-    "text": "Variables (local)\n\n\n\n\nOrientation (see thesaurus, clockwise rotation)"
+    "text": "Variables (local)\n\n\n\n\nOrientation (see thesaurus)"
   },
   {
     "objectID": "index.html#variables-local-4",
@@ -1025,6 +1025,41 @@
     "objectID": "test.html#exploratory-statistics",
     "href": "test.html#exploratory-statistics",
     "title": "TEST2",
+    "section": "Exploratory statistics",
+    "text": "Exploratory statistics\n\nDistance matrixClutering"
+  },
+  {
+    "objectID": "index.html#functions-12",
+    "href": "index.html#functions-12",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Functions",
+    "text": "Functions\n\nsite <- decor <- \"Ibahernando\"\nnds.df <- read_nds(site, decor, dataDir)\neds.df <- read_eds(site, decor, dataDir)\nselected.nd <- 4\nl_dec_df <- contemp_nds(nds.df, eds.df, selected.nd)\nplot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,\n              site, decor, dataDir,\n              nd.var = \"type\")"
+  },
+  {
+    "objectID": "index.html#descriptive-statistics---domination",
+    "href": "index.html#descriptive-statistics---domination",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Descriptive statistics - domination",
+    "text": "Descriptive statistics - domination"
+  },
+  {
+    "objectID": "index.html#descriptive-statistics---lengths",
+    "href": "index.html#descriptive-statistics---lengths",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Descriptive statistics - lengths",
+    "text": "Descriptive statistics - lengths"
+  },
+  {
+    "objectID": "index.html#descriptive-statistics---orientations",
+    "href": "index.html#descriptive-statistics---orientations",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Descriptive statistics - orientations",
+    "text": "Descriptive statistics - orientations\n\nBy stelae (selected types)By type (selected types)"
+  },
+  {
+    "objectID": "index.html#exploratory-statistics",
+    "href": "index.html#exploratory-statistics",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Exploratory statistics",
     "text": "Exploratory statistics\n\nDistance matrixClutering"
   }
