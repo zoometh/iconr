@@ -42,13 +42,12 @@ nodes <- as.data.frame(nodes.shp)
 edges_path <- paste0(dataDir, "/edges.shp")
 edges.shp <- st_read(edges_path, quiet = T)
 edges <- as.data.frame(edges.shp)
-grph <- list_dec(imgs, nodes, edges)
 lgrph <- list_dec(imgs, nodes, edges)
 ```
 
 
 
-This presentation will show you one example of **computational archaeology** 
+This presentation is an introduction to **computational archaeology** 
 
 <br>
 
@@ -56,7 +55,7 @@ This presentation will show you one example of **computational archaeology**
 <thead>
 <tr>
 <th rowspan="2">software 💿</th>
-<th>semantic 🖼 📜 🔢 🐫</th>
+<th>semantic 🖼 📜 🔢</th>
 </tr>
 <tr>
 <th>logic <span style="background-color:black; color:white;">>_ print('hello')</span></th>
@@ -68,6 +67,20 @@ This presentation will show you one example of **computational archaeology**
 </tr>
 </tbody>
 </table>
+
+<div>
+It is also about ancient iconography
+</div>
+
+<div>
+It introduces the R package ***iconr*** <a href="https://github.com/zoometh/iconr"><img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/iconr_logo.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+</div>
+
+<div>
+It gives an example of study with this package
+</div>
+
+
 
 ## Nature of iconographic data
 
@@ -101,18 +114,15 @@ This presentation will show you one example of **computational archaeology**
 
 ::: {.column width="40%"}
 
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-support-loc.png)
-
 ![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-grouping.png)
-
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-support-loc.png)
 
 :::
 
 ::: {.column width="60%"}
 
-* Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support
-
 * Groupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis
+* Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support
 
 :::
 
@@ -126,22 +136,17 @@ This presentation will show you one example of **computational archaeology**
 
 ::: {.column width="40%"}
 
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-support-loc.png)
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-grouping.png)
-
 ![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-gu-distances.png)
-
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-grouping.png)
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-support-loc.png)
 
 :::
 
 ::: {.column width="60%"}
-
-* Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support
-
-* Groupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis
 
 * Relationships and similarities between these groups are often not self-explanatory and unquantified
+* Groupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis
+* Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support
 
 :::
 
@@ -149,69 +154,168 @@ This presentation will show you one example of **computational archaeology**
 
 ## Statement of need {auto-animate=true}
 
-
 :::: {.columns}
 
 ::: {.column width="40%"}
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-support-loc.png)
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-grouping.png)
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-gu-distances.png)
 
 ![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-vocabulary.png)
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-gu-distances.png)
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-grouping.png)
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-support-loc.png)
 
 
 :::
 
 ::: {.column width="60%"}
 
-* Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support
-
-* Groupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis
-
-* Relationships and similarities between these groups are often not self-explanatory and unquantified
-
 * Descriptive vocabularies and methods of analysis are site-dependent or period dependent
+* Relationships and similarities between these groups are often not self-explanatory and unquantified
+* Groupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis
+* Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support
 
 :::
 
 ::::
 
-
-## ***iconr*** conceptual model
-
-::: {.panel-tabset}
-
-### Spatial relationships
+## Conceptual model {auto-animate=true}
 
 :::: {.columns}
 
-::: {.column width="70%"}
+::: {.column width="40%"}
 
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/all_process.gif){width=40%}
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/workflow-solana-step1.png)
 
 :::
 
-::: {.column width="30%"}
+::: {.column width="60%"}
 
-* Some objects (eg, pottery, rock panels) have a decoration;
-* A decoration is composed of graphical units (GUs);
-* GUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D);
-* Shape analysis can measures the similarities between two GUs (eg. Procrustes distance);
-* GUs are considered as nodes;
-* Nodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);
-* A decoration is considered as a spatial graph, modeled with graph theory and analysed with network and spatial analysis;
+* Some objects have a decoration
+
+:::
+
+::::
+
+## Conceptual model {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/workflow-solana-step2.png)
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/workflow-solana-step1.png)
+
+:::
+
+::: {.column width="60%"}
+
+* A decoration is composed of graphical units (GUs)
+* Some objects have a decoration
 
 :::
 
 ::::
 
 
-### Iconographic relationships
 
-::: {.column width="70%"}
+## Conceptual model {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/workflow-solana-step3.png)
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/workflow-solana-step1.png)
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/workflow-solana-step2.png)
+
+:::
+
+::: {.column width="60%"}
+
+* GUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)
+* A decoration is composed of graphical units (GUs)
+* Some objects have a decoration
+
+:::
+
+::::
+
+## Conceptual model {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/workflow-solana-step4.png)
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/workflow-solana-step3.png)
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/workflow-solana-step1.png)
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/workflow-solana-step2.png)
+
+:::
+
+::: {.column width="60%"}
+
+* Nodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);
+* GUs are considered as nodes;
+* GUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)
+* A decoration is composed of graphical units (GUs)
+* Some objects have a decoration
+
+:::
+
+::::
+
+## Conceptual model {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/workflow-solana-step5.png)
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/workflow-solana-step4.png)
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/workflow-solana-step3.png)
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/workflow-solana-step1.png)
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/workflow-solana-step2.png)
+
+:::
+
+::: {.column width="60%"}
+
+* Shape analysis and hierachical thesaurus can measure the similarities between two GUs (eg. Procrustes distance);
+* A decoration is considered as a spatial graph, modeled with graph theory and analysed with network and spatial analysis;
+* Nodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);
+* GUs are considered as nodes;
+* GUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)
+* A decoration is composed of graphical units (GUs)
+* Some objects have a decoration
+
+
+:::
+
+::::
+
+
+## Nodes {auto-animate=true}
+
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/cm1_type.png)
+
+:::
+
+::: {.column width="60%"}
+
+**Main nodes**: separated GUs showing different graphical contents (anthropomorphic figure, spear, shield, comb and ingot)
+
+:::
+
+::::
+
+## Nodes {auto-animate=true}
+
+**Main nodes**
 
 ```{r}
 #| echo: false
@@ -242,18 +346,37 @@ plot(g,
      )
 ```
 
-:::
-
-::: {.column width="30%"}
 
 Hierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)
 
-:::
+
+## Nodes {auto-animate=true}
+
+**Main nodes**
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gmm-brandherm-epees-draw-panel.png){width = "50%"}
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gmm-brandherm-epees-draw-stack.png){width = "50%"}
+
+Shape analysis allows to compare and classify GUs having a given type
+
+
+## Nodes {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/cm1_type.png)
 
 :::
 
+::: {.column width="60%"}
 
-## Nodes
+**Attribute nodes**: additional GUs characterising the main node (helmet, phalus)  
+
+:::
+
+::::
 
 
 ## Edges
@@ -262,8 +385,7 @@ Hierarchical structure (tree) allowing comparison between decoration having diff
 
 ### Normal
 
-<span style="color:orange;"> —— + —— </span> normal edges (undirected)<br>
-between contiguous and contemporaneous main nodes, for example node `a` and node `b`
+<span style="color:orange;"> —— + —— </span> normal edges (undirected) between contiguous and contemporaneous main nodes (nodes `a` and `b`)
 
 ```{r}
 #| echo: false
@@ -288,8 +410,7 @@ sort(named_elements(lgrph[[3]], focus = "edges", nd.var = "type"))
 
 ### Attribute
 
-<span style="color:orange;"> - - + - - </span> attribute edges (directed)<br>
-between contemporaneous nodes where the attribute node `b` is an attribute of main node `a`
+<span style="color:orange;"> - - + - - </span> attribute edges (directed) between contemporaneous nodes where the attribute node `b` is an attribute of main node `a`
 
 ```{r}
 #| echo: false
@@ -314,7 +435,7 @@ sort(named_elements(lgrph[[4]], focus = "edges", nd.var = "type"))
 
 ### Diachronic
 
-<span style="color:blue;"> —— > —— </span> diachronic edges (directed)<br> between non-contemporaneous nodes where the node `a` overlaps node `b`, or node `a` is more ancient than node `b` 
+<span style="color:blue;"> —— > —— </span> diachronic edges (directed) between non-contemporaneous nodes where the node `a` overlaps node `b`, or node `a` is more ancient than node `b` 
 
 ```{r}
 #| echo: false
@@ -341,9 +462,6 @@ sort(named_elements(lgrph[[5]], focus = "edges", nd.var = "type"))
 
 ::: {.panel-tabset}
 
-### Open
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_openImageGIS.gif){width=70%}
 
 ### Reference
 
@@ -374,10 +492,13 @@ QGIS plugin: [Freehand raster georeferencer](https://gvellut.github.io/FreehandR
 
 ## 1 project QGIS = 1 decoration
 
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_openImageGIS.gif){width=50%}
 
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_inputSummary.gif){width=70%}
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_inputSummary.gif){width=50%}
 
 ## Run R
+
+Install and load packages
 
 ```{r}
 #| echo: true
@@ -398,20 +519,9 @@ library(kableExtra)
 
 
 
-## ***iconr*** default data - images
+## Default data - images
 
 ::: {.panel-tabset}
-
-### data
-
-<div>
-<a href="https://github.com">
-<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
-<span class= smalltext><a href="https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv">https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv</a></span>
-</div>
-
-<script src="https://gist.github.com/zoometh/d00ed1575e69087efd7e006cc9cf00e5.js"></script>
-
 
 ### from R
 
@@ -425,22 +535,34 @@ kable(imgs, "html") %>%
   kable_styling(full_width = FALSE, position = "center", font_size = 24)
 ```
 
-:::
-
-## ***iconr*** default data - nodes
-
-::: {.panel-tabset}
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Cerro_Muriano.Cerro_Muriano_1.jpg" width='150px' />
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Torrejon_Rubio.Torrejon_Rubio_1.jpg" width='150px' />
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Brozas.Brozas.jpg" width='150px' />
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Zarza_de_Montanchez.Zarza_De_Montanchez.jpg" width='150px' />
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Ibahernando.Ibahernando.jpg" width='150px' />
 
 ### data
+
 
 <div>
 <a href="https://github.com">
 <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
-<span class= smalltext><a href="https://github.com/zoometh/iconr/blob/master/inst/extdata/nodes.tsv">https://github.com/zoometh/iconr/blob/master/inst/extdata/nodes.tsv</a></span>
+<span class= smalltext><a href="https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv">https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv</a></span>
 </div>
 
-<script src="https://gist.github.com/zoometh/6a91b544989db141d5a1a4b7b72ed123.js"></script>
+<script src="https://gist.github.com/zoometh/d00ed1575e69087efd7e006cc9cf00e5.js"></script>
 
+<img src="C:/Users/Thomas Huet/Documents/R/win-library/4.1/iconr/extdata/Cerro_Muriano.Cerro_Muriano_1.jpg" alt="" style="height: 200px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+<img src="C:/Users/Thomas Huet/Documents/R/win-library/4.1/iconr/extdata/Torrejon_Rubio.Torrejon_Rubio_1.jpg" alt="" style="height: 200px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+<img src="C:/Users/Thomas Huet/Documents/R/win-library/4.1/iconr/extdata/Brozas.Brozas.jpg" alt="" style="height: 200px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+<img src="C:/Users/Thomas Huet/Documents/R/win-library/4.1/iconr/extdata/Zarza_de_Montanchez.Zarza_De_Montanchez.jpg" alt="" style="height: 200px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+<img src="C:/Users/Thomas Huet/Documents/R/win-library/4.1/iconr/extdata/Ibahernando.Ibahernando.jpg" alt="" style="height: 200px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+
+:::
+
+## Default data - nodes
+
+::: {.panel-tabset}
 
 ### from R
 
@@ -454,22 +576,22 @@ kable(nodes, "html") %>%
   kable_styling(full_width = FALSE, position = "center", font_size = 24)
 ```
 
-:::
-
-## ***iconr*** default data - edges
-
-::: {.panel-tabset}
-
 ### data
 
 <div>
 <a href="https://github.com">
 <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
-<span class= smalltext><a href="https://github.com/zoometh/iconr/blob/master/inst/extdata/edges.tsv">https://github.com/zoometh/iconr/blob/master/inst/extdata/edges.tsv</a></span>
+<span class= smalltext><a href="https://github.com/zoometh/iconr/blob/master/inst/extdata/nodes.tsv">https://github.com/zoometh/iconr/blob/master/inst/extdata/nodes.tsv</a></span>
 </div>
 
-<script src="https://gist.github.com/zoometh/dfa9fb0305961710e28e6d0a05b69eb3.js"></script>
+<script src="https://gist.github.com/zoometh/6a91b544989db141d5a1a4b7b72ed123.js"></script>
 
+
+:::
+
+## Default data - edges
+
+::: {.panel-tabset}
 
 ### from R
 
@@ -483,39 +605,181 @@ kable(edges, "html") %>%
   kable_styling(full_width = FALSE, position = "center", font_size = 24)
 ```
 
+### data
+
+<div>
+<a href="https://github.com">
+<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+<span class= smalltext><a href="https://github.com/zoometh/iconr/blob/master/inst/extdata/edges.tsv">https://github.com/zoometh/iconr/blob/master/inst/extdata/edges.tsv</a></span>
+</div>
+
+<script src="https://gist.github.com/zoometh/dfa9fb0305961710e28e6d0a05b69eb3.js"></script>
+
 :::
 
-## ***iconr*** functions
+
+## Functions {auto-animate=true}
+
+```{r}
+#| echo: true
+
+dataDir <- system.file("extdata", package = "iconr")
+imgs <- read.table(paste0(dataDir, "/imgs.csv"), sep = ";", stringsAsFactors = FALSE)
+nodes.shp <- st_read(paste0(dataDir, "/nodes.shp"), quiet = T)
+nodes <- as.data.frame(nodes.shp)
+edges.shp <- st_read(paste0(dataDir, "/edges.shp"), quiet = T)
+edges <- as.data.frame(edges.shp)
+lgrph <- list_dec(imgs, nodes, edges)
+```
+
+
+## Functions {auto-animate=true}
 
 
 ```{r}
 #| echo: true
-#| fig-cap: Cerro Muriano 1
-#| cap-location: margin
-#| fig-width: 24
-#| layout-nrow: 1
 
-lgrph <- list_dec(imgs, nodes, edges)
 g <- lgrph[[1]]
-# coords <- layout.fruchterman.reingold(lgrph[[1]])
-plot(g,
-     vertex.size = 15,
-     vertex.frame.color="white",
-     vertex.label.family = "sans",
-     vertex.label.cex = .8,
-     main = "Graph drawing based on x, y coordinates"
-)
-plot(g,
-     layout = layout.fruchterman.reingold(g),
-     vertex.size = 5 + degree(g)*10,
-     vertex.frame.color="white",
-     vertex.label.family = "sans",
-     vertex.label.cex = .8,
-     main = "Force-directed graph drawing,\nwith degree-dependent node size."
-)
+class(g)
+```
+
+## Functions {auto-animate=true}
+
+```{r}
+#| echo: true
+
+g$site
+```
+
+## Functions {auto-animate=true}
+
+```{r}
+#| echo: true
+
+g$decor
+```
+
+## Functions {auto-animate=true}
+
+```{r}
+#| echo: true
+
+named_elements(g, focus = "edges", nd.var = "type")
 ```
 
 
+
+## Functions {auto-animate=true}
+
+```{r}
+#| echo: true
+#| warning: false
+
+nodes <- read_nds(g$site, g$decor, dataDir)
+edges <- read_eds(g$site, g$decor, dataDir)
+plot_dec_grph(nodes = nodes,
+              edges = edges,
+              imgs = imgs,
+              site = g$site, 
+              decor = g$decor, 
+              dir = dataDir,
+              nd.var = "type")
+```
+
+## Functions {auto-animate=true}
+
+```{r}
+#| echo: true
+#| warning: false
+
+nodes <- read_nds(g$site, g$decor, dataDir)
+edges <- read_eds(g$site, g$decor, dataDir)
+plot_dec_grph(nodes = nodes,
+              edges = edges,
+              imgs = imgs,
+              site = g$site, 
+              decor = g$decor, 
+              dir = dataDir,
+              nd.var = "type",
+              nd.size = degree(g)/2,
+              lbl.size = 0.1)
+```
+
+## Functions {auto-animate=true}
+
+```{r}
+#| echo: true
+#| warning: false
+
+dec.to.compare <- c(3, 4)
+g.compar <- list_compar(lgrph, nd.var = "type")
+plot_compar(listg = g.compar, 
+            dec2comp = dec.to.compare,
+            focus = "nodes",
+            nd.size = c(0.5, 1.5),
+            dir = dataDir) 
+```
+
+## Functions {auto-animate=true}
+
+```{r}
+#| echo: true
+#| warning: false
+
+dec.to.compare <- c(3, 4)
+g.compar <- list_compar(lgrph, nd.var = "type")
+plot_compar(listg = g.compar, 
+            dec2comp = dec.to.compare,
+            focus = "edges",
+            nd.size = c(0.5, 1.5),
+            dir = dataDir) 
+```
+
+## Functions {auto-animate=true}
+
+```{r}
+#| echo: true
+#| warning: false
+
+df.same_edges <- same_elements(lgrph, nd.var = "type", focus = "edges")
+# diag(df.same_edges) <- cell_spec(diag(df.same_edges), color = "black",
+#                                  background = "lightgrey")
+knitr::kable(df.same_edges, row.names = TRUE, escape = F, table.attr = "style='width:40%;'",
+             caption = "Count of common edges between decorations") %>%
+  column_spec(1, bold=TRUE) %>%
+  kableExtra::kable_styling(position = "center", font_size = 24)
+```
+
+## Functions {auto-animate=true}
+
+```{r}
+#| echo: true
+#| warning: false
+
+site <- decor <- "Ibahernando"
+nds.df <- read_nds(site, decor, dataDir)
+eds.df <- read_eds(site, decor, dataDir)
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir,
+              nd.var = "type")
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir)
+```
+## Functions {auto-animate=true}
+
+```{r}
+#| echo: true
+#| warning: false
+
+site <- decor <- "Ibahernando"
+nds.df <- read_nds(site, decor, dataDir)
+eds.df <- read_eds(site, decor, dataDir)
+selected.nd <- 4
+l_dec_df <- contemp_nds(nds.df, eds.df, selected.nd)
+plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
+              site, decor, dataDir,
+              nd.var = "type")
+```
 ## Study
 
 ## Corpus

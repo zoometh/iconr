@@ -59,8 +59,11 @@
 #' plot(a.dec)
 #'
 #' @export
-plot_dec_grph <- function(nodes = NULL, edges = NULL, imgs,
-                          site, decor,
+plot_dec_grph <- function(nodes = NULL,
+                          edges = NULL,
+                          imgs,
+                          site,
+                          decor,
                           dir = getwd(),
                           nd.var = "id",
                           nd.color = "orange", nd.size = 0.5,
@@ -87,9 +90,6 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL, imgs,
 
     if (!is.null(edges) && nrow(edges) > 0) {
         edges <- edges[edges$site  == site & edges$decor == decor, ]
-        if(is.na(edges$type)){
-
-        }
         edges$lty <- ifelse(edges$type == "+", "33", "solid")
         edges$col <- ed.color[ifelse(edges$type == ">", 2, 1)]
         edges$lwd <- ed.lwd

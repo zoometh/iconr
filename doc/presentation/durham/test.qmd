@@ -38,78 +38,35 @@ grph <- list_dec(imgs, nodes, edges)
 lgrph <- list_dec(imgs, nodes, edges)
 ```
 
-## ***iconr*** conceptual model
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Cerro_Muriano.Cerro_Muriano_1.jpg" width='150px' />
+
+## Study
 
 ::: {.panel-tabset}
 
-### Spatial relationships
+### Sources
 
-:::: {.columns}
+* Catalog
 
-::: {.column width="50%"}
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/all_process.gif){width=60%}
-
-:::
-
-::: {.column width="50%"}
-
-* Some objects (eg, pottery, rock panels) have a decoration;
-* A decoration is composed of graphical units (GUs);
-* GUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D);
-* Shape analysis can measures the similarities between two GUs (eg. Procrustes distance);
-* GUs are considered as nodes;
-* Nodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);
-* A decoration is considered as a spatial graph, modeled with graph theory and analysed with network and spatial analysis;
-
-:::
-
-::::
+Díaz-Guardamino Uribe, M. (2010). *Las estelas decoradas en la Prehistoria de la Península Ibérica* (Universidad Complutense de Madrid, Servicio de Publicaciones). url: [https://eprints.ucm.es/11070/1/T32200.pdf](https://eprints.ucm.es/11070/1/T32200.pdf)
 
 
-### Iconographic relationships
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/sources-catalog-diazguardamino.jpg" width='350px' />
 
-::: {.column width="50%"}
 
-```{r}
-#| echo: false
 
-oldpar <- par(no.readonly = TRUE)
-on.exit(par(oldpar))
-par(mar=c(0, 0, 0, 0))
-g <- graph_from_literal(objects-+weapons,
-                        objects-+personnal_item,
-                        weapons-+offensive_weapons,
-                        weapons-+defensive_weapons,
-                        offensive_weapons-+spear,
-                        offensive_weapons-+sword,
-                        defensive_weapons-+shield,
-                        defensive_weapons-+helmet,
-                        personnal_item-+miror,
-                        personnal_item-+comb)
-layout <- layout.reingold.tilford(g)
-plot(g,
-     layout = layout,
-     vertex.color = "white",
-     vertex.frame.color = "white",
-     vertex.size = 20,
-     vertex.label.cex = 1.5,
-     vertex.label.color = "black",
-     vertex.label.family = "sans",
-     edge.arrow.size = 0.5
-     )
-```
+### Variable {auto-animate=true}
+
+<div>
+<a href="https://github.com">
+<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+<span class= smalltext><a href="https://github.com/zoometh/iconr/blob/master/inst/extdata/edges.tsv">https://github.com/zoometh/iconr/blob/master/inst/extdata/edges.tsv</a></span>
+</div>
+
+<script src="https://gist.github.com/zoometh/dfa9fb0305961710e28e6d0a05b69eb3.js"></script>
 
 :::
-
-::: {.column width="50%"}
-
-Hierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)
-
-:::
-
-:::
-
 
 ## {auto-animate=true}
 
@@ -126,68 +83,3 @@ Animating content
 ## {auto-animate=true}
 
 iconr
-
-## {auto-animate=true}
-
-igraph
-
-iconr
-
-## {auto-animate=true}
-
-magick
-
-igraph
-
-iconr
-
-
-
-## Birth of statistics
-
-<div>
-<a href="https://github.com">
-<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
-<span class= smalltext><a href="https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv">https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv</a></span>
-</div>
-
-::: {.panel-tabset}
-
-
-### Mean
-
-<div class="row">
-<div class="column">![Parthenon, Greece, 5<sup>th</sup> BC](images/The_Parthenon_in_Athens.jpg){height=350px}</div>
-<div class="column">![The 4 Pythagorean means: quadratic, arithmetic, geometric, and harmonic (HM)](images/hist-stat-mean-pythagore.png){height=350px}</div>
-</div>
-
-### Median
-
-<div class="row">
-<div class="column">![Title page of E. Wright, 1599, '*Certaine Errors in Navigation*'*](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/EdwardWright-CertaineErrorsinNavigation-1599.png/800px-EdwardWright-CertaineErrorsinNavigation-1599.png){height=350px}</div>
-<div class="column">![](images/hist-stat-median-compass-map.png){height=350px}</div>
-</div>
-
-### Significance test
-
-<div class="row">
-<div class="column">![J. Arbuthnot, 1629-1710 census. Published in 1711, '*Philosophical transactions, 27*' with this statement: '*From whence it follows, that it is Art, not Chance, that governs*'](images/aut-arbuthnot-1629-1710.png){height=350px}</div>
-<div class="column">![*p-value* and *Z-score*, two normalised test thresholds to estimate the significance of an observed distribution *vs* a random distribution](images/stat-pvalue.png){height=350px}</div>
-</div>
-
-
-### Normal law
-
-<div class="row">
-<div class="column">![A. Quetelet, 1821-1833 census](images/aut-quetelet_1821-33_census.png){height=350px}</div>
-<div class="column">![A selection of Normal Distribution Probability Density Functions (PDFs). Both the mean, μ, and variance, σ², are varied](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/1280px-Normal_Distribution_PDF.svg.png){height=350px}</div>
-</div>
-
-:::
-
-
-::: {.notes}
-Statistik (description of a state, a country): collecting population data through census, surveys 
-!= probability. Based on social data (!= mathematics). Statistics need to analyse large amount of data (dataset), Statistics are manded by institutions, to be interesting they need to be realised over the long term to allow comparisons.
-*p-value* is a test value, 95% = > .05
-:::

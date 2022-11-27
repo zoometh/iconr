@@ -60,7 +60,7 @@
     "href": "index.html#introduction",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Introduction",
-    "text": "Introduction\n\n\n\nThis presentation will show you one example of computational archaeology\n\n\n\n\n\n\nsoftware 💿\n\n\nsemantic 🖼 📜 🔢 🐫\n\n\n\n\nlogic >_ print(‘hello’)\n\n\n\n\n\n\nhardware 💻"
+    "text": "Introduction\n\n\n\nThis presentation is an introduction to computational archaeology\n\n\n\n\n\n\nsoftware 💿\n\n\nsemantic 🖼 📜 🔢\n\n\n\n\nlogic >_ print(‘hello’)\n\n\n\n\n\n\nhardware 💻\n\n\n\n\n\n\nIt is also about ancient iconography\n\n\nIt introduces the R package iconr \n\n\nIt gives an example of study with this package"
   },
   {
     "objectID": "index.html#historiography-of-archaeology",
@@ -235,7 +235,7 @@
     "href": "index.html#gis-entry",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "GIS entry",
-    "text": "GIS entry\n\nOpenReferenceScaleMeasuresNodesEdges\n\n\n\n\n\n\n\n\n\nQGIS plugin: Freehand raster georeferencer"
+    "text": "GIS entry\n\nReferenceScaleMeasuresNodesEdges\n\n\n\n\n\n\nQGIS plugin: Freehand raster georeferencer"
   },
   {
     "objectID": "index.html#nature-of-iconographic-data",
@@ -256,7 +256,7 @@
     "href": "index.html#iconr-conceptual-model",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "iconr conceptual model",
-    "text": "iconr conceptual model\n\nDistributionSens\n\n\n\n\n\n\nBlabla\n\n\n\n\n\n\n\n\n\n\n\n\nBlabla"
+    "text": "iconr conceptual model\n\n\n \n\n\nSome objects have a decoration\nA decoration is composed of graphical units (GUs)"
   },
   {
     "objectID": "index.html#project-qgis-1-decoration",
@@ -270,7 +270,7 @@
     "href": "index.html#run-r",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Run R",
-    "text": "Run R\n\n# install.packages(\"iconr\")\n# install.packages(\"sf\")\n# install.packages(\"dplyr\")\n# install.packages(\"knitr\")\n# install.packages(\"kableExtra\")\n\nlibrary(iconr)\nlibrary(igraph)\nlibrary(sf)\nlibrary(dplyr)\nlibrary(knitr)\nlibrary(kableExtra)"
+    "text": "Run R\nInstall and load packages\n\n# install.packages(\"iconr\")\n# install.packages(\"sf\")\n# install.packages(\"dplyr\")\n# install.packages(\"knitr\")\n# install.packages(\"kableExtra\")\n\nlibrary(iconr)\nlibrary(igraph)\nlibrary(sf)\nlibrary(dplyr)\nlibrary(knitr)\nlibrary(kableExtra)"
   },
   {
     "objectID": "index.html#iconr-default-data",
@@ -312,7 +312,7 @@
     "href": "index.html#nodes",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Nodes",
-    "text": "Nodes"
+    "text": "Nodes\n\n\n\n\nMain nodes: separated GUs showing different graphical contents (anthropomorphic figure, spear, shield, comb and ingot)"
   },
   {
     "objectID": "index.html#edges",
@@ -417,41 +417,272 @@
     "href": "test.html#statement-of-need-1",
     "title": "TEST2",
     "section": "Statement of need",
-    "text": "Statement of need\n\n\n\n\n\n\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis"
+    "text": "Statement of need\n\n\n \n\n\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support"
   },
   {
     "objectID": "test.html#statement-of-need-2",
     "href": "test.html#statement-of-need-2",
     "title": "TEST2",
     "section": "Statement of need",
-    "text": "Statement of need\n\n\n\n\n\n\n\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nRelationships and similarities between these groups are often not self-explanatory and unquantified"
+    "text": "Statement of need\n\n\n  \n\n\nRelationships and similarities between these groups are often not self-explanatory and unquantified\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support"
   },
   {
     "objectID": "test.html#statement-of-need-3",
     "href": "test.html#statement-of-need-3",
     "title": "TEST2",
     "section": "Statement of need",
-    "text": "Statement of need\n\n\n\n\n\n\n\n\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nRelationships and similarities between these groups are often not self-explanatory and unquantified\nDescriptive vocabularies and methods of analysis are site-dependent or period dependent"
+    "text": "Statement of need\n\n\n   \n\n\nDescriptive vocabularies and methods of analysis are site-dependent or period dependent\nRelationships and similarities between these groups are often not self-explanatory and unquantified\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support"
   },
   {
     "objectID": "index.html#statement-of-need-1",
     "href": "index.html#statement-of-need-1",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Statement of need",
-    "text": "Statement of need\n\n\n\n\n\n\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis"
+    "text": "Statement of need\n\n\n \n\n\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support"
   },
   {
     "objectID": "index.html#statement-of-need-2",
     "href": "index.html#statement-of-need-2",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Statement of need",
-    "text": "Statement of need\n\n\n\n\n\n\n\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nRelationships and similarities between these groups are often not self-explanatory and unquantified"
+    "text": "Statement of need\n\n\n  \n\n\nRelationships and similarities between these groups are often not self-explanatory and unquantified\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support"
   },
   {
     "objectID": "index.html#statement-of-need-3",
     "href": "index.html#statement-of-need-3",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Statement of need",
-    "text": "Statement of need\n\n\n\n\n\n\n\n\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nRelationships and similarities between these groups are often not self-explanatory and unquantified\nDescriptive vocabularies and methods of analysis are site-dependent or period dependent"
+    "text": "Statement of need\n\n\n   \n\n\nDescriptive vocabularies and methods of analysis are site-dependent or period dependent\nRelationships and similarities between these groups are often not self-explanatory and unquantified\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support"
+  },
+  {
+    "objectID": "test.html#iconr-conceptual-model-1",
+    "href": "test.html#iconr-conceptual-model-1",
+    "title": "TEST2",
+    "section": "iconr conceptual model",
+    "text": "iconr conceptual model\n\n\n  \n\n\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)\nSome objects (eg, pottery, rock panels) have a decoration\nA decoration is composed of graphical units (GUs)"
+  },
+  {
+    "objectID": "test.html#iconr-conceptual-model-2",
+    "href": "test.html#iconr-conceptual-model-2",
+    "title": "TEST2",
+    "section": "iconr conceptual model",
+    "text": "iconr conceptual model\n\n\n   \n\n\nNodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);\nGUs are considered as nodes;\nSome objects (eg, pottery, rock panels) have a decoration\nA decoration is composed of graphical units (GUs)\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)"
+  },
+  {
+    "objectID": "test.html#iconr-conceptual-model-3",
+    "href": "test.html#iconr-conceptual-model-3",
+    "title": "TEST2",
+    "section": "iconr conceptual model",
+    "text": "iconr conceptual model\n\n\n    \n\n\nShape analysis and hierachical thesaurus can measure the similarities between two GUs (eg. Procrustes distance);\nA decoration is considered as a spatial graph, modeled with graph theory and analysed with network and spatial analysis;\nNodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);\nGUs are considered as nodes;\nSome objects (eg, pottery, rock panels) have a decoration\nA decoration is composed of graphical units (GUs)\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)"
+  },
+  {
+    "objectID": "test.html#iconr-conceptual-model-4",
+    "href": "test.html#iconr-conceptual-model-4",
+    "title": "TEST2",
+    "section": "iconr conceptual model",
+    "text": "iconr conceptual model\n\nSpatial relationshipsIconographic relationships\n\n\n\n\n\n\n\nSome objects (eg, pottery, rock panels) have a decoration;\nA decoration is composed of graphical units (GUs);\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D);\nShape analysis can measures the similarities between two GUs (eg. Procrustes distance);\nGUs are considered as nodes;\nNodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);\nA decoration is considered as a spatial graph, modeled with graph theory and analysed with network and spatial analysis;\n\n\n\n\n\n\n\n\n\n\n\n\n\nHierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)"
+  },
+  {
+    "objectID": "index.html#iconr-conceptual-model-1",
+    "href": "index.html#iconr-conceptual-model-1",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "iconr conceptual model",
+    "text": "iconr conceptual model\n\n\n  \n\n\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)\nA decoration is composed of graphical units (GUs)\nSome objects have a decoration"
+  },
+  {
+    "objectID": "index.html#iconr-conceptual-model-2",
+    "href": "index.html#iconr-conceptual-model-2",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "iconr conceptual model",
+    "text": "iconr conceptual model\n\n\n   \n\n\nNodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);\nGUs are considered as nodes;\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)\nA decoration is composed of graphical units (GUs)\nSome objects have a decoration"
+  },
+  {
+    "objectID": "index.html#iconr-conceptual-model-3",
+    "href": "index.html#iconr-conceptual-model-3",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "iconr conceptual model",
+    "text": "iconr conceptual model\n\n\n    \n\n\nShape analysis and hierachical thesaurus can measure the similarities between two GUs (eg. Procrustes distance);\nA decoration is considered as a spatial graph, modeled with graph theory and analysed with network and spatial analysis;\nNodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);\nGUs are considered as nodes;\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)\nA decoration is composed of graphical units (GUs)\nSome objects have a decoration\n\n\n\nIconographic relationships\n\n\n\n\n\n\n\n\nHierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)\n\n:::"
+  },
+  {
+    "objectID": "test.html#nodes",
+    "href": "test.html#nodes",
+    "title": "TEST2",
+    "section": "Nodes",
+    "text": "Nodes\n\n\n\n\nMain nodes: separated GUs showing different graphical contents (anthropomorphic figure, spear, shield, comb and ingot)"
+  },
+  {
+    "objectID": "test.html#nodes-1",
+    "href": "test.html#nodes-1",
+    "title": "TEST2",
+    "section": "Nodes",
+    "text": "Nodes\n\n\n\n\nAttribute nodes: additional GUs characterising the main node (helmet, phalus)\nMain nodes: separated GUs showing different graphical contents (anthropomorphic figure, spear, shield, comb and ingot)"
+  },
+  {
+    "objectID": "index.html#nodes-1",
+    "href": "index.html#nodes-1",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Nodes",
+    "text": "Nodes\n\n\n\n\n\n\n\n\nMain nodes: separated GUs showing different graphical contents (anthropomorphic figure, spear, shield, comb and ingot) Hierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)"
+  },
+  {
+    "objectID": "index.html#default-data---images",
+    "href": "index.html#default-data---images",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Default data - images",
+    "text": "Default data - images\n\nfrom Rdata\n\n\n\ndataDir <- system.file(\"extdata\", package = \"iconr\")\nimgs_path <- paste0(dataDir, \"/imgs.csv\")\nimgs <- read.table(imgs_path, sep = \";\", stringsAsFactors = FALSE)\nkable(imgs, \"html\") %>% \n  kable_styling(full_width = FALSE, position = \"center\", font_size = 24)\n\n\n\n \n  \n    idf \n    site \n    decor \n    img \n  \n \n\n  \n    1 \n    Cerro Muriano \n    Cerro Muriano 1 \n    Cerro_Muriano.Cerro_Muriano_1.jpg \n  \n  \n    2 \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    Torrejon_Rubio.Torrejon_Rubio_1.jpg \n  \n  \n    3 \n    Brozas \n    Brozas \n    Brozas.Brozas.jpg \n  \n  \n    4 \n    Zarza de Montanchez \n    Zarza De Montanchez \n    Zarza_de_Montanchez.Zarza_De_Montanchez.jpg \n  \n  \n    5 \n    Ibahernando \n    Ibahernando \n    Ibahernando.Ibahernando.jpg \n  \n\n\n\n\n\n\n\n\n\n  https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv"
+  },
+  {
+    "objectID": "index.html#default-data---nodes",
+    "href": "index.html#default-data---nodes",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Default data - nodes",
+    "text": "Default data - nodes\n\nfrom Rdata\n\n\n\nnodes_path <- paste0(dataDir, \"/nodes.shp\")\nnodes.shp <- st_read(nodes_path, quiet = T)\nnodes <- as.data.frame(nodes.shp)\nkable(nodes, \"html\") %>% \n  kable_styling(full_width = FALSE, position = \"center\", font_size = 24)\n\n\n\n \n  \n    site \n    decor \n    id \n    type \n    x \n    y \n    geometry \n  \n \n\n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    1 \n    personnage \n    349.8148 \n    -298.3244 \n    POINT (349.8148 -298.3244) \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    2 \n    casque \n    349.8148 \n    -243.9851 \n    POINT (349.8148 -243.9851) \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    3 \n    lance \n    238.4637 \n    -298.3244 \n    POINT (238.4637 -298.3244) \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    4 \n    bouclier \n    446.0222 \n    -381.1697 \n    POINT (446.0222 -381.1697) \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    5 \n    peigne \n    283.0041 \n    -358.0086 \n    POINT (283.0041 -358.0086) \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    7 \n    sexe_masculin \n    342.6884 \n    -427.4917 \n    POINT (342.6884 -427.4917) \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    8 \n    lingot_pdb \n    451.1489 \n    -237.4782 \n    POINT (451.1489 -237.4782) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    1 \n    chariot_char \n    306.3033 \n    -177.1217 \n    POINT (306.3033 -177.1217) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    2 \n    bouclier \n    374.5779 \n    -347.8082 \n    POINT (374.5779 -347.8082) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    3 \n    arc \n    221.6166 \n    -303.8236 \n    POINT (221.6166 -303.8236) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    4 \n    miroir \n    211.7693 \n    -458.0980 \n    POINT (211.7693 -458.098) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    5 \n    fibule \n    490.1195 \n    -513.2428 \n    POINT (490.1195 -513.2428) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    6 \n    epee \n    366.7001 \n    -563.1358 \n    POINT (366.7001 -563.1358) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    7 \n    lance \n    298.4255 \n    -607.7769 \n    POINT (298.4255 -607.7769) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    8 \n    cheval \n    251.1585 \n    -141.6715 \n    POINT (251.1585 -141.6715) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    9 \n    cheval \n    256.4103 \n    -209.9461 \n    POINT (256.4103 -209.9461) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    10 \n    roue \n    364.5141 \n    -138.7608 \n    POINT (364.5141 -138.7608) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    11 \n    roue \n    363.6435 \n    -209.2802 \n    POINT (363.6435 -209.2802) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    12 \n    fleche \n    185.5875 \n    -312.4591 \n    POINT (185.5875 -312.4591) \n  \n  \n    Brozas \n    Brozas \n    1 \n    lance \n    354.1114 \n    -123.3621 \n    POINT (354.1114 -123.3621) \n  \n  \n    Brozas \n    Brozas \n    2 \n    peigne \n    346.3455 \n    -151.8371 \n    POINT (346.3455 -151.8371) \n  \n  \n    Brozas \n    Brozas \n    3 \n    fibule \n    279.0411 \n    -162.1916 \n    POINT (279.0411 -162.1916) \n  \n  \n    Brozas \n    Brozas \n    4 \n    miroir \n    211.7366 \n    -206.1984 \n    POINT (211.7366 -206.1984) \n  \n  \n    Brozas \n    Brozas \n    5 \n    bouclier \n    392.9409 \n    -343.3959 \n    POINT (392.9409 -343.3959) \n  \n  \n    Brozas \n    Brozas \n    6 \n    epee \n    387.7636 \n    -564.7240 \n    POINT (387.7636 -564.724) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    casque \n    350.7279 \n    -141.3279 \n    POINT (350.7279 -141.3279) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    2 \n    miroir \n    428.2122 \n    -172.6699 \n    POINT (428.2122 -172.6699) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    epee \n    289.7853 \n    -183.1172 \n    POINT (289.7853 -183.1172) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    4 \n    lance \n    285.4322 \n    -207.4942 \n    POINT (285.4322 -207.4942) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    bouclier \n    290.6559 \n    -310.2261 \n    POINT (290.6559 -310.2261) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    personnage \n    418.6354 \n    -305.0025 \n    POINT (418.6354 -305.0025) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    chariot_char \n    343.7630 \n    -466.9358 \n    POINT (343.763 -466.9358) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    8 \n    cheval \n    261.9258 \n    -433.8527 \n    POINT (261.9258 -433.8527) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    9 \n    cheval \n    258.4433 \n    -486.0892 \n    POINT (258.4433 -486.0892) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    10 \n    roue \n    342.9527 \n    -434.1614 \n    POINT (342.9527 -434.1614) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    11 \n    roue \n    344.2134 \n    -510.2253 \n    POINT (344.2134 -510.2253) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    12 \n    rivet \n    377.1414 \n    -163.5179 \n    POINT (377.1414 -163.5179) \n  \n  \n    Ibahernando \n    Ibahernando \n    1 \n    ecriture \n    284.1056 \n    -131.2344 \n    POINT (284.1056 -131.2344) \n  \n  \n    Ibahernando \n    Ibahernando \n    2 \n    lance \n    351.6009 \n    -191.5644 \n    POINT (351.6009 -191.5644) \n  \n  \n    Ibahernando \n    Ibahernando \n    3 \n    bouclier \n    345.0360 \n    -296.6023 \n    POINT (345.036 -296.6023) \n  \n  \n    Ibahernando \n    Ibahernando \n    4 \n    epee \n    367.3566 \n    -420.6782 \n    POINT (367.3566 -420.6782) \n  \n\n\n\n\n\n\n\n\n  https://github.com/zoometh/iconr/blob/master/inst/extdata/nodes.tsv"
+  },
+  {
+    "objectID": "index.html#default-data---edges",
+    "href": "index.html#default-data---edges",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Default data - edges",
+    "text": "Default data - edges\n\nfrom Rdata\n\n\n\nedges_path <- paste0(dataDir, \"/edges.shp\")\nedges.shp <- st_read(edges_path, quiet = T)\nedges <- as.data.frame(edges.shp)\nkable(edges, \"html\") %>% \n  kable_styling(full_width = FALSE, position = \"center\", font_size = 24)\n\n\n\n \n  \n    site \n    decor \n    a \n    b \n    type \n    geometry \n  \n \n\n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    1 \n    4 \n    = \n    LINESTRING (349.8148 -298.3... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    1 \n    5 \n    = \n    LINESTRING (283.0041 -358.0... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    3 \n    5 \n    = \n    LINESTRING (283.0041 -358.0... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    1 \n    2 \n    + \n    LINESTRING (349.8148 -298.3... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    1 \n    7 \n    + \n    LINESTRING (349.8148 -298.3... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    3 \n    1 \n    = \n    LINESTRING (238.4637 -298.3... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    1 \n    8 \n    = \n    LINESTRING (349.8148 -298.3... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    4 \n    8 \n    = \n    LINESTRING (451.1489 -237.4... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    6 \n    5 \n    = \n    LINESTRING (366 -563, 490 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    4 \n    2 \n    = \n    LINESTRING (211 -458, 374 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    6 \n    7 \n    = \n    LINESTRING (366 -563, 298 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    1 \n    2 \n    = \n    LINESTRING (306 -177, 374 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    1 \n    8 \n    + \n    LINESTRING (306 -177, 251 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    1 \n    9 \n    + \n    LINESTRING (256 -209, 306 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    2 \n    3 \n    = \n    LINESTRING (374 -347, 221 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    3 \n    1 \n    = \n    LINESTRING (221 -303, 306 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    3 \n    4 \n    = \n    LINESTRING (221 -303, 211 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    2 \n    5 \n    = \n    LINESTRING (374 -347, 490 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    2 \n    6 \n    = \n    LINESTRING (374 -347, 366 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    6 \n    4 \n    = \n    LINESTRING (366 -563, 211 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    3 \n    12 \n    + \n    LINESTRING (221 -303, 185 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    1 \n    10 \n    + \n    LINESTRING (306 -177, 364 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    1 \n    11 \n    + \n    LINESTRING (306 -177, 363 -... \n  \n  \n    Brozas \n    Brozas \n    1 \n    2 \n    = \n    LINESTRING (354.1114 -123.3... \n  \n  \n    Brozas \n    Brozas \n    3 \n    1 \n    = \n    LINESTRING (279.0411 -162.1... \n  \n  \n    Brozas \n    Brozas \n    3 \n    2 \n    = \n    LINESTRING (279.0411 -162.1... \n  \n  \n    Brozas \n    Brozas \n    4 \n    1 \n    = \n    LINESTRING (211.7366 -206.1... \n  \n  \n    Brozas \n    Brozas \n    4 \n    3 \n    = \n    LINESTRING (211.7366 -206.1... \n  \n  \n    Brozas \n    Brozas \n    1 \n    5 \n    = \n    LINESTRING (354.1114 -123.3... \n  \n  \n    Brozas \n    Brozas \n    2 \n    5 \n    = \n    LINESTRING (346.3455 -151.8... \n  \n  \n    Brozas \n    Brozas \n    3 \n    5 \n    = \n    LINESTRING (279.0411 -162.1... \n  \n  \n    Brozas \n    Brozas \n    4 \n    5 \n    = \n    LINESTRING (211.7366 -206.1... \n  \n  \n    Brozas \n    Brozas \n    5 \n    6 \n    = \n    LINESTRING (392.9409 -343.3... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    3 \n    = \n    LINESTRING (350.7279 -141.3... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    2 \n    = \n    LINESTRING (350.7279 -141.3... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    4 \n    = \n    LINESTRING (289.7853 -183.1... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    2 \n    = \n    LINESTRING (289.7853 -183.1... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    4 \n    5 \n    = \n    LINESTRING (285.4322 -207.4... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    4 \n    = \n    LINESTRING (418.6354 -305.0... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    6 \n    = \n    LINESTRING (290.6559 -310.2... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    8 \n    + \n    LINESTRING (343.763 -466.93... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    9 \n    + \n    LINESTRING (343.763 -466.93... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    10 \n    + \n    LINESTRING (343.763 -466.93... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    11 \n    + \n    LINESTRING (343.763 -466.93... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    7 \n    = \n    LINESTRING (290.6559 -310.2... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    7 \n    = \n    LINESTRING (418.6354 -305.0... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    12 \n    + \n    LINESTRING (350.7279 -141.3... \n  \n  \n    Ibahernando \n    Ibahernando \n    1 \n    2 \n    > \n    LINESTRING (284.1056 -131.2... \n  \n  \n    Ibahernando \n    Ibahernando \n    1 \n    3 \n    > \n    LINESTRING (284.1056 -131.2... \n  \n  \n    Ibahernando \n    Ibahernando \n    2 \n    3 \n    = \n    LINESTRING (351.6009 -191.5... \n  \n  \n    Ibahernando \n    Ibahernando \n    3 \n    4 \n    = \n    LINESTRING (345.036 -296.60... \n  \n\n\n\n\n\n\n\n\n  https://github.com/zoometh/iconr/blob/master/inst/extdata/edges.tsv"
+  },
+  {
+    "objectID": "index.html#functions",
+    "href": "index.html#functions",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Functions",
+    "text": "Functions\n\ndataDir <- system.file(\"extdata\", package = \"iconr\")\nimgs <- read.table(paste0(dataDir, \"/imgs.csv\"), sep = \";\", stringsAsFactors = FALSE)\nnodes.shp <- st_read(paste0(dataDir, \"/nodes.shp\"), quiet = T)\nnodes <- as.data.frame(nodes.shp)\nedges.shp <- st_read(paste0(dataDir, \"/edges.shp\"), quiet = T)\nedges <- as.data.frame(edges.shp)\nlgrph <- list_dec(imgs, nodes, edges)"
+  },
+  {
+    "objectID": "index.html#functions-1",
+    "href": "index.html#functions-1",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Functions",
+    "text": "Functions\n\ng <- lgrph[[1]]\nclass(g)\n\n[1] \"igraph\""
+  },
+  {
+    "objectID": "index.html#functions-2",
+    "href": "index.html#functions-2",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Functions",
+    "text": "Functions\n\ng$site\n\n[1] \"Cerro Muriano\""
+  },
+  {
+    "objectID": "index.html#functions-3",
+    "href": "index.html#functions-3",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Functions",
+    "text": "Functions\n\ng$decor\n\n[1] \"Cerro Muriano 1\""
+  },
+  {
+    "objectID": "index.html#functions-4",
+    "href": "index.html#functions-4",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Functions",
+    "text": "Functions\n\nnamed_elements(g, focus = \"edges\", nd.var = \"type\")\n\n[1] \"bouclier-=-personnage\"      \"peigne-=-personnage\"       \n[3] \"lance-=-peigne\"             \"personnage-+-casque\"       \n[5] \"personnage-+-sexe_masculin\" \"lance-=-personnage\"        \n[7] \"lingot_pdb-=-personnage\"    \"bouclier-=-lingot_pdb\""
+  },
+  {
+    "objectID": "index.html#functions-5",
+    "href": "index.html#functions-5",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Functions",
+    "text": "Functions\n\nnodes <- read_nds(g$site, g$decor, dataDir)\nedges <- read_eds(g$site, g$decor, dataDir)\nplot_dec_grph(nodes = nodes,\n              edges = edges,\n              imgs = imgs,\n              site = g$site, \n              decor = g$decor, \n              dir = dataDir,\n              nd.var = \"type\")"
+  },
+  {
+    "objectID": "index.html#functions-6",
+    "href": "index.html#functions-6",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Functions",
+    "text": "Functions\n\nnodes <- read_nds(g$site, g$decor, dataDir)\nedges <- read_eds(g$site, g$decor, dataDir)\nplot_dec_grph(nodes = nodes,\n              edges = edges,\n              imgs = imgs,\n              site = g$site, \n              decor = g$decor, \n              dir = dataDir,\n              nd.var = \"type\",\n              nd.size = degree(g)/2,\n              lbl.size = 0.1)"
+  },
+  {
+    "objectID": "index.html#functions-7",
+    "href": "index.html#functions-7",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Functions",
+    "text": "Functions\n\ndec.to.compare <- c(3, 4)\ng.compar <- list_compar(lgrph, nd.var = \"type\")\nplot_compar(listg = g.compar, \n            dec2comp = dec.to.compare,\n            focus = \"nodes\",\n            nd.size = c(0.5, 1.5),\n            dir = dataDir)"
+  },
+  {
+    "objectID": "index.html#functions-8",
+    "href": "index.html#functions-8",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Functions",
+    "text": "Functions\n\ndec.to.compare <- c(3, 4)\ng.compar <- list_compar(lgrph, nd.var = \"type\")\nplot_compar(listg = g.compar, \n            dec2comp = dec.to.compare,\n            focus = \"edges\",\n            nd.size = c(0.5, 1.5),\n            dir = dataDir)"
+  },
+  {
+    "objectID": "index.html#functions-9",
+    "href": "index.html#functions-9",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Functions",
+    "text": "Functions\n\ndf.same_edges <- same_elements(lgrph, nd.var = \"type\", focus = \"edges\")\n# diag(df.same_edges) <- cell_spec(diag(df.same_edges), color = \"black\",\n#                                  background = \"lightgrey\")\nknitr::kable(df.same_edges, row.names = TRUE, escape = F, table.attr = \"style='width:40%;'\",\n             caption = \"Count of common edges between decorations\") %>%\n  column_spec(1, bold=TRUE) %>%\n  kableExtra::kable_styling(position = \"center\", font_size = 24)\n\n\n\nCount of common edges between decorations\n \n  \n      \n    1 \n    2 \n    3 \n    4 \n    5 \n  \n \n\n  \n    1 \n    8 \n    0 \n    1 \n    2 \n    0 \n  \n  \n    2 \n    0 \n    15 \n    3 \n    7 \n    1 \n  \n  \n    3 \n    1 \n    3 \n    10 \n    1 \n    2 \n  \n  \n    4 \n    2 \n    7 \n    1 \n    14 \n    1 \n  \n  \n    5 \n    0 \n    1 \n    2 \n    1 \n    4"
+  },
+  {
+    "objectID": "index.html#functions-10",
+    "href": "index.html#functions-10",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Functions",
+    "text": "Functions\n\nsite <- decor <- \"Ibahernando\"\nnds.df <- read_nds(site, decor, dataDir)\neds.df <- read_eds(site, decor, dataDir)\nplot_dec_grph(nds.df, eds.df, imgs,\n              site, decor, dataDir,\n              nd.var = \"type\")\n\n\n\nplot_dec_grph(nds.df, eds.df, imgs,\n              site, decor, dataDir)"
+  },
+  {
+    "objectID": "index.html#functions-11",
+    "href": "index.html#functions-11",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Functions",
+    "text": "Functions\n\nsite <- decor <- \"Ibahernando\"\nnds.df <- read_nds(site, decor, dataDir)\neds.df <- read_eds(site, decor, dataDir)\nselected.nd <- 4\nl_dec_df <- contemp_nds(nds.df, eds.df, selected.nd)\nplot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,\n              site, decor, dataDir,\n              nd.var = \"type\")"
+  },
+  {
+    "objectID": "index.html#conceptual-model",
+    "href": "index.html#conceptual-model",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Conceptual model",
+    "text": "Conceptual model\n\n\n\n\n\nSome objects have a decoration"
+  },
+  {
+    "objectID": "index.html#conceptual-model-1",
+    "href": "index.html#conceptual-model-1",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Conceptual model",
+    "text": "Conceptual model\n\n\n \n\n\nA decoration is composed of graphical units (GUs)\nSome objects have a decoration"
+  },
+  {
+    "objectID": "index.html#conceptual-model-2",
+    "href": "index.html#conceptual-model-2",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Conceptual model",
+    "text": "Conceptual model\n\n\n\n\n\nSome objects have a decoration"
+  },
+  {
+    "objectID": "index.html#conceptual-model-3",
+    "href": "index.html#conceptual-model-3",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Conceptual model",
+    "text": "Conceptual model\n\n\n  \n\n\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)\nA decoration is composed of graphical units (GUs)\nSome objects have a decoration"
+  },
+  {
+    "objectID": "index.html#conceptual-model-4",
+    "href": "index.html#conceptual-model-4",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Conceptual model",
+    "text": "Conceptual model\n\n\n   \n\n\nNodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);\nGUs are considered as nodes;\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)\nA decoration is composed of graphical units (GUs)\nSome objects have a decoration"
+  },
+  {
+    "objectID": "index.html#conceptual-model-5",
+    "href": "index.html#conceptual-model-5",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Conceptual model",
+    "text": "Conceptual model\n\n\n    \n\n\nShape analysis and hierachical thesaurus can measure the similarities between two GUs (eg. Procrustes distance);\nA decoration is considered as a spatial graph, modeled with graph theory and analysed with network and spatial analysis;\nNodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);\nGUs are considered as nodes;\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)\nA decoration is composed of graphical units (GUs)\nSome objects have a decoration"
+  },
+  {
+    "objectID": "index.html#nodes-2",
+    "href": "index.html#nodes-2",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Nodes",
+    "text": "Nodes\n\n\n \n\nMain nodes: separated GUs showing different graphical contents (anthropomorphic figure, spear, shield, comb and ingot) Shape analysis allows to compare and classify GUs having a given type"
+  },
+  {
+    "objectID": "index.html#nodes-3",
+    "href": "index.html#nodes-3",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Nodes",
+    "text": "Nodes\n\n\n\n\nAttribute nodes: additional GUs characterising the main node (helmet, phalus)\nMain nodes: separated GUs showing different graphical contents (anthropomorphic figure, spear, shield, comb and ingot)"
   }
 ]
