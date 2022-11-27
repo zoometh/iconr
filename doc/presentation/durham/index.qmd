@@ -1,7 +1,7 @@
 ---
 title: "Analysis of Prehistoric Iconography with the R package ***iconr***"
-subtitle: "*Digital Archaeology* seminar, 28th Nov 2022, University of Durham"
-author: "Thomas Huet (University of Oxford, EAMENA project)"
+subtitle: "*Digital Archaeology* seminar<br>28<sup>th</sup> November 2022, University of Durham"
+author: "Thomas Huet"
 format:
   revealjs: 
     # toc: true
@@ -11,29 +11,42 @@ format:
     chalkboard: true
     scrollable: true
     preview-links: true
+    citation-location: margin
     citations-hover: true
-    footnotes-hover: false
     reference-location: margin
+    # footnotes-hover: false
     logo: images/inst-uni-oxford_.png
     css: styles.css
-    footer: "*Digital Archaeology* seminar, 28th Nov 2022, University of Durham - T. Huet - <https://github.com/zoometh/iconr>"
-    # margin: -0.5
-resources:
-  - demo.pdf
-fig-cap-location: margin
+    footer: "Analysis of Prehistoric Iconography with the R package ***iconr*** - T. Huet, University of Oxford - <https://github.com/zoometh/iconr>"
+    # margin: 1
+# fig-cap-location: margin
 ---
 
 ## Introduction
 
-```{r, echo=FALSE}
-library(shiny)
-library(rmarkdown)
-library(plotly)
-library(archdata)
-library(ggtern)
+```{r}
+#| echo: false
+#| warning: false
 
-data(OxfordPots)
+library(iconr)
+library(igraph)
+library(dplyr)
+library(sf)
+
+dataDir <- system.file("extdata", package = "iconr")
+imgs_path <- paste0(dataDir, "/imgs.csv")
+imgs <- read.table(imgs_path, sep = ";", stringsAsFactors = FALSE)
+nodes_path <- paste0(dataDir, "/nodes.shp")
+nodes.shp <- st_read(nodes_path, quiet = T)
+nodes <- as.data.frame(nodes.shp)
+edges_path <- paste0(dataDir, "/edges.shp")
+edges.shp <- st_read(edges_path, quiet = T)
+edges <- as.data.frame(edges.shp)
+grph <- list_dec(imgs, nodes, edges)
+lgrph <- list_dec(imgs, nodes, edges)
 ```
+
+
 
 This presentation will show you one example of **computational archaeology** 
 
@@ -62,10 +75,175 @@ This presentation will show you one example of **computational archaeology**
 ## Statement of need
 
 
+:::: {.columns}
+
+::: {.column width="70%"}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/all_process.gif){width=40%}
+
+:::
+
+::: {.column width="30%"}
+
+Blabla
+
+:::
+
+::::
+
+
 ## ***iconr*** conceptual model
 
+::: {.panel-tabset}
+
+### Distribution
+
+:::: {.columns}
+
+::: {.column width="70%"}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/all_process.gif){width=40%}
+
+:::
+
+::: {.column width="30%"}
+
+Blabla
+
+:::
+
+::::
+
+
+### Sens
+
+::: {.column width="70%"}
+
+```{r}
+#| echo: false
+
+oldpar <- par(no.readonly = TRUE)
+on.exit(par(oldpar))
+par(mar=c(0, 0, 0, 0))
+g <- graph_from_literal(objects-+weapons,
+                        objects-+personnal_item,
+                        weapons-+offensive_weapons,
+                        weapons-+defensive_weapons,
+                        offensive_weapons-+spear,
+                        offensive_weapons-+sword,
+                        defensive_weapons-+shield,
+                        defensive_weapons-+helmet,
+                        personnal_item-+miror,
+                        personnal_item-+comb)
+layout <- layout.reingold.tilford(g)
+plot(g,
+     layout = layout,
+     vertex.color = "white",
+     vertex.frame.color = "white",
+     vertex.size = 20,
+     vertex.label.cex = 1.5,
+     vertex.label.color = "black",
+     vertex.label.family = "sans",
+     edge.arrow.size = 0.5
+     )
+```
+
+:::
+
+::: {.column width="30%"}
+
+Blabla
+
+:::
+
+:::
+
+
+## Nodes
+
+
+## Edges
+
+::: {.panel-tabset}
+
+### Normal
+
+<span style="color:orange;"> —— + —— </span> normal edges (undirected)<br>
+between contiguous and contemporaneous main nodes, for example node `a` and node `b`
+
+```{r}
+#| echo: false
+#| warning: false
+
+dataDir <- system.file("extdata", package = "iconr")
+site <- "Brozas" 
+decor <- "Brozas"
+nds.df <- read_nds(site, decor, dataDir)
+eds.df <- read_eds(site, decor, dataDir)
+imgs_path <- paste0(dataDir, "/imgs.csv")
+imgs <- read.table(imgs_path, sep = ";", stringsAsFactors = FALSE)
+knitr::kable(eds.df, "html", align = "llcccrrrr") %>% 
+  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size = 24) %>%
+  gsub("\\+", "+", .)
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir,
+              ed.lwd = 1, ed.color = c("darkorange"),
+              lbl.size = 0.7)
+sort(named_elements(lgrph[[3]], focus = "edges", nd.var = "type"))
+```
+
+### Attribute
+
+<span style="color:orange;"> - - + - - </span> attribute edges (directed)<br>
+between contemporaneous nodes where the attribute node `b` is an attribute of main node `a`
+
+```{r}
+#| echo: false
+#| warning: false
+
+dataDir <- system.file("extdata", package = "iconr")
+site <- "Zarza de Montanchez" 
+decor <- "Zarza De Montanchez"
+nds.df <- read_nds(site, decor, dataDir)
+eds.df <- read_eds(site, decor, dataDir)
+imgs_path <- paste0(dataDir, "/imgs.csv")
+imgs <- read.table(imgs_path, sep = ";", stringsAsFactors = FALSE)
+knitr::kable(eds.df, "html", align = "llcccrrrr", row.names = FALSE) %>% 
+  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size = 24)
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir,
+              ed.lwd = 1, ed.color = c("darkorange"),
+              lbl.size = 0.7)
+sort(named_elements(lgrph[[4]], focus = "edges", nd.var = "type"))
+```
+
+
+### Diachronic
+
+<span style="color:blue;"> —— > —— </span> diachronic edges (directed)<br> between non-contemporaneous nodes where the node `a` overlaps node `b`, or node `a` is more ancient than node `b` 
+
+```{r}
+#| echo: false
+#| warning: false
+
+site <- "Ibahernando"
+decor <- "Ibahernando"
+nds.df <- read_nds(site, decor, dataDir)
+eds.df <- read_eds(site, decor, dataDir)
+imgs_path <- paste0(dataDir, "/imgs.csv")
+imgs <- read.table(imgs_path, sep = ";", stringsAsFactors = FALSE)
+knitr::kable(eds.df, "html", align = "llcccrrrr", row.names = FALSE) %>% 
+  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size = 24)
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir,
+              lbl.size = 0.7)
+sort(named_elements(lgrph[[5]], focus = "edges", nd.var = "type"))
+```
+
+:::
 
 ## GIS entry
+
 
 ::: {.panel-tabset}
 
@@ -117,6 +295,7 @@ QGIS plugin: [Freehand raster georeferencer](https://gvellut.github.io/FreehandR
 # install.packages("kableExtra")
 
 library(iconr)
+library(igraph)
 library(sf)
 library(dplyr)
 library(knitr)
@@ -131,13 +310,11 @@ library(kableExtra)
 
 ### data
 
-<p>
+<div>
 <a href="https://github.com">
-<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 100px;margin: 0 0 0 0; background: transparent;" class="demo-logo">
-</a>
-https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv
-</p>
-
+<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+<span class= smalltext><a href="https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv">https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv</a></span>
+</div>
 
 <script src="https://gist.github.com/zoometh/d00ed1575e69087efd7e006cc9cf00e5.js"></script>
 
@@ -162,6 +339,13 @@ kable(imgs, "html") %>%
 
 ### data
 
+<div>
+<a href="https://github.com">
+<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+<span class= smalltext><a href="https://github.com/zoometh/iconr/blob/master/inst/extdata/nodes.tsv">https://github.com/zoometh/iconr/blob/master/inst/extdata/nodes.tsv</a></span>
+</div>
+
+<script src="https://gist.github.com/zoometh/6a91b544989db141d5a1a4b7b72ed123.js"></script>
 
 
 ### from R
@@ -176,12 +360,21 @@ kable(nodes, "html") %>%
   kable_styling(full_width = FALSE, position = "center", font_size = 24)
 ```
 
+:::
+
 ## ***iconr*** default data - edges
 
 ::: {.panel-tabset}
 
 ### data
 
+<div>
+<a href="https://github.com">
+<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+<span class= smalltext><a href="https://github.com/zoometh/iconr/blob/master/inst/extdata/edges.tsv">https://github.com/zoometh/iconr/blob/master/inst/extdata/edges.tsv</a></span>
+</div>
+
+<script src="https://gist.github.com/zoometh/dfa9fb0305961710e28e6d0a05b69eb3.js"></script>
 
 
 ### from R
@@ -196,16 +389,44 @@ kable(edges, "html") %>%
   kable_styling(full_width = FALSE, position = "center", font_size = 24)
 ```
 
+:::
 
 ## ***iconr*** functions
 
 
 ```{r}
 #| echo: true
+#| fig-cap: Cerro Muriano 1
+#| cap-location: margin
+#| fig-width: 24
+#| layout-nrow: 1
 
 lgrph <- list_dec(imgs, nodes, edges)
 g <- lgrph[[1]]
+# coords <- layout.fruchterman.reingold(lgrph[[1]])
+plot(g,
+     vertex.size = 15,
+     vertex.frame.color="white",
+     vertex.label.family = "sans",
+     vertex.label.cex = .8,
+     main = "Graph drawing based on x, y coordinates"
+)
+plot(g,
+     layout = layout.fruchterman.reingold(g),
+     vertex.size = 5 + degree(g)*10,
+     vertex.frame.color="white",
+     vertex.label.family = "sans",
+     vertex.label.cex = .8,
+     main = "Force-directed graph drawing,\nwith degree-dependent node size."
+)
 ```
+
+
+## Study
+
+## Corpus
+
+## {} {background-iframe="http://shinyserver.cfs.unipi.it:3838/teach/iconr/gu_thes/typo_gu_figuratif.html" background-interactive="true"}
 
 
 
@@ -238,7 +459,7 @@ R is a scripting language for data science. It is the 1️⃣<sup>st</sup> used 
 
 ### Packages
 
-The [CRAN]() @fig-elephant features 18,890 available packages [[ref](https://cran.r-project.org/web/packages/)]. The package ***iconr*** uses 18 packages. The most distinctives are:
+The [CRAN](https://cran.r-project.org/web/packages/) features 18,890 available packages. The package ***iconr*** uses 18 packages. The most distinctives are:
 
 <table>
 <thead>
@@ -267,7 +488,8 @@ The [CRAN]() @fig-elephant features 18,890 available packages [[ref](https://cra
 </tbody>
 </table>
 
-Other useful R packages: [dplyr]() ...., [knitr]() and [kableExtra]() for HTML/LaTex/PDF/etc. layouts [openxlsx](https://cran.r-project.org/web/packages/openxlsx/index.html) to read/write Excel files, [ggplot2](https://ggplot2.tidyverse.org/) to create plots; [plotly](https://plotly.com/r/)  and [leaflet](https://cran.r-project.org/web/packages/leaflet/index.html) to create interactive plots and maps; etc.
+[Other useful R packages: [dplyr]() ...., [knitr]() and [kableExtra]() for HTML/LaTex/PDF/etc. layouts [openxlsx](https://cran.r-project.org/web/packages/openxlsx/index.html) to read/write Excel files, [ggplot2](https://ggplot2.tidyverse.org/) to create plots; [plotly](https://plotly.com/r/)  and [leaflet](https://cran.r-project.org/web/packages/leaflet/index.html) to create interactive plots and maps; etc.]{.aside}
+
 
 ### Resources
 

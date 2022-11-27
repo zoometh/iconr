@@ -68,6 +68,7 @@ plot_dec_grph <- function(nodes = NULL, edges = NULL, imgs,
                           ed.color = c("orange", "blue"), ed.lwd = 1,
                           dir.out = dir, out.file.name = NULL,
                           img.format = NULL, res = 300) {
+    # TODO: add arrow when edges directed
     # Select the image corresponding to site and decor.
     img.select <- imgs[imgs$site == site & imgs$decor == decor, ]
     if (nrow(img.select) != 1){

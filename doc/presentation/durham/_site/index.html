@@ -10,7 +10,7 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.1.251">
 
-  <meta name="author" content="Thomas Huet (University of Oxford, EAMENA project)">
+  <meta name="author" content="Thomas Huet">
   <title>iconR - Analysis of Prehistoric Iconography with the R package iconr</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -397,8 +397,8 @@
 
 <section id="title-slide" class="center">
   <h1 class="title">Analysis of Prehistoric Iconography with the R package <strong><em>iconr</em></strong></h1>
-  <p class="subtitle"><em>Digital Archaeology</em> seminar, 28th Nov 2022, University of Durham</p>
-  <p class="author">Thomas Huet (University of Oxford, EAMENA project)</p>
+  <p class="subtitle"><em>Digital Archaeology</em> seminar<br>28<sup>th</sup> November 2022, University of Durham</p>
+  <p class="author">Thomas Huet</p>
 </section>
 
 <section id="introduction" class="slide level2">
@@ -443,30 +443,492 @@ hardware 💻
 </section>
 <section id="iconr-conceptual-model" class="slide level2">
 <h2><strong><em>iconr</em></strong> conceptual model</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Distribution</a></li><li><a href="#tabset-1-2">Sens</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="columns">
+<div class="column" style="width:70%;">
+<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/all_process.gif" style="width:40.0%"></p>
+</div><div class="column" style="width:30%;">
+<p>Blabla</p>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="column" style="width:70%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+</div>
+</div>
+</div>
+<div class="column" style="width:30%;">
+<p>Blabla</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="nodes" class="slide level2">
+<h2>Nodes</h2>
+</section>
+<section id="edges" class="slide level2">
+<h2>Edges</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Normal</a></li><li><a href="#tabset-2-2">Attribute</a></li><li><a href="#tabset-2-3">Diachronic</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<p><span style="color:orange;"> —— + —— </span> normal edges (undirected)<br> between contiguous and contemporaneous main nodes, for example node <code>a</code> and node <code>b</code></p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table" style="font-size: 24px; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:left;"> site </th>
+   <th style="text-align:left;"> decor </th>
+   <th style="text-align:center;"> a </th>
+   <th style="text-align:center;"> b </th>
+   <th style="text-align:center;"> type </th>
+   <th style="text-align:right;"> xa </th>
+   <th style="text-align:right;"> ya </th>
+   <th style="text-align:right;"> xb </th>
+   <th style="text-align:right;"> yb </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 24 </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 2 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 354.1114 </td>
+   <td style="text-align:right;"> -123.3621 </td>
+   <td style="text-align:right;"> 346.3455 </td>
+   <td style="text-align:right;"> -151.8371 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 25 </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:center;"> 3 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 279.0411 </td>
+   <td style="text-align:right;"> -162.1916 </td>
+   <td style="text-align:right;"> 354.1114 </td>
+   <td style="text-align:right;"> -123.3621 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 26 </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:center;"> 3 </td>
+   <td style="text-align:center;"> 2 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 279.0411 </td>
+   <td style="text-align:right;"> -162.1916 </td>
+   <td style="text-align:right;"> 346.3455 </td>
+   <td style="text-align:right;"> -151.8371 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 27 </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:center;"> 4 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 211.7366 </td>
+   <td style="text-align:right;"> -206.1984 </td>
+   <td style="text-align:right;"> 354.1114 </td>
+   <td style="text-align:right;"> -123.3621 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 28 </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:center;"> 4 </td>
+   <td style="text-align:center;"> 3 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 211.7366 </td>
+   <td style="text-align:right;"> -206.1984 </td>
+   <td style="text-align:right;"> 279.0411 </td>
+   <td style="text-align:right;"> -162.1916 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 29 </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 5 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 354.1114 </td>
+   <td style="text-align:right;"> -123.3621 </td>
+   <td style="text-align:right;"> 392.9409 </td>
+   <td style="text-align:right;"> -343.3959 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 30 </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:center;"> 2 </td>
+   <td style="text-align:center;"> 5 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 346.3455 </td>
+   <td style="text-align:right;"> -151.8371 </td>
+   <td style="text-align:right;"> 392.9409 </td>
+   <td style="text-align:right;"> -343.3959 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 31 </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:center;"> 3 </td>
+   <td style="text-align:center;"> 5 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 279.0411 </td>
+   <td style="text-align:right;"> -162.1916 </td>
+   <td style="text-align:right;"> 392.9409 </td>
+   <td style="text-align:right;"> -343.3959 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 32 </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:center;"> 4 </td>
+   <td style="text-align:center;"> 5 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 211.7366 </td>
+   <td style="text-align:right;"> -206.1984 </td>
+   <td style="text-align:right;"> 392.9409 </td>
+   <td style="text-align:right;"> -343.3959 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 33 </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:center;"> 5 </td>
+   <td style="text-align:center;"> 6 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 392.9409 </td>
+   <td style="text-align:right;"> -343.3959 </td>
+   <td style="text-align:right;"> 387.7636 </td>
+   <td style="text-align:right;"> -564.7240 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "bouclier-=-epee"   "bouclier-=-fibule" "bouclier-=-lance" 
+ [4] "bouclier-=-miroir" "bouclier-=-peigne" "fibule-=-lance"   
+ [7] "fibule-=-miroir"   "fibule-=-peigne"   "lance-=-miroir"   
+[10] "lance-=-peigne"   </code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-2">
+<p><span style="color:orange;"> - - + - - </span> attribute edges (directed)<br> between contemporaneous nodes where the attribute node <code>b</code> is an attribute of main node <code>a</code></p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table" style="font-size: 24px; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> site </th>
+   <th style="text-align:left;"> decor </th>
+   <th style="text-align:center;"> a </th>
+   <th style="text-align:center;"> b </th>
+   <th style="text-align:center;"> type </th>
+   <th style="text-align:right;"> xa </th>
+   <th style="text-align:right;"> ya </th>
+   <th style="text-align:right;"> xb </th>
+   <th style="text-align:right;"> yb </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 3 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 350.7279 </td>
+   <td style="text-align:right;"> -141.3279 </td>
+   <td style="text-align:right;"> 289.7853 </td>
+   <td style="text-align:right;"> -183.1172 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 2 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 350.7279 </td>
+   <td style="text-align:right;"> -141.3279 </td>
+   <td style="text-align:right;"> 428.2122 </td>
+   <td style="text-align:right;"> -172.6699 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:center;"> 3 </td>
+   <td style="text-align:center;"> 4 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 289.7853 </td>
+   <td style="text-align:right;"> -183.1172 </td>
+   <td style="text-align:right;"> 285.4322 </td>
+   <td style="text-align:right;"> -207.4942 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:center;"> 3 </td>
+   <td style="text-align:center;"> 2 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 289.7853 </td>
+   <td style="text-align:right;"> -183.1172 </td>
+   <td style="text-align:right;"> 428.2122 </td>
+   <td style="text-align:right;"> -172.6699 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:center;"> 4 </td>
+   <td style="text-align:center;"> 5 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 285.4322 </td>
+   <td style="text-align:right;"> -207.4942 </td>
+   <td style="text-align:right;"> 290.6559 </td>
+   <td style="text-align:right;"> -310.2261 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:center;"> 6 </td>
+   <td style="text-align:center;"> 4 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 418.6354 </td>
+   <td style="text-align:right;"> -305.0025 </td>
+   <td style="text-align:right;"> 285.4322 </td>
+   <td style="text-align:right;"> -207.4942 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:center;"> 5 </td>
+   <td style="text-align:center;"> 6 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 290.6559 </td>
+   <td style="text-align:right;"> -310.2261 </td>
+   <td style="text-align:right;"> 418.6354 </td>
+   <td style="text-align:right;"> -305.0025 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:center;"> 7 </td>
+   <td style="text-align:center;"> 8 </td>
+   <td style="text-align:center;"> + </td>
+   <td style="text-align:right;"> 343.7630 </td>
+   <td style="text-align:right;"> -466.9358 </td>
+   <td style="text-align:right;"> 261.9258 </td>
+   <td style="text-align:right;"> -433.8527 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:center;"> 7 </td>
+   <td style="text-align:center;"> 9 </td>
+   <td style="text-align:center;"> + </td>
+   <td style="text-align:right;"> 343.7630 </td>
+   <td style="text-align:right;"> -466.9358 </td>
+   <td style="text-align:right;"> 258.4433 </td>
+   <td style="text-align:right;"> -486.0892 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:center;"> 7 </td>
+   <td style="text-align:center;"> 10 </td>
+   <td style="text-align:center;"> + </td>
+   <td style="text-align:right;"> 343.7630 </td>
+   <td style="text-align:right;"> -466.9358 </td>
+   <td style="text-align:right;"> 342.9527 </td>
+   <td style="text-align:right;"> -434.1614 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:center;"> 7 </td>
+   <td style="text-align:center;"> 11 </td>
+   <td style="text-align:center;"> + </td>
+   <td style="text-align:right;"> 343.7630 </td>
+   <td style="text-align:right;"> -466.9358 </td>
+   <td style="text-align:right;"> 344.2134 </td>
+   <td style="text-align:right;"> -510.2253 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:center;"> 5 </td>
+   <td style="text-align:center;"> 7 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 290.6559 </td>
+   <td style="text-align:right;"> -310.2261 </td>
+   <td style="text-align:right;"> 343.7630 </td>
+   <td style="text-align:right;"> -466.9358 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:center;"> 6 </td>
+   <td style="text-align:center;"> 7 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 418.6354 </td>
+   <td style="text-align:right;"> -305.0025 </td>
+   <td style="text-align:right;"> 343.7630 </td>
+   <td style="text-align:right;"> -466.9358 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 12 </td>
+   <td style="text-align:center;"> + </td>
+   <td style="text-align:right;"> 350.7279 </td>
+   <td style="text-align:right;"> -141.3279 </td>
+   <td style="text-align:right;"> 377.1414 </td>
+   <td style="text-align:right;"> -163.5179 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "bouclier-=-chariot_char"   "bouclier-=-lance"         
+ [3] "bouclier-=-personnage"     "casque-+-rivet"           
+ [5] "casque-=-epee"             "casque-=-miroir"          
+ [7] "chariot_char-+-cheval"     "chariot_char-+-cheval#"   
+ [9] "chariot_char-+-roue"       "chariot_char-+-roue#"     
+[11] "chariot_char-=-personnage" "epee-=-lance"             
+[13] "epee-=-miroir"             "lance-=-personnage"       </code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-3">
+<p><span style="color:blue;"> —— &gt; —— </span> diachronic edges (directed)<br> between non-contemporaneous nodes where the node <code>a</code> overlaps node <code>b</code>, or node <code>a</code> is more ancient than node <code>b</code></p>
+<div class="cell">
+<div class="cell-output-display">
+
+<table class="table" style="font-size: 24px; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> site </th>
+   <th style="text-align:left;"> decor </th>
+   <th style="text-align:center;"> a </th>
+   <th style="text-align:center;"> b </th>
+   <th style="text-align:center;"> type </th>
+   <th style="text-align:right;"> xa </th>
+   <th style="text-align:right;"> ya </th>
+   <th style="text-align:right;"> xb </th>
+   <th style="text-align:right;"> yb </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 2 </td>
+   <td style="text-align:center;"> &gt; </td>
+   <td style="text-align:right;"> 284.1056 </td>
+   <td style="text-align:right;"> -131.2344 </td>
+   <td style="text-align:right;"> 351.6009 </td>
+   <td style="text-align:right;"> -191.5644 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 3 </td>
+   <td style="text-align:center;"> &gt; </td>
+   <td style="text-align:right;"> 284.1056 </td>
+   <td style="text-align:right;"> -131.2344 </td>
+   <td style="text-align:right;"> 345.0360 </td>
+   <td style="text-align:right;"> -296.6023 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:center;"> 2 </td>
+   <td style="text-align:center;"> 3 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 351.6009 </td>
+   <td style="text-align:right;"> -191.5644 </td>
+   <td style="text-align:right;"> 345.0360 </td>
+   <td style="text-align:right;"> -296.6023 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:center;"> 3 </td>
+   <td style="text-align:center;"> 4 </td>
+   <td style="text-align:center;"> = </td>
+   <td style="text-align:right;"> 345.0360 </td>
+   <td style="text-align:right;"> -296.6023 </td>
+   <td style="text-align:right;"> 367.3566 </td>
+   <td style="text-align:right;"> -420.6782 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+<div class="cell-output-display">
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "bouclier-=-epee"     "bouclier-=-lance"    "ecriture-&gt;-bouclier"
+[4] "ecriture-&gt;-lance"   </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="gis-entry" class="slide level2">
 <h2>GIS entry</h2>
 <div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Open</a></li><li><a href="#tabset-1-2">Reference</a></li><li><a href="#tabset-1-3">Scale</a></li><li><a href="#tabset-1-4">Measures</a></li><li><a href="#tabset-1-5">Nodes</a></li><li><a href="#tabset-1-6">Edges</a></li></ul>
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Open</a></li><li><a href="#tabset-3-2">Reference</a></li><li><a href="#tabset-3-3">Scale</a></li><li><a href="#tabset-3-4">Measures</a></li><li><a href="#tabset-3-5">Nodes</a></li><li><a href="#tabset-3-6">Edges</a></li></ul>
 <div class="tab-content">
-<div id="tabset-1-1">
-<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_openImageGIS.gif" class="margin-caption" style="width:70.0%"></p>
+<div id="tabset-3-1">
+<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_openImageGIS.gif" style="width:70.0%"></p>
 </div>
-<div id="tabset-1-2">
-<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_coordsQGIS.gif" class="margin-caption" style="width:70.0%"></p>
+<div id="tabset-3-2">
+<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_coordsQGIS.gif" style="width:70.0%"></p>
 </div>
-<div id="tabset-1-3">
-<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_scaleAll.gif" class="margin-caption" style="width:70.0%"></p>
+<div id="tabset-3-3">
+<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_scaleAll.gif" style="width:70.0%"></p>
 <p>QGIS plugin: <a href="https://gvellut.github.io/FreehandRasterGeoreferencer/">Freehand raster georeferencer</a></p>
 </div>
-<div id="tabset-1-4">
-<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_scaleRuleOfThree.gif" class="margin-caption" style="width:70.0%"></p>
+<div id="tabset-3-4">
+<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_scaleRuleOfThree.gif" style="width:70.0%"></p>
 </div>
-<div id="tabset-1-5">
-<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_createNodes.gif" class="margin-caption" style="width:70.0%"></p>
+<div id="tabset-3-5">
+<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_createNodes.gif" style="width:70.0%"></p>
 </div>
-<div id="tabset-1-6">
-<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_addEdges.gif" class="margin-caption" style="width:70.0%"></p>
+<div id="tabset-3-6">
+<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_addEdges.gif" style="width:70.0%"></p>
 </div>
 </div>
 </div>
@@ -474,37 +936,42 @@ hardware 💻
 <section id="project-qgis-1-decoration" class="slide level2">
 <h2>1 project QGIS = 1 decoration</h2>
 
-<img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_inputSummary.gif" class="margin-caption r-stretch" style="width:70.0%"></section>
+<img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_inputSummary.gif" style="width:70.0%" class="r-stretch"></section>
 <section id="run-r" class="slide level2">
 <h2>Run R</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># install.packages("iconr")</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="co"># install.packages("dplyr")</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># install.packages("knitr")</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># install.packages("kableExtra")</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">library</span>(iconr)</span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="fu">library</span>(kableExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># install.packages("iconr")</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># install.packages("sf")</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co"># install.packages("dplyr")</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># install.packages("knitr")</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co"># install.packages("kableExtra")</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="fu">library</span>(iconr)</span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="fu">library</span>(igraph)</span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="fu">library</span>(sf)</span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="fu">library</span>(kableExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="iconr-default-data" class="slide level2">
-<h2><strong><em>iconr</em></strong> default data</h2>
+<section id="iconr-default-data---images" class="slide level2">
+<h2><strong><em>iconr</em></strong> default data - images</h2>
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">data</a></li><li><a href="#tabset-2-2">from R</a></li></ul>
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">data</a></li><li><a href="#tabset-4-2">from R</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1">
-<script src="https://gist.github.com/zoometh/d00ed1575e69087efd7e006cc9cf00e5.js"></script>
-<p>dede <iframe data-src="https://gist.github.com/zoometh/d00ed1575e69087efd7e006cc9cf00e5.js" data-preload=""></iframe></p>
+<div id="tabset-4-1">
+<div>
+<p><a href="https://github.com"> <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a> <span class="smalltext"><a href="https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv">https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv</a></span></p>
 </div>
-<div id="tabset-2-2">
+<script src="https://gist.github.com/zoometh/d00ed1575e69087efd7e006cc9cf00e5.js"></script>
+</div>
+<div id="tabset-4-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>dataDir <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="at">package =</span> <span class="st">"iconr"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2"></a>imgs_path <span class="ot">&lt;-</span> <span class="fu">paste0</span>(dataDir, <span class="st">"/imgs.csv"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3"></a>imgs <span class="ot">&lt;-</span> <span class="fu">read.table</span>(imgs_path, <span class="at">sep =</span> <span class="st">";"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">kable</span>(imgs, <span class="st">"html"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-5"><a href="#cb2-5"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>, <span class="at">font_size =</span> <span class="dv">24</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>dataDir <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="at">package =</span> <span class="st">"iconr"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>imgs_path <span class="ot">&lt;-</span> <span class="fu">paste0</span>(dataDir, <span class="st">"/imgs.csv"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>imgs <span class="ot">&lt;-</span> <span class="fu">read.table</span>(imgs_path, <span class="at">sep =</span> <span class="st">";"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="fu">kable</span>(imgs, <span class="st">"html"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>, <span class="at">font_size =</span> <span class="dv">24</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <table class="table" style="font-size: 24px; width: auto !important; margin-left: auto; margin-right: auto;">
@@ -556,21 +1023,917 @@ hardware 💻
 </div>
 </div>
 </section>
+<section id="iconr-default-data---nodes" class="slide level2">
+<h2><strong><em>iconr</em></strong> default data - nodes</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">data</a></li><li><a href="#tabset-5-2">from R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<div>
+<p><a href="https://github.com"> <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a> <span class="smalltext"><a href="https://github.com/zoometh/iconr/blob/master/inst/extdata/nodes.tsv">https://github.com/zoometh/iconr/blob/master/inst/extdata/nodes.tsv</a></span></p>
+</div>
+<script src="https://gist.github.com/zoometh/6a91b544989db141d5a1a4b7b72ed123.js"></script>
+</div>
+<div id="tabset-5-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>nodes_path <span class="ot">&lt;-</span> <span class="fu">paste0</span>(dataDir, <span class="st">"/nodes.shp"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>nodes.shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(nodes_path, <span class="at">quiet =</span> T)</span>
+<span id="cb6-3"><a href="#cb6-3"></a>nodes <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(nodes.shp)</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="fu">kable</span>(nodes, <span class="st">"html"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>, <span class="at">font_size =</span> <span class="dv">24</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<table class="table" style="font-size: 24px; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> site </th>
+   <th style="text-align:left;"> decor </th>
+   <th style="text-align:right;"> id </th>
+   <th style="text-align:left;"> type </th>
+   <th style="text-align:right;"> x </th>
+   <th style="text-align:right;"> y </th>
+   <th style="text-align:left;"> geometry </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Cerro Muriano </td>
+   <td style="text-align:left;"> Cerro Muriano 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> personnage </td>
+   <td style="text-align:right;"> 349.8148 </td>
+   <td style="text-align:right;"> -298.3244 </td>
+   <td style="text-align:left;"> POINT (349.8148 -298.3244) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Cerro Muriano </td>
+   <td style="text-align:left;"> Cerro Muriano 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> casque </td>
+   <td style="text-align:right;"> 349.8148 </td>
+   <td style="text-align:right;"> -243.9851 </td>
+   <td style="text-align:left;"> POINT (349.8148 -243.9851) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Cerro Muriano </td>
+   <td style="text-align:left;"> Cerro Muriano 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> lance </td>
+   <td style="text-align:right;"> 238.4637 </td>
+   <td style="text-align:right;"> -298.3244 </td>
+   <td style="text-align:left;"> POINT (238.4637 -298.3244) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Cerro Muriano </td>
+   <td style="text-align:left;"> Cerro Muriano 1 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> bouclier </td>
+   <td style="text-align:right;"> 446.0222 </td>
+   <td style="text-align:right;"> -381.1697 </td>
+   <td style="text-align:left;"> POINT (446.0222 -381.1697) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Cerro Muriano </td>
+   <td style="text-align:left;"> Cerro Muriano 1 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> peigne </td>
+   <td style="text-align:right;"> 283.0041 </td>
+   <td style="text-align:right;"> -358.0086 </td>
+   <td style="text-align:left;"> POINT (283.0041 -358.0086) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Cerro Muriano </td>
+   <td style="text-align:left;"> Cerro Muriano 1 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> sexe_masculin </td>
+   <td style="text-align:right;"> 342.6884 </td>
+   <td style="text-align:right;"> -427.4917 </td>
+   <td style="text-align:left;"> POINT (342.6884 -427.4917) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Cerro Muriano </td>
+   <td style="text-align:left;"> Cerro Muriano 1 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> lingot_pdb </td>
+   <td style="text-align:right;"> 451.1489 </td>
+   <td style="text-align:right;"> -237.4782 </td>
+   <td style="text-align:left;"> POINT (451.1489 -237.4782) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> chariot_char </td>
+   <td style="text-align:right;"> 306.3033 </td>
+   <td style="text-align:right;"> -177.1217 </td>
+   <td style="text-align:left;"> POINT (306.3033 -177.1217) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> bouclier </td>
+   <td style="text-align:right;"> 374.5779 </td>
+   <td style="text-align:right;"> -347.8082 </td>
+   <td style="text-align:left;"> POINT (374.5779 -347.8082) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> arc </td>
+   <td style="text-align:right;"> 221.6166 </td>
+   <td style="text-align:right;"> -303.8236 </td>
+   <td style="text-align:left;"> POINT (221.6166 -303.8236) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> miroir </td>
+   <td style="text-align:right;"> 211.7693 </td>
+   <td style="text-align:right;"> -458.0980 </td>
+   <td style="text-align:left;"> POINT (211.7693 -458.098) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> fibule </td>
+   <td style="text-align:right;"> 490.1195 </td>
+   <td style="text-align:right;"> -513.2428 </td>
+   <td style="text-align:left;"> POINT (490.1195 -513.2428) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> epee </td>
+   <td style="text-align:right;"> 366.7001 </td>
+   <td style="text-align:right;"> -563.1358 </td>
+   <td style="text-align:left;"> POINT (366.7001 -563.1358) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> lance </td>
+   <td style="text-align:right;"> 298.4255 </td>
+   <td style="text-align:right;"> -607.7769 </td>
+   <td style="text-align:left;"> POINT (298.4255 -607.7769) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> cheval </td>
+   <td style="text-align:right;"> 251.1585 </td>
+   <td style="text-align:right;"> -141.6715 </td>
+   <td style="text-align:left;"> POINT (251.1585 -141.6715) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> cheval </td>
+   <td style="text-align:right;"> 256.4103 </td>
+   <td style="text-align:right;"> -209.9461 </td>
+   <td style="text-align:left;"> POINT (256.4103 -209.9461) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> roue </td>
+   <td style="text-align:right;"> 364.5141 </td>
+   <td style="text-align:right;"> -138.7608 </td>
+   <td style="text-align:left;"> POINT (364.5141 -138.7608) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:left;"> roue </td>
+   <td style="text-align:right;"> 363.6435 </td>
+   <td style="text-align:right;"> -209.2802 </td>
+   <td style="text-align:left;"> POINT (363.6435 -209.2802) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:left;"> fleche </td>
+   <td style="text-align:right;"> 185.5875 </td>
+   <td style="text-align:right;"> -312.4591 </td>
+   <td style="text-align:left;"> POINT (185.5875 -312.4591) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> lance </td>
+   <td style="text-align:right;"> 354.1114 </td>
+   <td style="text-align:right;"> -123.3621 </td>
+   <td style="text-align:left;"> POINT (354.1114 -123.3621) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> peigne </td>
+   <td style="text-align:right;"> 346.3455 </td>
+   <td style="text-align:right;"> -151.8371 </td>
+   <td style="text-align:left;"> POINT (346.3455 -151.8371) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> fibule </td>
+   <td style="text-align:right;"> 279.0411 </td>
+   <td style="text-align:right;"> -162.1916 </td>
+   <td style="text-align:left;"> POINT (279.0411 -162.1916) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> miroir </td>
+   <td style="text-align:right;"> 211.7366 </td>
+   <td style="text-align:right;"> -206.1984 </td>
+   <td style="text-align:left;"> POINT (211.7366 -206.1984) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> bouclier </td>
+   <td style="text-align:right;"> 392.9409 </td>
+   <td style="text-align:right;"> -343.3959 </td>
+   <td style="text-align:left;"> POINT (392.9409 -343.3959) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> epee </td>
+   <td style="text-align:right;"> 387.7636 </td>
+   <td style="text-align:right;"> -564.7240 </td>
+   <td style="text-align:left;"> POINT (387.7636 -564.724) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> casque </td>
+   <td style="text-align:right;"> 350.7279 </td>
+   <td style="text-align:right;"> -141.3279 </td>
+   <td style="text-align:left;"> POINT (350.7279 -141.3279) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> miroir </td>
+   <td style="text-align:right;"> 428.2122 </td>
+   <td style="text-align:right;"> -172.6699 </td>
+   <td style="text-align:left;"> POINT (428.2122 -172.6699) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> epee </td>
+   <td style="text-align:right;"> 289.7853 </td>
+   <td style="text-align:right;"> -183.1172 </td>
+   <td style="text-align:left;"> POINT (289.7853 -183.1172) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> lance </td>
+   <td style="text-align:right;"> 285.4322 </td>
+   <td style="text-align:right;"> -207.4942 </td>
+   <td style="text-align:left;"> POINT (285.4322 -207.4942) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> bouclier </td>
+   <td style="text-align:right;"> 290.6559 </td>
+   <td style="text-align:right;"> -310.2261 </td>
+   <td style="text-align:left;"> POINT (290.6559 -310.2261) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> personnage </td>
+   <td style="text-align:right;"> 418.6354 </td>
+   <td style="text-align:right;"> -305.0025 </td>
+   <td style="text-align:left;"> POINT (418.6354 -305.0025) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> chariot_char </td>
+   <td style="text-align:right;"> 343.7630 </td>
+   <td style="text-align:right;"> -466.9358 </td>
+   <td style="text-align:left;"> POINT (343.763 -466.9358) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> cheval </td>
+   <td style="text-align:right;"> 261.9258 </td>
+   <td style="text-align:right;"> -433.8527 </td>
+   <td style="text-align:left;"> POINT (261.9258 -433.8527) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> cheval </td>
+   <td style="text-align:right;"> 258.4433 </td>
+   <td style="text-align:right;"> -486.0892 </td>
+   <td style="text-align:left;"> POINT (258.4433 -486.0892) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> roue </td>
+   <td style="text-align:right;"> 342.9527 </td>
+   <td style="text-align:right;"> -434.1614 </td>
+   <td style="text-align:left;"> POINT (342.9527 -434.1614) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:left;"> roue </td>
+   <td style="text-align:right;"> 344.2134 </td>
+   <td style="text-align:right;"> -510.2253 </td>
+   <td style="text-align:left;"> POINT (344.2134 -510.2253) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:left;"> rivet </td>
+   <td style="text-align:right;"> 377.1414 </td>
+   <td style="text-align:right;"> -163.5179 </td>
+   <td style="text-align:left;"> POINT (377.1414 -163.5179) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> ecriture </td>
+   <td style="text-align:right;"> 284.1056 </td>
+   <td style="text-align:right;"> -131.2344 </td>
+   <td style="text-align:left;"> POINT (284.1056 -131.2344) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> lance </td>
+   <td style="text-align:right;"> 351.6009 </td>
+   <td style="text-align:right;"> -191.5644 </td>
+   <td style="text-align:left;"> POINT (351.6009 -191.5644) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> bouclier </td>
+   <td style="text-align:right;"> 345.0360 </td>
+   <td style="text-align:right;"> -296.6023 </td>
+   <td style="text-align:left;"> POINT (345.036 -296.6023) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> epee </td>
+   <td style="text-align:right;"> 367.3566 </td>
+   <td style="text-align:right;"> -420.6782 </td>
+   <td style="text-align:left;"> POINT (367.3566 -420.6782) </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="iconr-default-data---edges" class="slide level2">
+<h2><strong><em>iconr</em></strong> default data - edges</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">data</a></li><li><a href="#tabset-6-2">from R</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<div>
+<p><a href="https://github.com"> <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a> <span class="smalltext"><a href="https://github.com/zoometh/iconr/blob/master/inst/extdata/edges.tsv">https://github.com/zoometh/iconr/blob/master/inst/extdata/edges.tsv</a></span></p>
+</div>
+<script src="https://gist.github.com/zoometh/dfa9fb0305961710e28e6d0a05b69eb3.js"></script>
+</div>
+<div id="tabset-6-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>edges_path <span class="ot">&lt;-</span> <span class="fu">paste0</span>(dataDir, <span class="st">"/edges.shp"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a>edges.shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(edges_path, <span class="at">quiet =</span> T)</span>
+<span id="cb7-3"><a href="#cb7-3"></a>edges <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(edges.shp)</span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="fu">kable</span>(edges, <span class="st">"html"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">kable_styling</span>(<span class="at">full_width =</span> <span class="cn">FALSE</span>, <span class="at">position =</span> <span class="st">"center"</span>, <span class="at">font_size =</span> <span class="dv">24</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<table class="table" style="font-size: 24px; width: auto !important; margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> site </th>
+   <th style="text-align:left;"> decor </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> b </th>
+   <th style="text-align:left;"> type </th>
+   <th style="text-align:left;"> geometry </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Cerro Muriano </td>
+   <td style="text-align:left;"> Cerro Muriano 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (349.8148 -298.3... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Cerro Muriano </td>
+   <td style="text-align:left;"> Cerro Muriano 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (283.0041 -358.0... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Cerro Muriano </td>
+   <td style="text-align:left;"> Cerro Muriano 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (283.0041 -358.0... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Cerro Muriano </td>
+   <td style="text-align:left;"> Cerro Muriano 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> + </td>
+   <td style="text-align:left;"> LINESTRING (349.8148 -298.3... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Cerro Muriano </td>
+   <td style="text-align:left;"> Cerro Muriano 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> + </td>
+   <td style="text-align:left;"> LINESTRING (349.8148 -298.3... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Cerro Muriano </td>
+   <td style="text-align:left;"> Cerro Muriano 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (238.4637 -298.3... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Cerro Muriano </td>
+   <td style="text-align:left;"> Cerro Muriano 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (349.8148 -298.3... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Cerro Muriano </td>
+   <td style="text-align:left;"> Cerro Muriano 1 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (451.1489 -237.4... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (366 -563, 490 -... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (211 -458, 374 -... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (366 -563, 298 -... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (306 -177, 374 -... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> + </td>
+   <td style="text-align:left;"> LINESTRING (306 -177, 251 -... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> + </td>
+   <td style="text-align:left;"> LINESTRING (256 -209, 306 -... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (374 -347, 221 -... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (221 -303, 306 -... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (221 -303, 211 -... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (374 -347, 490 -... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (374 -347, 366 -... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (366 -563, 211 -... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:left;"> + </td>
+   <td style="text-align:left;"> LINESTRING (221 -303, 185 -... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> + </td>
+   <td style="text-align:left;"> LINESTRING (306 -177, 364 -... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Torrejon Rubio </td>
+   <td style="text-align:left;"> Torrejon Rubio 1 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:left;"> + </td>
+   <td style="text-align:left;"> LINESTRING (306 -177, 363 -... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (354.1114 -123.3... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (279.0411 -162.1... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (279.0411 -162.1... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (211.7366 -206.1... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (211.7366 -206.1... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (354.1114 -123.3... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (346.3455 -151.8... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (279.0411 -162.1... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (211.7366 -206.1... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:left;"> Brozas </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (392.9409 -343.3... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (350.7279 -141.3... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (350.7279 -141.3... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (289.7853 -183.1... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (289.7853 -183.1... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (285.4322 -207.4... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (418.6354 -305.0... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (290.6559 -310.2... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> + </td>
+   <td style="text-align:left;"> LINESTRING (343.763 -466.93... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> + </td>
+   <td style="text-align:left;"> LINESTRING (343.763 -466.93... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> + </td>
+   <td style="text-align:left;"> LINESTRING (343.763 -466.93... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:left;"> + </td>
+   <td style="text-align:left;"> LINESTRING (343.763 -466.93... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (290.6559 -310.2... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (418.6354 -305.0... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Zarza de Montanchez </td>
+   <td style="text-align:left;"> Zarza De Montanchez </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:left;"> + </td>
+   <td style="text-align:left;"> LINESTRING (350.7279 -141.3... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> &gt; </td>
+   <td style="text-align:left;"> LINESTRING (284.1056 -131.2... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> &gt; </td>
+   <td style="text-align:left;"> LINESTRING (284.1056 -131.2... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (351.6009 -191.5... </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:left;"> Ibahernando </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> = </td>
+   <td style="text-align:left;"> LINESTRING (345.036 -296.60... </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="iconr-functions" class="slide level2">
 <h2><strong><em>iconr</em></strong> functions</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="do">## works with SHP, CSV and TSV files</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>nodes_path <span class="ot">&lt;-</span> <span class="fu">paste0</span>(dataDir, <span class="st">"/nodes.shp"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3"></a>nodes.shp <span class="ot">&lt;-</span> rgdal<span class="sc">::</span><span class="fu">readOGR</span>(<span class="at">dsn =</span> nodes_path, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb3-4"><a href="#cb3-4"></a>nodes <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(nodes.shp)</span>
-<span id="cb3-5"><a href="#cb3-5"></a>edges_path <span class="ot">&lt;-</span> <span class="fu">paste0</span>(dataDir, <span class="st">"/edges.shp"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6"></a>edges.shp <span class="ot">&lt;-</span> rgdal<span class="sc">::</span><span class="fu">readOGR</span>(<span class="at">dsn =</span> edges_path, <span class="at">verbose =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb3-7"><a href="#cb3-7"></a>edges <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(edges.shp)</span>
-<span id="cb3-8"><a href="#cb3-8"></a></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="do">## iconr FUNCTIONS </span></span>
-<span id="cb3-10"><a href="#cb3-10"></a>lgrph <span class="ot">&lt;-</span> <span class="fu">list_dec</span>(imgs, nodes, edges)</span>
-<span id="cb3-11"><a href="#cb3-11"></a>g <span class="ot">&lt;-</span> lgrph[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>lgrph <span class="ot">&lt;-</span> <span class="fu">list_dec</span>(imgs, nodes, edges)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>g <span class="ot">&lt;-</span> lgrph[[<span class="dv">1</span>]]</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co"># coords &lt;- layout.fruchterman.reingold(lgrph[[1]])</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="fu">plot</span>(g,</span>
+<span id="cb8-5"><a href="#cb8-5"></a>     <span class="at">vertex.size =</span> <span class="dv">15</span>,</span>
+<span id="cb8-6"><a href="#cb8-6"></a>     <span class="at">vertex.frame.color=</span><span class="st">"white"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7"></a>     <span class="at">vertex.label.family =</span> <span class="st">"sans"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8"></a>     <span class="at">vertex.label.cex =</span> .<span class="dv">8</span>,</span>
+<span id="cb8-9"><a href="#cb8-9"></a>     <span class="at">main =</span> <span class="st">"Graph drawing based on x, y coordinates"</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a>)</span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="fu">plot</span>(g,</span>
+<span id="cb8-12"><a href="#cb8-12"></a>     <span class="at">layout =</span> <span class="fu">layout.fruchterman.reingold</span>(g),</span>
+<span id="cb8-13"><a href="#cb8-13"></a>     <span class="at">vertex.size =</span> <span class="dv">5</span> <span class="sc">+</span> <span class="fu">degree</span>(g)<span class="sc">*</span><span class="dv">10</span>,</span>
+<span id="cb8-14"><a href="#cb8-14"></a>     <span class="at">vertex.frame.color=</span><span class="st">"white"</span>,</span>
+<span id="cb8-15"><a href="#cb8-15"></a>     <span class="at">vertex.label.family =</span> <span class="st">"sans"</span>,</span>
+<span id="cb8-16"><a href="#cb8-16"></a>     <span class="at">vertex.label.cex =</span> .<span class="dv">8</span>,</span>
+<span id="cb8-17"><a href="#cb8-17"></a>     <span class="at">main =</span> <span class="st">"Force-directed graph drawing,</span><span class="sc">\n</span><span class="st">with degree-dependent node size."</span></span>
+<span id="cb8-18"><a href="#cb8-18"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell caption-margin quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-10-1.png" width="2304"></p>
+<p></p><figcaption>Cerro Muriano 1</figcaption><p></p>
+</figure>
 </div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-10-2.png" width="2304"></p>
+<p></p><figcaption>Cerro Muriano 1</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="study" class="slide level2">
+<h2>Study</h2>
+</section>
+<section id="corpus" class="slide level2">
+<h2>Corpus</h2>
+</section>
+<section id="section" class="slide level2" data-background-iframe="http://shinyserver.cfs.unipi.it:3838/teach/iconr/gu_thes/typo_gu_figuratif.html" data-background-interactive="true">
+<h2>{}</h2>
 </section>
 <section id="dim-data-shape" class="slide level2" data-background-iframe="http://shinyserver.cfs.unipi.it:3838/teach/stats/gmm/">
 <h2>2-dim data shape</h2>
@@ -578,27 +1941,27 @@ hardware 💻
 <p>Current dataset: <a href="https://doi.org/10.1007/s41982-021-00097-2">Matzig, D.N., Hussain, S.T. and Riede, F. <em>Design Space Constraints and the Cultural Taxonomy of European Final Palaeolithic Large Tanged Points (…)</em></a></p>
 </div>
 </section>
-<section id="section" class="slide level2">
+<section id="section-1" class="slide level2">
 <h2></h2>
 
 <a href="https://www.r-project.org/"> <img src="https://www.r-project.org/logo/Rlogo.svg" alt="" style="height: 100px; margin: 0 0 0 0; background: transparent;" class="demo-logo"> </a>
 
 <div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Users</a></li><li><a href="#tabset-3-2">IDE</a></li><li><a href="#tabset-3-3">Layouts</a></li><li><a href="#tabset-3-4">Packages</a></li><li><a href="#tabset-3-5">Resources</a></li></ul>
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Users</a></li><li><a href="#tabset-7-2">IDE</a></li><li><a href="#tabset-7-3">Layouts</a></li><li><a href="#tabset-7-4">Packages</a></li><li><a href="#tabset-7-5">Resources</a></li></ul>
 <div class="tab-content">
-<div id="tabset-3-1">
+<div id="tabset-7-1">
 R is a scripting language for data science. It is the 1️⃣<sup>st</sup> used by archaeologists, and the 18<sup>th</sup> worldwide
 <p></p>
 <p><small>- <a href="https://www.tiobe.com/tiobe-index/">Tiobe index 2022</a> + <a href="https://youtu.be/tUhHhzGSgbk?t=7499">Batist and Roe, 2022</a></small></p>
 </div>
-<div id="tabset-3-2">
+<div id="tabset-7-2">
 <p><a href="https://www.rstudio.com/">RStudio</a> is THE graphical interface for R, Rstudio is also in the cloud (<a href="https://rstudio.cloud/">RStudio.cloud</a>), <a href="https://code.visualstudio.com/">VS Code</a> is a standalone source code editor multi-platforms and multi-languages</p>
 </div>
-<div id="tabset-3-3">
+<div id="tabset-7-3">
 <p><a href="https://rmarkdown.rstudio.com/">R markdown</a> is a notebook interface for report generation, <a href="https://shiny.rstudio.com/">Shiny</a> allows the development of web interactive applications, <a href="https://quarto.org/">Quarto</a> to create Powerpoint-like web interactive documents</p>
 </div>
-<div id="tabset-3-4">
-<p>The <a href="">CRAN</a> <strong>?@fig-elephant</strong> features 18,890 available packages [<a href="https://cran.r-project.org/web/packages/">ref</a>]. The package <strong><em>iconr</em></strong> uses 18 packages. The most distinctives are:</p>
+<div id="tabset-7-4">
+<p>The <a href="https://cran.r-project.org/web/packages/">CRAN</a> features 18,890 available packages. The package <strong><em>iconr</em></strong> uses 18 packages. The most distinctives are:</p>
 
 <table>
 <thead>
@@ -647,9 +2010,9 @@ description
 </tbody>
 
 </table>
-<p>Other useful R packages: <a href="">dplyr</a> …., <a href="">knitr</a> and <a href="">kableExtra</a> for HTML/LaTex/PDF/etc. layouts <a href="https://cran.r-project.org/web/packages/openxlsx/index.html">openxlsx</a> to read/write Excel files, <a href="https://ggplot2.tidyverse.org/">ggplot2</a> to create plots; <a href="https://plotly.com/r/">plotly</a> and <a href="https://cran.r-project.org/web/packages/leaflet/index.html">leaflet</a> to create interactive plots and maps; etc.</p>
+<p><span class="aside column-margin">Other useful R packages: <a href="">dplyr</a> …., <a href="">knitr</a> and <a href="">kableExtra</a> for HTML/LaTex/PDF/etc. layouts <a href="https://cran.r-project.org/web/packages/openxlsx/index.html">openxlsx</a> to read/write Excel files, <a href="https://ggplot2.tidyverse.org/">ggplot2</a> to create plots; <a href="https://plotly.com/r/">plotly</a> and <a href="https://cran.r-project.org/web/packages/leaflet/index.html">leaflet</a> to create interactive plots and maps; etc.</span></p>
 </div>
-<div id="tabset-3-5">
+<div id="tabset-7-5">
 <p><a href="http://www.sthda.com/english/wiki/ggplot2-line-plot-quick-start-guide-r-software-and-data-visualization">sthda.com</a> has good tutorials, <a href="https://stackoverflow.com/">stackoverflow</a> is probably the place where you will find the answer you need, if you need some open software for archaeology go to <a href="https://open-archaeo.info/">open-archaeo</a></p>
 </div>
 </div>
@@ -678,11 +2041,11 @@ description
 <section id="an-example-using-r-and-github" class="slide level2">
 <h2>An example using R and GitHub</h2>
 <p><span class="smalltext"> see the rendered dataset: <a href="https://github.com/keltoskytoi/Multivariate_Statistics_Szentloerinc/blob/master/DATA/fibulae.csv">https://github.com/keltoskytoi/Multivariate_Statistics_Szentloerinc/blob/master/DATA/fibulae.csv</a></span></p>
-<div class="sourceCode" id="cb4" data-code-line-numbers="1|2|3|4|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># install.packages("ca")</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">library</span>(ca)</span>
-<span id="cb4-3"><a href="#cb4-3"></a>seriat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/keltoskytoi/Multivariate_Statistics_Szentloerinc/master/DATA/fibulae.csv"</span>, <span class="at">row.name =</span> <span class="dv">1</span>)</span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="fu">print</span>(<span class="fu">head</span>(seriat))</span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="fu">plot</span>(<span class="fu">ca</span>(seriat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9" data-code-line-numbers="1|2|3|4|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># install.packages("ca")</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">library</span>(ca)</span>
+<span id="cb9-3"><a href="#cb9-3"></a>seriat <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/keltoskytoi/Multivariate_Statistics_Szentloerinc/master/DATA/fibulae.csv"</span>, <span class="at">row.name =</span> <span class="dv">1</span>)</span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="fu">print</span>(<span class="fu">head</span>(seriat))</span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="fu">plot</span>(<span class="fu">ca</span>(seriat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>    Certosa_XIIIc Certosa_XIIIh Certosa_FE EAZ_BR EAZ_FE ELT_BR
@@ -694,7 +2057,7 @@ G19             0             0          1      0      0      0
 G24             0             1          0      0      0      0</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img data-src="index_files/figure-revealjs/unnamed-chunk-5-1.png" class="margin-caption" style="width:50.0%;height:50.0%"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-11-1.png" style="width:50.0%;height:50.0%"></p>
 </div>
 </div>
 </section>
@@ -709,7 +2072,7 @@ G24             0             1          0      0      0      0</code></pre>
 
 
 <img src="images/inst-uni-oxford_.png" class="slide-logo r-stretch"><div class="footer footer-default">
-<p><em>Digital Archaeology</em> seminar, 28th Nov 2022, University of Durham - T. Huet - <a href="https://github.com/zoometh/iconr" class="uri">https://github.com/zoometh/iconr</a></p>
+<p>Analysis of Prehistoric Iconography with the R package <strong><em>iconr</em></strong> - T. Huet, University of Oxford - <a href="https://github.com/zoometh/iconr" class="uri">https://github.com/zoometh/iconr</a></p>
 </div>
 </section>
     </div>
@@ -1030,6 +2393,18 @@ G24             0             1          0      0      0      0</code></pre>
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
       }
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {

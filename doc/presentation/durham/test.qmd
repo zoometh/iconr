@@ -1,5 +1,5 @@
 ---
-title: "TEST"
+title: "TEST2"
 # subtitle: "Create beautiful interactive slide decks with Reveal.js"
 author: "zoometh"
 # margin-left: 5.4mm
@@ -14,14 +14,133 @@ format:
     css: styles.css
     footer: <https://tinyurl.com/goa-oxford>
     margin: 0
-    width: 1400
+    # width: 1400
 ---
 
 ```{r, echo=FALSE}
 library(shiny)
 library(rmarkdown)
 library(plotly)
+library(iconr)
+library(dplyr)
+library(sf)
+dataDir <- system.file("extdata", package = "iconr")
+imgs_path <- paste0(dataDir, "/imgs.csv")
+imgs <- read.table(imgs_path, sep = ";", stringsAsFactors = FALSE)
+nodes_path <- paste0(dataDir, "/nodes.shp")
+nodes.shp <- st_read(nodes_path, quiet = T)
+nodes <- as.data.frame(nodes.shp)
+edges_path <- paste0(dataDir, "/edges.shp")
+edges.shp <- st_read(edges_path, quiet = T)
+edges <- as.data.frame(edges.shp)
+grph <- list_dec(imgs, nodes, edges)
+lgrph <- list_dec(imgs, nodes, edges)
 ```
+
+
+## Statement of need {auto-animate=true}
+
+
+:::: {.columns}
+
+::: {.column width="70%"}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-support-loc.png){width=40%}
+
+:::
+
+::: {.column width="30%"}
+
+Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support (e.g. upper part of a rock, neck of a pottery, centre of a stele)
+
+:::
+
+::::
+
+
+## Statement of need {auto-animate=true}
+
+
+:::: {.columns}
+
+::: {.column width="70%"}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-support-loc.png){width=40%}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-grouping.png){width=40%}
+
+
+:::
+
+::: {.column width="30%"}
+
+Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support (e.g. upper part of a rock, neck of a pottery, centre of a stele)
+
+Groupings – like graphical units grouped into figures, figures grouped into patterns, patterns grouped into motives, etc. – are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis
+
+:::
+
+::::
+
+
+## Statement of need {auto-animate=true}
+
+
+:::: {.columns}
+
+::: {.column width="70%"}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-support-loc.png){width=40%}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-grouping.png){width=40%}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-gu-distances.png){width=40%}
+
+
+:::
+
+::: {.column width="30%"}
+
+Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support (e.g. upper part of a rock, neck of a pottery, centre of a stele)
+
+Groupings – like graphical units grouped into figures, figures grouped into patterns, patterns grouped into motives, etc. – are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis
+
+Relationships and similarities between these groups are often not self-explanatory and unquantified.
+
+
+:::
+
+::::
+
+## Statement of need {auto-animate=true}
+
+
+:::: {.columns}
+
+::: {.column width="70%"}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-support-loc.png){width=40%}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-grouping.png){width=40%}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-vocabulary.png){width=40%}
+
+
+:::
+
+::: {.column width="30%"}
+
+Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support (e.g. upper part of a rock, neck of a pottery, centre of a stele)
+
+Groupings – like graphical units grouped into figures, figures grouped into patterns, patterns grouped into motives, etc. – are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis
+
+Relationships and similarities between these groups are often not self-explanatory and unquantified.
+
+Descriptive vocabularies and methods of analysis are site-dependent or period dependent
+
+:::
+
+::::
 
 ## {auto-animate=true}
 
@@ -56,6 +175,12 @@ iconr
 
 
 ## Birth of statistics
+
+<div>
+<a href="https://github.com">
+<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+<span class= smalltext><a href="https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv">https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv</a></span>
+</div>
 
 ::: {.panel-tabset}
 
