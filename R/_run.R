@@ -1,6 +1,35 @@
 # library(sf)
 library(Momocs)
 library(iconr)
+library(dplyr)
+
+############## gmm ####################
+
+jpgs <- list.files("C:/Rprojects/iconr/doc/dev/gmm/epees", full.names = TRUE)
+coo <- Momocs::import_jpg(jpgs)
+out <- Momocs::Out(coo)
+# panel
+Momocs::panel(out)
+# stack
+out %>%
+  coo_center %>%
+  coo_scale %>%
+  coo_slidedirection("up") %T>%
+  print() %>%
+  stack()
+
+a.stack <- out %>%
+  coo_center %>%
+  coo_scale %>%
+  coo_slidedirection("up")
+
+
+
+%T>%
+  print() %>%
+  stack(borders = a.gu.type$fac$cols)
+
+gmm-brandherm-epees-draw-panel.png
 
 
 ########### list decor ###########################

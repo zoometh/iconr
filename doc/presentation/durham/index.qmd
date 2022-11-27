@@ -17,7 +17,7 @@ format:
     # footnotes-hover: false
     logo: images/inst-uni-oxford_.png
     css: styles.css
-    footer: "Analysis of Prehistoric Iconography with the R package ***iconr*** - T. Huet, University of Oxford - <https://github.com/zoometh/iconr>"
+    footer: "The R package ***iconr*** - T. Huet, University of Oxford - <https://github.com/zoometh/iconr>"
     # margin: 1
 # fig-cap-location: margin
 ---
@@ -72,20 +72,108 @@ This presentation will show you one example of **computational archaeology**
 ## Nature of iconographic data
 
 
-## Statement of need
+
+
+## Statement of need {auto-animate=true}
 
 
 :::: {.columns}
 
-::: {.column width="70%"}
+::: {.column width="40%"}
 
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/all_process.gif){width=40%}
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-support-loc.png)
 
 :::
 
-::: {.column width="30%"}
+::: {.column width="60%"}
 
-Blabla
+* Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support
+
+:::
+
+::::
+
+
+## Statement of need {auto-animate=true}
+
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-support-loc.png)
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-grouping.png)
+
+
+:::
+
+::: {.column width="60%"}
+
+* Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support
+
+* Groupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis
+
+:::
+
+::::
+
+
+## Statement of need {auto-animate=true}
+
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-support-loc.png)
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-grouping.png)
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-gu-distances.png)
+
+
+:::
+
+::: {.column width="60%"}
+
+* Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support
+
+* Groupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis
+
+* Relationships and similarities between these groups are often not self-explanatory and unquantified
+
+:::
+
+::::
+
+## Statement of need {auto-animate=true}
+
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-support-loc.png)
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-grouping.png)
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-gu-distances.png)
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-vocabulary.png)
+
+
+:::
+
+::: {.column width="60%"}
+
+* Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support
+
+* Groupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis
+
+* Relationships and similarities between these groups are often not self-explanatory and unquantified
+
+* Descriptive vocabularies and methods of analysis are site-dependent or period dependent
 
 :::
 
@@ -96,7 +184,7 @@ Blabla
 
 ::: {.panel-tabset}
 
-### Distribution
+### Spatial relationships
 
 :::: {.columns}
 
@@ -108,14 +196,20 @@ Blabla
 
 ::: {.column width="30%"}
 
-Blabla
+* Some objects (eg, pottery, rock panels) have a decoration;
+* A decoration is composed of graphical units (GUs);
+* GUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D);
+* Shape analysis can measures the similarities between two GUs (eg. Procrustes distance);
+* GUs are considered as nodes;
+* Nodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);
+* A decoration is considered as a spatial graph, modeled with graph theory and analysed with network and spatial analysis;
 
 :::
 
 ::::
 
 
-### Sens
+### Iconographic relationships
 
 ::: {.column width="70%"}
 
@@ -152,7 +246,7 @@ plot(g,
 
 ::: {.column width="30%"}
 
-Blabla
+Hierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)
 
 :::
 

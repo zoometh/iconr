@@ -249,7 +249,7 @@
     "href": "index.html#statement-of-need",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Statement of need",
-    "text": "Statement of need"
+    "text": "Statement of need\n\n\n\n\n\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support"
   },
   {
     "objectID": "index.html#iconr-conceptual-model",
@@ -368,7 +368,7 @@
     "href": "test.html#iconr-conceptual-model",
     "title": "TEST2",
     "section": "iconr conceptual model",
-    "text": "iconr conceptual model\n\nDistributionSens\n\n\n\n\n\n\nBlabla\n\n\n\n\nhttps://zoometh.github.io/iconr/articles/img/typo_gu_ug.html\nhttps://zoometh.github.io/iconr/docs/articles/img/typo_gu_ug.html"
+    "text": "iconr conceptual model\n\nSpatial relationshipsIconographic relationships\n\n\n\n\n\n\n\nSome objects (eg, pottery, rock panels) have a decoration;\nA decoration is composed of graphical units (GUs);\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D);\nShape analysis can measures the similarities between two GUs (eg. Procrustes distance);\nGUs are considered as nodes;\nNodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);\nA decoration is considered as a spatial graph, modeled with graph theory and analysed with network and spatial analysis;\n\n\n\n\n\n\n\n\n\n\n\n\n\nHierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)"
   },
   {
     "objectID": "test.html#tree",
@@ -404,5 +404,54 @@
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Corpus",
     "text": "Corpus"
+  },
+  {
+    "objectID": "test.html#statement-of-need",
+    "href": "test.html#statement-of-need",
+    "title": "TEST2",
+    "section": "Statement of need",
+    "text": "Statement of need\n\n\n\n\n\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support"
+  },
+  {
+    "objectID": "test.html#statement-of-need-1",
+    "href": "test.html#statement-of-need-1",
+    "title": "TEST2",
+    "section": "Statement of need",
+    "text": "Statement of need\n\n\n\n\n\n\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis"
+  },
+  {
+    "objectID": "test.html#statement-of-need-2",
+    "href": "test.html#statement-of-need-2",
+    "title": "TEST2",
+    "section": "Statement of need",
+    "text": "Statement of need\n\n\n\n\n\n\n\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nRelationships and similarities between these groups are often not self-explanatory and unquantified"
+  },
+  {
+    "objectID": "test.html#statement-of-need-3",
+    "href": "test.html#statement-of-need-3",
+    "title": "TEST2",
+    "section": "Statement of need",
+    "text": "Statement of need\n\n\n\n\n\n\n\n\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nRelationships and similarities between these groups are often not self-explanatory and unquantified\nDescriptive vocabularies and methods of analysis are site-dependent or period dependent"
+  },
+  {
+    "objectID": "index.html#statement-of-need-1",
+    "href": "index.html#statement-of-need-1",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Statement of need",
+    "text": "Statement of need\n\n\n\n\n\n\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis"
+  },
+  {
+    "objectID": "index.html#statement-of-need-2",
+    "href": "index.html#statement-of-need-2",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Statement of need",
+    "text": "Statement of need\n\n\n\n\n\n\n\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nRelationships and similarities between these groups are often not self-explanatory and unquantified"
+  },
+  {
+    "objectID": "index.html#statement-of-need-3",
+    "href": "index.html#statement-of-need-3",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Statement of need",
+    "text": "Statement of need\n\n\n\n\n\n\n\n\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nRelationships and similarities between these groups are often not self-explanatory and unquantified\nDescriptive vocabularies and methods of analysis are site-dependent or period dependent"
   }
 ]

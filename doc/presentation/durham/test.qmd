@@ -24,6 +24,7 @@ library(plotly)
 library(iconr)
 library(dplyr)
 library(sf)
+library(igraph)
 dataDir <- system.file("extdata", package = "iconr")
 imgs_path <- paste0(dataDir, "/imgs.csv")
 imgs <- read.table(imgs_path, sep = ";", stringsAsFactors = FALSE)
@@ -37,110 +38,78 @@ grph <- list_dec(imgs, nodes, edges)
 lgrph <- list_dec(imgs, nodes, edges)
 ```
 
+## ***iconr*** conceptual model
 
-## Statement of need {auto-animate=true}
+::: {.panel-tabset}
 
+### Spatial relationships
 
 :::: {.columns}
 
-::: {.column width="70%"}
+::: {.column width="50%"}
 
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-support-loc.png){width=40%}
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/all_process.gif){width=60%}
 
 :::
 
-::: {.column width="30%"}
+::: {.column width="50%"}
 
-Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support (e.g. upper part of a rock, neck of a pottery, centre of a stele)
+* Some objects (eg, pottery, rock panels) have a decoration;
+* A decoration is composed of graphical units (GUs);
+* GUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D);
+* Shape analysis can measures the similarities between two GUs (eg. Procrustes distance);
+* GUs are considered as nodes;
+* Nodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);
+* A decoration is considered as a spatial graph, modeled with graph theory and analysed with network and spatial analysis;
 
 :::
 
 ::::
 
 
-## Statement of need {auto-animate=true}
+### Iconographic relationships
 
+::: {.column width="50%"}
 
-:::: {.columns}
+```{r}
+#| echo: false
 
-::: {.column width="70%"}
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-support-loc.png){width=40%}
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-grouping.png){width=40%}
-
-
-:::
-
-::: {.column width="30%"}
-
-Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support (e.g. upper part of a rock, neck of a pottery, centre of a stele)
-
-Groupings – like graphical units grouped into figures, figures grouped into patterns, patterns grouped into motives, etc. – are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis
-
-:::
-
-::::
-
-
-## Statement of need {auto-animate=true}
-
-
-:::: {.columns}
-
-::: {.column width="70%"}
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-support-loc.png){width=40%}
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-grouping.png){width=40%}
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-gu-distances.png){width=40%}
-
+oldpar <- par(no.readonly = TRUE)
+on.exit(par(oldpar))
+par(mar=c(0, 0, 0, 0))
+g <- graph_from_literal(objects-+weapons,
+                        objects-+personnal_item,
+                        weapons-+offensive_weapons,
+                        weapons-+defensive_weapons,
+                        offensive_weapons-+spear,
+                        offensive_weapons-+sword,
+                        defensive_weapons-+shield,
+                        defensive_weapons-+helmet,
+                        personnal_item-+miror,
+                        personnal_item-+comb)
+layout <- layout.reingold.tilford(g)
+plot(g,
+     layout = layout,
+     vertex.color = "white",
+     vertex.frame.color = "white",
+     vertex.size = 20,
+     vertex.label.cex = 1.5,
+     vertex.label.color = "black",
+     vertex.label.family = "sans",
+     edge.arrow.size = 0.5
+     )
+```
 
 :::
 
-::: {.column width="30%"}
+::: {.column width="50%"}
 
-Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support (e.g. upper part of a rock, neck of a pottery, centre of a stele)
-
-Groupings – like graphical units grouped into figures, figures grouped into patterns, patterns grouped into motives, etc. – are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis
-
-Relationships and similarities between these groups are often not self-explanatory and unquantified.
-
+Hierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)
 
 :::
 
-::::
-
-## Statement of need {auto-animate=true}
-
-
-:::: {.columns}
-
-::: {.column width="70%"}
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-support-loc.png){width=40%}
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-grouping.png){width=40%}
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/statement-need-vocabulary.png){width=40%}
-
-
 :::
 
-::: {.column width="30%"}
-
-Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support (e.g. upper part of a rock, neck of a pottery, centre of a stele)
-
-Groupings – like graphical units grouped into figures, figures grouped into patterns, patterns grouped into motives, etc. – are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis
-
-Relationships and similarities between these groups are often not self-explanatory and unquantified.
-
-Descriptive vocabularies and methods of analysis are site-dependent or period dependent
-
-:::
-
-::::
 
 ## {auto-animate=true}
 

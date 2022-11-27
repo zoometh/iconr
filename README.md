@@ -11,16 +11,15 @@ The ***iconr*** R package purpose is to contribute to cross-cultural comparison 
 ---  
   
 The R package ***iconr*** is grounded in graph theory, spatial analysis (composition analysis), and shape analysis (geometric morphometric) to offer concepts, measurments and functions for modeling Prehistoric iconography and preparing for further analysis (clustering, typology tree, Harris diagram, etc.). The theoretical background is as follows:  
-  * Some objects (eg, pottery, rock panels) can have a decoration;
+  * Some objects (eg, pottery, rock panels) have a decoration;
   * A decoration is composed of graphical units (GUs);
-  * GUs can be drawn as LINES or POLYGONS (2D);
-  * Shape analysis can measures the similarities between two GUs (eg. Procrustes distance)
+  * GUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D);
+  * Shape analysis can measures the similarities between two GUs (eg. Procrustes distance);
   * GUs are considered as nodes;
   * Nodes have neighbourhood relations one with another depending on their spatial proximities;
-  * A decoration is considered as a graph and can be analyzed with Graph Theory.
-  * Local indices can be calculated for every nodes (eg. degree centrality);
-  * In terms of composition: each decoration (i.e. graph) can be compared to another decoration on the basis of local or global indices (e.g. degree distribution);
-  * In terms of shapes: each decoration can be compared to another decoration on the basis of their shape indices;
+  * A decoration is considered as a spatial graph, modeled with graph theory and analysed with network and spatial analysis;
+
+Spatial, network and shape indices can be calculated for every nodes and every decoration (i.e. graph). Each decoration can be compared to another decoration on the basis of local or global indices (e.g. degree and degree distribution) and on the basis of their shape indices;
   
 As favored [GIS entry](https://zoometh.github.io/iconr/articles/gis.html), GIS indices (*x* and *y* dimensions) can also be used. 
 
@@ -179,11 +178,11 @@ plot_compar(g.compar, c(1, 2, 3),
 The same result, but in the form of a coincidence matrix, can be obtained with the function [same_elements()](https://zoometh.github.io/iconr/reference/same_elements.html)
 
 
-Comparisons between sets can be based on **common edges**, which take into account the common combination of two nodes with their edge type, and **common nodes**, which take into account only the presence of common nodes.
+Comparisons between sets can be based on **common edges**, which take into account the common combination of two nodes with their edge type, and **common nodes**, which take into account only the presence of common nodes
 
 <img src="doc/img/hc.png" align="center"/>
 
-In this example, in both groupings, the Brozas stela (decoration 3) and the Ibahernando stela (decoration 5) have the highest proximities (i.e. the lowest Euclidean distance).
+In this example, in both groupings, the Brozas stela (decoration 3) and the Ibahernando stela (decoration 5) have the highest proximities (i.e. the lowest Euclidean distance)
 
 <img src="doc/img/hc_compar.png" align="center"/>
 
@@ -315,11 +314,11 @@ morph_resume(dataDir = "*my_path*/PPN",
 ```
 
 <p align="center">
-  <img alt="img-name" src="doc/img/visage_compar_stack.png" width="350">
+  <img alt="img-name" src="doc/img/gmm-visage-compar-stack.png" width="350">
   <br>
-  <img alt="img-name" src="doc/img/oeil_compar_stack.png" width="350">
+  <img alt="img-name" src="doc/img/gmm-oeil-compar-stack.png" width="350">
   <br>
-  <img alt="img-name" src="doc/img/bouche_compar_stack.png" width="350">
+  <img alt="img-name" src="doc/img/gmm-bouche-compar-stack.png" width="350">
   <br>
 </p>
 
