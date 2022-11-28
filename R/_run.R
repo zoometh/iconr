@@ -8,18 +8,26 @@ library(dplyr)
 ## Set data folder
 dataDir <- system.file("extdata", package = "iconr")
 ## Decoration to be plotted
-site <- "Brozas"
-decor <- "Brozas"
+site <- g$site
+decor <- g$decor
+
+plot_dec_grph(nodes = nodes,
+              edges = edges,
+              imgs = imgs,
+              site = g$site,
+              decor = g$decor,
+              dir = dataDir)
+
 ## Read nodes, edges, and decorations
 nds.df <- read_nds(site, decor, dataDir)
 eds.df <- read_eds(site, decor, dataDir)
 imgs <- read.table(paste0(dataDir, "/imgs.tsv"),
                    sep="\t", stringsAsFactors = FALSE)
-
-## Plot 'Brozas' nodes and edges on the active device
-## with node variable "type" as labels
-plot_dec_grph(nds.df, eds.df, imgs,
-              site, decor,
+plot_dec_grph(nds.df,
+              eds.df,
+              imgs,
+              g$site,
+              g$decor,
               dir = dataDir,
               lbl.size = 0.4,
               nd.var = "type")

@@ -4,6 +4,7 @@ title: "TEST2"
 author: "zoometh"
 # margin-left: 5.4mm
 # margin-right: 5.4mm
+fig-cap-location: margin
 format:
   revealjs: 
     slide-number: true
@@ -13,8 +14,14 @@ format:
     logo: images/inst-uni-oxford_.png
     css: styles.css
     footer: <https://tinyurl.com/goa-oxford>
-    margin: 0
-    # width: 1400
+    reference-location: margin
+    theme: dark
+    width: 2000
+    margin: 0.05
+    # max-scale: 4
+    # min-scale: 1
+  html:
+    page-layout: full
 ---
 
 ```{r, echo=FALSE}
@@ -38,75 +45,119 @@ grph <- list_dec(imgs, nodes, edges)
 lgrph <- list_dec(imgs, nodes, edges)
 ```
 
+# Study {background-color="aquamarine"}
 
-This presentation is an introduction to **computational archaeology** 
 
-<br>
+## Side and Footnotes
 
-<table>
-<thead>
-<tr>
-<th rowspan="2">software 💿</th>
-<th>semantic 🖼 📜 🔢</th>
-</tr>
-<tr>
-<th>logic <span style="background-color:black; color:white;">>_ print('hello')</span></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td colspan="2">hardware 💻</td>
-</tr>
-</tbody>
-</table>
+Humhumhum... ^[This is a sidenote that was entered using a footnote.]
+
+::: {.column-margin}
+We know from *the first fundamental theorem of calculus* that for $x$ in $[a, b]$:
+
+
+$$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).$$
+
+:::
+
+[This is a span that has the class aside which places it in the margin without a footnote number.]{.aside}
+
+## Aside again
+
+Top content
+
+::: aside
+Some additional commentary of more peripheral interest.
+:::
+
+
+## Mrgin the legend
+
+
+```{r fig-marginn, fig.margin = TRUE, fig.cap = "MPG vs horsepower, colored by transmission.", cache=TRUE, message=FALSE}
+#| cap-location: margin
+#| fig-cap: "dwdwwdwdwwddwwwdwdwdwddw"
+
+library(ggplot2)
+mtcars2 <- mtcars
+mtcars2$am <- factor(
+  mtcars$am, labels = c('automatic', 'manual')
+)
+ggplot(mtcars2, aes(hp, mpg, color = am)) +
+  geom_point() + geom_smooth() +
+  theme(legend.position = 'bottom')
+```
+
+
+## Arbitrary Full Width Content
+
+Any content can span to the full width of the page. This feature requires Pandoc 2.0 or above. All you need is to put your content in a fenced `Div` with the class `fullwidth`, e.g.,
+
+```md
+::: {.fullwidth}
+Any _full width_ content here.
+:::
+```
+
+::: {.fullwidth}
+![](images/temp.png){width=2000px}
+:::
 
 <div>
-It is also about ancient iconography
-![](https://commons.wikimedia.org/wiki/File:Tanumshede_2005_rock_carvings_5.jpg#/media/File:Tanumshede_2005_rock_carvings_5.jpg)
-<a href="https://en.wikipedia.org/wiki/Rock_Carvings_in_Tanum"><img src="https://en.wikipedia.org/wiki/Rock_Carvings_in_Tanum#/media/File:Tanumshede_2005_rock_carvings_5.jpg" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+::: {.fullwidth}
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/dec_histo/all_graphs_info.png" width='170%' />
+:::
 </div>
 
-<div>
-It introduces the R package ***iconr*** <a href="https://github.com/zoometh/iconr"><img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/iconr_logo.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+## Fuuuulll
+
+<div class="page-layout-full">
+  ![](images/temp.png){width=2000px}
 </div>
 
-<div>
-It gives an example of study with this package<a href="https://en.wikipedia.org/wiki/Magacela_stele"><img src="https://en.wikipedia.org/wiki/Magacela_stele#/media/File:Estela_de_Magacela_(29350234441).jpg" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
-</div>
+## Full Width Figures
+
+You can arrange for figures to span across the entire page by using the chunk option `fig.fullwidth = TRUE`.
+
+```{r fig-fullwidth, fig.width = 13, fig.height = 2, fig.fullwidth = TRUE, fig.cap = "A full width figure.", warning=FALSE, message=FALSE, cache=TRUE}
+ggplot(diamonds, aes(carat, price)) + geom_smooth() +
+  facet_grid(~ cut)
+```
+
+## Full that thing
+
+```{r fig.fullwidth = TRUE}
+ggplot(diamonds, aes(carat, price)) + geom_smooth() +
+  facet_grid(~ cut)
+```
+
+
+
+## Full width again
+
+::: {.fullwidth}
+Any _full width_ content here.
+
+```{r fig-margin, fig.margin = TRUE, fig.cap = "MPG vs horsepower, colored by transmission.", cache=TRUE, message=FALSE}
+library(ggplot2)
+mtcars2 <- mtcars
+mtcars2$am <- factor(
+  mtcars$am, labels = c('automatic', 'manual')
+)
+ggplot(mtcars2, aes(hp, mpg, color = am)) +
+  geom_point() + geom_smooth() +
+  theme(legend.position = 'bottom')
+```
+
+:::
+
+
 
 ## Nodes {auto-animate=true}
 
 **Main nodes**
 
-```{r}
-#| echo: false
-#| fig-width: 500
 
-oldpar <- par(no.readonly = TRUE)
-on.exit(par(oldpar))
-par(mar=c(0, 0, 0, 0))
-g <- graph_from_literal(objects-+weapons,
-                        objects-+personnal_item,
-                        weapons-+offensive_weapons,
-                        weapons-+defensive_weapons,
-                        offensive_weapons-+spear,
-                        offensive_weapons-+sword,
-                        defensive_weapons-+shield,
-                        defensive_weapons-+helmet,
-                        personnal_item-+miror,
-                        personnal_item-+comb)
-layout <- layout.reingold.tilford(g)
-plot(g,
-     layout = layout,
-     vertex.color = "white",
-     vertex.frame.color = "white",
-     vertex.size = 20,
-     vertex.label.cex = 1.5,
-     vertex.label.color = "black",
-     vertex.label.family = "sans",
-     edge.arrow.size = 0.5
-     )
-```
 
 
 Hierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)

@@ -4,9 +4,6 @@ subtitle: "*Digital Archaeology* seminar<br>28<sup>th</sup> November 2022, Unive
 author: "Thomas Huet"
 format:
   revealjs: 
-    # toc: true
-    # toc-location: right
-    # page-layout: full
     slide-number: true
     chalkboard: true
     scrollable: true
@@ -14,12 +11,9 @@ format:
     citation-location: margin
     citations-hover: true
     reference-location: margin
-    # footnotes-hover: false
     logo: images/inst-uni-oxford_.png
     css: styles.css
     footer: "The R package ***iconr*** - T. Huet, University of Oxford - <https://github.com/zoometh/iconr>"
-    # margin: 1
-# fig-cap-location: margin
 ---
 
 ## Introduction
@@ -45,8 +39,6 @@ edges <- as.data.frame(edges.shp)
 lgrph <- list_dec(imgs, nodes, edges)
 ```
 
-
-
 This presentation is an introduction to **computational archaeology** 
 
 <br>
@@ -68,19 +60,17 @@ This presentation is an introduction to **computational archaeology**
 </tbody>
 </table>
 
-<div>
-It is also about ancient iconography
-<a href="https://en.wikipedia.org/wiki/Rock_Carvings_in_Tanum"><img src="https://en.wikipedia.org/wiki/Rock_Carvings_in_Tanum#/media/File:Tanumshede_2005_rock_carvings_5.jpg" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+<div style="margin:0 auto;">
+It is also about ancient iconography<br>
+![my legend](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-tanum-wiki.jpg){width=50%}
 </div>
 
-<div>
-It introduces the R package ***iconr*** <a href="https://github.com/zoometh/iconr"><img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/iconr_logo.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
+<div style="margin:0 auto;">
+It introduces the R package ***iconr*** <a href="https://github.com/zoometh/iconr"><img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/iconr_logo.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a> and gives example of study with this package<br>
+![My other legend](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-magacela-wiki.jpg){width=30%}
 </div>
 
-<div>
-It gives an example of study with this package<a href="https://en.wikipedia.org/wiki/Magacela_stele"><img src="https://en.wikipedia.org/wiki/Magacela_stele#/media/File:Estela_de_Magacela_(29350234441).jpg" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a>
-
-</div>
+# Computational archaeology {background-color="aquamarine"}
 
 ## {}
 
@@ -134,8 +124,6 @@ The [CRAN](https://cran.r-project.org/web/packages/) features 18,890 available p
 </tbody>
 </table>
 
-[Other useful R packages: [dplyr]() ...., [knitr]() and [kableExtra]() for HTML/LaTex/PDF/etc. layouts [openxlsx](https://cran.r-project.org/web/packages/openxlsx/index.html) to read/write Excel files, [ggplot2](https://ggplot2.tidyverse.org/) to create plots; [plotly](https://plotly.com/r/)  and [leaflet](https://cran.r-project.org/web/packages/leaflet/index.html) to create interactive plots and maps; etc.]{.aside}
-
 
 ### Resources
 
@@ -165,8 +153,22 @@ The 🔝 popular web-platform for source code management and software developmen
 </table>
 
 
-## Nature of iconographic data
+# Ancient iconography {background-color="aquamarine"}
 
+
+## <span style="color:white;">Nature of iconographic data</span> {background-iframe="https://zoometh.github.io/3DHOP/minimal/cogul.html" background-interactive="true"}
+
+::: footer
+Dataset: Roca dels Moros, Lleida, Catalunya. [3D model from the Generalitat de Catalunya](https://patrimoni.gencat.cat/ca/monuments/monumentos/conjunt-rupestre-de-la-roca-dels-moros-el-cogul/visita-virtual/visita-lliure/)
+:::
+
+## Aspectivity & Analogism
+
+<center>
+
+![my legend](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-warrior-chariot.jpg){width=100%}
+
+</center>
 
 ## Statement of need {auto-animate=true}
 
@@ -399,13 +401,10 @@ Separated GUs showing different graphical contents (anthropomorphic figure, spea
 
 **Main nodes**
 
-```{r}
+```{r fig.width=10}
 #| echo: false
-#| fig-width: 500
 
-oldpar <- par(no.readonly = TRUE)
-on.exit(par(oldpar))
-par(mar=c(0, 0, 0, 0))
+par(mar = c(0,0,0,0))
 g <- graph_from_literal(objects-+weapons,
                         objects-+personnal_item,
                         weapons-+offensive_weapons,
@@ -422,7 +421,7 @@ plot(g,
      vertex.color = "white",
      vertex.frame.color = "white",
      vertex.size = 20,
-     vertex.label.cex = 1.5,
+     vertex.label.cex = 1,
      vertex.label.color = "black",
      vertex.label.family = "sans",
      edge.arrow.size = 0.5
@@ -439,10 +438,10 @@ Hierarchical structure (tree) allowing comparison between decoration having diff
 
 **Main nodes**
 
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gmm-brandherm-epees-draw-panel.png){width=50%}
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gmm-brandherm-epees-draw-stack.png){width=50%}
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gmm-brandherm-epees-draw-panel.png){width=40%}
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gmm-brandherm-epees-draw-stack.png){width=40%}
 
-Shape analysis allows to compare and classify GUs having a given type
+Shape analysis allows GUs of a given type to be compared and classified.
 
 
 ## Nodes {auto-animate=true}
@@ -856,6 +855,7 @@ knitr::kable(df.same_edges, row.names = TRUE, escape = F, table.attr = "style='w
 ```{r}
 #| echo: true
 #| warning: false
+#| fig-width: 500
 
 site <- decor <- "Ibahernando"
 nds.df <- read_nds(site, decor, dataDir)
@@ -871,6 +871,7 @@ plot_dec_grph(nds.df, eds.df, imgs,
 ```{r}
 #| echo: true
 #| warning: false
+#| fig-width: 500
 
 site <- decor <- "Ibahernando"
 nds.df <- read_nds(site, decor, dataDir)
@@ -881,7 +882,7 @@ plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
               site, decor, dataDir,
               nd.var = "type")
 ```
-## Study
+# Study
 
 
 ## Dataset
@@ -900,7 +901,7 @@ plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
 
 ::: {.column width="60%"}
 
-Díaz-Guardamino Uribe, M. (2010). *Las estelas decoradas en la Prehistoria de la Península Ibérica* (Universidad Complutense de Madrid, Servicio de Publicaciones). url: [https://eprints.ucm.es/11070/1/T32200.pdf](https://eprints.ucm.es/11070/1/T32200.pdf)
+Díaz-Guardamino Uribe, M. (2010). *Las estelas decoradas en la Prehistoria de la Península Ibérica* (Universidad Complutense de Madrid, Servicio de Publicaciones). url: <span class="smalltext"> [https://eprints.ucm.es/11070/1/T32200.pdf](https://eprints.ucm.es/11070/1/T32200.pdf)</span>
 
 :::
 
@@ -1199,12 +1200,19 @@ Chronological attribution
 
 :::
 
+# Thank<br>you! {background-color="aquamarine"}
+
 
 # References
+
+
+[Other useful R packages: [dplyr]() ...., [knitr]() and [kableExtra]() for HTML/LaTex/PDF/etc. layouts [openxlsx](https://cran.r-project.org/web/packages/openxlsx/index.html) to read/write Excel files, [ggplot2](https://ggplot2.tidyverse.org/) to create plots; [plotly](https://plotly.com/r/)  and [leaflet](https://cran.r-project.org/web/packages/leaflet/index.html) to create interactive plots and maps; etc.]{.aside}
+
+https://hal.archives-ouvertes.fr/hal-02913656/document
 
 The CRAN (Comprehensive R Archive Network) is the official package repository of R, see: https://cran.r-project.org/
 
 https://quarto.org/docs/output-formats/html-basics.html#ref-xie2015
 
-# Thank you
+
 
