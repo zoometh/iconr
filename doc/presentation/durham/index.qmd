@@ -60,15 +60,23 @@ This presentation is an introduction to **computational archaeology**
 </tbody>
 </table>
 
-<div style="margin:0 auto;">
+  
+  
 It is also about ancient iconography<br>
-![my legend](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-tanum-wiki.jpg){width=50%}
-</div>
 
-<div style="margin:0 auto;">
+<center>
+
+![Tanum outcrop, Scandinavia](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-tanum-wiki.jpg){width=50%}
+
+</center>
+
 It introduces the R package ***iconr*** <a href="https://github.com/zoometh/iconr"><img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/iconr_logo.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a> and gives example of study with this package<br>
-![My other legend](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-magacela-wiki.jpg){width=30%}
-</div>
+
+<center>
+
+![Magacela stelae, Spain](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-magacela-wiki.jpg){width=30%}
+
+</center>
 
 # Computational archaeology {background-color="aquamarine"}
 
@@ -166,7 +174,7 @@ Dataset: Roca dels Moros, Lleida, Catalunya. [3D model from the Generalitat de C
 
 <center>
 
-![my legend](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-warrior-chariot.jpg){width=100%}
+![Some warrior chariots](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-warrior-chariot.jpg){width=100%}
 
 </center>
 
