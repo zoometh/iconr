@@ -1,7 +1,7 @@
 ---
 title: "Analysis of Prehistoric Iconography with the R package ***iconr***"
 subtitle: "*Digital Archaeology* seminar<br>28<sup>th</sup> November 2022, University of Durham"
-author: "Thomas Huet"
+author: "Thomas Huet, Jose Pozo, Craig Alexander"
 format:
   revealjs: 
     slide-number: true
@@ -13,7 +13,7 @@ format:
     reference-location: margin
     logo: images/inst-uni-oxford_.png
     css: styles.css
-    footer: "The R package ***iconr*** - T. Huet, University of Oxford - <https://github.com/zoometh/iconr>"
+    footer: "The R package ***iconr*** - Thomas Huet, Jose Pozo, Craig Alexander - <https://github.com/zoometh/iconr>"
 ---
 
 ## Introduction
@@ -172,11 +172,18 @@ Dataset: Roca dels Moros, Lleida, Catalunya. [3D model from the Generalitat de C
 
 ## Aspectivity & Analogism
 
+* Aspectivity[^1]
+* Analogism[^2]
+
 <center>
 
 ![Some warrior chariots](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-warrior-chariot.jpg){width=100%}
 
 </center>
+
+[^1]: Francfort, H.-P., Huth, C., Olmos, R., Szabó, M., & Verger, S. (2010). "Qu’est-ce que l’art protohistorique ?" *Perspective*. Actualité en histoire de l’art, (2), 195–214
+[^2]: Descola, P. (2021). *Les formes du visible. Une anthropologie de la figuration*. Seuil.
+[^3]: https://www.adiantegalicia.es/reportaxes/2018/11/08/un-proyecto-identifica-vinculos-de-la-edad-de-bronce-entre-galicia-y-escandinavia.html
 
 ## Statement of need {auto-animate=true}
 
@@ -409,7 +416,7 @@ Separated GUs showing different graphical contents (anthropomorphic figure, spea
 
 **Main nodes**
 
-```{r fig.width=10}
+```{r fig.width = 100%}
 #| echo: false
 
 par(mar = c(0,0,0,0))
@@ -586,9 +593,21 @@ QGIS plugin: [Freehand raster georeferencer](https://gvellut.github.io/FreehandR
 
 ## 1 project QGIS = 1 decoration
 
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_openImageGIS.gif){width=50%}
+1. Open a decoration image
 
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_inputSummary.gif){width=50%}
+<center>
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_openImageGIS.gif){width=70%}
+
+</center>
+
+2. Create a spatialized graph
+
+<center>
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_inputSummary.gif){width=70%}
+
+</center>
 
 ## Run R
 
@@ -713,7 +732,7 @@ kable(edges, "html") %>%
 
 ## Functions {auto-animate=true}
 
-```{.r code-line-numbers="1|2|3|4|5|6|7|8|9"}
+```{.r code-line-numbers="1|2|3|4|5|6|7|8"}
 dataDir <- system.file("extdata", package = "iconr")
 imgs <- read.table(paste0(dataDir, "/imgs.csv"), sep = ";", stringsAsFactors = FALSE)
 nodes.shp <- st_read(paste0(dataDir, "/nodes.shp"), quiet = T)
@@ -890,7 +909,8 @@ plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
               site, decor, dataDir,
               nd.var = "type")
 ```
-# Study
+
+# Study {background-color="aquamarine"}
 
 
 ## Dataset
@@ -909,7 +929,8 @@ plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
 
 ::: {.column width="60%"}
 
-Díaz-Guardamino Uribe, M. (2010). *Las estelas decoradas en la Prehistoria de la Península Ibérica* (Universidad Complutense de Madrid, Servicio de Publicaciones). url: <span class="smalltext"> [https://eprints.ucm.es/11070/1/T32200.pdf](https://eprints.ucm.es/11070/1/T32200.pdf)</span>
+Díaz-Guardamino Uribe, M. (2010). *Las estelas decoradas en la Prehistoria de la Península Ibérica* (Universidad Complutense de Madrid, Servicio de Publicaciones)<br>
+<span class="smalltext">url:  [https://eprints.ucm.es/11070/1/T32200.pdf](https://eprints.ucm.es/11070/1/T32200.pdf)</span>
 
 :::
 
@@ -1200,6 +1221,24 @@ Chronological attribution
 ### Distance matrix
 
 ![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis2D/hmap_common_e_all_decor_with_attributes.png)
+
+### Foios *vs* Ategua
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/ex_foios.png" width='500px' />
+
+:::
+
+::: {.column width="50%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/ex_ategua.png" width='500px' />
+
+:::
+
+::::
 
 ### Clutering
 
