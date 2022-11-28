@@ -16,7 +16,7 @@ format:
     footer: "The R package ***iconr*** - Thomas Huet, Jose Pozo, Craig Alexander - <https://github.com/zoometh/iconr>"
 ---
 
-## Introduction
+## {}
 
 ```{r}
 #| echo: false
@@ -66,7 +66,7 @@ It is also about ancient iconography<br>
 
 <center>
 
-![Tanum outcrop, Scandinavia](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-tanum-wiki.jpg){width=50%}
+![Tanum outcrop, Scandinavia (credits: Wikipedia)](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-tanum-wiki.jpg){width=50%}
 
 </center>
 
@@ -74,7 +74,7 @@ It introduces the R package ***iconr*** <a href="https://github.com/zoometh/icon
 
 <center>
 
-![Magacela stelae, Spain](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-magacela-wiki.jpg){width=30%}
+![Magacela stelae, Spain (credits: Wikipedia)](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-magacela-wiki.jpg){width=30%}
 
 </center>
 
@@ -172,14 +172,14 @@ Dataset: Roca dels Moros, Lleida, Catalunya. [3D model from the Generalitat de C
 
 ## Aspectivity & Analogism
 
-* Aspectivity[^1]
-* Analogism[^2]
-
 <center>
 
-![Some warrior chariots](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-warrior-chariot.jpg){width=100%}
+![Some warrior chariots (credits: https://www.adiantegalicia.es)](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-warrior-chariot.jpg){width=700%}
 
 </center>
+
+* Aspectivity[^1]
+* Analogism[^2]
 
 [^1]: Francfort, H.-P., Huth, C., Olmos, R., Szabó, M., & Verger, S. (2010). "Qu’est-ce que l’art protohistorique ?" *Perspective*. Actualité en histoire de l’art, (2), 195–214
 [^2]: Descola, P. (2021). *Les formes du visible. Une anthropologie de la figuration*. Seuil.
@@ -416,7 +416,7 @@ Separated GUs showing different graphical contents (anthropomorphic figure, spea
 
 **Main nodes**
 
-```{r fig.width = 100%}
+```{r out.width = "100%"}
 #| echo: false
 
 par(mar = c(0,0,0,0))

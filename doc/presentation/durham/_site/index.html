@@ -10,7 +10,7 @@
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.1.251">
 
-  <meta name="author" content="Thomas Huet">
+  <meta name="author" content="Thomas Huet, Jose Pozo, Craig Alexander">
   <title>iconR - Analysis of Prehistoric Iconography with the R package iconr</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -398,7 +398,7 @@
 <section id="title-slide" class="center">
   <h1 class="title">Analysis of Prehistoric Iconography with the R package <strong><em>iconr</em></strong></h1>
   <p class="subtitle"><em>Digital Archaeology</em> seminar<br>28<sup>th</sup> November 2022, University of Durham</p>
-  <p class="author">Thomas Huet</p>
+  <p class="author">Thomas Huet, Jose Pozo, Craig Alexander</p>
 </section>
 
 <section id="introduction" class="slide level2">
@@ -434,12 +434,24 @@ hardware 💻
 </tbody>
 
 </table>
-<div style="margin:0 auto;">
-<p>It is also about ancient iconography<br> <img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-tanum-wiki.jpg" style="width:50.0%" alt="my legend"></p>
+<p>It is also about ancient iconography<br></p>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-tanum-wiki.jpg" style="width:50.0%"></p>
+<p></p><figcaption>Tanum outcrop, Scandinavia</figcaption><p></p>
+</figure>
 </div>
-<div style="margin:0 auto;">
-<p>It introduces the R package <strong><em>iconr</em></strong> <a href="https://github.com/zoometh/iconr"><img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/iconr_logo.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a> and gives example of study with this package<br> <img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-magacela-wiki.jpg" style="width:30.0%" alt="My other legend"></p>
+</center>
+<p>It introduces the R package <strong><em>iconr</em></strong> <a href="https://github.com/zoometh/iconr"><img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/iconr_logo.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a> and gives example of study with this package<br></p>
+<center>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-magacela-wiki.jpg" style="width:30.0%"></p>
+<p></p><figcaption>Magacela stelae, Spain</figcaption><p></p>
+</figure>
 </div>
+</center>
 </section>
 <section>
 <section id="computational-archaeology" class="title-slide slide level1 center" data-background-color="aquamarine">
@@ -555,15 +567,19 @@ description
 </section>
 <section id="aspectivity-analogism" class="slide level2">
 <h2>Aspectivity &amp; Analogism</h2>
+<ul>
+<li>Aspectivity<sup>1</sup></li>
+<li>Analogism<sup>2</sup></li>
+</ul>
 <center>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-warrior-chariot.jpg" style="width:100.0%"></p>
-<p></p><figcaption>my legend</figcaption><p></p>
+<p></p><figcaption>Some warrior chariots</figcaption><p></p>
 </figure>
 </div>
 </center>
-</section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Francfort, H.-P., Huth, C., Olmos, R., Szabó, M., &amp; Verger, S. (2010). “Qu’est-ce que l’art protohistorique ?” <em>Perspective</em>. Actualité en histoire de l’art, (2), 195–214</p></li><li id="fn2"><p>Descola, P. (2021). <em>Les formes du visible. Une anthropologie de la figuration</em>. Seuil.</p></li></ol></aside></section>
 <section id="statement-of-need" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Statement of need</h2>
 <div class="columns">
@@ -706,7 +722,7 @@ description
 <h2 data-id="quarto-animate-title">Nodes</h2>
 <p><strong>Main nodes</strong></p>
 
-<img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><p>Hierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)</p>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-2-1.png" style="width:100.0%" class="r-stretch"><p>Hierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)</p>
 </section>
 <section id="nodes-2" class="slide level2" data-background-iframe="http://shinyserver.cfs.unipi.it:3838/teach/iconr/gu_thes/typo_gu_figuratif.html" data-background-interactive="true">
 <h2>Nodes</h2>
@@ -1187,8 +1203,18 @@ description
 </section>
 <section id="project-qgis-1-decoration" class="slide level2">
 <h2>1 project QGIS = 1 decoration</h2>
-<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_openImageGIS.gif" style="width:50.0%"></p>
-<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_inputSummary.gif" style="width:50.0%"></p>
+<ol type="1">
+<li>Open a decoration image</li>
+</ol>
+<center>
+<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_openImageGIS.gif" style="width:70.0%"></p>
+</center>
+<ol start="2" type="1">
+<li>Create a spatialized graph</li>
+</ol>
+<center>
+<p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gis_inputSummary.gif" style="width:70.0%"></p>
+</center>
 </section>
 <section id="run-r" class="slide level2">
 <h2>Run R</h2>
@@ -2141,7 +2167,7 @@ description
 </section>
 <section id="functions" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Functions</h2>
-<div class="sourceCode" id="cb8" data-code-line-numbers="1|2|3|4|5|6|7|8|9"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb8-1" class="hljs-ln-code"><a href="#cb8-1"></a>dataDir <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="at">package =</span> <span class="st">"iconr"</span>)</span>
+<div class="sourceCode" id="cb8" data-code-line-numbers="1|2|3|4|5|6|7|8"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb8-1" class="hljs-ln-code"><a href="#cb8-1"></a>dataDir <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">"extdata"</span>, <span class="at">package =</span> <span class="st">"iconr"</span>)</span>
 <span id="cb8-2" class="hljs-ln-code"><a href="#cb8-2"></a>imgs <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="fu">paste0</span>(dataDir, <span class="st">"/imgs.csv"</span>), <span class="at">sep =</span> <span class="st">";"</span>, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb8-3" class="hljs-ln-code"><a href="#cb8-3"></a>nodes.shp <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="fu">paste0</span>(dataDir, <span class="st">"/nodes.shp"</span>), <span class="at">quiet =</span> T)</span>
 <span id="cb8-4" class="hljs-ln-code"><a href="#cb8-4"></a>nodes <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(nodes.shp)</span>
@@ -2368,7 +2394,7 @@ description
 </div>
 <img data-src="index_files/figure-revealjs/unnamed-chunk-21-1.png" width="48000" class="r-stretch"></section></section>
 <section>
-<section id="study" class="title-slide slide level1 center">
+<section id="study" class="title-slide slide level1 center" data-background-color="aquamarine">
 <h1>Study</h1>
 
 </section>
@@ -2382,7 +2408,7 @@ description
 <div class="column" style="width:40%;">
 <p><img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/sources-catalog-diazguardamino.png" width="500px"></p>
 </div><div class="column" style="width:60%;">
-<p>Díaz-Guardamino Uribe, M. (2010). <em>Las estelas decoradas en la Prehistoria de la Península Ibérica</em> (Universidad Complutense de Madrid, Servicio de Publicaciones). url: <span class="smalltext"> <a href="https://eprints.ucm.es/11070/1/T32200.pdf">https://eprints.ucm.es/11070/1/T32200.pdf</a></span></p>
+<p>Díaz-Guardamino Uribe, M. (2010). <em>Las estelas decoradas en la Prehistoria de la Península Ibérica</em> (Universidad Complutense de Madrid, Servicio de Publicaciones)<br> <span class="smalltext">url: <a href="https://eprints.ucm.es/11070/1/T32200.pdf">https://eprints.ucm.es/11070/1/T32200.pdf</a></span></p>
 </div>
 </div>
 </div>
@@ -2555,12 +2581,21 @@ description
 <section id="exploratory-statistics" class="slide level2">
 <h2>Exploratory statistics</h2>
 <div class="panel-tabset">
-<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Distance matrix</a></li><li><a href="#tabset-9-2">Clutering</a></li></ul>
+<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Distance matrix</a></li><li><a href="#tabset-9-2">Foios <em>vs</em> Ategua</a></li><li><a href="#tabset-9-3">Clutering</a></li></ul>
 <div class="tab-content">
 <div id="tabset-9-1">
 <p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis2D/hmap_common_e_all_decor_with_attributes.png"></p>
 </div>
 <div id="tabset-9-2">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/ex_foios.png" width="500px"></p>
+</div><div class="column" style="width:50%;">
+<p><img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/var/ex_ategua.png" width="500px"></p>
+</div>
+</div>
+</div>
+<div id="tabset-9-3">
 <p><img data-src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis2D/clustering_attributes.png"></p>
 </div>
 </div>
@@ -2580,9 +2615,11 @@ description
 
 
 <img src="images/inst-uni-oxford_.png" class="slide-logo r-stretch"><div class="footer footer-default">
-<p>The R package <strong><em>iconr</em></strong> - T. Huet, University of Oxford - <a href="https://github.com/zoometh/iconr" class="uri">https://github.com/zoometh/iconr</a></p>
+<p>The R package <strong><em>iconr</em></strong> - Thomas Huet, Jose Pozo, Craig Alexander - <a href="https://github.com/zoometh/iconr" class="uri">https://github.com/zoometh/iconr</a></p>
 </div>
 </section>
+
+
     </div>
   </div>
 

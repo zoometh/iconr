@@ -4,7 +4,7 @@
     "href": "index.html#introduction",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Introduction",
-    "text": "Introduction\n\n\n\nThis presentation is an introduction to computational archaeology\n\n\n\n\n\n\nsoftware 💿\n\n\nsemantic 🖼 📜 🔢\n\n\n\n\nlogic >_ print(‘hello’)\n\n\n\n\n\n\nhardware 💻\n\n\n\n\n\n\nIt is also about ancient iconography \n\n\nIt introduces the R package iconr  and gives example of study with this package"
+    "text": "Introduction\n\n\n\nThis presentation is an introduction to computational archaeology\n\n\n\n\n\n\nsoftware 💿\n\n\nsemantic 🖼 📜 🔢\n\n\n\n\nlogic >_ print(‘hello’)\n\n\n\n\n\n\nhardware 💻\n\n\n\n\n\nIt is also about ancient iconography\n\n\n\n\nTanum outcrop, Scandinavia\n\n\n\nIt introduces the R package iconr  and gives example of study with this package\n\n\n\n\nMagacela stelae, Spain"
   },
   {
     "objectID": "index.html#section",
@@ -144,7 +144,7 @@
     "href": "index.html#project-qgis-1-decoration",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "1 project QGIS = 1 decoration",
-    "text": "1 project QGIS = 1 decoration"
+    "text": "1 project QGIS = 1 decoration\n\nOpen a decoration image\n\n\n\n\n\nCreate a spatialized graph"
   },
   {
     "objectID": "index.html#run-r",
@@ -270,7 +270,7 @@
     "href": "index.html#dataset",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Dataset",
-    "text": "Dataset\n\nSourcesCorpus\n\n\n\n\n\n\nDíaz-Guardamino Uribe, M. (2010). Las estelas decoradas en la Prehistoria de la Península Ibérica (Universidad Complutense de Madrid, Servicio de Publicaciones). url:  https://eprints.ucm.es/11070/1/T32200.pdf"
+    "text": "Dataset\n\nSourcesCorpus\n\n\n\n\n\n\nDíaz-Guardamino Uribe, M. (2010). Las estelas decoradas en la Prehistoria de la Península Ibérica (Universidad Complutense de Madrid, Servicio de Publicaciones) url: https://eprints.ucm.es/11070/1/T32200.pdf"
   },
   {
     "objectID": "index.html#variables-global",
@@ -396,7 +396,7 @@
     "href": "index.html#exploratory-statistics",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Exploratory statistics",
-    "text": "Exploratory statistics\n\nDistance matrixClutering"
+    "text": "Exploratory statistics\n\nDistance matrixFoios vs AteguaClutering"
   },
   {
     "objectID": "test.html#tree",
@@ -501,6 +501,6 @@
     "href": "index.html#aspectivity-analogism",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Aspectivity & Analogism",
-    "text": "Aspectivity & Analogism\n\n\n\n\nmy legend"
+    "text": "Aspectivity & Analogism\n\nAspectivity1\nAnalogism2\n\n\n\n\n\nSome warrior chariots\n\n\n\nFrancfort, H.-P., Huth, C., Olmos, R., Szabó, M., & Verger, S. (2010). “Qu’est-ce que l’art protohistorique ?” Perspective. Actualité en histoire de l’art, (2), 195–214Descola, P. (2021). Les formes du visible. Une anthropologie de la figuration. Seuil."
   }
 ]
