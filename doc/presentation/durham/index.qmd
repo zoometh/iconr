@@ -78,7 +78,7 @@ It introduces the R package ***iconr*** <a href="https://github.com/zoometh/icon
 
 </center>
 
-# Computational archaeology {background-color="aquamarine"}
+# <span style="color=#c56e40">Computational archaeology</span> {background-color="#f3e7b3"}
 
 ## {}
 
@@ -103,7 +103,7 @@ R is a scripting language for data science. It is the 1️⃣<sup>st</sup> used 
 
 ### Packages
 
-The [CRAN](https://cran.r-project.org/web/packages/) features 18,890 available packages. The package ***iconr*** uses 18 packages. The most distinctives are:
+The [CRAN](https://cran.r-project.org/web/packages/) features 18,890 available packages. The package ***iconr*** <a href="https://github.com/zoometh/iconr"><img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/iconr_logo.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a> uses 18 packages. The most distinctives are:
 
 <table>
 <thead>
@@ -150,7 +150,7 @@ The 🔝 popular web-platform for source code management and software developmen
 <tbody>
   <tr>
     <td><a href="https://www.r-project.org/">
-<img src="https://www.r-project.org/logo/Rlogo.svg" alt="" style="height: 100px; margin: 0 0 0 0; background: transparent;" class="demo-logo"></a></td>
+<img src="https://www.r-project.org/logo/Rlogo.svg" alt="" style="height: 80px; margin: 0 0 0 0; background: transparent;" class="demo-logo"></a></td>
   </tr>
   <tr>
     <td><a href="https://github.com">
@@ -161,7 +161,7 @@ The 🔝 popular web-platform for source code management and software developmen
 </table>
 
 
-# Ancient iconography {background-color="aquamarine"}
+# Ancient iconography {background-color="#f3e7b3"}
 
 
 ## <span style="color:white;">Nature of iconographic data</span> {background-iframe="https://zoometh.github.io/3DHOP/minimal/cogul.html" background-interactive="true"}
@@ -172,18 +172,33 @@ Dataset: Roca dels Moros, Lleida, Catalunya. [3D model from the Generalitat de C
 
 ## Aspectivity & Analogism
 
+::: {.panel-tabset}
+
+### Aspectivity
+
+**Aspectivity** consists in representing all aspects and attributes of the subject simultaneously in order to establish a definition
+
+---
+
+Francfort, H.-P., Huth, C., Olmos, R., Szabó, M., & Verger, S. (2010). "Qu’est-ce que l’art protohistorique ?" *Perspective*. Actualité en histoire de l’art, (2), 195–214
+  
+### Analogism
+
+The figurative purpose of the **analogist** ontology is to make present networks of correspondence between discontinuous elements
+
+---
+
+Descola, P. (2021). *Les formes du visible. Une anthropologie de la figuration*. Seuil.
+
+### Examples
+
 <center>
 
-![Some warrior chariots (credits: https://www.adiantegalicia.es)](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-warrior-chariot.jpg){width=700%}
+![Some figures of warrior chariots and characters from the Late Bronze Age (credits: https://www.adiantegalicia.es)](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-warrior-chariot.jpg){width=60%}
 
 </center>
 
-* Aspectivity[^1]
-* Analogism[^2]
-
-[^1]: Francfort, H.-P., Huth, C., Olmos, R., Szabó, M., & Verger, S. (2010). "Qu’est-ce que l’art protohistorique ?" *Perspective*. Actualité en histoire de l’art, (2), 195–214
-[^2]: Descola, P. (2021). *Les formes du visible. Une anthropologie de la figuration*. Seuil.
-[^3]: https://www.adiantegalicia.es/reportaxes/2018/11/08/un-proyecto-identifica-vinculos-de-la-edad-de-bronce-entre-galicia-y-escandinavia.html
+:::
 
 ## Statement of need {auto-animate=true}
 
@@ -198,7 +213,7 @@ Dataset: Roca dels Moros, Lleida, Catalunya. [3D model from the Generalitat de C
 
 ::: {.column width="60%"}
 
-* Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support
+* Spatial proximities between the graphic units (GUs) are not precisely quantified. GUs are attached to sub-areas of the support
 
 :::
 
@@ -220,7 +235,7 @@ Dataset: Roca dels Moros, Lleida, Catalunya. [3D model from the Generalitat de C
 ::: {.column width="60%"}
 
 * Groupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis
-* Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support
+* Spatial proximities between the graphic units (GUs) are not precisely quantified. GUs are attached to sub-areas of the support
 
 :::
 
@@ -244,7 +259,7 @@ Dataset: Roca dels Moros, Lleida, Catalunya. [3D model from the Generalitat de C
 
 * Relationships and similarities between these groups are often not self-explanatory and unquantified
 * Groupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis
-* Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support
+* Spatial proximities between the graphic units (GUs) are not precisely quantified. GUs are attached to sub-areas of the support
 
 :::
 
@@ -269,7 +284,7 @@ Dataset: Roca dels Moros, Lleida, Catalunya. [3D model from the Generalitat de C
 * Descriptive vocabularies and methods of analysis are site-dependent or period dependent
 * Relationships and similarities between these groups are often not self-explanatory and unquantified
 * Groupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis
-* Spatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support
+* Spatial proximities between the graphic units (GUs) are not precisely quantified. GUs are attached to sub-areas of the support
 
 :::
 
@@ -306,7 +321,7 @@ Dataset: Roca dels Moros, Lleida, Catalunya. [3D model from the Generalitat de C
 
 ::: {.column width="60%"}
 
-* A decoration is composed of graphical units (GUs)
+* A decoration is composed of GUs
 * Some objects have a decoration
 
 :::
@@ -330,7 +345,7 @@ Dataset: Roca dels Moros, Lleida, Catalunya. [3D model from the Generalitat de C
 ::: {.column width="60%"}
 
 * GUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)
-* A decoration is composed of graphical units (GUs)
+* A decoration is composed of GUs
 * Some objects have a decoration
 
 :::
@@ -352,10 +367,10 @@ Dataset: Roca dels Moros, Lleida, Catalunya. [3D model from the Generalitat de C
 
 ::: {.column width="60%"}
 
-* Nodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);
-* GUs are considered as nodes;
+* Nodes have neighbourhood relations one with another depending on their spatial proximities ([Voronoi Diagram](https://en.wikipedia.org/wiki/Voronoi_diagram))
+* GUs are considered as nodes
 * GUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)
-* A decoration is composed of graphical units (GUs)
+* A decoration is composed of GUs
 * Some objects have a decoration
 
 :::
@@ -379,11 +394,11 @@ Dataset: Roca dels Moros, Lleida, Catalunya. [3D model from the Generalitat de C
 ::: {.column width="60%"}
 
 * Shape analysis and hierachical thesaurus can measure the similarities between two GUs (eg. Procrustes distance);
-* A decoration is considered as a spatial graph, modeled with graph theory and analysed with network and spatial analysis;
-* Nodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);
-* GUs are considered as nodes;
+* A decoration is considered as a spatial graph, modeled with graph theory and analysed with network and spatial analysis
+* Nodes have neighbourhood relations one with another depending on their spatial proximities ([Voronoi Diagram](https://en.wikipedia.org/wiki/Voronoi_diagram))
+* GUs are considered as nodes
 * GUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)
-* A decoration is composed of graphical units (GUs)
+* A decoration is composed of GUs
 * Some objects have a decoration
 
 
@@ -392,7 +407,7 @@ Dataset: Roca dels Moros, Lleida, Catalunya. [3D model from the Generalitat de C
 ::::
 
 
-## Nodes {auto-animate=true}
+## Nodes
 
 **Main nodes**
 
@@ -414,9 +429,28 @@ Separated GUs showing different graphical contents (anthropomorphic figure, spea
 
 ## Nodes {auto-animate=true}
 
-**Main nodes**
+**Shapes**
 
-```{r out.width = "100%"}
+<center>
+
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gmm-brandherm-epees-draw-panel.png){width=40%}
+![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gmm-brandherm-epees-draw-stack.png){width=40%}
+
+</center>
+
+Shape analysis allows GUs of a given type to be compared and classified
+
+## Nodes {background-iframe="http://shinyserver.cfs.unipi.it:3838/teach/iconr/gu_thes/typo_gu_figuratif.html" background-interactive="true"}
+
+**Typology**
+
+## Nodes {auto-animate=true}
+
+**Typology**
+
+By generalisation (⬆️ the tree) or by specification (⬇️ the tree), this hierarchical structure allows comparison between GUs:
+
+```{r out.height = '30%', fig.align='center'}
 #| echo: false
 
 par(mar = c(0,0,0,0))
@@ -444,19 +478,8 @@ plot(g,
 ```
 
 
-Hierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)
-
-## Nodes {background-iframe="http://shinyserver.cfs.unipi.it:3838/teach/iconr/gu_thes/typo_gu_figuratif.html" background-interactive="true"}
-
-
-## Nodes {auto-animate=true}
-
-**Main nodes**
-
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gmm-brandherm-epees-draw-panel.png){width=40%}
-![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/gmm-brandherm-epees-draw-stack.png){width=40%}
-
-Shape analysis allows GUs of a given type to be compared and classified.
+  - of different types (ex: a sword with a spear)
+  - of different states of preservation (ex: a clearly identified horse with an unspecified quadrupede)
 
 
 ## Nodes {auto-animate=true}
@@ -486,7 +509,7 @@ Additional GUs characterising the main node (helmet, phalus)
 
 ### Normal
 
-<span style="color:orange;"> —— = —— </span> normal edges (undirected) between contiguous and contemporaneous main nodes (nodes `a` and `b`)
+<span style="color:orange;"> —— = —— </span> normal <span style="color:grey">undirected</span> edges between contiguous and contemporaneous main nodes `a` and `b`
 
 ```{r}
 #| echo: false
@@ -500,18 +523,19 @@ eds.df <- read_eds(site, decor, dataDir)
 imgs_path <- paste0(dataDir, "/imgs.csv")
 imgs <- read.table(imgs_path, sep = ";", stringsAsFactors = FALSE)
 knitr::kable(eds.df, "html", align = "llcccrrrr") %>% 
-  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size = 24) %>%
+  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size = 20) %>%
   gsub("\\+", "+", .)
 plot_dec_grph(nds.df, eds.df, imgs,
               site, decor, dataDir,
               ed.lwd = 1, ed.color = c("darkorange"),
               lbl.size = 0.7)
+cat("edges list:")
 sort(named_elements(lgrph[[3]], focus = "edges", nd.var = "type"))
 ```
 
 ### Attribute
 
-<span style="color:orange;"> - - + - - </span> attribute edges (directed) between contemporaneous nodes where the attribute node `b` is an attribute of main node `a`
+<span style="color:orange;">- - - + - - -</span> attribute <span style="color:grey">directed</span> edges between contemporaneous nodes where the attribute node `b` is an attribute of main node `a`
 
 ```{r}
 #| echo: false
@@ -525,18 +549,19 @@ eds.df <- read_eds(site, decor, dataDir)
 imgs_path <- paste0(dataDir, "/imgs.csv")
 imgs <- read.table(imgs_path, sep = ";", stringsAsFactors = FALSE)
 knitr::kable(eds.df, "html", align = "llcccrrrr", row.names = FALSE) %>% 
-  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size = 24)
+  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size = 20)
 plot_dec_grph(nds.df, eds.df, imgs,
               site, decor, dataDir,
               ed.lwd = 1, ed.color = c("darkorange"),
               lbl.size = 0.7)
+cat("edges list:")
 sort(named_elements(lgrph[[4]], focus = "edges", nd.var = "type"))
 ```
 
 
 ### Diachronic
 
-<span style="color:blue;"> —— > —— </span> diachronic edges (directed) between non-contemporaneous nodes where the node `a` overlaps node `b`, or node `a` is more ancient than node `b` 
+<span style="color:blue;"> —— > —— </span> diachronic <span style="color:grey">directed</span> edges between non-contemporaneous nodes where the node `a` overlaps/is more recent than node `b`
 
 ```{r}
 #| echo: false
@@ -549,10 +574,11 @@ eds.df <- read_eds(site, decor, dataDir)
 imgs_path <- paste0(dataDir, "/imgs.csv")
 imgs <- read.table(imgs_path, sep = ";", stringsAsFactors = FALSE)
 knitr::kable(eds.df, "html", align = "llcccrrrr", row.names = FALSE) %>% 
-  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size = 24)
+  kableExtra::kable_styling(full_width = FALSE, position = "center", font_size = 20)
 plot_dec_grph(nds.df, eds.df, imgs,
               site, decor, dataDir,
               lbl.size = 0.7)
+cat("edges list:")
 sort(named_elements(lgrph[[5]], focus = "edges", nd.var = "type"))
 ```
 
@@ -591,7 +617,13 @@ QGIS plugin: [Freehand raster georeferencer](https://gvellut.github.io/FreehandR
 
 :::
 
-## 1 project QGIS = 1 decoration
+## GIS entry
+
+<center>
+
+**One GIS project = One decoration**
+
+</center>
 
 1. Open a decoration image
 
@@ -644,14 +676,14 @@ dataDir <- system.file("extdata", package = "iconr")
 imgs_path <- paste0(dataDir, "/imgs.csv")
 imgs <- read.table(imgs_path, sep = ";", stringsAsFactors = FALSE)
 kable(imgs, "html") %>% 
-  kable_styling(full_width = FALSE, position = "center", font_size = 24)
+  kable_styling(full_width = FALSE, position = "center", font_size = 20)
 ```
 
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Cerro_Muriano.Cerro_Muriano_1.jpg" width='200px' />
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Torrejon_Rubio.Torrejon_Rubio_1.jpg" width='200px' />
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Brozas.Brozas.jpg" width='200px' />
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Zarza_de_Montanchez.Zarza_De_Montanchez.jpg" width='200px' />
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Ibahernando.Ibahernando.jpg" width='200px' />
+1.<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Cerro_Muriano.Cerro_Muriano_1.jpg" width='200px' />
+2.<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Torrejon_Rubio.Torrejon_Rubio_1.jpg" width='200px' />
+3.<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Brozas.Brozas.jpg" width='200px' />
+4.<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Zarza_de_Montanchez.Zarza_De_Montanchez.jpg" width='200px' />
+5.<img src="https://raw.githubusercontent.com/zoometh/iconr/master/inst/extdata/Ibahernando.Ibahernando.jpg" width='200px' />
 
 ### data
 
@@ -685,7 +717,7 @@ nodes_path <- paste0(dataDir, "/nodes.shp")
 nodes.shp <- st_read(nodes_path, quiet = T)
 nodes <- as.data.frame(nodes.shp)
 kable(nodes, "html") %>% 
-  kable_styling(full_width = FALSE, position = "center", font_size = 24)
+  kable_styling(full_width = FALSE, position = "center", font_size = 20)
 ```
 
 ### data
@@ -714,7 +746,7 @@ edges_path <- paste0(dataDir, "/edges.shp")
 edges.shp <- st_read(edges_path, quiet = T)
 edges <- as.data.frame(edges.shp)
 kable(edges, "html") %>% 
-  kable_styling(full_width = FALSE, position = "center", font_size = 24)
+  kable_styling(full_width = FALSE, position = "center", font_size = 20)
 ```
 
 ### data
@@ -732,6 +764,8 @@ kable(edges, "html") %>%
 
 ## Functions {auto-animate=true}
 
+Plot the first graph of the ***iconr*** <a href="https://github.com/zoometh/iconr"><img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/iconr_logo.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a> default dataset
+
 ```{.r code-line-numbers="1|2|3|4|5|6|7|8"}
 dataDir <- system.file("extdata", package = "iconr")
 imgs <- read.table(paste0(dataDir, "/imgs.csv"), sep = ";", stringsAsFactors = FALSE)
@@ -745,6 +779,8 @@ plot(g)
 ```
 
 ## Functions {auto-animate=true}
+
+Plot the first graph of the ***iconr*** <a href="https://github.com/zoometh/iconr"><img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/iconr_logo.png" alt="" style="height: 50px;margin: 0 0 0 0; background: transparent;" class="demo-logo"></a> default dataset
 
 ```{r}
 #| echo: true
@@ -869,8 +905,6 @@ plot_compar(listg = g.compar,
 #| warning: false
 
 df.same_edges <- same_elements(lgrph, nd.var = "type", focus = "edges")
-# diag(df.same_edges) <- cell_spec(diag(df.same_edges), color = "black",
-#                                  background = "lightgrey")
 knitr::kable(df.same_edges, row.names = TRUE, escape = F, table.attr = "style='width:40%;'",
              caption = "Count of common edges between decorations") %>%
   column_spec(1, bold=TRUE) %>%
@@ -879,10 +913,26 @@ knitr::kable(df.same_edges, row.names = TRUE, escape = F, table.attr = "style='w
 
 ## Functions {auto-animate=true}
 
-```{r}
+Plot the Ibahernando stelae, GUs `id`
+
+```{r out.width="90%"}
 #| echo: true
 #| warning: false
-#| fig-width: 500
+
+site <- decor <- "Ibahernando"
+nds.df <- read_nds(site, decor, dataDir)
+eds.df <- read_eds(site, decor, dataDir)
+plot_dec_grph(nds.df, eds.df, imgs,
+              site, decor, dataDir)
+```
+
+## Functions {auto-animate=true}
+
+Plot the Ibahernando stelae, GUs `type`
+
+```{r out.width="90%"}
+#| echo: true
+#| warning: false
 
 site <- decor <- "Ibahernando"
 nds.df <- read_nds(site, decor, dataDir)
@@ -890,15 +940,26 @@ eds.df <- read_eds(site, decor, dataDir)
 plot_dec_grph(nds.df, eds.df, imgs,
               site, decor, dataDir,
               nd.var = "type")
-plot_dec_grph(nds.df, eds.df, imgs,
-              site, decor, dataDir)
 ```
+
 ## Functions {auto-animate=true}
 
-```{r}
-#| echo: true
+Plot the Ibahernando stelae and remove the Latin writing GU (`ecriture`, `id` = `1`) from the studied graph by selecting GUs contemporaneous to the sword (`id` = `4`) 
+
+```{.r code-line-numbers="4-5"}
+site <- decor <- "Ibahernando"
+nds.df <- read_nds(site, decor, dataDir)
+eds.df <- read_eds(site, decor, dataDir)
+selected.nd <- 4
+l_dec_df <- contemp_nds(nds.df, eds.df, selected.nd)
+plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
+              site, decor, dataDir,
+              nd.var = "type")
+```
+
+```{r out.width="90%"}
+#| echo: false
 #| warning: false
-#| fig-width: 500
 
 site <- decor <- "Ibahernando"
 nds.df <- read_nds(site, decor, dataDir)
@@ -910,7 +971,8 @@ plot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,
               nd.var = "type")
 ```
 
-# Study {background-color="aquamarine"}
+
+# Study {background-color="#f3e7b3"}
 
 
 ## Dataset
@@ -941,46 +1003,6 @@ Díaz-Guardamino Uribe, M. (2010). *Las estelas decoradas en la Prehistoria de l
 <img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/spat_stele_bouclier.png" width='100%' />
 
 :::
-
-## Variables (global) {auto-animate=true}
-
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/dec_histo/all_graphs_info.png" width='100%' />
-
-## Variables (global) {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/dec_histo/nodes_without_attributes_histo.png" width='500px' />
-
-:::
-
-::: {.column width="50%"}
-
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/dec_histo/edges_normal_histo.png" width='500px' />
-
-:::
-
-::::
-
-## Variables (global) {auto-animate=true}
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/dec_histo/nodes__attributes_histo.png" width='500px' />
-
-:::
-
-::: {.column width="50%"}
-
-<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/dec_histo/edges_attributes_histo.png" width='500px' />
-
-:::
-
-::::
 
 ## Variables (local) {auto-animate=true}
 
@@ -1214,6 +1236,48 @@ Chronological attribution
 
 :::
 
+
+## Variables (global) {auto-animate=true}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/dec_histo/all_graphs_info.png" width='100%' />
+
+## Variables (global) {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/dec_histo/nodes_without_attributes_histo.png" width='500px' />
+
+:::
+
+::: {.column width="50%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/dec_histo/edges_normal_histo.png" width='500px' />
+
+:::
+
+::::
+
+## Variables (global) {auto-animate=true}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/dec_histo/nodes__attributes_histo.png" width='500px' />
+
+:::
+
+::: {.column width="50%"}
+
+<img src="https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis1D/dec_histo/edges_attributes_histo.png" width='500px' />
+
+:::
+
+::::
+
+
 ## Exploratory statistics
 
 ::: {.panel-tabset}
@@ -1240,26 +1304,18 @@ Chronological attribution
 
 ::::
 
-### Clutering
+### Clustering
 
 ![](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/stelebouclier/analysis2D/clustering_attributes.png)
 
 
 :::
 
-# Thank<br>you! {background-color="aquamarine"}
+
+# Thank<br>you! {background-color="#f3e7b3"}
 
 
-# References
 
-
-[Other useful R packages: [dplyr]() ...., [knitr]() and [kableExtra]() for HTML/LaTex/PDF/etc. layouts [openxlsx](https://cran.r-project.org/web/packages/openxlsx/index.html) to read/write Excel files, [ggplot2](https://ggplot2.tidyverse.org/) to create plots; [plotly](https://plotly.com/r/)  and [leaflet](https://cran.r-project.org/web/packages/leaflet/index.html) to create interactive plots and maps; etc.]{.aside}
-
-https://hal.archives-ouvertes.fr/hal-02913656/document
-
-The CRAN (Comprehensive R Archive Network) is the official package repository of R, see: https://cran.r-project.org/
-
-https://quarto.org/docs/output-formats/html-basics.html#ref-xie2015
 
 
 

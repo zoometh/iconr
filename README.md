@@ -353,6 +353,10 @@ The selection of a colored continuous range can be done from a POINT coordinates
   <img alt="img-name" src="doc/img/solana_magic_wand.png" width="250">
 </p>
 
+## Other documents
+
+* The ***iconr*** presentation in the *Digital Archaeology* seminar, 28<sup>th</sup> November 2022, University of Durham [🔗](http://shinyserver.cfs.unipi.it:3838/durham/_site/#/title-slide)
+
 [^1]: Huet et al., (2021). *Analysis of Prehistoric Iconography with the R package iconr*. Journal of Open Source Software, 6(61), 3191, https://doi.org/10.21105/joss.03191
 [^2]: credits Museo Arqueologico de Madrid
 [^3]: unless otherwise stated, the drawings of the steles are all from: Díaz-Guardamino Uribe, M. (2010). *Las estelas decoradas en la prehistoria de la penı́nsula ibérica* [PhD thesis, Universidad Complutense de Madrid, Servicio de Publicaciones]. https://eprints.ucm.es/11070/1/T32200.pdf

@@ -1,17 +1,17 @@
 [
   {
-    "objectID": "index.html#introduction",
-    "href": "index.html#introduction",
-    "title": "Analysis of Prehistoric Iconography with the R package iconr",
-    "section": "Introduction",
-    "text": "Introduction\n\n\n\nThis presentation is an introduction to computational archaeology\n\n\n\n\n\n\nsoftware 💿\n\n\nsemantic 🖼 📜 🔢\n\n\n\n\nlogic >_ print(‘hello’)\n\n\n\n\n\n\nhardware 💻\n\n\n\n\n\nIt is also about ancient iconography\n\n\n\n\nTanum outcrop, Scandinavia\n\n\n\nIt introduces the R package iconr  and gives example of study with this package\n\n\n\n\nMagacela stelae, Spain"
-  },
-  {
     "objectID": "index.html#section",
     "href": "index.html#section",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "",
-    "text": "UsersIDELayoutsPackagesResources\n\n\nR is a scripting language for data science. It is the 1️⃣st used by archaeologists, and the 18th worldwide\n\n- Tiobe index 2022 + Batist and Roe, 2022\n\n\nRStudio is THE graphical interface for R, Rstudio is also in the cloud (RStudio.cloud), VS Code is a standalone source code editor multi-platforms and multi-languages\n\n\nR markdown is a notebook interface for report generation, Shiny allows the development of web interactive applications, Quarto to create Powerpoint-like web interactive documents\n\n\nThe CRAN features 18,890 available packages. The package iconr uses 18 packages. The most distinctives are:\n\n\n\n\n\npackage\n\n\ndescription\n\n\n\n\n\n\n\n\n\nmagick for image manipulation\n\n\n\n\n\n\n\nigraph for graph theory and network analysis\n\n\n\n\n\n\n\nsf makes R a GIS\n\n\n\n\n\n\n\nMomocs for geometric morphometric methods\n\n\n\n\n\n\n\nsthda.com has good tutorials, stackoverflow is probably the place where you will find the answer you need, if you need some open software for archaeology go to open-archaeo"
+    "text": "This presentation is an introduction to computational archaeology\n\n\n\n\n\n\nsoftware 💿\n\n\nsemantic 🖼 📜 🔢\n\n\n\n\nlogic >_ print(‘hello’)\n\n\n\n\n\n\nhardware 💻\n\n\n\n\n\nIt is also about ancient iconography\n\n\n\n\nTanum outcrop, Scandinavia (credits: Wikipedia)\n\n\n\nIt introduces the R package iconr  and gives example of study with this package\n\n\n\n\nMagacela stelae, Spain (credits: Wikipedia)"
+  },
+  {
+    "objectID": "index.html#section-1",
+    "href": "index.html#section-1",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "",
+    "text": "UsersIDELayoutsPackagesResources\n\n\nR is a scripting language for data science. It is the 1️⃣st used by archaeologists, and the 18th worldwide\n\n- Tiobe index 2022 + Batist and Roe, 2022\n\n\nRStudio is THE graphical interface for R, Rstudio is also in the cloud (RStudio.cloud), VS Code is a standalone source code editor multi-platforms and multi-languages\n\n\nR markdown is a notebook interface for report generation, Shiny allows the development of web interactive applications, Quarto to create Powerpoint-like web interactive documents\n\n\nThe CRAN features 18,890 available packages. The package iconr  uses 18 packages. The most distinctives are:\n\n\n\n\n\npackage\n\n\ndescription\n\n\n\n\n\n\n\n\n\nmagick for image manipulation\n\n\n\n\n\n\n\nigraph for graph theory and network analysis\n\n\n\n\n\n\n\nsf makes R a GIS\n\n\n\n\n\n\n\nMomocs for geometric morphometric methods\n\n\n\n\n\n\n\nsthda.com has good tutorials, stackoverflow is probably the place where you will find the answer you need, if you need some open software for archaeology go to open-archaeo"
   },
   {
     "objectID": "index.html#computer-stack",
@@ -21,39 +21,46 @@
     "text": "Computer stack\n   The 🔝 popular web-platform for source code management and software development (with over 128 million public repositories)"
   },
   {
-    "objectID": "index.html#nature-of-iconographic",
-    "href": "index.html#nature-of-iconographic",
+    "objectID": "index.html#nature-of-iconographic-data",
+    "href": "index.html#nature-of-iconographic-data",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
-    "section": "Nature of iconographic",
-    "text": "Nature of iconographic\n\nDataset: 3D model from the Generalitat de Catalunya"
+    "section": "Nature of iconographic data",
+    "text": "Nature of iconographic data\n\nDataset: Roca dels Moros, Lleida, Catalunya. 3D model from the Generalitat de Catalunya"
+  },
+  {
+    "objectID": "index.html#aspectivity-analogism",
+    "href": "index.html#aspectivity-analogism",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Aspectivity & Analogism",
+    "text": "Aspectivity & Analogism\n\nAspectivityAnalogismExamples\n\n\nAspectivity consists in representing all aspects and attributes of the subject simultaneously in order to establish a definition\n\nFrancfort, H.-P., Huth, C., Olmos, R., Szabó, M., & Verger, S. (2010). “Qu’est-ce que l’art protohistorique ?” Perspective. Actualité en histoire de l’art, (2), 195–214\n\n\nThe figurative purpose of the analogist ontology is to make present networks of correspondence between discontinuous elements\n\nDescola, P. (2021). Les formes du visible. Une anthropologie de la figuration. Seuil.\n\n\n\n\n\n\nSome figures of warrior chariots and characters from the Late Bronze Age (credits: https://www.adiantegalicia.es)"
   },
   {
     "objectID": "index.html#statement-of-need",
     "href": "index.html#statement-of-need",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Statement of need",
-    "text": "Statement of need\n\n\n\n\n\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support"
+    "text": "Statement of need\n\n\n\n\n\nSpatial proximities between the graphic units (GUs) are not precisely quantified. GUs are attached to sub-areas of the support"
   },
   {
     "objectID": "index.html#statement-of-need-1",
     "href": "index.html#statement-of-need-1",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Statement of need",
-    "text": "Statement of need\n\n\n \n\n\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support"
+    "text": "Statement of need\n\n\n \n\n\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nSpatial proximities between the graphic units (GUs) are not precisely quantified. GUs are attached to sub-areas of the support"
   },
   {
     "objectID": "index.html#statement-of-need-2",
     "href": "index.html#statement-of-need-2",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Statement of need",
-    "text": "Statement of need\n\n\n  \n\n\nRelationships and similarities between these groups are often not self-explanatory and unquantified\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support"
+    "text": "Statement of need\n\n\n  \n\n\nRelationships and similarities between these groups are often not self-explanatory and unquantified\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nSpatial proximities between the graphic units (GUs) are not precisely quantified. GUs are attached to sub-areas of the support"
   },
   {
     "objectID": "index.html#statement-of-need-3",
     "href": "index.html#statement-of-need-3",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Statement of need",
-    "text": "Statement of need\n\n\n   \n\n\nDescriptive vocabularies and methods of analysis are site-dependent or period dependent\nRelationships and similarities between these groups are often not self-explanatory and unquantified\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nSpatial proximities between the graphic units are not precisely quantified. Graphical units are attached to sub-areas of the support"
+    "text": "Statement of need\n\n\n   \n\n\nDescriptive vocabularies and methods of analysis are site-dependent or period dependent\nRelationships and similarities between these groups are often not self-explanatory and unquantified\nGroupings are not self-explanatory and introduce a tedious number of groups and hinder their systematic analysis\nSpatial proximities between the graphic units (GUs) are not precisely quantified. GUs are attached to sub-areas of the support"
   },
   {
     "objectID": "index.html#conceptual-model",
@@ -67,28 +74,28 @@
     "href": "index.html#conceptual-model-1",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Conceptual model",
-    "text": "Conceptual model\n\n\n \n\n\nA decoration is composed of graphical units (GUs)\nSome objects have a decoration"
+    "text": "Conceptual model\n\n\n \n\n\nA decoration is composed of GUs\nSome objects have a decoration"
   },
   {
     "objectID": "index.html#conceptual-model-2",
     "href": "index.html#conceptual-model-2",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Conceptual model",
-    "text": "Conceptual model\n\n\n  \n\n\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)\nA decoration is composed of graphical units (GUs)\nSome objects have a decoration"
+    "text": "Conceptual model\n\n\n  \n\n\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)\nA decoration is composed of GUs\nSome objects have a decoration"
   },
   {
     "objectID": "index.html#conceptual-model-3",
     "href": "index.html#conceptual-model-3",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Conceptual model",
-    "text": "Conceptual model\n\n\n   \n\n\nNodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);\nGUs are considered as nodes;\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)\nA decoration is composed of graphical units (GUs)\nSome objects have a decoration"
+    "text": "Conceptual model\n\n\n   \n\n\nNodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram)\nGUs are considered as nodes\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)\nA decoration is composed of GUs\nSome objects have a decoration"
   },
   {
     "objectID": "index.html#conceptual-model-4",
     "href": "index.html#conceptual-model-4",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Conceptual model",
-    "text": "Conceptual model\n\n\n    \n\n\nShape analysis and hierachical thesaurus can measure the similarities between two GUs (eg. Procrustes distance);\nA decoration is considered as a spatial graph, modeled with graph theory and analysed with network and spatial analysis;\nNodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram);\nGUs are considered as nodes;\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)\nA decoration is composed of graphical units (GUs)\nSome objects have a decoration"
+    "text": "Conceptual model\n\n\n    \n\n\nShape analysis and hierachical thesaurus can measure the similarities between two GUs (eg. Procrustes distance);\nA decoration is considered as a spatial graph, modeled with graph theory and analysed with network and spatial analysis\nNodes have neighbourhood relations one with another depending on their spatial proximities (Voronoi Diagram)\nGUs are considered as nodes\nGUs can be modeled as POINTS or drawn as LINES or POLYGONS (2D)\nA decoration is composed of GUs\nSome objects have a decoration"
   },
   {
     "objectID": "index.html#nodes",
@@ -102,21 +109,21 @@
     "href": "index.html#nodes-1",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Nodes",
-    "text": "Nodes\nMain nodes\n\nHierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)"
+    "text": "Nodes\nShapes\n\n \n\nShape analysis allows GUs of a given type to be compared and classified"
   },
   {
     "objectID": "index.html#nodes-2",
     "href": "index.html#nodes-2",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Nodes",
-    "text": "Nodes"
+    "text": "Nodes\nTypology"
   },
   {
     "objectID": "index.html#nodes-3",
     "href": "index.html#nodes-3",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Nodes",
-    "text": "Nodes\nMain nodes\n \nShape analysis allows GUs of a given type to be compared and classified."
+    "text": "Nodes\nTypology\nBy generalisation (⬆️ the tree) or by specification (⬇️ the tree), this hierarchical structure allows comparison between GUs:\n\n\n\n\n\n\n\n\n\n\nof different types (ex: a sword with a spear)\nof different states of preservation (ex: a clearly identified horse with an unspecified quadrupede)"
   },
   {
     "objectID": "index.html#nodes-4",
@@ -130,7 +137,7 @@
     "href": "index.html#edges",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Edges",
-    "text": "Edges\n\nNormalAttributeDiachronic\n\n\n —— = ——  normal edges (undirected) between contiguous and contemporaneous main nodes (nodes a and b)\n\n\n\n\n \n  \n      \n    site \n    decor \n    a \n    b \n    type \n    xa \n    ya \n    xb \n    yb \n  \n \n\n  \n    24 \n    Brozas \n    Brozas \n    1 \n    2 \n    = \n    354.1114 \n    -123.3621 \n    346.3455 \n    -151.8371 \n  \n  \n    25 \n    Brozas \n    Brozas \n    3 \n    1 \n    = \n    279.0411 \n    -162.1916 \n    354.1114 \n    -123.3621 \n  \n  \n    26 \n    Brozas \n    Brozas \n    3 \n    2 \n    = \n    279.0411 \n    -162.1916 \n    346.3455 \n    -151.8371 \n  \n  \n    27 \n    Brozas \n    Brozas \n    4 \n    1 \n    = \n    211.7366 \n    -206.1984 \n    354.1114 \n    -123.3621 \n  \n  \n    28 \n    Brozas \n    Brozas \n    4 \n    3 \n    = \n    211.7366 \n    -206.1984 \n    279.0411 \n    -162.1916 \n  \n  \n    29 \n    Brozas \n    Brozas \n    1 \n    5 \n    = \n    354.1114 \n    -123.3621 \n    392.9409 \n    -343.3959 \n  \n  \n    30 \n    Brozas \n    Brozas \n    2 \n    5 \n    = \n    346.3455 \n    -151.8371 \n    392.9409 \n    -343.3959 \n  \n  \n    31 \n    Brozas \n    Brozas \n    3 \n    5 \n    = \n    279.0411 \n    -162.1916 \n    392.9409 \n    -343.3959 \n  \n  \n    32 \n    Brozas \n    Brozas \n    4 \n    5 \n    = \n    211.7366 \n    -206.1984 \n    392.9409 \n    -343.3959 \n  \n  \n    33 \n    Brozas \n    Brozas \n    5 \n    6 \n    = \n    392.9409 \n    -343.3959 \n    387.7636 \n    -564.7240 \n  \n\n\n\n\n\n\n\n\n [1] \"bouclier-=-epee\"   \"bouclier-=-fibule\" \"bouclier-=-lance\" \n [4] \"bouclier-=-miroir\" \"bouclier-=-peigne\" \"fibule-=-lance\"   \n [7] \"fibule-=-miroir\"   \"fibule-=-peigne\"   \"lance-=-miroir\"   \n[10] \"lance-=-peigne\"   \n\n\n\n\n - - + - -  attribute edges (directed) between contemporaneous nodes where the attribute node b is an attribute of main node a\n\n\n\n\n \n  \n    site \n    decor \n    a \n    b \n    type \n    xa \n    ya \n    xb \n    yb \n  \n \n\n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    3 \n    = \n    350.7279 \n    -141.3279 \n    289.7853 \n    -183.1172 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    2 \n    = \n    350.7279 \n    -141.3279 \n    428.2122 \n    -172.6699 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    4 \n    = \n    289.7853 \n    -183.1172 \n    285.4322 \n    -207.4942 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    2 \n    = \n    289.7853 \n    -183.1172 \n    428.2122 \n    -172.6699 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    4 \n    5 \n    = \n    285.4322 \n    -207.4942 \n    290.6559 \n    -310.2261 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    4 \n    = \n    418.6354 \n    -305.0025 \n    285.4322 \n    -207.4942 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    6 \n    = \n    290.6559 \n    -310.2261 \n    418.6354 \n    -305.0025 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    8 \n    + \n    343.7630 \n    -466.9358 \n    261.9258 \n    -433.8527 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    9 \n    + \n    343.7630 \n    -466.9358 \n    258.4433 \n    -486.0892 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    10 \n    + \n    343.7630 \n    -466.9358 \n    342.9527 \n    -434.1614 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    11 \n    + \n    343.7630 \n    -466.9358 \n    344.2134 \n    -510.2253 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    7 \n    = \n    290.6559 \n    -310.2261 \n    343.7630 \n    -466.9358 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    7 \n    = \n    418.6354 \n    -305.0025 \n    343.7630 \n    -466.9358 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    12 \n    + \n    350.7279 \n    -141.3279 \n    377.1414 \n    -163.5179 \n  \n\n\n\n\n\n\n\n\n [1] \"bouclier-=-chariot_char\"   \"bouclier-=-lance\"         \n [3] \"bouclier-=-personnage\"     \"casque-+-rivet\"           \n [5] \"casque-=-epee\"             \"casque-=-miroir\"          \n [7] \"chariot_char-+-cheval\"     \"chariot_char-+-cheval#\"   \n [9] \"chariot_char-+-roue\"       \"chariot_char-+-roue#\"     \n[11] \"chariot_char-=-personnage\" \"epee-=-lance\"             \n[13] \"epee-=-miroir\"             \"lance-=-personnage\"       \n\n\n\n\n —— > ——  diachronic edges (directed) between non-contemporaneous nodes where the node a overlaps node b, or node a is more ancient than node b\n\n\n\n\n \n  \n    site \n    decor \n    a \n    b \n    type \n    xa \n    ya \n    xb \n    yb \n  \n \n\n  \n    Ibahernando \n    Ibahernando \n    1 \n    2 \n    > \n    284.1056 \n    -131.2344 \n    351.6009 \n    -191.5644 \n  \n  \n    Ibahernando \n    Ibahernando \n    1 \n    3 \n    > \n    284.1056 \n    -131.2344 \n    345.0360 \n    -296.6023 \n  \n  \n    Ibahernando \n    Ibahernando \n    2 \n    3 \n    = \n    351.6009 \n    -191.5644 \n    345.0360 \n    -296.6023 \n  \n  \n    Ibahernando \n    Ibahernando \n    3 \n    4 \n    = \n    345.0360 \n    -296.6023 \n    367.3566 \n    -420.6782 \n  \n\n\n\n\n\n\n\n\n[1] \"bouclier-=-epee\"     \"bouclier-=-lance\"    \"ecriture->-bouclier\"\n[4] \"ecriture->-lance\""
+    "text": "Edges\n\nNormalAttributeDiachronic\n\n\n —— = ——  normal undirected edges between contiguous and contemporaneous main nodes a and b\n\n\n\n\n \n  \n      \n    site \n    decor \n    a \n    b \n    type \n    xa \n    ya \n    xb \n    yb \n  \n \n\n  \n    24 \n    Brozas \n    Brozas \n    1 \n    2 \n    = \n    354.1114 \n    -123.3621 \n    346.3455 \n    -151.8371 \n  \n  \n    25 \n    Brozas \n    Brozas \n    3 \n    1 \n    = \n    279.0411 \n    -162.1916 \n    354.1114 \n    -123.3621 \n  \n  \n    26 \n    Brozas \n    Brozas \n    3 \n    2 \n    = \n    279.0411 \n    -162.1916 \n    346.3455 \n    -151.8371 \n  \n  \n    27 \n    Brozas \n    Brozas \n    4 \n    1 \n    = \n    211.7366 \n    -206.1984 \n    354.1114 \n    -123.3621 \n  \n  \n    28 \n    Brozas \n    Brozas \n    4 \n    3 \n    = \n    211.7366 \n    -206.1984 \n    279.0411 \n    -162.1916 \n  \n  \n    29 \n    Brozas \n    Brozas \n    1 \n    5 \n    = \n    354.1114 \n    -123.3621 \n    392.9409 \n    -343.3959 \n  \n  \n    30 \n    Brozas \n    Brozas \n    2 \n    5 \n    = \n    346.3455 \n    -151.8371 \n    392.9409 \n    -343.3959 \n  \n  \n    31 \n    Brozas \n    Brozas \n    3 \n    5 \n    = \n    279.0411 \n    -162.1916 \n    392.9409 \n    -343.3959 \n  \n  \n    32 \n    Brozas \n    Brozas \n    4 \n    5 \n    = \n    211.7366 \n    -206.1984 \n    392.9409 \n    -343.3959 \n  \n  \n    33 \n    Brozas \n    Brozas \n    5 \n    6 \n    = \n    392.9409 \n    -343.3959 \n    387.7636 \n    -564.7240 \n  \n\n\n\n\n\n\n\n\nedges list:\n\n\n [1] \"bouclier-=-epee\"   \"bouclier-=-fibule\" \"bouclier-=-lance\" \n [4] \"bouclier-=-miroir\" \"bouclier-=-peigne\" \"fibule-=-lance\"   \n [7] \"fibule-=-miroir\"   \"fibule-=-peigne\"   \"lance-=-miroir\"   \n[10] \"lance-=-peigne\"   \n\n\n\n\n- - - + - - - attribute directed edges between contemporaneous nodes where the attribute node b is an attribute of main node a\n\n\n\n\n \n  \n    site \n    decor \n    a \n    b \n    type \n    xa \n    ya \n    xb \n    yb \n  \n \n\n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    3 \n    = \n    350.7279 \n    -141.3279 \n    289.7853 \n    -183.1172 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    2 \n    = \n    350.7279 \n    -141.3279 \n    428.2122 \n    -172.6699 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    4 \n    = \n    289.7853 \n    -183.1172 \n    285.4322 \n    -207.4942 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    2 \n    = \n    289.7853 \n    -183.1172 \n    428.2122 \n    -172.6699 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    4 \n    5 \n    = \n    285.4322 \n    -207.4942 \n    290.6559 \n    -310.2261 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    4 \n    = \n    418.6354 \n    -305.0025 \n    285.4322 \n    -207.4942 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    6 \n    = \n    290.6559 \n    -310.2261 \n    418.6354 \n    -305.0025 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    8 \n    + \n    343.7630 \n    -466.9358 \n    261.9258 \n    -433.8527 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    9 \n    + \n    343.7630 \n    -466.9358 \n    258.4433 \n    -486.0892 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    10 \n    + \n    343.7630 \n    -466.9358 \n    342.9527 \n    -434.1614 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    11 \n    + \n    343.7630 \n    -466.9358 \n    344.2134 \n    -510.2253 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    7 \n    = \n    290.6559 \n    -310.2261 \n    343.7630 \n    -466.9358 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    7 \n    = \n    418.6354 \n    -305.0025 \n    343.7630 \n    -466.9358 \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    12 \n    + \n    350.7279 \n    -141.3279 \n    377.1414 \n    -163.5179 \n  \n\n\n\n\n\n\n\n\nedges list:\n\n\n [1] \"bouclier-=-chariot_char\"   \"bouclier-=-lance\"         \n [3] \"bouclier-=-personnage\"     \"casque-+-rivet\"           \n [5] \"casque-=-epee\"             \"casque-=-miroir\"          \n [7] \"chariot_char-+-cheval\"     \"chariot_char-+-cheval#\"   \n [9] \"chariot_char-+-roue\"       \"chariot_char-+-roue#\"     \n[11] \"chariot_char-=-personnage\" \"epee-=-lance\"             \n[13] \"epee-=-miroir\"             \"lance-=-personnage\"       \n\n\n\n\n —— > ——  diachronic directed edges between non-contemporaneous nodes where the node a overlaps/is more recent than node b\n\n\n\n\n \n  \n    site \n    decor \n    a \n    b \n    type \n    xa \n    ya \n    xb \n    yb \n  \n \n\n  \n    Ibahernando \n    Ibahernando \n    1 \n    2 \n    > \n    284.1056 \n    -131.2344 \n    351.6009 \n    -191.5644 \n  \n  \n    Ibahernando \n    Ibahernando \n    1 \n    3 \n    > \n    284.1056 \n    -131.2344 \n    345.0360 \n    -296.6023 \n  \n  \n    Ibahernando \n    Ibahernando \n    2 \n    3 \n    = \n    351.6009 \n    -191.5644 \n    345.0360 \n    -296.6023 \n  \n  \n    Ibahernando \n    Ibahernando \n    3 \n    4 \n    = \n    345.0360 \n    -296.6023 \n    367.3566 \n    -420.6782 \n  \n\n\n\n\n\n\n\n\nedges list:\n\n\n[1] \"bouclier-=-epee\"     \"bouclier-=-lance\"    \"ecriture->-bouclier\"\n[4] \"ecriture->-lance\""
   },
   {
     "objectID": "index.html#gis-entry",
@@ -140,11 +147,11 @@
     "text": "GIS entry\n\nReferenceScaleMeasuresNodesEdges\n\n\n\n\n\n\nQGIS plugin: Freehand raster georeferencer"
   },
   {
-    "objectID": "index.html#project-qgis-1-decoration",
-    "href": "index.html#project-qgis-1-decoration",
+    "objectID": "index.html#gis-entry-1",
+    "href": "index.html#gis-entry-1",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
-    "section": "1 project QGIS = 1 decoration",
-    "text": "1 project QGIS = 1 decoration\n\nOpen a decoration image\n\n\n\n\n\nCreate a spatialized graph"
+    "section": "GIS entry",
+    "text": "GIS entry\n\nOne GIS project = One decoration\n\n\nOpen a decoration image\n\n\n\n\n\nCreate a spatialized graph"
   },
   {
     "objectID": "index.html#run-r",
@@ -158,35 +165,35 @@
     "href": "index.html#default-data---images",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Default data - images",
-    "text": "Default data - images\n\nfrom Rdata\n\n\n\ndataDir <- system.file(\"extdata\", package = \"iconr\")\nimgs_path <- paste0(dataDir, \"/imgs.csv\")\nimgs <- read.table(imgs_path, sep = \";\", stringsAsFactors = FALSE)\nkable(imgs, \"html\") %>% \n  kable_styling(full_width = FALSE, position = \"center\", font_size = 24)\n\n\n\n \n  \n    idf \n    site \n    decor \n    img \n  \n \n\n  \n    1 \n    Cerro Muriano \n    Cerro Muriano 1 \n    Cerro_Muriano.Cerro_Muriano_1.jpg \n  \n  \n    2 \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    Torrejon_Rubio.Torrejon_Rubio_1.jpg \n  \n  \n    3 \n    Brozas \n    Brozas \n    Brozas.Brozas.jpg \n  \n  \n    4 \n    Zarza de Montanchez \n    Zarza De Montanchez \n    Zarza_de_Montanchez.Zarza_De_Montanchez.jpg \n  \n  \n    5 \n    Ibahernando \n    Ibahernando \n    Ibahernando.Ibahernando.jpg \n  \n\n\n\n\n\n    \n\n\n\n  https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv"
+    "text": "Default data - images\n\nfrom Rdata\n\n\n\ndataDir <- system.file(\"extdata\", package = \"iconr\")\nimgs_path <- paste0(dataDir, \"/imgs.csv\")\nimgs <- read.table(imgs_path, sep = \";\", stringsAsFactors = FALSE)\nkable(imgs, \"html\") %>% \n  kable_styling(full_width = FALSE, position = \"center\", font_size = 20)\n\n\n\n \n  \n    idf \n    site \n    decor \n    img \n  \n \n\n  \n    1 \n    Cerro Muriano \n    Cerro Muriano 1 \n    Cerro_Muriano.Cerro_Muriano_1.jpg \n  \n  \n    2 \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    Torrejon_Rubio.Torrejon_Rubio_1.jpg \n  \n  \n    3 \n    Brozas \n    Brozas \n    Brozas.Brozas.jpg \n  \n  \n    4 \n    Zarza de Montanchez \n    Zarza De Montanchez \n    Zarza_de_Montanchez.Zarza_De_Montanchez.jpg \n  \n  \n    5 \n    Ibahernando \n    Ibahernando \n    Ibahernando.Ibahernando.jpg \n  \n\n\n\n\n\n1. 2. 3. 4. 5.\n\n\n\n  https://github.com/zoometh/iconr/blob/master/inst/extdata/imgs.tsv"
   },
   {
     "objectID": "index.html#default-data---nodes",
     "href": "index.html#default-data---nodes",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Default data - nodes",
-    "text": "Default data - nodes\n\nfrom Rdata\n\n\n\nnodes_path <- paste0(dataDir, \"/nodes.shp\")\nnodes.shp <- st_read(nodes_path, quiet = T)\nnodes <- as.data.frame(nodes.shp)\nkable(nodes, \"html\") %>% \n  kable_styling(full_width = FALSE, position = \"center\", font_size = 24)\n\n\n\n \n  \n    site \n    decor \n    id \n    type \n    x \n    y \n    geometry \n  \n \n\n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    1 \n    personnage \n    349.8148 \n    -298.3244 \n    POINT (349.8148 -298.3244) \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    2 \n    casque \n    349.8148 \n    -243.9851 \n    POINT (349.8148 -243.9851) \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    3 \n    lance \n    238.4637 \n    -298.3244 \n    POINT (238.4637 -298.3244) \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    4 \n    bouclier \n    446.0222 \n    -381.1697 \n    POINT (446.0222 -381.1697) \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    5 \n    peigne \n    283.0041 \n    -358.0086 \n    POINT (283.0041 -358.0086) \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    7 \n    sexe_masculin \n    342.6884 \n    -427.4917 \n    POINT (342.6884 -427.4917) \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    8 \n    lingot_pdb \n    451.1489 \n    -237.4782 \n    POINT (451.1489 -237.4782) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    1 \n    chariot_char \n    306.3033 \n    -177.1217 \n    POINT (306.3033 -177.1217) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    2 \n    bouclier \n    374.5779 \n    -347.8082 \n    POINT (374.5779 -347.8082) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    3 \n    arc \n    221.6166 \n    -303.8236 \n    POINT (221.6166 -303.8236) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    4 \n    miroir \n    211.7693 \n    -458.0980 \n    POINT (211.7693 -458.098) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    5 \n    fibule \n    490.1195 \n    -513.2428 \n    POINT (490.1195 -513.2428) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    6 \n    epee \n    366.7001 \n    -563.1358 \n    POINT (366.7001 -563.1358) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    7 \n    lance \n    298.4255 \n    -607.7769 \n    POINT (298.4255 -607.7769) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    8 \n    cheval \n    251.1585 \n    -141.6715 \n    POINT (251.1585 -141.6715) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    9 \n    cheval \n    256.4103 \n    -209.9461 \n    POINT (256.4103 -209.9461) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    10 \n    roue \n    364.5141 \n    -138.7608 \n    POINT (364.5141 -138.7608) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    11 \n    roue \n    363.6435 \n    -209.2802 \n    POINT (363.6435 -209.2802) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    12 \n    fleche \n    185.5875 \n    -312.4591 \n    POINT (185.5875 -312.4591) \n  \n  \n    Brozas \n    Brozas \n    1 \n    lance \n    354.1114 \n    -123.3621 \n    POINT (354.1114 -123.3621) \n  \n  \n    Brozas \n    Brozas \n    2 \n    peigne \n    346.3455 \n    -151.8371 \n    POINT (346.3455 -151.8371) \n  \n  \n    Brozas \n    Brozas \n    3 \n    fibule \n    279.0411 \n    -162.1916 \n    POINT (279.0411 -162.1916) \n  \n  \n    Brozas \n    Brozas \n    4 \n    miroir \n    211.7366 \n    -206.1984 \n    POINT (211.7366 -206.1984) \n  \n  \n    Brozas \n    Brozas \n    5 \n    bouclier \n    392.9409 \n    -343.3959 \n    POINT (392.9409 -343.3959) \n  \n  \n    Brozas \n    Brozas \n    6 \n    epee \n    387.7636 \n    -564.7240 \n    POINT (387.7636 -564.724) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    casque \n    350.7279 \n    -141.3279 \n    POINT (350.7279 -141.3279) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    2 \n    miroir \n    428.2122 \n    -172.6699 \n    POINT (428.2122 -172.6699) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    epee \n    289.7853 \n    -183.1172 \n    POINT (289.7853 -183.1172) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    4 \n    lance \n    285.4322 \n    -207.4942 \n    POINT (285.4322 -207.4942) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    bouclier \n    290.6559 \n    -310.2261 \n    POINT (290.6559 -310.2261) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    personnage \n    418.6354 \n    -305.0025 \n    POINT (418.6354 -305.0025) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    chariot_char \n    343.7630 \n    -466.9358 \n    POINT (343.763 -466.9358) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    8 \n    cheval \n    261.9258 \n    -433.8527 \n    POINT (261.9258 -433.8527) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    9 \n    cheval \n    258.4433 \n    -486.0892 \n    POINT (258.4433 -486.0892) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    10 \n    roue \n    342.9527 \n    -434.1614 \n    POINT (342.9527 -434.1614) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    11 \n    roue \n    344.2134 \n    -510.2253 \n    POINT (344.2134 -510.2253) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    12 \n    rivet \n    377.1414 \n    -163.5179 \n    POINT (377.1414 -163.5179) \n  \n  \n    Ibahernando \n    Ibahernando \n    1 \n    ecriture \n    284.1056 \n    -131.2344 \n    POINT (284.1056 -131.2344) \n  \n  \n    Ibahernando \n    Ibahernando \n    2 \n    lance \n    351.6009 \n    -191.5644 \n    POINT (351.6009 -191.5644) \n  \n  \n    Ibahernando \n    Ibahernando \n    3 \n    bouclier \n    345.0360 \n    -296.6023 \n    POINT (345.036 -296.6023) \n  \n  \n    Ibahernando \n    Ibahernando \n    4 \n    epee \n    367.3566 \n    -420.6782 \n    POINT (367.3566 -420.6782) \n  \n\n\n\n\n\n\n\n\n  https://github.com/zoometh/iconr/blob/master/inst/extdata/nodes.tsv"
+    "text": "Default data - nodes\n\nfrom Rdata\n\n\n\nnodes_path <- paste0(dataDir, \"/nodes.shp\")\nnodes.shp <- st_read(nodes_path, quiet = T)\nnodes <- as.data.frame(nodes.shp)\nkable(nodes, \"html\") %>% \n  kable_styling(full_width = FALSE, position = \"center\", font_size = 20)\n\n\n\n \n  \n    site \n    decor \n    id \n    type \n    x \n    y \n    geometry \n  \n \n\n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    1 \n    personnage \n    349.8148 \n    -298.3244 \n    POINT (349.8148 -298.3244) \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    2 \n    casque \n    349.8148 \n    -243.9851 \n    POINT (349.8148 -243.9851) \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    3 \n    lance \n    238.4637 \n    -298.3244 \n    POINT (238.4637 -298.3244) \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    4 \n    bouclier \n    446.0222 \n    -381.1697 \n    POINT (446.0222 -381.1697) \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    5 \n    peigne \n    283.0041 \n    -358.0086 \n    POINT (283.0041 -358.0086) \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    7 \n    sexe_masculin \n    342.6884 \n    -427.4917 \n    POINT (342.6884 -427.4917) \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    8 \n    lingot_pdb \n    451.1489 \n    -237.4782 \n    POINT (451.1489 -237.4782) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    1 \n    chariot_char \n    306.3033 \n    -177.1217 \n    POINT (306.3033 -177.1217) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    2 \n    bouclier \n    374.5779 \n    -347.8082 \n    POINT (374.5779 -347.8082) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    3 \n    arc \n    221.6166 \n    -303.8236 \n    POINT (221.6166 -303.8236) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    4 \n    miroir \n    211.7693 \n    -458.0980 \n    POINT (211.7693 -458.098) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    5 \n    fibule \n    490.1195 \n    -513.2428 \n    POINT (490.1195 -513.2428) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    6 \n    epee \n    366.7001 \n    -563.1358 \n    POINT (366.7001 -563.1358) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    7 \n    lance \n    298.4255 \n    -607.7769 \n    POINT (298.4255 -607.7769) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    8 \n    cheval \n    251.1585 \n    -141.6715 \n    POINT (251.1585 -141.6715) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    9 \n    cheval \n    256.4103 \n    -209.9461 \n    POINT (256.4103 -209.9461) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    10 \n    roue \n    364.5141 \n    -138.7608 \n    POINT (364.5141 -138.7608) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    11 \n    roue \n    363.6435 \n    -209.2802 \n    POINT (363.6435 -209.2802) \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    12 \n    fleche \n    185.5875 \n    -312.4591 \n    POINT (185.5875 -312.4591) \n  \n  \n    Brozas \n    Brozas \n    1 \n    lance \n    354.1114 \n    -123.3621 \n    POINT (354.1114 -123.3621) \n  \n  \n    Brozas \n    Brozas \n    2 \n    peigne \n    346.3455 \n    -151.8371 \n    POINT (346.3455 -151.8371) \n  \n  \n    Brozas \n    Brozas \n    3 \n    fibule \n    279.0411 \n    -162.1916 \n    POINT (279.0411 -162.1916) \n  \n  \n    Brozas \n    Brozas \n    4 \n    miroir \n    211.7366 \n    -206.1984 \n    POINT (211.7366 -206.1984) \n  \n  \n    Brozas \n    Brozas \n    5 \n    bouclier \n    392.9409 \n    -343.3959 \n    POINT (392.9409 -343.3959) \n  \n  \n    Brozas \n    Brozas \n    6 \n    epee \n    387.7636 \n    -564.7240 \n    POINT (387.7636 -564.724) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    casque \n    350.7279 \n    -141.3279 \n    POINT (350.7279 -141.3279) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    2 \n    miroir \n    428.2122 \n    -172.6699 \n    POINT (428.2122 -172.6699) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    epee \n    289.7853 \n    -183.1172 \n    POINT (289.7853 -183.1172) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    4 \n    lance \n    285.4322 \n    -207.4942 \n    POINT (285.4322 -207.4942) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    bouclier \n    290.6559 \n    -310.2261 \n    POINT (290.6559 -310.2261) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    personnage \n    418.6354 \n    -305.0025 \n    POINT (418.6354 -305.0025) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    chariot_char \n    343.7630 \n    -466.9358 \n    POINT (343.763 -466.9358) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    8 \n    cheval \n    261.9258 \n    -433.8527 \n    POINT (261.9258 -433.8527) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    9 \n    cheval \n    258.4433 \n    -486.0892 \n    POINT (258.4433 -486.0892) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    10 \n    roue \n    342.9527 \n    -434.1614 \n    POINT (342.9527 -434.1614) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    11 \n    roue \n    344.2134 \n    -510.2253 \n    POINT (344.2134 -510.2253) \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    12 \n    rivet \n    377.1414 \n    -163.5179 \n    POINT (377.1414 -163.5179) \n  \n  \n    Ibahernando \n    Ibahernando \n    1 \n    ecriture \n    284.1056 \n    -131.2344 \n    POINT (284.1056 -131.2344) \n  \n  \n    Ibahernando \n    Ibahernando \n    2 \n    lance \n    351.6009 \n    -191.5644 \n    POINT (351.6009 -191.5644) \n  \n  \n    Ibahernando \n    Ibahernando \n    3 \n    bouclier \n    345.0360 \n    -296.6023 \n    POINT (345.036 -296.6023) \n  \n  \n    Ibahernando \n    Ibahernando \n    4 \n    epee \n    367.3566 \n    -420.6782 \n    POINT (367.3566 -420.6782) \n  \n\n\n\n\n\n\n\n\n  https://github.com/zoometh/iconr/blob/master/inst/extdata/nodes.tsv"
   },
   {
     "objectID": "index.html#default-data---edges",
     "href": "index.html#default-data---edges",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Default data - edges",
-    "text": "Default data - edges\n\nfrom Rdata\n\n\n\nedges_path <- paste0(dataDir, \"/edges.shp\")\nedges.shp <- st_read(edges_path, quiet = T)\nedges <- as.data.frame(edges.shp)\nkable(edges, \"html\") %>% \n  kable_styling(full_width = FALSE, position = \"center\", font_size = 24)\n\n\n\n \n  \n    site \n    decor \n    a \n    b \n    type \n    geometry \n  \n \n\n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    1 \n    4 \n    = \n    LINESTRING (349.8148 -298.3... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    1 \n    5 \n    = \n    LINESTRING (283.0041 -358.0... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    3 \n    5 \n    = \n    LINESTRING (283.0041 -358.0... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    1 \n    2 \n    + \n    LINESTRING (349.8148 -298.3... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    1 \n    7 \n    + \n    LINESTRING (349.8148 -298.3... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    3 \n    1 \n    = \n    LINESTRING (238.4637 -298.3... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    1 \n    8 \n    = \n    LINESTRING (349.8148 -298.3... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    4 \n    8 \n    = \n    LINESTRING (451.1489 -237.4... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    6 \n    5 \n    = \n    LINESTRING (366 -563, 490 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    4 \n    2 \n    = \n    LINESTRING (211 -458, 374 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    6 \n    7 \n    = \n    LINESTRING (366 -563, 298 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    1 \n    2 \n    = \n    LINESTRING (306 -177, 374 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    1 \n    8 \n    + \n    LINESTRING (306 -177, 251 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    1 \n    9 \n    + \n    LINESTRING (256 -209, 306 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    2 \n    3 \n    = \n    LINESTRING (374 -347, 221 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    3 \n    1 \n    = \n    LINESTRING (221 -303, 306 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    3 \n    4 \n    = \n    LINESTRING (221 -303, 211 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    2 \n    5 \n    = \n    LINESTRING (374 -347, 490 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    2 \n    6 \n    = \n    LINESTRING (374 -347, 366 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    6 \n    4 \n    = \n    LINESTRING (366 -563, 211 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    3 \n    12 \n    + \n    LINESTRING (221 -303, 185 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    1 \n    10 \n    + \n    LINESTRING (306 -177, 364 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    1 \n    11 \n    + \n    LINESTRING (306 -177, 363 -... \n  \n  \n    Brozas \n    Brozas \n    1 \n    2 \n    = \n    LINESTRING (354.1114 -123.3... \n  \n  \n    Brozas \n    Brozas \n    3 \n    1 \n    = \n    LINESTRING (279.0411 -162.1... \n  \n  \n    Brozas \n    Brozas \n    3 \n    2 \n    = \n    LINESTRING (279.0411 -162.1... \n  \n  \n    Brozas \n    Brozas \n    4 \n    1 \n    = \n    LINESTRING (211.7366 -206.1... \n  \n  \n    Brozas \n    Brozas \n    4 \n    3 \n    = \n    LINESTRING (211.7366 -206.1... \n  \n  \n    Brozas \n    Brozas \n    1 \n    5 \n    = \n    LINESTRING (354.1114 -123.3... \n  \n  \n    Brozas \n    Brozas \n    2 \n    5 \n    = \n    LINESTRING (346.3455 -151.8... \n  \n  \n    Brozas \n    Brozas \n    3 \n    5 \n    = \n    LINESTRING (279.0411 -162.1... \n  \n  \n    Brozas \n    Brozas \n    4 \n    5 \n    = \n    LINESTRING (211.7366 -206.1... \n  \n  \n    Brozas \n    Brozas \n    5 \n    6 \n    = \n    LINESTRING (392.9409 -343.3... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    3 \n    = \n    LINESTRING (350.7279 -141.3... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    2 \n    = \n    LINESTRING (350.7279 -141.3... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    4 \n    = \n    LINESTRING (289.7853 -183.1... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    2 \n    = \n    LINESTRING (289.7853 -183.1... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    4 \n    5 \n    = \n    LINESTRING (285.4322 -207.4... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    4 \n    = \n    LINESTRING (418.6354 -305.0... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    6 \n    = \n    LINESTRING (290.6559 -310.2... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    8 \n    + \n    LINESTRING (343.763 -466.93... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    9 \n    + \n    LINESTRING (343.763 -466.93... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    10 \n    + \n    LINESTRING (343.763 -466.93... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    11 \n    + \n    LINESTRING (343.763 -466.93... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    7 \n    = \n    LINESTRING (290.6559 -310.2... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    7 \n    = \n    LINESTRING (418.6354 -305.0... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    12 \n    + \n    LINESTRING (350.7279 -141.3... \n  \n  \n    Ibahernando \n    Ibahernando \n    1 \n    2 \n    > \n    LINESTRING (284.1056 -131.2... \n  \n  \n    Ibahernando \n    Ibahernando \n    1 \n    3 \n    > \n    LINESTRING (284.1056 -131.2... \n  \n  \n    Ibahernando \n    Ibahernando \n    2 \n    3 \n    = \n    LINESTRING (351.6009 -191.5... \n  \n  \n    Ibahernando \n    Ibahernando \n    3 \n    4 \n    = \n    LINESTRING (345.036 -296.60... \n  \n\n\n\n\n\n\n\n\n  https://github.com/zoometh/iconr/blob/master/inst/extdata/edges.tsv"
+    "text": "Default data - edges\n\nfrom Rdata\n\n\n\nedges_path <- paste0(dataDir, \"/edges.shp\")\nedges.shp <- st_read(edges_path, quiet = T)\nedges <- as.data.frame(edges.shp)\nkable(edges, \"html\") %>% \n  kable_styling(full_width = FALSE, position = \"center\", font_size = 20)\n\n\n\n \n  \n    site \n    decor \n    a \n    b \n    type \n    geometry \n  \n \n\n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    1 \n    4 \n    = \n    LINESTRING (349.8148 -298.3... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    1 \n    5 \n    = \n    LINESTRING (283.0041 -358.0... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    3 \n    5 \n    = \n    LINESTRING (283.0041 -358.0... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    1 \n    2 \n    + \n    LINESTRING (349.8148 -298.3... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    1 \n    7 \n    + \n    LINESTRING (349.8148 -298.3... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    3 \n    1 \n    = \n    LINESTRING (238.4637 -298.3... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    1 \n    8 \n    = \n    LINESTRING (349.8148 -298.3... \n  \n  \n    Cerro Muriano \n    Cerro Muriano 1 \n    4 \n    8 \n    = \n    LINESTRING (451.1489 -237.4... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    6 \n    5 \n    = \n    LINESTRING (366 -563, 490 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    4 \n    2 \n    = \n    LINESTRING (211 -458, 374 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    6 \n    7 \n    = \n    LINESTRING (366 -563, 298 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    1 \n    2 \n    = \n    LINESTRING (306 -177, 374 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    1 \n    8 \n    + \n    LINESTRING (306 -177, 251 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    1 \n    9 \n    + \n    LINESTRING (256 -209, 306 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    2 \n    3 \n    = \n    LINESTRING (374 -347, 221 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    3 \n    1 \n    = \n    LINESTRING (221 -303, 306 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    3 \n    4 \n    = \n    LINESTRING (221 -303, 211 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    2 \n    5 \n    = \n    LINESTRING (374 -347, 490 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    2 \n    6 \n    = \n    LINESTRING (374 -347, 366 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    6 \n    4 \n    = \n    LINESTRING (366 -563, 211 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    3 \n    12 \n    + \n    LINESTRING (221 -303, 185 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    1 \n    10 \n    + \n    LINESTRING (306 -177, 364 -... \n  \n  \n    Torrejon Rubio \n    Torrejon Rubio 1 \n    1 \n    11 \n    + \n    LINESTRING (306 -177, 363 -... \n  \n  \n    Brozas \n    Brozas \n    1 \n    2 \n    = \n    LINESTRING (354.1114 -123.3... \n  \n  \n    Brozas \n    Brozas \n    3 \n    1 \n    = \n    LINESTRING (279.0411 -162.1... \n  \n  \n    Brozas \n    Brozas \n    3 \n    2 \n    = \n    LINESTRING (279.0411 -162.1... \n  \n  \n    Brozas \n    Brozas \n    4 \n    1 \n    = \n    LINESTRING (211.7366 -206.1... \n  \n  \n    Brozas \n    Brozas \n    4 \n    3 \n    = \n    LINESTRING (211.7366 -206.1... \n  \n  \n    Brozas \n    Brozas \n    1 \n    5 \n    = \n    LINESTRING (354.1114 -123.3... \n  \n  \n    Brozas \n    Brozas \n    2 \n    5 \n    = \n    LINESTRING (346.3455 -151.8... \n  \n  \n    Brozas \n    Brozas \n    3 \n    5 \n    = \n    LINESTRING (279.0411 -162.1... \n  \n  \n    Brozas \n    Brozas \n    4 \n    5 \n    = \n    LINESTRING (211.7366 -206.1... \n  \n  \n    Brozas \n    Brozas \n    5 \n    6 \n    = \n    LINESTRING (392.9409 -343.3... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    3 \n    = \n    LINESTRING (350.7279 -141.3... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    2 \n    = \n    LINESTRING (350.7279 -141.3... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    4 \n    = \n    LINESTRING (289.7853 -183.1... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    3 \n    2 \n    = \n    LINESTRING (289.7853 -183.1... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    4 \n    5 \n    = \n    LINESTRING (285.4322 -207.4... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    4 \n    = \n    LINESTRING (418.6354 -305.0... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    6 \n    = \n    LINESTRING (290.6559 -310.2... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    8 \n    + \n    LINESTRING (343.763 -466.93... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    9 \n    + \n    LINESTRING (343.763 -466.93... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    10 \n    + \n    LINESTRING (343.763 -466.93... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    7 \n    11 \n    + \n    LINESTRING (343.763 -466.93... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    5 \n    7 \n    = \n    LINESTRING (290.6559 -310.2... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    6 \n    7 \n    = \n    LINESTRING (418.6354 -305.0... \n  \n  \n    Zarza de Montanchez \n    Zarza De Montanchez \n    1 \n    12 \n    + \n    LINESTRING (350.7279 -141.3... \n  \n  \n    Ibahernando \n    Ibahernando \n    1 \n    2 \n    > \n    LINESTRING (284.1056 -131.2... \n  \n  \n    Ibahernando \n    Ibahernando \n    1 \n    3 \n    > \n    LINESTRING (284.1056 -131.2... \n  \n  \n    Ibahernando \n    Ibahernando \n    2 \n    3 \n    = \n    LINESTRING (351.6009 -191.5... \n  \n  \n    Ibahernando \n    Ibahernando \n    3 \n    4 \n    = \n    LINESTRING (345.036 -296.60... \n  \n\n\n\n\n\n\n\n\n  https://github.com/zoometh/iconr/blob/master/inst/extdata/edges.tsv"
   },
   {
     "objectID": "index.html#functions",
     "href": "index.html#functions",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Functions",
-    "text": "Functions\ndataDir <- system.file(\"extdata\", package = \"iconr\")\nimgs <- read.table(paste0(dataDir, \"/imgs.csv\"), sep = \";\", stringsAsFactors = FALSE)\nnodes.shp <- st_read(paste0(dataDir, \"/nodes.shp\"), quiet = T)\nnodes <- as.data.frame(nodes.shp)\nedges.shp <- st_read(paste0(dataDir, \"/edges.shp\"), quiet = T)\nedges <- as.data.frame(edges.shp)\nlgrph <- list_dec(imgs, nodes, edges)\ng <- lgrph[[1]]\nplot(g)"
+    "text": "Functions\nPlot the first graph of the iconr  default dataset\ndataDir <- system.file(\"extdata\", package = \"iconr\")\nimgs <- read.table(paste0(dataDir, \"/imgs.csv\"), sep = \";\", stringsAsFactors = FALSE)\nnodes.shp <- st_read(paste0(dataDir, \"/nodes.shp\"), quiet = T)\nnodes <- as.data.frame(nodes.shp)\nedges.shp <- st_read(paste0(dataDir, \"/edges.shp\"), quiet = T)\nedges <- as.data.frame(edges.shp)\nlgrph <- list_dec(imgs, nodes, edges)\ng <- lgrph[[1]]\nplot(g)"
   },
   {
     "objectID": "index.html#functions-1",
     "href": "index.html#functions-1",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Functions",
-    "text": "Functions\n\ndataDir <- system.file(\"extdata\", package = \"iconr\")\nimgs <- read.table(paste0(dataDir, \"/imgs.csv\"), sep = \";\", stringsAsFactors = FALSE)\nnodes.shp <- st_read(paste0(dataDir, \"/nodes.shp\"), quiet = T)\nnodes <- as.data.frame(nodes.shp)\nedges.shp <- st_read(paste0(dataDir, \"/edges.shp\"), quiet = T)\nedges <- as.data.frame(edges.shp)\nlgrph <- list_dec(imgs, nodes, edges)\ng <- lgrph[[1]]\nplot(g)"
+    "text": "Functions\nPlot the first graph of the iconr  default dataset\n\ndataDir <- system.file(\"extdata\", package = \"iconr\")\nimgs <- read.table(paste0(dataDir, \"/imgs.csv\"), sep = \";\", stringsAsFactors = FALSE)\nnodes.shp <- st_read(paste0(dataDir, \"/nodes.shp\"), quiet = T)\nnodes <- as.data.frame(nodes.shp)\nedges.shp <- st_read(paste0(dataDir, \"/edges.shp\"), quiet = T)\nedges <- as.data.frame(edges.shp)\nlgrph <- list_dec(imgs, nodes, edges)\ng <- lgrph[[1]]\nplot(g)"
   },
   {
     "objectID": "index.html#functions-2",
@@ -249,21 +256,28 @@
     "href": "index.html#functions-10",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Functions",
-    "text": "Functions\n\ndf.same_edges <- same_elements(lgrph, nd.var = \"type\", focus = \"edges\")\n# diag(df.same_edges) <- cell_spec(diag(df.same_edges), color = \"black\",\n#                                  background = \"lightgrey\")\nknitr::kable(df.same_edges, row.names = TRUE, escape = F, table.attr = \"style='width:40%;'\",\n             caption = \"Count of common edges between decorations\") %>%\n  column_spec(1, bold=TRUE) %>%\n  kableExtra::kable_styling(position = \"center\", font_size = 24)\n\n\n\nCount of common edges between decorations\n \n  \n      \n    1 \n    2 \n    3 \n    4 \n    5 \n  \n \n\n  \n    1 \n    8 \n    0 \n    1 \n    2 \n    0 \n  \n  \n    2 \n    0 \n    15 \n    3 \n    7 \n    1 \n  \n  \n    3 \n    1 \n    3 \n    10 \n    1 \n    2 \n  \n  \n    4 \n    2 \n    7 \n    1 \n    14 \n    1 \n  \n  \n    5 \n    0 \n    1 \n    2 \n    1 \n    4"
+    "text": "Functions\n\ndf.same_edges <- same_elements(lgrph, nd.var = \"type\", focus = \"edges\")\nknitr::kable(df.same_edges, row.names = TRUE, escape = F, table.attr = \"style='width:40%;'\",\n             caption = \"Count of common edges between decorations\") %>%\n  column_spec(1, bold=TRUE) %>%\n  kableExtra::kable_styling(position = \"center\", font_size = 24)\n\n\n\nCount of common edges between decorations\n \n  \n      \n    1 \n    2 \n    3 \n    4 \n    5 \n  \n \n\n  \n    1 \n    8 \n    0 \n    1 \n    2 \n    0 \n  \n  \n    2 \n    0 \n    15 \n    3 \n    7 \n    1 \n  \n  \n    3 \n    1 \n    3 \n    10 \n    1 \n    2 \n  \n  \n    4 \n    2 \n    7 \n    1 \n    14 \n    1 \n  \n  \n    5 \n    0 \n    1 \n    2 \n    1 \n    4"
   },
   {
     "objectID": "index.html#functions-11",
     "href": "index.html#functions-11",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Functions",
-    "text": "Functions\n\nsite <- decor <- \"Ibahernando\"\nnds.df <- read_nds(site, decor, dataDir)\neds.df <- read_eds(site, decor, dataDir)\nplot_dec_grph(nds.df, eds.df, imgs,\n              site, decor, dataDir,\n              nd.var = \"type\")\n\n\n\nplot_dec_grph(nds.df, eds.df, imgs,\n              site, decor, dataDir)"
+    "text": "Functions\nPlot the Ibahernando stelae, GUs id\n\nsite <- decor <- \"Ibahernando\"\nnds.df <- read_nds(site, decor, dataDir)\neds.df <- read_eds(site, decor, dataDir)\nplot_dec_grph(nds.df, eds.df, imgs,\n              site, decor, dataDir)"
   },
   {
     "objectID": "index.html#functions-12",
     "href": "index.html#functions-12",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Functions",
-    "text": "Functions\n\nsite <- decor <- \"Ibahernando\"\nnds.df <- read_nds(site, decor, dataDir)\neds.df <- read_eds(site, decor, dataDir)\nselected.nd <- 4\nl_dec_df <- contemp_nds(nds.df, eds.df, selected.nd)\nplot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,\n              site, decor, dataDir,\n              nd.var = \"type\")"
+    "text": "Functions\nPlot the Ibahernando stelae, GUs type\n\nsite <- decor <- \"Ibahernando\"\nnds.df <- read_nds(site, decor, dataDir)\neds.df <- read_eds(site, decor, dataDir)\nplot_dec_grph(nds.df, eds.df, imgs,\n              site, decor, dataDir,\n              nd.var = \"type\")"
+  },
+  {
+    "objectID": "index.html#functions-13",
+    "href": "index.html#functions-13",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Functions",
+    "text": "Functions\nPlot the Ibahernando stelae and remove the Latin writing GU (ecriture, id = 1) from the studied graph by selecting GUs contemporaneous to the sword (id = 4)\nsite <- decor <- \"Ibahernando\"\nnds.df <- read_nds(site, decor, dataDir)\neds.df <- read_eds(site, decor, dataDir)\nselected.nd <- 4\nl_dec_df <- contemp_nds(nds.df, eds.df, selected.nd)\nplot_dec_grph(l_dec_df$nodes, l_dec_df$edges, imgs,\n              site, decor, dataDir,\n              nd.var = \"type\")"
   },
   {
     "objectID": "index.html#dataset",
@@ -271,27 +285,6 @@
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Dataset",
     "text": "Dataset\n\nSourcesCorpus\n\n\n\n\n\n\nDíaz-Guardamino Uribe, M. (2010). Las estelas decoradas en la Prehistoria de la Península Ibérica (Universidad Complutense de Madrid, Servicio de Publicaciones) url: https://eprints.ucm.es/11070/1/T32200.pdf"
-  },
-  {
-    "objectID": "index.html#variables-global",
-    "href": "index.html#variables-global",
-    "title": "Analysis of Prehistoric Iconography with the R package iconr",
-    "section": "Variables (global)",
-    "text": "Variables (global)"
-  },
-  {
-    "objectID": "index.html#variables-global-1",
-    "href": "index.html#variables-global-1",
-    "title": "Analysis of Prehistoric Iconography with the R package iconr",
-    "section": "Variables (global)",
-    "text": "Variables (global)"
-  },
-  {
-    "objectID": "index.html#variables-global-2",
-    "href": "index.html#variables-global-2",
-    "title": "Analysis of Prehistoric Iconography with the R package iconr",
-    "section": "Variables (global)",
-    "text": "Variables (global)"
   },
   {
     "objectID": "index.html#variables-local",
@@ -392,115 +385,31 @@
     "text": "Descriptive statistics - orientations\n\nBy stelae (selected types)By type (selected types)"
   },
   {
+    "objectID": "index.html#variables-global",
+    "href": "index.html#variables-global",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Variables (global)",
+    "text": "Variables (global)"
+  },
+  {
+    "objectID": "index.html#variables-global-1",
+    "href": "index.html#variables-global-1",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Variables (global)",
+    "text": "Variables (global)"
+  },
+  {
+    "objectID": "index.html#variables-global-2",
+    "href": "index.html#variables-global-2",
+    "title": "Analysis of Prehistoric Iconography with the R package iconr",
+    "section": "Variables (global)",
+    "text": "Variables (global)"
+  },
+  {
     "objectID": "index.html#exploratory-statistics",
     "href": "index.html#exploratory-statistics",
     "title": "Analysis of Prehistoric Iconography with the R package iconr",
     "section": "Exploratory statistics",
-    "text": "Exploratory statistics\n\nDistance matrixFoios vs AteguaClutering"
-  },
-  {
-    "objectID": "test.html#tree",
-    "href": "test.html#tree",
-    "title": "TEST2",
-    "section": "Tree",
-    "text": "Tree"
-  },
-  {
-    "objectID": "test.html#nodes",
-    "href": "test.html#nodes",
-    "title": "TEST2",
-    "section": "Nodes",
-    "text": "Nodes\nMain nodes\nHierarchical structure (tree) allowing comparison between decoration having different kinds of iconographic families and state of preservation: by generalisation (going up the tree) or by specification (going down the tree)\n\n\n\nhttps://tinyurl.com/goa-oxford"
-  },
-  {
-    "objectID": "test2.html#section",
-    "href": "test2.html#section",
-    "title": "test2",
-    "section": "",
-    "text": "Animating content"
-  },
-  {
-    "objectID": "test2.html#section-1",
-    "href": "test2.html#section-1",
-    "title": "test2",
-    "section": "",
-    "text": "Animating content\n\n\n\n[1] 2"
-  },
-  {
-    "objectID": "test.html#side-and-footnotes",
-    "href": "test.html#side-and-footnotes",
-    "title": "TEST2",
-    "section": "Side and Footnotes",
-    "text": "Side and Footnotes\nHumhumhum… 1\n\nWe know from the first fundamental theorem of calculus that for \\(x\\) in \\([a, b]\\):\n\\[\\frac{d}{dx}\\left( \\int_{a}^{x} f(u)\\,du\\right)=f(x).\\]\n\nThis is a span that has the class aside which places it in the margin without a footnote number.\nThis is a sidenote that was entered using a footnote."
-  },
-  {
-    "objectID": "test.html#margin-something",
-    "href": "test.html#margin-something",
-    "title": "TEST2",
-    "section": "Margin something",
-    "text": "Margin something"
-  },
-  {
-    "objectID": "test.html#mrgin-the-legend",
-    "href": "test.html#mrgin-the-legend",
-    "title": "TEST2",
-    "section": "Mrgin the legend",
-    "text": "Mrgin the legend\n\nFigure 1: dwdwwdwdwwddwwwdwdwdwddw"
-  },
-  {
-    "objectID": "test.html#arbitrary-full-width-content",
-    "href": "test.html#arbitrary-full-width-content",
-    "title": "TEST2",
-    "section": "Arbitrary Full Width Content",
-    "text": "Arbitrary Full Width Content\nAny content can span to the full width of the page. This feature requires Pandoc 2.0 or above. All you need is to put your content in a fenced Div with the class fullwidth, e.g.,\n::: {.fullwidth}\nAny _full width_ content here.\n:::"
-  },
-  {
-    "objectID": "test.html#full-width-figures",
-    "href": "test.html#full-width-figures",
-    "title": "TEST2",
-    "section": "Full Width Figures",
-    "text": "Full Width Figures\nYou can arrange for figures to span across the entire page by using the chunk option fig.fullwidth = TRUE.\n\nFigure 2: A full width figure."
-  },
-  {
-    "objectID": "test.html#full-width-again",
-    "href": "test.html#full-width-again",
-    "title": "TEST2",
-    "section": "Full width again",
-    "text": "Full width again\n\nAny full width content here.\n\n\n\n\n\nFigure 3: MPG vs horsepower, colored by transmission."
-  },
-  {
-    "objectID": "test.html#full-that-thing",
-    "href": "test.html#full-that-thing",
-    "title": "TEST2",
-    "section": "Full that thing",
-    "text": "Full that thing"
-  },
-  {
-    "objectID": "test.html#aside-again",
-    "href": "test.html#aside-again",
-    "title": "TEST2",
-    "section": "Aside again",
-    "text": "Aside again\nTop content\n\n\nSome additional commentary of more peripheral interest."
-  },
-  {
-    "objectID": "test.html#fuuuulll",
-    "href": "test.html#fuuuulll",
-    "title": "TEST2",
-    "section": "Fuuuulll",
-    "text": "Fuuuulll"
-  },
-  {
-    "objectID": "index.html#nature-of-iconographic-data",
-    "href": "index.html#nature-of-iconographic-data",
-    "title": "Analysis of Prehistoric Iconography with the R package iconr",
-    "section": "Nature of iconographic data",
-    "text": "Nature of iconographic data\n\nDataset: Roca dels Moros, Lleida, Catalunya. 3D model from the Generalitat de Catalunya"
-  },
-  {
-    "objectID": "index.html#aspectivity-analogism",
-    "href": "index.html#aspectivity-analogism",
-    "title": "Analysis of Prehistoric Iconography with the R package iconr",
-    "section": "Aspectivity & Analogism",
-    "text": "Aspectivity & Analogism\n\nAspectivity1\nAnalogism2\n\n\n\n\n\nSome warrior chariots\n\n\n\nFrancfort, H.-P., Huth, C., Olmos, R., Szabó, M., & Verger, S. (2010). “Qu’est-ce que l’art protohistorique ?” Perspective. Actualité en histoire de l’art, (2), 195–214Descola, P. (2021). Les formes du visible. Une anthropologie de la figuration. Seuil."
+    "text": "Exploratory statistics\n\nDistance matrixFoios vs AteguaClustering"
   }
 ]
