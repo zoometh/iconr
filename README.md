@@ -355,7 +355,8 @@ The selection of a colored continuous range can be done from a POINT coordinates
 
 ## Other documents
 
-* The ***iconr*** presentation in the *Digital Archaeology* seminar, 28<sup>th</sup> November 2022, University of Durham [🔗](http://shinyserver.cfs.unipi.it:3838/durham/_site/#/title-slide)
+* *Analysis of Prehistoric Iconography with the R package iconr*, Digital Archaeology seminar, 28<sup>th</sup> November 2022, University of Durham [🔗](http://shinyserver.cfs.unipi.it:3838/durham/_site/#/title-slide)
+* *Human face depictions of Early Neolithic in the Near East* EAA 2021,session 238, 11<sup>th</sup> September 2021, Kiel [🔗](https://github.com/zoometh/iconr/blob/master/doc/presentation/eaa/2021/EAA238.pdf)
 
 [^1]: Huet et al., (2021). *Analysis of Prehistoric Iconography with the R package iconr*. Journal of Open Source Software, 6(61), 3191, https://doi.org/10.21105/joss.03191
 [^2]: credits Museo Arqueologico de Madrid
