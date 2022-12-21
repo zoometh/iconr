@@ -243,7 +243,8 @@ flowchart TD
     F ---> G((JPG));
     G ---> J{{"morph_nds_compar()"}}:::iconRpkg;
     J ---> K[elemental<br>comparison];
-    J ---> H{{"morph_nds_group()"}}:::iconRpkg;
+    J ---> U[User threshold]:::iconRusr;
+    U ---> H{{"morph_nds_group()"}}:::iconRpkg;
     H ---> I[elemental<br>classification];
     E ---> L{{"morph_resume()"}}:::iconRpkg;
     L ---> P[dataset<br>description];
