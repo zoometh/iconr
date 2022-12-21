@@ -229,7 +229,7 @@ devtools::install_github("zoometh/iconr")
 The ***iconr*** v. 0.1.1 functions are named `morph_*` (morphology) and `conv_*` (conversions). Find their documentation directly on R (eg, `?morph_nds_compar`). They are performed with the [R package Momocs](https://momx.github.io/Momocs/)
 
 ```mermaid
-flowchart TD
+flowchart LR
     T[User entry]:::iconRusr ---> A[(Postgres<br>DB)];
     T ---> Q[[GIS]];
     A ---> B{{"conv_pg_to_shp()"}}:::iconRpkg;
