@@ -232,10 +232,11 @@ The ***iconr*** v. 0.1.1 functions are named `morph_*` (morphology) and `conv_*`
 flowchart LR
     T[User entry]:::iconRusr ---> A[(Postgres<br>DB)];
     T ---> Q[[GIS]];
+    T ---> R((Geo<br>JSON));
     A ---> B{{"conv_pg_to_shp()"}}:::iconRpkg;
     B ---> C((SHP));
     Q ---> C;
-    R((GeoJSON)) ---> S{{"conv_geojson_to_wkt()"}}:::iconRpkg;
+    R ---> S{{"conv_geojson_to_wkt()"}}:::iconRpkg;
     S ---> E((WKT));
     C ---> D{{"conv_shp_to_wkt()"}}:::iconRpkg;
     D ---> E;
