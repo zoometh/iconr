@@ -230,8 +230,8 @@ The ***iconr*** v. 0.1.1 functions are named `morph_*` (morphology) and `conv_*`
 
 ```mermaid
 flowchart TD
-    T[(User entry)] ---> A[(Postgres<br>DB)]:::iconRusr;
-    T ---> Q[[GIS]]:::iconRusr;
+    T[User entry]:::iconRusr ---> A[(Postgres<br>DB)];
+    T ---> Q[[GIS]];
     A ---> B{{"conv_pg_to_shp()"}}:::iconRpkg;
     B ---> C((SHP));
     Q ---> C;
