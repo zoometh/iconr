@@ -248,8 +248,12 @@ flowchart TD
     H ---> I[elemental<br>classification];
     E ---> L{{"morph_resume()"}}:::iconRpkg;
     L ---> P[dataset<br>description];
-    I ---> M[[elemental<br>distance<br>matrices]];
+    I ---> M[[elemental<br>distance<br>matrix]];
+    I ---> V[[elemental<br>distance<br>matrix]];
+    I ---> W[[...<br>...<br>...]];
     M ---> N{{"morph_aggregate()"}}:::iconRpkg;
+    V ---> N;
+    W ---> N;
     N ---> O[decor<br>classification];
     classDef iconRpkg fill:#add8e6;
     classDef iconRusr fill:#ffa500;
