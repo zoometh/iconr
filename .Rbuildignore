@@ -1,5 +1,9 @@
 ..Rcheck
 inst/doc/
+.gitignore
+.github
+.git
+^vignettes$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml
