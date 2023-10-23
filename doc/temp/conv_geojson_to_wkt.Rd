@@ -25,11 +25,15 @@ conv_geojson_to_wkt(
 Create the 'nodes.csv' file into the out folder, return the complete path of the 'nodes.csv' file.
 }
 \description{
-Convert an EAMENA GeoJSON file to a format adapted to the iconr shape analysis.
+Convert an EAMENA GeoJSON file to a fomat adapted to the iconr shape analysis.
 }
 \examples{
 
-caravanserail_polygon.wkt <- conv_geojson_to_wkt()
+dataDir <- system.file("extdata", package = "iconr")
+nd.df.path <- conv_shp_to_wkt(dataDir = dataDir)
+head(read.csv2(nd.df.path), 1)
 
+##         site  decor id type technlg incmplt geometry
+## 1 Ain Ghazal stat_2  1 oeil       -       0 POLYGON ((266.9252 -167.608,...
 
 }

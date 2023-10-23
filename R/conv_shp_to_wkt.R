@@ -57,17 +57,20 @@ conv_shp_to_wkt <- function(dataDir = system.file("extdata", package = "iconr"),
           # a.shapefile <- in.Dir.nd.polyg[1]
           # a.shapefile <- in.Dir.nd.polyg[2]
           # check if exists features
-          nd.geom.info  <- rgdal::ogrInfo(dsn = in.Dir,
-                                          layer = a.shapefile)
+          nd.geom.info <- sf::st_read(dsn = in.Dir, layer = a.shapefile, quiet = TRUE)
+          #
+          # nd.geom.info  <- rgdal::ogrInfo(dsn = in.Dir,
+          #                                 layer = a.shapefile)
           nb.feat <- nd.geom.info$nrows
           print(paste0("          - ", a.shapefile, "(", nb.feat," features)"))
           if(nb.feat > 0){
-            nd.geom.sp  <- rgdal::readOGR(dsn = in.Dir,
-                                          layer = a.shapefile,
-                                          verbose = FALSE)
-            names(nd.geom.sp)[names(nd.geom.sp) == 'numero'] <- 'decor' # to align with 'iconr' structure
-            # nd.geom.sp$decor <- nd.geom.sp$numero # to align with 'iconr' structure
-            # nd.geom.sp$numero <- NULL
+            # nd.geom.sp  <- rgdal::readOGR(dsn = in.Dir,
+            #                               layer = a.shapefile,
+            #                               verbose = FALSE)
+            nd.geom.sp <- sf::st_read(dsn = in.Dir, layer = a.shapefile, quiet = TRUE)
+
+            # to align with 'iconr' structure
+            names(nd.geom.sp)[names(nd.geom.sp) == 'numero'] <- 'decor'
             nd.geom.sf  <- sf::st_as_sf(nd.geom.sp) # sp -> sf
             # wkt <- sf::st_as_text(nd.polyg.sf$geometry)
             nd.geom.df  <- as.data.frame(nd.geom.sf) # dataframe

@@ -37,7 +37,7 @@ morph_resume <- function(dataDir,
                         in.Dir.img, value=TRUE))
     if(length(imgs) > 0){
       # the images
-      for(j in 1:length(imgs)){
+      for(j in seq(1, length(imgs))){
         # j <- 1
         a.img <- imgs[j]
         img <- unlist(strsplit(a.img, split = "\\.")) # split on "."

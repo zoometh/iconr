@@ -227,7 +227,7 @@ for(i in nrow(tib.gd.nd)){
 }
 #
 all.above <- as.vector(unlist(tib.gd.nd[, "above"]))
-for(i in 1:length(all.above)){
+for(i in seq(1, length(all.above))){
   # i <- 2
   # ctx <- all.above[i]
   context <- as.vector(unlist(tib.gd.nd[i, "context"]))

@@ -1,10 +1,11 @@
 #' Graph Pairwise Comparison on Common Elements
+#'
 #' @name list_compar
+#'
 #' @aliases list_compar,nds_compar,eds_compar
 #'
 #' @description \code{nds_compar} identifies \strong{common nodes} in a pair of graphs. \code{eds_compar} identifies \strong{common edges} in a pair of graphs. Given a list of graphs, \code{list_compar} extract all combinations of graph pairs and compare them on common elements (nodes and edges).
 #'
-#' @param grphs a list of two graphs (pair of graphs) to be compared.
 #' @param lgrph a list of any number of graphs to be pairwise compared. The list can be typically obtained with the function \code{\link[iconr]{list_dec}}.
 #' @param nd.var an attribute of the graph nodes containing the node variable (ie, field) on which the comparison will be done. By default \code{nd.var = "type"}.
 #' @param verbose logical. If TRUE, the names of each graph pair combination are listed on the screen. By default \code{verbose = FALSE}.
@@ -78,6 +79,8 @@ list_compar <- function(lgrph, nd.var = "type",
   return(grphAllcompar)
 }
 
+#' @name nds_compar
+#' @rdname nds_compar
 #' @export
 nds_compar <- function(grphs, nd.var = "type") {
   g.nds <- lapply(grphs, function(x) iconr::named_elements(x, "nodes", nd.var))
@@ -88,6 +91,8 @@ nds_compar <- function(grphs, nd.var = "type") {
   return(grphs)
 }
 
+#' @name eds_compar
+#' @rdname eds_compar
 #' @export
 eds_compar <- function(grphs, nd.var = "type") {
   g.eds <- lapply(grphs, function(x) iconr::named_elements(x, "edges", nd.var))

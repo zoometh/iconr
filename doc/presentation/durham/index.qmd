@@ -12,7 +12,7 @@ format:
     citations-hover: true
     reference-location: margin
     logo: images/inst-uni-oxford_.png
-    css: styles.css
+    css: https://zoometh.github.io/thomashuet/css/quarto.css
     footer: "The R package ***iconr*** - Thomas Huet, Jose Pozo, Craig Alexander - <https://github.com/zoometh/iconr>"
 ---
 
@@ -194,7 +194,7 @@ Descola, P. (2021). *Les formes du visible. Une anthropologie de la figuration*.
 
 <center>
 
-![Some figures of warrior chariots and characters from the Late Bronze Age (credits: https://www.adiantegalicia.es)](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/ex-warrior-chariot.jpg){width=60%}
+![Some figures of warrior chariots and characters from the Iberian and Scandinavian Late Bronze Age (Koch & Ling, 2018)](https://raw.githubusercontent.com/zoometh/iconr/master/doc/img/chariots_afy.png){width=60%}
 
 </center>
 

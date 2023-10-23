@@ -1,6 +1,8 @@
 #' Resume geometry classes (POINTS, LINES, POLYGON) of GUs for each object
+#'
 #' @name morph_aggregate
-#' @description Aggregate matrices of distances by types calculating mean distances for each single types (eg., two eyes on a single face decoration) or for the whole decoration (faces, eyes, mouths, ...)
+#'
+#' @description Aggregate matrices of distances by types, calculating mean distances for each single types (eg., two eyes on a single face decoration) or for the whole decoration (faces, eyes, mouths, ...)
 #'
 #' @param nodes Nodes dataframe coming from the 'conv_shp_to_wkt.R' function
 #' @param ldist A list of distance matrices coming from 'morph_nds_compar(nodes, focus = "dist")'
@@ -9,9 +11,17 @@
 #' @param dataDir path to the folder.
 #' @param out.dir Path of the output folder. By default "_out/" in the "dataDir" folder
 #'
-#' @return Create plots dependingList of matrices.
+#' @return Create plots depending on the list of matrices.
 #'
 #' @examples
+#'
+#' dataDir <- system.file("extdata", package = "iconr")
+#' nd.df.path <- conv_shp_to_wkt(dataDir = dataDir)
+#' nodes <- read.csv(nd.df.path, sep = ";")
+#' conv_wkt_to_jpg(nodes = nodes)
+#' morph_nds_compar(nodes, focus = c("panel"))
+#' ldist <- morph_nds_compar(nodes, focus = c("dist"))
+#' morph_aggregate(nodes = nodes, ldist = ldist, aggr = "type")
 #'
 #' @export
 morph_aggregate <- function(nodes = NULL,
@@ -23,7 +33,7 @@ morph_aggregate <- function(nodes = NULL,
   # library(dplyr)
   ldist.type <- list()
   # TODO: improve title by counting number of GUs grouped
-  for (a.type in 1:length(ldist)){
+  for (a.type in seq(1, length(ldist))){
     # loop throught different types of ugs // matrices
     # to group each matrix by decoration
     # d1 <- unlist(ldist[[1]]) # n = 10, oeil
@@ -37,15 +47,17 @@ morph_aggregate <- function(nodes = NULL,
     print(paste("*read distance matrix of ", a.type.name))
     a.dist <- unlist(ldist[[a.type]])
     df <- as.data.frame(as.matrix(a.dist))
-    ldecors <- sapply(strsplit(rownames(df), "\\."), "[[", 2)
+    ldecors <- unlist(lapply(strsplit(rownames(df), "\\."), function(x) x[[2]]))
+    # ldecors <- sapply(strsplit(rownames(df), "\\."), "[[", 2)
     df$dec <- ldecors
-    df.agg <- stats::aggregate(df[, 1:ncol(df)-1], list(df$dec), mean)
+    df.agg <- stats::aggregate(df[, 1:ncol(df) - 1], list(df$dec), mean)
     tdf.agg <- as.data.frame(t(df.agg))
     colnames(tdf.agg) <- tdf.agg[1, ] # colnames = decorations
     tdf.agg <- tdf.agg[-1, ]
-    tdf.agg[, 1:ncol(tdf.agg)] <- sapply(tdf.agg[, 1:ncol(tdf.agg)], as.numeric) # character -> num
-    # sapply(tdf.agg, class)
-    ldecors <- sapply(strsplit(rownames(tdf.agg), "\\."), "[[", 2)
+    # tdf.agg[, 1:ncol(tdf.agg)] <- sapply(tdf.agg[, 1:ncol(tdf.agg)], as.numeric) # character -> num
+    tdf.agg[, 1:ncol(tdf.agg)] <- lapply(tdf.agg[, 1:ncol(tdf.agg)], as.numeric)
+    # ldecors <- sapply(strsplit(rownames(tdf.agg), "\\."), "[[", 2)
+    ldecors <- unlist(lapply(strsplit(rownames(tdf.agg), "\\."), function(x) x[[2]]))
     tdf.agg$dec <- ldecors
     tdf.agg <- stats::aggregate(tdf.agg[, 1:ncol(tdf.agg)-1], list(tdf.agg$dec), mean)
     rownames(tdf.agg) <- tdf.agg[, 1] # rownames = decorations
@@ -55,7 +67,7 @@ morph_aggregate <- function(nodes = NULL,
   }
   print("     Combined on types...")
   minx <- maxx <- miny <- maxy <- 0
-  for(i in 1:length(ldist.type)){
+  for(i in seq(1, length(ldist.type))){
     # MDS with min and max coordinates to normalise plots
     # i <- 1
     a.type.dist <- ldist.type[[i]]

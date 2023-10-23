@@ -1,7 +1,7 @@
 #' Convert GeoJSON to WKT
 #'
 #' @name conv_geojson_to_wkt
-#' @description Convert an EAMENA GeoJSON file to a fomat adapted to the iconr shape analysis.
+#' @description Convert an EAMENA GeoJSON file to a format adapted to the iconr shape analysis.
 #'
 #' @param geojson.path The path of the GeoJSON file. By default 'caravanserail_polygon.geojson'.
 #' @param dataDir Path of the folder storing folders of all decorations. Each of these folders as a site name (eg, Ain Ghazal) and contains at least one shapefile (.shp and .dbf and .shx) and one image (.jpg or .tif or .png, etc.). The shapefile is named conventionally with the name of the site, a dot,the name of the decoration, "nd_pl" for nodes POLYGONS (eg, Ain Ghazal.stat_2_nd_pl.shp). The image is named conventionally with the name of the site, a dot, and the name of the decoration (eg, Ain Ghazal.stat_2.tif).
@@ -12,17 +12,19 @@
 #'
 #' @examples
 #'
+#' Kfar_Hahoresh.crane_afg_nd_pl_polygon.wkt <- conv_geojson_to_wkt()
+#'
 #'
 #' @export
 conv_geojson_to_wkt <- function(geojson.path = paste0(system.file(package = "eamenaR"),
-                                                      "/extdata/caravanserail_polygon.geojson"),
+                                                      "/extdata/Kfar_Hahoresh.crane_afg_nd_pl.geojson"),
                                 dataDir = system.file("extdata", package = "iconr"),
                                 out.dir = "_out",
                                 verbose = TRUE){
   # print(dataDir)
   out.dirPath <- paste0(dataDir, "/", out.dir)
   dir.create(file.path(out.dirPath), showWarnings = FALSE)
-  ea.geojson <- geojsonsf::geojson_sf(geojson.path)
+  ea.geojson <- sf::st_read(geojson.path)
   ea.geojson.polygon <- ea.geojson[sf::st_geometry_type(ea.geojson$geometry) == "POLYGON" | sf::st_geometry_type(ea.geojson$geometry) == "MULTIPOLYGON", ]
   # all multi
   ea.geojson.polygon$geometry <- sf::st_cast(ea.geojson.polygon$geometry, "POLYGON")
@@ -40,6 +42,6 @@ conv_geojson_to_wkt <- function(geojson.path = paste0(system.file(package = "eam
   nd.df.path <- paste0(out.dirPath, "/nodes.csv")
   utils::write.csv2(df, nd.df.path, row.names = FALSE)
   return(df)
-  if(verbose){print(paste0("nodes dataframe (n = ", nrow(df), ") exported to: '", nd.df.path, "'"))}
+  if(verbose){print(paste0("nodes dataframe (n = ",
+                           nrow(df), ") exported to: '", nd.df.path, "'"))}
 }
-

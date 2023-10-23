@@ -49,6 +49,8 @@ morph_nds_compar <- function(nodes = NA,
                              dataDir = system.file("extdata", package = "iconr"),
                              out.dir = "_out",
                              verbose = TRUE){
+  `%>%` <- dplyr::`%>%`
+  `%T>%` <- magrittr::`%T>%`
   out.dirPath <- paste0(dataDir, "/", out.dir)
   # TODO: include LINES
   # focus  = "panel"; out.dirPath ; merge.by = "type"
@@ -72,7 +74,7 @@ morph_nds_compar <- function(nodes = NA,
   He <- ceiling(nb.cols/1.5) + 4
   # colored
   if(colored){
-    dec.cols <- RColorBrewer::brewer.pal(nb.cols, "Set1")
+    dec.cols <- RColorBrewer::brewer.pal(9, "Set1")
     dec.cols <- grDevices::colorRampPalette(dec.cols)(nb.cols) # extend if needed
     fac.colors <- data.frame(idf = unique(fac$idf),
                              cols = dec.cols)
@@ -148,38 +150,38 @@ morph_nds_compar <- function(nodes = NA,
       if (stack.norm == "normalized") {
         if(verbose){print(paste0("     ...run 'normalized'"))}
         a.stack <- a.gu.type %>%
-          coo_center %>%
-          coo_scale %>%
-          coo_slidedirection("up")
+          Momocs::coo_center %>%
+          Momocs::coo_scale %>%
+          Momocs::coo_slidedirection("up")
       }
       if (stack.norm == "centered") {
         if(verbose){print(paste0("     ...run 'center'"))}
         a.stack <- a.gu.type %>%
-          coo_center %>%
-          coo_slidedirection("up")
+          Momocs::coo_center %>%
+          Momocs::coo_slidedirection("up")
       }
       if (stack.norm == "scaled") {
         if(verbose){print(paste0("     ...run 'scaled'"))}
         a.stack <- a.gu.type %>%
-          coo_scale %>%
-          coo_slidedirection("up")
+          Momocs::coo_scale %>%
+          Momocs::coo_slidedirection("up")
       }
       if (stack.norm == "not centered nor scaled") {
         if(verbose){print(paste0("     ...run 'not centered nor scaled'"))}
         a.stack <- a.gu.type %>%
-          coo_slidedirection("up")
+          Momocs::coo_slidedirection("up")
       }
       # colors
       if(verbose){print(paste0("     ... deals with/out colors"))}
       if(colored){
         a.stack %T>%
           print() %>%
-          stack(borders = a.gu.type$fac$cols)
+          Momocs::stack(borders = a.gu.type$fac$cols)
       }
       if(!colored){
         a.stack %T>%
           print() %>%
-          stack()
+          Momocs::stack()
       }
       grDevices::dev.off()
       if(verbose){print(paste0("stack plot: ", out.d))}
@@ -193,10 +195,10 @@ morph_nds_compar <- function(nodes = NA,
         grDevices::png(out.d,
                        width = Wi, height = He, units = "cm", res = 300)
         PCA.type <- a.gu.type %>%
-          efourier(nb.h,
-                   norm = TRUE) %>%
-          PCA
-        plot_PCA(PCA.type)
+          Momocs::efourier(nb.h,
+                           norm = TRUE) %>%
+          Momocs::PCA
+        Momocs::plot_PCA(PCA.type)
         # ef.type <- Momocs::efourier(a.gu.type, nb.h = nb.h)
         # PCA.type <- Momocs::PCA(ef.type)
         # plot(PCA.type, "idf")
@@ -267,5 +269,21 @@ morph_nds_compar <- function(nodes = NA,
     }
   }
   if("dist" %in% focus | "all" %in% focus){
+    names(ldist) <- gu.types
     return(ldist)}
 }
+
+# # Create a list
+# my_list <- list(
+#   list1 = c(1, 2, 3),
+#   list2 = c("apple", "banana", "cherry"),
+#   list3 = data.frame(Name = c("Alice", "Bob", "Charlie"), Age = c(25, 30, 22))
+# )
+#
+# # Assign names to the elements of the list
+# names(my_list) <- c("FirstList", "SecondList", "ThirdList")
+#
+# # Access the elements by name
+# print(my_list$FirstList)
+# print(my_list$SecondList)
+# print(my_list$ThirdList)

@@ -44,6 +44,7 @@
 list_dec <- function(imgs, nodes, edges) {
     lgrph <- list()
     for (r in seq_len(nrow(imgs))) {
+      # r <- 1
         a.enr <- imgs[r, ]
         g.nodes <- nodes[nodes$site == a.enr$site & nodes$decor == a.enr$decor,
                          ! (names(nodes) %in% c("site", "decor"))]
@@ -62,3 +63,11 @@ list_dec <- function(imgs, nodes, edges) {
     }
     return(lgrph)
 }
+
+# imgs <- read.table(system.file("extdata", "imgs.csv", package = "iconr"),
+#                    sep=";", stringsAsFactors = FALSE)
+# nodes <- read.table(system.file("extdata", "nodes.csv", package = "iconr"),
+#                     sep=";", stringsAsFactors = FALSE)
+# edges <- read.table(system.file("extdata", "edges.csv", package = "iconr"),
+#                     sep=";", stringsAsFactors = FALSE)
+# lgrph <- list_dec(imgs, nodes, edges)

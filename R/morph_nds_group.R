@@ -40,6 +40,7 @@ morph_nds_group <- function(nodes = NA,
                             out.dir = "_out",
                             out.data = c("mbrshp", "plot"),
                             verbose = TRUE){
+  `%>%` <- dplyr::`%>%`
   out.dirPath <- paste0(dataDir, "/", out.dir)
   # TODO: not escape when different GUs (return)
   # TODO: include LINES
@@ -72,7 +73,7 @@ morph_nds_group <- function(nodes = NA,
     coo <- Momocs::import_jpg(jpgs)
     min.len <- min(lengths(coo))/2
     # reduce nb of points to the lower value for outlines analysis
-    for(i in 1:length(coo)){
+    for(i in seq(1, length(coo))){
       a.df <- as.data.frame(coo[i])
       ordered.sample <- sort(sample(nrow(a.df), min.len))
       a.df.sample <- a.df[ordered.sample, ]
@@ -86,9 +87,9 @@ morph_nds_group <- function(nodes = NA,
     # ef.type <- Momocs::efourier(a.gu.type, nb.h = nb.h)
     # PCA.type <- Momocs::PCA(ef.type)
     PCA.type <- a.gu.type %>%
-      efourier(nb.h,
+      Momocs::efourier(nb.h,
                norm = TRUE) %>%
-      PCA
+      Momocs::PCA
     # TODO: return this PCA list?
     lout[[length(lout) + 1]] <- PCA.type
     # plot_PCA(PCA.type, labelgroups  = T)

@@ -9,9 +9,9 @@
 #' @param ids the field names that constitute the unique key of the GU. By default: c("site", "decor", "id").
 #' @param dataDir path to the folder.
 #' @param out.dir path of the output folder. By default "_out/" in the "dataDir" folder
+#' @param verbose if TRUE (by default), will print messages
 #' @return JPGs files exported into as many folders as different GUs' types (eg., 'bouche', oeil', 'visage', etc.)
 #' The names of the JPGs is the concatenate of their site name, dot, decoration name, dot, GU identifier (eg, "Ain Ghazal.stat_2.1.jpg")
-#' @verbose if TRUE (by default), will print messages
 #'
 #' @examples
 #'
@@ -60,9 +60,10 @@ conv_wkt_to_jpg <- function(nodes,
       # noeuds.geom.sf$sn <- paste0(noeuds.geom.sf$site, ".", noeuds.geom.sf$decor, ".", noeuds.geom.sf$id)
       if(length(ids) == 1){
         keys <- as.character(as.data.frame(noeuds.geom.sf)[ , ids])
-        } else {
-          keys <- as.character(apply(as.data.frame(noeuds.geom.sf)[ , ids], 1, paste, collapse="."))
-        }
+      } else {
+        keys <- as.character(apply(as.data.frame(noeuds.geom.sf)[ , ids], 1, paste0, collapse="."))
+        keys <- gsub(" ", "", keys)
+      }
       noeuds.geom.sf$sn <- keys
       ct <- 0
       tot <- length(noeuds.geom.sf$sn)

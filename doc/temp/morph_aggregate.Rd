@@ -25,19 +25,11 @@ aggregate by decorations ("decoration").}
 \item{out.dir}{Path of the output folder. By default "_out/" in the "dataDir" folder}
 }
 \value{
-Create plots depending on the list of matrices.
+Create plots dependingList of matrices.
 }
 \description{
-Aggregate matrices of distances by types, calculating mean distances for each single types (eg., two eyes on a single face decoration) or for the whole decoration (faces, eyes, mouths, ...)
+Aggregate matrices of distances by types calculating mean distances for each single types (eg., two eyes on a single face decoration) or for the whole decoration (faces, eyes, mouths, ...)
 }
 \examples{
-
-dataDir <- system.file("extdata", package = "iconr")
-nd.df.path <- conv_shp_to_wkt(dataDir = dataDir)
-nodes <- read.csv(nd.df.path, sep = ";")
-conv_wkt_to_jpg(nodes = nodes)
-morph_nds_compar(nodes, focus = c("panel"))
-ldist <- morph_nds_compar(nodes, focus = c("dist"))
-morph_aggregate(nodes = nodes, ldist = ldist, aggr = "type")
 
 }

@@ -20,8 +20,6 @@ conv_wkt_to_jpg(
 \item{dataDir}{path to the folder.}
 
 \item{out.dir}{path of the output folder. By default "_out/" in the "dataDir" folder}
-
-\item{verbose}{if TRUE (by default), will print messages}
 }
 \value{
 JPGs files exported into as many folders as different GUs' types (eg., 'bouche', oeil', 'visage', etc.)

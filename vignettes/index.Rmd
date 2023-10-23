@@ -67,7 +67,7 @@ Graph theory offers a conceptual framework and indices (global at the entire gra
 The latest development version of the `iconr` package and its vignette can be downloaded from GitHub
 
 ```{r down, eval=FALSE, echo=TRUE}
-devtools::install_github("zoometh/iconr", build_vignettes=TRUE)
+# devtools::install_github("zoometh/iconr", build_vignettes = TRUE)
 ```
 
 The R package `iconr` is composed of [functions](#functions) and a [example dataset](#data). The main R packages used by the `iconr` package are:
@@ -308,7 +308,14 @@ Graph theory says that edges can be undirected or directed. In the `iconr` packa
 The `named_elements()` function allows one to display the textual notation of the different types of edges (`-=-`, `-+-` or `->-`)
 
 ```{r count4, warning=FALSE}
-named_elements(lgrph[[1]], focus = "edges", nd.var="type")[1]      
+imgs <- read.table(system.file("extdata", "imgs.csv", package = "iconr"),
+                   sep=";", stringsAsFactors = FALSE)
+nodes <- read.table(system.file("extdata", "nodes.csv", package = "iconr"),
+                    sep=";", stringsAsFactors = FALSE)
+edges <- read.table(system.file("extdata", "edges.csv", package = "iconr"),
+                    sep=";", stringsAsFactors = FALSE)
+lgrph <- list_dec(imgs, nodes, edges)
+named_elements(lgrph[[1]], focus = "edges", nd.var = "type")[1]      
 ```
 
 When there are nodes with the same `nd.var`, this function adds the suffix `#` to the `nd.var` in order to disambiguate the node list. This is the case, for example, for the `chariot_char-+-cheval` (x2) and `chariot_char-+-roue` (x2) edges of the Zarza de Montanchez stelae (decoration 4)
@@ -446,12 +453,12 @@ By default, in a pairwise comparison of decorations, common nodes and edges are 
 A classic study in archaeological research is to count the common nodes between pairs of decorations. This can be done with the `same_elements()` function with a node focus (`focus = "nodes"`), and considering for example their `type` (by default).
 
 ```{r compare.nodes, results='asis', warning=FALSE}
-imgs_path <- paste0(dataDir, "/imgs.tsv")
-nodes_path <- paste0(dataDir, "/nodes.tsv")
-edges_path <- paste0(dataDir, "/edges.tsv")
-imgs <- read.table(imgs_path, sep="\t", stringsAsFactors = FALSE)
-nodes <- read.table(nodes_path, sep="\t", stringsAsFactors = FALSE)
-edges <- read.table(edges_path, sep="\t", stringsAsFactors = FALSE)
+imgs <- read.table(system.file("extdata", "imgs.csv", package = "iconr"),
+                   sep=";", stringsAsFactors = FALSE)
+nodes <- read.table(system.file("extdata", "nodes.csv", package = "iconr"),
+                    sep=";", stringsAsFactors = FALSE)
+edges <- read.table(system.file("extdata", "edges.csv", package = "iconr"),
+                    sep=";", stringsAsFactors = FALSE)
 lgrph <- list_dec(imgs, nodes, edges)
 df.same_nodes <- same_elements(lgrph,
                                focus = "nodes",

@@ -1,4 +1,5 @@
 #' Read Nodes of a Decoration
+#'
 #' @name read_nds
 #'
 #' @description Read nodes' information from a file including all nodes and extract nodes of one decoration. Accepted formats are tab separated values ('tsv'), semicolon separated values ('csv'), or shapefile ('shp').
@@ -10,7 +11,7 @@
 #' @param format   file extension indicating a file format from 'tsv' (tab separated values), 'csv' (semicolon separated values) or 'shp' (shapefile). For 'tsv' and 'csv', the files must include node coordinates (\code{nodes$x}, \code{nodes$y}).
 #'
 #'
-#' @return Dataframe of graph nodes, including at least the columns "site", "decor", "id", "x", "y", with values for each node (row).
+#' @return Dataframe of graph nodes, including at least the columns "site", "decor", "id", and coordinates "x", "y", with values for each node (row).
 #'
 #'
 #' @examples
@@ -36,19 +37,24 @@ read_nds <- function(site, decor,
         if (format == "tsv") {
             nds.df <- utils::read.table(file = nds.file, sep = "\t",
                                         header = TRUE, stringsAsFactors = FALSE)
+            nds.df <- nds.df[ nds.df$site == site &
+                                nds.df$decor == decor, ]
         }
         if (format == "csv") {
             nds.df <- utils::read.table(file = nds.file, sep = ";",
                                         header = TRUE, stringsAsFactors = FALSE)
+            nds.df <- nds.df[ nds.df$site == site &
+                                nds.df$decor == decor, ]
         }
         if (format == "shp") {
-            nds.shp <- rgdal::readOGR(dsn = dir, layer = nodes, verbose = FALSE)
-            nds.df <- nds.shp@data
-            nds.df$x <- nds.shp@coords[ , 1]
-            nds.df$y <- nds.shp@coords[ , 2]
+            nds.shp <- sf::st_read(paste0(dir, "/", nodes, ".shp"), quiet = TRUE)
+            nds.shp <- nds.shp[nds.shp$site == site & nds.shp$decor == decor, ]
+            # collect coordinates
+            nds.df <- as.data.frame(nds.shp)
+            nds.df[ , c("x", "y", "geometry")] <- NULL
+            nds.df$x <- sf::st_coordinates(nds.shp)[ , 1]
+            nds.df$y <- sf::st_coordinates(nds.shp)[ , 2]
         }
-        nds.df <- nds.df[ nds.df$site == site &
-                          nds.df$decor == decor, ]
     } else {
         stop(paste0("No file called ", nds.file))
     }
