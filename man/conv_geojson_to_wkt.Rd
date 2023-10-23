@@ -6,7 +6,7 @@
 \usage{
 conv_geojson_to_wkt(
   geojson.path = paste0(system.file(package = "eamenaR"),
-    "/extdata/caravanserail_polygon.geojson"),
+    "/extdata/Kfar_Hahoresh.crane_afg_nd_pl.geojson"),
   dataDir = system.file("extdata", package = "iconr"),
   out.dir = "_out",
   verbose = TRUE
@@ -29,7 +29,7 @@ Convert an EAMENA GeoJSON file to a format adapted to the iconr shape analysis.
 }
 \examples{
 
-caravanserail_polygon.wkt <- conv_geojson_to_wkt()
+Kfar_Hahoresh.crane_afg_nd_pl_polygon.wkt <- conv_geojson_to_wkt()
 
 
 }

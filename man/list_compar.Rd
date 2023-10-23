@@ -13,8 +13,6 @@ list_compar(lgrph, nd.var = "type", verbose = FALSE)
 \item{nd.var}{an attribute of the graph nodes containing the node variable (ie, field) on which the comparison will be done. By default \code{nd.var = "type"}.}
 
 \item{verbose}{logical. If TRUE, the names of each graph pair combination are listed on the screen. By default \code{verbose = FALSE}.}
-
-\item{grphs}{a list of two graphs (pair of graphs) to be compared.}
 }
 \value{
 \code{nds_compar()} returns the input pair of graphs, each complemented with a new node attribute named \code{comm} with value 1 for common nodes and 0 for non-common nodes. \code{eds_compar()} returns the input pair of graphs, each complemented with a new edge attribute named \code{comm} with value 1 for common edges and 0 for non-common edges. \code{list_compar()} returns a list of all combinations of graph pairs. For each pair, both graphs are complemented with the node attribute (\code{comm}) identifying common nodes and the edge attribute (\code{comm}) identifying common edges. Each pair is also complemented with an attribute named \code{nd.var} recording the compared node variable.
