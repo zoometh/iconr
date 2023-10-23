@@ -1,4 +1,5 @@
 ..Rcheck
+inst/doc/
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml
