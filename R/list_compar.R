@@ -2,7 +2,7 @@
 #'
 #' @name list_compar
 #'
-#' @aliases list_compar,nds_compar,eds_compar
+#' @aliases list_compar
 #'
 #' @description \code{nds_compar} identifies \strong{common nodes} in a pair of graphs. \code{eds_compar} identifies \strong{common edges} in a pair of graphs. Given a list of graphs, \code{list_compar} extract all combinations of graph pairs and compare them on common elements (nodes and edges).
 #'
@@ -79,9 +79,6 @@ list_compar <- function(lgrph, nd.var = "type",
   return(grphAllcompar)
 }
 
-#' @name nds_compar
-#' @rdname nds_compar
-#' @export
 nds_compar <- function(grphs, nd.var = "type") {
   g.nds <- lapply(grphs, function(x) iconr::named_elements(x, "nodes", nd.var))
   common.nodes <- intersect(g.nds[[1]], g.nds[[2]])
@@ -91,9 +88,6 @@ nds_compar <- function(grphs, nd.var = "type") {
   return(grphs)
 }
 
-#' @name eds_compar
-#' @rdname eds_compar
-#' @export
 eds_compar <- function(grphs, nd.var = "type") {
   g.eds <- lapply(grphs, function(x) iconr::named_elements(x, "edges", nd.var))
   common.edges <- intersect(g.eds[[1]], g.eds[[2]])
