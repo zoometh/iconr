@@ -5,8 +5,8 @@
 \title{Convert GeoJSON to WKT}
 \usage{
 conv_geojson_to_wkt(
-  geojson.path = paste0(system.file(package = "eamenaR"),
-    "/extdata/Kfar_Hahoresh.crane_afg_nd_pl.geojson"),
+  geojson.path = paste0(system.file(package = "iconr"),
+    "/extdata/Kfar_Hahoresh/Kfar_Hahoresh.crane_afg_nd_pl.geojson"),
   dataDir = system.file("extdata", package = "iconr"),
   out.dir = "_out",
   verbose = TRUE

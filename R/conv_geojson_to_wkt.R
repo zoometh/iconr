@@ -16,32 +16,34 @@
 #'
 #'
 #' @export
-conv_geojson_to_wkt <- function(geojson.path = paste0(system.file(package = "eamenaR"),
-                                                      "/extdata/Kfar_Hahoresh.crane_afg_nd_pl.geojson"),
+conv_geojson_to_wkt <- function(geojson.path = paste0(system.file(package = "iconr"),
+                                                      "/extdata/Kfar_Hahoresh/Kfar_Hahoresh.crane_afg_nd_pl.geojson"),
                                 dataDir = system.file("extdata", package = "iconr"),
                                 out.dir = "_out",
                                 verbose = TRUE){
   # print(dataDir)
   out.dirPath <- paste0(dataDir, "/", out.dir)
   dir.create(file.path(out.dirPath), showWarnings = FALSE)
-  ea.geojson <- sf::st_read(geojson.path)
+  ea.geojson <- sf::st_read(geojson.path, quiet = TRUE)
   ea.geojson.polygon <- ea.geojson[sf::st_geometry_type(ea.geojson$geometry) == "POLYGON" | sf::st_geometry_type(ea.geojson$geometry) == "MULTIPOLYGON", ]
   # all multi
   ea.geojson.polygon$geometry <- sf::st_cast(ea.geojson.polygon$geometry, "POLYGON")
   # conform to iconr format
-  df <- data.frame(site = ea.geojson.polygon[["EAMENA ID"]],
-                   decor = rep("crvn", nrow(ea.geojson.polygon)),
-                   id = rep(1, nrow(ea.geojson.polygon)),
-                   type = rep("caravanserail", nrow(ea.geojson.polygon)),
-                   technlg = rep("-", nrow(ea.geojson.polygon)),
-                   incmplt = rep(0, nrow(ea.geojson.polygon)),
-                   geometry = sf::st_as_text(ea.geojson.polygon$geometry))
+  df <- as.data.frame(ea.geojson.polygon)
+  df[['geometry']] <- sf::st_as_text(ea.geojson.polygon$geometry)
+  # df <- data.frame(site = ea.geojson.polygon[["site"]],
+  #                  decor = ea.geojson.polygon[['numero']], #rep("crvn", nrow(ea.geojson.polygon)),
+  #                  id = ea.geojson.polygon[["id"]], # rep(1, nrow(ea.geojson.polygon)),
+  #                  type = rep("caravanserail", nrow(ea.geojson.polygon)),
+  #                  technlg = rep("-", nrow(ea.geojson.polygon)),
+  #                  incmplt = rep(0, nrow(ea.geojson.polygon)),
+  #                  geometry = sf::st_as_text(ea.geojson.polygon$geometry))
   # limit and remove duplicates geometries
   # df <- head(df, 50)
-  df <- df[!duplicated(df[ , c("site")]),]
+  # df <- df[!duplicated(df[ , c("site")]),]
   nd.df.path <- paste0(out.dirPath, "/nodes.csv")
   utils::write.csv2(df, nd.df.path, row.names = FALSE)
-  return(df)
   if(verbose){print(paste0("nodes dataframe (n = ",
                            nrow(df), ") exported to: '", nd.df.path, "'"))}
+  return(df)
 }
