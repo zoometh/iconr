@@ -1,7 +1,5 @@
 ..Rcheck
-inst/doc/
 .gitignore
-.github
 ^\.github$
 .git
 ^vignettes/gis.Rmd$

@@ -2,7 +2,6 @@
 % Please edit documentation in R/list_compar.R
 \name{list_compar}
 \alias{list_compar}
-\alias{list_compar,nds_compar,eds_compar}
 \title{Graph Pairwise Comparison on Common Elements}
 \usage{
 list_compar(lgrph, nd.var = "type", verbose = FALSE)

@@ -33,7 +33,6 @@ Suggests:
     kableExtra,
     data.tree,
     dendextend
-VignetteBuilder: knitr
 RoxygenNote: 7.2.3
 URL: https://zoometh.github.io/iconr/
 BugReports: https://github.com/zoometh/iconr/issues
