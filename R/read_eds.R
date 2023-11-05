@@ -69,8 +69,7 @@ read_eds <- function(site, decor, dir = getwd(),
       eds.coord <- sf::st_coordinates(eds.shp)
       eds.coord <- as.data.frame(eds.coord)
       names(eds.coord)[names(eds.coord) == 'L1'] <- 'line'
-      eds.coord.a <-
-        eds.coord %>%
+      eds.coord.a <- eds.coord %>%
         dplyr::group_by(line) %>%
         dplyr::filter(dplyr::row_number() == 1)
       eds.coord.a <- as.data.frame(eds.coord.a)

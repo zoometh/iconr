@@ -15,12 +15,12 @@
 #' @examples
 #'
 #' # Read imgs, nodes and edges dataframes
-#' imgs <- read.table(system.file("extdata", "imgs.csv", package = "iconr"),
-#'                    sep=";", stringsAsFactors = FALSE)
-#' nodes <- read.table(system.file("extdata", "nodes.csv", package = "iconr"),
-#'                     sep=";", stringsAsFactors = FALSE)
-#' edges <- read.table(system.file("extdata", "edges.csv", package = "iconr"),
-#'                     sep=";", stringsAsFactors = FALSE)
+#' imgs <- read.csv2(system.file("extdata", "imgs.tsv", package = "iconr"),
+#'                   sep="\t", stringsAsFactors = FALSE)
+#' nodes <- read.csv2(system.file("extdata", "nodes.tsv", package = "iconr"),
+#'                    sep="\t", stringsAsFactors = FALSE)
+#' edges <- read.csv2(system.file("extdata", "edges.tsv", package = "iconr"),
+#'                    sep="\t", stringsAsFactors = FALSE)
 #' # Create the list of graphs
 #' lgrph <- list_dec(imgs, nodes, edges)
 #'

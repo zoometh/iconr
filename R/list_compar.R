@@ -20,12 +20,12 @@
 #' @examples
 #'
 #' # Read data
-#' imgs <- read.table(system.file("extdata", "imgs.tsv", package = "iconr"),
-#'                    sep="\t",stringsAsFactors = FALSE)
-#' nodes <- read.table(system.file("extdata", "nodes.tsv", package = "iconr"),
-#'                     sep="\t",stringsAsFactors = FALSE)
-#' edges <- read.table(system.file("extdata", "edges.tsv", package = "iconr"),
-#'                     sep="\t",stringsAsFactors = FALSE)
+#' imgs <- read.csv2(system.file("extdata", "imgs.tsv", package = "iconr"),
+#'                   sep="\t", stringsAsFactors = FALSE)
+#' nodes <- read.csv2(system.file("extdata", "nodes.tsv", package = "iconr"),
+#'                    sep="\t", stringsAsFactors = FALSE)
+#' edges <- read.csv2(system.file("extdata", "edges.tsv", package = "iconr"),
+#'                    sep="\t", stringsAsFactors = FALSE)
 #' # Generate list of graphs from the three data.frames
 #' lgrph <- list_dec(imgs, nodes, edges)
 #'
@@ -96,3 +96,15 @@ eds_compar <- function(grphs, nd.var = "type") {
   }
   return(grphs)
 }
+
+# imgs <- read.csv2(system.file("extdata", "imgs.tsv", package = "iconr"),
+#                    sep="\t", stringsAsFactors = FALSE)
+# nodes <- read.csv2(system.file("extdata", "nodes.tsv", package = "iconr"),
+#                     sep="\t", stringsAsFactors = FALSE)
+# edges <- read.csv2(system.file("extdata", "edges.tsv", package = "iconr"),
+#                     sep="\t", stringsAsFactors = FALSE)
+# # Generate list of graphs from the three data.frames
+# lgrph <- list_dec(imgs, nodes, edges)
+#
+# # Generate list of all graph comparisons depending on the node "type" variable
+# g.compar <- list_compar(lgrph, nd.var = "type")

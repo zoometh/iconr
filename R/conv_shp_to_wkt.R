@@ -46,6 +46,7 @@ conv_shp_to_wkt <- function(dataDir = system.file("extdata", package = "iconr"),
     # TODO: add ".*nd_ln.shp", ".*nd_pt.shp"
     for (shp.type in c(".*nd_pl.shp")){
       # shp.type <- ".*nd_pl.shp"
+      # i <- "Ain_Ghazal"
       in.Dir.nd.polyg <- list.files(paste0(dataDir, "/", i), shp.type)
       in.Dir.nd.polyg <- gsub(".shp", "", in.Dir.nd.polyg)
       # shp -> sp
@@ -61,7 +62,7 @@ conv_shp_to_wkt <- function(dataDir = system.file("extdata", package = "iconr"),
           #
           # nd.geom.info  <- rgdal::ogrInfo(dsn = in.Dir,
           #                                 layer = a.shapefile)
-          nb.feat <- nd.geom.info$nrows
+          nb.feat <- nrow(nd.geom.info)
           print(paste0("          - ", a.shapefile, "(", nb.feat," features)"))
           if(nb.feat > 0){
             # nd.geom.sp  <- rgdal::readOGR(dsn = in.Dir,
@@ -79,7 +80,8 @@ conv_shp_to_wkt <- function(dataDir = system.file("extdata", package = "iconr"),
             if(complete.only){
               nd.geom.df <- nd.geom.df[nd.geom.df$incmplt != 1, ]
             }
-            if(nrow(nd.geom.df) > 0){df.ugs <- rbind(df.ugs, nd.geom.df)} # store
+            if(nrow(nd.geom.df) > 0){
+              df.ugs <- rbind(df.ugs, nd.geom.df)} # store
           }
         }
       }
@@ -90,3 +92,6 @@ conv_shp_to_wkt <- function(dataDir = system.file("extdata", package = "iconr"),
   return(paste0(out.dirPath, "/nodes.csv"))
 }
 
+# dataDir <- system.file("extdata", package = "iconr")
+# nd.df.path <- conv_shp_to_wkt(dataDir = dataDir)
+# head(read.csv2(nd.df.path), 1)

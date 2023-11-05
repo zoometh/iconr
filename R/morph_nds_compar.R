@@ -176,12 +176,12 @@ morph_nds_compar <- function(nodes = NA,
       if(colored){
         a.stack %T>%
           print() %>%
-          Momocs::stack(borders = a.gu.type$fac$cols)
+          stack(borders = a.gu.type$fac$cols)
       }
       if(!colored){
         a.stack %T>%
           print() %>%
-          Momocs::stack()
+          stack()
       }
       grDevices::dev.off()
       if(verbose){print(paste0("stack plot: ", out.d))}
